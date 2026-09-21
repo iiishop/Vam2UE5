@@ -642,6 +642,12 @@ class BoundedServer(http.server.ThreadingHTTPServer):
 
 def serve(data, parent=0):
     catalog = Catalog(data)
+    # Isolated Python (-I) intentionally omits the script directory from sys.path.
+    import importlib.util
+    plan_spec = importlib.util.spec_from_file_location('vam_plan', Path(__file__).with_name('vam_plan.py'))
+    plan_module = importlib.util.module_from_spec(plan_spec)
+    plan_spec.loader.exec_module(plan_module)
+    plans = plan_module.PlanService(catalog)
     token = secrets.token_urlsafe(32)
     ui = Path(__file__).resolve().parent.parent / 'Web'
 
@@ -684,6 +690,10 @@ def serve(data, parent=0):
                 elif route == 'api/folders': self.respond(200, catalog.folders(args))
                 elif route == 'api/detail': self.respond(200, catalog.detail(args.get('id', '')))
                 elif route == 'api/diagnostics': self.respond(200, catalog.diagnostics(args))
+                elif route == 'api/plan/state': self.respond(200, plans.status())
+                elif route == 'api/plan/history': self.respond(200, plans.history())
+                elif route == 'api/plan/result': self.respond(200, plans.result(args.get('id', ''), args.get('action', ''), args.get('offset', 0)))
+                elif route == 'api/plan/export': self.respond(200, plans.read_plan(args.get('id', '')))
                 elif route == 'api/thumb':
                     image, ext = catalog.thumbnail(args.get('id', ''))
                     self.respond(200, image, 'image/png' if ext == '.png' else 'image/jpeg')
@@ -703,6 +713,10 @@ def serve(data, parent=0):
                 elif route == 'api/scan': result = catalog.start_scan(bool(args.get('force', False)))
                 elif route == 'api/cancel':
                     catalog.cancel.set()
+                    result = dict(cancelled=True)
+                elif route == 'api/plan/start': result = plans.start(args.get('ids', []), args.get('locked_plan', ''))
+                elif route == 'api/plan/cancel':
+                    plans.cancel.set()
                     result = dict(cancelled=True)
                 else: raise ValueError('Unknown operation')
                 self.respond(200, result)

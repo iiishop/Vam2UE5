@@ -123,6 +123,7 @@ async function select(id){
   try{
     const d=await api('detail',{id});if(epoch!==detailEpoch)return;
     const body=$('detailbody');body.replaceChildren(el('h2','',d.name));const dl=el('dl');
+    const planButton=el('button','primary','生成导入计划');planButton.id='generateplan';planButton.onclick=()=>startPlan([id]);body.append(planButton);
     const fields=[['作者',d.author||'未标注'],['包',d.package||'松散 / 用户保存'],['标签',d.tags||'来源未提供'],['大小',(d.size/1024).toFixed(1)+' KiB'],['创建 / 条目时间',d.created?new Date(d.created*1000).toLocaleString():'未知'],['时间说明',d.time_note],['来源定位',d.location],['稳定标识',d.id]];
     for(const [label,value]of fields)dl.append(el('dt','',label),el('dd','',value));body.append(dl);
     if(d.diagnostic)body.append(el('p','warning',d.diagnostic));
@@ -172,6 +173,67 @@ $('scan').onclick=()=>action('scan');$('rebuild').onclick=()=>action('scan',{for
 $('diagnostics').onclick=()=>{diagOffset=0;$('diagmodal').hidden=false;$('diagclose').focus();loadDiagnostics();};
 $('diagclose').onclick=()=>{$('diagmodal').hidden=true;$('diagnostics').focus();};
 $('diagprev').onclick=()=>{diagOffset=Math.max(0,diagOffset-100);loadDiagnostics();};$('diagnext').onclick=()=>{diagOffset+=100;loadDiagnostics();};
-document.onkeydown=e=>{if(e.key==='Escape')$('diagclose').click();if(e.key==='Tab'&&!$('diagmodal').hidden){const buttons=Array.from($('diagmodal').querySelectorAll('button:not(:disabled)'));const first=buttons[0],last=buttons[buttons.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}};
+document.onkeydown=e=>{const modal=!$('planmodal').hidden?$('planmodal'):!$('diagmodal').hidden?$('diagmodal'):null;if(e.key==='Escape'&&modal)$(modal.id==='planmodal'?'planclose':'diagclose').click();if(e.key==='Tab'&&modal){const buttons=Array.from(modal.querySelectorAll('button:not(:disabled)'));const first=buttons[0],last=buttons[buttons.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}};
 window.setVamRoot=root=>{$('root').value=root;$('apply').click();};
 async function pollLoop(){await poll();setTimeout(pollLoop,1500);}pollLoop();
+
+const actionNames={create:'创建',reuse:'复用',update:'更新',missing:'缺失',unsupported:'不支持'};
+let planId='',planFilter='',planOffset=0,planSelection=[],planPollTimer=null,planResultEpoch=0;
+async function startPlan(ids,locked=''){
+  $('planmodal').hidden=false;$('planclose').focus();
+  try{
+    await api('plan/start',{ids,locked_plan:locked},true);
+    planSelection=ids;planId='';planOffset=0;planFilter='';planResultEpoch++;
+    $('planitems').replaceChildren();$('planactions').replaceChildren();$('planfile').textContent='';
+    $('planlocktext').textContent='';$('plandeclarations').textContent='';$('planreplay').disabled=true;
+    clearTimeout(planPollTimer);pollPlan();
+  }catch(e){$('planstatus').textContent=e.message;}
+}
+async function pollPlan(){
+  try{
+    const s=await api('plan/state');
+    $('planstatus').textContent=s.running?`已解析 ${s.done} 个条目 · ${s.phase}`:(s.error||s.phase);
+    $('plancancel').disabled=!s.running;
+    $('planhistory').disabled=s.running;
+    if(s.running){planPollTimer=setTimeout(pollPlan,700);return;}
+    if(s.plan_id){planId=s.plan_id;await loadPlanHistory();await loadPlan();}
+  }catch(e){$('planstatus').textContent=e.message;}
+}
+async function loadPlan(){
+  if(!planId)return;const epoch=++planResultEpoch;$('planreplay').disabled=true;
+  try{
+    const p=await api('plan/result',{id:planId,action:planFilter,offset:planOffset});if(epoch!==planResultEpoch)return;
+    $('planstatus').textContent=(p.status==='ready'?'计划就绪':p.status==='cancelled'?'生成已取消':'计划受阻，请检查缺失 / 不支持项')+` · ${p.cycles.length} 个循环 · ${p.inactive_count} 条未启用引用已保留`;
+    $('planfile').textContent='已保存：'+p.file;$('planfile').title='完整原始参数、未解释字段、依赖边和锁定版本均在此 JSON 中。';
+    $('planreplay').disabled=false;planSelection=p.selection;
+    $('planactions').replaceChildren();
+    const all=el('button',planFilter===''?'active':'','全部');all.onclick=()=>{planFilter='';planOffset=0;loadPlan();};$('planactions').append(all);
+    for(const [key,label]of Object.entries(actionNames)){const b=el('button',planFilter===key?'active':'',`${label} ${p.counts[key]}`);b.onclick=()=>{planFilter=key;planOffset=0;loadPlan();};$('planactions').append(b);}
+    $('planlocktext').textContent=p.version_locks.map(x=>`${x.requested} → ${x.resolved}\n  ${x.source}`).join('\n')||'没有动态或跨包版本引用。';
+    $('plandeclarations').textContent=p.declared_dependencies.map(x=>`${x.used?'实际引用':'仅声明'} · ${x.requested}\n  声明来源：${x.declared_by}\n  ${x.used_sources.join(', ')||(x.used?'目标未解析，见缺失 / 不支持项':x.availability==='installed'?'已安装，未被引用':'未安装；未使用声明不阻断')}`).join('\n\n')||'没有包声明依赖。';
+    $('planitems').replaceChildren();
+    for(const item of p.items){
+      const row=el('div','planrow');row.append(el('strong',item.action==='missing'||item.action==='unsupported'?'warning':'',`${actionNames[item.action]} · ${item.path}`));
+      row.append(el('div','muted',item.source||'松散资源 / 未解析目标'));
+      if(item.reason)row.append(el('p','',item.reason));
+      if(item.builtin_mapping){const m=item.builtin_mapping;const detail=el('details');detail.append(el('summary','',`内置映射 · ${m.entry.role} · ${m.entry.gender}`));detail.append(el('pre','',`操作：${m.entry.operation}\n定位：${JSON.stringify(m.entry.locator,null,2)}\n来源文件：\n${Object.values(m.files).map(f=>`${f.path}\nSHA-256 ${f.sha256}`).join('\n')}`));row.append(detail);}
+      if(item.reuse_of)row.append(el('div','muted','复用计划内内容：'+item.reuse_of));
+      if(item.sha256)row.append(el('div','hash','SHA-256 '+item.sha256));
+      if(item.references.length){const refs=el('details');refs.append(el('summary','',`引用来源 ${item.references.length} 处`));for(const r of item.references.slice(0,30))refs.append(el('pre','',`${r.source_location}\n字段：${r.field}\n目标：${r.reference}`));if(item.references.length>30)refs.append(el('p','muted','完整引用见已保存的计划 JSON。'));row.append(refs);}
+      $('planitems').append(row);
+    }
+    if(!p.items.length)$('planitems').append(el('p','muted','此分类没有条目。'));
+    $('planpage').textContent=`${p.total} 项 · 第 ${Math.floor(planOffset/100)+1} 页`;$('planprev').disabled=planOffset===0;$('plannext').disabled=planOffset+100>=p.total;
+  }catch(e){$('planstatus').textContent=e.message;}
+}
+$('planclose').onclick=()=>{$('planmodal').hidden=true;const b=$('generateplan');if(b)b.focus();};
+$('plancancel').onclick=()=>api('plan/cancel',{},true).catch(e=>{$('planstatus').textContent=e.message;});
+$('planreplay').onclick=()=>startPlan(planSelection,planId);
+$('planprev').onclick=()=>{planOffset=Math.max(0,planOffset-100);loadPlan();};$('plannext').onclick=()=>{planOffset+=100;loadPlan();};
+async function loadPlanHistory(){
+  const h=await api('plan/history');$('planhistory').replaceChildren(el('option','','选择已保存计划…'));$('planhistory').firstChild.value='';
+  for(const item of h.items){const option=el('option','',`${new Date(item.modified*1000).toLocaleString()} · ${item.id.slice(0,16)} · ${(item.bytes/1024).toFixed(0)} KiB`);option.value=item.id;$('planhistory').append(option);}
+  if(planId)$('planhistory').value=planId;
+}
+$('openplans').onclick=async()=>{$('planmodal').hidden=false;$('planclose').focus();try{await loadPlanHistory();const s=await api('plan/state');if(s.running){clearTimeout(planPollTimer);pollPlan();}else{$('plancancel').disabled=true;if(!planId&&$('planhistory').options.length>1){planId=$('planhistory').options[1].value;$('planhistory').value=planId;}await loadPlan();}}catch(e){$('planstatus').textContent=e.message;}};
+$('planhistory').onchange=()=>{if($('planhistory').value){planId=$('planhistory').value;planFilter='';planOffset=0;loadPlan();}};

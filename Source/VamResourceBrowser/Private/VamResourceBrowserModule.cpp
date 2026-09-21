@@ -110,7 +110,7 @@ class FVamResourceBrowserModule final : public IModuleInterface
                         return FReply::Handled();
                     }) ]
                 + SHorizontalBox::Slot().FillWidth(1).VAlign(VAlign_Center).Padding(12,0)
-                [ SNew(STextBlock).Text(LOCTEXT("ReadOnly", "阶段 01 · 只读资源浏览 · 索引保存在本插件 Saved 目录")) ]
+                [ SNew(STextBlock).Text(LOCTEXT("ReadOnly", "阶段 01–02 · 资源浏览与导入计划 · 数据保存在本插件 Saved 目录")) ]
             ]
             + SVerticalBox::Slot().FillHeight(1)
             [ SAssignNew(View, SWebBrowser).InitialURL(TEXT("about:blank")).ShowControls(false)

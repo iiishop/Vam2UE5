@@ -3,9 +3,9 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VaM 资源浏览器</title><link rel="stylesheet" href="style.css"></head>
 <body>
 <header>
-  <div class="brand"><span class="mark">V</span><div><h1>VaM 资源浏览器 <small>阶段 01</small></h1><p>索引、查找与检查来源资源</p></div><span class="readonly">只读来源</span></div>
+  <div class="brand"><span class="mark">V</span><div><h1>VaM 资源浏览器 <small>阶段 01–02</small></h1><p>资源索引、依赖解析与导入计划</p></div><span class="readonly">只读来源</span></div>
   <div class="rootbar"><label for="root">VaM 目录</label><input id="root" spellcheck="false" placeholder="F:\Virt A Mate"><button id="apply" class="primary">应用目录</button><label class="check"><input id="auto" type="checkbox" checked> 自动检查变化</label></div>
-  <div class="scanbar"><button id="scan">增量扫描</button><button id="rebuild">重建索引</button><button id="cancel" disabled>取消扫描</button><progress id="progress" max="1" value="0"></progress><span id="status" role="status">正在连接…</span><button id="diagnostics">诊断 <span id="diagcount">0</span></button></div>
+  <div class="scanbar"><button id="scan">增量扫描</button><button id="rebuild">重建索引</button><button id="cancel" disabled>取消扫描</button><progress id="progress" max="1" value="0"></progress><span id="status" role="status">正在连接…</span><button id="openplans">导入计划</button><button id="diagnostics">诊断 <span id="diagcount">0</span></button></div>
 </header>
 <div id="error" role="alert" hidden></div>
 <nav id="tabs" aria-label="资源类型"></nav>
@@ -21,5 +21,16 @@
   <aside id="detail"><div class="section-title">资源详情</div><div id="detailbody" class="muted">选择一个条目，查看来源定位和描述数据。<br><br>预设内容仅在选中后解析。不会读取完整几何或执行来源脚本。</div></aside>
 </div>
 <div id="diagmodal" class="modal" hidden><section><div class="modalhead"><h2>资源诊断</h2><button id="diagclose">关闭</button></div><p>损坏条目不会阻断其他资源。保留最近 2,000 条诊断，每页 100 条。</p><div id="diagitems"></div><div class="modalhead"><button id="diagprev">上一页</button><span id="diagpage"></span><button id="diagnext">下一页</button></div></section></div>
+<div id="planmodal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="plantitle"><section class="planpanel">
+  <div class="modalhead"><h2 id="plantitle">阶段 02 · 导入计划</h2><button id="planclose">关闭</button></div>
+  <p>仅解析和保存计划，不构建人物，不将资源标记为已入库。</p>
+  <div class="planprogress"><span id="planstatus" role="status">等待生成</span><button id="plancancel">取消生成</button><button id="planreplay" disabled>验证锁定计划</button></div>
+  <label>已保存计划 <select id="planhistory" aria-label="已保存计划"><option value="">最近 50 个计划</option></select></label>
+  <div id="planfile" class="muted"></div><div id="planactions"></div>
+  <details id="planlocks"><summary>最终版本锁定</summary><pre id="planlocktext"></pre></details>
+  <details><summary>声明依赖与实际使用</summary><pre id="plandeclarations"></pre></details>
+  <div id="planitems"></div>
+  <div class="modalhead"><button id="planprev">上一页</button><span id="planpage"></span><button id="plannext">下一页</button></div>
+</section></div>
 <script src="app.js"></script>
 </body></html>
