@@ -1,0 +1,13 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0",
+  "FriendlyName": "VaM Resource Browser",
+  "Description": "Read-only, indexed VaM resource browser. Stage 01; no geometry import.",
+  "Category": "Editor",
+  "CreatedBy": "SmartNPC",
+  "EnabledByDefault": false,
+  "CanContainContent": false,
+  "SupportedTargetPlatforms": ["Win64"],
+  "Modules": [{"Name": "VamResourceBrowser", "Type": "Editor", "LoadingPhase": "PostEngineInit"}]
+}
