@@ -14,7 +14,7 @@ SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
 sys.path.insert(0, str(SCRIPTS.parent / 'Saved/Python'))
 from vam_decode import DecodeError, require, finite, decode_vmb, decode_vab, preview_mesh, to_ue, MAX_BYTES
-from vam_plan import canonical, strict_json, sha, Planner
+from vam_plan import canonical, strict_json, resource_json, sha, Planner
 
 
 def decode_plan(plan, catalog):
@@ -30,6 +30,7 @@ def decode_plan(plan, catalog):
     root = Path(plan['source_root']).resolve()
     items = {i['id']:i for i in plan['items']}
     source_hashes, raw_records, render, errors, warnings = {}, [], [], [], []
+    credit_sources=[]
     read_items = {}
     bundles = {}
 
@@ -136,7 +137,14 @@ def decode_plan(plan, catalog):
             elif item['resource_kind']=='vab':
                 siblings={i['path'].rsplit('.',1)[-1]:i for i in items.values() if i['source']==item['source'] and i['path'][:-4]==item['path'][:-4]}
                 require('vam'in siblings and 'vaj'in siblings,'missing_metadata',item['path'])
-                result=decode_vab(read(item),strict_json(read(siblings['vam'])),strict_json(read(siblings['vaj'])))
+                vam_meta, compatibility=resource_json(read(siblings['vam']),siblings['vam']['path'])
+                vaj_meta, vaj_compatibility=resource_json(read(siblings['vaj']),siblings['vaj']['path'])
+                compatibility += vaj_compatibility
+                result=decode_vab(read(item),vam_meta,vaj_meta)
+                compatibility += [dict(w,path=item['path']) for w in result.get('metadata_compatibility',[])]
+                if compatibility:
+                    result['metadata_compatibility']=compatibility
+                    credit_sources.extend((item['source'],w['path']) for w in compatibility)
                 raw_records.append({'kind':'dynamic','id':item['id'],'source':item['source'],'path':item['path'],'data':result})
                 dynamic_items.append((item,result))
         except Exception as e:fail(item,e)
@@ -171,7 +179,14 @@ def decode_plan(plan, catalog):
                             base_count=len(graft['vertices']);uv_count=len(graft['uv'])
                         report=apply_morph(body,decoded,value,base_count,uv_count,offset)
                         report['vertex_offset']=offset
-                        unresolved=apply_bone_centers(bones,decoded,value)
+                        formula_diagnostics=[]
+                        unresolved=apply_bone_centers(bones,decoded,value,formula_diagnostics)
+                        if formula_diagnostics:
+                            raw_records.append({'kind':'formula_diagnostics','id':target,
+                                                'path':source_item['path'],'diagnostics':formula_diagnostics})
+                        missing_bones=sorted({d['target'] for d in formula_diagnostics if d['code']=='formula_bone_missing'},key=str)
+                        if missing_bones:
+                            warnings.append(f"{morph.get('uid',morph.get('name',''))}: {len(missing_bones)} 个 BoneCenter 目标不在当前来源骨架中（如 {', '.join(str(n) for n in missing_bones[:6])}）；这些公式已保留，已有骨骼的 BoneCenter 正常应用。完整目标见 IR formula_diagnostics。")
                         if report['outside_uv'] or report['uv_duplicates']:
                             warnings.append(f"{morph.get('uid',morph.get('name',''))}: VaM compatibility: {report['outside_uv']} out-of-domain deltas ignored; {report['uv_duplicates']} UV-seam deltas overwritten by base vertices. Raw deltas retained.")
                         if unresolved:
@@ -191,25 +206,31 @@ def decode_plan(plan, catalog):
         warnings.extend(['Static inspection pose; source triaxial skinning, joint corrections and physics are not executed.',
                          'Clothing/custom scalps use validated static skin wrapping; hair roots translate with validated builtin/custom scalps. Hair rotation, smoothing, thickness and simulation are not yet applied.',
                          'Web preview uses inspection colors. UE source materials are available after material parsing.'])
-    from vam_fit import fit_wrap
+    from vam_fit import fit_wrap, resolve_preview_wrap, preview_wrap_settings
     scalp_cache={}
-    def fit_to_body(mesh,wrap):
+    def fit_to_body(mesh,wrap,settings=None):
         failures=[]
         for candidate in (body,dict(morph_mesh,vertices=body['vertices'][:morph_base_count])):
-            try:return fit_wrap(mesh,wrap,candidate)
+            try:return fit_wrap(mesh,wrap,candidate,**(settings or {}))
             except DecodeError as exc:failures.append(str(exc))
         raise DecodeError('wrap_target','; '.join(failures))
     for item,result in dynamic_items:
         try:
             component_render=[];fitted=[]
+            selected_wrap=None
+            if body and result['wraps']:
+                selected_wrap,resolution=resolve_preview_wrap(result['meshes'],result['wraps'])
+                result['wrap_resolution']=resolution
+                wrap_settings,wrap_parameters=preview_wrap_settings(result,
+                    [(identity,plan['documents'].get(identity,{}).get('parameters',{})) for identity in plan['roots']])
+                result['applied_wrap_parameters']=wrap_parameters
             for m in result['meshes']:
                 fit=m
-                if body and result['wraps']:
-                    require(len(result['wraps'])==1 and len(result['meshes'])==1,'wrap_ambiguous','Expected one verified skin binding')
+                if selected_wrap is not None:
                     # Validate triangle identity, not just index bounds, before choosing a target.
-                    fit=fit_to_body(m,result['wraps'][0])
+                    fit=fit_to_body(m,selected_wrap,wrap_settings)
                 fitted.append(fit)
-                component_render.append(preview_mesh(fit,result['vam'].get('displayName',item['path']),{'source':item['source'],'path':item['path']}))
+                component_render.append(preview_mesh(fit,result['vam'].get('displayName') or Path(item['path']).stem,{'source':item['source'],'path':item['path']}))
             hair=(result['dynamic'] or {}).get('hair')
             if hair:
                 verts,indices=[],[];seg=hair['segments'];width=.00025
@@ -249,6 +270,11 @@ def decode_plan(plan, catalog):
                     'uv':[[0,0]for _ in verts],'sections':[indices],'materials':['Hair guides'],'converted_to_source_vertex':[i//2 for i in range(len(verts))]})
             render.extend(component_render)
         except Exception as exc:fail(item,exc)
+    if credit_sources:
+        warnings.append(f'已兼容 {len(set(credit_sources))} 个文件末尾的作者致谢文本，不影响资源解码；原文、来源与偏移保留在 IR 的 metadata_compatibility 中。')
+    duplicate_wraps=[r for r in raw_records if r.get('kind')=='dynamic' and len(r['data'].get('wrap_resolution',{}).get('equivalent_source_indices',[]))>1]
+    if duplicate_wraps:
+        warnings.append(f'已兼容 {len(duplicate_wraps)} 个资源中完全一致的重复 SkinWrap 绑定；每个资源只执行一次贴合，原绑定及选择依据保留在 IR。')
     require(render,'no_geometry','No supported renderable geometry in selection')
     # Validate source bytes again before committing a result.
     for relative,expected in source_hashes.items():

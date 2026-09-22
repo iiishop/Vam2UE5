@@ -49,7 +49,7 @@ def apply_morph(body, decoded, value, base_count, uv_count, vertex_offset=0):
     return report
 
 
-def apply_bone_centers(bones, decoded, value):
+def apply_bone_centers(bones, decoded, value, diagnostics=None):
     names={b['name']:b for b in bones};offsets={};unresolved=set()
     for formula in decoded['parameters'].get('formulas',[]):
         kind=formula.get('targetType')
@@ -59,7 +59,14 @@ def apply_bone_centers(bones, decoded, value):
         if kind in ('BoneCenterX','BoneCenterY','BoneCenterZ') and formula.get('target') in names:
             multiplier=float(formula['multiplier']);finite(multiplier)
             offsets.setdefault(formula['target'],[0.,0.,0.])['XYZ'.index(kind[-1])]=multiplier*value
-        else: unresolved.add(str(kind))
+        elif kind in ('BoneCenterX','BoneCenterY','BoneCenterZ') and diagnostics is not None:
+            diagnostics.append({'code':'formula_bone_missing','target':formula.get('target'),
+                                'target_type':kind,'formula':formula})
+        else:
+            unresolved.add(str(kind))
+            if diagnostics is not None:
+                diagnostics.append({'code':'formula_not_executed','target':formula.get('target'),
+                                    'target_type':kind,'formula':formula})
     # SetBone*Offset replaces the same axis for one Morph, then sums across Morphs.
     for name,offset in offsets.items():
         b=names[name];b.setdefault('morph_center_offset',[0.,0.,0.])
@@ -91,12 +98,13 @@ def triangles(mesh):
 def cross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]
 
 
-def fit_wrap(mesh, wrap, target):
-    """DAZSkinWrap.Wrap CPU basis with zero extra thickness and no smoothing."""
+def fit_wrap(mesh, wrap, target, surface_offset=0., thickness=0.):
+    """DAZSkinWrap.Wrap CPU basis at unit source scale, without smoothing."""
+    finite([surface_offset,thickness])
     verts=target['vertices'];tris=triangles(target);out=[]
     require(len(wrap['vertices'])==len(mesh['uv']),'wrap_count','Expected UV-domain wrap records')
     for row in wrap['vertices'][:len(mesh['vertices'])]:
-        t,a,b,c,nproj,t1proj,t2proj,*_=row
+        t,a,b,c,nproj,t1proj,t2proj,ndot,t1dot,t2dot=row
         require(0<=t<len(tris) and all(0<=i<len(verts) for i in (a,b,c)), 'wrap_target_index', str(row[:4]))
         require(set(tris[t])=={a,b,c},'wrap_topology','Binding does not match target triangle')
         x,y,z=[verts[i] for i in tris[t]]
@@ -106,6 +114,44 @@ def fit_wrap(mesh, wrap, target):
         normal=[v/length for v in normal]
         origin=verts[a];tangent=[(verts[a][i]+verts[b][i]+verts[c][i])*.33333-origin[i] for i in range(3)]
         bitangent=cross(tangent,normal)
-        out.append([origin[i]+tangent[i]*t1proj+bitangent[i]*t2proj+normal[i]*nproj for i in range(3)])
+        out.append([origin[i]+tangent[i]*(t1proj+t1dot*thickness)+bitangent[i]*(t2proj+t2dot*thickness)
+                    +normal[i]*(nproj+surface_offset+ndot*thickness) for i in range(3)])
     finite(out)
     return dict(mesh,vertices=out)
+
+
+def resolve_preview_wrap(meshes, wraps):
+    """Collapse only byte-decoded equivalent bindings; never select by name/count alone.
+
+    All original records remain in the DynamicStore IR. Multiple meshes still
+    require explicit component-to-mesh correspondence that this layout lacks.
+    """
+    require(len(meshes)==1 and wraps,'wrap_ambiguous','Expected one mesh with at least one source binding')
+    first=wraps[0]
+    require(all(w==first for w in wraps[1:]),'wrap_ambiguous',
+            f'{len(wraps)} differing skin bindings; no verified active binding selector')
+    require(len(first['vertices'])==len(meshes[0]['uv']),'wrap_count','Binding does not cover mesh UV domain')
+    return first, {'selected_source_index':0,'equivalent_source_indices':list(range(len(wraps))),
+                   'policy':'exact_decoded_record_equality','original_records_retained':True}
+
+
+def preview_wrap_settings(result, appearance_documents):
+    """Exact item UID controller; item defaults precede explicit Appearance overrides.
+
+    DAZSkinWrapControl.SyncSurfaceOffset/SyncAdditionalThicknessMultiplier assign
+    JSON values directly, with constrain:false. Do not clamp unusual offsets.
+    """
+    uid=result['vam'].get('uid','')
+    controller=uid+'WrapControl'
+    values={};sources=[]
+    if uid:
+        for label,document in [('item_vaj',result['vaj']),*appearance_documents]:
+            matches=[s for s in document.get('storables',[]) if s.get('id')==controller]
+            require(len(matches)<=1,'wrap_control_ambiguous',controller+' in '+label)
+            if matches:
+                values.update(matches[0]);sources.append({'source':label,'parameters':matches[0]})
+    offset=float(values.get('surfaceOffset',0));thickness=float(values.get('additionalThicknessMultiplier',0))
+    finite([offset,thickness])
+    return {'surface_offset':offset,'thickness':thickness}, {'controller':controller,
+            'sources':sources,'surface_offset_metres':offset,'additional_thickness_multiplier':thickness,
+            'unapplied_fields':{k:values[k] for k in ('smoothIterations','wrapToSmoothedVerts') if k in values}}

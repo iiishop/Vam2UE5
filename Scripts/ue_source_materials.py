@@ -8,7 +8,7 @@ import unreal
 class Appearance:
     def __init__(self,path):
         self.ir=json.loads(Path(path).read_text(encoding='utf8'))
-        self.folder='/Game/SourceAppearanceReference/R5'
+        self.folder='/Game/SourceAppearanceReference/R6'
         self.textures={};self.materials={};self.errors=[]
         self.bindings={(m['binding']['mesh'],m['binding']['slot']):m for m in self.ir['materials']}
 
@@ -39,7 +39,7 @@ class Appearance:
         if record['render_state']['hidden']:return None,True
         if record['id'] in self.materials:return self.materials[record['id']],False
         try:
-            signature={k:record.get(k)for k in ('parameters','render_state','hair_parameters')}
+            signature={k:record.get(k)for k in ('parameters','render_state','hair_parameters','reference_adapter')}
             signature['shader']=record['source_shader'].get('name')
             signature['textures']={k:{p:v.get(p)for p in ('semantic','color_space','ue_scale','ue_offset')}|{'asset':(v.get('asset') or {}).get('sha256')}for k,v in record['textures'].items()}
             name='M_'+hashlib.sha256(json.dumps(signature,sort_keys=True).encode()).hexdigest()[:24]
@@ -96,6 +96,7 @@ class Appearance:
             state=record['render_state'].get('source_first_pass',{}).get('rtBlend0',{})
             if (state.get('srcBlend',{}).get('val'),state.get('destBlend',{}).get('val'))==(1.,10.):
                 blend_mode='translucent'
+            blend_mode=record.get('reference_adapter',{}).get('blend',blend_mode)
             if blend_mode in ('masked','translucent'):
                 mat.set_editor_property('blend_mode',unreal.BlendMode.BLEND_MASKED if blend_mode=='masked' else unreal.BlendMode.BLEND_TRANSLUCENT)
                 if blend_mode=='translucent':mat.set_editor_property('translucency_lighting_mode',unreal.TranslucencyLightingMode.TLM_SURFACE_PER_PIXEL_LIGHTING)

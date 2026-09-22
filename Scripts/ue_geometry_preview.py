@@ -21,8 +21,11 @@ def main():
     old=[a for a in subsystem.get_all_level_actors() if 'VamSourcePreview' in [str(t)for t in a.tags]] if current else []
     appearance=None
     if data.get('source_material_ir'):
-        from ue_source_materials import Appearance
-        appearance=Appearance(data['source_material_ir'])
+        # Editor Python persists across requests; deleting assets does not reload modules.
+        import importlib
+        import ue_source_materials
+        importlib.reload(ue_source_materials)
+        appearance=ue_source_materials.Appearance(data['source_material_ir'])
     actors=[]
     for mesh_index,mesh in enumerate(data['meshes']):
         if mesh['name']=='Hair guide ribbons':

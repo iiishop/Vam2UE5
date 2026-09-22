@@ -1,14 +1,14 @@
 {
   "FileVersion": 3,
-  "Version": 4,
-  "VersionName": "0.4.0",
+  "Version": 5,
+  "VersionName": "0.5.0-dev",
   "FriendlyName": "VaM Resource Browser",
-  "Description": "VaM resource indexing, dependency planning, source decoding and source appearance reference. Stages 01-04.",
+  "Description": "Stages 01-04 source preview; Stage05 native builder and runtime foundation (source calibration and import transaction pending).",
   "Category": "Editor",
   "CreatedBy": "SmartNPC",
   "EnabledByDefault": false,
-  "CanContainContent": false,
+  "CanContainContent": true,
   "SupportedTargetPlatforms": ["Win64"],
   "Plugins": [{"Name":"PythonScriptPlugin","Enabled":true},{"Name":"GeometryScripting","Enabled":true}],
-  "Modules": [{"Name": "VamResourceBrowser", "Type": "Editor", "LoadingPhase": "PostEngineInit"}]
+  "Modules": [{"Name": "VamCharacterRuntime", "Type": "Runtime", "LoadingPhase": "Default"}, {"Name": "VamResourceBrowser", "Type": "Editor", "LoadingPhase": "PostEngineInit"}]
 }

@@ -424,7 +424,10 @@ class Catalog:
         diagnostic = ''
         if PurePosixPath(path).suffix.lower() in ('.vam', '.vmi'):
             try:
-                metadata = self.read_json(reader(path, META_LIMIT))
+                from vam_plan import resource_json
+                metadata, compatibility = resource_json(reader(path, META_LIMIT), path)
+                if compatibility:
+                    diagnostic = 'vam_credit_trailer: 已兼容尾部致谢文本，原文件保持不变'
                 name = str(metadata.get('displayName') or name)
                 author = str(metadata.get('creatorName') or author)
                 tags = metadata.get('tags') or metadata.get('region') or metadata.get('group') or tags
@@ -526,7 +529,11 @@ class Catalog:
         row['json'] = ''
         if row['kind'] != 'skin':
             try:
-                obj = self.read_json(self.read_asset(row, root, row['path'], DETAIL_LIMIT))
+                from vam_plan import resource_json
+                obj, compatibility = resource_json(self.read_asset(row, root, row['path'], DETAIL_LIMIT), row['path'])
+                if compatibility:
+                    row['compatibility_warnings'] = compatibility
+                    row['diagnostic'] = 'vam_credit_trailer: 已兼容尾部致谢文本，原文件保持不变'
                 pretty = json.dumps(obj, ensure_ascii=False, indent=2)
                 encoded = pretty.encode('utf-8')
                 row['json'] = encoded[:65536].decode('utf-8', errors='ignore')

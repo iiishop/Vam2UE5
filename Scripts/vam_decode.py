@@ -188,6 +188,14 @@ def decode_vab(data, vam, vaj):
         if kind.startswith('Clothing'): dynamic = {'cloth': cloth_record(r)}
         elif kind.startswith('Hair'): dynamic = {'hair': hair_record(r)}
         else: raise DecodeError('unknown_item_type', kind, r.pos)
+    compatibility=[]
+    if r.pos != len(data) and vam.get('itemType') in ('HairFemale','HairMale'):
+        from vam_plan import is_hair_credit_trailer
+        trailer=data[r.pos:].decode('utf-8',errors='replace')
+        if is_hair_credit_trailer(trailer) and trailer.encode('utf-8') == data[r.pos:]:
+            compatibility.append({'code':'vam_credit_trailer','byte_offset':r.pos,
+                                  'raw_trailer':trailer,'message':'Recognized trailing hair credits after complete DynamicStore payload'})
+            r.pos=len(data)
     r.end()
     for mesh in meshes: validate_mesh(mesh)
     for options in material_options:
@@ -201,7 +209,8 @@ def decode_vab(data, vam, vaj):
         for v in wrap['vertices']:
             require(all(i >= 0 for i in v[:4]), 'wrap_index', str(v[:4]))
     return {'layout': 'DynamicStore/1.0', 'meshes': meshes, 'wraps': wraps, 'dynamic': dynamic,
-            'material_options': material_options, 'vam': vam, 'vaj': vaj, 'sha256': hashlib.sha256(data).hexdigest()}
+            'material_options': material_options, 'vam': vam, 'vaj': vaj, 'sha256': hashlib.sha256(data).hexdigest(),
+            **({'metadata_compatibility':compatibility} if compatibility else {})}
 
 
 def validate_mesh(m):

@@ -41,6 +41,19 @@ def hair_fixture(version):
     return raw,{'itemType':'HairFemale'},{'components':[]}
 
 class DecodeTests(unittest.TestCase):
+    def test_hair_credit_trailer_is_narrow_and_preserved(self):
+        import hashlib
+        raw,vam,vaj=hair_fixture('1.1')
+        trailer=b'Thanks:"Example"+"hair_version: example.1"\r\n'
+        result=d.decode_vab(raw+trailer,vam,vaj)
+        self.assertEqual(result['sha256'],hashlib.sha256(raw+trailer).hexdigest())
+        self.assertEqual(result['metadata_compatibility'][0]['byte_offset'],len(raw))
+        self.assertEqual(result['metadata_compatibility'][0]['raw_trailer'],trailer.decode())
+        for bad in (raw+b'unknown',raw+trailer+b'\0',raw[:-1]+trailer):
+            with self.assertRaises(d.DecodeError):d.decode_vab(bad,vam,vaj)
+        raw,vam,vaj=vab_fixture()
+        with self.assertRaises(d.DecodeError):d.decode_vab(raw+trailer,vam,vaj)
+
     def test_vmb_layout_length_indices_and_finite(self):
         raw=i(2)+struct.pack('<ifffifff',0,.1,.2,.3,2,0,0,1)
         meta={'numDeltas':'2','unknown':{'keep':True}}

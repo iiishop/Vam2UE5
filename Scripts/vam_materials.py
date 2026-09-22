@@ -25,6 +25,21 @@ PARAMS={'Diffuse Color':'_Color','Skin Color':'_Color','Specular Color':'_SpecCo
 DYNAMIC_SHADER='Custom/Subsurface/TransparentGlossNMNoCullSeparateAlpha'
 
 
+def reference_blend(m):
+    """Keep source state; use depth-writing coverage for binary reference surfaces."""
+    source=m['render_state']['blend']
+    if source!='translucent' or 'SeparateAlpha' not in (m['source_shader'].get('name') or ''):return source
+    if float(m['parameters'].get('_AlphaAdjust',0))<0:return source
+    asset=(m['textures'].get('_AlphaTex') or {}).get('asset')
+    if not asset:return 'opaque'
+    from PIL import Image
+    with Image.open(asset['file']) as image:
+        channel=image.convert('RGBA').getchannel('A') if asset['encoding']=='unity_decoded_pixels' else image.convert('RGB').convert('L',(1/3,1/3,1/3,0))
+        h=channel.histogram();total=sum(h)
+    if sum(h[:248])==0:return 'opaque'
+    return 'masked' if sum(h[8:248])/max(1,total)<.01 else source
+
+
 def color(value):
     if isinstance(value,dict) and all(k in value for k in ('h','s','v')):
         return list(colorsys.hsv_to_rgb(*(float(value[k])for k in ('h','s','v'))))+[1.]
@@ -40,12 +55,17 @@ class Sources:
         self.items={i['id']:i for i in plan['items']}
         self.edges={(e['from'],e['field']):e for e in plan['edges']}
         self.blobs=out/'blobs';self.blobs.mkdir(parents=True,exist_ok=True)
+        self.blob_bytes=sum(p.stat().st_size for p in self.blobs.iterdir() if p.is_file())
+        settings_path=out.parent/'settings.json'
+        settings=json.loads(settings_path.read_text(encoding='utf8')) if settings_path.exists() else {}
+        self.blob_limit=int(settings.get('material_cache_mb',8192))*1024**2
 
     def blob(self,data,suffix):
         digest=sha(data);path=self.blobs/(digest+suffix)
         if not path.exists():
-            require(sum(p.stat().st_size for p in self.blobs.iterdir())+len(data)<=2*1024**3,'material_cache_limit','Source appearance cache exceeds 2 GiB')
+            require(self.blob_bytes+len(data)<=self.blob_limit,'material_cache_limit',f'Source material cache requires more than {self.blob_limit//1024**2} MiB; increase material_cache_mb in Saved/settings.json')
             temp=path.with_suffix(path.suffix+'.tmp');temp.write_bytes(data);temp.replace(path)
+            self.blob_bytes+=len(data)
         return {'sha256':digest,'file':str(path.resolve())}
 
     def path(self,relative):
@@ -183,6 +203,10 @@ def build_material_ir(plan,ir,preview,out):
                     elif prop['m_Type'] in (2,3):m['parameters'][prop['m_Name']]=prop['m_DefValue[0]']
             for option in record['data']['material_options']:
                 identity=uid+option['id'][1:] if option['id'].startswith('+') else option['id']
+                if option['id'].startswith('+parent+') and record['path'].startswith('Custom/Hair/'):
+                    candidate=uid+'CustomScalp'+option['id'][len('+parent+'):]
+                    if any(s.get('id')==candidate for s in record['data'].get('vaj',{}).get('storables',[])):
+                        identity=candidate
                 controllers[identity]=(slots(mi,option['slots']),None,{})
 
     defaults={id(m):copy.deepcopy(m['textures'])for m in materials}
@@ -300,6 +324,11 @@ def build_material_ir(plan,ir,preview,out):
                 m['render_state']['blend']='masked' if tags.get('RenderType')=='TransparentCutout' else 'translucent' if pair in ((5.,10.),(1.,10.)) else 'opaque' if pair==(1.,0.) else 'unknown'
             if len(passes)>1:issue('multipass_shader',m['source_shader']['name'],[m['binding']], 'Pass states preserved; UE reference combines source multipass behavior into one approximate material')
         m['reference_adapter']={'fidelity':'approximate','shading':'UE default lit; source BRDF/SSS is not equivalent','roughness':.55}
+        try:
+            m['reference_adapter']['blend']=reference_blend(m)
+            if m['reference_adapter']['blend']!=m['render_state']['blend']:
+                m['reference_adapter']['blend_reason']='Opaque/binary separate alpha uses depth-writing UE coverage to avoid triangle sorting; source state preserved. Binary threshold: under 1% intermediate pixels.'
+        except Exception as exc:issue('reference_alpha_analysis',m['binding'],[m['binding']],str(exc))
         issue('source_shader_approximation',{'shader':m['source_shader'].get('name'),'object':m['source_shader'].get('object')},[m['binding']], 'UE reference preserves base color/opacity; VaM BRDF, subsurface scattering, specular lobes and render queue require further shader adapters')
         for prop,value in m['parameters'].items():
             if prop not in ('_Color','_AlphaAdjust','_Cutoff'):

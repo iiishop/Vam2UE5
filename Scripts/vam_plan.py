@@ -56,6 +56,34 @@ def pointer(parts):
     return '/' + '/'.join(str(p).replace('~', '~0').replace('/', '~1') for p in parts)
 
 
+def is_hair_credit_trailer(text):
+    quoted = r'"(?:[^"\\\x00-\x1f]|\\["\\/bfnrt]|\\u[0-9a-fA-F]{4})*"'
+    return len(text) <= 4096 and re.fullmatch(r'Thanks:\s*' + quoted + r'\s*\+\s*"hair_version: [^"\\\x00-\x1f]+"\s*', text) is not None
+
+
+def resource_json(data, path):
+    """Narrow compatibility for observed hair .vam credit trailers; never relax JSON itself."""
+    try:
+        return strict_json(data), []
+    except json.JSONDecodeError as error:
+        suffix = PurePosixPath(path).suffix.lower()
+        hair_config = suffix == '.vaj' and path.replace('\\', '/').casefold().startswith('custom/hair/')
+        if error.msg != 'Extra data' or not (suffix == '.vam' or hair_config):
+            raise
+        text = data.decode('utf-8-sig')
+        trailer = text[error.pos:]
+        # Only the observed two quoted credit/version fields are admissible.
+        if not is_hair_credit_trailer(trailer):
+            raise
+        obj = strict_json(text[:error.pos].encode('utf-8'))
+        if suffix == '.vam' and obj.get('itemType') not in ('HairFemale', 'HairMale'):
+            raise
+        if hair_config and not (isinstance(obj.get('components'), list) and isinstance(obj.get('storables'), list)):
+            raise
+        return obj, [{'code':'vam_credit_trailer', 'path':path, 'character_offset':error.pos,
+                      'raw_trailer':trailer, 'message':'Recognized non-JSON hair credits retained outside parameters'}]
+
+
 def norm_path(path, base=''):
     path = path.replace('\\', '/')
     if path.startswith('/') or ':' in path or '\x00' in path:
@@ -520,8 +548,11 @@ class Planner:
             if raw is not None:
                 # Retain raw bytes even when strict parsing fails.
                 self.snapshots[h] = raw
-                obj = strict_json(raw)
+                obj, compatibility = resource_json(raw, path)
                 self.documents[identity] = {'id': identity, 'raw_sha256': h, 'parameters': obj}
+                if compatibility:
+                    self.documents[identity]['compatibility_warnings'] = compatibility
+                    item['warnings'] = compatibility
                 self.walk_refs(obj, source, path, identity)
                 companions = []
                 if ext == '.vam' and path.casefold().startswith(('custom/clothing/', 'custom/hair/')):

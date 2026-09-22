@@ -3,6 +3,7 @@
 #include "Interfaces/IPluginManager.h"
 #include "ToolMenus.h"
 #include "SWebBrowser.h"
+#include "WebBrowserModule.h"
 #include "Widgets/Docking/SDockTab.h"
 #include "Widgets/Input/SButton.h"
 #include "Widgets/Text/STextBlock.h"
@@ -111,6 +112,15 @@ class FVamResourceBrowserModule final : public IModuleInterface
 
     TSharedRef<SDockTab> Spawn(const FSpawnTabArgs&)
     {
+        // UE 5.8 SWebBrowserView checks IsAvailable without loading this module.
+        // Linking WebBrowser alone does not run its StartupModule (CEF initialization).
+        auto& WebModule = IWebBrowserModule::Get();
+        if (!WebModule.IsWebModuleAvailable())
+        {
+            UE_LOG(LogTemp, Error, TEXT("VaM browser: UE WebBrowser/CEF initialization failed"));
+            return SNew(SDockTab).TabRole(ETabRole::NomadTab)
+                [ SNew(STextBlock).Text(LOCTEXT("BrowserUnavailable", "UE 内嵌浏览器初始化失败。请检查引擎 CEF 文件与日志；关闭此页后可重试。")) ];
+        }
         TSharedPtr<SWebBrowser> View;
         TSharedRef<SDockTab> Tab = SNew(SDockTab).TabRole(ETabRole::NomadTab)
         [
@@ -132,6 +142,14 @@ class FVamResourceBrowserModule final : public IModuleInterface
                             FJsonSerializer::Serialize(Values, TJsonWriterFactory<>::Create(&Json));
                             if (auto Web = Browser.Pin()) Web->ExecuteJavascript(TEXT("window.setVamRoot && window.setVamRoot(") + Json + TEXT("[0]);"));
                         }
+                        return FReply::Handled();
+                    }) ]
+                + SHorizontalBox::Slot().AutoWidth().Padding(8,0)
+                [ SNew(SButton).Text(LOCTEXT("BuildNative", "生成 UE 人物资产"))
+                    .ToolTipText(LOCTEXT("BuildNativeTip", "检查最近解码的人物；未校准的蒙皮和公式会阻止正式提交，并提供报告"))
+                    .OnClicked_Lambda([]() {
+                        const FString Script = FPaths::ConvertRelativePathToFull(IPluginManager::Get().FindPlugin(TEXT("VamResourceBrowser"))->GetBaseDir() / TEXT("Scripts/ue_native_build.py"));
+                        if (auto* Python = IPythonScriptPlugin::Get()) Python->ExecPythonCommand(*Script);
                         return FReply::Handled();
                     }) ]
                 + SHorizontalBox::Slot().FillWidth(1).VAlign(VAlign_Center).Padding(12,0)

@@ -3,6 +3,7 @@ import argparse
 import hashlib
 from pathlib import Path
 import sys
+import time
 SCRIPTS=Path(__file__).resolve().parent
 sys.path[:0]=[str(SCRIPTS),str(SCRIPTS.parent/'Saved/Python')]
 from vam_plan import strict_json,canonical,sha
@@ -11,17 +12,51 @@ from vam_materials import build_material_ir
 
 
 def main(data):
+    started=time.perf_counter()
     decoded=data/'Decoded';preview=strict_json((decoded/'latest.json').read_bytes())
     ir=strict_json((decoded/(preview['decode_id']+'.ir.json')).read_bytes())
     plan=strict_json((data/'Plans'/(ir['plan_id']+'.json')).read_bytes())
     require(sha(canonical({k:v for k,v in ir.items() if k!='decode_id'}))==ir['decode_id'],'ir_integrity','Source IR hash mismatch')
     require(sha(canonical({k:v for k,v in plan.items() if k!='plan_id'}))==plan['plan_id'],'plan_integrity','Plan hash mismatch')
     root=Path(plan['source_root']).resolve()
-    for relative,expected in ir['source_hashes'].items():
+    verified={}
+    def verify(relative,expected):
+        if verified.get(relative)==expected:return
         path=(root/relative).resolve();require(path.is_relative_to(root),'source_path',relative)
         with path.open('rb') as stream:require(hashlib.file_digest(stream,'sha256').hexdigest()==expected,'source_changed',relative)
+        verified[relative]=expected
+    for relative,expected in ir['source_hashes'].items():verify(relative,expected)
     out=data/'SourceAppearance';out.mkdir(exist_ok=True)
-    result=build_material_ir(plan,ir,preview,out)
+    version=sha(b''.join((SCRIPTS/name).read_bytes() for name in ('vam_material_worker.py','vam_materials.py','vam_unity.py','vam_decode.py','vam_plan.py')))
+    cache=out/('cache-'+sha(canonical([ir['decode_id'],plan['plan_id'],version]))+'.json')
+    result=None
+    if cache.exists():
+        try:
+            candidate=strict_json(cache.read_bytes())
+            require(not any('material_cache_limit' in str(d.get('impact','')) for d in candidate.get('diagnostics',[])),'cache_incomplete','Retry textures previously blocked by cache capacity')
+            require(sha(canonical({k:v for k,v in candidate.items() if k!='material_id'}))==candidate['material_id'],'cache_integrity','Material cache hash mismatch')
+            for relative,expected in candidate['source_hashes'].items():verify(relative,expected)
+            checked_blobs=set()
+            def check_files(value):
+                if isinstance(value,dict):
+                    if 'file' in value and 'sha256' in value:
+                        path=Path(value['file']).resolve()
+                        require(path.is_relative_to(out.resolve()) and path.is_file(),'cache_blob','Missing material blob')
+                        key=(str(path),value['sha256'])
+                        if key not in checked_blobs:
+                            with path.open('rb') as stream:require(hashlib.file_digest(stream,'sha256').hexdigest()==value['sha256'],'cache_blob','Changed material blob')
+                            checked_blobs.add(key)
+                    for child in value.values():check_files(child)
+                elif isinstance(value,list):
+                    for child in value:check_files(child)
+            check_files(candidate)
+            result=candidate
+        except Exception as exc:print('Material cache invalidated:',exc)
+    cache_hit=result is not None
+    if result is None:
+        result=build_material_ir(plan,ir,preview,out)
+        if not any('material_cache_limit' in str(d.get('impact','')) for d in result.get('diagnostics',[])):
+            temporary=cache.with_suffix('.tmp');temporary.write_bytes(canonical(result));temporary.replace(cache)
     target=out/(result['material_id']+'.materials.json')
     temporary=target.with_suffix('.tmp');temporary.write_bytes(canonical(result));temporary.replace(target)
     preview['source_material_ir']=str(target.resolve());preview['material_id']=result['material_id']
@@ -32,6 +67,7 @@ def main(data):
     for name in (preview['appearance_file'],'latest.json'):
         path=decoded/name;temporary=path.with_suffix('.tmp');temporary.write_bytes(canonical(preview));temporary.replace(path)
     print('SourceMaterialIR:',target)
+    print('Material parse seconds:',round(time.perf_counter()-started,2),'cache_hit:',cache_hit)
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--data',type=Path,required=True);args=parser.parse_args();main(args.data)
