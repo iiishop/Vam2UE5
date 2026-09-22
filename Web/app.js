@@ -200,12 +200,12 @@ async function pollPlan(){
   }catch(e){$('planstatus').textContent=e.message;}
 }
 async function loadPlan(){
-  if(!planId)return;const epoch=++planResultEpoch;$('planreplay').disabled=true;
+  if(!planId)return;const epoch=++planResultEpoch;$('planreplay').disabled=true;$('decode').disabled=true;
   try{
     const p=await api('plan/result',{id:planId,action:planFilter,offset:planOffset});if(epoch!==planResultEpoch)return;
-    $('planstatus').textContent=(p.status==='ready'?'计划就绪':p.status==='cancelled'?'生成已取消':'计划受阻，请检查缺失 / 不支持项')+` · ${p.cycles.length} 个循环 · ${p.inactive_count} 条未启用引用已保留`;
+    $('planstatus').textContent=(p.status==='ready'?'计划就绪':p.status==='cancelled'?'生成已取消':'计划含缺失 / 不支持项，可继续部分解码')+` · ${p.cycles.length} 个循环 · ${p.inactive_count} 条未启用引用已保留`;
     $('planfile').textContent='已保存：'+p.file;$('planfile').title='完整原始参数、未解释字段、依赖边和锁定版本均在此 JSON 中。';
-    $('planreplay').disabled=false;planSelection=p.selection;
+    $('planreplay').disabled=false;$('decode').disabled=p.status==='cancelled';planSelection=p.selection;
     $('planactions').replaceChildren();
     const all=el('button',planFilter===''?'active':'','全部');all.onclick=()=>{planFilter='';planOffset=0;loadPlan();};$('planactions').append(all);
     for(const [key,label]of Object.entries(actionNames)){const b=el('button',planFilter===key?'active':'',`${label} ${p.counts[key]}`);b.onclick=()=>{planFilter=key;planOffset=0;loadPlan();};$('planactions').append(b);}

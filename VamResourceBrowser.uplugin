@@ -1,9 +1,9 @@
 {
   "FileVersion": 3,
-  "Version": 2,
-  "VersionName": "0.2.0",
+  "Version": 3,
+  "VersionName": "0.3.0",
   "FriendlyName": "VaM Resource Browser",
-  "Description": "Read-only VaM resource browser and deterministic dependency/import planner. Stages 01-02; no character construction.",
+  "Description": "VaM resource indexing, dependency planning, strict source decoding and temporary geometry inspection. Stages 01-03.",
   "Category": "Editor",
   "CreatedBy": "SmartNPC",
   "EnabledByDefault": false,

@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VaM 资源浏览器</title><link rel="stylesheet" href="style.css"></head>
 <body>
 <header>
-  <div class="brand"><span class="mark">V</span><div><h1>VaM 资源浏览器 <small>阶段 01–02</small></h1><p>资源索引、依赖解析与导入计划</p></div><span class="readonly">只读来源</span></div>
+  <div class="brand"><span class="mark">V</span><div><h1>VaM 资源浏览器 <small>阶段 01–03</small></h1><p>资源索引、依赖解析与几何检查</p></div><span class="readonly">只读来源</span></div>
   <div class="rootbar"><label for="root">VaM 目录</label><input id="root" spellcheck="false" placeholder="F:\Virt A Mate"><button id="apply" class="primary">应用目录</button><label class="check"><input id="auto" type="checkbox" checked> 自动检查变化</label></div>
   <div class="scanbar"><button id="scan">增量扫描</button><button id="rebuild">重建索引</button><button id="cancel" disabled>取消扫描</button><progress id="progress" max="1" value="0"></progress><span id="status" role="status">正在连接…</span><button id="openplans">导入计划</button><button id="diagnostics">诊断 <span id="diagcount">0</span></button></div>
 </header>
@@ -24,7 +24,7 @@
 <div id="planmodal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="plantitle"><section class="planpanel">
   <div class="modalhead"><h2 id="plantitle">阶段 02 · 导入计划</h2><button id="planclose">关闭</button></div>
   <p>仅解析和保存计划，不构建人物，不将资源标记为已入库。</p>
-  <div class="planprogress"><span id="planstatus" role="status">等待生成</span><button id="plancancel">取消生成</button><button id="planreplay" disabled>验证锁定计划</button></div>
+  <div class="planprogress"><span id="planstatus" role="status">等待生成</span><button id="plancancel">取消生成</button><button id="planreplay" disabled>验证锁定计划</button><button id="decode" disabled>解码并预览</button></div>
   <label>已保存计划 <select id="planhistory" aria-label="已保存计划"><option value="">最近 50 个计划</option></select></label>
   <div id="planfile" class="muted"></div><div id="planactions"></div>
   <details id="planlocks"><summary>最终版本锁定</summary><pre id="planlocktext"></pre></details>
@@ -32,5 +32,14 @@
   <div id="planitems"></div>
   <div class="modalhead"><button id="planprev">上一页</button><span id="planpage"></span><button id="plannext">下一页</button></div>
 </section></div>
+<div id="decodemodal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="decodetitle"><section class="decodepanel">
+  <div class="modalhead"><h2 id="decodetitle">阶段 03 · 几何检查</h2><button id="decodeclose">关闭</button></div>
+  <div class="planprogress"><span id="decodestatus" role="status">等待解码</span><button id="decodecancel">取消解码</button><button id="openue" disabled>在 UE5 查看</button></div>
+  <p>静态检查预览 · 拖动旋转 / 滚轮缩放 / 方向键旋转 · UE 预览使用独立临时窗口，不保存人物资产。</p>
+  <div class="previewtools"><label><input id="wireframe" type="checkbox">线框</label><label><input id="showbones" type="checkbox">骨架</label><label><input id="uvcheck" type="checkbox">UV 棋盘</label><button id="resetcamera">重置视角</button></div>
+  <div class="geometrylayout"><canvas id="geometrycanvas" tabindex="0" aria-label="人物几何预览，方向键旋转，加减号缩放"></canvas><aside><h3>部件</h3><div id="meshlist"></div><h3>统计</h3><pre id="decodestats"></pre></aside></div>
+  <details><summary>格式诊断与预览限制</summary><pre id="decodeissues"></pre></details><p id="decodefile" class="muted"></p>
+</section></div>
 <script src="app.js"></script>
+<script src="decode_preview.js"></script>
 </body></html>

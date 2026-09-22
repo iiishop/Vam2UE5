@@ -648,6 +648,10 @@ def serve(data, parent=0):
     plan_module = importlib.util.module_from_spec(plan_spec)
     plan_spec.loader.exec_module(plan_module)
     plans = plan_module.PlanService(catalog)
+    preview_spec = importlib.util.spec_from_file_location('vam_preview', Path(__file__).with_name('vam_preview.py'))
+    preview_module = importlib.util.module_from_spec(preview_spec)
+    preview_spec.loader.exec_module(preview_module)
+    decoder = preview_module.DecodeService(catalog, plans)
     token = secrets.token_urlsafe(32)
     ui = Path(__file__).resolve().parent.parent / 'Web'
 
@@ -681,9 +685,9 @@ def serve(data, parent=0):
         def do_GET(self):
             try:
                 route, args = self.route()
-                if route in ('', 'index.html', 'app.js', 'style.css'):
+                if route in ('', 'index.html', 'app.js', 'decode_preview.js', 'style.css'):
                     file = route or 'index.html'
-                    mime = {'index.html': 'text/html; charset=utf-8', 'app.js': 'application/javascript; charset=utf-8', 'style.css': 'text/css; charset=utf-8'}[file]
+                    mime = {'index.html': 'text/html; charset=utf-8', 'app.js': 'application/javascript; charset=utf-8', 'decode_preview.js': 'application/javascript; charset=utf-8', 'style.css': 'text/css; charset=utf-8'}[file]
                     self.respond(200, (ui / file).read_bytes(), mime)
                 elif route == 'api/state': self.respond(200, catalog.status())
                 elif route == 'api/query': self.respond(200, catalog.query(args))
@@ -694,6 +698,9 @@ def serve(data, parent=0):
                 elif route == 'api/plan/history': self.respond(200, plans.history())
                 elif route == 'api/plan/result': self.respond(200, plans.result(args.get('id', ''), args.get('action', ''), args.get('offset', 0)))
                 elif route == 'api/plan/export': self.respond(200, plans.read_plan(args.get('id', '')))
+                elif route == 'api/decode/state': self.respond(200, decoder.status())
+                elif route == 'api/decode/result': self.respond(200, decoder.result())
+                elif route == 'api/decode/ue-state': self.respond(200, decoder.ue_status())
                 elif route == 'api/thumb':
                     image, ext = catalog.thumbnail(args.get('id', ''))
                     self.respond(200, image, 'image/png' if ext == '.png' else 'image/jpeg')
@@ -715,6 +722,9 @@ def serve(data, parent=0):
                     catalog.cancel.set()
                     result = dict(cancelled=True)
                 elif route == 'api/plan/start': result = plans.start(args.get('ids', []), args.get('locked_plan', ''))
+                elif route == 'api/decode/start': result = decoder.start(args.get('plan_id',''))
+                elif route == 'api/decode/cancel': result = decoder.cancel()
+                elif route == 'api/decode/ue': result = decoder.open_ue()
                 elif route == 'api/plan/cancel':
                     plans.cancel.set()
                     result = dict(cancelled=True)

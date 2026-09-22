@@ -356,6 +356,19 @@ class Planner:
         if not active:
             self.edge(origin, field, raw, '', False, 'disabled_or_zero_weight')
             return
+        # A locked partial plan also locks its exclusions. Unresolved references
+        # never acquired a package version lock; resolving them again would turn
+        # their original diagnostic into lock_incomplete and change plan identity.
+        if self.locked:
+            prior = next((e for e in self.locked.get('edges', [])
+                          if e['from'] == origin and e['field'] == field and e['reference'] == raw), None)
+            saved = next((i for i in self.locked.get('items', [])
+                          if prior and i['id'] == prior['to']), None)
+            if (saved and saved.get('resource_kind') == 'unresolved'
+                    and saved.get('action') in ('missing', 'unsupported') and not saved.get('sha256')):
+                self.items.setdefault(saved['id'], dict(saved, references=[]))
+                self.edge(origin, field, raw, saved['id'])
+                return
         try:
             if not known:
                 raise PlanFailure('unsupported', 'uninterpreted_reference', 'Reference-like value in an unknown field; preserved for review')
