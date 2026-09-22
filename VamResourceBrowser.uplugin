@@ -9,5 +9,6 @@
   "EnabledByDefault": false,
   "CanContainContent": false,
   "SupportedTargetPlatforms": ["Win64"],
+  "Plugins": [{"Name":"PythonScriptPlugin","Enabled":true},{"Name":"GeometryScripting","Enabled":true}],
   "Modules": [{"Name": "VamResourceBrowser", "Type": "Editor", "LoadingPhase": "PostEngineInit"}]
 }

@@ -3,6 +3,34 @@ import math
 from vam_decode import require, finite, validate_mesh
 
 
+def apply_graft_boundary(body, target, merged, graft_parameters):
+    """DAZMergedMesh Boundary movement transfer, after local morph deltas."""
+    require(merged['graftMethod']==1,'graft_method','Only Boundary transfer is supported')
+    pairs=graft_parameters['meshGraft']['vertexPairs']
+    count=merged['numGraftBaseVertices'];offset=merged['startGraftVertIndex']
+    weights=merged['_graftWeights'];free=merged['_graftIsFreeVert']
+    require(len(free)==count and len(weights)==len(pairs)*count,'graft_weights','Weight dimensions mismatch')
+    require(offset+count<=len(body['vertices']),'graft_domain','Graft exceeds body')
+    movements=[]
+    for pair in pairs:
+        source=pair['graftToVertexNum'];local=pair['vertexNum']
+        require(0<=source<len(target['vertices']) and 0<=local<count,'graft_pair','Invalid vertex pair')
+        movements.append([body['vertices'][source][k]-target['vertices'][source][k]for k in range(3)])
+    updates={}
+    for i in range(count):
+        if not free[i]:continue
+        factors=[merged['_graft'+axis+'Factor']for axis in 'XYZ']
+        if merged.get('useGraftSymmetry'):
+            axis=merged['graftSymmetryAxis'];distance=merged['graftSymmetryDistance']
+            require(distance>0,'graft_symmetry','Invalid symmetry distance')
+            factors[axis]*=min(1,abs(body['vertices'][offset+i][axis])/distance)
+        updates[offset+i]=[body['vertices'][offset+i][k]+sum(delta[k]*weights[j*count+i]*factors[k]for j,delta in enumerate(movements))for k in range(3)]
+    for pair in pairs:updates[offset+pair['vertexNum']]=body['vertices'][pair['graftToVertexNum']][:]
+    finite(updates)
+    for i,vertex in updates.items():body['vertices'][i]=vertex
+    return {'method':'Boundary','vertices':count,'boundary_pairs':len(pairs)}
+
+
 def apply_morph(body, decoded, value, base_count, uv_count, vertex_offset=0):
     # DAZMorphBank applies in its connected (unmerged) mesh's UV domain.
     # DAZMesh subsequently overwrites duplicate UV vertices from base vertices.

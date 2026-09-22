@@ -1,5 +1,6 @@
 """Unsaved UE reference materials. This is not a Canonical/Game material adapter."""
 import json
+import hashlib
 from pathlib import Path
 import unreal
 
@@ -7,7 +8,7 @@ import unreal
 class Appearance:
     def __init__(self,path):
         self.ir=json.loads(Path(path).read_text(encoding='utf8'))
-        self.folder='/Game/SourceAppearanceReference/R2_M'+self.ir['material_id'][:16]
+        self.folder='/Game/SourceAppearanceReference/R5'
         self.textures={};self.materials={};self.errors=[]
         self.bindings={(m['binding']['mesh'],m['binding']['slot']):m for m in self.ir['materials']}
 
@@ -18,8 +19,12 @@ class Appearance:
         if normal and asset['encoding']=='unity_decoded_pixels':return None
         key=(asset['sha256'],record['color_space'],normal)
         if key in self.textures:return self.textures[key]
+        name='T_'+asset['sha256'][:20]+('_N' if normal else '_S' if record['color_space']=='sRGB' else '_L')
+        cached=unreal.find_object(None,self.folder+'/'+name+'.'+name)
+        if cached:
+            self.textures[key]=cached;return cached
         task=unreal.AssetImportTask();task.filename=asset['file'];task.destination_path=self.folder
-        task.destination_name='T_'+asset['sha256'][:20]+('_N' if normal else '_S' if record['color_space']=='sRGB' else '_L')
+        task.destination_name=name
         task.automated=True;task.save=False;task.replace_existing=True
         unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task])
         if not task.imported_object_paths:raise RuntimeError('Texture import returned no object: '+asset['file'])
@@ -34,14 +39,23 @@ class Appearance:
         if record['render_state']['hidden']:return None,True
         if record['id'] in self.materials:return self.materials[record['id']],False
         try:
-            mat=unreal.AssetToolsHelpers.get_asset_tools().create_asset('M_'+record['id'][:20],self.folder,unreal.Material,unreal.MaterialFactoryNew())
+            signature={k:record.get(k)for k in ('parameters','render_state','hair_parameters')}
+            signature['shader']=record['source_shader'].get('name')
+            signature['textures']={k:{p:v.get(p)for p in ('semantic','color_space','ue_scale','ue_offset')}|{'asset':(v.get('asset') or {}).get('sha256')}for k,v in record['textures'].items()}
+            name='M_'+hashlib.sha256(json.dumps(signature,sort_keys=True).encode()).hexdigest()[:24]
+            mat=unreal.find_object(None,self.folder+'/'+name+'.'+name)
+            if mat and unreal.EditorAssetLibrary.get_metadata_tag(mat,'VamReady')=='1':
+                self.materials[record['id']]=mat;return mat,False
+            mat=unreal.AssetToolsHelpers.get_asset_tools().create_asset(name,self.folder,unreal.Material,unreal.MaterialFactoryNew())
             edit=unreal.MaterialEditingLibrary
             def node(cls):return edit.create_material_expression(mat,cls)
             def scalar(value):
                 n=node(unreal.MaterialExpressionConstant);n.set_editor_property('r',float(value));return n
             def vector(value):
                 n=node(unreal.MaterialExpressionConstant3Vector);n.set_editor_property('constant',unreal.LinearColor(*value[:3],1));return n
-            def connect(source,name,target,pin):edit.connect_material_expressions(source,name,target,pin)
+            def connect(source,name,target,pin):
+                if not edit.connect_material_expressions(source,name,target,pin):
+                    raise RuntimeError('Material connection failed: '+str(source.get_class().get_name())+'.'+name+' -> '+str(target.get_class().get_name())+'.'+pin)
             def multiply(a,b):
                 n=node(unreal.MaterialExpressionMultiply);connect(a,'',n,'A');connect(b,'',n,'B');return n
             def sample(prop):
@@ -56,9 +70,18 @@ class Appearance:
                 sx,sy=tex_record['ue_scale'];uv.set_editor_property('u_tiling',sx);uv.set_editor_property('v_tiling',sy)
                 ox,oy=tex_record['ue_offset']
                 offset=node(unreal.MaterialExpressionConstant2Vector);offset.set_editor_property('r',ox);offset.set_editor_property('g',oy)
-                add=node(unreal.MaterialExpressionAdd);connect(uv,'',add,'A');connect(offset,'',add,'B');connect(add,'',n,'Coordinates')
+                add=node(unreal.MaterialExpressionAdd);connect(uv,'',add,'A');connect(offset,'',add,'B');connect(add,'',n,'')
                 return n
             params=record['parameters'];tint=params.get('_Color',[1,1,1,1]);base=vector(tint)
+            hair=record.get('hair_parameters')
+            if hair:
+                import colorsys
+                def hair_color(value):
+                    return list(colorsys.hsv_to_rgb(*(float(value.get(k,0))for k in ('h','s','v'))))
+                root=hair_color(hair.get('rootColor',{'v':.08}));tip=hair_color(hair.get('tipColor',hair.get('rootColor',{'v':.08})))
+                coord=node(unreal.MaterialExpressionTextureCoordinate)
+                mask=node(unreal.MaterialExpressionComponentMask);mask.set_editor_property('r',False);mask.set_editor_property('g',True);connect(coord,'',mask,'')
+                gradient=node(unreal.MaterialExpressionLinearInterpolate);connect(vector(root),'',gradient,'A');connect(vector(tip),'',gradient,'B');connect(mask,'',gradient,'Alpha');base=gradient
             diffuse=sample('_MainTex')
             if diffuse:base=multiply(diffuse,base)
             decal=sample('_DecalTex')
@@ -75,6 +98,7 @@ class Appearance:
                 blend_mode='translucent'
             if blend_mode in ('masked','translucent'):
                 mat.set_editor_property('blend_mode',unreal.BlendMode.BLEND_MASKED if blend_mode=='masked' else unreal.BlendMode.BLEND_TRANSLUCENT)
+                if blend_mode=='translucent':mat.set_editor_property('translucency_lighting_mode',unreal.TranslucencyLightingMode.TLM_SURFACE_PER_PIXEL_LIGHTING)
                 alpha=sample('_AlphaTex');opacity=scalar(1.)
                 if 'SeparateAlpha' not in (record['source_shader'].get('name') or ''):
                     opacity=scalar(tint[3] if len(tint)>3 else 1.)
@@ -87,11 +111,11 @@ class Appearance:
                     else:
                         opacity=node(unreal.MaterialExpressionMultiply);connect(alpha,'A',opacity,'A');connect(scalar(1.),'',opacity,'B')
                 adjust=node(unreal.MaterialExpressionAdd);connect(opacity,'',adjust,'A');connect(scalar(params.get('_AlphaAdjust',0)),'',adjust,'B')
-                clamp=node(unreal.MaterialExpressionClamp);connect(adjust,'',clamp,'Input')
+                clamp=node(unreal.MaterialExpressionClamp);connect(adjust,'',clamp,'')
                 edit.connect_material_property(clamp,'',unreal.MaterialProperty.MP_OPACITY_MASK if blend_mode=='masked' else unreal.MaterialProperty.MP_OPACITY)
                 mat.set_editor_property('opacity_mask_clip_value',float(params.get('_Cutoff',.3)))
-            mat.set_editor_property('two_sided',bool(record['render_state']['two_sided']))
-            edit.recompile_material(mat);self.materials[record['id']]=mat
+            mat.set_editor_property('two_sided',True if hair else bool(record['render_state']['two_sided']))
+            edit.recompile_material(mat);unreal.EditorAssetLibrary.set_metadata_tag(mat,'VamReady','1');self.materials[record['id']]=mat
             return mat,False
         except Exception as exc:
             self.errors.append({'binding':record['binding'],'error':str(exc)});return None,False

@@ -242,7 +242,7 @@ def build_material_ir(plan,ir,preview,out):
                 for m in affected:m['parameters'][PARAMS[key]]=color(value) if isinstance(value,dict) else float(value)
             elif key in ('hideMaterial','renderQueue'):
                 used.add(key)
-                for m in affected:m['render_state']['hidden' if key=='hideMaterial' else 'render_queue']=str(value).lower()=='true' if key=='hideMaterial' else int(value)
+                for m in affected:m['render_state']['hidden' if key=='hideMaterial' else 'render_queue']=str(value).lower()=='true' if key=='hideMaterial' else float(value)
             elif key.startswith('customTexture_'):
                 used.add(key);prop=key[len('customTexture'):]
                 if not value:

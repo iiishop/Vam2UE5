@@ -12,7 +12,7 @@ foreach ($entry in @('VamResourceBrowser.uplugin', 'Source', 'Config', 'Scripts'
 }
 $descriptor = Join-Path $stage 'VamResourceBrowser.uplugin'
 & (Join-Path $Engine 'Engine\Build\BatchFiles\RunUAT.bat') BuildPlugin "-Plugin=$descriptor" "-Package=$buildOutput" -TargetPlatforms=Win64 -Rocket
-if ($LASTEXITCODE -ne 0) { throw 'UE plugin compilation failed. Check the UAT log above; C++ Build Tools and Windows SDK are required.' }
+if ($LASTEXITCODE -ne 0) { throw 'UE plugin build failed. See the concrete compiler/SDK/linker error in the UAT log above.' }
 $builtBinaries = Join-Path $buildOutput 'Binaries'
 if (-not (Test-Path -LiteralPath $builtBinaries)) { throw 'Build completed without plugin binaries.' }
 Copy-Item -LiteralPath $builtBinaries -Destination $pluginRoot -Recurse -Force

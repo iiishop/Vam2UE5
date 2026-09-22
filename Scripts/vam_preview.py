@@ -181,10 +181,16 @@ def decode_plan(plan, catalog):
                         fail({'id':root_id,'path':str(morph)},exc)
         from vam_fit import finalize_bone_centers
         finalize_bone_centers(bones)
+        try:
+            from vam_fit import apply_graft_boundary
+            graft_id=str(body_data['graftMesh']['m_PathID'])
+            graft_parameters=next(r['parameters']for r in raw_records if r.get('kind')=='unity_mesh' and r['object']==graft_id)
+            raw_records.append({'kind':'graft_transfer','data':apply_graft_boundary(body,morph_mesh,body_data,graft_parameters)})
+        except Exception as exc:fail(characters[0],exc)
         render.insert(0,preview_mesh(body,characters[0]['path']+' + preset morphs',{'source':'builtin','object':body_source}))
         warnings.extend(['Static inspection pose; source triaxial skinning, joint corrections and physics are not executed.',
                          'Clothing/custom scalps use validated static skin wrapping; hair roots translate with validated builtin/custom scalps. Hair rotation, smoothing, thickness and simulation are not yet applied.',
-                         'Materials are inspection colors by region; source shader/texture parameters are preserved in the plan/IR.'])
+                         'Web preview uses inspection colors. UE source materials are available after material parsing.'])
     from vam_fit import fit_wrap
     scalp_cache={}
     def fit_to_body(mesh,wrap):
@@ -318,27 +324,22 @@ class DecodeService:
         require(not self.status()['running'],'busy','Wait for decoding to finish')
         result=self.result()
         require(result.get('meshes'),'no_geometry','No usable geometry to preview')
-        # Use the engine that hosts this service; never execute a path from VaM.
-        python=Path(sys.executable).resolve()
-        engine=python.parents[4] if python.parent.name=='Win64' else None
-        executable=engine/'Binaries/Win64/UnrealEditor.exe' if engine else Path('')
-        require(executable.is_file(),'ue_runtime','Start this service using the bundled UE Python runtime')
-        if getattr(self,'ue_process',None) and self.ue_process.poll() is None:
-            return {'status':'already_open','message':'Close the existing inspection window before loading another result.'}
-        host=self.directory/'UEPreviewHost';host.mkdir(exist_ok=True)
-        project=host/'VamPreview.uproject'
-        project.write_text(json.dumps({'FileVersion':3,'Plugins':[{'Name':'PythonScriptPlugin','Enabled':True},{'Name':'GeometryScripting','Enabled':True}]}),encoding='utf8')
+        import time
+        heartbeat=self.catalog.data/'editor-alive.txt'
+        require(heartbeat.exists() and time.time()-heartbeat.stat().st_mtime<10,'editor_required','请在 UE 当前工程的窗口菜单中打开 VaM 资源浏览器，再预览人物。')
         request=self.directory/result.get('appearance_file',result['decode_id']+'.preview.json')
         require(request.resolve().parent==self.directory.resolve(),'preview_path','Invalid preview cache path')
         self.ue_result=request.with_suffix('.ue-result.json')
         if self.ue_result.exists():self.ue_result.unlink()
-        env=dict(os.environ,VAM_PREVIEW_REQUEST=str(request))
-        self.ue_process=subprocess.Popen([str(executable),str(project),'-nosplash','-nop4',
-            '-ExecutePythonScript='+str(SCRIPTS/'ue_geometry_preview.py'),'-abslog='+str(self.directory/'ue-preview.log')],env=env)
-        return {'status':'starting','pid':self.ue_process.pid}
+        queue=self.catalog.data/'preview-request.json'
+        require(not queue.exists() and not (self.catalog.data/'preview-active.json').exists(),'busy','当前编辑器正在加载人物')
+        temp=queue.with_suffix('.tmp');temp.write_bytes(canonical({'request':str(request.resolve())}));temp.replace(queue)
+        self.ue_queued=True
+        return {'status':'starting','message':'正在载入当前 UE 场景'}
 
     def ue_status(self):
         if getattr(self,'ue_result',None) and self.ue_result.exists():return strict_json(self.ue_result.read_bytes())
+        if getattr(self,'ue_queued',False):return {'status':'starting'}
         if getattr(self,'ue_process',None):return {'status':'starting' if self.ue_process.poll() is None else 'closed'}
         return {'status':'idle'}
 

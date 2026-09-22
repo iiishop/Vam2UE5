@@ -7,7 +7,7 @@ public class VamResourceBrowser : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         PrivateDependencyModuleNames.AddRange(new[] {
             "Core", "CoreUObject", "Engine", "Slate", "SlateCore", "UnrealEd",
-            "ToolMenus", "Projects", "WebBrowser", "Json", "DesktopPlatform"
+            "ToolMenus", "Projects", "WebBrowser", "Json", "DesktopPlatform", "PythonScriptPlugin"
         });
     }
 }

@@ -19,6 +19,7 @@
 #include "Serialization/JsonSerializer.h"
 #include "DesktopPlatformModule.h"
 #include "IDesktopPlatform.h"
+#include "IPythonScriptPlugin.h"
 
 #define LOCTEXT_NAMESPACE "VamResourceBrowser"
 
@@ -28,8 +29,21 @@ class FVamResourceBrowserModule final : public IModuleInterface
     FString DataDir, ReadyPath, Url;
     TWeakPtr<SWebBrowser> Browser;
     FTSTicker::FDelegateHandle PollHandle;
+    FTSTicker::FDelegateHandle PreviewHandle;
     FDelegateHandle MenuHandle;
     double StartTime = 0;
+
+    bool PreviewTick(float)
+    {
+        if (DataDir.IsEmpty()) return true;
+        FFileHelper::SaveStringToFile(FString::FromInt(FPlatformProcess::GetCurrentProcessId()), *(DataDir / TEXT("editor-alive.txt")));
+        const FString Queue = DataDir / TEXT("preview-request.json");
+        if (!FPaths::FileExists(Queue)) return true;
+        IFileManager::Get().Move(*(DataDir / TEXT("preview-active.json")), *Queue, true);
+        const FString Script = FPaths::ConvertRelativePathToFull(IPluginManager::Get().FindPlugin(TEXT("VamResourceBrowser"))->GetBaseDir() / TEXT("Scripts/ue_current_preview.py"));
+        if (auto* Python = IPythonScriptPlugin::Get()) Python->ExecPythonCommand(*Script);
+        return true;
+    }
 
     bool Poll(float)
     {
@@ -56,6 +70,8 @@ class FVamResourceBrowserModule final : public IModuleInterface
     void StopWorker()
     {
         if (PollHandle.IsValid()) { FTSTicker::GetCoreTicker().RemoveTicker(PollHandle); PollHandle.Reset(); }
+        if (PreviewHandle.IsValid()) { FTSTicker::GetCoreTicker().RemoveTicker(PreviewHandle); PreviewHandle.Reset(); }
+        if (!DataDir.IsEmpty()) IFileManager::Get().Delete(*(DataDir / TEXT("editor-alive.txt")));
         if (Worker.IsValid())
         {
             FPlatformProcess::TerminateProc(Worker, true);
@@ -72,6 +88,15 @@ class FVamResourceBrowserModule final : public IModuleInterface
         DataDir = FPaths::ConvertRelativePathToFull(PluginDir / TEXT("Saved"));
         IFileManager::Get().MakeDirectory(*DataDir, true);
         ReadyPath = DataDir / TEXT("ready.json");
+        PreviewHandle = FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateRaw(this, &FVamResourceBrowserModule::PreviewTick), 1.0f);
+        FString ExistingText;
+        TSharedPtr<FJsonObject> Existing;
+        if (FFileHelper::LoadFileToString(ExistingText, *ReadyPath) && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(ExistingText), Existing) && Existing.IsValid() && FPlatformProcess::IsApplicationRunning((uint32)Existing->GetIntegerField(TEXT("pid"))))
+        {
+            Url = Existing->GetStringField(TEXT("url"));
+            if (auto View = Browser.Pin()) View->LoadURL(Url);
+            return true;
+        }
         IFileManager::Get().Delete(*ReadyPath);
         const FString Python = FPaths::ConvertRelativePathToFull(FPaths::EngineDir() / TEXT("Binaries/ThirdParty/Python3/Win64/python.exe"));
         const FString Script = FPaths::ConvertRelativePathToFull(PluginDir / TEXT("Scripts/vam_index.py"));
@@ -110,7 +135,7 @@ class FVamResourceBrowserModule final : public IModuleInterface
                         return FReply::Handled();
                     }) ]
                 + SHorizontalBox::Slot().FillWidth(1).VAlign(VAlign_Center).Padding(12,0)
-                [ SNew(STextBlock).Text(LOCTEXT("ReadOnly", "阶段 01–02 · 资源浏览与导入计划 · 数据保存在本插件 Saved 目录")) ]
+                [ SNew(STextBlock).Text(LOCTEXT("ReadOnly", "VaM 资源浏览器 · 在当前编辑器场景预览 · 缓存位于插件 Saved 目录")) ]
             ]
             + SVerticalBox::Slot().FillHeight(1)
             [ SAssignNew(View, SWebBrowser).InitialURL(TEXT("about:blank")).ShowControls(false)
@@ -136,8 +161,8 @@ public:
             FToolMenuOwnerScoped Owner(this);
             UToolMenu* Menu = UToolMenus::Get()->ExtendMenu(TEXT("LevelEditor.MainMenu.Window"));
             Menu->FindOrAddSection(TEXT("WindowLayout")).AddMenuEntry(TEXT("VamResourceBrowser"),
-                LOCTEXT("Menu", "VaM 资源浏览器"), LOCTEXT("Tip", "浏览 VaM 松散资源与 VAR 包，不导入几何"),
-                FSlateIcon(), FUIAction(FExecuteAction::CreateLambda([]() { FGlobalTabmanager::Get()->TryInvokeTab(TEXT("VamResourceBrowser")); })));
+                LOCTEXT("Menu", "VaM 资源浏览器"), LOCTEXT("Tip", "浏览 VaM 资源并在当前场景预览人物"),
+                FSlateIcon(), FUIAction(FExecuteAction::CreateLambda([]() { FGlobalTabmanager::Get()->TryInvokeTab(FTabId(FName(TEXT("VamResourceBrowser")))); })));
         }));
     }
     virtual void ShutdownModule() override
