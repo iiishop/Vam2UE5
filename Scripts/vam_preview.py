@@ -276,14 +276,22 @@ class DecodeService:
             self.state={'running':True,'status':'decoding','plan_id':identity,'error':''}
         threading.Thread(target=self.run,args=(identity,),daemon=True).start()
         return self.status()
-    def run(self,identity):
+    def start_materials(self):
+        with self.lock:
+            require(not self.state['running'],'busy','Decode already running')
+            result=self.result()
+            self.state={'running':True,'status':'materials','plan_id':result['plan_id'],'error':''}
+        threading.Thread(target=self.run,args=(result['plan_id'],True),daemon=True).start()
+        return self.status()
+    def run(self,identity,materials=False):
         try:
             args=[sys.executable,'-I',str(SCRIPTS/'vam_preview.py'),'--plan',str(self.plans.directory/(identity+'.json')),'--data',str(self.catalog.data)]
+            if materials:args=[sys.executable,'-I',str(SCRIPTS/'vam_material_worker.py'),'--data',str(self.catalog.data)]
             with (self.directory/'worker.log').open('w',encoding='utf8') as log:
                 with self.lock:
                     if self.state.get('cancelled'):return
                     self.process=subprocess.Popen(args,stdout=log,stderr=log,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
-                code=self.process.wait(timeout=300)
+                code=self.process.wait(timeout=600 if materials else 300)
             with self.lock:
                 if self.state.get('cancelled'):return
             require(code==0,'worker_failed',(self.directory/'worker.log').read_text(encoding='utf8')[-2500:])
@@ -301,6 +309,10 @@ class DecodeService:
         return self.status()
     def result(self):
         return strict_json((self.directory/'latest.json').read_bytes())
+    def material_result(self):
+        result=self.result();path=Path(result.get('source_material_ir','')).resolve()
+        require(path.parent==(self.catalog.data/'SourceAppearance').resolve(),'material_result','No material result for this preview')
+        return strict_json(path.read_bytes())
 
     def open_ue(self):
         require(not self.status()['running'],'busy','Wait for decoding to finish')
@@ -316,7 +328,8 @@ class DecodeService:
         host=self.directory/'UEPreviewHost';host.mkdir(exist_ok=True)
         project=host/'VamPreview.uproject'
         project.write_text(json.dumps({'FileVersion':3,'Plugins':[{'Name':'PythonScriptPlugin','Enabled':True},{'Name':'GeometryScripting','Enabled':True}]}),encoding='utf8')
-        request=self.directory/(result['decode_id']+'.preview.json')
+        request=self.directory/result.get('appearance_file',result['decode_id']+'.preview.json')
+        require(request.resolve().parent==self.directory.resolve(),'preview_path','Invalid preview cache path')
         self.ue_result=request.with_suffix('.ue-result.json')
         if self.ue_result.exists():self.ue_result.unlink()
         env=dict(os.environ,VAM_PREVIEW_REQUEST=str(request))

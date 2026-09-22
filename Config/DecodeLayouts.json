@@ -28,5 +28,14 @@
   ],
   "DAZSkinWrapStore": [
     "101620ca420b3d2eaa858734a381aad93f549010b04d46db4a9ba9039d50c970"
+  ],
+  "DAZCharacterMaterialOptions": [
+    "6c338a0a34c1794fde81d6da975aa5ac4913501ccb04b3a4b9bb03444c25a701"
+  ],
+  "DAZSkinWrapMaterialOptions": [
+    "e605f9883ed36b55abf4015ee1f8330e8ce325ed2de57ee7fd0a64c61328d1ed"
+  ],
+  "DAZCharacterTextureControl": [
+    "d1a36a588f53d9a1016a0f5a8756866fac13ac3284aedaa8ffa2e6d23c2e2147"
   ]
 }

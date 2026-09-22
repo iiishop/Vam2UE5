@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VaM 资源浏览器</title><link rel="stylesheet" href="style.css"></head>
 <body>
 <header>
-  <div class="brand"><span class="mark">V</span><div><h1>VaM 资源浏览器 <small>阶段 01–03</small></h1><p>资源索引、依赖解析与几何检查</p></div><span class="readonly">只读来源</span></div>
+  <div class="brand"><span class="mark">V</span><div><h1>VaM 资源浏览器 <small>阶段 01–04</small></h1><p>资源索引、依赖解析、几何与来源材质检查</p></div><span class="readonly">只读来源</span></div>
   <div class="rootbar"><label for="root">VaM 目录</label><input id="root" spellcheck="false" placeholder="F:\Virt A Mate"><button id="apply" class="primary">应用目录</button><label class="check"><input id="auto" type="checkbox" checked> 自动检查变化</label></div>
   <div class="scanbar"><button id="scan">增量扫描</button><button id="rebuild">重建索引</button><button id="cancel" disabled>取消扫描</button><progress id="progress" max="1" value="0"></progress><span id="status" role="status">正在连接…</span><button id="openplans">导入计划</button><button id="diagnostics">诊断 <span id="diagcount">0</span></button></div>
 </header>
@@ -34,7 +34,7 @@
 </section></div>
 <div id="decodemodal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="decodetitle"><section class="decodepanel">
   <div class="modalhead"><h2 id="decodetitle">阶段 03 · 几何检查</h2><button id="decodeclose">关闭</button></div>
-  <div class="planprogress"><span id="decodestatus" role="status">等待解码</span><button id="decodecancel">取消解码</button><button id="openue" disabled>在 UE5 查看</button></div>
+  <div class="planprogress"><span id="decodestatus" role="status">等待解码</span><button id="decodecancel">取消任务</button><button id="sourcematerials" disabled>解析来源材质</button><button id="openue" disabled>在 UE5 查看</button></div>
   <p>静态检查预览 · 拖动旋转 / 滚轮缩放 / 方向键旋转 · UE 预览使用独立临时窗口，不保存人物资产。</p>
   <div class="previewtools"><label><input id="wireframe" type="checkbox">线框</label><label><input id="showbones" type="checkbox">骨架</label><label><input id="uvcheck" type="checkbox">UV 棋盘</label><button id="resetcamera">重置视角</button></div>
   <div class="geometrylayout"><canvas id="geometrycanvas" tabindex="0" aria-label="人物几何预览，方向键旋转，加减号缩放"></canvas><aside><h3>部件</h3><div id="meshlist"></div><h3>统计</h3><pre id="decodestats"></pre></aside></div>

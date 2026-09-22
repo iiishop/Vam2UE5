@@ -700,6 +700,7 @@ def serve(data, parent=0):
                 elif route == 'api/plan/export': self.respond(200, plans.read_plan(args.get('id', '')))
                 elif route == 'api/decode/state': self.respond(200, decoder.status())
                 elif route == 'api/decode/result': self.respond(200, decoder.result())
+                elif route == 'api/decode/material-result': self.respond(200, decoder.material_result())
                 elif route == 'api/decode/ue-state': self.respond(200, decoder.ue_status())
                 elif route == 'api/thumb':
                     image, ext = catalog.thumbnail(args.get('id', ''))
@@ -723,6 +724,7 @@ def serve(data, parent=0):
                     result = dict(cancelled=True)
                 elif route == 'api/plan/start': result = plans.start(args.get('ids', []), args.get('locked_plan', ''))
                 elif route == 'api/decode/start': result = decoder.start(args.get('plan_id',''))
+                elif route == 'api/decode/materials': result = decoder.start_materials()
                 elif route == 'api/decode/cancel': result = decoder.cancel()
                 elif route == 'api/decode/ue': result = decoder.open_ue()
                 elif route == 'api/plan/cancel':

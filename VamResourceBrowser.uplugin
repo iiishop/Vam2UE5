@@ -1,9 +1,9 @@
 {
   "FileVersion": 3,
-  "Version": 3,
-  "VersionName": "0.3.0",
+  "Version": 4,
+  "VersionName": "0.4.0",
   "FriendlyName": "VaM Resource Browser",
-  "Description": "VaM resource indexing, dependency planning, strict source decoding and temporary geometry inspection. Stages 01-03.",
+  "Description": "VaM resource indexing, dependency planning, source decoding and source appearance reference. Stages 01-04.",
   "Category": "Editor",
   "CreatedBy": "SmartNPC",
   "EnabledByDefault": false,
