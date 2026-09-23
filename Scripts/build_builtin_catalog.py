@@ -72,6 +72,27 @@ def build(root, output):
             pending.extend(deps[name])
         return sorted(found)
 
+    def has_renderer(objects, transform_id):
+        """Check the exact utility prefab tree, without reading mesh payloads."""
+        pending, seen = [transform_id], set()
+        while pending:
+            current = pending.pop()
+            if current in seen:
+                continue
+            seen.add(current)
+            transform = objects[current].read_typetree()
+            pending.extend(child['m_PathID'] for child in transform.get('m_Children', [])
+                           if child['m_FileID'] == 0 and child['m_PathID'])
+            game_object = objects[transform['m_GameObject']['m_PathID']].read_typetree()
+            for component in game_object.get('m_Component', []):
+                ref = component['component']
+                if ref['m_FileID'] != 0 or not ref['m_PathID']:
+                    continue
+                kind = objects[ref['m_PathID']].type.name
+                if kind in ('MeshRenderer', 'SkinnedMeshRenderer', 'ParticleSystemRenderer', 'LineRenderer'):
+                    return True
+        return False
+
     # The Person prefab is the actual selectable registry, not benchmark copies.
     env = UnityPy.load(str(base / 'a_per'))
     fingerprint('a_per')
@@ -96,6 +117,16 @@ def build(root, output):
             if role == 'hair' and name == 'No Hair' and not data['prefab']['m_PathID']:
                 entries.append({'role': role, 'names': [name], 'gender': gender, 'operation': 'clear_hair',
                                 'evidence': evidence, 'files': ['a_per'], 'locator': {'operation': 'clear_hair'}})
+            elif (role == 'clothing' and name == 'Clothing Creator' and
+                  data.get('instanceName') == 'ClothingCreator' + gender.title() and
+                  data['prefab']['m_FileID'] == 0 and data['prefab']['m_PathID'] and
+                  not has_renderer(obj.assets_file.objects, data['prefab']['m_PathID'])):
+                entries.append({'role': role, 'names': [name], 'gender': gender,
+                                'operation': 'nonrendering_utility',
+                                'evidence': {**evidence, 'prefab': str(data['prefab']['m_PathID']),
+                                             'instanceName': data['instanceName'], 'renderer_count': 0},
+                                'files': ['a_per'],
+                                'locator': {'operation': 'nonrendering_utility', 'object': str(obj.path_id)}})
             continue
         required = closure(bundle)
         if bundle not in containers:

@@ -7,9 +7,15 @@ import hashlib
 import json
 import math
 import struct
+from functools import lru_cache
 
 MAX_COUNT = 2_000_000
 MAX_BYTES = 256 * 1024 * 1024
+
+
+@lru_cache(maxsize=32)
+def _record_struct(fmt):
+    return struct.Struct('<' + fmt)
 
 
 class DecodeError(ValueError):
@@ -26,9 +32,17 @@ def finite(value, path='value'):
     if isinstance(value, float):
         require(math.isfinite(value), 'non_finite', path)
     elif isinstance(value, dict):
-        for k, v in value.items(): finite(v, path + '/' + str(k))
+        for k, v in value.items():
+            if isinstance(v, float):
+                if not math.isfinite(v): raise DecodeError('non_finite', path + '/' + str(k))
+            elif isinstance(v, (dict, list, tuple)):
+                finite(v, path + '/' + str(k))
     elif isinstance(value, (list, tuple)):
-        for i, v in enumerate(value): finite(v, path + '/' + str(i))
+        for i, v in enumerate(value):
+            if isinstance(v, float):
+                if not math.isfinite(v): raise DecodeError('non_finite', path + '/' + str(i))
+            elif isinstance(v, (dict, list, tuple)):
+                finite(v, path + '/' + str(i))
 
 
 def to_ue(v): return [v[2]*100, v[0]*100, v[1]*100]
@@ -49,8 +63,15 @@ class Reader:
         return b
 
     def record(self, fmt):
-        result = struct.unpack('<'+fmt, self.take(struct.calcsize('<'+fmt)))
-        finite(result, 'byte '+str(self.pos))
+        layout = _record_struct(fmt)
+        end = self.pos + layout.size
+        if end > len(self.data):
+            raise DecodeError('truncated', f'Need {layout.size} bytes; {len(self.data)-self.pos} remain', self.pos)
+        result = layout.unpack_from(self.data, self.pos)
+        self.pos = end
+        for index, value in enumerate(result):
+            if isinstance(value, float) and not math.isfinite(value):
+                raise DecodeError('non_finite', 'byte '+str(end)+'/'+str(index))
         return list(result)
 
     def integer(self): return self.record('i')[0]

@@ -1,5 +1,5 @@
 """Cooperative cancellation and stage progress for an isolated native build job."""
-import json,os
+import json,os,time
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -23,8 +23,24 @@ def check_cancel():
     job=os.environ.get('VAM_BUILD_JOB')
     if job and (Path(job)/'cancel').exists():raise BuildCancelled('Cancelled before publication; ImportState unchanged')
 
-def progress(phase,detail='',cancellable=True):
+def progress(phase,detail='',cancellable=True,done=None,total=None):
     job=os.environ.get('VAM_BUILD_JOB')
     if not job:return
-    path=Path(job)/'status.json';temp=path.with_suffix('.tmp')
-    temp.write_text(json.dumps({'phase':phase,'detail':detail,'cancellable':cancellable},ensure_ascii=False),encoding='utf8');temp.replace(path)
+    path=Path(job)/'status.json';temp=path.with_name('status.'+str(os.getpid())+'.tmp')
+    state={'phase':phase,'detail':detail,'cancellable':cancellable}
+    if done is not None:state['done']=int(done)
+    if total is not None:state['total']=int(total)
+    temp.write_text(json.dumps(state,ensure_ascii=False),encoding='utf8')
+    # On Windows the editor's status reader can briefly hold the destination
+    # without FILE_SHARE_DELETE, making an otherwise valid replace fail.
+    deadline=time.monotonic()+3.0
+    try:
+        while True:
+            try:
+                temp.replace(path)
+                break
+            except PermissionError:
+                if time.monotonic()>=deadline:raise
+                time.sleep(.025)
+    finally:
+        temp.unlink(missing_ok=True)

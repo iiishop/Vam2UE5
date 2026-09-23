@@ -8,10 +8,12 @@ import hashlib
 import io
 import json
 from pathlib import Path
+import re
 import zipfile
 from vam_decode import require,finite,MAX_BYTES
 from vam_plan import canonical,sha
 from vam_unity import Bundle
+from vam_zip_compat import find_member
 
 SEMANTICS={'_MainTex':('base_color','sRGB'),'_SpecTex':('specular','linear'),
  '_GlossTex':('gloss','linear'),'_BumpMap':('normal','linear'),
@@ -48,8 +50,9 @@ def color(value):
 
 
 class Sources:
-    def __init__(self,plan,ir,out):
+    def __init__(self,plan,ir,out,progress=None):
         self.plan=plan;self.root=Path(plan['source_root']).resolve();self.out=out
+        self.progress=progress or (lambda *args, **kwargs: None);self.textures_processed=0
         self.files={};self.bundles={};self.cabs={};self.checked={};self.textures={}
         for item in plan['items']:self.files.update(item.get('builtin_mapping',{}).get('files',{}))
         self.items={i['id']:i for i in plan['items']}
@@ -59,6 +62,60 @@ class Sources:
         settings_path=out.parent/'settings.json'
         settings=json.loads(settings_path.read_text(encoding='utf8')) if settings_path.exists() else {}
         self.blob_limit=int(settings.get('material_cache_mb',8192))*1024**2
+        self.previous_pngs=None
+
+    def reusable_png(self, raw, image, encoding):
+        """Reuse an old derived PNG only after checking its hash and exact pixels.
+
+        Source bytes and texture semantics still come from the current locked plan.
+        Old material records are merely candidates, never trusted as authority.
+        """
+        if self.previous_pngs is None:
+            self.previous_pngs={}
+            for path in self.out.glob('*.materials.json'):
+                if not re.fullmatch(r'[0-9a-f]{64}\.materials\.json',path.name):continue
+                try:
+                    old=json.loads(path.read_bytes())
+                    for material in old.get('materials',[]):
+                        for value in material.get('textures',{}).values():
+                            asset=value.get('asset') if isinstance(value,dict) else None
+                            source=asset.get('source_raw') if isinstance(asset,dict) else None
+                            if not isinstance(source,dict) or not source.get('sha256'):continue
+                            key=(source['sha256'],asset.get('encoding'))
+                            candidate=(asset.get('sha256'),asset.get('file'))
+                            if all(candidate) and candidate not in self.previous_pngs.setdefault(key,[]):
+                                self.previous_pngs[key].append(candidate)
+                except (OSError,ValueError,TypeError):
+                    continue
+        from PIL import Image
+        for expected,name in self.previous_pngs.get((raw['sha256'],encoding),()):
+            path=Path(name).resolve()
+            if not path.is_relative_to(self.blobs.resolve()) or path.suffix!='.png' or not path.is_file():continue
+            try:
+                with path.open('rb') as stream:
+                    if hashlib.file_digest(stream,'sha256').hexdigest()!=expected:continue
+                with Image.open(path) as candidate:
+                    if candidate.mode==image.mode and candidate.size==image.size and candidate.tobytes()==image.tobytes():
+                        return {'sha256':expected,'file':str(path)}
+            except (OSError,ValueError):
+                continue
+        return None
+
+    def png(self,raw,image,encoding):
+        self.progress('解析来源贴图',f'正在核验或编码第 {self.textures_processed+1} 张贴图')
+        reused=self.reusable_png(raw,image,encoding)
+        if reused:
+            self.textures_processed+=1
+            self.progress('解析来源贴图',f'已处理 {self.textures_processed} 张贴图')
+            return reused
+        buffer=io.BytesIO()
+        # PNG is lossless. Level 3 retains identical decoded pixels and avoids
+        # the bulk of default level-6 compression time for new textures.
+        image.save(buffer,format='PNG',compress_level=3)
+        result=self.blob(buffer.getvalue(),'.png')
+        self.textures_processed+=1
+        self.progress('解析来源贴图',f'已处理 {self.textures_processed} 张贴图')
+        return result
 
     def blob(self,data,suffix):
         digest=sha(data);path=self.blobs/(digest+suffix)
@@ -107,8 +164,8 @@ class Sources:
         if key not in self.textures:
             texture=obj.read();require(texture.m_Width*texture.m_Height<=64*1024**2,'texture_limit',key)
             raw=self.blob(obj.get_raw_data(),'.unity-texture')
-            image=texture.image;buffer=io.BytesIO();image.save(buffer,format='PNG')
-            self.textures[key]={**self.blob(buffer.getvalue(),'.png'),'source':key,'source_raw':raw,
+            image=texture.image
+            self.textures[key]={**self.png(raw,image,'unity_decoded_pixels'),'source':key,'source_raw':raw,
                 'width':texture.m_Width,'height':texture.m_Height,'format':str(texture.m_TextureFormat),
                 'unity_color_space':getattr(texture,'m_ColorSpace',None),'encoding':'unity_decoded_pixels',
                 'sampler':str(getattr(texture,'m_TextureSettings',None))}
@@ -122,22 +179,24 @@ class Sources:
         if key not in self.textures:
             if item['source']:
                 with zipfile.ZipFile(self.path(item['source'])) as z:
-                    info=z.getinfo(item['path']);require(info.file_size<=MAX_BYTES,'texture_limit',raw);data=z.read(info)
+                    info=find_member(z,item['path']);require(info.file_size<=MAX_BYTES,'texture_limit',raw);data=z.read(info)
             else:
                 path=self.path(item['path']);require(path.stat().st_size<=MAX_BYTES,'texture_limit',raw);data=path.read_bytes()
             require(sha(data)==key,'source_changed',raw)
             from PIL import Image
             with Image.open(io.BytesIO(data)) as image:
                 require(image.width*image.height<=64*1024**2,'texture_limit',raw)
-                image.load();buffer=io.BytesIO();image.save(buffer,format='PNG')
-                self.textures[key]={**self.blob(buffer.getvalue(),'.png'),'source':{'item_id':item['id'],'source':item['source'],'path':item['path']},
-                    'source_raw':self.blob(data,Path(item['path']).suffix.lower()),'width':image.width,'height':image.height,'encoding':'source_image_pixels'}
+                image.load();raw_blob=self.blob(data,Path(item['path']).suffix.lower())
+                self.textures[key]={**self.png(raw_blob,image,'source_image_pixels'),'source':{'item_id':item['id'],'source':item['source'],'path':item['path']},
+                    'source_raw':raw_blob,'width':image.width,'height':image.height,'encoding':'source_image_pixels'}
         return copy.deepcopy(self.textures[key])
 
 
-def build_material_ir(plan,ir,preview,out):
+def build_material_ir(plan,ir,preview,out,progress=None):
     require(ir['plan_id']==plan['plan_id']==preview['plan_id'],'material_plan','Mismatched source inputs')
-    sources=Sources(plan,ir,out);materials=[];diagnostics=[];controllers={};source_configs=[]
+    report=progress or (lambda *args, **kwargs: None)
+    report('读取来源材质','绑定来源材质区与贴图')
+    sources=Sources(plan,ir,out,report);materials=[];diagnostics=[];controllers={};source_configs=[]
     def issue(code,location,scope,detail):diagnostics.append({'code':code,'source':location,'affected_bindings':scope,'impact':detail})
     def fresh(mesh,slot):
         return {'binding':{'mesh':mesh,'slot':slot,'region':preview['meshes'][mesh]['materials'][slot]},
@@ -318,7 +377,9 @@ def build_material_ir(plan,ir,preview,out):
         if graft and graft['parameters'].get('meshGraft',{}).get('hiddenPolys') and source['materials'][-1]=='Hidden':
             for index,mesh in enumerate(preview['meshes']):
                 if mesh['locator'].get('object')==record['object']:hidden_graft_slots.add((index,len(source['materials'])-1))
-    for m in materials:
+    report('整理材质绑定','核对材质区、透明度和着色参数',0,len(materials))
+    for material_number,m in enumerate(materials,1):
+        report('整理材质绑定',str(m['binding']['region']),material_number-1,len(materials))
         if (m['binding']['mesh'],m['binding']['slot']) in hidden_graft_slots:
             m['render_state']['hidden']=True
             m['render_state']['hidden_reason']='DAZMergedMesh reserved graft-replaced target polygons; retained for source indexing only'
@@ -350,9 +411,11 @@ def build_material_ir(plan,ir,preview,out):
             if value.get('asset') and (prop not in ('_MainTex','_AlphaTex','_DecalTex','_BumpMap') or (prop=='_BumpMap' and value['asset']['encoding']=='unity_decoded_pixels')):
                 issue('unsupported_reference_texture',value['source'],[m['binding']],prop+': source pixels retained; packed normals/specular/gloss/detail are not yet evaluated by reference adapter')
         m['id']=sha(canonical(m))
+    report('整理材质绑定','材质区核对完成',len(materials),len(materials))
     result={'schema':1,'interpreter':'vam-source-material-1','plan_id':plan['plan_id'],'source_decode_id':ir['decode_id'],
         'materials':materials,'source_configs':source_configs,'source_component_definitions':defs,'source_hashes':sources.checked,
         'diagnostics':diagnostics,'status':'partial' if diagnostics else 'ready',
         'conventions':{'uv':'Source UV retained; Stage03 reference uses (u,1-v). Offset transforms to (ox,1-sy-oy).','color':'Texture semantic is separate from pixel bytes; source HSV/RGBA preserved in configs.','normal':'Normal vs bump semantics retained. Packed Unity normal channels are not silently treated as RGB normals.','precedence':'locked dependency configs, then selected Appearance; source default material remains underneath'},
         'validation_scene':{'camera_location_cm':[290,-290,160],'camera_rotation_deg':[-9,135,0],'fov':40,'exposure_ev100':0,'key_intensity':3.14159,'fill_intensity':1.,'background':[.18,.18,.18]}}
+    report('验证材质结果','检查有限数并计算完整结果身份')
     finite(result);result['material_id']=sha(canonical(result));return result

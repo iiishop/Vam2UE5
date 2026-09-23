@@ -41,6 +41,13 @@ def hair_fixture(version):
     return raw,{'itemType':'HairFemale'},{'components':[]}
 
 class DecodeTests(unittest.TestCase):
+    def test_finite_diagnostic_paths_survive_fast_numeric_decode(self):
+        with self.assertRaisesRegex(d.DecodeError, r'non_finite: root/items/1/value'):
+            d.finite({'items':[0,{'value':float('nan')}]}, 'root')
+        reader=d.Reader(struct.pack('<if',7,float('inf')))
+        with self.assertRaisesRegex(d.DecodeError, r'non_finite: byte 8/1'):
+            reader.record('if')
+
     def test_hair_credit_trailer_is_narrow_and_preserved(self):
         import hashlib
         raw,vam,vaj=hair_fixture('1.1')

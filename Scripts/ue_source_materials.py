@@ -20,7 +20,10 @@ class Appearance:
         key=(asset['sha256'],record['color_space'],normal)
         if key in self.textures:return self.textures[key]
         name='T_'+asset['sha256'][:20]+('_N' if normal else '_S' if record['color_space']=='sRGB' else '_L')
-        cached=unreal.find_object(None,self.folder+'/'+name+'.'+name)
+        path=self.folder+'/'+name+'.'+name
+        cached=unreal.find_object(None,path)
+        if not cached and unreal.EditorAssetLibrary.does_asset_exist(path):
+            cached=unreal.load_asset(path)
         if cached:
             self.textures[key]=cached;return cached
         task=unreal.AssetImportTask();task.filename=asset['file'];task.destination_path=self.folder
@@ -43,7 +46,10 @@ class Appearance:
             signature['shader']=record['source_shader'].get('name')
             signature['textures']={k:{p:v.get(p)for p in ('semantic','color_space','ue_scale','ue_offset')}|{'asset':(v.get('asset') or {}).get('sha256')}for k,v in record['textures'].items()}
             name='M_'+hashlib.sha256(json.dumps(signature,sort_keys=True).encode()).hexdigest()[:24]
-            mat=unreal.find_object(None,self.folder+'/'+name+'.'+name)
+            path=self.folder+'/'+name+'.'+name
+            mat=unreal.find_object(None,path)
+            if not mat and unreal.EditorAssetLibrary.does_asset_exist(path):
+                mat=unreal.load_asset(path)
             if mat and unreal.EditorAssetLibrary.get_metadata_tag(mat,'VamReady')=='1':
                 self.materials[record['id']]=mat;return mat,False
             mat=unreal.AssetToolsHelpers.get_asset_tools().create_asset(name,self.folder,unreal.Material,unreal.MaterialFactoryNew())

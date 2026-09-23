@@ -15,6 +15,8 @@ from vam_triax_lbs import fit
 
 
 def calibrate(data):
+    from vam_native_job_state import progress
+    progress('校准来源','读取锁定来源与骨架')
     from vam_native_input import load_preview
     preview=load_preview(data)
     ir_path=data/'Decoded'/(preview['decode_id']+'.ir.json')
@@ -38,6 +40,7 @@ def calibrate(data):
         bone['parent']=b['transform_parent']
         bone['transform_provenance']=hierarchy[-1]
     from vam_editable_morphs import extend
+    progress('校准形状','解析可编辑 Morph 集与基础形状')
     selection=os.environ.get('VAM_MORPH_SET_FILE',str(SCRIPTS.parent/'Config/Stage05MorphSet.json'))
     ir,morph_lock=extend(ir,plan,data,selection)
     contract=prepare(ir)
@@ -54,7 +57,9 @@ def calibrate(data):
         b['position']=b.get('base_position',b['position'])[:]
         b.pop('morph_center_offset',None)
     morph_records={r['id']:r for r in ir['records'] if r.get('kind')=='morph'}
-    for morph in contract['morphs']:
+    progress('校准骨骼中心','逐项计算 Morph 对骨骼中心的影响',True,0,len(contract['morphs']))
+    for morph_number,morph in enumerate(contract['morphs'],1):
+        progress('校准骨骼中心',morph['name'],True,morph_number-1,len(contract['morphs']))
         source_morph=morph_records[morph['source_id']]
         adjusted=copy.deepcopy(neutral_source);diagnostics=[]
         apply_bone_centers(adjusted,source_morph['data'],1.,diagnostics)
@@ -74,6 +79,7 @@ def calibrate(data):
         morph['affected_regions']=['source_material_'+str(i) for i,s in enumerate(contract['body']['sections']) if changed.intersection(s)]
         morph['minimum']=min(0.,float(morph['minimum']),float(morph['default']))
         morph['maximum']=max(0.,float(morph['maximum']),float(morph['default']))
+    progress('校准骨骼中心','骨骼中心校准完成',True,len(contract['morphs']),len(contract['morphs']))
     bone_error=max(abs(contract['neutral_bones'][i]['translation'][k]+sum(m['default']*next((x['local_translation'][k] for x in m['bone_centers'] if x['bone_index']==i),0.) for m in contract['morphs'])-b['translation'][k]) for i,b in enumerate(contract['bones']) for k in range(3))
     require(bone_error<1e-5,'bone_center_basis','p0 local reference reconstruction differs from source')
     contract['bone_center_p0_error_cm']=bone_error
@@ -84,6 +90,7 @@ def calibrate(data):
     merged=next(r for r in ir['records'] if r.get('class')=='DAZMergedMesh')
     skin=next(r for r in ir['records'] if r['kind']=='skin' and str(r['parameters']['dazMesh']['m_PathID'])==merged['object'])
     if not contract['influences']:
+        progress('拟合蒙皮权重','校准 TriAx 来源参考姿态；此阶段可能较久')
         import numpy as np
         appearance=np.asarray(contract['body']['vertices'])
         for morph in contract['morphs']:appearance+=morph['default']*np.asarray(morph['deltas'])
@@ -92,6 +99,7 @@ def calibrate(data):
         contract['skin']['calibration_shape']='X(p0); Morph geometry remains X0 plus absolute parameters'
     contract['hierarchy_provenance']=hierarchy
     if 'fit' in contract['skin']:
+        progress('验证蒙皮质量','按已声明阈值核验误差')
         quality=json.loads((SCRIPTS.parent/'Config/Stage05Quality.json').read_text(encoding='utf8'))
         metrics=contract['skin']['fit'];limits=quality['thresholds_cm']
         require(metrics['rms_cm']<=limits['global_rms'] and metrics['p95_cm']<=limits['global_p95'] and
@@ -104,7 +112,10 @@ def calibrate(data):
     contract['contract_id']=digest(contract)
     out=data/'NativeBuild';out.mkdir(exist_ok=True)
     target=out/(ir['decode_id']+'.calibrated.json')
+    progress('保存校准合同','写入完整合同及来源校验凭据')
     target.write_text(json.dumps(contract,ensure_ascii=False,separators=(',',':'),allow_nan=False),encoding='utf8')
+    from vam_native_cache import write_receipt
+    write_receipt(data,preview,selection,contract)
     print(json.dumps({'path':str(target),'skin':contract['skin'],'bones':len(contract['bones']),
                       'remaining':contract['blockers']},ensure_ascii=True),flush=True)
     return contract

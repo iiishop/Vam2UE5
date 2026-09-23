@@ -11,6 +11,7 @@ from vam_ue_mesh import normals_for_ue
 
 
 def prepare_parts(ir,plan,preview,contract):
+    from vam_native_job_state import progress,check_cancel
     merged=next(r for r in ir['records'] if r.get('class')=='DAZMergedMesh')
     target=next(r['mesh'] for r in ir['records'] if r.get('kind')=='unity_mesh' and r['object']==str(merged['parameters']['targetMesh']['m_PathID']))
     body=contract['body'];uv_count=len(body['vertices']);bone_count=len(contract['bones'])
@@ -22,10 +23,11 @@ def prepare_parts(ir,plan,preview,contract):
         result['vertices']=[[float(p[1]/100),float(p[2]/100),float(p[0]/100)] for p in points[:len(result['vertices'])]]
         return result
     neutral_source=source_mesh(neutral);parts=[];missing=[]
-    for record in ir['records']:
-        from vam_native_job_state import check_cancel
+    clothing=[r for r in ir['records'] if r.get('kind')=='dynamic' and r['path'].startswith('Custom/Clothing/')]
+    progress('转移服装蒙皮','逐个核对 SkinWrap 对应',True,0,len(clothing))
+    for part_number,record in enumerate(clothing,1):
         check_cancel()
-        if record.get('kind')!='dynamic' or not record['path'].startswith('Custom/Clothing/'):continue
+        progress('转移服装蒙皮',record['path'],True,part_number-1,len(clothing))
         try:
             data=record['data'];mesh=data['meshes'][0];wrap,resolution=resolve_preview_wrap(data['meshes'],data['wraps'])
             settings,provenance=preview_wrap_settings(data,[(rid,plan['documents'][rid]['parameters']) for rid in plan['roots']])
@@ -79,6 +81,7 @@ def prepare_parts(ir,plan,preview,contract):
                           'p0_wrap_error_cm':{'rms':float(np.sqrt(np.mean(errors**2))),'max':float(errors.max())},
                           'pose_validation':'pending; transferred LBS is not per-frame SkinWrap or physics'})
         except Exception as exc:missing.append({'path':record['path'],'error':str(exc)})
+    progress('转移服装蒙皮','服装对应处理完成',True,len(clothing),len(clothing))
     return {'adapter_version':3,'parts':parts,'missing':missing,'skin_transfer':'bounded projected triangle barycentric; at most 8 influences'}
 
 

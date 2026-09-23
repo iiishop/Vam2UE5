@@ -1307,6 +1307,54 @@
         "class": "DAZClothingItem",
         "field": "displayName",
         "file": "a_per",
+        "instanceName": "ClothingCreatorFemale",
+        "object": "-308040932093685903",
+        "prefab": "2540040817702913871",
+        "renderer_count": 0
+      },
+      "files": [
+        "a_per"
+      ],
+      "gender": "female",
+      "locator": {
+        "object": "-308040932093685903",
+        "operation": "nonrendering_utility"
+      },
+      "names": [
+        "Clothing Creator"
+      ],
+      "operation": "nonrendering_utility",
+      "role": "clothing"
+    },
+    {
+      "evidence": {
+        "class": "DAZClothingItem",
+        "field": "displayName",
+        "file": "a_per",
+        "instanceName": "ClothingCreatorMale",
+        "object": "-6852916880830374024",
+        "prefab": "2540040817702913871",
+        "renderer_count": 0
+      },
+      "files": [
+        "a_per"
+      ],
+      "gender": "male",
+      "locator": {
+        "object": "-6852916880830374024",
+        "operation": "nonrendering_utility"
+      },
+      "names": [
+        "Clothing Creator"
+      ],
+      "operation": "nonrendering_utility",
+      "role": "clothing"
+    },
+    {
+      "evidence": {
+        "class": "DAZClothingItem",
+        "field": "displayName",
+        "file": "a_per",
         "object": "-1203891921331743912"
       },
       "files": [

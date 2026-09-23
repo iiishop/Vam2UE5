@@ -49,6 +49,7 @@ def build(data):
     bp_path=folder+'/BP_VamCharacter';definition_path=folder+'/CD_Character'
     marker=data/'NativeBuild'/(identity+'.commit.json')
     if marker.exists():
+        progress('复用已提交资产','核验已保存资产与用户修改保护')
         previous=json.loads(marker.read_text(encoding='utf8'))
         latest=data/'NativeBuild/latest-native-assets.json'
         verified=json.loads(latest.read_text(encoding='utf8')) if latest.exists() else {}
@@ -62,6 +63,7 @@ def build(data):
         if '-run=' not in u.SystemLibrary.get_command_line().lower():u.EditorAssetLibrary.sync_browser_to_objects([bp_path])
         return previous
     assert not u.EditorAssetLibrary.does_directory_exist(folder),'Uncommitted or user-owned destination; refusing overwrite'
+    progress('生成原生人体','创建来源材质、骨架与人体网格')
     appearance=Appearance(material_path);appearance.folder=folder+'/Materials'
     default=u.load_asset('/Engine/EngineMaterials/DefaultMaterial')
     body_data=dict(contract['body'])
@@ -145,8 +147,10 @@ def build(data):
     definition.set_editor_property('shape',shape)
     definition.set_editor_property('imported_appearance',preset)
     part_assets=[];part_maps=[];part_failures=list(parts['missing'])
-    for part in parts['parts']:
+    progress('生成原生部件','逐个建立可蒙皮服装资产',True,0,len(parts['parts']))
+    for part_number,part in enumerate(parts['parts'],1):
         check_cancel()
+        progress('生成原生部件',part['path'],True,part_number-1,len(parts['parts']))
         try:
             d=dict(part['mesh']);pmats=[];ptris=[];pslots=[]
             defaults={m['name']:m['default'] for m in contract['morphs']}
@@ -175,6 +179,7 @@ def build(data):
             part_maps.append({'path':part['path'],'asset':asset.get_path_name(),'render_to_input':list(u.VamNativeBuilder.get_render_to_input_map(asset)),
                 'input_to_source':d['converted_to_source_vertex'],'correspondence':part['correspondence'],'p0_wrap_error_cm':part['p0_wrap_error_cm']})
         except Exception as exc:part_failures.append({'path':part['path'],'error':str(exc)})
+    progress('生成原生部件','部件资产生成完成',True,len(parts['parts']),len(parts['parts']))
     definition.set_editor_property('parts',part_assets)
     u.VamNativeBuilder.set_build_limitations(definition,[json.dumps(x,ensure_ascii=False) for x in contract['blockers']]+[
         json.dumps(contract['skin'].get('fit',{}),ensure_ascii=False),
@@ -190,13 +195,17 @@ def build(data):
     u.get_default_object(bp.generated_class()).get_editor_property('character').set_editor_property('definition',definition)
     u.BlueprintEditorLibrary.compile_blueprint(bp)
     import ue_native_retarget
+    progress('生成动画适配','建立骨架动作适配资产')
     adapter_assets,adapter_report=ue_native_retarget.build(folder,mesh,contract['bones'])
     assets=[*appearance.textures.values(),*appearance.materials.values(),mesh.get_editor_property('skeleton'),mesh,*part_assets,definition,mapping,shape,preset,binding,bp,*adapter_assets]
     for material in appearance.materials.values():
         u.MaterialEditingLibrary.set_material_usage(material,u.MaterialUsage.MATUSAGE_SKELETAL_MESH)
         u.MaterialEditingLibrary.set_material_usage(material,u.MaterialUsage.MATUSAGE_MORPH_TARGETS)
     check_cancel();progress('saving','Atomic publication phase; cancellation is no longer accepted',False)
-    for asset in assets:assert u.EditorAssetLibrary.save_loaded_asset(asset,False),'Save failed: '+asset.get_path_name()
+    for saved_number,asset in enumerate(assets,1):
+        progress('保存原生资产',asset.get_path_name(),False,saved_number-1,len(assets))
+        assert u.EditorAssetLibrary.save_loaded_asset(asset,False),'Save failed: '+asset.get_path_name()
+    progress('保存原生资产','全部资产已保存',False,len(assets),len(assets))
     report={'status':'native_character_saved','acceptance_status':'pending_per_build_validation','folder':folder,'blueprint':bp_path,
             'shape_kernel_version':1,'render_domain_validation':{'morph_component_tolerance_cm':0.0001,'position_component_tolerance_cm':0.00002,'uv_tolerance':0.000001,'skin_quantization_tolerance':8/65535},
             'definition':definition_path,'assets':sorted({a.get_path_name() for a in assets}),

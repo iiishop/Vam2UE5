@@ -5,9 +5,11 @@ from pathlib import Path
 import traceback
 import sys
 import time
+from contextlib import nullcontext
 import unreal
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from vam_ue_mesh import normals_for_ue, ue_triangles, hair_reference_mesh
+from vam_job_progress import publish
 
 def main():
     started=time.perf_counter()
@@ -16,6 +18,7 @@ def main():
     if '-executepythonscript=' in unreal.SystemLibrary.get_command_line().lower():
         unreal.EditorPythonScripting.set_keep_python_script_alive(True)
     request=Path(os.environ['VAM_PREVIEW_REQUEST'])
+    publish('读取 UE 预览请求','读取人物几何与材质引用')
     data=json.loads(request.read_text(encoding='utf-8'))
     subsystem=unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
     old=[a for a in subsystem.get_all_level_actors() if 'VamSourcePreview' in [str(t)for t in a.tags]] if current else []
@@ -27,31 +30,39 @@ def main():
         importlib.reload(ue_source_materials)
         appearance=ue_source_materials.Appearance(data['source_material_ir'])
     actors=[]
-    for mesh_index,mesh in enumerate(data['meshes']):
-        if mesh['name']=='Hair guide ribbons':
-            record=appearance.bindings.get((mesh_index,0),{}) if appearance else {}
-            mesh=hair_reference_mesh(mesh,record.get('hair_parameters',{}))
-        actor=subsystem.spawn_actor_from_class(unreal.DynamicMeshActor,unreal.Vector(),transient=True)
-        actor.set_actor_label('VaM inspection - '+mesh['name'])
-        actor.tags=[unreal.Name('VamSourcePreview')]
-        component=actor.get_dynamic_mesh_component()
-        if appearance:component.set_tangents_type(unreal.DynamicMeshComponentTangentsMode.AUTO_CALCULATED)
-        dynamic=component.get_dynamic_mesh()
-        normals=normals_for_ue(mesh)
-        for section,indices in enumerate(mesh['sections']):
-            if not indices:continue
-            if appearance:
-                material,hidden=appearance.material(mesh_index,section)
-                if hidden:continue
-                if material:component.set_material(section,material)
-            used=sorted(set(indices));remap={v:i for i,v in enumerate(used)}
-            buffers=unreal.GeometryScriptSimpleMeshBuffers()
-            buffers.vertices=[unreal.Vector(*mesh['vertices'][v])for v in used]
-            buffers.normals=[unreal.Vector(*normals[v])for v in used]
-            buffers.uv0=[unreal.Vector2D(*mesh['uv'][v])for v in used]
-            buffers.triangles=[unreal.IntVector(*t)for t in ue_triangles(indices,remap)]
-            unreal.GeometryScript_MeshEdits.append_buffers_to_mesh(dynamic,buffers,section)
-        actors.append(actor)
+    publish('创建 UE 场景预览','逐个创建临时部件',0,len(data['meshes']))
+    section_total=sum(max(1,len(mesh['sections'])) for mesh in data['meshes'])
+    slow=unreal.ScopedSlowTask(section_total,'正在当前 UE 场景创建 VaM 人物预览') if current and hasattr(unreal,'ScopedSlowTask') else None
+    with slow if slow else nullcontext():
+        if slow:slow.make_dialog(False)
+        for mesh_index,mesh in enumerate(data['meshes']):
+            publish('创建 UE 场景预览',mesh['name'],mesh_index,len(data['meshes']))
+            if mesh['name']=='Hair guide ribbons':
+                record=appearance.bindings.get((mesh_index,0),{}) if appearance else {}
+                mesh=hair_reference_mesh(mesh,record.get('hair_parameters',{}))
+            actor=subsystem.spawn_actor_from_class(unreal.DynamicMeshActor,unreal.Vector(),transient=True)
+            actor.set_actor_label('VaM inspection - '+mesh['name'])
+            actor.tags=[unreal.Name('VamSourcePreview')]
+            component=actor.get_dynamic_mesh_component()
+            if appearance:component.set_tangents_type(unreal.DynamicMeshComponentTangentsMode.AUTO_CALCULATED)
+            dynamic=component.get_dynamic_mesh()
+            normals=normals_for_ue(mesh)
+            for section,indices in enumerate(mesh['sections']):
+                if slow:slow.enter_progress_frame(1,mesh['name']+' · 材质区 '+str(section+1))
+                if not indices:continue
+                if appearance:
+                    material,hidden=appearance.material(mesh_index,section)
+                    if hidden:continue
+                    if material:component.set_material(section,material)
+                used=sorted(set(indices));remap={v:i for i,v in enumerate(used)}
+                buffers=unreal.GeometryScriptSimpleMeshBuffers()
+                buffers.vertices=[unreal.Vector(*mesh['vertices'][v])for v in used]
+                buffers.normals=[unreal.Vector(*normals[v])for v in used]
+                buffers.uv0=[unreal.Vector2D(*mesh['uv'][v])for v in used]
+                buffers.triangles=[unreal.IntVector(*t)for t in ue_triangles(indices,remap)]
+                unreal.GeometryScript_MeshEdits.append_buffers_to_mesh(dynamic,buffers,section)
+            actors.append(actor)
+    publish('创建 UE 场景预览','部件创建完成',len(data['meshes']),len(data['meshes']))
     subsystem.set_selected_level_actors(actors)
     unreal.EditorLevelLibrary.set_level_viewport_camera_info(unreal.Vector(290,-290,160),unreal.Rotator(-9,135,0))
     # A simple inspection light. No source script, physics or game logic runs.
@@ -60,6 +71,7 @@ def main():
         light=subsystem.spawn_actor_from_class(unreal.DirectionalLight,unreal.Vector(0,0,250),unreal.Rotator(-35,-30,0),transient=True)
         light.light_component.set_intensity(8)
     for actor in old:subsystem.destroy_actor(actor)
+    publish('完成 UE 预览','更新场景选择并移除旧预览')
     request.with_suffix('.ue-result.json').write_text(json.dumps({'status':'partial' if appearance and (appearance.errors or appearance.ir['diagnostics']) else 'ready','actors':len(actors),'statistics':data['statistics'],'material_errors':appearance.errors if appearance else [],'material_count':len(appearance.materials) if appearance else 0,'load_seconds':round(time.perf_counter()-started,2)}),encoding='utf-8')
     unreal.log('VAM_PREVIEW_READY '+str(data['statistics']))
 

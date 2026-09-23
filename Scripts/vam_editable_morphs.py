@@ -4,6 +4,7 @@ from pathlib import Path
 from vam_plan import Planner,canonical,strict_json
 from vam_decode import require,decode_vmb,MAX_BYTES
 from vam_unity import Bundle
+from vam_zip_compat import find_member
 
 
 def extend(ir,plan,data,selection_path):
@@ -40,7 +41,7 @@ def extend(ir,plan,data,selection_path):
             require(path.is_relative_to(root),'source_path',str(path))
             if item['source']:
                 with zipfile.ZipFile(path) as z:
-                    require(z.getinfo(item['path']).file_size<=MAX_BYTES,'read_limit',item['path']);raw=z.read(item['path'])
+                    info=find_member(z,item['path']);require(info.file_size<=MAX_BYTES,'read_limit',item['path']);raw=z.read(info)
             else:
                 require(path.stat().st_size<=MAX_BYTES,'read_limit',item['path']);raw=path.read_bytes()
             require(hashlib.sha256(raw).hexdigest()==item['sha256'],'source_changed',item['path'])

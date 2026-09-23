@@ -5,10 +5,12 @@ import tempfile
 import time
 import unittest
 import threading
+import sys
 from unittest.mock import patch
 import zipfile
 
 SCRIPTS = Path(__file__).parents[1] / 'Scripts'
+sys.path.insert(0, str(SCRIPTS))
 
 
 def module(name):
@@ -24,6 +26,64 @@ TEXTURE = 'Custom/Textures/test.png'
 
 
 class PlanTests(unittest.TestCase):
+    def test_unflagged_gb18030_package_member_resolves_without_guessing(self):
+        chinese = 'Custom/Atom/Person/Morphs/female/焰灵姬 - Body.vmi'
+        raw_name = chinese.encode('gb18030')
+        placeholder = 'Q' * len(raw_name)
+        package = self.package('Chinese.Morphs.1', {placeholder: {'numDeltas': 0}})
+        original = package.read_bytes()
+        self.assertEqual(original.count(placeholder.encode()), 2)
+        package.write_bytes(original.replace(placeholder.encode(), raw_name))
+        self.loose(APPEARANCE, {'storables': [{'id': 'geometry', 'morphs': [
+            {'uid': 'Chinese.Morphs.1:/' + chinese, 'value': 1}]}]})
+        self.scan()
+        result = self.generate()
+        self.assertEqual(result['status'], 'ready', result['items'])
+        member = next(i for i in result['items'] if i['path'] == chinese)
+        self.assertEqual(member['source'], 'AddonPackages/Chinese.Morphs.1.var')
+        from vam_zip_compat import find_member
+        with zipfile.ZipFile(package) as archive:
+            self.assertEqual(json.loads(archive.read(find_member(archive,chinese))), {'numDeltas': 0})
+
+    def test_missing_self_texture_uses_identical_copy_from_same_clothing_item(self):
+        clothing = 'Custom/Clothing/Female/Creator/Nails/Nails.vam'
+        texture = 'Custom/Clothing/Female/Creator/Pattern/noise.jpg'
+        owner = {'texture': 'SELF:/' + texture}
+        self.package('Other.Appearance.1', {
+            APPEARANCE: {'storables': [{'id': 'geometry', 'clothing': [
+                {'id': 'Creator.Outfit.1:/' + clothing}]}]}})
+        self.package('Creator.Outfit.1', {clothing: {'displayName': 'Nails'},
+                                          clothing[:-4] + '.vaj': owner,
+                                          clothing[:-4] + '.vab': b'geometry'})
+        for version in (1, 2):
+            self.package('Creator.Nails.' + str(version),
+                         {clothing: {'displayName': 'Nails'}, texture: b'identical image'})
+        # A package with the image but without this clothing item cannot win.
+        self.package('Creator.Decoy.9', {texture: b'different image'})
+        self.scan()
+        result = self.generate('Other.Appearance.1')
+        self.assertEqual(result['status'], 'ready', result['items'])
+        edge = next(e for e in result['edges'] if e['reference'] == 'SELF:/' + texture)
+        resolution = edge['resolution']
+        self.assertEqual(resolution['selected_source'], 'AddonPackages/Creator.Nails.2.var')
+        self.assertEqual(len(resolution['equivalent_sources']), 2)
+        target = next(i for i in result['items'] if i['id'] == edge['to'])
+        self.assertEqual(target['sha256'], plan.sha(b'identical image'))
+
+    def test_missing_self_texture_with_different_item_copies_stays_blocked(self):
+        clothing = 'Custom/Clothing/Female/Creator/Nails/Nails.vam'
+        texture = 'Custom/Clothing/Female/Creator/Pattern/noise.jpg'
+        self.package('Creator.Outfit.1', {APPEARANCE: {'storables': [{'id': 'geometry',
+            'clothing': [{'id': 'SELF:/' + clothing}]}]},
+            clothing: {}, clothing[:-4] + '.vaj': {'texture': 'SELF:/' + texture},
+            clothing[:-4] + '.vab': b'geometry'})
+        self.package('Creator.Nails.1', {clothing: {}, texture: b'first'})
+        self.package('Creator.Nails.2', {clothing: {}, texture: b'second'})
+        self.scan()
+        result = self.generate('Creator.Outfit.1')
+        self.assertEqual(result['status'], 'blocked')
+        self.assertTrue(any(i.get('code') == 'ambiguous_texture_fallback' for i in result['items']))
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.base = Path(self.tmp.name)
@@ -225,6 +285,21 @@ class PlanTests(unittest.TestCase):
         replay = self.builtin_plan(changed, locked=first)
         self.assertEqual(replay['status'], 'blocked')
         self.assertTrue(any(i.get('code') == 'locked_content_changed' for i in replay['items']))
+
+    def test_nonrendering_clothing_utility_is_mapped_and_source_locked(self):
+        mapping = self.builtin_fixture()
+        mapping['entries'].append({'role': 'clothing', 'names': ['Clothing Creator'],
+            'gender': 'female', 'operation': 'nonrendering_utility', 'files': ['test'],
+            'locator': {'operation': 'nonrendering_utility', 'object': 'fixture'},
+            'evidence': {'file': 'test', 'object': 'fixture', 'renderer_count': 0}})
+        self.loose(APPEARANCE, {'storables': [{'id': 'geometry', 'character': 'Female',
+            'clothing': [{'id': 'Clothing Creator', 'enabled': 'true'}]}]})
+        self.scan()
+        result = self.builtin_plan(mapping)
+        self.assertEqual(result['status'], 'ready', result['items'])
+        utility = next(i for i in result['items'] if i['path'] == 'Clothing Creator')
+        self.assertEqual(utility['builtin_mapping']['entry']['operation'], 'nonrendering_utility')
+        self.assertEqual(result['plan_id'], self.builtin_plan(mapping, locked=result)['plan_id'])
 
     def test_builtin_missing_changed_and_unknown_have_origin(self):
         mapping = self.builtin_fixture()

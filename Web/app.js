@@ -181,18 +181,21 @@ const actionNames={create:'创建',reuse:'复用',update:'更新',missing:'缺�
 let planId='',planFilter='',planOffset=0,planSelection=[],planPollTimer=null,planResultEpoch=0;
 async function startPlan(ids,locked=''){
   $('planmodal').hidden=false;$('planclose').focus();
+  $('planjobprogress').hidden=false;$('planjobprogress').removeAttribute('value');
   try{
     await api('plan/start',{ids,locked_plan:locked},true);
     planSelection=ids;planId='';planOffset=0;planFilter='';planResultEpoch++;
     $('planitems').replaceChildren();$('planactions').replaceChildren();$('planfile').textContent='';
     $('planlocktext').textContent='';$('plandeclarations').textContent='';$('planreplay').disabled=true;
     clearTimeout(planPollTimer);pollPlan();
-  }catch(e){$('planstatus').textContent=e.message;}
+  }catch(e){$('planstatus').textContent=e.message;$('planjobprogress').hidden=true;}
 }
 async function pollPlan(){
   try{
     const s=await api('plan/state');
     $('planstatus').textContent=s.running?`已解析 ${s.done} 个条目 · ${s.phase}`:(s.error||s.phase);
+    $('planjobprogress').hidden=!s.running;
+    if(s.running)$('planjobprogress').removeAttribute('value');
     $('plancancel').disabled=!s.running;
     $('planhistory').disabled=s.running;
     if(s.running){planPollTimer=setTimeout(pollPlan,700);return;}

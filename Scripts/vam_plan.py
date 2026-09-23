@@ -12,6 +12,7 @@ import math
 from pathlib import Path, PurePosixPath
 import re
 import threading
+from vam_zip_compat import member_aliases
 
 VERSION = 1
 CONFIG_EXTS = {'.vap', '.vam', '.vaj', '.vmi', '.json'}
@@ -231,13 +232,18 @@ class Planner:
         for info in z.infolist():
             if info.is_dir():
                 continue
-            try:
-                name = norm_path(info.filename)
-            except ValueError:
-                continue
-            key = name.casefold()
-            # Never silently choose one of two conflicting ZIP members.
-            names[key] = None if key in names else info
+            for alias in member_aliases(info):
+                try:
+                    name = norm_path(alias)
+                except ValueError:
+                    continue
+                key = name.casefold()
+                # One member may have two names; two members with one name are
+                # ambiguous and must never be selected silently.
+                if key not in names:
+                    names[key] = (info,name)
+                elif names[key] is not None and names[key][0] is not info:
+                    names[key] = None
         self.zips[source] = (z, names)
         return z, names
 
@@ -247,10 +253,10 @@ class Planner:
             _, names = self.archive(source)
             if path.casefold() not in names:
                 raise PlanFailure('missing', 'file_missing', 'Package member missing: ' + path)
-            info = names[path.casefold()]
-            if info is None:
+            found = names[path.casefold()]
+            if found is None:
                 raise PlanFailure('unsupported', 'ambiguous_member', 'Duplicate package member: ' + path)
-            return norm_path(info.filename)
+            return found[1]
         p = self.source_path(path)
         if not p.is_file():
             raise PlanFailure('missing', 'file_missing', 'Loose resource missing: ' + path)
@@ -292,6 +298,60 @@ class Planner:
                                    'policy': 'exact' if selector.isdigit() else 'highest_installed_satisfying_bound'}
         return source
 
+    def matching_clothing_texture(self, source, origin, target):
+        """Recover a broken SELF texture from the same creator's exact item.
+
+        Search only already indexed package names for that creator.  The
+        candidate must contain both the referenced image and the .vam item
+        whose .vaj made the reference.  Distinct image payloads stay blocked.
+        """
+        image_ext = PurePosixPath(target).suffix.lower()
+        origin_parts, target_parts = PurePosixPath(origin).parts, PurePosixPath(target).parts
+        if (image_ext not in {'.jpg', '.jpeg', '.png', '.tif', '.tiff', '.dds', '.tga', '.bmp'}
+                or PurePosixPath(origin).suffix.lower() != '.vaj'
+                or len(origin_parts) < 5 or len(target_parts) < 5
+                or tuple(p.casefold() for p in origin_parts[:2]) != ('custom', 'clothing')
+                or tuple(p.casefold() for p in target_parts[:3]) != tuple(p.casefold() for p in origin_parts[:3])
+                or origin_parts[3].casefold() != target_parts[3].casefold()):
+            raise PlanFailure('missing', 'file_missing', 'Package member missing: ' + target)
+        creator = origin_parts[3]
+        item = str(PurePosixPath(origin).with_suffix('.vam'))
+        candidates = []
+        skipped = []
+        for candidate in self.package_sources:
+            package = PurePosixPath(candidate).stem
+            if candidate == source or not package.casefold().startswith(creator.casefold() + '.'):
+                continue
+            try:
+                image = self.locate(candidate, target)
+                self.locate(candidate, item)
+            except PlanFailure as error:
+                if error.code == 'file_missing':
+                    continue
+                raise
+            except ValueError as error:
+                if str(error).startswith('Invalid ZIP'):
+                    skipped.append(candidate)
+                    continue
+                raise
+            digest, size, _ = self.read(candidate, image, False)
+            match = VERSION_RE.fullmatch(package)
+            version = int(match[2]) if match and match[2].isdigit() else -1
+            candidates.append({'source': candidate, 'path': image, 'sha256': digest,
+                               'size': size, 'version': version})
+        if not candidates:
+            raise PlanFailure('missing', 'file_missing', 'Package member missing: ' + target)
+        if len({c['sha256'] for c in candidates}) != 1:
+            raise PlanFailure('unsupported', 'ambiguous_texture_fallback',
+                              'Same clothing item has different copies of texture: ' + target)
+        chosen = max(candidates, key=lambda c: (c['version'], c['source']))
+        resolution = {'operation': 'identical_clothing_texture_fallback', 'original_source': source,
+                      'original_item': item, 'selected_source': chosen['source'],
+                      'sha256': chosen['sha256'],
+                      'equivalent_sources': sorted(c['source'] for c in candidates),
+                      'unreadable_candidate_packages': sorted(skipped)}
+        return chosen['source'], chosen['path'], resolution
+
     def resolve(self, raw, source, path):
         text = raw.replace('\\', '/')
         if re.match(r'^[A-Za-z]:/', text):
@@ -306,24 +366,32 @@ class Planner:
                 target_source = source
             else:
                 target_source = self.choose_package(package)
-            return target_source, self.locate(target_source, member)
+            try:
+                return target_source, self.locate(target_source, member), None
+            except PlanFailure as error:
+                if package.casefold() != 'self' or error.code != 'file_missing':
+                    raise
+                return self.matching_clothing_texture(target_source, path, norm_path(member))
         rooted = text.casefold().startswith(('custom/', 'saves/', 'assets/'))
         target = norm_path(text, '' if rooted else str(PurePosixPath(path).parent))
         if rooted and source:
             # Explicit project paths: local package first, then loose installation.
             try:
-                return source, self.locate(source, target)
+                return source, self.locate(source, target), None
             except PlanFailure as error:
                 if error.code != 'file_missing':
                     raise
-                return '', self.locate('', target)
-        return source, self.locate(source, target)
+                return '', self.locate('', target), None
+        return source, self.locate(source, target), None
 
     def read(self, source, path, config):
         limit = MAX_CONFIG if config else MAX_FILE
         if source:
             z, names = self.archive(source)
-            info = names[path.casefold()]
+            found = names[path.casefold()]
+            if found is None:
+                raise PlanFailure('unsupported', 'ambiguous_member', 'Duplicate package member: ' + path)
+            info = found[0]
             size = info.file_size
             stream = lambda: z.open(info)
         else:
@@ -404,9 +472,11 @@ class Planner:
                 identity = self.builtin(role, raw, gender)
                 self.edge(origin, field, raw, identity)
                 return
-            target_source, target_path = self.resolve(raw, source, path)
+            target_source, target_path, resolution = self.resolve(raw, source, path)
             identity = self.identity(target_source, target_path)
-            self.edge(origin, field, raw, identity)
+            edge = self.edge(origin, field, raw, identity)
+            if resolution:
+                edge['resolution'] = resolution
             self.visit(target_source, target_path)
         except Exception as error:
             if isinstance(error, PlanFailure) and error.code in ('cancelled', 'budget_exceeded'):

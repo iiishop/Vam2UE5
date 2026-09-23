@@ -23,8 +23,11 @@ def run():
     import subprocess
     import importlib
     calibrated=data/'NativeBuild'/(decode_id+'.calibrated.json')
-    # Supplemental selection is explicitly locked on every build; never reuse a different set.
-    stale_calibration=True
+    # Reuse only after content hashes, source locks, code/config versions, the
+    # selected Morph set and the complete contract digest have been rechecked.
+    from vam_native_cache import load_if_verified
+    selection=os.environ.get('VAM_MORPH_SET_FILE',str(SCRIPTS.parent/'Config/Stage05MorphSet.json'))
+    stale_calibration=load_if_verified(data,preview,selection) is None
     if stale_calibration:
         python=Path(unreal.Paths.engine_dir())/'Binaries/ThirdParty/Python3/Win64/python.exe'
         completed=subprocess.run([str(python),'-I',str(SCRIPTS/'vam_native_calibrate.py'),'--data',str(data)],
@@ -32,6 +35,8 @@ def run():
             creationflags=subprocess.CREATE_NO_WINDOW)
         check_cancel()
         if completed.returncode:raise RuntimeError(completed.stdout+'\n'+completed.stderr)
+    else:
+        progress('preparing','Reusing content-verified source calibration')
     progress('parts','Transferring SkinWrap influences and Morph correspondence')
     import ue_native_character
     parts_path=data/'NativeBuild'/(decode_id+'.parts.json')
@@ -40,7 +45,7 @@ def run():
     stale_parts=part_cache.get('contract_id')!=contract['contract_id'] or part_cache.get('adapter_version')!=3
     if stale_parts:
         python=Path(unreal.Paths.engine_dir())/'Binaries/ThirdParty/Python3/Win64/python.exe'
-        completed=subprocess.run([str(python),'-I',str(SCRIPTS/'vam_native_parts.py'),'--data',str(data)],capture_output=True,text=True,encoding='utf8',errors='replace',timeout=900,creationflags=subprocess.CREATE_NO_WINDOW)
+        completed=subprocess.run([str(python),'-I',str(SCRIPTS/'vam_native_parts.py'),'--data',str(data)],capture_output=True,text=True,encoding='utf8',errors='replace',timeout=3600,creationflags=subprocess.CREATE_NO_WINDOW)
         check_cancel()
         if completed.returncode:raise RuntimeError(completed.stdout+'\n'+completed.stderr)
     progress('assets','Building native assets')

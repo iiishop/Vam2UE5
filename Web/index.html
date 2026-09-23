@@ -25,6 +25,7 @@
   <div class="modalhead"><h2 id="plantitle">阶段 02 · 导入计划</h2><button id="planclose">关闭</button></div>
   <p>仅解析和保存计划，不构建人物，不将资源标记为已入库。</p>
   <div class="planprogress"><span id="planstatus" role="status">等待生成</span><button id="plancancel">取消生成</button><button id="planreplay" disabled>验证锁定计划</button><button id="decode" disabled>解码并预览</button></div>
+  <progress id="planjobprogress" class="jobprogress" aria-label="生成导入计划进度" hidden></progress>
   <label>已保存计划 <select id="planhistory" aria-label="已保存计划"><option value="">最近 50 个计划</option></select></label>
   <div id="planfile" class="muted"></div><div id="planactions"></div>
   <details id="planlocks"><summary>最终版本锁定</summary><pre id="planlocktext"></pre></details>
@@ -35,6 +36,7 @@
 <div id="decodemodal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="decodetitle"><section class="decodepanel">
   <div class="modalhead"><h2 id="decodetitle">阶段 03 · 几何检查</h2><button id="decodeclose">关闭</button></div>
   <div class="planprogress"><span id="decodestatus" role="status">等待解码</span><button id="decodecancel">取消任务</button><button id="sourcematerials" disabled>解析来源材质</button><button id="openue" disabled>在 UE5 查看</button></div>
+  <progress id="decodejobprogress" class="jobprogress" aria-label="解码、来源材质及 UE 预览进度" hidden></progress>
   <p>静态检查预览 · 拖动旋转 / 滚轮缩放 / 方向键旋转 · UE 预览使用独立临时窗口，不保存人物资产。</p>
   <div class="previewtools"><label><input id="wireframe" type="checkbox">线框</label><label><input id="showbones" type="checkbox">骨架</label><label><input id="uvcheck" type="checkbox">UV 棋盘</label><button id="resetcamera">重置视角</button></div>
   <div class="geometrylayout"><canvas id="geometrycanvas" tabindex="0" aria-label="人物几何预览，方向键旋转，加减号缩放"></canvas><aside><h3>部件</h3><div id="meshlist"></div><h3>统计</h3><pre id="decodestats"></pre></aside></div>

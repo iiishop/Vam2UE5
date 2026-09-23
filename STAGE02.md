@@ -20,7 +20,7 @@
 | `Creator.Package.3:/Custom/...` | 只选择第 3 版。缺失时报告缺失版本，不改用其他版本 |
 | `Creator.Package.latest:/...` | 在已索引、已安装的数字版本中取最大版本 |
 | `Creator.Package.min3:/...` | 在已安装且版本 ≥ 3 的包中取最大版本 |
-| `SELF:/...` | 当前 VAR；松散预设没有 SELF 包上下文，报告缺失 |
+| `SELF:/...` | 当前 VAR；松散预设没有 SELF 包上下文，报告缺失。仅当服装 `.vaj` 的 SELF 图片在当前包中缺失时，可从同作者且包含同一 `.vam` 服装的已索引 VAR 中定向查找；所有命中图片必须字节一致，才锁定一个明确来源，并在计划边上记录替代依据。 |
 | `Custom/...`、`Saves/...`、`Assets/...` | 包内根路径优先；不存在时检查 VaM 松散根目录 |
 | `fabric.png`、`../Textures/a.png` | 相对引用它的配置文件目录；不允许越过来源根目录 |
 | 同一包 ID 对应多份 VAR | 报告歧义并列出全部位置，不任意选择一份 |
@@ -78,7 +78,7 @@ VAM 服装 / 发型条目会加入同名 VAJ 和 VAB；含顶点差异的 VMI �
 
 `Config/BuiltinCatalog.json` 现在提供来自本机 VaM 的可验证来源映射：45 个人物、101 件服装、15 个头发条目（含 No Hair）、2,292 个 Morph。人物、服装和头发读取实际 `a_per` Person 注册表，解析 AssetBundle 容器位置及 manifest 依赖；Morph 来自 `f_mb` / `m_mb`，记录对象 ID、数组位置、内部名称和参数元数据，跳过 delta 数组，不解码网格。
 
-计划生成时按类型、精确名称和人物性别解析；`morphsOtherGender` 使用另一性别。没有性别上下文且命中多个不同对象时报告 `builtin_ambiguous`，不猜测。No Hair 映射为 `clear_hair` 操作。未知标识继续报告 `builtin_adapter_required`；映射来源文件缺失报告 `builtin_file_missing`；来源 SHA-256 或大小与目录不符报告 `builtin_catalog_stale`。
+计划生成时按类型、精确名称和人物性别解析；`morphsOtherGender` 使用另一性别。没有性别上下文且命中多个不同对象时报告 `builtin_ambiguous`，不猜测。No Hair 映射为 `clear_hair` 操作。Clothing Creator 的来源 prefab 没有渲染器，映射为保留选择状态但不生成可见网格的 `nonrendering_utility`。未知标识继续报告 `builtin_adapter_required`；映射来源文件缺失报告 `builtin_file_missing`；来源 SHA-256 或大小与目录不符报告 `builtin_catalog_stale`。
 
 已确认条目包含 `builtin_mapping`（原始登记证据、对象定位、所有来源文件及 SHA-256），参与创建 / 复用 / 更新判断与锁定复现。GUI 可展开“内置映射”查看。这里的“创建”指计划中的待转换项，**并未生成 UE 人物、网格、材质或 Morph 资产**。
 

@@ -15,9 +15,12 @@ sys.path.insert(0, str(SCRIPTS))
 sys.path.insert(0, str(SCRIPTS.parent / 'Saved/Python'))
 from vam_decode import DecodeError, require, finite, decode_vmb, decode_vab, preview_mesh, to_ue, MAX_BYTES
 from vam_plan import canonical, strict_json, resource_json, sha, Planner
+from vam_zip_compat import find_member
 
 
-def decode_plan(plan, catalog):
+def decode_plan(plan, catalog, progress=None):
+    emit = progress or (lambda *args, **kwargs: None)
+    emit('核对锁定计划', '重新核对来源与依赖')
     from vam_unity import Bundle, mesh_from_unity, skeleton, validate_skin
     baseline_file=catalog.data/'ImportState/manifest.json'
     baseline=strict_json(baseline_file.read_bytes()) if baseline_file.exists() else None
@@ -27,6 +30,7 @@ def decode_plan(plan, catalog):
         changed=[k for k in plan if k!='plan_id' and plan[k]!=check.get(k)]
         detail='; '.join(i.get('code','')+': '+i.get('reason','') for i in diagnostics)
         raise DecodeError('plan_changed', (detail or 'Changed fields: '+', '.join(changed))+'; regenerate the import plan for changed sources')
+    emit('读取来源骨架与人体', '校验来源文件并读取人体网格')
     root = Path(plan['source_root']).resolve()
     items = {i['id']:i for i in plan['items']}
     source_hashes, raw_records, render, errors, warnings = {}, [], [], [], []
@@ -50,7 +54,7 @@ def decode_plan(plan, catalog):
         if item['source']:
             path=source_path(item['source'])
             with zipfile.ZipFile(path) as z:
-                info=z.getinfo(item['path']);require(info.file_size<=MAX_BYTES,'read_limit',item['path'])
+                info=find_member(z,item['path']);require(info.file_size<=MAX_BYTES,'read_limit',item['path'])
                 b=z.read(info)
         else:
             path=source_path(item['path']);require(path.stat().st_size<=MAX_BYTES,'read_limit',item['path']);b=path.read_bytes()
@@ -104,12 +108,19 @@ def decode_plan(plan, catalog):
             fail(characters[0],exc);body=None;bones=[];skin_stats=[]
 
     decoded_morphs={}; dynamic_items=[]
-    for item in sorted(items.values(),key=lambda x:x['id']):
+    ordered_items=sorted(items.values(),key=lambda x:x['id'])
+    emit('解码选定资源', '逐项读取 Morph、服装与头发', 0, len(ordered_items))
+    for item_number,item in enumerate(ordered_items,1):
+        emit('解码选定资源',item['path'],item_number-1,len(ordered_items))
         try:
             builtin_entry=item.get('builtin_mapping',{}).get('entry',{})
             if builtin_entry.get('role') in ('clothing','hair'):
                 if builtin_entry.get('operation')=='clear_hair':
                     raw_records.append({'kind':'clear_hair','id':item['id'],'mapping':item['builtin_mapping']})
+                    continue
+                if builtin_entry.get('operation')=='nonrendering_utility':
+                    raw_records.append({'kind':'builtin_utility','id':item['id'],
+                                        'mapping':item['builtin_mapping']})
                     continue
                 # Source selection is preserved; unsupported builtin component
                 # layouts must not silently disappear from a successful preview.
@@ -148,9 +159,11 @@ def decode_plan(plan, catalog):
                 raw_records.append({'kind':'dynamic','id':item['id'],'source':item['source'],'path':item['path'],'data':result})
                 dynamic_items.append((item,result))
         except Exception as e:fail(item,e)
+    emit('解码选定资源', '资源读取完成', len(ordered_items), len(ordered_items))
 
     applied=[]
     if body:
+        emit('应用外观形状', '应用 Morph、骨骼中心与 graft 边界')
         for root_id in plan['roots']:
             doc=plan['documents'].get(root_id,{}).get('parameters',{})
             storables=doc.get('storables',[])
@@ -214,7 +227,9 @@ def decode_plan(plan, catalog):
             try:return fit_wrap(mesh,wrap,candidate,**(settings or {}))
             except DecodeError as exc:failures.append(str(exc))
         raise DecodeError('wrap_target','; '.join(failures))
-    for item,result in dynamic_items:
+    emit('贴合服装与头发', '逐个部件贴合来源人体', 0, len(dynamic_items))
+    for fitted_number,(item,result) in enumerate(dynamic_items,1):
+        emit('贴合服装与头发',item['path'],fitted_number-1,len(dynamic_items))
         try:
             component_render=[];fitted=[]
             selected_wrap=None
@@ -270,12 +285,14 @@ def decode_plan(plan, catalog):
                     'uv':[[0,0]for _ in verts],'sections':[indices],'materials':['Hair guides'],'converted_to_source_vertex':[i//2 for i in range(len(verts))]})
             render.extend(component_render)
         except Exception as exc:fail(item,exc)
+    emit('贴合服装与头发', '部件贴合完成', len(dynamic_items), len(dynamic_items))
     if credit_sources:
         warnings.append(f'已兼容 {len(set(credit_sources))} 个文件末尾的作者致谢文本，不影响资源解码；原文、来源与偏移保留在 IR 的 metadata_compatibility 中。')
     duplicate_wraps=[r for r in raw_records if r.get('kind')=='dynamic' and len(r['data'].get('wrap_resolution',{}).get('equivalent_source_indices',[]))>1]
     if duplicate_wraps:
         warnings.append(f'已兼容 {len(duplicate_wraps)} 个资源中完全一致的重复 SkinWrap 绑定；每个资源只执行一次贴合，原绑定及选择依据保留在 IR。')
     require(render,'no_geometry','No supported renderable geometry in selection')
+    emit('验证并保存解码结果', '复核来源哈希、有限数与完整 IR')
     # Validate source bytes again before committing a result.
     for relative,expected in source_hashes.items():
         with source_path(relative).open('rb') as stream:require(hashlib.file_digest(stream,'sha256').hexdigest()==expected,'source_changed',relative)
@@ -298,13 +315,19 @@ class DecodeService:
         self.catalog,self.plans=catalog,plans
         self.directory=catalog.data/'Decoded';self.directory.mkdir(exist_ok=True)
         self.lock=threading.Lock();self.process=None;self.state={'running':False,'status':'idle'}
+        self.progress_file=self.directory/'worker-progress.json'
     def status(self):
-        with self.lock:return dict(self.state)
+        with self.lock:state=dict(self.state)
+        if state['running']:
+            try:state['progress']=strict_json(self.progress_file.read_bytes())
+            except (OSError,ValueError):pass
+        return state
     def start(self,identity):
         plan=self.plans.read_plan(identity)
         require(plan['status']!='cancelled','plan_cancelled','Generate a completed plan first')
         with self.lock:
             require(not self.state['running'],'busy','Decode already running')
+            self.progress_file.unlink(missing_ok=True)
             self.state={'running':True,'status':'decoding','plan_id':identity,'error':''}
         threading.Thread(target=self.run,args=(identity,),daemon=True).start()
         return self.status()
@@ -312,6 +335,7 @@ class DecodeService:
         with self.lock:
             require(not self.state['running'],'busy','Decode already running')
             result=self.result()
+            self.progress_file.unlink(missing_ok=True)
             self.state={'running':True,'status':'materials','plan_id':result['plan_id'],'error':''}
         threading.Thread(target=self.run,args=(result['plan_id'],True),daemon=True).start()
         return self.status()
@@ -322,7 +346,8 @@ class DecodeService:
             with (self.directory/'worker.log').open('w',encoding='utf8') as log:
                 with self.lock:
                     if self.state.get('cancelled'):return
-                    self.process=subprocess.Popen(args,stdout=log,stderr=log,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+                    self.process=subprocess.Popen(args,stdout=log,stderr=log,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0),
+                        env=dict(os.environ,VAM_STAGE_PROGRESS=str(self.progress_file.resolve())))
                 code=self.process.wait(timeout=600 if materials else 300)
             with self.lock:
                 if self.state.get('cancelled'):return
@@ -356,6 +381,8 @@ class DecodeService:
         request=self.directory/result.get('appearance_file',result['decode_id']+'.preview.json')
         require(request.resolve().parent==self.directory.resolve(),'preview_path','Invalid preview cache path')
         self.ue_result=request.with_suffix('.ue-result.json')
+        self.ue_progress_file=self.directory/'ue-progress.json'
+        self.ue_progress_file.unlink(missing_ok=True)
         if self.ue_result.exists():self.ue_result.unlink()
         queue=self.catalog.data/'preview-request.json'
         require(not queue.exists() and not (self.catalog.data/'preview-active.json').exists(),'busy','当前编辑器正在加载人物')
@@ -365,7 +392,9 @@ class DecodeService:
 
     def ue_status(self):
         if getattr(self,'ue_result',None) and self.ue_result.exists():return strict_json(self.ue_result.read_bytes())
-        if getattr(self,'ue_queued',False):return {'status':'starting'}
+        if getattr(self,'ue_queued',False):
+            try:return {'status':'starting','progress':strict_json(self.ue_progress_file.read_bytes())}
+            except (OSError,ValueError):return {'status':'starting'}
         if getattr(self,'ue_process',None):return {'status':'starting' if self.ue_process.poll() is None else 'closed'}
         return {'status':'idle'}
 
@@ -373,8 +402,10 @@ class DecodeService:
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--plan',type=Path,required=True);parser.add_argument('--data',type=Path,required=True);args=parser.parse_args()
     from vam_index import Catalog
-    plan=strict_json(args.plan.read_bytes());ir,preview=decode_plan(plan,Catalog(args.data))
+    from vam_job_progress import publish
+    plan=strict_json(args.plan.read_bytes());ir,preview=decode_plan(plan,Catalog(args.data),publish)
     output=args.data/'Decoded';output.mkdir(exist_ok=True)
+    publish('写入预览文件','保存来源 IR 与浏览器预览')
     for name,value in [(ir['decode_id']+'.ir.json',ir),(ir['decode_id']+'.preview.json',preview),('latest.json',preview)]:
         target=output/name;temporary=target.with_suffix('.tmp');temporary.write_bytes(canonical(value));temporary.replace(target)
     print(json.dumps(preview['statistics'],ensure_ascii=False))

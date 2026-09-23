@@ -9,10 +9,12 @@ sys.path[:0]=[str(SCRIPTS),str(SCRIPTS.parent/'Saved/Python')]
 from vam_plan import strict_json,canonical,sha
 from vam_decode import require
 from vam_materials import build_material_ir
+from vam_job_progress import publish
 
 
 def main(data,preview_path=None):
     started=time.perf_counter()
+    publish('验证锁定来源','读取预览、计划与来源 IR')
     decoded=data/'Decoded';preview=strict_json((preview_path or decoded/'latest.json').read_bytes())
     ir=strict_json((decoded/(preview['decode_id']+'.ir.json')).read_bytes())
     plan=strict_json((data/'Plans'/(ir['plan_id']+'.json')).read_bytes())
@@ -25,13 +27,18 @@ def main(data,preview_path=None):
         path=(root/relative).resolve();require(path.is_relative_to(root),'source_path',relative)
         with path.open('rb') as stream:require(hashlib.file_digest(stream,'sha256').hexdigest()==expected,'source_changed',relative)
         verified[relative]=expected
-    for relative,expected in ir['source_hashes'].items():verify(relative,expected)
+    locked_sources=list(ir['source_hashes'].items())
+    for number,(relative,expected) in enumerate(locked_sources,1):
+        publish('验证锁定来源',relative,number-1,len(locked_sources))
+        verify(relative,expected)
+    publish('验证锁定来源','来源文件核验完成',len(locked_sources),len(locked_sources))
     out=data/'SourceAppearance';out.mkdir(exist_ok=True)
-    version=sha(b''.join((SCRIPTS/name).read_bytes() for name in ('vam_material_worker.py','vam_materials.py','vam_unity.py','vam_decode.py','vam_plan.py')))
+    version=sha(b''.join((SCRIPTS/name).read_bytes() for name in ('vam_material_worker.py','vam_materials.py','vam_unity.py','vam_decode.py','vam_plan.py','vam_zip_compat.py')))
     cache=out/('cache-'+sha(canonical([ir['decode_id'],plan['plan_id'],version]))+'.json')
     result=None
     if cache.exists():
         try:
+            publish('检查材质缓存','验证缓存结果与已保存贴图')
             candidate=strict_json(cache.read_bytes())
             require(not any('material_cache_limit' in str(d.get('impact','')) for d in candidate.get('diagnostics',[])),'cache_incomplete','Retry textures previously blocked by cache capacity')
             require(sha(canonical({k:v for k,v in candidate.items() if k!='material_id'}))==candidate['material_id'],'cache_integrity','Material cache hash mismatch')
@@ -54,10 +61,11 @@ def main(data,preview_path=None):
         except Exception as exc:print('Material cache invalidated:',exc)
     cache_hit=result is not None
     if result is None:
-        result=build_material_ir(plan,ir,preview,out)
+        result=build_material_ir(plan,ir,preview,out,publish)
         if not any('material_cache_limit' in str(d.get('impact','')) for d in result.get('diagnostics',[])):
             temporary=cache.with_suffix('.tmp');temporary.write_bytes(canonical(result));temporary.replace(cache)
     target=out/(result['material_id']+'.materials.json')
+    publish('保存材质结果','写入 SourceMaterialIR 与外观预览')
     temporary=target.with_suffix('.tmp');temporary.write_bytes(canonical(result));temporary.replace(target)
     preview['source_material_ir']=str(target.resolve());preview['material_id']=result['material_id']
     preview['material_status']=result['status'];preview['material_diagnostic_count']=len(result['diagnostics'])
