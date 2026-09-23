@@ -98,7 +98,23 @@ def triangles(mesh):
 def cross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]
 
 
-def fit_wrap(mesh, wrap, target, surface_offset=0., thickness=0.):
+def smooth_wrap_vertices(vertices, polygons, iterations):
+    """Source MeshSmooth polygon-neighbor Laplacian + HC(beta=.5)."""
+    require(isinstance(iterations,int) and 0<=iterations<=100,'wrap_smoothing','Invalid iteration count')
+    neighbors=[set() for _ in vertices]
+    for polygon in polygons:
+        ids=polygon['vertices']
+        for i in ids:neighbors[i].update(j for j in ids if j!=i)
+    neighbors=[sorted(n) for n in neighbors]
+    points=vertices
+    for _ in range(iterations):
+        average=[[sum(points[j][k] for j in n)/len(n) for k in range(3)] if n else list(points[i]) for i,n in enumerate(neighbors)]
+        diff=[[a-b for a,b in zip(v,w)] for v,w in zip(average,points)]
+        points=[[average[i][k]-.5*diff[i][k]-.5*sum(diff[j][k] for j in n)/len(n) for k in range(3)] if n else list(points[i]) for i,n in enumerate(neighbors)]
+    return points
+
+
+def fit_wrap(mesh, wrap, target, surface_offset=0., thickness=0., smooth_iterations=0):
     """DAZSkinWrap.Wrap CPU basis at unit source scale, without smoothing."""
     finite([surface_offset,thickness])
     verts=target['vertices'];tris=triangles(target);out=[]
@@ -116,6 +132,7 @@ def fit_wrap(mesh, wrap, target, surface_offset=0., thickness=0.):
         bitangent=cross(tangent,normal)
         out.append([origin[i]+tangent[i]*(t1proj+t1dot*thickness)+bitangent[i]*(t2proj+t2dot*thickness)
                     +normal[i]*(nproj+surface_offset+ndot*thickness) for i in range(3)])
+    if smooth_iterations:out=smooth_wrap_vertices(out,mesh['polygons'],smooth_iterations)
     finite(out)
     return dict(mesh,vertices=out)
 
@@ -152,6 +169,9 @@ def preview_wrap_settings(result, appearance_documents):
                 values.update(matches[0]);sources.append({'source':label,'parameters':matches[0]})
     offset=float(values.get('surfaceOffset',0));thickness=float(values.get('additionalThicknessMultiplier',0))
     finite([offset,thickness])
-    return {'surface_offset':offset,'thickness':thickness}, {'controller':controller,
+    smoothing=math.floor(float(values.get('smoothIterations',0)))
+    require(0<=smoothing<=100,'wrap_smoothing','Invalid source smoothIterations')
+    return {'surface_offset':offset,'thickness':thickness,'smooth_iterations':smoothing}, {'controller':controller,
             'sources':sources,'surface_offset_metres':offset,'additional_thickness_multiplier':thickness,
-            'unapplied_fields':{k:values[k] for k in ('smoothIterations','wrapToSmoothedVerts') if k in values}}
+            'smoothing':{'iterations':smoothing,'method':'source polygon-neighbor Laplacian + HC','beta':.5},
+            'unapplied_fields':{k:values[k] for k in ('wrapToSmoothedVerts',) if k in values}}

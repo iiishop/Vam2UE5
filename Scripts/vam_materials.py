@@ -308,7 +308,20 @@ def build_material_ir(plan,ir,preview,out):
         for index,s in enumerate(params.get('storables',[])):
             try:apply(doc,index,s)
             except Exception as exc:issue('material_config',{'document':doc,'field':f'/storables/{index}'},[],str(exc))
+    # DAZMergedMesh reserves its last slot for target polygons replaced by grafts.
+    # Their topology stays in Source IR for indexing, but must not be rendered twice.
+    hidden_graft_slots=set()
+    for record in ir['records']:
+        if record.get('class')!='DAZMergedMesh':continue
+        source=record['mesh'];parameters=record['parameters']
+        graft=next((r for r in ir['records'] if r.get('kind')=='unity_mesh' and r['object']==str(parameters['graftMesh']['m_PathID'])),None)
+        if graft and graft['parameters'].get('meshGraft',{}).get('hiddenPolys') and source['materials'][-1]=='Hidden':
+            for index,mesh in enumerate(preview['meshes']):
+                if mesh['locator'].get('object')==record['object']:hidden_graft_slots.add((index,len(source['materials'])-1))
     for m in materials:
+        if (m['binding']['mesh'],m['binding']['slot']) in hidden_graft_slots:
+            m['render_state']['hidden']=True
+            m['render_state']['hidden_reason']='DAZMergedMesh reserved graft-replaced target polygons; retained for source indexing only'
         name=m['source_shader'].get('name') or ''
         # Source shader names denote known families; preserve unknown states explicitly.
         m['render_state']['blend']='masked' if 'Cutout' in name else 'translucent' if 'Transparent' in name else 'opaque' if name else 'unknown'

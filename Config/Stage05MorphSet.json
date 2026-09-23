@@ -1,0 +1,10 @@
+{
+  "schema": "vam-editable-morph-selection/1",
+  "description": "Explicit small starter set; zero imported weights are still included. Edit this list or select another JSON file. No library-wide decoding.",
+  "builtin": [
+    {"name": "FBMBodySize", "group": "Shape", "unit": "source coefficient"},
+    {"name": "PBMWaistWidth", "group": "Shape", "unit": "source coefficient"},
+    {"name": "PHMNoseWidth", "group": "Shape", "unit": "source coefficient"}
+  ],
+  "catalog_resources": []
+}

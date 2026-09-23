@@ -1,7 +1,7 @@
 import copy
 import unittest
 from vam_decode import DecodeError
-from vam_fit import resolve_preview_wrap, apply_bone_centers, fit_wrap, preview_wrap_settings
+from vam_fit import resolve_preview_wrap, apply_bone_centers, fit_wrap, preview_wrap_settings, smooth_wrap_vertices
 
 
 class CompatibilityTests(unittest.TestCase):
@@ -23,8 +23,15 @@ class CompatibilityTests(unittest.TestCase):
         params,report=preview_wrap_settings(result,[('appearance',{'storables':[
             {'id':'different:PinWrapControl','surfaceOffset':'8'},
             {'id':'author:PinWrapControl','surfaceOffset':'-.5'}]})])
-        self.assertEqual(params,{'surface_offset':-.5,'thickness':0.})
+        self.assertEqual(params,{'surface_offset':-.5,'thickness':0.,'smooth_iterations':0})
         self.assertEqual(len(report['sources']),2)
+
+    def test_source_hc_smoothing_and_zero_iterations(self):
+        points=[[0.,0.,0.],[2.,0.,0.],[0.,2.,0.]]
+        polygons=[{'vertices':[0,1,2]}]
+        self.assertEqual(smooth_wrap_vertices(points,polygons,0),points)
+        self.assertEqual(smooth_wrap_vertices(points,polygons,1),[[.75,.75,0.],[.5,.75,0.],[.75,.5,0.]])
+        self.assertEqual(points,[[0.,0.,0.],[2.,0.,0.],[0.,2.,0.]])
 
     def test_identical_bindings_resolve_without_losing_provenance(self):
         mesh={'uv':[[0,0]]};wrap={'name':'Normal','vertices':[[0,1,2,3,0,0,0,1,0,0]]}

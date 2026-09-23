@@ -3,12 +3,12 @@
   "Version": 5,
   "VersionName": "0.5.0-dev",
   "FriendlyName": "VaM Resource Browser",
-  "Description": "Stages 01-04 source preview; Stage05 native builder and runtime foundation (source calibration and import transaction pending).",
+  "Description": "Source browser, native character builder, locked editable Morph sets and per-instance shape runtime. Source-reference material and TriAx diagnostics are preserved.",
   "Category": "Editor",
   "CreatedBy": "SmartNPC",
   "EnabledByDefault": false,
   "CanContainContent": true,
   "SupportedTargetPlatforms": ["Win64"],
-  "Plugins": [{"Name":"PythonScriptPlugin","Enabled":true},{"Name":"GeometryScripting","Enabled":true}],
+  "Plugins": [{"Name":"PythonScriptPlugin","Enabled":true,"TargetAllowList":["Editor"]},{"Name":"GeometryScripting","Enabled":true,"TargetAllowList":["Editor"]}],
   "Modules": [{"Name": "VamCharacterRuntime", "Type": "Runtime", "LoadingPhase": "Default"}, {"Name": "VamResourceBrowser", "Type": "Editor", "LoadingPhase": "PostEngineInit"}]
 }

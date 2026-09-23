@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "reference": "Source CPU mathematical port, held-out single-axis +/-22 degree poses; not captured VaM runtime truth",
+  "thresholds_cm": {"global_rms": 0.3, "global_p95": 0.5, "per_joint_maximum": 2.0},
+  "failure_policy": "Reject native acceptance; never hide a failed skin gate with physics",
+  "runtime_equivalence": "pending_calibration"
+}

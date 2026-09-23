@@ -11,9 +11,9 @@ from vam_decode import require
 from vam_materials import build_material_ir
 
 
-def main(data):
+def main(data,preview_path=None):
     started=time.perf_counter()
-    decoded=data/'Decoded';preview=strict_json((decoded/'latest.json').read_bytes())
+    decoded=data/'Decoded';preview=strict_json((preview_path or decoded/'latest.json').read_bytes())
     ir=strict_json((decoded/(preview['decode_id']+'.ir.json')).read_bytes())
     plan=strict_json((data/'Plans'/(ir['plan_id']+'.json')).read_bytes())
     require(sha(canonical({k:v for k,v in ir.items() if k!='decode_id'}))==ir['decode_id'],'ir_integrity','Source IR hash mismatch')
@@ -62,12 +62,13 @@ def main(data):
     preview['source_material_ir']=str(target.resolve());preview['material_id']=result['material_id']
     preview['material_status']=result['status'];preview['material_diagnostic_count']=len(result['diagnostics'])
     preview['appearance_file']=preview['decode_id']+'.appearance.preview.json'
-    current=strict_json((decoded/'latest.json').read_bytes())
-    require(current['decode_id']==preview['decode_id'],'preview_changed','Geometry selection changed while materials were being decoded; retry for the current selection')
-    for name in (preview['appearance_file'],'latest.json'):
+    if preview_path is None:
+        current=strict_json((decoded/'latest.json').read_bytes())
+        require(current['decode_id']==preview['decode_id'],'preview_changed','Geometry selection changed while materials were being decoded; retry for the current selection')
+    for name in ((preview['appearance_file'],) if preview_path else (preview['appearance_file'],'latest.json')):
         path=decoded/name;temporary=path.with_suffix('.tmp');temporary.write_bytes(canonical(preview));temporary.replace(path)
     print('SourceMaterialIR:',target)
     print('Material parse seconds:',round(time.perf_counter()-started,2),'cache_hit:',cache_hit)
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--data',type=Path,required=True);args=parser.parse_args();main(args.data)
+    parser=argparse.ArgumentParser();parser.add_argument('--data',type=Path,required=True);parser.add_argument('--preview',type=Path);args=parser.parse_args();main(args.data,args.preview)

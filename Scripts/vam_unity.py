@@ -97,6 +97,14 @@ def skeleton(bundle, gender):
     candidates = [g for g in groups.values() if {'hip','head','lHand','rHand','lFoot','rFoot'} <= {b['_id'] for b in g.values()}]
     require(len(candidates) == 1, 'skeleton_ambiguous', 'Need one complete DAZ body hierarchy')
     group = candidates[0]; result=[]
+    # parentBone deliberately excludes non-DAZ Transform parents. Preserve both.
+    transform_objects=[o for o in bundle.env.objects if o.type.name=='Transform']
+    require(len({o.path_id for o in transform_objects})==len(transform_objects),'transform_identity','Cross-container Transform IDs require an explicit resolver')
+    transforms={o.path_id:o.read_typetree() for o in transform_objects}
+    require(all(t['m_GameObject']['m_FileID']==0 and t['m_Father']['m_FileID']==0 for t in transforms.values()),
+            'transform_external','External Transform parent or GameObject is not resolved by this adapter')
+    by_game_object={t['m_GameObject']['m_PathID']:oid for oid,t in transforms.items()}
+    by_transform={by_game_object[d['m_GameObject']['m_PathID']]:oid for oid,d in group.items()}
     for oid,d in sorted(group.items(), key=lambda x:x[1]['_id']):
         parent = d['parentBone']['m_PathID']
         require(parent == 0 or parent in group, 'bone_reference', str(parent))
@@ -104,7 +112,19 @@ def skeleton(bundle, gender):
         while ancestor:
             require(ancestor not in seen, 'bone_cycle', d['_id']); seen.add(ancestor)
             ancestor = group[ancestor]['parentBone']['m_PathID']
+        transform_id=by_game_object[d['m_GameObject']['m_PathID']]
+        chain=[]; ancestor=transforms[transform_id]['m_Father']['m_PathID']; seen_transforms={transform_id}
+        transform_parent=None
+        while ancestor:
+            require(ancestor in transforms and ancestor not in seen_transforms,'transform_parent',str(ancestor))
+            seen_transforms.add(ancestor)
+            if ancestor in by_transform:
+                transform_parent=group[by_transform[ancestor]]['_id'];break
+            chain.append({'object':str(ancestor),'parameters':transforms[ancestor]})
+            ancestor=transforms[ancestor]['m_Father']['m_PathID']
         result.append({'name': d['_id'], 'parent': group[parent]['_id'] if parent else None,
+                       'transform_parent':transform_parent,'transform_object':str(transform_id),
+                       'transform_parameters':transforms[transform_id],'intermediate_transforms':chain,
                        'source_object': str(oid), 'position': vec(d['_maleWorldPosition' if gender=='male' else '_worldPosition']),
                        'orientation_degrees': vec(d['_maleWorldOrientation' if gender=='male' else '_worldOrientation']),
                        'rotation_order': d['_maleRotationOrder' if gender=='male' else '_rotationOrder'], 'parameters': d})

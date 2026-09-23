@@ -1,6 +1,8 @@
 #include "VamNativeBuilder.h"
+#include "VamSourceMapping.h"
 #include "AssetUtils/CreateSkeletalMeshUtil.h"
 #include "Animation/Skeleton.h"
+#include "Animation/MorphTarget.h"
 #include "Engine/SkeletalMesh.h"
 #include "Materials/MaterialInterface.h"
 #include "SkeletalMeshAttributes.h"
@@ -15,7 +17,7 @@ USkeletalMesh* UVamNativeBuilder::BuildMesh(const FString& Path, const FVamNativ
     auto Fail = [&Error](const TCHAR* Reason) -> USkeletalMesh* { Error = Reason; return nullptr; };
     Error.Empty();
     const FString SkeletonPath = Path + TEXT("_Skeleton");
-    if (!Path.StartsWith(TEXT("/Game/")) || !FPackageName::IsValidLongPackageName(Path)) return Fail(TEXT("Invalid /Game asset path"));
+    if ((!Path.StartsWith(TEXT("/Game/")) && !Path.StartsWith(TEXT("/VamResourceBrowser/Examples/"))) || !FPackageName::IsValidLongPackageName(Path)) return Fail(TEXT("Invalid project or original example asset path"));
     if (FPackageName::DoesPackageExist(Path) || FPackageName::DoesPackageExist(SkeletonPath) ||
         FindPackage(nullptr, *Path) || FindPackage(nullptr, *SkeletonPath)) return Fail(TEXT("Asset conflict: existing packages are never overwritten"));
     const int32 Count = I.Vertices.Num();
@@ -106,16 +108,80 @@ USkeletalMesh* UVamNativeBuilder::BuildMesh(const FString& Path, const FVamNativ
     } // Modifier must rebuild final bone/name arrays before the asset utility reads Ref.
     UE::AssetUtils::FSkeletalMeshAssetOptions Options;
     Options.NewAssetPath=Path; Options.Skeleton=Skeleton; Options.RefSkeleton=&Ref;
-    Options.SourceMeshes.MeshDescriptions.Add(&Description);
+    // Bootstrap topology without Morphs: UE's default threshold can destroy tiny
+    // targets, leaving pending-kill objects that cannot be rebuilt under the same name.
+    FMeshDescription GeometryDescription(Description);
+    FSkeletalMeshAttributes GeometryAttributes(GeometryDescription);
+    for (const auto& M:I.Morphs) GeometryAttributes.UnregisterMorphTargetAttribute(M.Name);
+    Options.SourceMeshes.MeshDescriptions.Add(&GeometryDescription);
     Options.NumMaterialSlots=I.Materials.Num();
-    for (auto Material : I.Materials) Options.AssetMaterials.Add(Material);
+    for (int32 M=0; M<I.Materials.Num(); ++M)
+    {
+        const FName Slot(*FString::Printf(TEXT("SourceRegion_%d"),M));
+        Options.SkeletalMaterials.Add(FSkeletalMaterial(I.Materials[M],Slot,Slot));
+    }
     UE::AssetUtils::FSkeletalMeshResults Result;
     if (UE::AssetUtils::CreateSkeletalMeshAsset(Options, Result) != UE::AssetUtils::ECreateSkeletalMeshResult::Ok)
         return Fail(TEXT("UE skeletal mesh construction failed; not committed"));
+    // UE's default 0.015 cm Morph threshold discards valid small clothing deltas.
+    // Rebuild from the retained MeshDescription with our recorded precision policy.
+    Result.SkeletalMesh->GetLODInfo(0)->BuildSettings.MorphThresholdPosition=1.e-6f;
+    Result.SkeletalMesh->CreateMeshDescription(0,MoveTemp(Description));
+    Result.SkeletalMesh->CommitMeshDescription(0);
+    Result.SkeletalMesh->Build();
     const auto Map = GetRenderToInputMap(Result.SkeletalMesh);
+    TArray<int32> Expected, Actual; Expected.Init(0,I.Materials.Num()); Actual.Init(0,I.Materials.Num());
+    for (int32 Slot:I.TriangleMaterials) ++Expected[Slot];
+    for (const auto& Section:Result.SkeletalMesh->GetImportedModel()->LODModels[0].Sections)
+    {
+        if (!Actual.IsValidIndex(Section.MaterialIndex)) return Fail(TEXT("Built material index outside source slots"));
+        Actual[Section.MaterialIndex]+=Section.NumTriangles;
+    }
+    if (Expected!=Actual) return Fail(TEXT("Built section material assignment differs from source triangle regions"));
     if (Map.IsEmpty()) return Fail(TEXT("Missing final render correspondence; not committed"));
     for (int32 V : Map) if (!I.Vertices.IsValidIndex(V)) return Fail(TEXT("Final render correspondence out of range; not committed"));
     if (Result.SkeletalMesh->GetMorphTargets().Num()!=I.Morphs.Num()) return Fail(TEXT("UE morph build mismatch; not committed"));
+    // Validate in the FINAL split render domain, including UV/material copies.
+    for (const auto& SourceMorph:I.Morphs)
+    {
+        const auto* Built=Result.SkeletalMesh->FindMorphTarget(SourceMorph.Name);
+        if (!Built) return Fail(TEXT("Missing final morph"));
+        TArray<FVector3f> FinalDeltas; FinalDeltas.Init(FVector3f::ZeroVector,Map.Num());
+        for (const auto& D:Built->GetMorphTargetDeltas(0))
+        {
+            if (!Map.IsValidIndex(D.SourceIdx)) return Fail(TEXT("Morph render index outside correspondence"));
+            FinalDeltas[D.SourceIdx]=D.PositionDelta;
+        }
+        for (int32 V=0;V<Map.Num();++V)
+            // MeshDescription import identifies changed points at 1e-4 cm, even
+            // when MorphThresholdPosition is smaller. Keep this one-micron bound explicit.
+            if (!FVector(FinalDeltas[V]).Equals(SourceMorph.Deltas[Map[V]],1.e-4))
+            {
+                Error=FString::Printf(TEXT("Final morph %s vertex %d input %d expected %s actual %s"),*SourceMorph.Name.ToString(),V,Map[V],*SourceMorph.Deltas[Map[V]].ToString(),*FVector(FinalDeltas[V]).ToString());
+                return nullptr;
+            }
+    }
+    for (const auto& Section:Result.SkeletalMesh->GetImportedModel()->LODModels[0].Sections)
+        for (int32 V=0;V<Section.SoftVertices.Num();++V)
+        {
+            const auto& Final=Section.SoftVertices[V]; const int32 Input=Map[Section.BaseVertexIndex+V];
+            if (!FVector(Final.Position).Equals(I.Vertices[Input],2.e-5) ||
+                !FVector2D(Final.UVs[0]).Equals(I.UV[Input],1.e-6)) return Fail(TEXT("Final vertex/UV correspondence differs from source"));
+            TMap<int32,double> ExpectedWeights,FinalWeights;
+            for (const auto& Weight:Weights[Input]) ExpectedWeights.Add(Weight.GetBoneIndex(),Weight.GetWeight());
+            for (int32 K=0;K<MAX_TOTAL_INFLUENCES;++K) if (Final.InfluenceWeights[K])
+            {
+                if (!Section.BoneMap.IsValidIndex(Final.InfluenceBones[K])) return Fail(TEXT("Final influence bone outside section map"));
+                FinalWeights.Add(Section.BoneMap[Final.InfluenceBones[K]],double(Final.InfluenceWeights[K])/65535.);
+            }
+            // Up to eight packed influences are renormalized by UE during import.
+            for (const auto& W:ExpectedWeights) if (FMath::Abs(FinalWeights.FindRef(W.Key)-W.Value)>8./65535.)
+            {
+                Error=FString::Printf(TEXT("Final skin input %d bone %d expected %.9g actual %.9g source count %d built count %d"),Input,W.Key,W.Value,FinalWeights.FindRef(W.Key),ExpectedWeights.Num(),FinalWeights.Num());
+                return nullptr;
+            }
+            for (const auto& W:FinalWeights) if (!ExpectedWeights.Contains(W.Key)) return Fail(TEXT("Unexpected final skin influence"));
+        }
     FAssetRegistryModule::AssetCreated(Skeleton);
     FAssetRegistryModule::AssetCreated(Result.SkeletalMesh);
     Skeleton->MarkPackageDirty(); Result.SkeletalMesh->MarkPackageDirty();
@@ -128,17 +194,52 @@ TArray<int32> UVamNativeBuilder::GetRenderToInputMap(USkeletalMesh* Mesh)
     return Mesh->GetImportedModel()->LODModels[0].MeshToImportVertexMap;
 }
 
+bool UVamNativeBuilder::ShareCompatibleSkeleton(USkeletalMesh* Part, USkeletalMesh* Body)
+{
+    if (!Part || !Body || !Body->GetSkeleton()) return false;
+    const auto& A=Part->GetRefSkeleton(); const auto& B=Body->GetRefSkeleton();
+    if (A.GetNum()!=B.GetNum()) return false;
+    for (int32 I=0; I<A.GetNum(); ++I)
+        if (A.GetBoneName(I)!=B.GetBoneName(I) || A.GetParentIndex(I)!=B.GetParentIndex(I) ||
+            !A.GetRefBonePose()[I].Equals(B.GetRefBonePose()[I],1.e-6)) return false;
+    Part->SetSkeleton(Body->GetSkeleton()); Part->MarkPackageDirty(); return true;
+}
+
+void UVamNativeBuilder::SetBuildLimitations(UVamCharacterDefinition* Definition, const TArray<FString>& Limitations)
+{
+    if (Definition) { Definition->Limitations=Limitations; Definition->MarkPackageDirty(); }
+}
+
+void UVamNativeBuilder::SetAppearanceBaseline(UVamCharacterDefinition* Definition)
+{
+    if (Definition) { Definition->ShapeConvention=TEXT("appearance_plus_parameter_offsets"); Definition->MarkPackageDirty(); }
+}
+
+UVamSourceMapping* UVamNativeBuilder::CreateSourceMapping(const FString& Path, const FString& SourceDigest,
+    const FString& BindSignature, const FString& SourceIR, const FString& MaterialIR,
+    const FString& Contract, const TArray<int32>& RenderToInput, const TArray<int32>& InputToSource)
+{
+    if (!Path.StartsWith(TEXT("/Game/")) || !FPackageName::IsValidLongPackageName(Path) ||
+        FPackageName::DoesPackageExist(Path) || FindPackage(nullptr,*Path)) return nullptr;
+    for (int32 V:RenderToInput) if (!InputToSource.IsValidIndex(V)) return nullptr;
+    auto* Mapping=NewObject<UVamSourceMapping>(CreatePackage(*Path),*FPackageName::GetLongPackageAssetName(Path),RF_Public|RF_Standalone);
+    Mapping->SourceDigest=SourceDigest; Mapping->BindSignature=BindSignature;
+    Mapping->SourceIRJson=SourceIR; Mapping->MaterialIRJson=MaterialIR; Mapping->NativeContractJson=Contract;
+    Mapping->RenderToInputVertex=RenderToInput; Mapping->InputToSourceVertex=InputToSource;
+    FAssetRegistryModule::AssetCreated(Mapping); Mapping->MarkPackageDirty(); return Mapping;
+}
+
 UVamCharacterDefinition* UVamNativeBuilder::CreateDefinition(const FString& Path, USkeletalMesh* Body,
     const TArray<FVamMorphParameter>& Parameters, const FString& Identity, const FString& Digest, const FString& Bind)
 {
     if (!Body || !Body->GetSkeleton() || GetRenderToInputMap(Body).IsEmpty() ||
         Identity.IsEmpty() || Digest.IsEmpty() || Bind.IsEmpty() ||
-        !Path.StartsWith(TEXT("/Game/")) || !FPackageName::IsValidLongPackageName(Path) ||
+        (!Path.StartsWith(TEXT("/Game/")) && !Path.StartsWith(TEXT("/VamResourceBrowser/Examples/"))) || !FPackageName::IsValidLongPackageName(Path) ||
         FPackageName::DoesPackageExist(Path) || FindPackage(nullptr, *Path)) return nullptr;
     TSet<FName> Names;
     for (const auto& P : Parameters)
     {
-        if (Names.Contains(P.Target) || !Body->FindMorphTarget(P.Target) ||
+        if (Names.Contains(P.Target) || (!Body->FindMorphTarget(P.Target) && P.BoneCenters.IsEmpty()) ||
             !FMath::IsFinite(P.Minimum) || !FMath::IsFinite(P.Maximum) || !FMath::IsFinite(P.DefaultValue) ||
             P.Minimum>P.DefaultValue || P.DefaultValue>P.Maximum) return nullptr;
         Names.Add(P.Target);

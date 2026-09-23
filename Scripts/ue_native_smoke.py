@@ -6,7 +6,7 @@ ImportState. A second process reload is selected with VAM_NATIVE_RELOAD=1.
 import os
 import unreal as u
 
-folder='/Game/VamStage05Tests'
+folder=os.environ.get('VAM_NATIVE_FIXTURE_FOLDER','/Game/VamStage05Tests')
 mesh_path=folder+'/SK_TestPanel'
 definition_path=folder+'/CD_TestPanel'
 bp_path=folder+'/BP_TestPanel'
@@ -52,7 +52,8 @@ def run():
     u.BlueprintEditorLibrary.compile_blueprint(bp)
     for asset in (skeleton,mesh,definition,bp):assert u.EditorAssetLibrary.save_loaded_asset(asset,False)
     # Empty, reusable native host ships in plugin content; no test geometry dependency.
-    host=u.AssetToolsHelpers.get_asset_tools().create_asset('BP_VamCharacter','/VamResourceBrowser/Blueprints',u.Blueprint,factory)
+    host=u.load_asset('/VamResourceBrowser/Blueprints/BP_VamCharacter')
+    if not host:host=u.AssetToolsHelpers.get_asset_tools().create_asset('BP_VamCharacter','/VamResourceBrowser/Blueprints',u.Blueprint,factory)
     u.BlueprintEditorLibrary.compile_blueprint(host)
     assert u.EditorAssetLibrary.save_loaded_asset(host,False)
     u.log('VAM_NATIVE_BUILD_OK')

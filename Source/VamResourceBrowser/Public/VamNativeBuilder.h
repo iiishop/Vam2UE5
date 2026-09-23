@@ -5,6 +5,7 @@
 #include "VamNativeBuilder.generated.h"
 class USkeletalMesh;
 class UMaterialInterface;
+class UVamSourceMapping;
 
 USTRUCT(BlueprintType)
 struct FVamBuildBone
@@ -58,4 +59,14 @@ public:
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static UVamCharacterDefinition* CreateDefinition(const FString& AssetPath, USkeletalMesh* Body,
         const TArray<FVamMorphParameter>& Parameters, const FString& SourceIdentity, const FString& SourceDigest, const FString& BindSignature);
+    UFUNCTION(BlueprintCallable, Category="VaM|Editor")
+    static bool ShareCompatibleSkeleton(USkeletalMesh* Part, USkeletalMesh* Body);
+    UFUNCTION(BlueprintCallable, Category="VaM|Editor")
+    static void SetBuildLimitations(UVamCharacterDefinition* Definition, const TArray<FString>& Limitations);
+    UFUNCTION(BlueprintCallable, Category="VaM|Editor")
+    static void SetAppearanceBaseline(UVamCharacterDefinition* Definition);
+    UFUNCTION(BlueprintCallable, Category="VaM|Editor")
+    static UVamSourceMapping* CreateSourceMapping(const FString& AssetPath, const FString& SourceDigest,
+        const FString& BindSignature, const FString& SourceIR, const FString& MaterialIR,
+        const FString& Contract, const TArray<int32>& RenderToInput, const TArray<int32>& InputToSource);
 };

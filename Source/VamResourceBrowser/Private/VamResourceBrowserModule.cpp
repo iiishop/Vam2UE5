@@ -21,6 +21,7 @@
 #include "DesktopPlatformModule.h"
 #include "IDesktopPlatform.h"
 #include "IPythonScriptPlugin.h"
+#include "VamNativeBuildWindow.h"
 
 #define LOCTEXT_NAMESPACE "VamResourceBrowser"
 
@@ -146,10 +147,9 @@ class FVamResourceBrowserModule final : public IModuleInterface
                     }) ]
                 + SHorizontalBox::Slot().AutoWidth().Padding(8,0)
                 [ SNew(SButton).Text(LOCTEXT("BuildNative", "生成 UE 人物资产"))
-                    .ToolTipText(LOCTEXT("BuildNativeTip", "检查最近解码的人物；未校准的蒙皮和公式会阻止正式提交，并提供报告"))
+                    .ToolTipText(LOCTEXT("BuildNativeTip", "选择目标目录与可编辑 Morph 集；支持进度、取消与受保护的重导入"))
                     .OnClicked_Lambda([]() {
-                        const FString Script = FPaths::ConvertRelativePathToFull(IPluginManager::Get().FindPlugin(TEXT("VamResourceBrowser"))->GetBaseDir() / TEXT("Scripts/ue_native_build.py"));
-                        if (auto* Python = IPythonScriptPlugin::Get()) Python->ExecPythonCommand(*Script);
+                        ShowVamNativeBuildWindow();
                         return FReply::Handled();
                     }) ]
                 + SHorizontalBox::Slot().FillWidth(1).VAlign(VAlign_Center).Padding(12,0)

@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "VamShapeData.h"
 #include "VamCharacterDefinition.generated.h"
 
 class USkeletalMesh;
@@ -15,6 +16,12 @@ struct VAMCHARACTERRUNTIME_API FVamMorphParameter
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") float DefaultValue = 0;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") float Minimum = 0;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") float Maximum = 1;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") FString DisplayName;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") FName Group = TEXT("Shape");
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") FString Unit = TEXT("source coefficient");
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TArray<FVamBoneCenterDelta> BoneCenters;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TArray<FName> AffectedRegions;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") FString FormulaDiagnosticsJson;
 };
 
 /** Native-only runtime contract. Source archives and editor services are not dependencies. */
@@ -27,6 +34,8 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Character") TSoftObjectPtr<USkeleton> Skeleton;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Character") TArray<TSoftObjectPtr<USkeletalMesh>> Parts;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Character") TArray<FVamMorphParameter> Parameters;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Character") TSoftObjectPtr<UVamShapeDefinition> Shape;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Character") TSoftObjectPtr<UVamAppearancePreset> ImportedAppearance;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Source") FString SourceIdentity;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Source") FString SourceDigest;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Source") FString BindSignature;
