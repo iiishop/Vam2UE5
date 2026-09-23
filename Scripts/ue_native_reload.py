@@ -2,10 +2,12 @@
 import hashlib
 import json
 import os
+import sys
 from pathlib import Path
 import unreal as u
 
 data=Path(__file__).resolve().parents[1]/'Saved'
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 report_path=Path(os.environ.get('VAM_NATIVE_REPORT_FILE',str(data/'NativeBuild/latest-native-assets.json')))
 report=json.loads(report_path.read_text(encoding='utf8'))
 assets=[u.load_asset(p) for p in report['assets']]
@@ -30,6 +32,15 @@ for asset in assets:
     if isinstance(asset,u.SkeletalMesh):assert asset.get_editor_property('skeleton')==skeleton,'Part skeleton diverged after reload'
     if isinstance(asset,u.Material):
         assert asset.get_editor_property('used_with_skeletal_mesh') and asset.get_editor_property('used_with_morph_targets'),'Persist both skeletal and Morph material permutations'
+if report.get('animation_adapter'):
+    from ue_native_retarget import build as validate_animation_adapter
+    contract=json.loads((data/'NativeBuild'/(report['source_digest']+'.calibrated.json')).read_text(encoding='utf8'))
+    expected=report['animation_adapter']
+    for path in [expected['target_rig'],*expected.get('clips',{}).values(),
+                 *([expected['source_rig'],expected['retargeter']] if expected.get('source_rig') else [])]:
+        assert u.load_asset(path),'Animation adapter did not survive independent reload: '+path
+    _,validated=validate_animation_adapter(report['folder'],body,contract['bones'])
+    assert validated==expected,'Animation retarget chain or sampled pose changed after reload'
 fingerprints={}
 for path in report['assets']:
     package=path.split('.')[0]

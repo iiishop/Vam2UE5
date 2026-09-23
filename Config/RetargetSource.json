@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "source_mesh": "/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple",
+  "clips": {
+    "idle": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+    "walk_forward": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd",
+    "jog_forward": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd"
+  }
+}

@@ -189,7 +189,9 @@ def build(data):
     bp=u.AssetToolsHelpers.get_asset_tools().create_asset('BP_VamCharacter',folder,u.Blueprint,factory)
     u.get_default_object(bp.generated_class()).get_editor_property('character').set_editor_property('definition',definition)
     u.BlueprintEditorLibrary.compile_blueprint(bp)
-    assets=[*appearance.textures.values(),*appearance.materials.values(),mesh.get_editor_property('skeleton'),mesh,*part_assets,definition,mapping,shape,preset,binding,bp]
+    import ue_native_retarget
+    adapter_assets,adapter_report=ue_native_retarget.build(folder,mesh,contract['bones'])
+    assets=[*appearance.textures.values(),*appearance.materials.values(),mesh.get_editor_property('skeleton'),mesh,*part_assets,definition,mapping,shape,preset,binding,bp,*adapter_assets]
     for material in appearance.materials.values():
         u.MaterialEditingLibrary.set_material_usage(material,u.MaterialUsage.MATUSAGE_SKELETAL_MESH)
         u.MaterialEditingLibrary.set_material_usage(material,u.MaterialUsage.MATUSAGE_MORPH_TARGETS)
@@ -199,6 +201,7 @@ def build(data):
             'shape_kernel_version':1,'render_domain_validation':{'morph_component_tolerance_cm':0.0001,'position_component_tolerance_cm':0.00002,'uv_tolerance':0.000001,'skin_quantization_tolerance':8/65535},
             'definition':definition_path,'assets':sorted({a.get_path_name() for a in assets}),
             'source_identity':contract['plan_id'],'source_digest':contract['decode_id'],
+            'animation_adapter':adapter_report,
             'fit':contract['skin'].get('fit',{}),'limitations':list(definition.get_editor_property('limitations')),
             'removed_triangles':removed_triangles,'parts':len(part_assets),'missing_parts':part_failures,'manifest_updated':False,'independent_reload_verified':False}
     temporary=marker.with_suffix('.tmp');temporary.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf8');temporary.replace(marker)

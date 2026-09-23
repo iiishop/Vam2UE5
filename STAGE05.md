@@ -98,3 +98,11 @@ Build.ps1 复制 Runtime/Editor/Content、阶段文档、配置及顶层 Python 
 分发声明将 PythonScriptPlugin/GeometryScripting 限定为 Editor。BuildPlugin 会移除 EnabledByDefault，因此 Build.ps1 在输出包恢复显式 false，保证纯 Blueprint 干净宿主打包时生成并链接包含 Runtime 的原生目标，而不是误用不包含插件代码的 stock UnrealGame。
 
 最终是否通过以 `Saved/NativeBuild/stage05-kernel-acceptance.json` 为准。验收脚本同时要求最新资产的独立重新加载、真实图形 Standalone 与 Cooked 运行成功、分发文件一致、编辑器动画跟随、事务、取消和重导入保护通过；旧阶段报告不参与完成判定。
+
+## 自动骨骼映射与第三人称动作
+
+正式人物构建时，插件读取已校准来源骨架的真实父链和绑定位置，自动建立 `Animations/IK_Vam`。如果工程具有 `Config/RetargetSource.json` 指定的第三人称 Quinn 网格和动作，还会建立 `IK_Quinn`、`RTG_QuinnToVam`，并输出 `A_VamIdle`、`A_VamWalkForward`、`A_VamJogForward`。输出动作直接引用该人物的 USkeleton；不再使用 UE 自动识别 Daz 骨架，也不把零长度手臂链作为成功。重定向链覆盖脊柱、双臂、双腿和头部；每条链检查来源祖先关系、绑定长度和导出动作的多时刻直立姿态。保存后的独立编辑器进程重新加载并验证，才更新新的导入清单。
+
+现有正式人物通过 `ue_native_retarget_retrofit.py` 增量补建，独立 `ue_native_retarget_verify.py` 验证，结果保存在 `Saved/NativeBuild/retarget-adapters.json`。补建不改动既有 Stage05 Mesh、Skeleton、材质或用户衍生资产。来源模板缺失时仍生成可验证的 VaM IK Rig，并在报告中写明 `source_missing`；不能把这种状态描述为已生成可用步行动作。未知层级或不符合链跨度的角色会明确失败，不猜测正确骨骼。
+
+这些资产解决骨骼**对应关系及动作重定向**。现阶段人物组件不会自行根据第三人称角色速度切换待机、走路和跑步；把 `BP_VamCharacter` 当作受第三人称角色控制的外观，仍须在角色动画逻辑里使用这些已重定向的动作。`A_ShoulderValidation` 只用于蒙皮验证，不用于日常动作。头发 Groom、动态布料与复杂手指动作也不由此适配器保证。
