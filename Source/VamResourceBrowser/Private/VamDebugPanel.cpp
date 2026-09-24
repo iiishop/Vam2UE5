@@ -17,6 +17,7 @@
 #include "Engine/Selection.h"
 #include "EditorViewportClient.h"
 #include "SEditorViewport.h"
+#include "Slate/SceneViewport.h"
 #include "EngineUtils.h"
 #include "Framework/Docking/TabManager.h"
 #include "HAL/IConsoleManager.h"
@@ -109,7 +110,9 @@ class FVamBoneVisualizer final : public FComponentVisualizer
 {
     TWeakObjectPtr<UVamCharacterComponent> Edited;
     TWeakObjectPtr<UVamCharacterComponent> HoveredComponent;
+    TWeakObjectPtr<UVamCharacterComponent> PressedComponent;
     int32 HoveredBone=INDEX_NONE;
+    int32 PressedBone=INDEX_NONE;
     bool bDragging=false;
     FTSTicker::FDelegateHandle HoverTicker;
 
@@ -120,40 +123,67 @@ class FVamBoneVisualizer final : public FComponentVisualizer
 
     bool RefreshHover(float)
     {
+        const int32 PreviousPressedBone=PressedBone;
+        UVamCharacterComponent* PreviousPressedComponent=PressedComponent.Get();
         int32 NextBone=INDEX_NONE;
         UVamCharacterComponent* NextComponent=nullptr;
-        if (bPanelOpen && !bDragging && GEditor)
+        bool bLeftHeld=false;
+        if (bPanelOpen && GEditor)
         {
             FViewport* Viewport=GEditor->GetActiveViewport();
             bool bInsideEditorViewport=false;
             for (FEditorViewportClient* Client:GEditor->GetAllViewportClients())
             {
-                if (Client && Client->GetViewport()==Viewport)
+                if (Client)
                 {
                     const TSharedPtr<SEditorViewport> Widget=Client->GetEditorViewportWidget();
-                    bInsideEditorViewport=Widget.IsValid() && Widget->IsHovered();
-                    break;
+                    if (Widget.IsValid() && Widget->GetSceneViewport().Get()==Viewport)
+                    {
+                        bInsideEditorViewport=Widget->IsHovered();
+                        break;
+                    }
                 }
             }
             if (Viewport && bInsideEditorViewport)
             {
-                const int32 X=Viewport->GetMouseX(),Y=Viewport->GetMouseY();
-                const FIntPoint Size=Viewport->GetSizeXY();
-                if (X>=0 && Y>=0 && X<Size.X && Y<Size.Y)
+                bLeftHeld=Viewport->KeyState(EKeys::LeftMouseButton);
+                if (!bDragging && PressedBone==INDEX_NONE)
                 {
-                    HHitProxy* Hit=Viewport->GetHitProxy(X,Y);
-                    if (Hit && Hit->IsA(HVamBoneProxy::StaticGetType()))
+                    const int32 X=Viewport->GetMouseX(),Y=Viewport->GetMouseY();
+                    const FIntPoint Size=Viewport->GetSizeXY();
+                    if (X>=0 && Y>=0 && X<Size.X && Y<Size.Y)
                     {
-                        auto* Bone=static_cast<HVamBoneProxy*>(Hit);
-                        NextComponent=Cast<UVamCharacterComponent>(const_cast<UActorComponent*>(Bone->Component.Get()));
-                        if (const AVamCharacterActor* Actor=CurrentActor(); !Actor || !NextComponent || Actor->Character.Get()!=NextComponent)
-                            NextComponent=nullptr;
-                        else NextBone=Bone->BoneIndex;
+                        HHitProxy* Hit=Viewport->GetHitProxy(X,Y);
+                        if (Hit && Hit->IsA(HVamBoneProxy::StaticGetType()))
+                        {
+                            auto* Bone=static_cast<HVamBoneProxy*>(Hit);
+                            NextComponent=Cast<UVamCharacterComponent>(const_cast<UActorComponent*>(Bone->Component.Get()));
+                            if (const AVamCharacterActor* Actor=CurrentActor(); !Actor || !NextComponent || Actor->Character.Get()!=NextComponent)
+                                NextComponent=nullptr;
+                            else NextBone=Bone->BoneIndex;
+                        }
                     }
                 }
             }
         }
-        if (HoveredBone!=NextBone || HoveredComponent.Get()!=NextComponent)
+        if (bLeftHeld && PressedBone==INDEX_NONE && NextBone!=INDEX_NONE)
+        {
+            PressedBone=NextBone;
+            PressedComponent=NextComponent;
+        }
+        else if (!bLeftHeld)
+        {
+            PressedBone=INDEX_NONE;
+            PressedComponent.Reset();
+        }
+        if (bLeftHeld && PressedBone!=INDEX_NONE)
+        {
+            NextBone=PressedBone;
+            NextComponent=PressedComponent.Get();
+        }
+        const bool bHoverChanged=HoveredBone!=NextBone || HoveredComponent.Get()!=NextComponent;
+        const bool bPressChanged=PressedBone!=PreviousPressedBone || PressedComponent.Get()!=PreviousPressedComponent;
+        if (bHoverChanged || bPressChanged)
         {
             HoveredBone=NextBone;
             HoveredComponent=NextComponent;
@@ -186,7 +216,8 @@ public:
             if (Parent!=INDEX_NONE && (Parent==Root || IsPosePoint(Character,Parent)))
                 PDI->DrawLine(ControlPointWorld(Character,Parent),Position,FLinearColor(.1f,.7f,.85f),SDPG_Foreground,1.5f);
             PDI->SetHitProxy(new HVamBoneProxy(Component,Index));
-            const bool bPressed=bDragging && Edited.Get()==Character && Index==SelectedBone;
+            const bool bPressed=(bDragging && Edited.Get()==Character && Index==SelectedBone)
+                || (PressedComponent.Get()==Character && Index==PressedBone);
             const bool bHovered=HoveredComponent.Get()==Character && Index==HoveredBone;
             const FLinearColor Base=Index==Root ? FLinearColor(1.f,.45f,.05f) : FLinearColor(.1f,.9f,.9f);
             if (bPressed)
@@ -215,8 +246,9 @@ public:
         if (!bPanelOpen || !View || !Canvas || !GEngine) return;
         const auto* Character=Cast<UVamCharacterComponent>(Component);
         if (!Character || !Character->Body || !Character->Body->GetSkeletalMeshAsset()) return;
-        const bool bPressed=bDragging && Edited.Get()==Character && SelectedBone!=INDEX_NONE;
-        const int32 FocusBone=bPressed ? SelectedBone : HoveredComponent.Get()==Character ? HoveredBone : INDEX_NONE;
+        const bool bDraggingThis=bDragging && Edited.Get()==Character && SelectedBone!=INDEX_NONE;
+        const bool bPressed=bDraggingThis || (PressedComponent.Get()==Character && PressedBone!=INDEX_NONE);
+        const int32 FocusBone=bDraggingThis ? SelectedBone : bPressed ? PressedBone : HoveredComponent.Get()==Character ? HoveredBone : INDEX_NONE;
         const auto& Skeleton=Character->Body->GetSkeletalMeshAsset()->GetRefSkeleton();
         if (!Skeleton.IsValidIndex(FocusBone)) return;
         FVector2D Pixel;
@@ -239,17 +271,26 @@ public:
     }
     virtual bool HandleInputKey(FEditorViewportClient*,FViewport*,FKey Key,EInputEvent Event) override
     {
-        if (Key==EKeys::LeftMouseButton && Event==IE_Released && bDragging)
+        if (Key==EKeys::LeftMouseButton && Event==IE_Pressed && HoveredBone!=INDEX_NONE && HoveredComponent.IsValid())
+        {
+            PressedBone=HoveredBone;
+            PressedComponent=HoveredComponent;
+            RedrawControls();
+        }
+        else if (Key==EKeys::LeftMouseButton && Event==IE_Released)
         {
             bDragging=false;
+            PressedBone=INDEX_NONE;
+            PressedComponent.Reset();
             RedrawControls();
         }
         return false;
     }
     virtual void TrackingStarted(FEditorViewportClient* ViewportClient) override
     {
-        if (Edited.IsValid() && SelectedBone!=INDEX_NONE && ViewportClient && ViewportClient->GetViewport()
-            && ViewportClient->GetViewport()->KeyState(EKeys::LeftMouseButton))
+        const TSharedPtr<SEditorViewport> Widget=ViewportClient ? ViewportClient->GetEditorViewportWidget() : nullptr;
+        FViewport* Viewport=Widget.IsValid() ? Widget->GetSceneViewport().Get() : nullptr;
+        if (Edited.IsValid() && SelectedBone!=INDEX_NONE && Viewport && Viewport->KeyState(EKeys::LeftMouseButton))
         {
             bDragging=true;
             RedrawControls();
@@ -288,7 +329,7 @@ public:
         return Edited->SetPoseControlRotation(SelectedBone,(LocalDelta*Current).GetNormalized().Rotator());
     }
     virtual UActorComponent* GetEditedComponent() const override { return Edited.Get(); }
-    virtual void EndEditing() override { Edited.Reset(); SelectedBone=INDEX_NONE; bDragging=false; RedrawControls(); }
+    virtual void EndEditing() override { Edited.Reset(); SelectedBone=INDEX_NONE; PressedComponent.Reset(); PressedBone=INDEX_NONE; bDragging=false; RedrawControls(); }
 };
 
 TSharedPtr<FVamBoneVisualizer> Visualizer;
@@ -465,7 +506,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
                 A->Interaction->Mode==EVamPhysicalMode::LocalResponse?TEXT("局部响应"):TEXT("受控");
             return FText::FromString(FString::Printf(TEXT("%s · 速度 %.1f cm/s · 加速度 %.1f cm/s² · 子步 %d · 丢弃 %d · 见证时钟%s"),
                 Mode,Sample.LinearVelocity.Size(),Sample.LinearAcceleration.Size(),Clock.LastSteps,Clock.DroppedSteps,Clock.bPaused?TEXT("暂停"):TEXT("运行")));})]
-        +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("橙色 root 点仅平移整个人物；青色点仅旋转四肢、躯干、头部与手指关节，姿态角度由 Rig 限位。PIE / Simulate 中 root 移动注入速度和惯性，普通编辑器移动不产生模拟物理。黄色点是低成本惯性见证，不代表全身软体。"))).AutoWrapText(true)]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("橙色 root 点仅平移整个人物；青色点仅旋转四肢、躯干、头部与手指关节，姿态角度由 Rig 限位。悬停时控制点放大并显示白色中心，按住/拖动时变为黄色中心和红色或紫色光环。PIE / Simulate 中 root 移动注入速度和惯性，普通编辑器移动不产生模拟物理。黄色见证区域不代表全身软体。"))).AutoWrapText(true)]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SSearchBox).HintText(FText::FromString(TEXT("筛选骨骼或 Morph 名称"))).OnTextChanged_Lambda([State](const FText& Text){
             State->Filter=Text.ToString();if (State->Box.IsValid()){State->Box->ClearChildren();AddControls(State->Box.ToSharedRef(),CurrentActor(),State->Filter);}})]
         +SVerticalBox::Slot().FillHeight(1)[SNew(SScrollBox)+SScrollBox::Slot()[SAssignNew(State->Box,SVerticalBox)]]];
