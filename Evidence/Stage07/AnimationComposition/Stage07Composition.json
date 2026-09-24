@@ -1,0 +1,30 @@
+{
+	"composition_passed": true,
+	"stage07_passed": false,
+	"reason": "base_shape_active_pose_ik_local_physics_composition",
+	"final_ik_tolerance_cm": 3,
+	"minimum_base_motion_cm": 0.0099999997764825821,
+	"minimum_grab_motion_cm": 1,
+	"subjects": [
+		{
+			"configuration": "/Game/VamRuntime/R_89fa5eb318b9ad2603ecfaff/RC_Runtime.RC_Runtime",
+			"clock_travel_seconds": 3.0001138970255852,
+			"base_motion_cm": 3.6380400657653809,
+			"final_ik_max_error_cm": 0.36690670251846313,
+			"blink_peak": 0.99203330278396606,
+			"breath_peak": 0.99997121095657349,
+			"grab_motion_cm": 2.2609856128692627,
+			"release_velocity_delta_cm_s": 0
+		},
+		{
+			"configuration": "/Game/VamRuntime/R_2fa8509b467a33ef4c4fe123/RC_Runtime.RC_Runtime",
+			"clock_travel_seconds": 3.0001138970255852,
+			"base_motion_cm": 3.5915291309356689,
+			"final_ik_max_error_cm": 0.33427941799163818,
+			"blink_peak": 0.99203330278396606,
+			"breath_peak": 0.99997121095657349,
+			"grab_motion_cm": 2.2752270698547363,
+			"release_velocity_delta_cm_s": 0
+		}
+	]
+}

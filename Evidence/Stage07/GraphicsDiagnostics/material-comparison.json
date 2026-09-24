@@ -1,0 +1,10 @@
+{
+  "map": "/Game/VamRuntimeTests/SkinDiagnostic_c903513a61f2/L_Comparison",
+  "order_left_to_right": [
+    "gray_body",
+    "runtime_default_lit",
+    "native_source",
+    "runtime_sss"
+  ],
+  "scope": "diagnostic only; not a runtime configuration publication"
+}

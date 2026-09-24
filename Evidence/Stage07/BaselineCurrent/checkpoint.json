@@ -1,0 +1,9 @@
+{
+  "composition_run": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser/Saved/Stage07/Composition-17d44bc6d1734fb687d03ed88f9f03ee",
+  "scope": "07.0 numerical checkpoint, pawn-free map; graphics and Cooked still pending",
+  "stage07_passed": false,
+  "source_head": "21bd244253222da341e6a13597042a111bb3d105",
+  "worktree_modified": true,
+  "python_tests_passed": 37,
+  "build_log": "Saved/stage07-neutral-fit-build.log"
+}

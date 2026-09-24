@@ -4,6 +4,8 @@
 #include "PhysicsEngine/PhysicalAnimationComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "PhysicsEngine/BodyInstance.h"
+#include "PhysicsEngine/PhysicsAsset.h"
+#include "PhysicsEngine/SkeletalBodySetup.h"
 
 UVamInteractionComponent::UVamInteractionComponent()
 {
@@ -20,6 +22,10 @@ bool UVamInteractionComponent::SetPhysicalMode(EVamPhysicalMode NewMode, FName L
     auto* Character=GetOwner()->FindComponentByClass<UVamCharacterComponent>();
     USkeletalMeshComponent* Body=Character ? Character->Body : nullptr;
     if (!Body || !Body->GetPhysicsAsset()) return false;
+    // Reject atomically: an invalid request must not release a live handle or
+    // change collision/gravity while leaving Mode reporting the previous state.
+    if (NewMode==EVamPhysicalMode::LocalResponse &&
+        (LocalRootBone.IsNone() || !Body->GetBodyInstance(LocalRootBone))) return false;
     if (!GrabbedBone.IsNone()) ReleaseGrab();
     Body->SetEnableGravity(bGravity);
     Body->SetCollisionEnabled(NewMode==EVamPhysicalMode::Controlled ? ECollisionEnabled::QueryOnly : ECollisionEnabled::QueryAndPhysics);
@@ -111,6 +117,7 @@ bool UVamInteractionComponent::GrabBone(FName Bone, FVector WorldLocation)
     Handle->AngularStiffness=FMath::Max(1.f,DriveStrength);
     Handle->AngularDamping=FMath::Max(1.f,DriveDamping);
     Handle->GrabComponentAtLocationWithRotation(Body,Bone,WorldLocation,Body->GetBoneQuaternion(Bone).Rotator());
+    GrabLocalAnchor=BoneBody->GetUnrealWorldTransform().InverseTransformPosition(WorldLocation);
     GrabbedBone=Bone;
     return true;
 }
@@ -122,4 +129,39 @@ void UVamInteractionComponent::ReleaseGrab()
 {
     if (Handle) Handle->ReleaseComponent();
     GrabbedBone=NAME_None;
+}
+
+void UVamInteractionComponent::SuspendForShapeRebind()
+{
+    if(Handle && !GrabbedBone.IsNone())
+    {
+        Handle->GetTargetLocationAndRotation(SavedGrabTarget,SavedGrabRotation);
+        Handle->ReleaseComponent();
+    }
+    if(PhysicalAnimation) PhysicalAnimation->SetSkeletalMeshComponent(nullptr);
+}
+
+void UVamInteractionComponent::ResumeAfterShapeRebind()
+{
+    auto* Character=GetOwner()->FindComponentByClass<UVamCharacterComponent>();
+    USkeletalMeshComponent* Body=Character ? Character->Body : nullptr;
+    if(!Body) return;
+    if(PhysicalAnimation && Mode==EVamPhysicalMode::LocalResponse)
+    {
+        PhysicalAnimation->SetSkeletalMeshComponent(Body);
+        FPhysicalAnimationData Drive;
+        Drive.bIsLocalSimulation=true;
+        Drive.OrientationStrength=Drive.PositionStrength=DriveStrength;
+        Drive.AngularVelocityStrength=Drive.VelocityStrength=DriveDamping;
+        for(const USkeletalBodySetup* Setup:Body->GetPhysicsAsset()->SkeletalBodySetups)
+            if(const FBodyInstance* Instance=Body->GetBodyInstance(Setup->BoneName))
+                if(Instance->IsInstanceSimulatingPhysics()) PhysicalAnimation->ApplyPhysicalAnimationSettings(Setup->BoneName,Drive);
+    }
+    if(Handle && !GrabbedBone.IsNone())
+        if(const FBodyInstance* Instance=Body->GetBodyInstance(GrabbedBone))
+        {
+            const FTransform World=Instance->GetUnrealWorldTransform();
+            Handle->GrabComponentAtLocationWithRotation(Body,GrabbedBone,World.TransformPosition(GrabLocalAnchor),World.Rotator());
+            Handle->SetTargetLocationAndRotation(SavedGrabTarget,SavedGrabRotation);
+        }
 }

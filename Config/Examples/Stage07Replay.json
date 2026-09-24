@@ -1,0 +1,19 @@
+{
+  "schema": "vam-stage07-replay/1",
+  "Baseline": {
+    "sha256": "6696E744F7F8893B8F2296A5FF7B9225E9ECA4F7FFAF239B607FFDD3A72FE593",
+    "package": "Saved/Stage07CookSourceShading01/Package/Windows",
+    "executable": "Composition/Binaries/Win64/Composition.exe",
+    "map": "/Game/VamRuntimeTests/Run_2714b2d9bbc541f5aae27953df3e2803/L_Composition_eec0b335a8b70030",
+    "report": "Stage07Composition.json",
+    "flag": "-VamStage07Composition"
+  },
+  "Flesh": {
+    "sha256": "013ACC94EB43BFB2262719F862D7943A8F4CD897239C8D39BE6811E7F7D118E6",
+    "package": "Saved/Stage07FleshCook04/Package/Windows",
+    "executable": "HostProject/Binaries/Win64/HostProject.exe",
+    "map": "/Game/VamRuntimeTests/FleshCapability03/L_Capability",
+    "report": "FleshCapability.json",
+    "flag": "-VamFleshCapability"
+  }
+}

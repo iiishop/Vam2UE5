@@ -1,0 +1,10 @@
+{
+	"scope": "Chaos Flesh closed cage and native skin binding experiment; not production tissue",
+	"reason": "capture_complete_pending_visual_and_contact_review",
+	"stage07_passed": false,
+	"backend_qualified": false,
+	"bound_render_vertices": 370,
+	"surface_probe_peak_cm": 1.7189322710037231,
+	"maximum_relative_volume_error": 0.030432337895035744,
+	"measured_frames": 1200
+}

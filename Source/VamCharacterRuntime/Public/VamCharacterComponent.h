@@ -20,10 +20,16 @@ class VAMCHARACTERRUNTIME_API UVamCharacterComponent : public USceneComponent
 {
     GENERATED_BODY()
 public:
+    UVamCharacterComponent();
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") TSoftObjectPtr<class UVamRuntimeConfiguration> RuntimeConfiguration;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") TSoftObjectPtr<UVamCharacterDefinition> Definition;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Rig") TSoftObjectPtr<UVamRigProfile> RigProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Rig") TSoftClassPtr<UVamShapeAnimInstance> AnimationClass;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Animation") TSoftObjectPtr<class UAnimSequence> BaseAnimation;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Physics") TSoftObjectPtr<UPhysicsAsset> PhysicsAsset;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Physics") TSoftObjectPtr<class UVamPhysicsShapeProfile> PhysicsShapeProfile;
+    UPROPERTY(BlueprintReadOnly, Transient, Category="VaM|Physics") int32 CollisionShapeRevision=INDEX_NONE;
+    UPROPERTY(BlueprintReadOnly, Transient, Category="VaM|Physics") FString LastShapeError;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Appearance") TSoftObjectPtr<UVamAppearancePreset> AppearancePreset;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Appearance") TSoftObjectPtr<UVamMaterialProfile> MaterialProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Shape") TMap<FName,float> InitialShapeValues;
@@ -31,7 +37,11 @@ public:
     UPROPERTY(BlueprintAssignable, Category="VaM") FVamCharacterLoadResult OnLoaded;
     UFUNCTION(BlueprintCallable, Category="VaM") void LoadCharacter();
     UFUNCTION(BlueprintCallable, Category="VaM") void UnloadCharacter();
+    uint64 GetLoadGeneration() const { return Generation; }
     UFUNCTION(BlueprintCallable, Category="VaM") bool SetParameter(FName Name, float Value);
+    /** Complete transient expression layer. Strongest absolute closure wins over authored
+        expression values; empty clears it. Shape/Pose parameters are rejected atomically. */
+    UFUNCTION(BlueprintCallable, Category="VaM|Expression") bool SetExpressionWeights(const TMap<FName,float>& Values);
     UPROPERTY(BlueprintAssignable, Category="VaM|Shape") FVamShapeChanged OnShapeChanged;
     UFUNCTION(BlueprintPure, Category="VaM|Shape") FVamShapeState GetShapeState(bool Committed = false) const;
     UFUNCTION(BlueprintPure, Category="VaM|Shape") FVamCharacterState GetCharacterState() const;
@@ -60,11 +70,16 @@ public:
     UFUNCTION(BlueprintCallable, Category="VaM|IK") bool SetIKGoal(FName Semantic, const FTransform& WorldGoal);
     UFUNCTION(BlueprintCallable, Category="VaM|IK") void ClearIKGoal(FName Semantic);
     UFUNCTION(BlueprintCallable, Category="VaM|IK") bool SetFootLocked(FName FootSemantic, bool bLocked);
+    UFUNCTION(BlueprintPure, Category="VaM|IK") bool GetFootContactGoal(FName FootSemantic, FTransform& Goal) const;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|IK") float FootProbeAboveCm=40;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|IK") float FootProbeBelowCm=60;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|IK") float MaximumGroundSlopeDegrees=50;
     UFUNCTION(BlueprintCallable, Category="VaM|Appearance") bool SetAppearanceScalar(FName Parameter, float Value);
     UFUNCTION(BlueprintCallable, Category="VaM|Appearance") bool SetAppearanceColor(FName Parameter, FLinearColor Value);
 protected:
     virtual void BeginPlay() override;
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
+    virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 private:
     void LoadMeshes(uint64 Ticket);
     void Assemble(uint64 Ticket);
@@ -74,11 +89,26 @@ private:
     UPROPERTY(Transient) FVamShapeState PreviewState;
     UPROPERTY(Transient) FVamShapeState CommittedState;
     UPROPERTY(Transient) TArray<FTransform> ShapeReferencePose;
-    /** Instance-owned pose handles survive a shape commit, which reinitializes the AnimInstance. */
+    /** Instance-owned pose handles survive shape transactions without restarting animation. */
     UPROPERTY(Transient) TMap<int32,FRotator> PoseControlRotations;
     UPROPERTY(Transient) TMap<FName,float> AppearanceScalars;
     UPROPERTY(Transient) TMap<FName,FLinearColor> AppearanceColors;
+    UPROPERTY(Transient) TMap<FName,float> ExpressionWeights;
+    UPROPERTY(Transient) TObjectPtr<UPhysicsAsset> InstancePhysics;
+    struct FFootContact
+    {
+        FTransform Goal;
+        FVector Anchor=FVector::ZeroVector;
+        TWeakObjectPtr<class UPrimitiveComponent> Support;
+        FVector SupportLocalPoint=FVector::ZeroVector;
+        FVector Normal=FVector::UpVector;
+        bool Valid=false;
+    };
+    TMap<FName,FFootContact> FootContacts;
+    int32 FootTeleportRevision=0;
+    bool UpdateFootContact(FName Semantic, FFootContact& Contact);
+    void ApplyMorphWeights();
     void ApplyAppearanceState();
-    void ApplyShape(const TArray<FName>& Changed, bool bCommitted);
+    bool ApplyShape(const TArray<FName>& Changed, bool bCommitted);
     uint64 Generation = 0;
 };

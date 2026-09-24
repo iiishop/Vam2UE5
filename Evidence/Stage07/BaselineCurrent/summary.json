@@ -1,0 +1,11 @@
+{
+  "runtime_dll_sha256": "84065FD09291632B10CABE5A0B65C6FF47420FDBFCA624EEC570E35C31458E33",
+  "stage07_passed": false,
+  "map": "/Game/VamRuntimeTests/Run_17d44bc6d1734fb687d03ed88f9f03ee/L_Composition_6b6601cdedc64847",
+  "scope": "composition/collision/ground/clock regression; not full Stage07",
+  "runs": [
+    "result-30.json",
+    "result-60.json",
+    "result-120.json"
+  ]
+}

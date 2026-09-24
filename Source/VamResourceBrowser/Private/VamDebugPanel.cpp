@@ -6,6 +6,10 @@
 #include "VamMotionComponent.h"
 #include "VamInteractionComponent.h"
 #include "VamActivePoseComponent.h"
+#include "VamRuntimeConfiguration.h"
+#include "ContentBrowserModule.h"
+#include "IContentBrowserSingleton.h"
+#include "Engine/Blueprint.h"
 #include "ComponentVisualizer.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Containers/Ticker.h"
@@ -436,7 +440,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("使用选中人物 / 刷新"))).OnClicked_Lambda([State](){
                 DebugActor=GEditor?GEditor->GetSelectedActors()->GetTop<AVamCharacterActor>():nullptr;
                 SelectedBone=INDEX_NONE;if (State->Box.IsValid()){State->Box->ClearChildren();AddControls(State->Box.ToSharedRef(),DebugActor.Get(),State->Filter);}return FReply::Handled();})]
-            +SHorizontalBox::Slot().AutoWidth().Padding(8,0)[SNew(SButton).Text(FText::FromString(TEXT("加载最新导入人物"))).OnClicked_Lambda([State](){
+            +SHorizontalBox::Slot().AutoWidth().Padding(8,0)[SNew(SButton).Text(FText::FromString(TEXT("旧样例：加载最新导入人物"))).OnClicked_Lambda([State](){
                 const FString Plugin=IPluginManager::Get().FindPlugin(TEXT("VamResourceBrowser"))->GetBaseDir();
                 FString Raw;TSharedPtr<FJsonObject> Report;
                 if (!FFileHelper::LoadFileToString(Raw,*(Plugin/TEXT("Saved/NativeBuild/latest-native-assets.json"))) ||
@@ -465,6 +469,30 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
                 return FReply::Handled();})]
             +SHorizontalBox::Slot().AutoWidth().Padding(8,0)[SNew(SButton).Text(FText::FromString(TEXT("重置骨骼姿态"))).OnClicked_Lambda([](){if (auto* Actor=CurrentActor()) {Actor->Character->ResetPoseControlRotations();Actor->Character->ResetDebugBoneOffsets();}return FReply::Handled();})]
             +SHorizontalBox::Slot().AutoWidth().Padding(8,0)[SNew(SButton).Text(FText::FromString(TEXT("恢复导入形状"))).OnClicked_Lambda([](){if (auto* Actor=CurrentActor()) Actor->Character->ResetToImportedAppearance();return FReply::Handled();})]]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SButton).Text(FText::FromString(TEXT("加载内容浏览器所选 RuntimeConfiguration"))).OnClicked_Lambda([State](){
+            TArray<FAssetData> Assets;FModuleManager::LoadModuleChecked<FContentBrowserModule>(TEXT("ContentBrowser")).Get().GetSelectedAssets(Assets);
+            if(Assets.Num()!=1) return FReply::Handled();
+            auto* Config=Cast<UVamRuntimeConfiguration>(Assets[0].GetAsset());
+            if(!Config || !Config->bIndependentReloadVerified) return FReply::Handled();
+            TSharedPtr<FJsonObject> Receipt;FString BlueprintPath;
+            if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Config->ReceiptJson),Receipt) || !Receipt.IsValid() ||
+                !Receipt->TryGetStringField(TEXT("blueprint"),BlueprintPath)) return FReply::Handled();
+            auto* Blueprint=LoadObject<UBlueprint>(nullptr,*BlueprintPath);
+            UWorld* World=GEditor ? GEditor->GetEditorWorldContext().World() : nullptr;
+            if(!World || !Blueprint || !Blueprint->GeneratedClass || !Blueprint->GeneratedClass->IsChildOf(AVamCharacterActor::StaticClass())) return FReply::Handled();
+            const auto* Defaults=Cast<AVamCharacterActor>(Blueprint->GeneratedClass->GetDefaultObject());
+            if(!Defaults || Defaults->Character->RuntimeConfiguration.ToSoftObjectPath()!=FSoftObjectPath(Config)) return FReply::Handled();
+            FActorSpawnParameters Spawn;Spawn.ObjectFlags=RF_Transient;
+            auto* Actor=World->SpawnActor<AVamCharacterActor>(Blueprint->GeneratedClass,FVector::ZeroVector,FRotator::ZeroRotator,Spawn);
+            if(!Actor) return FReply::Handled();Actor->LoadCharacter();DebugActor=Actor;SelectedBone=INDEX_NONE;
+            GEditor->SelectNone(false,true,false);GEditor->SelectActor(Actor,true,true);
+            const TWeakObjectPtr<AVamCharacterActor> PendingActor=Actor;const double Deadline=FPlatformTime::Seconds()+20;
+            FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([State,PendingActor,Deadline](float){
+                if(!PendingActor.IsValid() || FPlatformTime::Seconds()>Deadline) return false;
+                if(!PendingActor->Character->Body) return true;
+                if(State->Box.IsValid()){State->Box->ClearChildren();AddControls(State->Box.ToSharedRef(),PendingActor.Get(),State->Filter);}return false;
+            }),.5f);
+            return FReply::Handled();})]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text_Lambda([](){
             auto* Actor=CurrentActor();auto* Body=Actor?Actor->Character->Body.Get():nullptr;
             if (!Body || SelectedBone==INDEX_NONE || !Body->GetSkeletalMeshAsset()) return FText::FromString(TEXT("橙色 root 控制点移动整个人物；青色控制点旋转关节。"));
@@ -492,7 +520,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("Stage06 · 运行时与惯性见证")))]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("暂停/继续见证时钟"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->SetPreviewPaused(!A->Motion->GetClock().bPaused);return FReply::Handled();})]
-            +SHorizontalBox::Slot().AutoWidth().Padding(4,0)[SNew(SButton).Text(FText::FromString(TEXT("单步"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->StepPreview();return FReply::Handled();})]
+            +SHorizontalBox::Slot().AutoWidth().Padding(4,0)[SNew(SButton).Text(FText::FromString(TEXT("单步见证"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->StepPreview();return FReply::Handled();})]
             +SHorizontalBox::Slot().AutoWidth().Padding(4,0)[SNew(SButton).Text(FText::FromString(TEXT("重置见证"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->ResetPreview();return FReply::Handled();})]]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("受控姿态"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Interaction) A->Interaction->SetPhysicalMode(EVamPhysicalMode::Controlled);return FReply::Handled();})]
@@ -506,7 +534,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
                 A->Interaction->Mode==EVamPhysicalMode::LocalResponse?TEXT("局部响应"):TEXT("受控");
             return FText::FromString(FString::Printf(TEXT("%s · 速度 %.1f cm/s · 加速度 %.1f cm/s² · 子步 %d · 丢弃 %d · 见证时钟%s"),
                 Mode,Sample.LinearVelocity.Size(),Sample.LinearAcceleration.Size(),Clock.LastSteps,Clock.DroppedSteps,Clock.bPaused?TEXT("暂停"):TEXT("运行")));})]
-        +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("橙色 root 点仅平移整个人物；青色点仅旋转四肢、躯干、头部与手指关节，姿态角度由 Rig 限位。悬停时控制点放大并显示白色中心，按住/拖动时变为黄色中心和红色或紫色光环。PIE / Simulate 中 root 移动注入速度和惯性，普通编辑器移动不产生模拟物理。黄色见证区域不代表全身软体。"))).AutoWrapText(true)]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("橙色 root 点仅平移整个人物；青色点仅旋转四肢、躯干、头部与手指关节，姿态角度由 Rig 限位。悬停时控制点放大并显示白色中心，按住/拖动时变为黄色中心和红色或紫色光环。PIE / Simulate 中 root 移动注入速度和惯性，普通编辑器移动不产生模拟物理。黄色见证区域不代表全身软体。P/O/R 只暂停、单步、重置见证；Chaos 和动画继续运行。拖动 root 会切到局部物理响应；青色摆姿点不是物理抓取点。"))).AutoWrapText(true)]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SSearchBox).HintText(FText::FromString(TEXT("筛选骨骼或 Morph 名称"))).OnTextChanged_Lambda([State](const FText& Text){
             State->Filter=Text.ToString();if (State->Box.IsValid()){State->Box->ClearChildren();AddControls(State->Box.ToSharedRef(),CurrentActor(),State->Filter);}})]
         +SVerticalBox::Slot().FillHeight(1)[SNew(SScrollBox)+SScrollBox::Slot()[SAssignNew(State->Box,SVerticalBox)]]];

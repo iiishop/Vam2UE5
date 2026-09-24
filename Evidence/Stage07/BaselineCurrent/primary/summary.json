@@ -1,0 +1,7 @@
+{
+  "report": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\Stage07\\Run-5341caa1c9cb49fa86c0fa43af26d020\\transaction.json",
+  "scope": "Editor NullRHI transaction regression only",
+  "stage07_passed": false,
+  "shape_kernel_regression": true,
+  "transaction_regression": true
+}

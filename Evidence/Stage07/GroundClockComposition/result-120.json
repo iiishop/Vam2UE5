@@ -1,0 +1,59 @@
+{
+  "composition_passed": true,
+  "stage07_passed": false,
+  "reason": "composition_and_three_shape_grab_transactions",
+  "final_ik_tolerance_cm": 3,
+  "minimum_base_motion_cm": 0.009999999776482582,
+  "minimum_grab_motion_cm": 1,
+  "subjects": [
+    {
+      "configuration": "/Game/VamRuntime/R_e15e3b1cdbd385becfbf4e30/RC_Runtime.RC_Runtime",
+      "clock_travel_seconds": 10.008222598582506,
+      "base_motion_cm": 3.7736852169036865,
+      "final_ik_max_error_cm": 0.7351548671722412,
+      "blink_peak": 0.9867011904716492,
+      "breath_peak": 0.999995768070221,
+      "grab_motion_cm": 2.0948081016540527,
+      "release_velocity_delta_cm_s": 0,
+      "shape_transactions": 3,
+      "shape_velocity_delta_cm_s": 0,
+      "final_foot_error_cm": 0.04055354744195938,
+      "collider_change_cm": 6.870378494262695,
+      "maximum_physics_bridge_delay_seconds": 0,
+      "shape_parameter": "M_3326b7515d72471c87d955ce"
+    },
+    {
+      "configuration": "/Game/VamRuntime/R_9e5cbf0fd57d4941fe8a4cf9/RC_Runtime.RC_Runtime",
+      "clock_travel_seconds": 10.008222598582506,
+      "base_motion_cm": 3.7334342002868652,
+      "final_ik_max_error_cm": 0.5468037128448486,
+      "blink_peak": 0.9867011904716492,
+      "breath_peak": 0.999995768070221,
+      "grab_motion_cm": 2.0580408573150635,
+      "release_velocity_delta_cm_s": 0,
+      "shape_transactions": 3,
+      "shape_velocity_delta_cm_s": 0,
+      "final_foot_error_cm": 0.05076328665018082,
+      "collider_change_cm": 5.7465057373046875,
+      "maximum_physics_bridge_delay_seconds": 0,
+      "shape_parameter": "M_bdc1142f8434c1b1a3ee847b"
+    },
+    {
+      "configuration": "/Game/VamRuntime/R_e15e3b1cdbd385becfbf4e30/RC_Runtime.RC_Runtime",
+      "clock_travel_seconds": 10.008222598582506,
+      "base_motion_cm": 3.7736852169036865,
+      "final_ik_max_error_cm": 0.7351548671722412,
+      "blink_peak": 0.9867011904716492,
+      "breath_peak": 0.999995768070221,
+      "grab_motion_cm": 2.09196400642395,
+      "release_velocity_delta_cm_s": 0,
+      "shape_transactions": 3,
+      "shape_velocity_delta_cm_s": 0,
+      "final_foot_error_cm": 0.04154345765709877,
+      "collider_change_cm": 6.870378494262695,
+      "maximum_physics_bridge_delay_seconds": 0,
+      "shape_parameter": "M_3326b7515d72471c87d955ce"
+    }
+  ],
+  "requested_render_fps": 120
+}

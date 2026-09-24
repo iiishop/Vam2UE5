@@ -5,6 +5,7 @@
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "PhysicsEngine/PhysicalAnimationComponent.h"
 #include "VamActivePoseComponent.h"
+#include "VamPhysicsOutputComponent.h"
 AVamCharacterActor::AVamCharacterActor()
 {
     Character = CreateDefaultSubobject<UVamCharacterComponent>(TEXT("Character"));
@@ -14,5 +15,6 @@ AVamCharacterActor::AVamCharacterActor()
     PhysicsHandle = CreateDefaultSubobject<UPhysicsHandleComponent>(TEXT("PhysicsHandle"));
     PhysicalAnimation = CreateDefaultSubobject<UPhysicalAnimationComponent>(TEXT("PhysicalAnimation"));
     ActivePose = CreateDefaultSubobject<UVamActivePoseComponent>(TEXT("ActivePose"));
+    PhysicsOutput = CreateDefaultSubobject<UVamPhysicsOutputComponent>(TEXT("PhysicsOutput"));
 }
 void AVamCharacterActor::LoadCharacter() { Character->LoadCharacter(); }

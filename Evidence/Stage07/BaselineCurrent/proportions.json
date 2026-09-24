@@ -1,0 +1,26 @@
+{
+  "different_proportions_verified": true,
+  "family_scope": "configured rig family only",
+  "subjects": [
+    {
+      "configuration": "/Game/VamRuntime/R_d08d36bbecd8433e8de4b854/RC_Runtime",
+      "build_identity": "d08d36bbecd8433e8de4b8543beb47594406c1e93c1993e171590bb9a7209689",
+      "definition": "/Game/VamCharacters/C_1facd7a930a8e1eca11a18a6/CD_Character.CD_Character",
+      "arm_chain_cm": 46.407485755026926,
+      "leg_chain_cm": 79.8146419622395,
+      "torso_head_chain_cm": 51.248044386570015,
+      "leg_to_arm": 1.7198656782132151,
+      "torso_to_leg": 0.6420882575757915
+    },
+    {
+      "configuration": "/Game/VamRuntime/R_3aac9f63f5c22c6fc01e3599/RC_Runtime",
+      "build_identity": "3aac9f63f5c22c6fc01e3599e71e47a5f5125bd684c2d3eb718080ddd7ccdd3f",
+      "definition": "/Game/VamCharacters/C_92bba428ef61aaef1e579231/CD_Character.CD_Character",
+      "arm_chain_cm": 42.30900067364652,
+      "leg_chain_cm": 81.09856222436544,
+      "torso_head_chain_cm": 52.069734091058926,
+      "leg_to_arm": 1.916815829566029,
+      "torso_to_leg": 0.6420549595812067
+    }
+  ]
+}

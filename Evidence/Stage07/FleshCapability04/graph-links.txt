@@ -1,0 +1,310 @@
+UpdateGraph/OptimusNode_ComponentSource [OptimusNode_ComponentSource]
+UpdateGraph/OptimusNode_CustomComputeKernel [OptimusNode_CustomComputeKernel]
+UpdateGraph/OptimusNode_DataInterface_7.NumVertices -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.NumVertices
+UpdateGraph/OptimusNode_DataInterface_7.Position -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.Position
+UpdateGraph/OptimusNode_DataInterface_3.WeightedBoneMatrix -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.WeightedBoneMatrix
+UpdateGraph/OptimusNode_GetVariable.Amount -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.Amount
+UpdateGraph/OptimusNode_GetVariable_0.SimToRender -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.SimToRender
+UpdateGraph/OptimusNode_DataInterface_1.Mask -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.Mask
+UpdateGraph/OptimusNode_DataInterface_1.Parents -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.Parents
+UpdateGraph/OptimusNode_DataInterface_1.Weights -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.Weights
+UpdateGraph/OptimusNode_DataInterface_1.Offset -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.Offset
+UpdateGraph/OptimusNode_DataInterface_1.EmbeddedPos -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.EmbeddedPos
+UpdateGraph/OptimusNode_DataInterface_7.TangentX -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.TangentX
+UpdateGraph/OptimusNode_DataInterface_7.TangentZ -> UpdateGraph/OptimusNode_CustomComputeKernel.Primary Group.TangentZ
+// Parameters and resource read/write functions
+uint ReadNumVertices();
+uint NumVertex();
+float3 ReadPosition(uint VertexIndex);
+float3x4 ReadWeightedBoneMatrix(uint VertexIndex);
+float ReadAmount();
+float4x4 ReadSimToRender();
+float ReadMask(uint VertexIndex);
+int4 ReadParents(uint VertexIndex);
+float4 ReadWeights(uint VertexIndex);
+float3 ReadOffset(uint VertexIndex);
+float3 ReadEmbeddedPos(uint VertexIndex);
+float4 ReadTangentX(uint VertexIndex);
+float4 ReadTangentZ(uint VertexIndex);
+void WriteOutPosition(uint VertexIndex, float3 Value);
+void WriteOutTangentX(uint VertexIndex, float4 Value);
+void WriteOutTangentZ(uint VertexIndex, float4 Value);
+// Resource Indexing
+uint Index;	// From SV_DispatchThreadID.x
+int3 ReadNumThreads();
+
+if (Index >= ReadNumThreads().x) return;
+
+float Amount = ReadAmount();
+float Mask = ReadMask(Index);
+float LocalAmount = Amount * Mask;
+//float LocalAmount = Mask;
+
+// Skin tangents
+float3x4 BoneMatrix = ReadWeightedBoneMatrix(Index);
+float4 LocalTangentX = ReadTangentX(Index);
+float4 LocalTangentZ = ReadTangentZ(Index);
+float4 SkinnedTangentX = float4(normalize(mul((float3x3)BoneMatrix, LocalTangentX.xyz)), LocalTangentX.w);
+float4 SkinnedTangentZ = float4(normalize(mul((float3x3)BoneMatrix, LocalTangentZ.xyz)), LocalTangentZ.w);
+WriteOutTangentX(Index, SkinnedTangentX);
+WriteOutTangentZ(Index, SkinnedTangentZ);
+
+// Sim position
+float3 SimPosition;
+if(LocalAmount != 0.0)
+{
+    SimPosition = ReadEmbeddedPos(Index);
+    float4x4 SimToRender = ReadSimToRender();
+    float4 SimPosition4 = mul(float4(SimPosition,1), SimToRender);
+    SimPosition = (SimPosition4 / SimPosition4.w).xyz;
+}
+if(LocalAmount == 1.0)
+{
+    WriteOutPosition(Index, SimPosition);
+    return;
+}
+
+// Blend sim position with skinned position
+float3 LocalPosition = ReadPosition(Index);
+float3 SkinnedPosition = mul(BoneMatrix, float4(LocalPosition, 1));
+
+WriteOutPosition(Index, lerp(SkinnedPosition, SimPosition, LocalAmount));
+
+UpdateGraph/OptimusNode_DataInterface_0 [OptimusNode_DataInterface]
+DataInterface: OptimusSkinnedMeshWriteDataInterface
+UpdateGraph/OptimusNode_ComponentSource.SkinnedMesh -> UpdateGraph/OptimusNode_DataInterface_0.SkinnedMesh
+UpdateGraph/OptimusNode_CustomComputeKernel_0.OutPosition -> UpdateGraph/OptimusNode_DataInterface_0.Position
+UpdateGraph/OptimusNode_CustomComputeKernel_0.OutTangentX -> UpdateGraph/OptimusNode_DataInterface_0.TangentX
+UpdateGraph/OptimusNode_CustomComputeKernel_0.OutTangentZ -> UpdateGraph/OptimusNode_DataInterface_0.TangentZ
+UpdateGraph/OptimusNode_DataInterface_3 [OptimusNode_DataInterface]
+DataInterface: OptimusSkeletonDataInterface
+UpdateGraph/OptimusNode_ComponentSource.SkinnedMesh -> UpdateGraph/OptimusNode_DataInterface_3.SkinnedMesh
+UpdateGraph/OptimusNode_SetResource [OptimusNode_SetResource]
+UpdateGraph/OptimusNode_CustomComputeKernel_0.OutAccumulation -> UpdateGraph/OptimusNode_SetResource.Accumulation
+UpdateGraph/OptimusNode_CustomComputeKernel_0 [OptimusNode_CustomComputeKernel]
+UpdateGraph/OptimusNode_CustomComputeKernel.OutPosition -> UpdateGraph/OptimusNode_CustomComputeKernel_0.Primary Group.Position
+UpdateGraph/OptimusNode_Resource.GetAccumulation -> UpdateGraph/OptimusNode_CustomComputeKernel_0.Primary Group.Accumulation
+UpdateGraph/OptimusNode_CustomComputeKernel.OutTangentX -> UpdateGraph/OptimusNode_CustomComputeKernel_0.Primary Group.OriginalTangentX
+UpdateGraph/OptimusNode_CustomComputeKernel.OutTangentZ -> UpdateGraph/OptimusNode_CustomComputeKernel_0.Primary Group.OriginalTangentZ
+UpdateGraph/OptimusNode_DataInterface_7.Color -> UpdateGraph/OptimusNode_CustomComputeKernel_0.Primary Group.Color
+// Parameters and resource read/write functions
+float4 ReadBlendMask();
+uint NumVertex();
+float3 ReadPosition(uint VertexIndex);
+int ReadAccumulation(uint VertexIndex);
+float4 ReadOriginalTangentX(uint VertexIndex);
+float4 ReadOriginalTangentZ(uint VertexIndex);
+float4 ReadColor(uint VertexIndex);
+void WriteOutPosition(uint VertexIndex, float3 Value);
+void WriteOutTangentX(uint VertexIndex, float4 Value);
+void WriteOutTangentZ(uint VertexIndex, float4 Value);
+void WriteOutAccumulation(uint VertexIndex, int Value);
+// Resource Indexing
+uint Index;	// From SV_DispatchThreadID.x
+int3 ReadNumThreads();
+
+// Accumulation resource should be NumVertices * 8.
+#define ACCUMULATION_BUFFER_NUM_INTS 8
+
+KERNEL
+{
+    if (Index > ReadNumThreads().x) return;
+
+	uint VertexIndex = Index;
+
+	float3 TangentX, TangentZ;
+	float Orientation;
+
+    // Read accumulated per vertex values.
+	uint BaseVertexIndex = VertexIndex * ACCUMULATION_BUFFER_NUM_INTS;
+	TangentZ.x = (float)ReadAccumulation(BaseVertexIndex + 0);
+	TangentZ.y = (float)ReadAccumulation(BaseVertexIndex + 1);
+	TangentZ.z = (float)ReadAccumulation(BaseVertexIndex + 2);
+	TangentX.x = (float)ReadAccumulation(BaseVertexIndex + 3);
+	TangentX.y = (float)ReadAccumulation(BaseVertexIndex + 4);
+	TangentX.z = (float)ReadAccumulation(BaseVertexIndex + 5);
+	Orientation = ReadAccumulation(BaseVertexIndex + 6) <= 0 ? -1 : 1;
+
+	// We don't need to rescale because we normalize.
+	TangentX = normalize(TangentX);
+	TangentZ = normalize(TangentZ);
+	// Force orthogonal.
+	TangentX = normalize(TangentX - (dot(TangentX, TangentZ) * TangentZ));
+
+    // Get blend factor from vertex color, or use fixed value if BlendMask = float4(0, 0, 0, k);
+	float4 VertexColor = float4(ReadColor(VertexIndex).rgb, 1);
+    float4 BlendMask = ReadBlendMask();
+    float BlendFactor = saturate(dot(VertexColor, BlendMask));
+	
+	float4 InputOriginalTangentX = ReadOriginalTangentX(VertexIndex);
+	float4 InputOriginalTangentZ = ReadOriginalTangentZ(VertexIndex);
+
+	TangentX = lerp(InputOriginalTangentX.xyz, TangentX, BlendFactor);
+	TangentZ = lerp(InputOriginalTangentZ.xyz, TangentZ, BlendFactor);
+    Orientation = BlendFactor < 0.5f ? InputOriginalTangentZ.w : Orientation;
+
+	// No need to orthogonalize after blending as vertex factory will do so later on.
+	TangentX = normalize(TangentX);
+	TangentZ = normalize(TangentZ);
+	
+    WriteOutPosition(VertexIndex, ReadPosition(VertexIndex));
+    WriteOutTangentX(VertexIndex, float4(TangentX, InputOriginalTangentX.w));
+	WriteOutTangentZ(VertexIndex, float4(TangentZ, Orientation));
+
+    // Clear the accumulation buffer for next use.
+    // It's more efficient to bundle the work here instead of at the start of the graph.
+    for (int AccumulationIndex = 0; AccumulationIndex < 7; ++AccumulationIndex)
+    {
+        WriteOutAccumulation(BaseVertexIndex + AccumulationIndex, 0);
+    }
+}
+UpdateGraph/OptimusNode_Resource [OptimusNode_Resource]
+UpdateGraph/OptimusNode_CustomComputeKernel_2.Accumulation -> UpdateGraph/OptimusNode_Resource.SetAccumulation
+UpdateGraph/OptimusNode_DataInterface_4 [OptimusNode_DataInterface]
+DataInterface: OptimusDuplicateVerticesDataInterface
+UpdateGraph/OptimusNode_ComponentSource.SkinnedMesh -> UpdateGraph/OptimusNode_DataInterface_4.SkinnedMesh
+UpdateGraph/OptimusNode_CustomComputeKernel_2 [OptimusNode_CustomComputeKernel]
+UpdateGraph/OptimusNode_DataInterface_7.IndexBuffer -> UpdateGraph/OptimusNode_CustomComputeKernel_2.Primary Group.IndexBuffer
+UpdateGraph/OptimusNode_CustomComputeKernel.OutPosition -> UpdateGraph/OptimusNode_CustomComputeKernel_2.Primary Group.Position
+UpdateGraph/OptimusNode_CustomComputeKernel.OutTangentZ -> UpdateGraph/OptimusNode_CustomComputeKernel_2.Primary Group.TangentZ
+UpdateGraph/OptimusNode_DataInterface_7.UV -> UpdateGraph/OptimusNode_CustomComputeKernel_2.Primary Group.UV
+UpdateGraph/OptimusNode_DataInterface_4.DuplicateVerticesStartAndLength -> UpdateGraph/OptimusNode_CustomComputeKernel_2.Primary Group.DuplicateVerticesStartAndLength
+UpdateGraph/OptimusNode_DataInterface_4.DuplicateVertex -> UpdateGraph/OptimusNode_CustomComputeKernel_2.Primary Group.DuplicateVertex
+// Parameters and resource read/write functions
+uint NumDuplicateVertex();
+uint ReadDuplicateVertex(uint DuplicateVertexIndex);
+uint NumTriangle();
+uint ReadIndexBuffer(uint TriangleIndex);
+uint NumVertex();
+float3 ReadPosition(uint VertexIndex);
+float4 ReadTangentZ(uint VertexIndex);
+uint NumVertexUVChannel();
+float2 ReadUV(uint VertexIndex, uint UVChannelIndex);
+int2 ReadDuplicateVerticesStartAndLength(uint VertexIndex);
+void WriteAccumulation(uint VertexIndex, int Value);
+int AtomicAddAccumulation(uint VertexIndex, int Value);
+int AtomicMinAccumulation(uint VertexIndex, int Value);
+int AtomicMaxAccumulation(uint VertexIndex, int Value);
+// Resource Indexing
+uint Index;	// From SV_DispatchThreadID.x
+int3 ReadNumThreads();
+
+// Accumulation resource should be NumVertices * 8.
+#define ACCUMULATION_BUFFER_NUM_INTS 8
+
+#define TANGENT_RANGE 0x7fff
+
+struct FVertexData
+{
+	uint VertexIndex;
+	float3 Position;
+	float2 UV;
+	float Angle;
+};
+
+struct FTriangleTangentData
+{
+	float3 TangentX;
+	float3 TangentZ;
+	float Orientation;
+};
+
+FTriangleTangentData CalculateTriangleTangentData(in FVertexData Corners[3])
+{
+	FTriangleTangentData Out;
+
+	float3 EdgeA = Corners[1].Position - Corners[0].Position;
+	float3 EdgeB = Corners[2].Position - Corners[0].Position;
+	float3 TriangleNormal = cross(EdgeB, EdgeA);
+	
+	float3 TangentZ = normalize(TriangleNormal);
+
+	float2 UVEdgeA = Corners[1].UV - Corners[0].UV;
+	float2 UVEdgeB = Corners[2].UV - Corners[0].UV;
+
+	float CP = UVEdgeA.y * UVEdgeB.x - UVEdgeA.x * UVEdgeB.y;
+	float3 UnnormalizedTangentX = (EdgeA * -UVEdgeB.y + EdgeB * UVEdgeA.y) / CP;
+	if (abs(CP) < 0.000001f)
+	{
+		// Bad UV assignment? Select some other vector that is orthogonal to TangentZ.
+		float3 Other = (abs(normalize(TangentZ).z) < 0.5f) ? float3(0, 0, 1) : float3(1, 0, 0);
+		UnnormalizedTangentX = cross(Other, TangentZ);
+	}
+
+	Out.TangentX = normalize(UnnormalizedTangentX);
+	Out.TangentZ = TangentZ;
+	Out.Orientation = (CP > 0) ? 1 : -1;
+
+	return Out;
+}
+
+KERNEL
+{
+    if (Index > ReadNumThreads().x) return;
+
+    uint TriangleIndex = Index;
+
+	// Gather per vertex information for each triangle corner.
+	uint CornerId;
+	FVertexData Corners[3];
+	UNROLL for (CornerId = 0; CornerId < 3; ++CornerId)
+	{
+		uint VertexIndex = ReadIndexBuffer(TriangleIndex * 3 + CornerId);
+		Corners[CornerId].VertexIndex = VertexIndex;
+		Corners[CornerId].Position = ReadPosition(VertexIndex);
+		Corners[CornerId].UV = ReadUV(VertexIndex, 0);
+	}
+	UNROLL for (CornerId = 0; CornerId < 3; ++CornerId)
+	{
+		float3 Position = Corners[CornerId].Position;
+		float3 EdgeA = Corners[(CornerId + 1) % 3].Position - Position;
+		float3 EdgeB = Corners[(CornerId + 2) % 3].Position - Position;
+
+		Corners[CornerId].Angle = AngleBetweenVectorsFast(EdgeA, EdgeB);
+	}
+
+	// Calculate per triangle information.
+	FTriangleTangentData TriangleData = CalculateTriangleTangentData(Corners);
+
+	// Accumulate the calculated values to each vertex in the output buffer.
+	UNROLL for (CornerId = 0; CornerId < 3; ++CornerId)
+	{
+		// Weight and convert to integer range [-TANGENT_RANGE*PI, TANGENT_RANGE*PI]
+		float Weight = 1;//Corners[CornerId].Angle;
+		int3 IntTangentZ = (int3)(TriangleData.TangentZ * Weight * TANGENT_RANGE);
+		int3 IntTangentX = (int3)(TriangleData.TangentX * Weight * TANGENT_RANGE);
+		int IntOrientation = (int)(TriangleData.Orientation * Weight * TANGENT_RANGE);
+
+		// Accumulate each original vertex.
+		uint VertexIndex = Corners[CornerId].VertexIndex;
+		uint BaseVertexIndex = VertexIndex * ACCUMULATION_BUFFER_NUM_INTS;
+
+		AtomicAddAccumulation(BaseVertexIndex + 0, IntTangentZ.x);
+		AtomicAddAccumulation(BaseVertexIndex + 1, IntTangentZ.y);
+		AtomicAddAccumulation(BaseVertexIndex + 2, IntTangentZ.z);
+		AtomicAddAccumulation(BaseVertexIndex + 3, IntTangentX.x);
+		AtomicAddAccumulation(BaseVertexIndex + 4, IntTangentX.y);
+		AtomicAddAccumulation(BaseVertexIndex + 5, IntTangentX.z);
+		AtomicAddAccumulation(BaseVertexIndex + 6, IntOrientation);
+
+        uint2 DuplicateIndicesStartAndLength = ReadDuplicateVerticesStartAndLength(VertexIndex);
+        for(uint DuplicateIndex = 0; DuplicateIndex < DuplicateIndicesStartAndLength.y; ++DuplicateIndex)
+        {
+            uint DuplicateVertex = ReadDuplicateVertex(DuplicateIndicesStartAndLength.x + DuplicateIndex);
+            uint BaseIndex = DuplicateVertex * ACCUMULATION_BUFFER_NUM_INTS;
+
+			AtomicAddAccumulation(BaseIndex + 0, IntTangentZ.x);
+			AtomicAddAccumulation(BaseIndex + 1, IntTangentZ.y);
+			AtomicAddAccumulation(BaseIndex + 2, IntTangentZ.z);
+	    }
+	}
+}
+
+UpdateGraph/OptimusNode_DataInterface_7 [OptimusNode_DataInterface]
+DataInterface: OptimusSkinnedMeshDataInterface
+UpdateGraph/OptimusNode_ComponentSource.SkinnedMesh -> UpdateGraph/OptimusNode_DataInterface_7.SkinnedMesh
+UpdateGraph/OptimusNode_DataInterface_1 [OptimusNode_DataInterface]
+DataInterface: DIFleshDeformer
+UpdateGraph/OptimusNode_ComponentSource.SkinnedMesh -> UpdateGraph/OptimusNode_DataInterface_1.SkinnedMesh
+UpdateGraph/OptimusNode_GetVariable [OptimusNode_GetVariable]
+UpdateGraph/OptimusNode_GetVariable_0 [OptimusNode_GetVariable]

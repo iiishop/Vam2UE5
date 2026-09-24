@@ -1,0 +1,24 @@
+{
+  "map": "/Game/VamRuntimeTests/Run_17d44bc6d1734fb687d03ed88f9f03ee/L_Composition_6b6601cdedc64847",
+  "identity": "6b6601cdedc648473e0b888d39e2e52228496b08c3e7347f3aa5bcd3c43a8783",
+  "quality": {
+    "schema": "vam-composition-quality/1",
+    "scope": "Play-world base animation, active pose, IK and local rigid response; not soft tissue or full 07.0",
+    "final_ik_tolerance_cm": 3.0,
+    "minimum_base_motion_cm": 0.01,
+    "minimum_grab_motion_cm": 1.0,
+    "final_foot_tolerance_cm": 3.0,
+    "settled_speed_tolerance_cm_s": 2.0,
+    "settled_drift_tolerance_cm": 0.5,
+    "joint_limit_tolerance_degrees": 2.0,
+    "chaos_substepping": true,
+    "chaos_max_substep_seconds": 0.008333333333333333,
+    "chaos_max_substeps": 16
+  },
+  "builds": [
+    "d08d36bbecd8433e8de4b8543beb47594406c1e93c1993e171590bb9a7209689",
+    "3aac9f63f5c22c6fc01e3599e71e47a5f5125bd684c2d3eb718080ddd7ccdd3f",
+    "d08d36bbecd8433e8de4b8543beb47594406c1e93c1993e171590bb9a7209689"
+  ],
+  "shader_statistics": {}
+}

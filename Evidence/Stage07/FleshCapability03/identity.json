@@ -1,0 +1,39 @@
+{
+  "scope": "Static no-gravity backend capability only",
+  "build_success": true,
+  "cook_success": true,
+  "game_exit_code": 0,
+  "visual_review": "Rest/contact/release screenshots inspected; contact sphere hidden; visible localized skin response",
+  "stage07_passed": false,
+  "backend_qualified": false,
+  "files": [
+    {
+      "Path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Source\\VamCharacterRuntime\\Private\\VamFleshCapabilityActor.cpp",
+      "Hash": "C69D750D50A2CBBCEB262E5BF63168CF5AAD0D84615F20E03A2E4FDF0B957398"
+    },
+    {
+      "Path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Source\\VamCharacterRuntime\\Public\\VamFleshCapabilityAsset.h",
+      "Hash": "CE8C598DF8E1B961669B404F1D60F3DB4B0B23BC6C7B7DAFE8302976D8AD88EF"
+    },
+    {
+      "Path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Source\\VamCharacterRuntime\\Public\\VamFleshCapabilityActor.h",
+      "Hash": "83AD2C205F3E729F43798C3D3ACA12603CF53F108356C522CD7169C3B7FFC910"
+    },
+    {
+      "Path": "I:\\Document\\UE5\\SmartNPC\\Saved\\Stage07FleshCook04\\Package\\Windows\\HostProject\\Binaries\\Win64\\HostProject.exe",
+      "Hash": "013ACC94EB43BFB2262719F862D7943A8F4CD897239C8D39BE6811E7F7D118E6"
+    },
+    {
+      "Path": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntimeTests\\FleshCapability03\\DA_Capability.uasset",
+      "Hash": "FC946791BF96D649A1B3F262CE069ECD1FE26711C37B6D1854422FBF223F8AEB"
+    },
+    {
+      "Path": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntimeTests\\FleshCapability03\\DG_Surface.uasset",
+      "Hash": "B25F45F01FA0AF5450921013DB6E06C4DA99C3F39F55B538A0230C985B0CD085"
+    },
+    {
+      "Path": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntimeTests\\FleshCapability03\\L_Capability.umap",
+      "Hash": "1E169E38DAF6AA96B92DB01E0EF4847C56E257663308DA9BA5B5A5549C2D4825"
+    }
+  ]
+}

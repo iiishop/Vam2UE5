@@ -5,6 +5,6 @@ public class VamCharacterRuntime : ModuleRules
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         PublicDependencyModuleNames.AddRange(new[] { "Core", "CoreUObject", "Engine", "PhysicsCore", "InputCore" });
-        PrivateDependencyModuleNames.AddRange(new[] { "PBIK" });
+        PrivateDependencyModuleNames.AddRange(new[] { "PBIK", "Json", "Chaos", "ChaosFlesh", "ChaosFleshEngine", "RenderCore", "RHI" });
     }
 }

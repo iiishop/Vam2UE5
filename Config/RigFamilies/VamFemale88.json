@@ -1,0 +1,1973 @@
+{
+  "schema": "vam-rig-family/1",
+  "family": "vam-female-88-daz-zyx-v1",
+  "source_evidence": "/Game/VamCharacters/C_1facd7a930a8e1eca11a18a6/DA_SourceMapping.DA_SourceMapping neutral source bind orientations; no character positions or lengths copied",
+  "limit_provenance": "Explicit symmetric Stage06 control bounds; anatomical one-sided hinge calibration remains unverified. Preferred bend is not guessed.",
+  "maximum_axis_error_degrees": 0.1,
+  "solver_root": "root",
+  "effectors": [
+    "pelvis",
+    "chest",
+    "head",
+    "left_hand",
+    "right_hand",
+    "left_foot",
+    "right_foot"
+  ],
+  "bones": {
+    "hip": {
+      "parent": null,
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "pelvis": {
+      "parent": "hip",
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "Gen1": {
+      "parent": "pelvis",
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "Gen2": {
+      "parent": "Gen1",
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "Gen3": {
+      "parent": "Gen2",
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "LGlute": {
+      "parent": "pelvis",
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "RGlute": {
+      "parent": "pelvis",
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "Testes": {
+      "parent": "pelvis",
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "abdomen": {
+      "parent": "hip",
+      "quaternion_xyzw": [
+        0.0,
+        0.008430397161628503,
+        0.0,
+        0.9999644635704297
+      ]
+    },
+    "abdomen2": {
+      "parent": "abdomen",
+      "quaternion_xyzw": [
+        0.0,
+        -0.1296190964110531,
+        0.0,
+        0.9915638606996435
+      ]
+    },
+    "chest": {
+      "parent": "abdomen2",
+      "quaternion_xyzw": [
+        0.0,
+        0.12005096671599376,
+        0.0,
+        0.9927677298293671
+      ]
+    },
+    "neck": {
+      "parent": "chest",
+      "quaternion_xyzw": [
+        0.0,
+        0.11792053682708094,
+        0.0,
+        0.9930230344732256
+      ]
+    },
+    "head": {
+      "parent": "neck",
+      "quaternion_xyzw": [
+        0.0,
+        -0.10804380894985388,
+        0.0,
+        0.9941461337990544
+      ]
+    },
+    "lThigh": {
+      "parent": "pelvis",
+      "quaternion_xyzw": [
+        -0.02492768407046303,
+        0.004566801906795894,
+        -0.0433156798828197,
+        0.998739959530766
+      ]
+    },
+    "lShin": {
+      "parent": "lThigh",
+      "quaternion_xyzw": [
+        0.017028862359310025,
+        0.026054423729405078,
+        -0.006871622400295825,
+        0.9994918537219121
+      ]
+    },
+    "lFoot": {
+      "parent": "lShin",
+      "quaternion_xyzw": [
+        0.002130935840803601,
+        0.1329063965421304,
+        -0.07272281744825396,
+        0.9884547236434336
+      ]
+    },
+    "lToe": {
+      "parent": "lFoot",
+      "quaternion_xyzw": [
+        0.005357645934368266,
+        -0.03723112499637111,
+        -0.003928670780485935,
+        0.9992845963525332
+      ]
+    },
+    "lBigToe": {
+      "parent": "lToe",
+      "quaternion_xyzw": [
+        0.042048315673916425,
+        0.038706137035263814,
+        -0.039793489179136804,
+        0.9975721790044788
+      ]
+    },
+    "lCollar": {
+      "parent": "chest",
+      "quaternion_xyzw": [
+        -0.1357863954147719,
+        -0.08368779063163387,
+        -0.16037361922006382,
+        0.9740835235120842
+      ]
+    },
+    "lShldr": {
+      "parent": "lCollar",
+      "quaternion_xyzw": [
+        0.15527577583803498,
+        0.08213188711478381,
+        0.19752969716765992,
+        0.9644303008998178
+      ]
+    },
+    "lForeArm": {
+      "parent": "lShldr",
+      "quaternion_xyzw": [
+        -0.015224951942569223,
+        0.0038171615853486974,
+        0.19011452279698915,
+        0.9816364389820962
+      ]
+    },
+    "lHand": {
+      "parent": "lForeArm",
+      "quaternion_xyzw": [
+        -0.012901964168098995,
+        -0.06123997614342722,
+        0.010064389947363889,
+        0.9979889341558575
+      ]
+    },
+    "lCarpal1": {
+      "parent": "lHand",
+      "quaternion_xyzw": [
+        0.006552304493342247,
+        0.008010442684680043,
+        0.044306554024447414,
+        0.9989643784361384
+      ]
+    },
+    "lCarpal2": {
+      "parent": "lHand",
+      "quaternion_xyzw": [
+        0.033580677000278884,
+        -0.08739896905233706,
+        -0.09652522568886071,
+        0.9909170697624025
+      ]
+    },
+    "lEye": {
+      "parent": "head",
+      "quaternion_xyzw": [
+        0.0,
+        -0.0087271991827779,
+        0.0,
+        0.999961917272065
+      ]
+    },
+    "lIndex1": {
+      "parent": "lCarpal1",
+      "quaternion_xyzw": [
+        0.031068900683228012,
+        0.03389854336130787,
+        0.04303811264161794,
+        0.9980146957978948
+      ]
+    },
+    "lIndex2": {
+      "parent": "lIndex1",
+      "quaternion_xyzw": [
+        0.05372188726153852,
+        -0.005879595725905139,
+        -0.014413702066382594,
+        0.9984345919367479
+      ]
+    },
+    "lIndex3": {
+      "parent": "lIndex2",
+      "quaternion_xyzw": [
+        0.02710977283232694,
+        -0.009242597094980754,
+        -0.004681815290469016,
+        0.99957876889293
+      ]
+    },
+    "lMid1": {
+      "parent": "lCarpal1",
+      "quaternion_xyzw": [
+        0.003592192180420787,
+        -0.005894974753309326,
+        -0.04360344177247291,
+        0.9990250674000083
+      ]
+    },
+    "lMid2": {
+      "parent": "lMid1",
+      "quaternion_xyzw": [
+        0.08362287865963346,
+        -0.018647454376708367,
+        0.013674165983798031,
+        0.9962291422130716
+      ]
+    },
+    "lMid3": {
+      "parent": "lMid2",
+      "quaternion_xyzw": [
+        0.010809800174131768,
+        0.017883311621276855,
+        -0.019226734062220863,
+        0.9995967527372988
+      ]
+    },
+    "lPectoral": {
+      "parent": "chest",
+      "quaternion_xyzw": [
+        -0.014273528117836215,
+        -0.07460002168718596,
+        -0.18252184900619373,
+        0.9802636776881519
+      ]
+    },
+    "lNipple": {
+      "parent": "lPectoral",
+      "quaternion_xyzw": [
+        0.11219754576596389,
+        -0.11309038147556569,
+        -0.9863612754762254,
+        -0.04139698760440355
+      ]
+    },
+    "lPinky1": {
+      "parent": "lCarpal2",
+      "quaternion_xyzw": [
+        -0.010970469700763687,
+        0.008640407420986167,
+        -0.024466713358178502,
+        0.9996031072838824
+      ]
+    },
+    "lPinky2": {
+      "parent": "lPinky1",
+      "quaternion_xyzw": [
+        0.15029038052219246,
+        0.00598042986803277,
+        0.03530325965697981,
+        0.9879932772234234
+      ]
+    },
+    "lPinky3": {
+      "parent": "lPinky2",
+      "quaternion_xyzw": [
+        -0.04202885841651739,
+        -0.009550777804161605,
+        -0.01700670479109323,
+        0.9989259880970607
+      ]
+    },
+    "lRing1": {
+      "parent": "lCarpal2",
+      "quaternion_xyzw": [
+        0.008492889345745562,
+        0.04588602342825564,
+        0.0232140089914524,
+        0.9986408030273184
+      ]
+    },
+    "lRing2": {
+      "parent": "lRing1",
+      "quaternion_xyzw": [
+        0.05379088048652143,
+        -0.008006618955748931,
+        0.02070968318041358,
+        0.9983053361832486
+      ]
+    },
+    "lRing3": {
+      "parent": "lRing2",
+      "quaternion_xyzw": [
+        0.03651432558761179,
+        -0.046835709886025444,
+        0.01687134424591727,
+        0.9980924195933409
+      ]
+    },
+    "lSmallToe1": {
+      "parent": "lToe",
+      "quaternion_xyzw": [
+        0.04293434655659623,
+        0.07945694483892837,
+        -0.03498743832771617,
+        0.9952985054554668
+      ]
+    },
+    "lSmallToe2": {
+      "parent": "lToe",
+      "quaternion_xyzw": [
+        0.03748902070279746,
+        0.11626371470302409,
+        -0.011861328707439722,
+        0.9924397366346699
+      ]
+    },
+    "lSmallToe3": {
+      "parent": "lToe",
+      "quaternion_xyzw": [
+        0.062425877032036135,
+        0.13510830341445274,
+        -0.010953894315812077,
+        0.9888016830611522
+      ]
+    },
+    "lSmallToe4": {
+      "parent": "lToe",
+      "quaternion_xyzw": [
+        0.08714340568590939,
+        0.15131480798718663,
+        0.023608465776340598,
+        0.9843538469843806
+      ]
+    },
+    "lThumb1": {
+      "parent": "lHand",
+      "quaternion_xyzw": [
+        0.15736913579119677,
+        0.01825773993717437,
+        0.4833034889353568,
+        0.8609990404266603
+      ]
+    },
+    "lThumb2": {
+      "parent": "lThumb1",
+      "quaternion_xyzw": [
+        -0.0535740502933056,
+        -0.23517822535154978,
+        -0.20700676063440626,
+        0.9481398760242689
+      ]
+    },
+    "lThumb3": {
+      "parent": "lThumb2",
+      "quaternion_xyzw": [
+        -0.010981076669248177,
+        -0.052427674733430754,
+        0.09144958693206312,
+        0.9943680042756731
+      ]
+    },
+    "lowerJaw": {
+      "parent": "head",
+      "quaternion_xyzw": [
+        0.0,
+        0.1955150315189919,
+        0.0,
+        0.9807007048279958
+      ]
+    },
+    "rThigh": {
+      "parent": "pelvis",
+      "quaternion_xyzw": [
+        0.02492768407046303,
+        0.004566801906795894,
+        0.0433156798828197,
+        0.998739959530766
+      ]
+    },
+    "rShin": {
+      "parent": "rThigh",
+      "quaternion_xyzw": [
+        -0.017028862359310025,
+        0.026054423729405078,
+        0.006871622400295825,
+        0.9994918537219121
+      ]
+    },
+    "rFoot": {
+      "parent": "rShin",
+      "quaternion_xyzw": [
+        -0.002130935840803601,
+        0.1329063965421304,
+        0.07272281744825396,
+        0.9884547236434336
+      ]
+    },
+    "rToe": {
+      "parent": "rFoot",
+      "quaternion_xyzw": [
+        -0.005357645934368266,
+        -0.03723112499637111,
+        0.003928670780485935,
+        0.9992845963525332
+      ]
+    },
+    "rBigToe": {
+      "parent": "rToe",
+      "quaternion_xyzw": [
+        -0.042048315673916425,
+        0.038706137035263814,
+        0.039793489179136804,
+        0.9975721790044788
+      ]
+    },
+    "rCollar": {
+      "parent": "chest",
+      "quaternion_xyzw": [
+        0.1357863954147719,
+        -0.08368779063163387,
+        0.16037361922006382,
+        0.9740835235120842
+      ]
+    },
+    "rShldr": {
+      "parent": "rCollar",
+      "quaternion_xyzw": [
+        -0.15527577517811642,
+        0.08213188834654644,
+        -0.19752968913030022,
+        0.9644303025473393
+      ]
+    },
+    "rForeArm": {
+      "parent": "rShldr",
+      "quaternion_xyzw": [
+        0.015224951985299578,
+        0.00381716158841334,
+        -0.19011453096648906,
+        0.9816364373992263
+      ]
+    },
+    "rHand": {
+      "parent": "rForeArm",
+      "quaternion_xyzw": [
+        0.012901964252513031,
+        -0.06123996790267351,
+        -0.010064389839150034,
+        0.997988934661538
+      ]
+    },
+    "rCarpal1": {
+      "parent": "rHand",
+      "quaternion_xyzw": [
+        -0.006552303755870428,
+        0.008010442684680062,
+        -0.04430655413350884,
+        0.9989643784361384
+      ]
+    },
+    "rCarpal2": {
+      "parent": "rHand",
+      "quaternion_xyzw": [
+        -0.033580677803598344,
+        -0.08739897729912387,
+        0.09652522540938963,
+        0.9909170690350351
+      ]
+    },
+    "rEye": {
+      "parent": "head",
+      "quaternion_xyzw": [
+        0.0,
+        -0.0087271991827779,
+        0.0,
+        0.999961917272065
+      ]
+    },
+    "rIndex1": {
+      "parent": "rCarpal1",
+      "quaternion_xyzw": [
+        -0.031068900302662333,
+        0.0338985355745679,
+        -0.04303811291634557,
+        0.9980146960623791
+      ]
+    },
+    "rIndex2": {
+      "parent": "rIndex1",
+      "quaternion_xyzw": [
+        -0.053721887388992084,
+        -0.005879587935889056,
+        0.014413701591345363,
+        0.9984345919826217
+      ]
+    },
+    "rIndex3": {
+      "parent": "rIndex2",
+      "quaternion_xyzw": [
+        -0.02710977287129076,
+        -0.009242605413853511,
+        0.004681815064851158,
+        0.9995787688160095
+      ]
+    },
+    "rMid1": {
+      "parent": "rCarpal1",
+      "quaternion_xyzw": [
+        -0.0035921944685795605,
+        -0.005894975668716123,
+        0.043603441899481454,
+        0.999025067380836
+      ]
+    },
+    "rMid2": {
+      "parent": "rMid1",
+      "quaternion_xyzw": [
+        -0.08362287696730522,
+        -0.018647461785680202,
+        -0.013674166831373818,
+        0.9962291422048095
+      ]
+    },
+    "rMid3": {
+      "parent": "rMid2",
+      "quaternion_xyzw": [
+        -0.010809800174131768,
+        0.017883311621276855,
+        0.019226734062220863,
+        0.9995967527372988
+      ]
+    },
+    "rPectoral": {
+      "parent": "chest",
+      "quaternion_xyzw": [
+        0.014273527169950671,
+        -0.07460002151062672,
+        0.18252184908064323,
+        0.9802636777015282
+      ]
+    },
+    "rNipple": {
+      "parent": "rPectoral",
+      "quaternion_xyzw": [
+        -0.11219764652848156,
+        -0.11309049403560464,
+        0.9863612524243133,
+        -0.0413969562672504
+      ]
+    },
+    "rPinky1": {
+      "parent": "rCarpal2",
+      "quaternion_xyzw": [
+        0.010970469700763687,
+        0.008640407420986167,
+        0.024466713358178502,
+        0.9996031072838824
+      ]
+    },
+    "rPinky2": {
+      "parent": "rPinky1",
+      "quaternion_xyzw": [
+        -0.15029038022838537,
+        0.005980438090486689,
+        -0.03530326090775322,
+        0.9879932771736519
+      ]
+    },
+    "rPinky3": {
+      "parent": "rPinky2",
+      "quaternion_xyzw": [
+        0.04202885827498118,
+        -0.00955078611760166,
+        0.01700670514087327,
+        0.9989259880175754
+      ]
+    },
+    "rRing1": {
+      "parent": "rCarpal2",
+      "quaternion_xyzw": [
+        -0.008492889152549803,
+        0.04588603173932229,
+        -0.023214009062133445,
+        0.9986408026454376
+      ]
+    },
+    "rRing2": {
+      "parent": "rRing1",
+      "quaternion_xyzw": [
+        -0.05379088014181378,
+        -0.008006618955748931,
+        -0.020709684075749635,
+        0.9983053361832488
+      ]
+    },
+    "rRing3": {
+      "parent": "rRing2",
+      "quaternion_xyzw": [
+        -0.036514325447202095,
+        -0.046835718192528276,
+        -0.016871344549803324,
+        0.9980924192035565
+      ]
+    },
+    "rSmallToe1": {
+      "parent": "rToe",
+      "quaternion_xyzw": [
+        -0.04293433903745142,
+        0.07945694238478437,
+        0.03498744088041206,
+        0.9952985058860069
+      ]
+    },
+    "rSmallToe2": {
+      "parent": "rToe",
+      "quaternion_xyzw": [
+        -0.03748902070279746,
+        0.11626371470302409,
+        0.011861328707439722,
+        0.9924397366346699
+      ]
+    },
+    "rSmallToe3": {
+      "parent": "rToe",
+      "quaternion_xyzw": [
+        -0.062425877032036135,
+        0.13510830341445274,
+        0.010953894315812077,
+        0.9888016830611522
+      ]
+    },
+    "rSmallToe4": {
+      "parent": "rToe",
+      "quaternion_xyzw": [
+        -0.08714339827486658,
+        0.1513148059226895,
+        -0.023608462779080755,
+        0.984353848029709
+      ]
+    },
+    "rThumb1": {
+      "parent": "rHand",
+      "quaternion_xyzw": [
+        -0.1573691992981359,
+        0.018257702663526505,
+        -0.483303409737749,
+        0.8609990740654598
+      ]
+    },
+    "rThumb2": {
+      "parent": "rThumb1",
+      "quaternion_xyzw": [
+        0.05357408418884006,
+        -0.235178169734159,
+        0.20700667202198675,
+        0.9481399072511397
+      ]
+    },
+    "rThumb3": {
+      "parent": "rThumb2",
+      "quaternion_xyzw": [
+        0.010981069058467435,
+        -0.052427757488498705,
+        -0.09144958784594948,
+        0.99436799991244
+      ]
+    },
+    "tongueBase": {
+      "parent": "lowerJaw",
+      "quaternion_xyzw": [
+        0.0,
+        -0.7370349026404207,
+        0.0,
+        0.6758546828200761
+      ]
+    },
+    "tongue01": {
+      "parent": "tongueBase",
+      "quaternion_xyzw": [
+        0.0,
+        0.39111897489356284,
+        0.0,
+        0.9203401259742012
+      ]
+    },
+    "tongue02": {
+      "parent": "tongue01",
+      "quaternion_xyzw": [
+        0.0,
+        0.13697233395803898,
+        0.0,
+        0.9905748733589438
+      ]
+    },
+    "tongue03": {
+      "parent": "tongue02",
+      "quaternion_xyzw": [
+        0.0,
+        0.07186170691059442,
+        0.0,
+        0.997414605407348
+      ]
+    },
+    "tongue04": {
+      "parent": "tongue03",
+      "quaternion_xyzw": [
+        0.0,
+        0.028982368912510544,
+        0.0,
+        0.9995799229137303
+      ]
+    },
+    "tongue05": {
+      "parent": "tongue04",
+      "quaternion_xyzw": [
+        0.0,
+        -0.005536329922507997,
+        0.0,
+        0.9999846744080577
+      ]
+    },
+    "tongueTip": {
+      "parent": "tongue05",
+      "quaternion_xyzw": [
+        0.0,
+        -0.05044259980655241,
+        0.0,
+        0.9987269617491839
+      ]
+    },
+    "upperJaw": {
+      "parent": "head",
+      "quaternion_xyzw": [
+        -8.56605741621005e-05,
+        0.0007821960005160132,
+        -8.884332382362102e-05,
+        0.9999996864692241
+      ]
+    }
+  },
+  "joints": [
+    {
+      "bone": "hip",
+      "semantic": "root",
+      "pose_control": false,
+      "minimum": [
+        0,
+        0,
+        0
+      ],
+      "maximum": [
+        0,
+        0,
+        0
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "pelvis",
+      "semantic": "pelvis",
+      "pose_control": true,
+      "minimum": [
+        -25,
+        -25,
+        -25
+      ],
+      "maximum": [
+        25,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "abdomen",
+      "semantic": "spine",
+      "pose_control": true,
+      "minimum": [
+        -25,
+        -25,
+        -25
+      ],
+      "maximum": [
+        25,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "abdomen2",
+      "semantic": "spine_upper",
+      "pose_control": true,
+      "minimum": [
+        -30,
+        -30,
+        -30
+      ],
+      "maximum": [
+        30,
+        30,
+        30
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "chest",
+      "semantic": "chest",
+      "pose_control": true,
+      "minimum": [
+        -35,
+        -35,
+        -35
+      ],
+      "maximum": [
+        35,
+        35,
+        35
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "neck",
+      "semantic": "neck",
+      "pose_control": true,
+      "minimum": [
+        -35,
+        -35,
+        -35
+      ],
+      "maximum": [
+        35,
+        35,
+        35
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "head",
+      "semantic": "head",
+      "pose_control": true,
+      "minimum": [
+        -40,
+        -40,
+        -40
+      ],
+      "maximum": [
+        40,
+        40,
+        40
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lThigh",
+      "semantic": "left_hip",
+      "pose_control": true,
+      "minimum": [
+        -100,
+        -100,
+        -100
+      ],
+      "maximum": [
+        100,
+        100,
+        100
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lShin",
+      "semantic": "left_knee",
+      "pose_control": true,
+      "minimum": [
+        -115,
+        -50,
+        -50
+      ],
+      "maximum": [
+        115,
+        50,
+        50
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lFoot",
+      "semantic": "left_foot",
+      "pose_control": true,
+      "minimum": [
+        -65,
+        -65,
+        -65
+      ],
+      "maximum": [
+        65,
+        65,
+        65
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lToe",
+      "semantic": "left_toe",
+      "pose_control": true,
+      "minimum": [
+        -35,
+        -25,
+        -25
+      ],
+      "maximum": [
+        35,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lBigToe",
+      "semantic": "left_big_toe",
+      "pose_control": true,
+      "minimum": [
+        -35,
+        -25,
+        -25
+      ],
+      "maximum": [
+        35,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lCollar",
+      "semantic": "left_clavicle",
+      "pose_control": true,
+      "minimum": [
+        -65,
+        -65,
+        -65
+      ],
+      "maximum": [
+        65,
+        65,
+        65
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lShldr",
+      "semantic": "left_shoulder",
+      "pose_control": true,
+      "minimum": [
+        -100,
+        -100,
+        -100
+      ],
+      "maximum": [
+        100,
+        100,
+        100
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lForeArm",
+      "semantic": "left_elbow",
+      "pose_control": true,
+      "minimum": [
+        -115,
+        -50,
+        -50
+      ],
+      "maximum": [
+        115,
+        50,
+        50
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lHand",
+      "semantic": "left_hand",
+      "pose_control": true,
+      "minimum": [
+        -65,
+        -65,
+        -65
+      ],
+      "maximum": [
+        65,
+        65,
+        65
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lEye",
+      "semantic": "eye_l",
+      "pose_control": false,
+      "minimum": [
+        0,
+        0,
+        0
+      ],
+      "maximum": [
+        0,
+        0,
+        0
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lIndex1",
+      "semantic": "left_index_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lIndex2",
+      "semantic": "left_index_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lIndex3",
+      "semantic": "left_index_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lMid1",
+      "semantic": "left_mid_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lMid2",
+      "semantic": "left_mid_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lMid3",
+      "semantic": "left_mid_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lPinky1",
+      "semantic": "left_pinky_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lPinky2",
+      "semantic": "left_pinky_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lPinky3",
+      "semantic": "left_pinky_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lRing1",
+      "semantic": "left_ring_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lRing2",
+      "semantic": "left_ring_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lRing3",
+      "semantic": "left_ring_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lThumb1",
+      "semantic": "left_thumb_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lThumb2",
+      "semantic": "left_thumb_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lThumb3",
+      "semantic": "left_thumb_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "lowerJaw",
+      "semantic": "jaw",
+      "pose_control": false,
+      "minimum": [
+        0,
+        0,
+        0
+      ],
+      "maximum": [
+        0,
+        0,
+        0
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rThigh",
+      "semantic": "right_hip",
+      "pose_control": true,
+      "minimum": [
+        -100,
+        -100,
+        -100
+      ],
+      "maximum": [
+        100,
+        100,
+        100
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rShin",
+      "semantic": "right_knee",
+      "pose_control": true,
+      "minimum": [
+        -115,
+        -50,
+        -50
+      ],
+      "maximum": [
+        115,
+        50,
+        50
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rFoot",
+      "semantic": "right_foot",
+      "pose_control": true,
+      "minimum": [
+        -65,
+        -65,
+        -65
+      ],
+      "maximum": [
+        65,
+        65,
+        65
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rToe",
+      "semantic": "right_toe",
+      "pose_control": true,
+      "minimum": [
+        -35,
+        -25,
+        -25
+      ],
+      "maximum": [
+        35,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rBigToe",
+      "semantic": "right_big_toe",
+      "pose_control": true,
+      "minimum": [
+        -35,
+        -25,
+        -25
+      ],
+      "maximum": [
+        35,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rCollar",
+      "semantic": "right_clavicle",
+      "pose_control": true,
+      "minimum": [
+        -65,
+        -65,
+        -65
+      ],
+      "maximum": [
+        65,
+        65,
+        65
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rShldr",
+      "semantic": "right_shoulder",
+      "pose_control": true,
+      "minimum": [
+        -100,
+        -100,
+        -100
+      ],
+      "maximum": [
+        100,
+        100,
+        100
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rForeArm",
+      "semantic": "right_elbow",
+      "pose_control": true,
+      "minimum": [
+        -115,
+        -50,
+        -50
+      ],
+      "maximum": [
+        115,
+        50,
+        50
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rHand",
+      "semantic": "right_hand",
+      "pose_control": true,
+      "minimum": [
+        -65,
+        -65,
+        -65
+      ],
+      "maximum": [
+        65,
+        65,
+        65
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rEye",
+      "semantic": "eye_r",
+      "pose_control": false,
+      "minimum": [
+        0,
+        0,
+        0
+      ],
+      "maximum": [
+        0,
+        0,
+        0
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rIndex1",
+      "semantic": "right_index_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rIndex2",
+      "semantic": "right_index_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rIndex3",
+      "semantic": "right_index_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rMid1",
+      "semantic": "right_mid_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rMid2",
+      "semantic": "right_mid_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rMid3",
+      "semantic": "right_mid_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rPinky1",
+      "semantic": "right_pinky_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rPinky2",
+      "semantic": "right_pinky_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rPinky3",
+      "semantic": "right_pinky_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rRing1",
+      "semantic": "right_ring_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rRing2",
+      "semantic": "right_ring_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rRing3",
+      "semantic": "right_ring_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rThumb1",
+      "semantic": "right_thumb_1",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -25,
+        -25
+      ],
+      "maximum": [
+        60,
+        25,
+        25
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rThumb2",
+      "semantic": "right_thumb_2",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "bone": "rThumb3",
+      "semantic": "right_thumb_3",
+      "pose_control": true,
+      "minimum": [
+        -60,
+        -15,
+        -15
+      ],
+      "maximum": [
+        60,
+        15,
+        15
+      ],
+      "preferred_bend": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

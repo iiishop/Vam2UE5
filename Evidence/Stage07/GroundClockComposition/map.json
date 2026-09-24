@@ -1,0 +1,17 @@
+{
+  "map": "/Game/VamRuntimeTests/Run_d2e409969b734ebe9a6afc92866d60ca/L_Composition_40b0e4124302f98a",
+  "identity": "40b0e4124302f98a07f1abee259c2dabee7f1dc72560d1808cd54b96d6b32834",
+  "quality": {
+    "schema": "vam-composition-quality/1",
+    "scope": "Play-world base animation, active pose, IK and local rigid response; not soft tissue or full 07.0",
+    "final_ik_tolerance_cm": 3.0,
+    "minimum_base_motion_cm": 0.01,
+    "minimum_grab_motion_cm": 1.0,
+    "final_foot_tolerance_cm": 3.0
+  },
+  "builds": [
+    "e15e3b1cdbd385becfbf4e30f279e61324353a21307efab6fa44e74e73848c4e",
+    "9e5cbf0fd57d4941fe8a4cf957c16869df8ffb7bd8888e0c696337d67f53f58a",
+    "e15e3b1cdbd385becfbf4e30f279e61324353a21307efab6fa44e74e73848c4e"
+  ]
+}

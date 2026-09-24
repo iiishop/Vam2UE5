@@ -2,9 +2,20 @@
 #include "Animation/AnimInstanceProxy.h"
 #include "Animation/AnimNodeBase.h"
 #include "BonePose.h"
+#include "Animation/AnimSequence.h"
+#include "Animation/AnimationPoseData.h"
+#include "Engine/SkeletalMesh.h"
 #include "Core/PBIKSolver.h"
 #include "Core/PBIKBody.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Engine/World.h"
+
+void UVamShapeAnimInstance::NativePostEvaluateAnimation()
+{
+    Super::NativePostEvaluateAnimation();
+    ProducedPoseWorldTimeSeconds=GetWorld() ? GetWorld()->GetTimeSeconds() : -1;
+    ++ProducedPoseRevision;
+}
 class FVamShapeProxy final : public FAnimInstanceProxy
 {
 public:
@@ -15,21 +26,51 @@ public:
         Offsets=static_cast<UVamShapeAnimInstance*>(Instance)->GetDebugBoneOffsets();
         ActiveOffsets=static_cast<UVamShapeAnimInstance*>(Instance)->GetActiveBoneOffsets();
         PoseRotations=static_cast<UVamShapeAnimInstance*>(Instance)->GetPoseControlRotations();
-        const auto* Anim=static_cast<UVamShapeAnimInstance*>(Instance);
+        auto* Anim=static_cast<UVamShapeAnimInstance*>(Instance);
+        Anim->AdvanceBaseAnimation(DeltaSeconds);
         Joints=Anim->GetRigJoints(); Effectors=Anim->GetEffectors(); SolverRoot=Anim->GetSolverRoot();
         Iterations=Anim->GetSolverIterations(); Goals.Reset();
+        BaseSequence=Anim->GetBaseAnimation(); BaseTime=Anim->GetBaseAnimationTime();
+        GroundContacts=Anim->GetGroundContacts();FrameDelta=DeltaSeconds;
         if (const auto* Component=Anim->GetSkelMeshComponent())
+        {
+            ComponentUp=Component->GetComponentTransform().InverseTransformVectorNoScale(FVector::UpVector).GetSafeNormal();
             for (const auto& Pair:Anim->GetWorldIKGoals())
                 Goals.Add(Pair.Key,Pair.Value.GetRelativeTransform(Component->GetComponentTransform()));
+        }
     }
     virtual bool Evaluate(FPoseContext& Output) override
     {
         Output.ResetToRefPose();
         const FBoneContainer& Bones=Output.Pose.GetBoneContainer();
+        FCSPose<FCompactPose> ReferenceCS;
+        ReferenceCS.InitPose(Output.Pose);
+        TArray<FTransform> ReferenceTransforms;
+        for (int32 I=0;I<Output.Pose.GetNumBones();++I)
+            ReferenceTransforms.Add(ReferenceCS.GetComponentSpaceTransform(FCompactPoseBoneIndex(I)));
         TArray<FQuat> ReferenceRotations;
         ReferenceRotations.Reserve(Output.Pose.GetNumBones());
         for (int32 I=0;I<Output.Pose.GetNumBones();++I)
             ReferenceRotations.Add(Output.Pose[FCompactPoseBoneIndex(I)].GetRotation());
+        if (BaseSequence)
+        {
+            TArray<FTransform> ShapedReference;
+            for (int32 I=0;I<Output.Pose.GetNumBones();++I) ShapedReference.Add(Output.Pose[FCompactPoseBoneIndex(I)]);
+            FAnimationPoseData PoseData(Output);
+            BaseSequence->GetAnimationPose(PoseData,FAnimExtractContext(BaseTime,false));
+            // Imported tracks are relative to the mesh's p0 binding. Transfer only
+            // the authored shape-reference change; do not bake the animation into rest.
+            const TArray<FTransform>& ImportedReference=Bones.GetReferenceSkeleton().GetRefBonePose();
+            for (int32 I=0;I<Output.Pose.GetNumBones();++I)
+            {
+                const FCompactPoseBoneIndex Compact(I);
+                const int32 Index=Bones.GetSkeletonPoseIndexFromCompactPoseIndex(Compact).GetInt();
+                if (!ImportedReference.IsValidIndex(Index)) continue;
+                FTransform& Bone=Output.Pose[Compact];
+                Bone.AddToTranslation(ShapedReference[I].GetTranslation()-ImportedReference[Index].GetTranslation());
+                Bone.SetRotation((ShapedReference[I].GetRotation()*ImportedReference[Index].GetRotation().Inverse()*Bone.GetRotation()).GetNormalized());
+            }
+        }
         for (const auto& Pair:ActiveOffsets)
         {
             const FCompactPoseBoneIndex Compact=Bones.GetCompactPoseIndexFromSkeletonPoseIndex(FSkeletonPoseBoneIndex(Pair.Key));
@@ -53,11 +94,37 @@ public:
             Bone.AddToTranslation(Pair.Value.GetTranslation());
             Bone.SetRotation((Pair.Value.GetRotation()*Bone.GetRotation()).GetNormalized());
         }
-        if (!Goals.IsEmpty() && !Joints.IsEmpty()) SolveIK(Output);
+        AdaptGroundHeight(Output);
+        if (!Goals.IsEmpty() && !Joints.IsEmpty()) SolveIK(Output,ReferenceTransforms);
         ClampJointRotations(Output,ReferenceRotations);
         return true;
     }
 private:
+    void AdaptGroundHeight(FPoseContext& Output)
+    {
+        const auto& Bones=Output.Pose.GetBoneContainer();
+        const auto* Root=Joints.FindByPredicate([this](const FVamRigJoint& J){return J.Semantic==SolverRoot;});
+        if(!Root) return;
+        FCSPose<FCompactPose> CS;CS.InitPose(Output.Pose);
+        double Target=0;bool Found=false;
+        for(FName Semantic:GroundContacts)
+        {
+            const auto* Joint=Joints.FindByPredicate([Semantic](const FVamRigJoint& J){return J.Semantic==Semantic;});
+            const auto* Goal=Goals.Find(Semantic);if(!Joint || !Goal) continue;
+            const int32 Index=Bones.GetReferenceSkeleton().FindBoneIndex(Joint->Bone);if(Index<0) continue;
+            const auto Compact=Bones.GetCompactPoseIndexFromSkeletonPoseIndex(FSkeletonPoseBoneIndex(Index));if(Compact.GetInt()<0) continue;
+            const double Height=FVector::DotProduct(Goal->GetLocation()-CS.GetComponentSpaceTransform(Compact).GetLocation(),ComponentUp);
+            Target=Found ? FMath::Min(Target,Height) : Height;Found=true;
+        }
+        // Support adaptation has an explicit bounded travel; IK never stretches bones.
+        GroundHeight=FMath::FInterpTo(GroundHeight,FMath::Clamp(Target,-35.,35.),FrameDelta,20.);
+        const int32 RootIndex=Bones.GetReferenceSkeleton().FindBoneIndex(Root->Bone);if(RootIndex<0) return;
+        const auto Compact=Bones.GetCompactPoseIndexFromSkeletonPoseIndex(FSkeletonPoseBoneIndex(RootIndex));if(Compact.GetInt()<0) return;
+        FVector Offset=ComponentUp*GroundHeight;
+        const auto Parent=Bones.GetParentBoneIndex(Compact);
+        if(Parent.GetInt()>=0) Offset=CS.GetComponentSpaceTransform(Parent).InverseTransformVector(Offset);
+        Output.Pose[Compact].AddToTranslation(Offset);
+    }
     void ClampJointRotations(FPoseContext& Output, const TArray<FQuat>& ReferenceRotations) const
     {
         const FBoneContainer& Bones=Output.Pose.GetBoneContainer();
@@ -74,7 +141,7 @@ private:
             Bone.SetRotation((Limited.Quaternion()*ReferenceRotations[Compact.GetInt()]).GetNormalized());
         }
     }
-    void SolveIK(FPoseContext& Output)
+    void SolveIK(FPoseContext& Output, const TArray<FTransform>& ReferenceTransforms)
     {
         const FBoneContainer& Bones=Output.Pose.GetBoneContainer();
         const int32 Count=Output.Pose.GetNumBones();
@@ -92,13 +159,16 @@ private:
         }
         const FVamRigJoint* RootJoint=Joints.FindByPredicate([this](const FVamRigJoint& J){return J.Semantic==SolverRoot;});
         if (!RootJoint || !Names.Contains(RootJoint->Bone)) return;
-        if (!Solver || CachedNames!=Names || CachedRoot!=RootJoint->Bone)
+        bool bReferenceChanged=CachedReference.Num()!=ReferenceTransforms.Num();
+        for (int32 I=0;!bReferenceChanged && I<ReferenceTransforms.Num();++I)
+            bReferenceChanged=!CachedReference[I].Equals(ReferenceTransforms[I],1.e-6);
+        if (!Solver || CachedNames!=Names || CachedRoot!=RootJoint->Bone || bReferenceChanged)
         {
-            Solver=MakeUnique<FPBIKSolver>(); CachedNames=Names; CachedRoot=RootJoint->Bone; EffectorIndices.Reset();
+            Solver=MakeUnique<FPBIKSolver>(); CachedReference=ReferenceTransforms; CachedNames=Names; CachedRoot=RootJoint->Bone; EffectorIndices.Reset();
             for (int32 I=0;I<Count;++I)
             {
                 const int32 Parent=Bones.GetParentBoneIndex(FCompactPoseBoneIndex(I)).GetInt();
-                Solver->AddBone(Names[I],Parent,InputCS[I].GetLocation(),InputCS[I].GetRotation(),Names[I]==CachedRoot);
+                Solver->AddBone(Names[I],Parent,ReferenceTransforms[I].GetLocation(),ReferenceTransforms[I].GetRotation(),Names[I]==CachedRoot);
             }
             for (FName Semantic:Effectors)
                 if (const FVamRigJoint* J=Joints.FindByPredicate([Semantic](const FVamRigJoint& V){return V.Semantic==Semantic;}))
@@ -166,6 +236,12 @@ private:
             Output.Pose[Bone].NormalizeRotation();
         }
     }
+    UAnimSequence* BaseSequence=nullptr;
+    TSet<FName> GroundContacts;
+    FVector ComponentUp=FVector::UpVector;
+    float FrameDelta=0;
+    double GroundHeight=0;
+    double BaseTime=0;
     TMap<int32,FTransform> Offsets;
     TMap<int32,FTransform> ActiveOffsets;
     TMap<int32,FRotator> PoseRotations;
@@ -177,6 +253,7 @@ private:
     TUniquePtr<FPBIKSolver> Solver;
     TMap<FName,int32> EffectorIndices;
     TArray<FName> CachedNames;
+    TArray<FTransform> CachedReference;
     FName CachedRoot;
 };
 FAnimInstanceProxy* UVamShapeAnimInstance::CreateAnimInstanceProxy() { return new FVamShapeProxy(this); }
@@ -215,4 +292,27 @@ void UVamShapeAnimInstance::SetIKGoal(FName Semantic, const FTransform& WorldGoa
 {
     if (WorldGoal.IsValid()) WorldIKGoals.Add(Semantic,WorldGoal);
 }
-void UVamShapeAnimInstance::ClearIKGoal(FName Semantic) { WorldIKGoals.Remove(Semantic); }
+void UVamShapeAnimInstance::SetGroundContactGoal(FName Semantic,const FTransform& WorldGoal)
+{
+    if(WorldGoal.IsValid()) { WorldIKGoals.Add(Semantic,WorldGoal);GroundContacts.Add(Semantic); }
+}
+void UVamShapeAnimInstance::ClearIKGoal(FName Semantic) { WorldIKGoals.Remove(Semantic);GroundContacts.Remove(Semantic); }
+
+bool UVamShapeAnimInstance::SetBaseAnimation(UAnimSequence* Sequence)
+{
+    const USkeletalMeshComponent* Component=GetSkelMeshComponent();
+    if (!SupportsBaseAnimation(Component ? Component->GetSkeletalMeshAsset() : nullptr,Sequence)) return false;
+    if (USkeletalMeshComponent* Mesh=GetSkelMeshComponent()) Mesh->HandleExistingParallelEvaluationTask(true,true);
+    if (BaseAnimation!=Sequence) { BaseAnimation=Sequence; BaseAnimationTime=0; }
+    return true;
+}
+void UVamShapeAnimInstance::AdvanceBaseAnimation(float DeltaSeconds)
+{
+    if (BaseAnimation && FMath::IsFinite(DeltaSeconds) && DeltaSeconds>0 && BaseAnimation->GetPlayLength()>UE_SMALL_NUMBER)
+        BaseAnimationTime=FMath::Fmod(BaseAnimationTime+DeltaSeconds,BaseAnimation->GetPlayLength());
+}
+
+bool UVamShapeAnimInstance::SupportsBaseAnimation(USkeletalMesh* Mesh, UAnimSequence* Sequence)
+{
+    return !Sequence || (Mesh && Sequence->GetSkeleton()==Mesh->GetSkeleton() && !Sequence->IsValidAdditive() && !Sequence->bEnableRootMotion);
+}

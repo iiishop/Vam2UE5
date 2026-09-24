@@ -9,6 +9,6 @@
   "EnabledByDefault": false,
   "CanContainContent": true,
   "SupportedTargetPlatforms": ["Win64"],
-  "Plugins": [{"Name":"PythonScriptPlugin","Enabled":true,"TargetAllowList":["Editor"]},{"Name":"GeometryScripting","Enabled":true,"TargetAllowList":["Editor"]},{"Name":"IKRig","Enabled":true},{"Name":"FullBodyIK","Enabled":true}],
+  "Plugins": [{"Name":"PythonScriptPlugin","Enabled":true,"TargetAllowList":["Editor"]},{"Name":"GeometryScripting","Enabled":true,"TargetAllowList":["Editor"]},{"Name":"IKRig","Enabled":true},{"Name":"FullBodyIK","Enabled":true},{"Name":"ChaosFlesh","Enabled":true}],
   "Modules": [{"Name": "VamCharacterRuntime", "Type": "Runtime", "LoadingPhase": "Default"}, {"Name": "VamResourceBrowser", "Type": "Editor", "LoadingPhase": "PostEngineInit"}]
 }

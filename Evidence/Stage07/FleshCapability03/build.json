@@ -1,0 +1,11 @@
+{
+  "writer_pid": 77400,
+  "asset": "/Game/VamRuntimeTests/FleshCapability03/DA_Capability",
+  "map": "/Game/VamRuntimeTests/FleshCapability03/L_Capability",
+  "bound_render_vertices": 370,
+  "rest_volume_cm3": 1429.4071044921875,
+  "limitation": "Backend capability experiment; no production rest calibration or shape transaction support",
+  "independent_reload": true,
+  "stage07_passed": false,
+  "reloader_pid": 51192
+}

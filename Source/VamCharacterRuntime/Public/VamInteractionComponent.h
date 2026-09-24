@@ -24,6 +24,10 @@ public:
     UFUNCTION(BlueprintCallable, Category="VaM|Physics") void MoveGrab(FVector WorldLocation);
     UFUNCTION(BlueprintCallable, Category="VaM|Physics") void ReleaseGrab();
     UFUNCTION(BlueprintPure, Category="VaM|Physics") bool IsGrabbing() const { return !GrabbedBone.IsNone(); }
+    // Called around a synchronous instance-only physics recreation. Mode, roots,
+    // target and local grab anchor remain owned by this component.
+    void SuspendForShapeRebind();
+    void ResumeAfterShapeRebind();
 protected:
     virtual void BeginPlay() override;
 private:
@@ -31,4 +35,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<class UPhysicalAnimationComponent> PhysicalAnimation;
     UPROPERTY(Transient) FName GrabbedBone;
     UPROPERTY(Transient) FName LocalRoot;
+    FVector GrabLocalAnchor=FVector::ZeroVector;
+    FVector SavedGrabTarget=FVector::ZeroVector;
+    FRotator SavedGrabRotation=FRotator::ZeroRotator;
 };

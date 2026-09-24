@@ -1,0 +1,17 @@
+{
+  "schema": "vam-runtime-recipe/1",
+  "revision": 1,
+  "definition": "/Game/VamCharacters/C_1facd7a930a8e1eca11a18a6/CD_Character",
+  "source_mapping": "/Game/VamCharacters/C_1facd7a930a8e1eca11a18a6/DA_SourceMapping",
+  "destination_root": "/Game/VamRuntime",
+  "family": "../RigFamilies/VamFemale88.json",
+  "minimum_bone_size_cm": 8,
+  "ik_iterations": 24,
+  "part_material_category": "reference",
+  "skin_shading": "source",
+  "blink_source_ids": [
+    "5bef23cc0da2344a6cbdc2c90be8d52d62d01130b3fdc379047c2a2f7970b898",
+    "a74817504a7793814449166e794c70c657c15f5e444163f83d9ed586567438ab"
+  ],
+  "base_animation": "/Game/VamCharacters/C_1facd7a930a8e1eca11a18a6/Animations/A_VamIdle"
+}

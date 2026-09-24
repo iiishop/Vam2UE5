@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "folder": "/Game/VamCharacters/C_1facd7a930a8e1eca11a18a6",
+  "parameters": 8,
+  "checks": [
+    "zero_weight_editable_set",
+    "two_instance_isolation",
+    "evaluated_shape_reference_pose",
+    "batch_atomic_rejection",
+    "commit_cancel",
+    "zero_shape_and_neutral_bind",
+    "restore_imported",
+    "monotonic_revision",
+    "shape_pose_simulation_separation"
+  ],
+  "maximum_evaluated_bone_error_cm": 3.1776437161565096e-14
+}

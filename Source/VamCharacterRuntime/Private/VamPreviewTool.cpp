@@ -217,6 +217,7 @@ void AVamPreviewTool::Tick(float DeltaSeconds)
         }
     }
     if (!Target) return;
+    DrawDebugString(GetWorld(),Target->GetActorLocation()+FVector(0,0,195),TEXT("P/O/R: witness only; Chaos + animation continue. Root drag: local response."),nullptr,FColor::White,0.f,true);
     if (PC->WasInputKeyJustPressed(EKeys::P) && Target->Motion) Target->Motion->SetPreviewPaused(!Target->Motion->GetClock().bPaused);
     if (PC->WasInputKeyJustPressed(EKeys::O) && Target->Motion) Target->Motion->StepPreview();
     if (PC->WasInputKeyJustPressed(EKeys::R) && Target->Motion) Target->Motion->ResetPreview();

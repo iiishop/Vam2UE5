@@ -1,0 +1,7 @@
+{
+  "schema": "vam-graphics-quality/1",
+  "capture_frames": 600,
+  "startup_frames_excluded_from_cap_check": 120,
+  "median_fps_relative_tolerance": 0.1,
+  "scope": "Real rendered frame pacing only; physics and region tolerances remain separate. Preserve full capture including startup and hitches."
+}

@@ -1,6 +1,9 @@
 #include "VamMotionComponent.h"
 #include "Engine/World.h"
 #include "GameFramework/Actor.h"
+#include "VamCharacterComponent.h"
+#include "VamInteractionComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 
 UVamMotionComponent::UVamMotionComponent()
 {
@@ -76,7 +79,17 @@ void UVamMotionComponent::MoveContinuously(const FTransform& Transform, double T
 void UVamMotionComponent::TeleportTo(const FTransform& Transform, double TimestampSeconds)
 {
     if (!GetOwner() || !Transform.IsValid()) return;
+    // Teleport is an explicit reset boundary. A world-space grab or foot anchor
+    // must not pull the relocated character back to its previous location.
+    if(auto* Interaction=GetOwner()->FindComponentByClass<UVamInteractionComponent>()) Interaction->ReleaseGrab();
+    auto* Character=GetOwner()->FindComponentByClass<UVamCharacterComponent>();
+    if(Character) { Character->SetFootLocked(TEXT("left_foot"),false);Character->SetFootLocked(TEXT("right_foot"),false); }
     GetOwner()->SetActorTransform(Transform,false,nullptr,ETeleportType::TeleportPhysics);
+    if(Character && Character->Body)
+    {
+        Character->Body->SetAllPhysicsLinearVelocity(FVector::ZeroVector);
+        Character->Body->SetAllPhysicsAngularVelocityInRadians(FVector::ZeroVector);
+    }
     Submit(Transform,TimestampSeconds,true);
 }
 

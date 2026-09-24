@@ -39,12 +39,14 @@ void UVamActivePoseComponent::TickComponent(float DeltaTime, ELevelTick TickType
     Rotate(TEXT("eye_l"),FRotator(EyeGazeDegrees.Y,EyeGazeDegrees.X,0));
     Rotate(TEXT("eye_r"),FRotator(EyeGazeDegrees.Y,EyeGazeDegrees.X,0));
     Rotate(TEXT("jaw"),FRotator(FMath::Clamp(JawOpenDegrees,0.f,35.f),0,0));
-    if (!BlinkMorphTarget.IsNone() && Body->GetSkeletalMeshAsset() && Body->GetSkeletalMeshAsset()->FindMorphTarget(BlinkMorphTarget))
+    TMap<FName,float> Expressions;
+    if (bBlink)
     {
-        Body->SetMorphTarget(BlinkMorphTarget,BlinkWeight);
-    }
-    if (Body->GetSkeletalMeshAsset())
+        if (!BlinkMorphTarget.IsNone()) Expressions.Add(BlinkMorphTarget,BlinkWeight);
         for (const FName Target:BlinkMorphTargets)
-            if (!Target.IsNone() && Body->GetSkeletalMeshAsset()->FindMorphTarget(Target))
-                Body->SetMorphTarget(Target,BlinkWeight);
+            if (!Target.IsNone()) Expressions.Add(Target,BlinkWeight);
+    }
+    // Character owns the final Morph writes for body and followers. An unsupported
+    // mapping clears the old active layer rather than retaining a stale blink.
+    if (!Character->SetExpressionWeights(Expressions)) Character->SetExpressionWeights({});
 }

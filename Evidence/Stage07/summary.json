@@ -1,0 +1,28 @@
+{
+  "scope": "Editor NullRHI transaction regression only",
+  "shape_kernel_regression": true,
+  "transaction_regression": true,
+  "stage07_passed": false,
+  "schema": "vam-stage07-evidence/1",
+  "base_commit": "21bd244",
+  "run_id": "Run-218bf20c2c994fa4944b1a322196522e",
+  "build_targets": [
+    "UnrealEditor Development",
+    "UnrealGame Development",
+    "UnrealGame Shipping"
+  ],
+  "python_tests_passed": 28,
+  "definition": "/Game/VamCharacters/C_1facd7a930a8e1eca11a18a6/CD_Character.CD_Character",
+  "transaction_report": "transaction-regression.json",
+  "shape_kernel_report": "shape-kernel-regression.json",
+  "script_sha256": "51c7b8fc1d9ec95a9baaa66b6d03945e5e300996f7cb69f94dec946f0e5b91ed",
+  "runner_sha256": "8f7d95bddd0891b71990c01a1566cee90f77423e077cecab4e5f75d626467397",
+  "build_log_sha256": "3dcadee3ffeff9450de5b73f6d63db4b0f999b8cf097ad9957a9ad71473c9165",
+  "limitations": [
+    "07.0 not passed; no soft tissue implementation",
+    "One eight-parameter character with two shared-asset instances; not two independently built proportions",
+    "NullRHI Editor only; no visual or cooked acceptance",
+    "Single-node animation time retention is not default host animation layering",
+    "No grab/foot contact/collision shape adaptation regression"
+  ]
+}

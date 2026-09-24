@@ -1,0 +1,14 @@
+{
+  "scope": "Cooked animation/shape/rigid physics; not soft tissue",
+  "stage07_passed": false,
+  "map_identity": "eec0b335a8b70030b8734882505750059b6615b3c83fc255f599b22c02bcee1d",
+  "map": "/Game/VamRuntimeTests/Run_2714b2d9bbc541f5aae27953df3e2803/L_Composition_eec0b335a8b70030",
+  "composition_run": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\Stage07\\Composition-2714b2d9bbc541f5aae27953df3e2803",
+  "graphics": true,
+  "executable_sha256": "6696E744F7F8893B8F2296A5FF7B9225E9ECA4F7FFAF239B607FFDD3A72FE593",
+  "runs": [
+    "result-30.json",
+    "result-60.json",
+    "result-120.json"
+  ]
+}
