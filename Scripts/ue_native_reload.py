@@ -22,6 +22,14 @@ geometry=u.load_asset(report['folder']+'/GD_Bindings')
 assert shape and preset and geometry,'Runtime shape dependency missing after reload'
 parameters=definition.get_editor_property('parameters')
 assert len(parameters)>=1 and len(shape.get_editor_property('neutral_local_bind'))>=1
+eyelid={p.get_editor_property('display_name'):p for p in parameters
+        if p.get_editor_property('display_name') in ('Eyes Closed Left','Eyes Closed Right')}
+if eyelid:
+    assert set(eyelid)=={'Eyes Closed Left','Eyes Closed Right'},'Bilateral eyelid source Morphs incomplete'
+    built_targets={m.get_name() for m in body.get_editor_property('morph_targets')}
+    for side,p in eyelid.items():
+        assert str(p.get_editor_property('target')) in built_targets,side+' eyelid Morph missing after reload'
+        assert p.get_editor_property('default_value')==0 and p.get_editor_property('maximum')>=1,side+' eyelid range invalid'
 assert len(shape.get_editor_property('morph_set_lock_digest'))==64
 assert len(geometry.get_editor_property('render_to_input'))==len(u.VamNativeBuilder.get_render_to_input_map(body))
 assert dict(preset.get_editor_property('parameters'))=={p.get_editor_property('target'):p.get_editor_property('default_value') for p in parameters}

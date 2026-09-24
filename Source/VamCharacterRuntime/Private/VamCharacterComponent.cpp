@@ -1,11 +1,18 @@
 #include "VamCharacterComponent.h"
 #include "VamCharacterDefinition.h"
 #include "VamShapeAnimInstance.h"
+#include "VamRigProfile.h"
+#include "VamMotionComponent.h"
+#include "VamActivePoseComponent.h"
+#include "VamMaterialProfile.h"
+#include "VamInteractionComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/SkeletalMesh.h"
 #include "Animation/Skeleton.h"
 #include "Engine/AssetManager.h"
 #include "Engine/StreamableManager.h"
+#include "PhysicsEngine/PhysicsAsset.h"
+#include "Materials/MaterialInstanceDynamic.h"
 
 void UVamCharacterComponent::BeginPlay() { Super::BeginPlay(); LoadCharacter(); }
 void UVamCharacterComponent::EndPlay(const EEndPlayReason::Type Reason) { UnloadCharacter(); Super::EndPlay(Reason); }
@@ -41,6 +48,19 @@ void UVamCharacterComponent::LoadMeshes(uint64 Ticket)
     { OnLoaded.Broadcast(false, TEXT("Definition missing or source build not verified")); return; }
     TArray<FSoftObjectPath> Paths { LoadedDefinition->Body.ToSoftObjectPath(), LoadedDefinition->Skeleton.ToSoftObjectPath() };
     if (!LoadedDefinition->Shape.IsNull()) Paths.AddUnique(LoadedDefinition->Shape.ToSoftObjectPath());
+    if (!RigProfile.IsNull()) Paths.AddUnique(RigProfile.ToSoftObjectPath());
+    if (!AnimationClass.IsNull()) Paths.AddUnique(AnimationClass.ToSoftObjectPath());
+    if (!PhysicsAsset.IsNull()) Paths.AddUnique(PhysicsAsset.ToSoftObjectPath());
+    if (!AppearancePreset.IsNull()) Paths.AddUnique(AppearancePreset.ToSoftObjectPath());
+    if (!MaterialProfile.IsNull()) Paths.AddUnique(MaterialProfile.ToSoftObjectPath());
+    if (UVamMaterialProfile* Profile=MaterialProfile.LoadSynchronous())
+    {
+        for (const auto& Material:Profile->BodyMaterials)
+            if (!Material.IsNull()) Paths.AddUnique(Material.ToSoftObjectPath());
+        for (const auto& PartSet:Profile->PartMaterials)
+            for (const auto& Material:PartSet.Materials)
+                if (!Material.IsNull()) Paths.AddUnique(Material.ToSoftObjectPath());
+    }
     if (!LoadedDefinition->ImportedAppearance.IsNull()) Paths.AddUnique(LoadedDefinition->ImportedAppearance.ToSoftObjectPath());
     for (const auto& Part : LoadedDefinition->Parts) if (!Part.IsNull()) Paths.AddUnique(Part.ToSoftObjectPath());
     Pending = UAssetManager::GetStreamableManager().RequestAsyncLoad(Paths,
@@ -53,17 +73,32 @@ void UVamCharacterComponent::Assemble(uint64 Ticket)
     USkeletalMesh* Mesh = LoadedDefinition->Body.Get();
     if (!Mesh || !LoadedDefinition->Skeleton.Get() || Mesh->GetSkeleton() != LoadedDefinition->Skeleton.Get())
     { OnLoaded.Broadcast(false, TEXT("Body or exact skeleton dependency unavailable")); return; }
+    if (const UVamRigProfile* Rig=RigProfile.Get())
+        if (Rig->Skeleton.Get()!=Mesh->GetSkeleton())
+        { OnLoaded.Broadcast(false,TEXT("Stage06 rig profile skeleton does not match body")); return; }
+    if (const UPhysicsAsset* Asset=PhysicsAsset.Get())
+        if (Asset->SkeletalBodySetups.IsEmpty() || Asset->ConstraintSetup.IsEmpty())
+        { OnLoaded.Broadcast(false,TEXT("Stage06 physics asset has no bodies or constraints")); return; }
     Body = NewObject<USkeletalMeshComponent>(GetOwner(), NAME_None, RF_Transient);
     Body->SetupAttachment(this);
     Body->SetSkeletalMeshAsset(Mesh);
-    Body->SetAnimInstanceClass(UVamShapeAnimInstance::StaticClass());
+    if (UPhysicsAsset* Asset=PhysicsAsset.Get()) Body->SetPhysicsAsset(Asset);
+    Body->SetAnimInstanceClass(AnimationClass.Get() ? AnimationClass.Get() : UVamShapeAnimInstance::StaticClass());
     Body->VisibilityBasedAnimTickOption=EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones;
-    Body->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    Body->SetCollisionEnabled(PhysicsAsset.Get() ? ECollisionEnabled::QueryOnly : ECollisionEnabled::NoCollision);
+    if (PhysicsAsset.Get()) Body->SetCollisionResponseToAllChannels(ECR_Block);
     Body->RegisterComponent();
+    if (const UVamMaterialProfile* Profile=MaterialProfile.Get())
+        for (int32 Slot=0;Slot<Profile->BodyMaterials.Num() && Slot<Body->GetNumMaterials();++Slot)
+            if (UMaterialInterface* Material=Profile->BodyMaterials[Slot].Get()) Body->CreateDynamicMaterialInstance(Slot,Material);
+    if (auto* Anim=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance())) Anim->SetRigProfile(RigProfile.Get());
+    if (auto* Motion=GetOwner()->FindComponentByClass<UVamMotionComponent>()) Body->AddTickPrerequisiteComponent(Motion);
+    if (auto* Active=GetOwner()->FindComponentByClass<UVamActivePoseComponent>()) Body->AddTickPrerequisiteComponent(Active);
     Body->SetUpdateAnimationInEditor(true);
     FString Missing;
-    for (const auto& Reference : LoadedDefinition->Parts)
+    for (int32 PartIndex=0;PartIndex<LoadedDefinition->Parts.Num();++PartIndex)
     {
+        const auto& Reference=LoadedDefinition->Parts[PartIndex];
         auto* PartMesh = Reference.Get();
         // Sharing is admitted only by the builder's exact bind signature and skeleton identity.
         bool Compatible = PartMesh && PartMesh->GetSkeleton() == Mesh->GetSkeleton();
@@ -82,12 +117,22 @@ void UVamCharacterComponent::Assemble(uint64 Ticket)
         Part->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Part->SetLeaderPoseComponent(Body);
         Part->RegisterComponent();
+        if (const UVamMaterialProfile* Profile=MaterialProfile.Get())
+            if (Profile->PartMaterials.IsValidIndex(PartIndex))
+                for (int32 Slot=0;Slot<Profile->PartMaterials[PartIndex].Materials.Num() && Slot<Part->GetNumMaterials();++Slot)
+                    if (UMaterialInterface* Material=Profile->PartMaterials[PartIndex].Materials[Slot].Get())
+                        Part->CreateDynamicMaterialInstance(Slot,Material);
         LoadedParts.Add(Part);
     }
+    ApplyAppearanceState();
     ResetToImportedAppearance();
+    if (const UVamAppearancePreset* Preset=AppearancePreset.Get()) PreviewParameters(Preset->Parameters);
+    if (!InitialShapeValues.IsEmpty()) PreviewParameters(InitialShapeValues);
     CommitShape();
-    UE_LOG(LogTemp, Display, TEXT("VAM_NATIVE_RUNTIME_LOADED Body=%s Parts=%d Morphs=%d Missing=%s"),
-        *Mesh->GetPathName(), LoadedParts.Num(), LoadedDefinition->Parameters.Num(), *Missing);
+    UE_LOG(LogTemp, Display, TEXT("VAM_NATIVE_RUNTIME_LOADED Body=%s Parts=%d Morphs=%d PhysicsBodies=%d Constraints=%d Missing=%s"),
+        *Mesh->GetPathName(), LoadedParts.Num(), LoadedDefinition->Parameters.Num(),
+        PhysicsAsset.Get() ? PhysicsAsset.Get()->SkeletalBodySetups.Num() : 0,
+        PhysicsAsset.Get() ? PhysicsAsset.Get()->ConstraintSetup.Num() : 0, *Missing);
     OnLoaded.Broadcast(true, Missing.IsEmpty() ? TEXT("Native character loaded") : TEXT("Body loaded; missing or incompatible parts: ") + Missing);
 }
 
@@ -106,7 +151,19 @@ FVamCharacterState UVamCharacterComponent::GetCharacterState() const
     FVamCharacterState State;
     State.CommittedShape=CommittedState;State.PreviewShape=PreviewState;
     if (Body) State.PoseComponentSpace=Body->GetComponentSpaceTransforms();
-    return State; // Stage05 has no simulation solver; never store a posed mesh as Shape.
+    if (Body && GetWorld()) State.AnimationPoseTimeSeconds=GetWorld()->GetTimeSeconds();
+    if (const auto* Motion=GetOwner()->FindComponentByClass<UVamMotionComponent>())
+    {
+        State.SimulationShapeRevision=Motion->GetClock().ShapeRevision;
+        if (const auto* Interaction=GetOwner()->FindComponentByClass<UVamInteractionComponent>())
+            if (Interaction->Mode!=EVamPhysicalMode::Controlled)
+            {
+                State.bHasSimulation=true;
+                State.RigidPoseTimeSeconds=Motion->GetClock().TimeSeconds;
+                State.CollisionProxyTimeSeconds=State.RigidPoseTimeSeconds;
+            }
+    }
+    return State; // SurfaceTime stays unavailable until a real surface solver is attached.
 }
 
 bool UVamCharacterComponent::PreviewParameters(const TMap<FName,float>& Values)
@@ -156,11 +213,18 @@ void UVamCharacterComponent::ApplyShape(const TArray<FName>& Changed, bool bComm
     }
     if (ShapeReferencePose.Num()==Body->GetSkeletalMeshAsset()->GetRefSkeleton().GetRawBoneNum())
     {
+        TMap<int32,FTransform> DebugOffsets;
+        if (const auto* Previous=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance())) DebugOffsets=Previous->GetDebugBoneOffsets();
         // UE computes component-private inverse bind matrices as well as the reference pose.
         // This does not mutate the shared mesh, skeleton, or another character instance.
         Body->SetRefPoseOverride(ShapeReferencePose);
         for (auto Part : LoadedParts) Part->SetRefPoseOverride(ShapeReferencePose);
         Body->InitAnim(true);
+        if (auto* Animation=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance()))
+        {
+            Animation->SetRigProfile(RigProfile.Get());
+            for (const auto& Pair:DebugOffsets) Animation->SetDebugBoneOffset(Pair.Key,Pair.Value);
+        }
         Body->TickAnimation(0.f,false);
         Body->RefreshBoneTransforms();
     }
@@ -171,6 +235,7 @@ void UVamCharacterComponent::ApplyShape(const TArray<FName>& Changed, bool bComm
     for (auto Part:LoadedParts) Part->MarkRenderStateDirty();
     for (const auto& Part : LoadedDefinition->Parts) Event.Parts.Add(Part.ToSoftObjectPath());
     Event.ShapeRevision=++PreviewState.Revision;
+    if (bCommitted) if (auto* Motion=GetOwner()->FindComponentByClass<UVamMotionComponent>()) Motion->CommitShapeRevision(Event.ShapeRevision);
     if (bCommitted) CommittedState=PreviewState;
     OnShapeChanged.Broadcast(Event);
 }
@@ -204,5 +269,92 @@ void UVamCharacterComponent::ResetToBaseShape()
     TMap<FName,float> Values;
     for (const auto& P : LoadedDefinition->Parameters) Values.Add(P.Target,0.f);
     PreviewParameters(Values);
+}
+
+bool UVamCharacterComponent::SetDebugBoneOffset(int32 BoneIndex, const FTransform& Offset)
+{
+    if (!Body || !Body->GetSkeletalMeshAsset() || !Body->GetSkeletalMeshAsset()->GetRefSkeleton().IsValidIndex(BoneIndex) ||
+        !Offset.IsValid()) return false;
+    auto* Animation=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance());
+    if (!Animation) return false;
+    Animation->SetDebugBoneOffset(BoneIndex,Offset);
+    Body->TickAnimation(0.f,false);
+    Body->RefreshBoneTransforms();
+    return true;
+}
+
+FTransform UVamCharacterComponent::GetDebugBoneOffset(int32 BoneIndex) const
+{
+    if (Body)
+        if (const auto* Animation=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance()))
+            return Animation->GetDebugBoneOffset(BoneIndex);
+    return FTransform::Identity;
+}
+
+void UVamCharacterComponent::ResetDebugBoneOffsets()
+{
+    if (!Body) return;
+    if (auto* Animation=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance()))
+    {
+        Animation->ClearDebugBoneOffsets();
+        Body->TickAnimation(0.f,false);
+        Body->RefreshBoneTransforms();
+    }
+}
+bool UVamCharacterComponent::SetIKGoal(FName Semantic, const FTransform& WorldGoal)
+{
+    const UVamRigProfile* Profile=RigProfile.Get();
+    auto* Anim=Body ? Cast<UVamShapeAnimInstance>(Body->GetAnimInstance()) : nullptr;
+    if (!Profile || !Anim || !Profile->Effectors.Contains(Semantic) || Profile->BoneForSemantic(Semantic).IsNone() || !WorldGoal.IsValid()) return false;
+    Anim->SetIKGoal(Semantic,WorldGoal);
+    Body->TickAnimation(0.f,false);
+    Body->RefreshBoneTransforms();
+    return true;
+}
+void UVamCharacterComponent::ClearIKGoal(FName Semantic)
+{
+    if (Body) if (auto* Anim=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance()))
+    {
+        Anim->ClearIKGoal(Semantic);
+        Body->TickAnimation(0.f,false);
+        Body->RefreshBoneTransforms();
+    }
+}
+bool UVamCharacterComponent::SetFootLocked(FName FootSemantic, bool bLocked)
+{
+    if (FootSemantic!=TEXT("left_foot") && FootSemantic!=TEXT("right_foot")) return false;
+    if (!bLocked) { ClearIKGoal(FootSemantic); return true; }
+    const UVamRigProfile* Profile=RigProfile.Get();
+    const FName Bone=Profile ? Profile->BoneForSemantic(FootSemantic) : NAME_None;
+    if (!Body || Bone.IsNone() || Body->GetBoneIndex(Bone)==INDEX_NONE) return false;
+    return SetIKGoal(FootSemantic,Body->GetBoneTransform(Body->GetBoneIndex(Bone)));
+}
+void UVamCharacterComponent::ApplyAppearanceState()
+{
+    TArray<USkeletalMeshComponent*> Meshes;
+    if (Body) Meshes.Add(Body);
+    for (auto Part:LoadedParts) if (Part) Meshes.Add(Part.Get());
+    for (USkeletalMeshComponent* Mesh:Meshes)
+        for (int32 Slot=0;Slot<Mesh->GetNumMaterials();++Slot)
+            if (auto* Instance=Cast<UMaterialInstanceDynamic>(Mesh->GetMaterial(Slot)))
+            {
+                for (const auto& Pair:AppearanceScalars) Instance->SetScalarParameterValue(Pair.Key,Pair.Value);
+                for (const auto& Pair:AppearanceColors) Instance->SetVectorParameterValue(Pair.Key,Pair.Value);
+            }
+}
+bool UVamCharacterComponent::SetAppearanceScalar(FName Parameter, float Value)
+{
+    if (Parameter.IsNone() || !FMath::IsFinite(Value)) return false;
+    AppearanceScalars.Add(Parameter,Value);
+    ApplyAppearanceState();
+    return true;
+}
+bool UVamCharacterComponent::SetAppearanceColor(FName Parameter, FLinearColor Value)
+{
+    if (Parameter.IsNone() || !FMath::IsFinite(Value.R) || !FMath::IsFinite(Value.G) ||
+        !FMath::IsFinite(Value.B) || !FMath::IsFinite(Value.A)) return false;
+    AppearanceColors.Add(Parameter,Value);
+    ApplyAppearanceState();
+    return true;
 }
 

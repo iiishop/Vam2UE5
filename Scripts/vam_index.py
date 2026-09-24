@@ -17,6 +17,7 @@ from pathlib import Path, PurePosixPath
 import secrets
 import sqlite3
 import struct
+import sys
 import threading
 import time
 import urllib.parse
@@ -649,7 +650,11 @@ class BoundedServer(http.server.ThreadingHTTPServer):
 
 def serve(data, parent=0):
     catalog = Catalog(data)
-    # Isolated Python (-I) intentionally omits the script directory from sys.path.
+    # -I omits the script directory; the dynamically loaded plan and preview
+    # modules still import their sibling, bundled helper modules by name.
+    scripts = str(Path(__file__).resolve().parent)
+    if scripts not in sys.path:
+        sys.path.insert(0, scripts)
     import importlib.util
     plan_spec = importlib.util.spec_from_file_location('vam_plan', Path(__file__).with_name('vam_plan.py'))
     plan_module = importlib.util.module_from_spec(plan_spec)

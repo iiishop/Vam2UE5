@@ -5,6 +5,11 @@
 #include "VamCharacterComponent.generated.h"
 class UVamCharacterDefinition;
 class USkeletalMeshComponent;
+class UVamRigProfile;
+class UPhysicsAsset;
+class UVamAppearancePreset;
+class UVamMaterialProfile;
+class UVamShapeAnimInstance;
 struct FStreamableHandle;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FVamCharacterLoadResult, bool, Success, const FString&, Message);
@@ -16,6 +21,12 @@ class VAMCHARACTERRUNTIME_API UVamCharacterComponent : public USceneComponent
     GENERATED_BODY()
 public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") TSoftObjectPtr<UVamCharacterDefinition> Definition;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Rig") TSoftObjectPtr<UVamRigProfile> RigProfile;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Rig") TSoftClassPtr<UVamShapeAnimInstance> AnimationClass;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Physics") TSoftObjectPtr<UPhysicsAsset> PhysicsAsset;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Appearance") TSoftObjectPtr<UVamAppearancePreset> AppearancePreset;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Appearance") TSoftObjectPtr<UVamMaterialProfile> MaterialProfile;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Shape") TMap<FName,float> InitialShapeValues;
     UPROPERTY(BlueprintReadOnly, Transient, Category="VaM") TObjectPtr<USkeletalMeshComponent> Body;
     UPROPERTY(BlueprintAssignable, Category="VaM") FVamCharacterLoadResult OnLoaded;
     UFUNCTION(BlueprintCallable, Category="VaM") void LoadCharacter();
@@ -30,6 +41,18 @@ public:
     UFUNCTION(BlueprintCallable, Category="VaM|Shape") void ResetToImportedAppearance();
     UFUNCTION(BlueprintCallable, Category="VaM|Shape") void ResetToBaseShape();
     UFUNCTION(BlueprintPure, Category="VaM|Shape") TArray<FTransform> GetShapeReferencePose() const { return ShapeReferencePose; }
+    /** Transient pose probe: never writes to the imported definition or mesh. */
+    UFUNCTION(BlueprintCallable, Category="VaM|Debug")
+    bool SetDebugBoneOffset(int32 BoneIndex, const FTransform& Offset);
+    UFUNCTION(BlueprintPure, Category="VaM|Debug")
+    FTransform GetDebugBoneOffset(int32 BoneIndex) const;
+    UFUNCTION(BlueprintCallable, Category="VaM|Debug")
+    void ResetDebugBoneOffsets();
+    UFUNCTION(BlueprintCallable, Category="VaM|IK") bool SetIKGoal(FName Semantic, const FTransform& WorldGoal);
+    UFUNCTION(BlueprintCallable, Category="VaM|IK") void ClearIKGoal(FName Semantic);
+    UFUNCTION(BlueprintCallable, Category="VaM|IK") bool SetFootLocked(FName FootSemantic, bool bLocked);
+    UFUNCTION(BlueprintCallable, Category="VaM|Appearance") bool SetAppearanceScalar(FName Parameter, float Value);
+    UFUNCTION(BlueprintCallable, Category="VaM|Appearance") bool SetAppearanceColor(FName Parameter, FLinearColor Value);
 protected:
     virtual void BeginPlay() override;
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
@@ -42,6 +65,9 @@ private:
     UPROPERTY(Transient) FVamShapeState PreviewState;
     UPROPERTY(Transient) FVamShapeState CommittedState;
     UPROPERTY(Transient) TArray<FTransform> ShapeReferencePose;
+    UPROPERTY(Transient) TMap<FName,float> AppearanceScalars;
+    UPROPERTY(Transient) TMap<FName,FLinearColor> AppearanceColors;
+    void ApplyAppearanceState();
     void ApplyShape(const TArray<FName>& Changed, bool bCommitted);
     uint64 Generation = 0;
 };

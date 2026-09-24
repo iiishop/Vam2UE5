@@ -9,7 +9,7 @@ public class VamResourceBrowser : ModuleRules
             "Core", "CoreUObject", "Engine", "Slate", "SlateCore", "UnrealEd",
             "ToolMenus", "Projects", "WebBrowser", "Json", "DesktopPlatform", "PythonScriptPlugin",
             "VamCharacterRuntime", "AssetRegistry", "MeshDescription", "StaticMeshDescription",
-            "SkeletalMeshDescription", "ModelingComponentsEditorOnly", "AnimationCore", "GeometryCore"
+            "SkeletalMeshDescription", "ModelingComponentsEditorOnly", "AnimationCore", "GeometryCore", "PhysicsUtilities"
         });
     }
 }

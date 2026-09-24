@@ -1,6 +1,6 @@
 # Stage05 — 正式骨骼资产与可编辑体型内核
 
-本文对应最新 05.1–05.8 范围；验收证据以 `Saved/NativeBuild/stage05-kernel-acceptance.json` 为准。旧版只有三个 Morph 和装载宿主的报告不能替代本版验收。
+本文对应 05.1–05.8 范围。`Saved/NativeBuild/stage05-kernel-acceptance.json` 是补齐眼睑前、六参数配方的完整验收记录；新八参数配方的专项证据见下方“眼睑 Morph 补齐”。两份记录对应不同资产目录，不可混用。
 
 ## 入口与产物
 
@@ -8,7 +8,7 @@
 
 构建窗口提供项目 Content 目标目录、显式 Morph 集 JSON、阶段进度、取消及重导入。计算在独立 UE 进程中执行，不阻塞当前编辑器。保存前支持协作取消；进入保存和独立重载提交阶段后不接受取消。异常写入该任务的 build.log/status.json。操作系统文件锁阻止同一插件数据目录的并行构建。
 
-默认 Morph 集是 `Config/Stage05MorphSet.json`：FBMBodySize、PBMWaistWidth、PHMNoseWidth，初始值都是 0。可以选择自己的集合文件，builtin 项由名称和来源性别验证，catalog_resources 项使用资源浏览器目录 ID；每次最多显式选 32 项，不遍历解码整库。该集合产生独立 `Saved/MorphSets/<SHA256>.json` 锁定计划，不改原 Appearance 的锁定计划。重复选择、身份/性别/来源哈希不符会拒绝。
+默认 Morph 集是 `Config/Stage05MorphSet.json`：FBMBodySize、PBMWaistWidth、PHMNoseWidth，以及表情用的 PHMEyesClosedL、PHMEyesClosedR；初始值都是 0。左右闭眼是有真实顶点位移的来源 Morph；零 delta 的 CTRLEyesClosed 控制器不冒充几何目标。可以选择自己的集合文件，builtin 项由名称和来源性别验证，catalog_resources 项使用资源浏览器目录 ID；每次最多显式选 32 项，不遍历解码整库。该集合产生独立 `Saved/MorphSets/<SHA256>.json` 锁定计划，不改原 Appearance 的锁定计划。重复选择、身份/性别/来源哈希不符会拒绝。
 
 每个人物的版本化目录包含：
 
@@ -94,6 +94,16 @@ Build.ps1 复制 Runtime/Editor/Content、阶段文档、配置及顶层 Python 
 `A_ShoulderValidation` 是原创 22 度肩部测试动画。在动画编辑器预览，肩以下骨骼应运动；它不是 VaM 动作真值。原生运行验证测得末端位移约 22.35 cm，13 个部件的跟随骨骼误差为 0，另一实例位移为 0。
 
 材质持久化同时保存 SkeletalMesh 和 MorphTargets 使用标记，防止参数变化后回退灰模。形状切换会刷新实例动画缓存，测试包含同一帧 Base→Commit→Imported→Cancel；实际顶点恢复误差为 0。形状求值不写共享骨骼或其他实例。
+
+## 眼睑 Morph 补齐（Stage06 反馈）
+
+来源女性目录中，`PHMEyesClosedL` 与 `PHMEyesClosedR` 各有 506 条实际顶点位移；`CTRLEyesClosed` 是零顶点位移的控制器。原默认 Morph 集只选身体尺寸、腰宽和鼻宽，导致六参数正式网格缺少可见闭眼驱动。这是默认导入配方遗漏，不是来源网格没有眼睑数据。
+
+现已将左右来源闭眼 Morph 加入默认显式集合，归入 Expression，初始权重为 0，范围为 0–1。新的校准合同对每侧得到 519 个非零构建顶点（含 UV/材质拆点），最大位移约 1.18 cm。按重导入保护规则，生成新的正式目录 `/Game/VamCharacters/C_1facd7a930a8e1eca11a18a6`，保留旧六参数资产不覆盖。独立重载要求左右目标同时存在；`stage05-blink-check.json` 检查两实例权重到 1、归零及互不污染。`stage05-blink-acceptance.json` 汇总 86 个资产指纹、来源位移和 Cooked 眨眼运行证据。
+
+闭眼外观复核：这两个来源 Morph 并非上下眼睑等量移动。校准顶点在 UE 竖直方向的最大下移为 1.157 cm，最大上移为 0.251 cm，左右一致；上眼睑主导的最大位移约为下眼睑的 4.61 倍。该值是来源形变的位移上限，不等于沿整个眼裂的局部接触比例，也不能单靠它证明主观外观自然。`Eyes Closed` 保持来源原样，权重 1 对应完整闭眼表情；日常自然眨眼若需要减少下眼睑上提，应另用上、下眼睑独立控制并验证闭合处无裂缝或穿插，不能直接削弱此 Morph 的下眼睑顶点。
+
+新目录的专项眼睑与独立重载已通过；原 `stage05-kernel-acceptance.json` 的完整 05.1–05.8 测试矩阵只证明旧六参数资产，不自动证明新目录全部验收项。
 
 分发声明将 PythonScriptPlugin/GeometryScripting 限定为 Editor。BuildPlugin 会移除 EnabledByDefault，因此 Build.ps1 在输出包恢复显式 false，保证纯 Blueprint 干净宿主打包时生成并链接包含 Runtime 的原生目标，而不是误用不包含插件代码的 stock UnrealGame。
 

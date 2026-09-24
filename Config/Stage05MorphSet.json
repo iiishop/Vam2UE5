@@ -4,7 +4,9 @@
   "builtin": [
     {"name": "FBMBodySize", "group": "Shape", "unit": "source coefficient"},
     {"name": "PBMWaistWidth", "group": "Shape", "unit": "source coefficient"},
-    {"name": "PHMNoseWidth", "group": "Shape", "unit": "source coefficient"}
+    {"name": "PHMNoseWidth", "group": "Shape", "unit": "source coefficient"},
+    {"name": "PHMEyesClosedL", "group": "Expression", "unit": "source coefficient"},
+    {"name": "PHMEyesClosedR", "group": "Expression", "unit": "source coefficient"}
   ],
   "catalog_resources": []
 }

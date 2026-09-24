@@ -40,6 +40,10 @@ struct VAMCHARACTERRUNTIME_API FVamCharacterState
     UPROPERTY(Category="VaM", BlueprintReadOnly) FVamShapeState CommittedShape;
     UPROPERTY(Category="VaM", BlueprintReadOnly) FVamShapeState PreviewShape;
     UPROPERTY(Category="VaM", BlueprintReadOnly) TArray<FTransform> PoseComponentSpace;
+    UPROPERTY(Category="VaM", BlueprintReadOnly) double AnimationPoseTimeSeconds = -1;
+    UPROPERTY(Category="VaM", BlueprintReadOnly) double RigidPoseTimeSeconds = -1;
+    UPROPERTY(Category="VaM", BlueprintReadOnly) double SurfaceTimeSeconds = -1;
+    UPROPERTY(Category="VaM", BlueprintReadOnly) double CollisionProxyTimeSeconds = -1;
     UPROPERTY(Category="VaM", BlueprintReadOnly) bool bHasSimulation = false;
     UPROPERTY(Category="VaM", BlueprintReadOnly) int32 SimulationShapeRevision = INDEX_NONE;
     UPROPERTY(Category="VaM", BlueprintReadOnly) TArray<FVector> SimulatedSurface;

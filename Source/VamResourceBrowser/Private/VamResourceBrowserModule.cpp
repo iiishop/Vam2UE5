@@ -22,6 +22,7 @@
 #include "IDesktopPlatform.h"
 #include "IPythonScriptPlugin.h"
 #include "VamNativeBuildWindow.h"
+#include "VamDebugPanel.h"
 
 #define LOCTEXT_NAMESPACE "VamResourceBrowser"
 
@@ -152,6 +153,10 @@ class FVamResourceBrowserModule final : public IModuleInterface
                         ShowVamNativeBuildWindow();
                         return FReply::Handled();
                     }) ]
+                + SHorizontalBox::Slot().AutoWidth().Padding(8,0)
+                [ SNew(SButton).Text(LOCTEXT("CharacterDebug", "人物调试"))
+                    .ToolTipText(LOCTEXT("CharacterDebugTip", "在场景人物上显示并拖动骨骼控制点，预览 Morph 与能力状态"))
+                    .OnClicked_Lambda([](){OpenVamDebugPanel();return FReply::Handled();}) ]
                 + SHorizontalBox::Slot().FillWidth(1).VAlign(VAlign_Center).Padding(12,0)
                 [ SNew(STextBlock).Text(LOCTEXT("ReadOnly", "VaM 资源浏览器 · 在当前编辑器场景预览 · 缓存位于插件 Saved 目录")) ]
             ]
@@ -173,6 +178,7 @@ class FVamResourceBrowserModule final : public IModuleInterface
 public:
     virtual void StartupModule() override
     {
+        RegisterVamDebugPanel();
         FGlobalTabmanager::Get()->RegisterNomadTabSpawner(TEXT("VamResourceBrowser"), FOnSpawnTab::CreateRaw(this, &FVamResourceBrowserModule::Spawn))
             .SetDisplayName(LOCTEXT("TabName", "VaM 资源浏览器")).SetMenuType(ETabSpawnerMenuType::Hidden);
         MenuHandle = UToolMenus::RegisterStartupCallback(FSimpleMulticastDelegate::FDelegate::CreateLambda([this]() {
@@ -181,6 +187,9 @@ public:
             Menu->FindOrAddSection(TEXT("WindowLayout")).AddMenuEntry(TEXT("VamResourceBrowser"),
                 LOCTEXT("Menu", "VaM 资源浏览器"), LOCTEXT("Tip", "浏览 VaM 资源并在当前场景预览人物"),
                 FSlateIcon(), FUIAction(FExecuteAction::CreateLambda([]() { FGlobalTabmanager::Get()->TryInvokeTab(FTabId(FName(TEXT("VamResourceBrowser")))); })));
+            Menu->FindOrAddSection(TEXT("WindowLayout")).AddMenuEntry(TEXT("VamCharacterDebug"),
+                LOCTEXT("DebugMenu", "VaM 人物调试"), LOCTEXT("DebugMenuTip", "打开场景人物骨骼和 Morph 控制点调试面板"),
+                FSlateIcon(), FUIAction(FExecuteAction::CreateLambda([](){OpenVamDebugPanel();})));
         }));
     }
     virtual void ShutdownModule() override
@@ -189,6 +198,7 @@ public:
         StopWorker();
         UToolMenus::UnRegisterStartupCallback(MenuHandle);
         UToolMenus::UnregisterOwner(this);
+        UnregisterVamDebugPanel();
         FGlobalTabmanager::Get()->UnregisterNomadTabSpawner(TEXT("VamResourceBrowser"));
     }
 };

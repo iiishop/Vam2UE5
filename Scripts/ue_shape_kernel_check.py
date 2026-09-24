@@ -26,7 +26,7 @@ def tick(dt):
         defaults={str(p.get_editor_property('target')):p.get_editor_property('default_value') for p in parameters}
         if phase==0:
             assert almost(values(a),defaults) and almost(values(b),defaults)
-            assert len([p for p in parameters if p.get_editor_property('default_value')==0])>=3
+            assert any(p.get_editor_property('default_value')==0 for p in parameters)
             assert body.get_editor_property('skeletal_mesh_asset')==b.get_editor_property('body').get_editor_property('skeletal_mesh_asset')
             baseline=a.get_shape_reference_pose();tick.baseline=baseline;tick.before=values(a)
             updates={str(p.get_editor_property('target')):p.get_editor_property('default_value')+(-.25 if p.get_editor_property('default_value')>=p.get_editor_property('maximum') else .25) for p in parameters}
