@@ -2,6 +2,8 @@
 
 本文件记录实现与证据边界，不是整个 Stage07 完成声明。起点为 `21bd244`。本轮没有重做 Stage05，没有加入 MetaHuman。
 
+操作与预期见 [STAGE07_TESTING.md](STAGE07_TESTING.md)。`ReplayStage07Evidence.ps1` 可直接回放已保存的 Baseline/Flesh Cooked 检查点，输出独立的新报告；它不把旧包当作最新工作区源码验证。
+
 ## 当前检查点（2026-09-24，后文历史记录不替代本节）
 
 **07.0 当前通过检查点：`Evidence/Stage07/BaselineSourceShading`。** 配置 `R_a5e7cbde4e87969a3d1e8636` / `R_2d4b4313350807542f149830` 使用显式 `skin_shading: source`，保留原生着色模型；各自经过三个独立发布进程、新 Stage05 内核/事务回归，三个实例通过 30/60/120 联合数值回归和新 Cooked 包的真实渲染回归。首次启动截图及后三档截图已检查，皮肤正常。Cooked 包为 `Saved/Stage07CookSourceShading01`（工程 Saved 目录），对应 Composition run `2714b2d9bbc541f5aae27953df3e2803`；二进制和资产身份见回执。39 项 Python 测试通过。另一骨架家族、精确解剖单向关节标定不在本次证据覆盖内。历史 SSS 首次截图异常未宣称根因已修复，显式 SSS 模式不属于这次通过的材质配方。
