@@ -27,6 +27,7 @@ void UVamCharacterComponent::UnloadCharacter()
     Body = nullptr;
     LoadedDefinition = nullptr;
     PreviewState = FVamShapeState(); CommittedState = FVamShapeState(); ShapeReferencePose.Reset();
+    PoseControlRotations.Reset();
 }
 
 void UVamCharacterComponent::LoadCharacter()
@@ -224,6 +225,7 @@ void UVamCharacterComponent::ApplyShape(const TArray<FName>& Changed, bool bComm
         {
             Animation->SetRigProfile(RigProfile.Get());
             for (const auto& Pair:DebugOffsets) Animation->SetDebugBoneOffset(Pair.Key,Pair.Value);
+            for (const auto& Pair:PoseControlRotations) Animation->SetPoseControlRotation(Pair.Key,Pair.Value);
         }
         Body->TickAnimation(0.f,false);
         Body->RefreshBoneTransforms();
@@ -297,6 +299,51 @@ void UVamCharacterComponent::ResetDebugBoneOffsets()
     if (auto* Animation=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance()))
     {
         Animation->ClearDebugBoneOffsets();
+        Body->TickAnimation(0.f,false);
+        Body->RefreshBoneTransforms();
+    }
+}
+bool UVamCharacterComponent::IsPoseControlBone(int32 BoneIndex) const
+{
+    const UVamRigProfile* Profile=RigProfile.Get();
+    if (!Profile || !Body || !Body->GetSkeletalMeshAsset() || BoneIndex<=0 ||
+        !Body->GetSkeletalMeshAsset()->GetRefSkeleton().IsValidIndex(BoneIndex)) return false;
+    const FName Bone=Body->GetBoneName(BoneIndex);
+    const FVamRigJoint* Joint=Profile->Joints.FindByPredicate([Bone](const FVamRigJoint& J){return J.Bone==Bone;});
+    return Joint && Joint->Semantic!=Profile->SolverRootSemantic && VamPoseControl::IsEligible(*Joint);
+}
+
+bool UVamCharacterComponent::SetPoseControlRotation(int32 BoneIndex, FRotator LocalRotation)
+{
+    if (!FMath::IsFinite(LocalRotation.Pitch) || !FMath::IsFinite(LocalRotation.Yaw) ||
+        !FMath::IsFinite(LocalRotation.Roll) || !IsPoseControlBone(BoneIndex)) return false;
+    auto* Animation=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance());
+    if (!Animation) return false;
+    const FName Bone=Body->GetBoneName(BoneIndex);
+    const FVamRigJoint* Joint=RigProfile.Get()->Joints.FindByPredicate([Bone](const FVamRigJoint& J){return J.Bone==Bone;});
+    if (!Joint) return false;
+    const FRotator Clamped=VamPoseControl::Clamp(*Joint,LocalRotation);
+    if (Clamped.IsNearlyZero()) PoseControlRotations.Remove(BoneIndex);
+    else PoseControlRotations.Add(BoneIndex,Clamped);
+    Animation->SetPoseControlRotation(BoneIndex,Clamped);
+    Body->TickAnimation(0.f,false);
+    Body->RefreshBoneTransforms();
+    return true;
+}
+
+FRotator UVamCharacterComponent::GetPoseControlRotation(int32 BoneIndex) const
+{
+    if (const FRotator* Rotation=PoseControlRotations.Find(BoneIndex)) return *Rotation;
+    return FRotator::ZeroRotator;
+}
+
+void UVamCharacterComponent::ResetPoseControlRotations()
+{
+    PoseControlRotations.Reset();
+    if (!Body) return;
+    if (auto* Animation=Cast<UVamShapeAnimInstance>(Body->GetAnimInstance()))
+    {
+        Animation->ClearPoseControlRotations();
         Body->TickAnimation(0.f,false);
         Body->RefreshBoneTransforms();
     }

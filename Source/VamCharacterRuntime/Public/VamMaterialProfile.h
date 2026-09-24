@@ -8,7 +8,7 @@ USTRUCT(BlueprintType)
 struct VAMCHARACTERRUNTIME_API FVamPartMaterialSet
 {
     GENERATED_BODY()
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) TArray<TSoftObjectPtr<UMaterialInterface>> Materials;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Materials") TArray<TSoftObjectPtr<UMaterialInterface>> Materials;
 };
 
 /** Ordered material override contract for one CharacterDefinition. */
@@ -17,6 +17,6 @@ class VAMCHARACTERRUNTIME_API UVamMaterialProfile : public UDataAsset
 {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) TArray<TSoftObjectPtr<UMaterialInterface>> BodyMaterials;
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) TArray<FVamPartMaterialSet> PartMaterials;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Materials") TArray<TSoftObjectPtr<UMaterialInterface>> BodyMaterials;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Materials") TArray<FVamPartMaterialSet> PartMaterials;
 };

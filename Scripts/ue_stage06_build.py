@@ -2,7 +2,11 @@
 import json
 import traceback
 from pathlib import Path
+import sys
 import unreal as u
+
+sys.path.insert(0, str(Path(__file__).parent))
+from ue_stage06_pose_rig_upgrade import configure_joint
 
 PROJECT = Path(u.Paths.project_dir())
 REPORT = PROJECT / 'Plugins/VamResourceBrowser/Saved/NativeBuild/stage06-build.json'
@@ -55,21 +59,9 @@ try:
         joint=u.VamRigJoint()
         joint.set_editor_property('semantic',sem)
         joint.set_editor_property('bone',name)
-        if sem in ('pelvis','spine','spine_upper','chest','neck','head'):
-            angle=45 if sem in ('neck','head') else 35
-            joint.set_editor_property('limit_rotation',True)
-            joint.set_editor_property('minimum',u.Rotator(-angle,-angle,-angle))
-            joint.set_editor_property('maximum',u.Rotator(angle,angle,angle))
-        elif any(sem.endswith('_'+part) for part in ('shoulder','hip','hand','foot','clavicle')):
-            angle=100 if sem.endswith(('_shoulder','_hip')) else 65
-            joint.set_editor_property('limit_rotation',True)
-            joint.set_editor_property('minimum',u.Rotator(-angle,-angle,-angle))
-            joint.set_editor_property('maximum',u.Rotator(angle,angle,angle))
+        configure_joint(joint,sem)
         if sem.endswith(('_elbow','_knee')):
             joint.set_editor_property('preferred_bend',u.Rotator(25 if sem.endswith('_knee') else -25,0,0))
-            joint.set_editor_property('limit_rotation',True)
-            joint.set_editor_property('minimum',u.Rotator(-115,-50,-50))
-            joint.set_editor_property('maximum',u.Rotator(115,50,50))
         joints.append(joint)
     rig.set_editor_property('skeleton',skeleton)
     rig.set_editor_property('joints',joints)

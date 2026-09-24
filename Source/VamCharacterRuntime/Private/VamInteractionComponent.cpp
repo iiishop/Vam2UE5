@@ -55,6 +55,38 @@ bool UVamInteractionComponent::SetPhysicalMode(EVamPhysicalMode NewMode, FName L
     Mode=NewMode;
     return true;
 }
+bool UVamInteractionComponent::SetRootMotionResponse(FName LowerRootBone, FName UpperRootBone)
+{
+    auto* Character=GetOwner()->FindComponentByClass<UVamCharacterComponent>();
+    USkeletalMeshComponent* Body=Character ? Character->Body : nullptr;
+    if (!Body || !Body->GetPhysicsAsset() || LowerRootBone.IsNone() || UpperRootBone.IsNone() ||
+        LowerRootBone==UpperRootBone || !Body->GetBodyInstance(LowerRootBone) || !Body->GetBodyInstance(UpperRootBone)) return false;
+    if (!GrabbedBone.IsNone()) ReleaseGrab();
+    Body->SetEnableGravity(bGravity);
+    Body->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+    Body->SetSimulatePhysics(false);
+    const float Blend=FMath::Clamp(PhysicsBlend,0.f,1.f);
+    for (const FName Root : {LowerRootBone,UpperRootBone})
+    {
+        Body->SetAllBodiesBelowSimulatePhysics(Root,true,true);
+        Body->SetAllBodiesBelowPhysicsBlendWeight(Root,Blend,false,true);
+    }
+    if (PhysicalAnimation)
+    {
+        PhysicalAnimation->SetSkeletalMeshComponent(Body);
+        FPhysicalAnimationData Drive;
+        Drive.bIsLocalSimulation=true;
+        Drive.OrientationStrength=DriveStrength;
+        Drive.AngularVelocityStrength=DriveDamping;
+        Drive.PositionStrength=DriveStrength;
+        Drive.VelocityStrength=DriveDamping;
+        for (const FName Root : {LowerRootBone,UpperRootBone})
+            PhysicalAnimation->ApplyPhysicalAnimationSettingsBelow(Root,Drive,true);
+    }
+    LocalRoot=NAME_None;
+    Mode=EVamPhysicalMode::LocalResponse;
+    return true;
+}
 bool UVamInteractionComponent::GrabBone(FName Bone, FVector WorldLocation)
 {
     auto* Character=GetOwner()->FindComponentByClass<UVamCharacterComponent>();

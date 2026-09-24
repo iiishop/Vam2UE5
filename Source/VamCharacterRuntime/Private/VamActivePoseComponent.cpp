@@ -3,6 +3,7 @@
 #include "VamRigProfile.h"
 #include "VamShapeAnimInstance.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Engine/SkeletalMesh.h"
 
 UVamActivePoseComponent::UVamActivePoseComponent()
 {

@@ -4,6 +4,7 @@
 #include "BonePose.h"
 #include "Core/PBIKSolver.h"
 #include "Core/PBIKBody.h"
+#include "Components/SkeletalMeshComponent.h"
 class FVamShapeProxy final : public FAnimInstanceProxy
 {
 public:
@@ -13,6 +14,7 @@ public:
         FAnimInstanceProxy::PreUpdate(Instance,DeltaSeconds);
         Offsets=static_cast<UVamShapeAnimInstance*>(Instance)->GetDebugBoneOffsets();
         ActiveOffsets=static_cast<UVamShapeAnimInstance*>(Instance)->GetActiveBoneOffsets();
+        PoseRotations=static_cast<UVamShapeAnimInstance*>(Instance)->GetPoseControlRotations();
         const auto* Anim=static_cast<UVamShapeAnimInstance*>(Instance);
         Joints=Anim->GetRigJoints(); Effectors=Anim->GetEffectors(); SolverRoot=Anim->GetSolverRoot();
         Iterations=Anim->GetSolverIterations(); Goals.Reset();
@@ -24,6 +26,10 @@ public:
     {
         Output.ResetToRefPose();
         const FBoneContainer& Bones=Output.Pose.GetBoneContainer();
+        TArray<FQuat> ReferenceRotations;
+        ReferenceRotations.Reserve(Output.Pose.GetNumBones());
+        for (int32 I=0;I<Output.Pose.GetNumBones();++I)
+            ReferenceRotations.Add(Output.Pose[FCompactPoseBoneIndex(I)].GetRotation());
         for (const auto& Pair:ActiveOffsets)
         {
             const FCompactPoseBoneIndex Compact=Bones.GetCompactPoseIndexFromSkeletonPoseIndex(FSkeletonPoseBoneIndex(Pair.Key));
@@ -31,6 +37,13 @@ public:
             FTransform& Bone=Output.Pose[Compact];
             Bone.AddToTranslation(Pair.Value.GetTranslation());
             Bone.SetRotation((Pair.Value.GetRotation()*Bone.GetRotation()).GetNormalized());
+        }
+        for (const auto& Pair:PoseRotations)
+        {
+            const FCompactPoseBoneIndex Compact=Bones.GetCompactPoseIndexFromSkeletonPoseIndex(FSkeletonPoseBoneIndex(Pair.Key));
+            if (Compact.GetInt()==INDEX_NONE) continue;
+            FTransform& Bone=Output.Pose[Compact];
+            Bone.SetRotation((Pair.Value.Quaternion()*Bone.GetRotation()).GetNormalized());
         }
         for (const auto& Pair:Offsets)
         {
@@ -41,9 +54,26 @@ public:
             Bone.SetRotation((Pair.Value.GetRotation()*Bone.GetRotation()).GetNormalized());
         }
         if (!Goals.IsEmpty() && !Joints.IsEmpty()) SolveIK(Output);
+        ClampJointRotations(Output,ReferenceRotations);
         return true;
     }
 private:
+    void ClampJointRotations(FPoseContext& Output, const TArray<FQuat>& ReferenceRotations) const
+    {
+        const FBoneContainer& Bones=Output.Pose.GetBoneContainer();
+        for (const FVamRigJoint& Joint:Joints)
+        {
+            if (!VamPoseControl::IsEligible(Joint) || Joint.Semantic==SolverRoot) continue;
+            const int32 SkeletonIndex=Bones.GetReferenceSkeleton().FindBoneIndex(Joint.Bone);
+            if (SkeletonIndex==INDEX_NONE) continue;
+            const FCompactPoseBoneIndex Compact=Bones.GetCompactPoseIndexFromSkeletonPoseIndex(FSkeletonPoseBoneIndex(SkeletonIndex));
+            if (!ReferenceRotations.IsValidIndex(Compact.GetInt())) continue;
+            FTransform& Bone=Output.Pose[Compact];
+            const FQuat Delta=(Bone.GetRotation()*ReferenceRotations[Compact.GetInt()].Inverse()).GetNormalized();
+            const FRotator Limited=VamPoseControl::Clamp(Joint,Delta.Rotator());
+            Bone.SetRotation((Limited.Quaternion()*ReferenceRotations[Compact.GetInt()]).GetNormalized());
+        }
+    }
     void SolveIK(FPoseContext& Output)
     {
         const FBoneContainer& Bones=Output.Pose.GetBoneContainer();
@@ -82,12 +112,14 @@ private:
                 {
                     Settings->bUsePreferredAngles=!J.PreferredBend.IsNearlyZero();
                     Settings->PreferredAngles=J.PreferredBend;
-                    if (J.bLimitRotation)
+                    if (J.bLimitRotation || VamPoseControl::IsEligible(J))
                     {
+                        FRotator Minimum,Maximum;
+                        VamPoseControl::GetLimits(J,Minimum,Maximum);
                         Settings->X=Settings->Y=Settings->Z=PBIK::ELimitType::Limited;
-                        Settings->MinX=J.Minimum.Roll; Settings->MaxX=J.Maximum.Roll;
-                        Settings->MinY=J.Minimum.Pitch; Settings->MaxY=J.Maximum.Pitch;
-                        Settings->MinZ=J.Minimum.Yaw; Settings->MaxZ=J.Maximum.Yaw;
+                        Settings->MinX=Minimum.Roll; Settings->MaxX=Maximum.Roll;
+                        Settings->MinY=Minimum.Pitch; Settings->MaxY=Maximum.Pitch;
+                        Settings->MinZ=Minimum.Yaw; Settings->MaxZ=Maximum.Yaw;
                     }
                 }
             }
@@ -136,6 +168,7 @@ private:
     }
     TMap<int32,FTransform> Offsets;
     TMap<int32,FTransform> ActiveOffsets;
+    TMap<int32,FRotator> PoseRotations;
     TArray<FVamRigJoint> Joints;
     TArray<FName> Effectors;
     FName SolverRoot;
@@ -160,6 +193,12 @@ void UVamShapeAnimInstance::SetActiveBoneOffset(int32 BoneIndex, const FTransfor
     else ActiveBoneOffsets.Add(BoneIndex,Offset);
 }
 void UVamShapeAnimInstance::ClearActiveBoneOffsets() { ActiveBoneOffsets.Reset(); }
+void UVamShapeAnimInstance::SetPoseControlRotation(int32 BoneIndex, const FRotator& Rotation)
+{
+    if (Rotation.IsNearlyZero()) PoseControlRotations.Remove(BoneIndex);
+    else PoseControlRotations.Add(BoneIndex,Rotation);
+}
+void UVamShapeAnimInstance::ClearPoseControlRotations() { PoseControlRotations.Reset(); }
 FTransform UVamShapeAnimInstance::GetDebugBoneOffset(int32 BoneIndex) const
 {
     if (const FTransform* Found=DebugBoneOffsets.Find(BoneIndex)) return *Found;

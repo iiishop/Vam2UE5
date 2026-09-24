@@ -48,6 +48,15 @@ public:
     FTransform GetDebugBoneOffset(int32 BoneIndex) const;
     UFUNCTION(BlueprintCallable, Category="VaM|Debug")
     void ResetDebugBoneOffsets();
+    /** Rotate a mapped body joint relative to its shape-adjusted reference pose. The root is moved by Motion instead. */
+    UFUNCTION(BlueprintPure, Category="VaM|Pose")
+    bool IsPoseControlBone(int32 BoneIndex) const;
+    UFUNCTION(BlueprintCallable, Category="VaM|Pose")
+    bool SetPoseControlRotation(int32 BoneIndex, FRotator LocalRotation);
+    UFUNCTION(BlueprintPure, Category="VaM|Pose")
+    FRotator GetPoseControlRotation(int32 BoneIndex) const;
+    UFUNCTION(BlueprintCallable, Category="VaM|Pose")
+    void ResetPoseControlRotations();
     UFUNCTION(BlueprintCallable, Category="VaM|IK") bool SetIKGoal(FName Semantic, const FTransform& WorldGoal);
     UFUNCTION(BlueprintCallable, Category="VaM|IK") void ClearIKGoal(FName Semantic);
     UFUNCTION(BlueprintCallable, Category="VaM|IK") bool SetFootLocked(FName FootSemantic, bool bLocked);
@@ -65,6 +74,8 @@ private:
     UPROPERTY(Transient) FVamShapeState PreviewState;
     UPROPERTY(Transient) FVamShapeState CommittedState;
     UPROPERTY(Transient) TArray<FTransform> ShapeReferencePose;
+    /** Instance-owned pose handles survive a shape commit, which reinitializes the AnimInstance. */
+    UPROPERTY(Transient) TMap<int32,FRotator> PoseControlRotations;
     UPROPERTY(Transient) TMap<FName,float> AppearanceScalars;
     UPROPERTY(Transient) TMap<FName,FLinearColor> AppearanceColors;
     void ApplyAppearanceState();

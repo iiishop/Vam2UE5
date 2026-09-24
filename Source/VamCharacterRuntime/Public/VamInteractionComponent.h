@@ -18,6 +18,8 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Physics") bool bGravity = true;
     UPROPERTY(BlueprintReadOnly, Category="VaM|Physics") EVamPhysicalMode Mode = EVamPhysicalMode::Controlled;
     UFUNCTION(BlueprintCallable, Category="VaM|Physics") bool SetPhysicalMode(EVamPhysicalMode NewMode, FName LocalRootBone = NAME_None);
+    /** Physical response in both root child branches while the actor root stays kinematic for continuous dragging. */
+    UFUNCTION(BlueprintCallable, Category="VaM|Physics") bool SetRootMotionResponse(FName LowerRootBone, FName UpperRootBone);
     UFUNCTION(BlueprintCallable, Category="VaM|Physics") bool GrabBone(FName Bone, FVector WorldLocation);
     UFUNCTION(BlueprintCallable, Category="VaM|Physics") void MoveGrab(FVector WorldLocation);
     UFUNCTION(BlueprintCallable, Category="VaM|Physics") void ReleaseGrab();

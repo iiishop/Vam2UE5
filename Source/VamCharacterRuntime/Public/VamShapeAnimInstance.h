@@ -18,6 +18,9 @@ public:
     void SetActiveBoneOffset(int32 BoneIndex, const FTransform& Offset);
     void ClearActiveBoneOffsets();
     const TMap<int32,FTransform>& GetActiveBoneOffsets() const { return ActiveBoneOffsets; }
+    void SetPoseControlRotation(int32 BoneIndex, const FRotator& Rotation);
+    void ClearPoseControlRotations();
+    const TMap<int32,FRotator>& GetPoseControlRotations() const { return PoseControlRotations; }
     void SetRigProfile(const UVamRigProfile* Profile);
     void SetIKGoal(FName Semantic, const FTransform& WorldGoal);
     void ClearIKGoal(FName Semantic);
@@ -32,6 +35,7 @@ protected:
 private:
     TMap<int32,FTransform> DebugBoneOffsets;
     TMap<int32,FTransform> ActiveBoneOffsets;
+    TMap<int32,FRotator> PoseControlRotations;
     TArray<FVamRigJoint> RigJoints;
     TArray<FName> Effectors;
     FName SolverRoot = NAME_None;

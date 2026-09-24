@@ -7,30 +7,30 @@ USTRUCT(BlueprintType)
 struct VAMCHARACTERRUNTIME_API FVamMotionSample
 {
     GENERATED_BODY()
-    UPROPERTY(BlueprintReadOnly) double TimeSeconds = 0;
-    UPROPERTY(BlueprintReadOnly) FTransform WorldTransform;
-    UPROPERTY(BlueprintReadOnly) FVector LinearVelocity = FVector::ZeroVector;
-    UPROPERTY(BlueprintReadOnly) FVector AngularVelocity = FVector::ZeroVector;
-    UPROPERTY(BlueprintReadOnly) FVector LinearAcceleration = FVector::ZeroVector;
-    UPROPERTY(BlueprintReadOnly) FVector AngularAcceleration = FVector::ZeroVector;
-    UPROPERTY(BlueprintReadOnly) bool bTeleported = false;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Sample") double TimeSeconds = 0;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Sample") FTransform WorldTransform;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Sample") FVector LinearVelocity = FVector::ZeroVector;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Sample") FVector AngularVelocity = FVector::ZeroVector;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Sample") FVector LinearAcceleration = FVector::ZeroVector;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Sample") FVector AngularAcceleration = FVector::ZeroVector;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Sample") bool bTeleported = false;
 };
 
 USTRUCT(BlueprintType)
 struct VAMCHARACTERRUNTIME_API FVamSolverClock
 {
     GENERATED_BODY()
-    UPROPERTY(BlueprintReadOnly) double TimeSeconds = 0;
-    UPROPERTY(BlueprintReadOnly) float FixedStepSeconds = 1.f/120.f;
-    UPROPERTY(BlueprintReadOnly) int32 LastSteps = 0;
-    UPROPERTY(BlueprintReadOnly) int32 DroppedSteps = 0;
-    UPROPERTY(BlueprintReadOnly) float InterpolationAlpha = 0;
-    UPROPERTY(BlueprintReadOnly) bool bPaused = false;
-    UPROPERTY(BlueprintReadOnly) int32 ShapeRevision = 0;
-    UPROPERTY(BlueprintReadOnly) int32 WarmupSteps = 0;
-    UPROPERTY(BlueprintReadOnly) int32 TeleportRevision = 0;
-    UPROPERTY(BlueprintReadOnly) double LastTeleportTimeSeconds = -1;
-    UPROPERTY(BlueprintReadOnly) double LastShapeCommitTimeSeconds = -1;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") double TimeSeconds = 0;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") float FixedStepSeconds = 1.f/120.f;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") int32 LastSteps = 0;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") int32 DroppedSteps = 0;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") float InterpolationAlpha = 0;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") bool bPaused = false;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") int32 ShapeRevision = 0;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") int32 WarmupSteps = 0;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") int32 TeleportRevision = 0;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") double LastTeleportTimeSeconds = -1;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Clock") double LastShapeCommitTimeSeconds = -1;
 };
 
 /** Low-cost Stage06 inertial witness, not a surface/soft-body solver. */
@@ -38,13 +38,13 @@ USTRUCT(BlueprintType)
 struct VAMCHARACTERRUNTIME_API FVamInertiaRegion
 {
     GENERATED_BODY()
-    UPROPERTY(EditAnywhere, BlueprintReadWrite) FName Name;
-    UPROPERTY(EditAnywhere, BlueprintReadWrite) FVector LocalAnchor = FVector::ZeroVector;
-    UPROPERTY(EditAnywhere, BlueprintReadWrite) float Stiffness = 70.f;
-    UPROPERTY(EditAnywhere, BlueprintReadWrite) float Damping = 14.f;
-    UPROPERTY(EditAnywhere, BlueprintReadWrite) float InertiaGain = 0.1f;
-    UPROPERTY(BlueprintReadOnly) FVector LocalDisplacement = FVector::ZeroVector;
-    UPROPERTY(BlueprintReadOnly) FVector LocalVelocity = FVector::ZeroVector;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Motion|Inertia") FName Name;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Motion|Inertia") FVector LocalAnchor = FVector::ZeroVector;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Motion|Inertia") float Stiffness = 70.f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Motion|Inertia") float Damping = 14.f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Motion|Inertia") float InertiaGain = 0.1f;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Inertia") FVector LocalDisplacement = FVector::ZeroVector;
+    UPROPERTY(BlueprintReadOnly, Category="VaM|Motion|Inertia") FVector LocalVelocity = FVector::ZeroVector;
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FVamMotionUpdated, const FVamMotionSample&, Sample);

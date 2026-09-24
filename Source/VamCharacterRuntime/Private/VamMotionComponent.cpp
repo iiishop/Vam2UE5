@@ -1,4 +1,5 @@
 #include "VamMotionComponent.h"
+#include "Engine/World.h"
 #include "GameFramework/Actor.h"
 
 UVamMotionComponent::UVamMotionComponent()
