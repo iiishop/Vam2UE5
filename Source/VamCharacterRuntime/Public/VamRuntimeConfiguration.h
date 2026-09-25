@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "VamSoftTissueProfile.h"
 #include "VamRuntimeConfiguration.generated.h"
 
 /** Immutable derived runtime bundle. The editor builder publishes it only after
@@ -23,6 +24,10 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UPhysicsAsset> Physics;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamPhysicsShapeProfile> PhysicsShape;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamMaterialProfile> Materials;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|SoftTissue") TSoftObjectPtr<UVamSoftTissueProfile> SoftTissueProfile;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|SoftTissue") EVamSoftTissueQuality SoftTissueQuality=EVamSoftTissueQuality::Off;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|SoftTissue") TArray<FName> EnabledRegions;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|SoftTissue") FString SoftTissueBackendVersion;
 #if WITH_EDITORONLY_DATA
     UPROPERTY(VisibleAnywhere, Category="Build") FString ReceiptJson;
 #endif

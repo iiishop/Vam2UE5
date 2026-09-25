@@ -154,6 +154,10 @@ class FVamResourceBrowserModule final : public IModuleInterface
                         return FReply::Handled();
                     }) ]
                 + SHorizontalBox::Slot().AutoWidth().Padding(8,0)
+                [ SNew(SButton).Text(LOCTEXT("UpgradeRuntime", "升级已导入人物软组织"))
+                    .ToolTipText(LOCTEXT("UpgradeRuntimeTip", "先在内容浏览器选择人物 BP 或 CD_Character；保存、独立重载后生成 Runtime BP"))
+                    .OnClicked_Lambda([](){ShowVamNativeBuildWindow(true);return FReply::Handled();}) ]
+                + SHorizontalBox::Slot().AutoWidth().Padding(8,0)
                 [ SNew(SButton).Text(LOCTEXT("CharacterDebug", "人物调试"))
                     .ToolTipText(LOCTEXT("CharacterDebugTip", "在场景人物上显示并拖动骨骼控制点，预览 Morph 与能力状态"))
                     .OnClicked_Lambda([](){OpenVamDebugPanel();return FReply::Handled();}) ]

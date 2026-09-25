@@ -50,9 +50,14 @@ struct VAMCHARACTERRUNTIME_API FVamCharacterState
     UPROPERTY(Category="VaM", BlueprintReadOnly) double FinalPoseWorldTimeSeconds = -1;
     UPROPERTY(Category="VaM", BlueprintReadOnly) int32 FinalPoseAnimationRevision = INDEX_NONE;
     UPROPERTY(Category="VaM", BlueprintReadOnly) double SurfaceTimeSeconds = -1;
+    UPROPERTY(Category="VaM", BlueprintReadOnly) bool bSurfaceOutputValid=false;
+    UPROPERTY(Category="VaM", BlueprintReadOnly) TObjectPtr<class UProceduralMeshComponent> SurfaceResource;
+    UPROPERTY(Category="VaM", BlueprintReadOnly) int32 SurfaceShapeRevision=INDEX_NONE;
+    UPROPERTY(Category="VaM", BlueprintReadOnly) int64 SurfaceSolverRevision=0;
     UPROPERTY(Category="VaM", BlueprintReadOnly) double CollisionProxyTimeSeconds = -1;
     UPROPERTY(Category="VaM", BlueprintReadOnly) bool bHasSimulation = false;
     UPROPERTY(Category="VaM", BlueprintReadOnly) int32 SimulationShapeRevision = INDEX_NONE;
+    /** Legacy empty array; real CPU skin is exposed through SurfaceResource, avoiding a full-mesh copy. */
     UPROPERTY(Category="VaM", BlueprintReadOnly) TArray<FVector> SimulatedSurface;
 };
 

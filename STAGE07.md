@@ -2,6 +2,8 @@
 
 本文件记录实现与证据边界，不是整个 Stage07 完成声明。起点为 `21bd244`。本轮没有重做 Stage05，没有加入 MetaHuman。
 
+**2026-09-25 更新：正式人物软组织 Runtime 接入及人工入口见 [STAGE071_RUNTIME.md](STAGE071_RUNTIME.md)。** 新能力属于 AVamCharacterActor 自身，配置包含 SoftTissueProfile；旧 FleshCapability 实验不参与正式运行链。两种人物的 Editor/Cooked 生命周期回归已通过，视觉验收仍由人工进行。下面的 07.1 实验段落保留为历史证据，不表示新人物依赖实验 Actor，也不代表整个 Stage07 已完成。
+
 操作与预期见 [STAGE07_TESTING.md](STAGE07_TESTING.md)。`ReplayStage07Evidence.ps1` 可直接回放已保存的 Baseline/Flesh Cooked 检查点，输出独立的新报告；它不把旧包当作最新工作区源码验证。
 
 ## 当前检查点（2026-09-24，后文历史记录不替代本节）

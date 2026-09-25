@@ -139,6 +139,21 @@ def build(recipe_path,report_path):
     config=create('RC_Runtime',root,u.VamRuntimeConfiguration)
     require(u.VamStage06AssetEditor.set_runtime_configuration_identity(config,definition,identity,''),'Could not initialize runtime identity')
     for key,value in [('definition',definition),('rig',rig),('physics',physics),('physics_shape',physics_shape),('animation_class',animation.generated_class()),('materials',materials)]:config.set_editor_property(key,value)
+    tissue=recipe.get('soft_tissue')
+    if tissue:
+        profile=create('DA_SoftTissue',root,u.VamSoftTissueProfile)
+        regions=[]
+        for row in tissue['regions']:
+            region=u.VamSoftTissueRegion()
+            for key,value in row.items():region.set_editor_property(key,value)
+            regions.append(region)
+        error=u.VamSoftTissueBuilder.build(profile,definition,regions)
+        require(not error,'Soft tissue bake failed: '+str(error))
+        profile.set_editor_property('gravity',tissue.get('gravity',True));save(profile)
+        config.set_editor_property('soft_tissue_profile',profile)
+        config.set_editor_property('soft_tissue_quality',getattr(u.VamSoftTissueQuality,tissue.get('quality','Balanced').upper()))
+        config.set_editor_property('enabled_regions',tissue['enabled_regions'])
+        config.set_editor_property('soft_tissue_backend_version',profile.get_editor_property('backend_version'))
     if recipe.get('base_animation'):config.set_editor_property('base_animation',load(recipe['base_animation'],u.AnimSequence))
     factory=u.BlueprintFactory();factory.set_editor_property('parent_class',u.VamCharacterActor)
     host=create('BP_VamCharacter',root,u.Blueprint,factory)
@@ -186,6 +201,16 @@ def reload_and_publish(recipe_path,report_path):
         config.get_editor_property('morph_set_lock_digest')==contract['editable_morph_lock']['lock_id'],'Configuration source identities mismatch')
     expected_base=load(recipe['base_animation'],u.AnimSequence) if recipe.get('base_animation') else None
     require(config.get_editor_property('base_animation')==expected_base,'Base animation reference mismatch')
+    tissue=recipe.get('soft_tissue')
+    if tissue:
+        profile=config.get_editor_property('soft_tissue_profile')
+        require(profile and profile.get_editor_property('body')==definition.get_editor_property('body'),'Soft tissue body mismatch')
+        require(profile.get_editor_property('bind_signature')==config.get_editor_property('bind_signature') and profile.get_editor_property('morph_set_lock_digest')==config.get_editor_property('morph_set_lock_digest'),'Soft tissue identity mismatch')
+        require(profile.get_editor_property('backend_version')==config.get_editor_property('soft_tissue_backend_version'),'Soft tissue backend mismatch')
+        require([str(n) for n in config.get_editor_property('enabled_regions')]==tissue['enabled_regions'],'Soft tissue region selection did not persist')
+        require(bool(profile.get_editor_property('gravity'))==tissue.get('gravity',True),'Soft tissue gravity did not persist')
+        require(config.get_editor_property('soft_tissue_quality')==getattr(u.VamSoftTissueQuality,tissue.get('quality','Balanced').upper()),'Soft tissue quality did not persist')
+    else:require(not config.get_editor_property('soft_tissue_profile'),'Unrequested soft tissue profile')
     physics=load(receipt['physics'],u.PhysicsAsset)
     require(config.get_editor_property('physics')==physics and len(physics.get_constraints(False))>0,'Physics reference/constraints missing')
     physics_shape=load(receipt['physics_shape'],u.VamPhysicsShapeProfile)

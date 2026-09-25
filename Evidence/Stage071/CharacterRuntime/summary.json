@@ -1,0 +1,38 @@
+{
+  "stage07_complete": false,
+  "date_utc": "2026-09-24T20:42:36.3252224Z",
+  "cooked_package": "I:/Document/UE5/SmartNPC/Saved/Stage071RuntimeCook01/Package",
+  "failed_prior_run": "Saved/Stage071/Build01/audit1.log: abstract UObject collision-key allocation; fixed with concrete runtime key class",
+  "runs": {
+    "editor-isolated": "Audit-8516886deea34636843b3e27a403faea",
+    "cooked-60": "Audit-638c536799ed4df2a8712c6117631520",
+    "editor-installed": "Audit-546663867a2c4c1f9fe2fc56f6bad563",
+    "cooked-30": "Audit-bd32df18864045ce9210701b6b242a0e",
+    "cooked-120": "Audit-59a3f7154e294ef5ae1bb9980ef32db5"
+  },
+  "scope": "Character-owned Runtime lifecycle and cooked graphical execution; not visual/contact quality acceptance",
+  "schema": "vam-soft-tissue-runtime-evidence/1",
+  "visual_acceptance_passed": false,
+  "editor_dll_sha256": {
+    "VamResourceBrowser": "C0E5716093A8380B97098E8BDD4DD543AA8C6896E4A0FF7AF773190DF2A3BC7E",
+    "VamCharacterRuntime": "7A3C9C33D9A74B2634B5DFD1FFB070C8122EFB80ACFF5B4A9BBB4EADD8897874"
+  },
+  "cooked_package_sha256": {
+    "Windows\\HostProject\\Binaries\\Win64\\HostProject.exe": "FB03BC639CCBBE93A37719861B761692066B5D5498849C9F29616E46AF6D344E",
+    "Windows\\HostProject\\Content\\Paks\\global.utoc": "5096C04CA8F026402EEE238E80051A13D1D763C2B6BB7AA5667838219E60FE2D",
+    "Windows\\HostProject\\Content\\Paks\\global.ucas": "9BED6123AEB407E17EC6B401C6D5A676014517A3C37E1C9042C3619387D6533E",
+    "Windows\\HostProject\\Content\\Paks\\HostProject-Windows.ucas": "65E5C940DA5DB0B62FD0F2F30867BE9BBE595C2FF93BDD6030CBD3A3F6E632B6",
+    "Windows\\HostProject.exe": "7FDB7BA42095E3E008C911E2CD4F6C7696E6BF8BFD4E7A60EFBD0E6192174D0B",
+    "Windows\\HostProject\\Content\\Paks\\HostProject-Windows.pak": "410915C6CC24C03D4A1E771E03E39393A359CE7C7787443586FFF0D4640EC06B",
+    "Windows\\HostProject\\Content\\Paks\\HostProject-Windows.utoc": "68ACC827DD2CBA483CBDA10C6612E5192746023B3174DA9D0A997B55136390B7"
+  },
+  "limitations": [
+    "Four engineering cage regions, not full anatomy coverage",
+    "Full LOD0 CPU surface cost not qualified",
+    "Graft soft-tissue seam mapping incomplete",
+    "No triangle-mesh or Landscape collision adapter",
+    "No long-duration GPU/CPU leak qualification",
+    "No other skeleton family tested"
+  ],
+  "python_tests": 41
+}

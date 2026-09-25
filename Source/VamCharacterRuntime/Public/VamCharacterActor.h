@@ -9,7 +9,7 @@ class UPhysicsHandleComponent;
 class UPhysicalAnimationComponent;
 class UVamActivePoseComponent;
 
-/** Blueprintable minimal assembly host; intentionally no character movement or physics. */
+/** Standard runtime character host; optional capabilities are selected by RuntimeConfiguration. */
 UCLASS(Blueprintable)
 class VAMCHARACTERRUNTIME_API AVamCharacterActor : public AActor
 {
@@ -23,5 +23,6 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<UPhysicalAnimationComponent> PhysicalAnimation;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<UVamActivePoseComponent> ActivePose;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<class UVamPhysicsOutputComponent> PhysicsOutput;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<class UVamSoftTissueComponent> SoftTissue;
     UFUNCTION(CallInEditor, BlueprintCallable, Category="VaM") void LoadCharacter();
 };

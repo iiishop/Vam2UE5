@@ -1,0 +1,30 @@
+{
+	"architecture_passed": true,
+	"visual_acceptance_passed": false,
+	"reason": "regular_character_load_off_on_shape_teleport_spawn_destroy",
+	"spawn_destroy_cycles": 3,
+	"phase": 8,
+	"subjects": [
+		{
+			"state": "Ready",
+			"error": "",
+			"instance": "7198D3B24B5BBECBE10CC4B7885DBEFE",
+			"solver_revision": 64,
+			"collision_vertices": 500
+		},
+		{
+			"state": "Ready",
+			"error": "",
+			"instance": "F2B219F9433496AEBB67DC8492E1E43F",
+			"solver_revision": 79,
+			"collision_vertices": 500
+		},
+		{
+			"state": "Disabled",
+			"error": "",
+			"instance": "6882631241B23917E5163AAA49A7AFE7",
+			"solver_revision": 0,
+			"collision_vertices": 0
+		}
+	]
+}

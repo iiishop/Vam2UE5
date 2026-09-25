@@ -20,6 +20,22 @@ def validate_recipe(recipe):
     require(recipe.get('family'),'Explicit skeleton family policy file required')
     require(recipe.get('skin_shading','source') in ('source','subsurface'),'Unsupported skin_shading policy')
     require(2 <= recipe.get('minimum_bone_size_cm',8) <= 30,'minimum_bone_size_cm must be in [2,30]')
+    tissue=recipe.get('soft_tissue')
+    if tissue is not None:
+        require(isinstance(tissue,dict) and tissue.get('regions'),'Explicit soft tissue regions required')
+        require(tissue.get('quality','Balanced') in ('Off','Balanced','High'),'Unknown soft tissue quality')
+        names=[r.get('name') for r in tissue['regions']]
+        require(all(isinstance(n,str) and n for n in names) and len(set(names))==len(names),'Duplicate or missing tissue region name')
+        require(set(tissue.get('enabled_regions',[])) <= set(names),'Unknown enabled tissue region')
+        require(isinstance(tissue.get('gravity',True),bool),'gravity must be boolean')
+        for region in tissue['regions']:
+            require(region.get('bone'),'Explicit support bone required')
+            require(isinstance(region.get('cells',4),int) and 2<=region.get('cells',4)<=8,'cells must be in [2,8]')
+            require(0<=region.get('minimum_skin_weight',.05)<region.get('full_skin_weight',.5)<=1,'Invalid skin support weights')
+            require(0<region.get('support_fraction',.25)<1,'Invalid support fraction')
+            for field,default in [('density_kg_per_cm3',.001),('stiffness',100000)]:
+                require(math.isfinite(region.get(field,default)) and region.get(field,default)>0,'Invalid '+field)
+            require(0<=region.get('damping',.1)<=1 and 0<=region.get('incompressibility',.45)<.5,'Invalid material coefficients')
 
 def check_bones(bones):
     require(bones and len({b['name'] for b in bones})==len(bones),'Empty or duplicate bone names')

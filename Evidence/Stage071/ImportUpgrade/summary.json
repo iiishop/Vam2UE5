@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "character": "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065",
+  "runtime_blueprint": "/Game/VamRuntime/R_d0d35bf99b4cfc9265acbf08/BP_VamCharacter.BP_VamCharacter",
+  "old_character_upgrade": {
+    "status": "committed",
+    "writer_pid": 70252,
+    "reloader_pid": 85040,
+    "verifier_pid": 76604
+  },
+  "formal_import_job_replay": {
+    "status": "committed",
+    "reused": true,
+    "note": "Replayed original pinned native import request; reused verified native assets, then completed automatic runtime transaction. Not a fresh source decode."
+  },
+  "native_preservation": {
+    "unchanged": true,
+    "files": 119,
+    "changed": []
+  },
+  "runtime_lifecycle": {
+    "architecture_passed": true,
+    "visual_acceptance_passed": false,
+    "reason": "regular_character_load_off_on_shape_teleport_spawn_destroy",
+    "spawn_destroy_cycles": 3,
+    "phase": 8,
+    "subjects": [
+      {
+        "state": "Ready",
+        "error": "",
+        "instance": "309B50E9403D8202A810C18281E76A7C",
+        "solver_revision": 59,
+        "collision_vertices": 500
+      },
+      {
+        "state": "Ready",
+        "error": "",
+        "instance": "0289A67945917DE9602AAA99794E8CF2",
+        "solver_revision": 81,
+        "collision_vertices": 500
+      },
+      {
+        "state": "Disabled",
+        "error": "",
+        "instance": "27B43CC64E995352321B22BC3E0FD08F",
+        "solver_revision": 0,
+        "collision_vertices": 0
+      }
+    ]
+  },
+  "runtime_test_null_rhi": true,
+  "python_tests_passed": 17,
+  "editor_and_game_build_passed": true,
+  "initial_build_failure": "UBT conflicting instance during Game target; retry passed",
+  "visual_acceptance_passed": false,
+  "gpu_crash_fixed": false,
+  "files": {
+    "Scripts/ue_native_job.py": "8395939f4c6e8da936bace9a89727e4d28ecfee09f684f5561528cbbd79bc1e2",
+    "Scripts/ue_runtime_upgrade.py": "a5e8c8af0a5a9b10c6a2ca7a95e4b6410e8fa4175efcfe9d1534c21fe47dc271",
+    "Config/RuntimeImportPolicy.json": "280bb4d34f8dfb10ec75b2b74fe181bd28b0f1c32183102bb053646f3b8eee2e",
+    "Source/VamResourceBrowser/Private/VamNativeBuildWindow.cpp": "d19ca3c8bd33ae9ccded5dad7b0e388b23b730bcbffede9f09988a2b5ca2567c",
+    "Source/VamResourceBrowser/Private/VamResourceBrowserModule.cpp": "da2f99da60228d0dbf2151724dc3fc94d2fc149d9a2a251677f57029be121fcd",
+    "Binaries/Win64/UnrealEditor-VamResourceBrowser.dll": "7bc27e91d790812fc13b3d5bec541a0d7e6f59120518743c85b49f04b0f1c5bb"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "maps": [
+    "/Game/VamRuntimeTests/SoftTissueRuntime02/L_Manual",
+    "/Game/VamRuntimeTests/SoftTissueRuntime02/L_Audit1",
+    "/Game/VamRuntimeTests/SoftTissueRuntime02/L_Audit2"
+  ],
+  "production_blueprints": [
+    "/Game/VamRuntime/R_0acac32bac22c6821acfa124/BP_VamCharacter.BP_VamCharacter",
+    "/Game/VamRuntime/R_2cfdaea2278408f942ae8571/BP_VamCharacter.BP_VamCharacter"
+  ],
+  "dependency_direction_passed": true,
+  "manual_map_has_test_probe": false,
+  "visual_acceptance_passed": false
+}

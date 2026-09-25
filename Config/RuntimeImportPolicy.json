@@ -1,0 +1,38 @@
+{
+  "schema": "vam-runtime-import-policy/1",
+  "revision": 1,
+  "family": "RigFamilies/VamFemale88.json",
+  "destination_root": "/Game/VamRuntime",
+  "soft_tissue": {
+    "quality": "Balanced",
+    "gravity": true,
+    "enabled_regions": [
+      "left_breast",
+      "right_breast",
+      "left_thigh",
+      "right_thigh"
+    ],
+    "regions": [
+      {
+        "bone": "lPectoral",
+        "name": "left_breast",
+        "cells": 4
+      },
+      {
+        "bone": "rPectoral",
+        "name": "right_breast",
+        "cells": 4
+      },
+      {
+        "bone": "lThigh",
+        "name": "left_thigh",
+        "cells": 4
+      },
+      {
+        "bone": "rThigh",
+        "name": "right_thigh",
+        "cells": 4
+      }
+    ]
+  }
+}

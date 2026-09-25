@@ -81,9 +81,11 @@ protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 private:
+    void LoadDefinition(uint64 Ticket);
     void LoadMeshes(uint64 Ticket);
     void Assemble(uint64 Ticket);
     UPROPERTY(Transient) TObjectPtr<UVamCharacterDefinition> LoadedDefinition;
+    UPROPERTY(Transient) TObjectPtr<UVamRuntimeConfiguration> LoadedRuntimeConfiguration;
     UPROPERTY(Transient) TArray<TObjectPtr<USkeletalMeshComponent>> LoadedParts;
     TSharedPtr<FStreamableHandle> Pending;
     UPROPERTY(Transient) FVamShapeState PreviewState;

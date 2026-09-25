@@ -1,2 +1,2 @@
 #pragma once
-void ShowVamNativeBuildWindow();
+void ShowVamNativeBuildWindow(bool UpgradeExisting=false);

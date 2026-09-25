@@ -1,0 +1,8 @@
+{
+  "requested_fps_cap": 60,
+  "visual_acceptance_passed": false,
+  "architecture_passed": true,
+  "executable_sha256": "AE92F55952A3C9A7DEF90983FCF5AEDCE52D8EE8E4565FBD923985E9D9D3E05E",
+  "null_rhi": true,
+  "maps_report_sha256": "CE9EB6FA8F001C594E6C84D89738640E783ABF8A54E4A13283637F84442B1CF1"
+}

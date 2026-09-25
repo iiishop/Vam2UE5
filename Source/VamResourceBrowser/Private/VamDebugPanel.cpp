@@ -1,5 +1,6 @@
 #include "VamDebugPanel.h"
 #include "VamCharacterActor.h"
+#include "VamSoftTissueComponent.h"
 #include "VamCharacterComponent.h"
 #include "VamCharacterDefinition.h"
 #include "VamRigProfile.h"
@@ -517,6 +518,16 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
             +SHorizontalBox::Slot().AutoWidth().Padding(6,0)[SNew(STextBlock).Text(FText::FromString(TEXT("Z")))]
             +SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<float>).MinValue(-360.f).MaxValue(360.f).Value_Lambda([](){return BoneRotationAxis(2);}).OnValueChanged_Lambda([](float Value){SetBoneRotationAxis(2,Value);})]
             +SHorizontalBox::Slot().AutoWidth().Padding(6,0)[SNew(SButton).Text(FText::FromString(TEXT("重置此关节"))).OnClicked_Lambda([](){if (PoseSelected()) if (auto* Actor=CurrentActor()) Actor->Character->SetPoseControlRotation(SelectedBone,FRotator::ZeroRotator);return FReply::Handled();})]]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text_Lambda([](){
+            const auto* A=CurrentActor();if(!A || !A->SoftTissue) return FText::FromString(TEXT("Soft Tissue：未选择人物"));
+            const auto* T=A->SoftTissue.Get();const auto O=T->GetBodySurfaceOutput();
+            return FText::FromString(FString::Printf(TEXT("Soft Tissue（PIE 人物）：%s | Surface %s | Shape %d | Solver %lld | %s"),
+                *StaticEnum<EVamSoftTissueState>()->GetNameStringByValue(int64(T->State)),O.Valid?TEXT("有效"):TEXT("无效"),O.ShapeRevision,O.SolverRevision,*T->LastError));}).AutoWrapText(true)]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
+            +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("软组织 Off"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->SoftTissue) A->SoftTissue->SetSoftTissueEnabled(false);return FReply::Handled();})]
+            +SHorizontalBox::Slot().AutoWidth().Padding(4,0)[SNew(SButton).Text(FText::FromString(TEXT("Balanced"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->SoftTissue) A->SoftTissue->SetSoftTissueQuality(EVamSoftTissueQuality::Balanced);return FReply::Handled();})]
+            +SHorizontalBox::Slot().AutoWidth().Padding(4,0)[SNew(SButton).Text(FText::FromString(TEXT("High"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->SoftTissue) A->SoftTissue->SetSoftTissueQuality(EVamSoftTissueQuality::High);return FReply::Handled();})]
+            +SHorizontalBox::Slot().AutoWidth().Padding(4,0)[SNew(SButton).Text(FText::FromString(TEXT("重建软组织 rest"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->SoftTissue) A->SoftTissue->ResetSoftTissue();return FReply::Handled();})]]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("Stage06 · 运行时与惯性见证")))]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("暂停/继续见证时钟"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->SetPreviewPaused(!A->Motion->GetClock().bPaused);return FReply::Handled();})]

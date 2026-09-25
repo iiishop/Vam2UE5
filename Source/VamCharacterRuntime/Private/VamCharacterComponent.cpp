@@ -18,6 +18,7 @@
 #include "PhysicsEngine/PhysicsConstraintTemplate.h"
 #include "VamPhysicsShapeProfile.h"
 #include "VamPhysicsOutputComponent.h"
+#include "VamSoftTissueComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Engine/World.h"
 
@@ -32,6 +33,7 @@ void UVamCharacterComponent::EndPlay(const EEndPlayReason::Type Reason) { Unload
 
 void UVamCharacterComponent::UnloadCharacter()
 {
+    if(GetOwner()) if(auto* Tissue=GetOwner()->FindComponentByClass<UVamSoftTissueComponent>()) Tissue->CharacterUnloading();
     ++Generation;
     if (Pending) { Pending->CancelHandle(); Pending.Reset(); }
     for (auto Part : LoadedParts) if (Part) Part->DestroyComponent();
@@ -40,6 +42,7 @@ void UVamCharacterComponent::UnloadCharacter()
     Body = nullptr;
     InstancePhysics=nullptr; CollisionShapeRevision=INDEX_NONE; LastShapeError.Reset();
     LoadedDefinition = nullptr;
+    LoadedRuntimeConfiguration = nullptr;
     PreviewState = FVamShapeState(); CommittedState = FVamShapeState(); ShapeReferencePose.Reset();
     PoseControlRotations.Reset();
     ExpressionWeights.Reset();
@@ -49,17 +52,29 @@ void UVamCharacterComponent::UnloadCharacter()
 void UVamCharacterComponent::LoadCharacter()
 {
     UnloadCharacter();
+    const uint64 Ticket=Generation;
     if (!RuntimeConfiguration.IsNull())
     {
-        const UVamRuntimeConfiguration* Config=RuntimeConfiguration.LoadSynchronous();
+        Pending=UAssetManager::GetStreamableManager().RequestAsyncLoad(RuntimeConfiguration.ToSoftObjectPath(),
+            FStreamableDelegate::CreateWeakLambda(this,[this,Ticket]() {LoadDefinition(Ticket);}));
+    }
+    else LoadDefinition(Ticket);
+}
+
+void UVamCharacterComponent::LoadDefinition(uint64 Ticket)
+{
+    if(Ticket!=Generation) return;
+    if(!RuntimeConfiguration.IsNull())
+    {
+        const UVamRuntimeConfiguration* Config=RuntimeConfiguration.Get();
         if (!Config || Config->SchemaVersion!=2 || !Config->bIndependentReloadVerified || Config->BuildIdentity.IsEmpty())
         { OnLoaded.Broadcast(false,TEXT("Runtime configuration unavailable or incompatible")); return; }
+        LoadedRuntimeConfiguration=RuntimeConfiguration.Get();
         Definition=Config->Definition; RigProfile=Config->Rig; PhysicsAsset=Config->Physics;
         PhysicsShapeProfile=Config->PhysicsShape;
         AnimationClass=Config->AnimationClass; MaterialProfile=Config->Materials; BaseAnimation=Config->BaseAnimation;
     }
     if (Definition.IsNull()) { OnLoaded.Broadcast(false, TEXT("No CharacterDefinition assigned")); return; }
-    const uint64 Ticket = Generation;
     Pending = UAssetManager::GetStreamableManager().RequestAsyncLoad(Definition.ToSoftObjectPath(),
         FStreamableDelegate::CreateWeakLambda(this, [this, Ticket]() { LoadMeshes(Ticket); }));
 }
@@ -235,7 +250,17 @@ FVamCharacterState UVamCharacterComponent::GetCharacterState() const
         }
     }
     State.bHasSimulation=Body && Body->IsAnySimulatingPhysics();
-    return State; // SurfaceTime stays unavailable until a real surface solver is attached.
+    if(const auto* Tissue=GetOwner()->FindComponentByClass<UVamSoftTissueComponent>())
+    {
+        const auto Surface=Tissue->GetBodySurfaceOutput();State.bSurfaceOutputValid=Surface.Valid;
+        if(Surface.Valid)
+        {
+            State.SurfaceResource=Surface.SurfaceResource;State.SurfaceShapeRevision=Surface.ShapeRevision;
+            State.SurfaceSolverRevision=Surface.SolverRevision;State.SurfaceTimeSeconds=Surface.PublishedWorldTimeSeconds;
+            State.bHasSimulation=true;
+        }
+    }
+    return State;
 }
 
 bool UVamCharacterComponent::PreviewParameters(const TMap<FName,float>& Values)
