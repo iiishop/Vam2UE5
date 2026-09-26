@@ -1,0 +1,23 @@
+{
+  "schema": "vam-metahuman-source-proof/1",
+  "target_sha256": "9da3b92a1ce32f0f2adff5d10b8576a42ad9ec09ced019f896d1742a1843b3f7",
+  "decode_id": "fcac69c0943e0c234b0f97b1e6838aabea31cae86ba1d2e2e0e2198f702c2128",
+  "plan_id": "91e21d30f00378a0e3563537f4a082cabc5938da6742862b5e1fba5d4914b07c",
+  "vertices": 16425,
+  "triangles": 32734,
+  "included_morphs": 47,
+  "excluded_morphs": 10,
+  "source_ir_sha256": "fb67b720e21d314cda1b2715ced0b8a7d0044c557c3c4ef556cf7d6bd48a7cdb",
+  "material_ir_sha256": "f4d29f1b387aa2f258f82a21b7a0248f5193424c6d1a5a3533162e5b56f5d1ef",
+  "fit_complete": true,
+  "fit_origin": "ConformToTargetMeshes",
+  "source_character": "/Game/MetaHumans/启梦MH00/Source/启梦MH00",
+  "state": "AwaitingAuthorization",
+  "source_files_read_only": true,
+  "visual_acceptance_passed": false,
+  "limitations": [
+    "Neutral means tagged expression/pose morphs are zero; combined sculpted expressions require recipe classification.",
+    "Target is p0 vertex geometry; source rig scale/orientation/rotation formulas are retained, not evaluated.",
+    "Graft, nipple material, mouth interior, eyes, lashes, hair, clothing and accessories are excluded; no closure is synthesized."
+  ]
+}

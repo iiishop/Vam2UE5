@@ -1,0 +1,56 @@
+{
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "core_data": true,
+  "plugins": {
+    "MetaHumanCharacter": {
+      "installed": true,
+      "enabled": true,
+      "descriptor": "../../../Engine/Plugins/MetaHuman/MetaHumanCharacter/MetaHumanCharacter.uplugin"
+    },
+    "RigLogic": {
+      "installed": true,
+      "enabled": true,
+      "descriptor": "../../../Engine/Plugins/Animation/RigLogic/RigLogic.uplugin"
+    },
+    "HairStrands": {
+      "installed": true,
+      "enabled": true,
+      "descriptor": "../../../Engine/Plugins/Runtime/HairStrands/HairStrands.uplugin"
+    },
+    "ChaosClothAsset": {
+      "installed": true,
+      "enabled": true,
+      "descriptor": "../../../Engine/Plugins/ChaosClothAsset/ChaosClothAsset.uplugin"
+    },
+    "ChaosClothAssetEditor": {
+      "installed": true,
+      "enabled": false,
+      "descriptor": "../../../Engine/Plugins/ChaosClothAssetEditor/ChaosClothAssetEditor.uplugin"
+    },
+    "ChaosOutfitAsset": {
+      "installed": true,
+      "enabled": true,
+      "descriptor": "../../../Engine/Plugins/ChaosOutfitAsset/ChaosOutfitAsset.uplugin"
+    }
+  },
+  "rendering": {
+    "r.SkinCache.CompileShaders": "1",
+    "r.SkinCache.DefaultBehavior": "1",
+    "r.HairStrands.Strands": "1",
+    "r.VirtualTextures": "1"
+  },
+  "cloud_authorized": false,
+  "reflected_methods": {
+    "try_add_object_to_edit": true,
+    "remove_object_to_edit": true,
+    "conform_to_target_meshes": true,
+    "can_build_meta_human": true,
+    "build_meta_human": true,
+    "request_auto_rigging": true,
+    "request_texture_sources": true
+  },
+  "factory": true,
+  "autorig_enum": "<MetaHumanRigType.JOINTS_AND_BLEND_SHAPES: 1>",
+  "request_structs_constructed_without_dispatch": true,
+  "visual_acceptance_passed": false
+}

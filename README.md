@@ -1,5 +1,11 @@
 # VaM 资源浏览器 · 阶段 01–04
 
+**MetaHuman 实验分支（MH00）**：默认生成入口为 MetaHuman，原 native 入口作为回退保留。接入、能力与恢复步骤见 [MIGRATION_MAP.md](MIGRATION_MAP.md) 和 [CAPABILITIES.md](CAPABILITIES.md)，实际验证范围见 `Evidence/MH00/summary.json`；原 Stage 文档仍记录各自历史成果。
+
+最新眼角修复人物、三列局部对比和实际限制见 [EYE_CORNER_RESULT.md](EYE_CORNER_RESULT.md)。脸部通用残差拟合的 V9 历史记录见 [FACE_FIDELITY_RESULT.md](FACE_FIDELITY_RESULT.md)，算法和可恢复入口见 [FACE_FIDELITY.md](FACE_FIDELITY.md)。该实验入口尚未接入原生成按钮，未声明所有人物的视觉还原通过。
+
+新增 fei / cat29 的跨预设全流程与结构性问题记录见 [COHORT_STRUCTURE_REVIEW.md](COHORT_STRUCTURE_REVIEW.md)。官方诊断基线与正式残差结果分别标记，不能把 Assembly 成功当作算法跨人物还原通过。
+
 UE 5.8 / Windows 编辑器插件。读取 VaM 松散目录和 VAR，解析依赖并解码已验证格式，用于临时几何检查。不执行 VaM 脚本，不向 VaM 目录写入文件。
 
 阶段 03：在就绪的导入计划中点击 **解码并预览 → 在 UE5 查看**。支持浏览器几何检查及独立 UE 临时窗口，不保存人物资产。格式能力、真实样本统计及尚未支持的效果见 [STAGE03.md](STAGE03.md)。

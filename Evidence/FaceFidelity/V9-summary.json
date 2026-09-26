@@ -1,0 +1,495 @@
+{
+  "state": "VerifiedEditorAssemblyAndCookedLifecycle",
+  "branch": "MetaHuman",
+  "head": "1b639e382d556b0423aa49f465c63b09388219bb",
+  "engine": "5.8.3-58210709",
+  "python_tests_passed": 52,
+  "python_compileall": "passed",
+  "native_assets_unchanged": 114,
+  "original_mh_unchanged": true,
+  "new_fidelity_character": "/Game/MetaHumans/启梦MH通用还原修订/启梦MH通用还原修订.启梦MH通用还原修订",
+  "new_fidelity_bp": "/Game/MetaHumans/启梦MH通用还原修订/Assembly/启梦MH通用还原修订/BP_启梦MH通用还原修订.BP_启梦MH通用还原修订",
+  "chosen_solver_profile": "Balanced",
+  "actual_metrics": {
+    "surface_mean_cm": 0.02530766578279271,
+    "raw_surface_symmetric_mean_cm": 0.02796619077491308,
+    "surface_model": "phong",
+    "normal_one_minus_cosine": 0.038530908620937165,
+    "boundary_candidate_mean_cm": 0.07798145390394669,
+    "projected_contour_normalized": {
+      "(0, 0)": 0.007112614192645377,
+      "(-45, 0)": 0.005828526853664308,
+      "(45, 0)": 0.005886173781703561,
+      "(-90, 0)": 0.005876776366973382,
+      "(90, 0)": 0.005876776366973381,
+      "(0, -20)": 0.007259312362243877,
+      "(0, 20)": 0.007152107061090098
+    },
+    "official_curve_surface_distances": {
+      "crv_ear_central_lower_l": {
+        "surface_mean_cm": 0.011489081144850173,
+        "surface_max_cm": 0.03408136665589926,
+        "source_semantic_verified": false
+      },
+      "crv_ear_central_lower_r": {
+        "surface_mean_cm": 0.012161803877631305,
+        "surface_max_cm": 0.04641394824703456,
+        "source_semantic_verified": false
+      },
+      "crv_ear_central_upper_l": {
+        "surface_mean_cm": 0.01056012970458163,
+        "surface_max_cm": 0.05388123452420771,
+        "source_semantic_verified": false
+      },
+      "crv_ear_central_upper_r": {
+        "surface_mean_cm": 0.008861102642377015,
+        "surface_max_cm": 0.03440367503782885,
+        "source_semantic_verified": false
+      },
+      "crv_ear_inner_helix_l": {
+        "surface_mean_cm": 0.033721883079182176,
+        "surface_max_cm": 0.20062200638057281,
+        "source_semantic_verified": false
+      },
+      "crv_ear_inner_helix_r": {
+        "surface_mean_cm": 0.03266696359610703,
+        "surface_max_cm": 0.2814597557920418,
+        "source_semantic_verified": false
+      },
+      "crv_ear_outer_helix_l": {
+        "surface_mean_cm": 0.002877952686557357,
+        "surface_max_cm": 0.008630520786636335,
+        "source_semantic_verified": false
+      },
+      "crv_ear_outer_helix_r": {
+        "surface_mean_cm": 0.0041019554411905025,
+        "surface_max_cm": 0.016951648674778563,
+        "source_semantic_verified": false
+      },
+      "crv_eyelid_lower_l": {
+        "surface_mean_cm": 0.016472750916065936,
+        "surface_max_cm": 0.05904971963270195,
+        "source_semantic_verified": false
+      },
+      "crv_eyelid_lower_r": {
+        "surface_mean_cm": 0.020769324191183297,
+        "surface_max_cm": 0.06169747996963563,
+        "source_semantic_verified": false
+      },
+      "crv_eyelid_upper_l": {
+        "surface_mean_cm": 0.03686833862865247,
+        "surface_max_cm": 0.08449178352551302,
+        "source_semantic_verified": false
+      },
+      "crv_eyelid_upper_r": {
+        "surface_mean_cm": 0.016120324661950864,
+        "surface_max_cm": 0.07642327436783314,
+        "source_semantic_verified": false
+      },
+      "crv_lip_lower_outer_l": {
+        "surface_mean_cm": 0.01690325798041721,
+        "surface_max_cm": 0.13604217779823757,
+        "source_semantic_verified": false
+      },
+      "crv_lip_lower_outer_r": {
+        "surface_mean_cm": 0.013227974343953687,
+        "surface_max_cm": 0.0802176138039094,
+        "source_semantic_verified": false
+      },
+      "crv_lip_philtrum_l": {
+        "surface_mean_cm": 0.006916896026888326,
+        "surface_max_cm": 0.01172962829928744,
+        "source_semantic_verified": false
+      },
+      "crv_lip_philtrum_r": {
+        "surface_mean_cm": 0.007382784484743032,
+        "surface_max_cm": 0.011849244946430507,
+        "source_semantic_verified": false
+      },
+      "crv_lip_upper_outer_l": {
+        "surface_mean_cm": 0.013509028498112516,
+        "surface_max_cm": 0.05317477147903065,
+        "source_semantic_verified": false
+      },
+      "crv_lip_upper_outer_r": {
+        "surface_mean_cm": 0.011727791031714674,
+        "surface_max_cm": 0.04698819622383593,
+        "source_semantic_verified": false
+      },
+      "crv_nasolabial_l": {
+        "surface_mean_cm": 0.0032010532783558593,
+        "surface_max_cm": 0.009822283790556241,
+        "source_semantic_verified": false
+      },
+      "crv_nasolabial_r": {
+        "surface_mean_cm": 0.002155249012351657,
+        "surface_max_cm": 0.005551607538187185,
+        "source_semantic_verified": false
+      },
+      "crv_nostril_l": {
+        "surface_mean_cm": 0.06709743334144656,
+        "surface_max_cm": 0.22017064506257578,
+        "source_semantic_verified": false
+      },
+      "crv_nostril_r": {
+        "surface_mean_cm": 0.08006608319709078,
+        "surface_max_cm": 0.20982274410718493,
+        "source_semantic_verified": false
+      },
+      "crv_outer_eyelid_edge_left_lower": {
+        "surface_mean_cm": 0.004142225646272656,
+        "surface_max_cm": 0.026558488861105123,
+        "source_semantic_verified": false
+      },
+      "crv_outer_eyelid_edge_left_upper": {
+        "surface_mean_cm": 0.002666095347051435,
+        "surface_max_cm": 0.00743712781586207,
+        "source_semantic_verified": false
+      },
+      "crv_outer_eyelid_edge_right_lower": {
+        "surface_mean_cm": 0.004431951994924842,
+        "surface_max_cm": 0.025711904343559373,
+        "source_semantic_verified": false
+      },
+      "crv_outer_eyelid_edge_right_upper": {
+        "surface_mean_cm": 0.0023402551328621877,
+        "surface_max_cm": 0.0077132813225592595,
+        "source_semantic_verified": false
+      },
+      "crv_skull_middle": {
+        "surface_mean_cm": 0.6509269436870024,
+        "surface_max_cm": 6.2509854428093545,
+        "source_semantic_verified": false
+      },
+      "ear_antitragus_l": {
+        "surface_mean_cm": 0.011579889087531502,
+        "surface_max_cm": 0.02180608376161542,
+        "source_semantic_verified": false
+      },
+      "ear_antitragus_r": {
+        "surface_mean_cm": 0.01069457584531152,
+        "surface_max_cm": 0.024919148893979882,
+        "source_semantic_verified": false
+      },
+      "ear_concha_l": {
+        "surface_mean_cm": 0.011006315884383723,
+        "surface_max_cm": 0.05388123452420771,
+        "source_semantic_verified": false
+      },
+      "ear_concha_r": {
+        "surface_mean_cm": 0.008658495677219222,
+        "surface_max_cm": 0.03440367503782885,
+        "source_semantic_verified": false
+      },
+      "ear_heel_l": {
+        "surface_mean_cm": 0.010560335369997174,
+        "surface_max_cm": 0.0199908237799142,
+        "source_semantic_verified": false
+      },
+      "ear_heel_r": {
+        "surface_mean_cm": 0.009079798143778102,
+        "surface_max_cm": 0.020696309250107767,
+        "source_semantic_verified": false
+      },
+      "ear_inner_helix_l": {
+        "surface_mean_cm": 0.033721883079182176,
+        "surface_max_cm": 0.20062200638057281,
+        "source_semantic_verified": false
+      },
+      "ear_inner_helix_r": {
+        "surface_mean_cm": 0.032666963596107025,
+        "surface_max_cm": 0.2814597557920418,
+        "source_semantic_verified": false
+      },
+      "ear_outer_helix_l": {
+        "surface_mean_cm": 0.002877952686557357,
+        "surface_max_cm": 0.008630520786636335,
+        "source_semantic_verified": false
+      },
+      "ear_outer_helix_r": {
+        "surface_mean_cm": 0.004101955441190502,
+        "surface_max_cm": 0.016951648674778563,
+        "source_semantic_verified": false
+      },
+      "ear_tragus_l": {
+        "surface_mean_cm": 0.011314670595390677,
+        "surface_max_cm": 0.036395061430383874,
+        "source_semantic_verified": false
+      },
+      "ear_tragus_r": {
+        "surface_mean_cm": 0.01361810998309787,
+        "surface_max_cm": 0.049560114111689375,
+        "source_semantic_verified": false
+      }
+    },
+    "triangle_guard_violations": 0,
+    "orientation_inversions": 0,
+    "quad_diagonal_protection": true,
+    "flipped_triangles": 0,
+    "legacy_flipped_triangles_includes_guard_margin": true,
+    "edge_ratio_min": 0.5495443091154789,
+    "edge_ratio_max": 1.4508892220918534,
+    "score": 0.0046524099741577386,
+    "semantic_correspondence_complete": false,
+    "visual_acceptance_passed": false
+  },
+  "baseline_metrics": {
+    "surface_mean_cm": 0.04491867770751628,
+    "raw_surface_symmetric_mean_cm": 0.04325186129983358,
+    "surface_model": "phong",
+    "normal_one_minus_cosine": 0.045216416933304845,
+    "boundary_candidate_mean_cm": 0.11973714415766616,
+    "projected_contour_normalized": {
+      "(0, 0)": 0.007842288277631278,
+      "(-45, 0)": 0.00690667230952466,
+      "(45, 0)": 0.0068607940803091325,
+      "(-90, 0)": 0.007133189206858627,
+      "(90, 0)": 0.0071331892068586256,
+      "(0, -20)": 0.008263075570300375,
+      "(0, 20)": 0.007837617109513157
+    },
+    "official_curve_surface_distances": {
+      "crv_ear_central_lower_l": {
+        "surface_mean_cm": 0.044832273353824025,
+        "surface_max_cm": 0.11404764389227516,
+        "source_semantic_verified": false
+      },
+      "crv_ear_central_lower_r": {
+        "surface_mean_cm": 0.0499623675305334,
+        "surface_max_cm": 0.15708526998850314,
+        "source_semantic_verified": false
+      },
+      "crv_ear_central_upper_l": {
+        "surface_mean_cm": 0.04532170256976297,
+        "surface_max_cm": 0.14173222691866397,
+        "source_semantic_verified": false
+      },
+      "crv_ear_central_upper_r": {
+        "surface_mean_cm": 0.046680350309595706,
+        "surface_max_cm": 0.11630483372370391,
+        "source_semantic_verified": false
+      },
+      "crv_ear_inner_helix_l": {
+        "surface_mean_cm": 0.0644301276251313,
+        "surface_max_cm": 0.2615507492375148,
+        "source_semantic_verified": false
+      },
+      "crv_ear_inner_helix_r": {
+        "surface_mean_cm": 0.05949626590686237,
+        "surface_max_cm": 0.28145975579161725,
+        "source_semantic_verified": false
+      },
+      "crv_ear_outer_helix_l": {
+        "surface_mean_cm": 0.018621152391129412,
+        "surface_max_cm": 0.05186473958701092,
+        "source_semantic_verified": false
+      },
+      "crv_ear_outer_helix_r": {
+        "surface_mean_cm": 0.01828961580315711,
+        "surface_max_cm": 0.060788480272228926,
+        "source_semantic_verified": false
+      },
+      "crv_eyelid_lower_l": {
+        "surface_mean_cm": 0.026869228616725502,
+        "surface_max_cm": 0.07998374445204134,
+        "source_semantic_verified": false
+      },
+      "crv_eyelid_lower_r": {
+        "surface_mean_cm": 0.03416462514998541,
+        "surface_max_cm": 0.0805913153211925,
+        "source_semantic_verified": false
+      },
+      "crv_eyelid_upper_l": {
+        "surface_mean_cm": 0.05901335072621513,
+        "surface_max_cm": 0.1214490674301778,
+        "source_semantic_verified": false
+      },
+      "crv_eyelid_upper_r": {
+        "surface_mean_cm": 0.03136225806983979,
+        "surface_max_cm": 0.10806285053626309,
+        "source_semantic_verified": false
+      },
+      "crv_lip_lower_outer_l": {
+        "surface_mean_cm": 0.03195690731455135,
+        "surface_max_cm": 0.12329820779628026,
+        "source_semantic_verified": false
+      },
+      "crv_lip_lower_outer_r": {
+        "surface_mean_cm": 0.024714969433890798,
+        "surface_max_cm": 0.12230797881088354,
+        "source_semantic_verified": false
+      },
+      "crv_lip_philtrum_l": {
+        "surface_mean_cm": 0.028402136222778464,
+        "surface_max_cm": 0.04783148867875538,
+        "source_semantic_verified": false
+      },
+      "crv_lip_philtrum_r": {
+        "surface_mean_cm": 0.01959287055526125,
+        "surface_max_cm": 0.03209650606929422,
+        "source_semantic_verified": false
+      },
+      "crv_lip_upper_outer_l": {
+        "surface_mean_cm": 0.021015665121347,
+        "surface_max_cm": 0.06153261588960796,
+        "source_semantic_verified": false
+      },
+      "crv_lip_upper_outer_r": {
+        "surface_mean_cm": 0.02473988830947221,
+        "surface_max_cm": 0.05980707615021785,
+        "source_semantic_verified": false
+      },
+      "crv_nasolabial_l": {
+        "surface_mean_cm": 0.013753016912598656,
+        "surface_max_cm": 0.028093903452525958,
+        "source_semantic_verified": false
+      },
+      "crv_nasolabial_r": {
+        "surface_mean_cm": 0.00807869203965504,
+        "surface_max_cm": 0.01830889147830827,
+        "source_semantic_verified": false
+      },
+      "crv_nostril_l": {
+        "surface_mean_cm": 0.0843381460143773,
+        "surface_max_cm": 0.217066477704345,
+        "source_semantic_verified": false
+      },
+      "crv_nostril_r": {
+        "surface_mean_cm": 0.09442026847147061,
+        "surface_max_cm": 0.20936587085854563,
+        "source_semantic_verified": false
+      },
+      "crv_outer_eyelid_edge_left_lower": {
+        "surface_mean_cm": 0.025550008532857875,
+        "surface_max_cm": 0.06032216162094569,
+        "source_semantic_verified": false
+      },
+      "crv_outer_eyelid_edge_left_upper": {
+        "surface_mean_cm": 0.04150350395157348,
+        "surface_max_cm": 0.09760378425925986,
+        "source_semantic_verified": false
+      },
+      "crv_outer_eyelid_edge_right_lower": {
+        "surface_mean_cm": 0.04178100286893338,
+        "surface_max_cm": 0.08887345361252108,
+        "source_semantic_verified": false
+      },
+      "crv_outer_eyelid_edge_right_upper": {
+        "surface_mean_cm": 0.038917157234339174,
+        "surface_max_cm": 0.08148274008369581,
+        "source_semantic_verified": false
+      },
+      "crv_skull_middle": {
+        "surface_mean_cm": 0.6783647606391691,
+        "surface_max_cm": 6.250985484986245,
+        "source_semantic_verified": false
+      },
+      "ear_antitragus_l": {
+        "surface_mean_cm": 0.046030204823080095,
+        "surface_max_cm": 0.08560913748443817,
+        "source_semantic_verified": false
+      },
+      "ear_antitragus_r": {
+        "surface_mean_cm": 0.04469439034345399,
+        "surface_max_cm": 0.07286709847407324,
+        "source_semantic_verified": false
+      },
+      "ear_concha_l": {
+        "surface_mean_cm": 0.048523886606480285,
+        "surface_max_cm": 0.14173222691866397,
+        "source_semantic_verified": false
+      },
+      "ear_concha_r": {
+        "surface_mean_cm": 0.053821744325036086,
+        "surface_max_cm": 0.11630483372370391,
+        "source_semantic_verified": false
+      },
+      "ear_heel_l": {
+        "surface_mean_cm": 0.03622620528927118,
+        "surface_max_cm": 0.08334045749383094,
+        "source_semantic_verified": false
+      },
+      "ear_heel_r": {
+        "surface_mean_cm": 0.03321145601447565,
+        "surface_max_cm": 0.07716937880806815,
+        "source_semantic_verified": false
+      },
+      "ear_inner_helix_l": {
+        "surface_mean_cm": 0.06443012762513128,
+        "surface_max_cm": 0.2615507492375148,
+        "source_semantic_verified": false
+      },
+      "ear_inner_helix_r": {
+        "surface_mean_cm": 0.05949626590686237,
+        "surface_max_cm": 0.28145975579161725,
+        "source_semantic_verified": false
+      },
+      "ear_outer_helix_l": {
+        "surface_mean_cm": 0.018621152391129416,
+        "surface_max_cm": 0.05186473958701092,
+        "source_semantic_verified": false
+      },
+      "ear_outer_helix_r": {
+        "surface_mean_cm": 0.01828961580315711,
+        "surface_max_cm": 0.060788480272228926,
+        "source_semantic_verified": false
+      },
+      "ear_tragus_l": {
+        "surface_mean_cm": 0.03427048429686585,
+        "surface_max_cm": 0.09886287171682241,
+        "source_semantic_verified": false
+      },
+      "ear_tragus_r": {
+        "surface_mean_cm": 0.0381236528682455,
+        "surface_max_cm": 0.13448543794929224,
+        "source_semantic_verified": false
+      }
+    },
+    "triangle_guard_violations": 0,
+    "orientation_inversions": 0,
+    "quad_diagonal_protection": true,
+    "flipped_triangles": 0,
+    "legacy_flipped_triangles_includes_guard_margin": true,
+    "edge_ratio_min": 1.0,
+    "edge_ratio_max": 1.0,
+    "score": 0.006918623226077171,
+    "semantic_correspondence_complete": false,
+    "visual_acceptance_passed": false
+  },
+  "quad_changes_after_rig": 44,
+  "assembly_geometry": {
+    "head_vertex_count": 24049,
+    "max_rig_to_assembly_delta_cm": 0.0,
+    "topology_check": {
+      "equivalent": true,
+      "kind": "identical",
+      "quad_flips": []
+    },
+    "visual_acceptance_passed": false,
+    "mesh": "/Game/MetaHumans/启梦MH通用还原修订/Assembly/启梦MH通用还原修订/Face/SKM_启梦MH通用还原修订_FaceMesh.SKM_启梦MH通用还原修订_FaceMesh",
+    "reference_sha256": "5c1bcc152581f0cb09de596f328243b5fb40c7c7101646f7f5babb9b2797b15e",
+    "assembled_head_sha256": "5c1bcc152581f0cb09de596f328243b5fb40c7c7101646f7f5babb9b2797b15e"
+  },
+  "face_lods": 8,
+  "body_lods": 4,
+  "dependency_count": 312,
+  "texture_count": 95,
+  "cooked_verification": {
+    "passed": true,
+    "evidence": "I:\\Document\\UE5\\SmartNPC\\Saved\\MHFaceCookV9\\result.json",
+    "evidence_sha256": "18a875d6513acdbfbf645117d69bd9b5b7169cffd25824d14e59badc9892281f",
+    "blueprint_sha256": "8b2921ad70286a166910548b6cf4f1fc5903a60d37fc6a2e782a983bd10b0c5c",
+    "game_exit_code": 0,
+    "scope": "Win64 Development NullRHI; dynamic spawn, animation, revision isolation, EndPlay, respawn; no visual acceptance"
+  },
+  "source_semantics_reviewed": false,
+  "visual_acceptance_passed": false,
+  "limitations": [
+    "31 semantics per family remain unverified; no independent nasolabial Morph support",
+    "Real full lifecycle validated on this G2F input; G2M and other identities need regression",
+    "Initial official conform and posed/A-pose head export remain prerequisites; old UI button not integrated",
+    "Eye corners and lip margins retain residuals; Phong reference is not claimed as VaM subdivision",
+    "No full self-intersection proof or facial-animation visual acceptance",
+    "VaM materials/groom/clothes/physics and third-person locomotion are outside this face work"
+  ]
+}

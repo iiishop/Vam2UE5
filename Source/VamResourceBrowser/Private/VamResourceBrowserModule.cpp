@@ -147,12 +147,15 @@ class FVamResourceBrowserModule final : public IModuleInterface
                         return FReply::Handled();
                     }) ]
                 + SHorizontalBox::Slot().AutoWidth().Padding(8,0)
-                [ SNew(SButton).Text(LOCTEXT("BuildNative", "生成 UE 人物资产"))
-                    .ToolTipText(LOCTEXT("BuildNativeTip", "选择目标目录与可编辑 Morph 集；支持进度、取消与受保护的重导入"))
+                [ SNew(SButton).Text(LOCTEXT("BuildMetaHuman", "生成 MetaHuman 人物"))
+                    .ToolTipText(LOCTEXT("BuildMetaHumanTip", "默认 MetaHuman；本地拟合与恢复配方，云端请求另行授权"))
                     .OnClicked_Lambda([]() {
-                        ShowVamNativeBuildWindow();
+                        ShowVamNativeBuildWindow(false,true);
                         return FReply::Handled();
                     }) ]
+                + SHorizontalBox::Slot().AutoWidth().Padding(8,0)
+                [ SNew(SButton).Text(LOCTEXT("NativeFallback", "Native 回退"))
+                    .OnClicked_Lambda([](){ShowVamNativeBuildWindow();return FReply::Handled();}) ]
                 + SHorizontalBox::Slot().AutoWidth().Padding(8,0)
                 [ SNew(SButton).Text(LOCTEXT("UpgradeRuntime", "升级已导入人物软组织"))
                     .ToolTipText(LOCTEXT("UpgradeRuntimeTip", "先在内容浏览器选择人物 BP 或 CD_Character；保存、独立重载后生成 Runtime BP"))

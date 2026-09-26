@@ -1,0 +1,165 @@
+{
+  "schema": "vam-metahuman-mh00-evidence/1",
+  "date": "2026-09-25",
+  "branch": "MetaHuman",
+  "baseline_head": "1b639e382d556b0423aa49f465c63b09388219bb",
+  "initial_worktree_clean": true,
+  "initial_delta_from_baseline": 0,
+  "engine_at_start": "5.8.2-56702186",
+  "engine_at_execution": "5.8.3-58210709",
+  "compatible_changelist": 55116800,
+  "state": "MH00EngineeringVerified",
+  "local_chain": [
+    "locked SourceIR/SourceMaterialIR/Plan verified",
+    "neutral p0 head/body extracted without skin/physics or native build",
+    "official Character initialized",
+    "ConformToTargetMeshes success and completion callback checked",
+    "face/body states committed",
+    "source assets saved",
+    "separate UE process source reload passed"
+  ],
+  "character": "/Game/MetaHumans/启梦MH00/Source/启梦MH00",
+  "character_file_sha256": "df1964983fe660cc17e9b5758bb84a6bfaf4a5310874a1ef03690d6ce882dda7",
+  "recipe": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\MetaHuman\\Jobs\\MH00-local-proof\\recipe.json",
+  "tests": {
+    "new_python": {
+      "passed": 10
+    },
+    "existing_native_source": {
+      "passed": 5
+    },
+    "existing_job_state": {
+      "passed": 1
+    },
+    "ue_revision_isolation": {
+      "passed": 1
+    },
+    "editor_compile": "passed",
+    "game_development_plugin_compile": "passed",
+    "initial_shipping_plugin_compile": "passed",
+    "lifecycle_development_compile": "passed",
+    "editor_render_entry_compile": "passed",
+    "isolated_game_build_cook_package": "passed",
+    "cooked_lifecycle": "passed"
+  },
+  "assembly_verified": true,
+  "cooked_lifecycle_verified": true,
+  "visual_acceptance_passed": false,
+  "cloud_requests_dispatched": 2,
+  "remaining": [
+    "Manual visual observation/calibration; no visual acceptance claimed",
+    "Subsequent MH stages: own materials, Groom/Cloth, interactions and anatomical extensions"
+  ],
+  "retained_failures": [
+    {
+      "attempt": "second compile",
+      "cause": "const USkeletalMesh* did not match GetDNAReader signature",
+      "resolution": "corrected per installed header; final Editor compile passed"
+    },
+    {
+      "attempt": "first conform task",
+      "cause": "Python bool plus out parameter converted to Optional[str], not tuple",
+      "resolution": "fixed return handling; same Draft replayed and independently verified"
+    },
+    {
+      "attempt": "game plugin compile with UBA",
+      "cause": "UBA device read error on existing Windows SDK header",
+      "resolution": "NoUBA retry passed; SDK was not modified"
+    },
+    {
+      "attempt": "first official assembly",
+      "cause": "TextureGraph commandlet initialization blocked; official texture bake absent and BP has no Face/Body meshes",
+      "resolution": "Preserved partial Assembly; retrying explicit AssemblyV2 with AllowCommandletRendering and TextureGraph.AllowCommandlets=1"
+    },
+    {
+      "attempt": "assembly save integration",
+      "cause": "BuildMetaHuman reported Control Rig upgrade link diagnostics through Python after assembling; no complete save had run",
+      "resolution": "Save every generated package as Partial, retain diagnostic, require independent blueprint compilation and dependency validation; passed"
+    },
+    {
+      "attempt": "AssemblyV2 reload",
+      "cause": "Face post-process was null because official registry-based lookup ran before synchronous asset discovery",
+      "resolution": "search_all_assets(True) before official generation; AssemblyV3 independently verified with both post-process classes"
+    },
+    {
+      "attempt": "isolated cook Zen storage",
+      "cause": "Windows oplog unavailable; virtual-network endpoint wait and explicit loopback retries did not establish output storage",
+      "resolution": "Public CookCommandlet SkipZenStore flag; reused unchanged isolated host, wrote PackageLoose; UAT and actual packaged lifecycle both exited 0"
+    },
+    {
+      "attempt": "first loose cook dispatch",
+      "cause": "previous AutomationTool had not yet released singleton lock",
+      "resolution": "waited for exit, retained failure log, next dispatch succeeded"
+    }
+  ],
+  "limitations": [
+    "Solver warned about zero camera image size; no automatic front-image landmark capture was implemented. Successful geometry solve is not likeness or neutrality acceptance.",
+    "Neutral classification excludes tagged expressions/pose controls; baked-in expression sculpts may require recipe classification.",
+    "Surface p0 retains original unexecuted source rig formulas as diagnostics.",
+    "ChaosClothAssetEditor installed but not enabled in project; no cloth-authoring workflow tested."
+  ],
+  "logs": {
+    "Saved/MH00-build.log": "ef1f9f1b79ec15c20e2e28637f3861efc279fbc8e0f82273042bdc63568fbb91",
+    "Saved/MH00-build-final.log": "04723f0a01abb83a92c5e580c96052afb2631db1153ddf443a99f93cdbcbdc95",
+    "Saved/MH00-editor-fix.log": "42353a3f6505295f1f9b53105c1d6756d69a15009b17f3e53f8eb31bd27e1910",
+    "Saved/MH00-editor-final.log": "0a93de1502828019e6c4f930f210e85eae3de5c8ab75bef4aa59a5ec391fc3ec",
+    "Saved/MH00-game-plugin.log": "7a7e403e5e132a2a7370df6f198f8b19e02608b471d8f208395042152e2d9748",
+    "Saved/MH00-game-noUBA.log": "4ad5d672660505086a13a274ac80ebf2d52748a89e5d67018cbcd1eb8bbb5093",
+    "Saved/MetaHuman/python-tests.log": "11bedb1b786e481d684c781f7f9496a65aa9fb55026011030b2c313619277ff8",
+    "Saved/MetaHuman/automation.log": "aef575b68962ffb7c3d6f6557c2fe79cb40a0b799d7571c1db977fc778e79f31",
+    "Saved\\MetaHuman\\Jobs\\MH00-local-proof\\attempt01-python-return-contract.log": "d3f1aed05d9763da2b34e6df2e368aa55d410274c46bf2e9c12c8c913f8b6d2b",
+    "Saved\\MetaHuman\\Jobs\\MH00-local-proof\\attempt02.log": "040a5ee75d58beafcde1a03b3832ec88780d44e8e6d644432b596fe5682c11fe",
+    "Saved\\MetaHuman\\Jobs\\MH00-local-proof\\source-reload.log": "cd38a4b53319cc3671fadb675ede3e152df5b1a17b45de09124f406c5a88d024"
+  },
+  "compiled_source_sha256": {
+    "Source/VamCharacterRuntime/Private/VamMetaHumanComponent.cpp": "8ac95b47a45f21e7caf64443c8cc23aeb522dca6e2d9a8d4f84c2f3686ad913c",
+    "Source/VamCharacterRuntime/Public/VamMetaHumanComponent.h": "f22f6101180f8bb6d86e7c7b6c0dc79d61c655b4a7d8ec2d2655b30c4da19553",
+    "Source/VamResourceBrowser/Private/VamMetaHumanEditorAdapter.cpp": "49a26b2a0a02202a64edea361c7eff2c2647268ed5ed97ae192ee089623ad282",
+    "Source/VamResourceBrowser/Private/Tests/VamMetaHumanTests.cpp": "53ed6598ab33a999085d083710e0f943f29a810f3bf5bdaa39b95da599b5c208",
+    "Source/VamResourceBrowser/Public/VamMetaHumanEditorAdapter.h": "153d04fab00ea95b2d11249bf5cecce34fd5cda4f53c69bdfae437f0fecd8c0a",
+    "Source/VamResourceBrowser/Private/VamNativeBuildWindow.cpp": "1d9cb0cc7f356d8098dd4cd3906b9eacdd8cd9bd0bbd6bba29937b8d78f99405",
+    "Source/VamResourceBrowser/Private/VamResourceBrowserModule.cpp": "6c887cfb7636dc01111b8812e3c2302500c226f5706a2469d0a57c2bfd07d8d6",
+    "Source/VamResourceBrowser/VamResourceBrowser.Build.cs": "c66cfeff9104bf9b9c6e63844ebeef350a7799aaf683588a9ce28fa17853cd39",
+    "VamResourceBrowser.uplugin": "a39ce944b498889b7a64e935db3e84c336a532c313936e7afb8177fe9bbd0f23"
+  },
+  "installed_dll_sha256": {
+    "UnrealEditor-VamResourceBrowser.dll": "fecd3736b4f6c1b06fdd0bdfefa9d548dfb9e9e961d2cfa59fe86959d19ad3ea",
+    "UnrealEditor-VamCharacterRuntime.dll": "c5d65823e99e94e3e8c497fa729d2e1e7519cf74c512880cf7beabca99d7ca12"
+  },
+  "cloud_authorization": {
+    "granted": true,
+    "standing_same_scope": true,
+    "date": "2026-09-25",
+    "local_receipt": "Saved/MetaHuman/cloud-consent.json"
+  },
+  "cloud_request_status": "Epic login succeeded; official full AutoRig and texture source requests completed and saved.",
+  "authorization_change_sha256": {
+    "Scripts/ue_metahuman_job.py": "a1726d98c86b3ac685ff58a75a3f62ac110d1ed132233a9e3516508420aec6b2",
+    "Scripts/vam_metahuman_consent.py": "362e1d6e62577dcfeae2c44c4300c216516bc2ceef41c8aa37f8dd451a25f1d3",
+    "Scripts/test_metahuman_consent.py": "2f6fc9808a6af73dab3846aa5714fdcaf504e33d91bf4e3debed4c1348369b18",
+    "RunMetaHuman.ps1": "1adbdc4c5ee4b71a5aa72f51d4953d418abedc501a3c72853745de2447f4f2f0"
+  },
+  "blueprint": "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/BP_启梦MH00.BP_启梦MH00",
+  "dependency_counts": {
+    "packages": 312,
+    "game_packages": 194,
+    "textures": 95
+  },
+  "cooked_evidence": "Evidence/MH00/cooked-lifecycle.json",
+  "final_source_sha256": {
+    "RunMetaHuman.ps1": "1adbdc4c5ee4b71a5aa72f51d4953d418abedc501a3c72853745de2447f4f2f0",
+    "RunMetaHumanCooked.ps1": "7f4fda6e508a683e64dab09168d47896db47e0ce8357b92245b19992baaefcbf",
+    "Scripts/test_metahuman.py": "9212d5b5236b3c02e103f0162dc9564283c19705520a5d0010b37a7d84111e58",
+    "Scripts/test_metahuman_consent.py": "2f6fc9808a6af73dab3846aa5714fdcaf504e33d91bf4e3debed4c1348369b18",
+    "Scripts/ue_metahuman_empty_map.py": "42534fe926319ea4d79f3ef87816ca6a1c26870cd38f6a876ead167aad6f28f1",
+    "Scripts/ue_metahuman_job.py": "a1726d98c86b3ac685ff58a75a3f62ac110d1ed132233a9e3516508420aec6b2",
+    "Scripts/ue_metahuman_probe.py": "c89f755f09fae5ee3df1ca6f70954b1049d24a997ef4068604c10871d7a09710",
+    "Scripts/ue_metahuman_verify.py": "a06e512ecc64ad8e01b49c9e43b2e2e02c349507c9dd6bddcc166db58b05521c",
+    "Scripts/vam_metahuman.py": "9d76216e913588ba5bc3f3c98f78f317d9a64bbb92179059a95ed1dabe81bdb7",
+    "Scripts/vam_metahuman_consent.py": "362e1d6e62577dcfeae2c44c4300c216516bc2ceef41c8aa37f8dd451a25f1d3",
+    "Source/VamResourceBrowser/Private/VamMetaHumanEditorAdapter.cpp": "49a26b2a0a02202a64edea361c7eff2c2647268ed5ed97ae192ee089623ad282",
+    "Source/VamResourceBrowser/Private/VamNativeBuildWindow.cpp": "1d9cb0cc7f356d8098dd4cd3906b9eacdd8cd9bd0bbd6bba29937b8d78f99405",
+    "Source/VamCharacterRuntime/Private/VamMetaHumanLifecycleCheck.cpp": "90e9c64f7248491394ae8e69d565e6070b061cfe0daa09cb6dfc0e1bdc37693a",
+    "Source/VamCharacterRuntime/Private/VamMetaHumanComponent.cpp": "8ac95b47a45f21e7caf64443c8cc23aeb522dca6e2d9a8d4f84c2f3686ad913c"
+  }
+}

@@ -1,0 +1,1079 @@
+{
+  "schema": "vam-cohort-structure/1",
+  "state": "CrossPresetEngineeringReviewComplete",
+  "members": [
+    "fei",
+    "cat29"
+  ],
+  "historical_reference": "EyeCornerV20",
+  "shared_residual_code": {
+    "vam_face_adaptive.py": "4108f520ce67baecde2b4b5df99980bde54cae923ffff4fd8e8ff9ec09b5c331",
+    "vam_face_adaptive_cli.py": "db5386079c1bc6fcd2b13beda62ca87fcc2436f6bcd9a460b5156ea2a1a18ad3",
+    "vam_face_phong.py": "788d3f718a05c416d10b31365cd94359180c58963cc514c8743c70eaf9615774",
+    "vam_face_fidelity.py": "5ca3f664030b93c7dfdb901c5906662b6fd289d6c12155883a9b3cd1de5efe2b",
+    "vam_face_surface.py": "0f5c62a2d09efad723b8da778ce11a051ec3ffc132aa9d93833b4e9f944b6086",
+    "vam_face_topology_calibrate.py": "f06cc75827fe0b2ff3e84e914023d6346426c0d539c7d7b16c8c8ca50358b73a",
+    "vam_face_topology_equivalence.py": "db089cc33476b9fd5f7a2eb0fc2ee4c87d33f0d4ab42b6113322c9180a49329f",
+    "vam_face_eye_correspondence.py": "4de977b7709b2ab5c59ab03fbfe37d66e696c97d86af92dbb99a8ecc1b21bb20",
+    "vam_face_eye_intersections.py": "1f2933c6b060e5e515cc79cee12c9c9eae8aa355c30aae5190a88300cf407ca0",
+    "vam_face_eye_regions.py": "5eb9ef774ce3a84f6a52ff3691829105598ae0b9412b5c54e573f68abdceb004"
+  },
+  "source_diversity": [
+    {
+      "a": "fei",
+      "b": "cat29",
+      "matched_source_vertices": 3564,
+      "centered_rms_difference_cm": 0.3503909433710945,
+      "method": "same source vertex IDs; remove head translation only, no identity fit"
+    },
+    {
+      "a": "fei",
+      "b": "qimeng",
+      "matched_source_vertices": 3564,
+      "centered_rms_difference_cm": 0.3446205987926273,
+      "method": "same source vertex IDs; remove head translation only, no identity fit"
+    },
+    {
+      "a": "cat29",
+      "b": "qimeng",
+      "matched_source_vertices": 3564,
+      "centered_rms_difference_cm": 0.5358273768433952,
+      "method": "same source vertex IDs; remove head translation only, no identity fit"
+    }
+  ],
+  "branch": "MetaHuman",
+  "head": "1b639e382d556b0423aa49f465c63b09388219bb",
+  "source_semantics_verified": false,
+  "visual_acceptance_passed": false,
+  "results": {
+    "fei": {
+      "baseline": {
+        "state": "VerifiedDiagnosticCookedLifecycle",
+        "quality_status": "DraftStructuralBaseline",
+        "character": "/Game/MetaHumans/feiMH结构检查初始/Source/feiMH结构检查初始",
+        "bp": "/Game/MetaHumans/feiMH结构检查初始/Assembly/feiMH结构检查初始/BP_feiMH结构检查初始.BP_feiMH结构检查初始",
+        "assembly_valid": true,
+        "full_rig": true,
+        "max_reload_delta_cm": 0.0,
+        "assembly_receipt_sha256": "09b719556707af6a5ba83bfdd87f0c3b5f6ccf3e0ac5e81caeaaa81af649b4cc",
+        "residual_pipeline_accepted": false,
+        "visual_acceptance_passed": false,
+        "scope": "Full official lifecycle baseline, not a repaired residual result; no failed fidelity gate was accepted",
+        "assembly_geometry": {
+          "head_vertex_count": 24049,
+          "max_rig_to_assembly_delta_cm": 0.0,
+          "topology_check": {
+            "equivalent": true,
+            "kind": "identical",
+            "quad_flips": []
+          },
+          "visual_acceptance_passed": false,
+          "blueprint": "/Game/MetaHumans/feiMH结构检查初始/Assembly/feiMH结构检查初始/BP_feiMH结构检查初始.BP_feiMH结构检查初始"
+        },
+        "rig_stage_change": {
+          "max_tracked_to_rig_delta_cm": 1.5295996601434175e-05,
+          "mean_tracked_to_rig_delta_cm": 2.4885816674304815e-06,
+          "triangles_identical": false
+        },
+        "cooked_lifecycle": {
+          "receipt": "I:\\Document\\UE5\\SmartNPC\\Saved\\MHCohort_fei\\result.json",
+          "sha256": "67d4021edcc53f905d267df1cd5d63192e1534fbdda51e9b8d8776c58f533d7a",
+          "result": {
+            "passed": true,
+            "cooked": true,
+            "reason": "Dynamic spawn, BeginPlay, animation, surface isolation, EndPlay and respawn passed",
+            "class": "/Game/MetaHumans/feiMH结构检查初始/Assembly/feiMH结构检查初始/BP_feiMH结构检查初始.BP_feiMH结构检查初始_C",
+            "visual_acceptance_passed": false
+          }
+        }
+      },
+      "baseline_character_unchanged_since_reload": true,
+      "stage_eye_skin_crossings": {
+        "Coarse": 4,
+        "Tracked": 22,
+        "OfficialBaseline": 22
+      },
+      "provisional_boundaries": [
+        "eyelid.left",
+        "eyelid.right",
+        "lip_outer.0",
+        "nostril.0",
+        "nostril.1"
+      ],
+      "nose_curve_support": {
+        "crv_nostril_l": {
+          "vertices": 33,
+          "fixed_count": 0,
+          "surface_objective_count": 25
+        },
+        "crv_nostril_r": {
+          "vertices": 33,
+          "fixed_count": 0,
+          "surface_objective_count": 20
+        }
+      },
+      "seven_views": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\MetaHuman\\FaceFidelity\\CohortStructureV1\\fei\\structure-seven-views.png",
+      "eyes": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\MetaHuman\\FaceFidelity\\CohortStructureV1\\fei\\structure-eyes.png",
+      "residual_pipeline": {
+        "state": "BlockedInitialGeometry",
+        "error": "InitialEyeSkinSelfIntersection",
+        "trace": "solve.log",
+        "residual_candidates_executed": false,
+        "baseline_is_separate_diagnostic": true,
+        "visual_acceptance_passed": false
+      }
+    },
+    "cat29": {
+      "baseline": {
+        "state": "VerifiedDiagnosticCookedLifecycle",
+        "quality_status": "DraftStructuralBaseline",
+        "character": "/Game/MetaHumans/cat29MH结构检查初始/Source/cat29MH结构检查初始",
+        "bp": "/Game/MetaHumans/cat29MH结构检查初始/Assembly/cat29MH结构检查初始/BP_cat29MH结构检查初始.BP_cat29MH结构检查初始",
+        "assembly_valid": true,
+        "full_rig": true,
+        "max_reload_delta_cm": 0.0,
+        "assembly_receipt_sha256": "b4341ddc7dddbe9be73e8fc2f97023d94fb8dfada8851a4ae4917e9f06da9621",
+        "assembly_geometry": {
+          "head_vertex_count": 24049,
+          "max_rig_to_assembly_delta_cm": 0.0,
+          "topology_check": {
+            "equivalent": true,
+            "kind": "identical",
+            "quad_flips": []
+          },
+          "visual_acceptance_passed": false,
+          "blueprint": "/Game/MetaHumans/cat29MH结构检查初始/Assembly/cat29MH结构检查初始/BP_cat29MH结构检查初始.BP_cat29MH结构检查初始"
+        },
+        "residual_pipeline_accepted": false,
+        "visual_acceptance_passed": false,
+        "scope": "Full official lifecycle baseline, not a repaired residual result; no failed fidelity gate was accepted",
+        "cooked_result": {
+          "path": "I:\\Document\\UE5\\SmartNPC\\Saved\\MHCohort_cat29\\result.json",
+          "sha256": "c7cef7b091c21dc71d3dc25b74e2b4bc0b00ad6829ff7c4d495db6fb7ccbb21f",
+          "result": {
+            "passed": true,
+            "cooked": true,
+            "reason": "Dynamic spawn, BeginPlay, animation, surface isolation, EndPlay and respawn passed",
+            "class": "/Game/MetaHumans/cat29MH结构检查初始/Assembly/cat29MH结构检查初始/BP_cat29MH结构检查初始.BP_cat29MH结构检查初始_C",
+            "visual_acceptance_passed": false
+          }
+        }
+      },
+      "baseline_character_unchanged_since_reload": true,
+      "stage_eye_skin_crossings": {
+        "Coarse": 51,
+        "Tracked": 0,
+        "OfficialBaseline": 0,
+        "OfficialTemplate": 0,
+        "Final": 0
+      },
+      "provisional_boundaries": [
+        "eyelid.left",
+        "eyelid.right",
+        "lip_outer.0"
+      ],
+      "nose_curve_support": {
+        "crv_nostril_l": {
+          "vertices": 33,
+          "fixed_count": 19,
+          "surface_objective_count": 13
+        },
+        "crv_nostril_r": {
+          "vertices": 33,
+          "fixed_count": 19,
+          "surface_objective_count": 13
+        }
+      },
+      "seven_views": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\MetaHuman\\FaceFidelity\\CohortStructureV1\\cat29\\structure-seven-views.png",
+      "eyes": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\MetaHuman\\FaceFidelity\\CohortStructureV1\\cat29\\structure-eyes.png",
+      "residual_pipeline": {
+        "state": "VerifiedExperimentalCookedLifecycle",
+        "character": "/Game/MetaHumans/cat29MH结构检查/cat29MH结构检查.cat29MH结构检查",
+        "bp": "/Game/MetaHumans/cat29MH结构检查/Assembly/cat29MH结构检查/BP_cat29MH结构检查.BP_cat29MH结构检查",
+        "chosen_solver_profile": "BoundaryStrong",
+        "source_semantics_reviewed": false,
+        "post_rig_metrics": {
+          "state": "OfficialTemplateGeometryVerified",
+          "eligible_for_rig": true,
+          "actual_metrics": {
+            "eye_skin_proper_crossing_pairs": 0,
+            "surface_mean_cm": 0.04914246847516242,
+            "raw_surface_symmetric_mean_cm": 0.05154535168111952,
+            "surface_model": "phong",
+            "normal_one_minus_cosine": 0.04932933605888376,
+            "boundary_candidate_mean_cm": 0.04387707546463845,
+            "projected_contour_normalized": {
+              "(0, 0)": 0.008835979627916695,
+              "(-45, 0)": 0.00676062804682207,
+              "(45, 0)": 0.006579563514286181,
+              "(-90, 0)": 0.007590871049238329,
+              "(90, 0)": 0.007590871049238328,
+              "(0, -20)": 0.010198294793755246,
+              "(0, 20)": 0.007715262397966875
+            },
+            "official_curve_surface_distances": {
+              "crv_ear_central_lower_l": {
+                "surface_mean_cm": 0.048050454419739555,
+                "surface_max_cm": 0.252003054240095,
+                "source_semantic_verified": false
+              },
+              "crv_ear_central_lower_r": {
+                "surface_mean_cm": 0.06453651443355624,
+                "surface_max_cm": 0.21835991385800935,
+                "source_semantic_verified": false
+              },
+              "crv_ear_central_upper_l": {
+                "surface_mean_cm": 0.022627222172702514,
+                "surface_max_cm": 0.252003054240095,
+                "source_semantic_verified": false
+              },
+              "crv_ear_central_upper_r": {
+                "surface_mean_cm": 0.01972002514812969,
+                "surface_max_cm": 0.20613819354900498,
+                "source_semantic_verified": false
+              },
+              "crv_ear_inner_helix_l": {
+                "surface_mean_cm": 0.04227220009344142,
+                "surface_max_cm": 0.25869430379011116,
+                "source_semantic_verified": false
+              },
+              "crv_ear_inner_helix_r": {
+                "surface_mean_cm": 0.04200019116653759,
+                "surface_max_cm": 0.2785976525541924,
+                "source_semantic_verified": false
+              },
+              "crv_ear_outer_helix_l": {
+                "surface_mean_cm": 0.004744888079329342,
+                "surface_max_cm": 0.027282578079000218,
+                "source_semantic_verified": false
+              },
+              "crv_ear_outer_helix_r": {
+                "surface_mean_cm": 0.020467855139138503,
+                "surface_max_cm": 0.1781509248938367,
+                "source_semantic_verified": false
+              },
+              "crv_eyelid_lower_l": {
+                "surface_mean_cm": 0.025444350585294227,
+                "surface_max_cm": 0.07426890566208508,
+                "source_semantic_verified": false
+              },
+              "crv_eyelid_lower_r": {
+                "surface_mean_cm": 0.026184146440801345,
+                "surface_max_cm": 0.0784930215601484,
+                "source_semantic_verified": false
+              },
+              "crv_eyelid_upper_l": {
+                "surface_mean_cm": 0.02306330731903692,
+                "surface_max_cm": 0.07504633093403074,
+                "source_semantic_verified": false
+              },
+              "crv_eyelid_upper_r": {
+                "surface_mean_cm": 0.02268906730280178,
+                "surface_max_cm": 0.06922139749691239,
+                "source_semantic_verified": false
+              },
+              "crv_lip_lower_outer_l": {
+                "surface_mean_cm": 0.007806028663013315,
+                "surface_max_cm": 0.023319330244963535,
+                "source_semantic_verified": false
+              },
+              "crv_lip_lower_outer_r": {
+                "surface_mean_cm": 0.007952987285201076,
+                "surface_max_cm": 0.01979493376701631,
+                "source_semantic_verified": false
+              },
+              "crv_lip_philtrum_l": {
+                "surface_mean_cm": 0.012409639796977887,
+                "surface_max_cm": 0.021361453152347394,
+                "source_semantic_verified": false
+              },
+              "crv_lip_philtrum_r": {
+                "surface_mean_cm": 0.012965345315493745,
+                "surface_max_cm": 0.02076688983976494,
+                "source_semantic_verified": false
+              },
+              "crv_lip_upper_outer_l": {
+                "surface_mean_cm": 0.00755229371605245,
+                "surface_max_cm": 0.029606815205128367,
+                "source_semantic_verified": false
+              },
+              "crv_lip_upper_outer_r": {
+                "surface_mean_cm": 0.008669865021029129,
+                "surface_max_cm": 0.03684373890026851,
+                "source_semantic_verified": false
+              },
+              "crv_nasolabial_l": {
+                "surface_mean_cm": 0.0017426884057098913,
+                "surface_max_cm": 0.006018993485577684,
+                "source_semantic_verified": false
+              },
+              "crv_nasolabial_r": {
+                "surface_mean_cm": 0.0014969022798799578,
+                "surface_max_cm": 0.00498819446288199,
+                "source_semantic_verified": false
+              },
+              "crv_nostril_l": {
+                "surface_mean_cm": 0.10775549127723637,
+                "surface_max_cm": 0.26300499801607274,
+                "source_semantic_verified": false
+              },
+              "crv_nostril_r": {
+                "surface_mean_cm": 0.10819104354988668,
+                "surface_max_cm": 0.2693653675409156,
+                "source_semantic_verified": false
+              },
+              "crv_outer_eyelid_edge_left_lower": {
+                "surface_mean_cm": 0.006918490226321701,
+                "surface_max_cm": 0.035975603692368914,
+                "source_semantic_verified": false
+              },
+              "crv_outer_eyelid_edge_left_upper": {
+                "surface_mean_cm": 0.009158207260204642,
+                "surface_max_cm": 0.036365173245224224,
+                "source_semantic_verified": false
+              },
+              "crv_outer_eyelid_edge_right_lower": {
+                "surface_mean_cm": 0.008219764906249791,
+                "surface_max_cm": 0.030017126119858635,
+                "source_semantic_verified": false
+              },
+              "crv_outer_eyelid_edge_right_upper": {
+                "surface_mean_cm": 0.0119641263003347,
+                "surface_max_cm": 0.04511733388830461,
+                "source_semantic_verified": false
+              },
+              "crv_skull_middle": {
+                "surface_mean_cm": 0.6573494080793664,
+                "surface_max_cm": 6.388266475150539,
+                "source_semantic_verified": false
+              },
+              "ear_antitragus_l": {
+                "surface_mean_cm": 0.0125596165865311,
+                "surface_max_cm": 0.047377217727298804,
+                "source_semantic_verified": false
+              },
+              "ear_antitragus_r": {
+                "surface_mean_cm": 0.009684299134036175,
+                "surface_max_cm": 0.02764328145786487,
+                "source_semantic_verified": false
+              },
+              "ear_concha_l": {
+                "surface_mean_cm": 0.010299961658011175,
+                "surface_max_cm": 0.03727623471390036,
+                "source_semantic_verified": false
+              },
+              "ear_concha_r": {
+                "surface_mean_cm": 0.010974445620597108,
+                "surface_max_cm": 0.07473065688846034,
+                "source_semantic_verified": false
+              },
+              "ear_heel_l": {
+                "surface_mean_cm": 0.06125531355266669,
+                "surface_max_cm": 0.192328606799834,
+                "source_semantic_verified": false
+              },
+              "ear_heel_r": {
+                "surface_mean_cm": 0.05251354431026105,
+                "surface_max_cm": 0.2473095572843626,
+                "source_semantic_verified": false
+              },
+              "ear_inner_helix_l": {
+                "surface_mean_cm": 0.042272200093441424,
+                "surface_max_cm": 0.25869430379011116,
+                "source_semantic_verified": false
+              },
+              "ear_inner_helix_r": {
+                "surface_mean_cm": 0.04200019116653759,
+                "surface_max_cm": 0.2785976525541924,
+                "source_semantic_verified": false
+              },
+              "ear_outer_helix_l": {
+                "surface_mean_cm": 0.004744888079329342,
+                "surface_max_cm": 0.027282578079000218,
+                "source_semantic_verified": false
+              },
+              "ear_outer_helix_r": {
+                "surface_mean_cm": 0.020467855139138506,
+                "surface_max_cm": 0.1781509248938367,
+                "source_semantic_verified": false
+              },
+              "ear_tragus_l": {
+                "surface_mean_cm": 0.03227274619809781,
+                "surface_max_cm": 0.10235330621596934,
+                "source_semantic_verified": false
+              },
+              "ear_tragus_r": {
+                "surface_mean_cm": 0.048027843664500885,
+                "surface_max_cm": 0.17952467256610982,
+                "source_semantic_verified": false
+              }
+            },
+            "triangle_guard_violations": 0,
+            "orientation_inversions": 0,
+            "quad_diagonal_protection": true,
+            "flipped_triangles": 0,
+            "legacy_flipped_triangles_includes_guard_margin": true,
+            "edge_ratio_min": 0.5487332404747101,
+            "edge_ratio_max": 1.4510096494837779,
+            "score": 0.005852395238515723,
+            "semantic_correspondence_complete": false,
+            "visual_acceptance_passed": false
+          },
+          "baseline_metrics": {
+            "eye_skin_proper_crossing_pairs": 0,
+            "surface_mean_cm": 0.07227703337209057,
+            "raw_surface_symmetric_mean_cm": 0.0701696231889313,
+            "surface_model": "phong",
+            "normal_one_minus_cosine": 0.06025971678305085,
+            "boundary_candidate_mean_cm": 0.08656715719759837,
+            "projected_contour_normalized": {
+              "(0, 0)": 0.00942670231736346,
+              "(-45, 0)": 0.007993317114877437,
+              "(45, 0)": 0.007953195072941774,
+              "(-90, 0)": 0.008742951908287767,
+              "(90, 0)": 0.008742951908287767,
+              "(0, -20)": 0.010231189390722022,
+              "(0, 20)": 0.008454554804777034
+            },
+            "official_curve_surface_distances": {
+              "crv_ear_central_lower_l": {
+                "surface_mean_cm": 0.09820484385721084,
+                "surface_max_cm": 0.25200297044554454,
+                "source_semantic_verified": false
+              },
+              "crv_ear_central_lower_r": {
+                "surface_mean_cm": 0.10497120655858116,
+                "surface_max_cm": 0.2535846341215312,
+                "source_semantic_verified": false
+              },
+              "crv_ear_central_upper_l": {
+                "surface_mean_cm": 0.05723549572337175,
+                "surface_max_cm": 0.25200297044554454,
+                "source_semantic_verified": false
+              },
+              "crv_ear_central_upper_r": {
+                "surface_mean_cm": 0.06518802060008201,
+                "surface_max_cm": 0.2535846341215312,
+                "source_semantic_verified": false
+              },
+              "crv_ear_inner_helix_l": {
+                "surface_mean_cm": 0.06811570162371289,
+                "surface_max_cm": 0.2619543569341267,
+                "source_semantic_verified": false
+              },
+              "crv_ear_inner_helix_r": {
+                "surface_mean_cm": 0.05010910927596646,
+                "surface_max_cm": 0.27859735041153266,
+                "source_semantic_verified": false
+              },
+              "crv_ear_outer_helix_l": {
+                "surface_mean_cm": 0.03003976578430055,
+                "surface_max_cm": 0.07616231794423181,
+                "source_semantic_verified": false
+              },
+              "crv_ear_outer_helix_r": {
+                "surface_mean_cm": 0.07884463304596712,
+                "surface_max_cm": 0.2566591669084171,
+                "source_semantic_verified": false
+              },
+              "crv_eyelid_lower_l": {
+                "surface_mean_cm": 0.0545744557736011,
+                "surface_max_cm": 0.09068140404075588,
+                "source_semantic_verified": false
+              },
+              "crv_eyelid_lower_r": {
+                "surface_mean_cm": 0.057168233550507125,
+                "surface_max_cm": 0.11010724458537312,
+                "source_semantic_verified": false
+              },
+              "crv_eyelid_upper_l": {
+                "surface_mean_cm": 0.04388265976919589,
+                "surface_max_cm": 0.09516991628277847,
+                "source_semantic_verified": false
+              },
+              "crv_eyelid_upper_r": {
+                "surface_mean_cm": 0.043727157829329,
+                "surface_max_cm": 0.08485971305104334,
+                "source_semantic_verified": false
+              },
+              "crv_lip_lower_outer_l": {
+                "surface_mean_cm": 0.02612736170633023,
+                "surface_max_cm": 0.05069511496560383,
+                "source_semantic_verified": false
+              },
+              "crv_lip_lower_outer_r": {
+                "surface_mean_cm": 0.027696301330385736,
+                "surface_max_cm": 0.05221160291414975,
+                "source_semantic_verified": false
+              },
+              "crv_lip_philtrum_l": {
+                "surface_mean_cm": 0.05891221993843441,
+                "surface_max_cm": 0.07060967285712595,
+                "source_semantic_verified": false
+              },
+              "crv_lip_philtrum_r": {
+                "surface_mean_cm": 0.053352179490510285,
+                "surface_max_cm": 0.06155405569766996,
+                "source_semantic_verified": false
+              },
+              "crv_lip_upper_outer_l": {
+                "surface_mean_cm": 0.01670314816385965,
+                "surface_max_cm": 0.05090077514584401,
+                "source_semantic_verified": false
+              },
+              "crv_lip_upper_outer_r": {
+                "surface_mean_cm": 0.01844450818669158,
+                "surface_max_cm": 0.05741432330509476,
+                "source_semantic_verified": false
+              },
+              "crv_nasolabial_l": {
+                "surface_mean_cm": 0.015388705923043129,
+                "surface_max_cm": 0.05656975562037712,
+                "source_semantic_verified": false
+              },
+              "crv_nasolabial_r": {
+                "surface_mean_cm": 0.013505901605535019,
+                "surface_max_cm": 0.043990933630488914,
+                "source_semantic_verified": false
+              },
+              "crv_nostril_l": {
+                "surface_mean_cm": 0.1284933807030872,
+                "surface_max_cm": 0.28101125609246747,
+                "source_semantic_verified": false
+              },
+              "crv_nostril_r": {
+                "surface_mean_cm": 0.13143012622755323,
+                "surface_max_cm": 0.2906302885557281,
+                "source_semantic_verified": false
+              },
+              "crv_outer_eyelid_edge_left_lower": {
+                "surface_mean_cm": 0.02470460190916029,
+                "surface_max_cm": 0.06394809212726993,
+                "source_semantic_verified": false
+              },
+              "crv_outer_eyelid_edge_left_upper": {
+                "surface_mean_cm": 0.025829860830159656,
+                "surface_max_cm": 0.07896841259445127,
+                "source_semantic_verified": false
+              },
+              "crv_outer_eyelid_edge_right_lower": {
+                "surface_mean_cm": 0.025185444161851363,
+                "surface_max_cm": 0.07475621110448956,
+                "source_semantic_verified": false
+              },
+              "crv_outer_eyelid_edge_right_upper": {
+                "surface_mean_cm": 0.03438248300377546,
+                "surface_max_cm": 0.10711630253978928,
+                "source_semantic_verified": false
+              },
+              "crv_skull_middle": {
+                "surface_mean_cm": 0.6872334305448378,
+                "surface_max_cm": 6.3882816791685615,
+                "source_semantic_verified": false
+              },
+              "ear_antitragus_l": {
+                "surface_mean_cm": 0.08491131272913768,
+                "surface_max_cm": 0.21658220699575453,
+                "source_semantic_verified": false
+              },
+              "ear_antitragus_r": {
+                "surface_mean_cm": 0.0869002064349938,
+                "surface_max_cm": 0.22907291966390314,
+                "source_semantic_verified": false
+              },
+              "ear_concha_l": {
+                "surface_mean_cm": 0.020201519465140746,
+                "surface_max_cm": 0.14487418239832475,
+                "source_semantic_verified": false
+              },
+              "ear_concha_r": {
+                "surface_mean_cm": 0.029740130183754602,
+                "surface_max_cm": 0.09821624698089328,
+                "source_semantic_verified": false
+              },
+              "ear_heel_l": {
+                "surface_mean_cm": 0.09792689262564487,
+                "surface_max_cm": 0.24639954346348925,
+                "source_semantic_verified": false
+              },
+              "ear_heel_r": {
+                "surface_mean_cm": 0.10057372395529533,
+                "surface_max_cm": 0.2473096307106345,
+                "source_semantic_verified": false
+              },
+              "ear_inner_helix_l": {
+                "surface_mean_cm": 0.06811570162371289,
+                "surface_max_cm": 0.2619543569341267,
+                "source_semantic_verified": false
+              },
+              "ear_inner_helix_r": {
+                "surface_mean_cm": 0.05010910927596646,
+                "surface_max_cm": 0.27859735041153266,
+                "source_semantic_verified": false
+              },
+              "ear_outer_helix_l": {
+                "surface_mean_cm": 0.030039765784300555,
+                "surface_max_cm": 0.07616231794423181,
+                "source_semantic_verified": false
+              },
+              "ear_outer_helix_r": {
+                "surface_mean_cm": 0.07884463304596709,
+                "surface_max_cm": 0.2566591669084171,
+                "source_semantic_verified": false
+              },
+              "ear_tragus_l": {
+                "surface_mean_cm": 0.07656334138368448,
+                "surface_max_cm": 0.16254427972807742,
+                "source_semantic_verified": false
+              },
+              "ear_tragus_r": {
+                "surface_mean_cm": 0.0786209197145155,
+                "surface_max_cm": 0.1795240455689484,
+                "source_semantic_verified": false
+              }
+            },
+            "triangle_guard_violations": 0,
+            "orientation_inversions": 0,
+            "quad_diagonal_protection": true,
+            "flipped_triangles": 0,
+            "legacy_flipped_triangles_includes_guard_margin": true,
+            "edge_ratio_min": 1.0,
+            "edge_ratio_max": 1.0,
+            "score": 0.008266779501833556,
+            "semantic_correspondence_complete": false,
+            "visual_acceptance_passed": false
+          },
+          "topology_check": {
+            "equivalent": true,
+            "kind": "oriented_quad_retriangulation",
+            "quad_flips": [
+              {
+                "removed_diagonal": [
+                  311,
+                  18352
+                ],
+                "added_diagonal": [
+                  12607,
+                  12757
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  312,
+                  18278
+                ],
+                "added_diagonal": [
+                  12607,
+                  12608
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  402,
+                  18373
+                ],
+                "added_diagonal": [
+                  12802,
+                  12803
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  950,
+                  18837
+                ],
+                "added_diagonal": [
+                  13749,
+                  13876
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  2547,
+                  20601
+                ],
+                "added_diagonal": [
+                  17133,
+                  17308
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  2558,
+                  20603
+                ],
+                "added_diagonal": [
+                  17158,
+                  17309
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  3230,
+                  21150
+                ],
+                "added_diagonal": [
+                  6351,
+                  6365
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  3370,
+                  21291
+                ],
+                "added_diagonal": [
+                  6630,
+                  6648
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  3382,
+                  21290
+                ],
+                "added_diagonal": [
+                  6648,
+                  6649
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  3383,
+                  21291
+                ],
+                "added_diagonal": [
+                  6650,
+                  6651
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  3639,
+                  23576
+                ],
+                "added_diagonal": [
+                  7206,
+                  11232
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  4021,
+                  21837
+                ],
+                "added_diagonal": [
+                  7770,
+                  7876
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  4021,
+                  21850
+                ],
+                "added_diagonal": [
+                  7771,
+                  7897
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  4074,
+                  21837
+                ],
+                "added_diagonal": [
+                  7855,
+                  7875
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  6327,
+                  6345
+                ],
+                "added_diagonal": [
+                  3221,
+                  21143
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  6344,
+                  6351
+                ],
+                "added_diagonal": [
+                  3229,
+                  21150
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  6627,
+                  6648
+                ],
+                "added_diagonal": [
+                  3370,
+                  21290
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  6647,
+                  6649
+                ],
+                "added_diagonal": [
+                  3381,
+                  21290
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  6650,
+                  6653
+                ],
+                "added_diagonal": [
+                  3383,
+                  21292
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  6738,
+                  6794
+                ],
+                "added_diagonal": [
+                  3423,
+                  21365
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  6834,
+                  6838
+                ],
+                "added_diagonal": [
+                  3473,
+                  21408
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  7855,
+                  7876
+                ],
+                "added_diagonal": [
+                  4075,
+                  21837
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  7866,
+                  7867
+                ],
+                "added_diagonal": [
+                  4080,
+                  21833
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  7892,
+                  7894
+                ],
+                "added_diagonal": [
+                  4089,
+                  21848
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  9145,
+                  9181
+                ],
+                "added_diagonal": [
+                  4713,
+                  22490
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  11122,
+                  11272
+                ],
+                "added_diagonal": [
+                  5620,
+                  23616
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  12605,
+                  12607
+                ],
+                "added_diagonal": [
+                  311,
+                  18278
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  13726,
+                  13875
+                ],
+                "added_diagonal": [
+                  937,
+                  18836
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  13833,
+                  13855
+                ],
+                "added_diagonal": [
+                  1004,
+                  18824
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  13871,
+                  13873
+                ],
+                "added_diagonal": [
+                  1018,
+                  18835
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  14978,
+                  15150
+                ],
+                "added_diagonal": [
+                  1571,
+                  19468
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  15126,
+                  15161
+                ],
+                "added_diagonal": [
+                  1642,
+                  19477
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  17132,
+                  17134
+                ],
+                "added_diagonal": [
+                  2548,
+                  20488
+                ]
+              },
+              {
+                "removed_diagonal": [
+                  17156,
+                  17309
+                ],
+                "added_diagonal": [
+                  2549,
+                  20603
+                ]
+              }
+            ],
+            "official_quad_coverage_verified": true,
+            "actual_triangle_sha256": "d54262fb735f3647100868ea9a0e919ecc29be61cc6a006901ae75fca0e91708",
+            "max_pre_rig_vertex_delta_cm": 1.5295996601434175e-05
+          },
+          "character": "/Game/MetaHumans/cat29MH结构检查/cat29MH结构检查.cat29MH结构检查",
+          "character_sha256": "41cfac68e09c7aa1c940b717a94a94a379d118e615a0d12906e3c4222fca33f4",
+          "verification_scope": "Provisional geometric regression checks only; no reviewed source semantic correspondence",
+          "source_semantics_reviewed": false,
+          "visual_acceptance_passed": false
+        },
+        "assembly_geometry": {
+          "head_vertex_count": 24049,
+          "max_rig_to_assembly_delta_cm": 0.0,
+          "topology_check": {
+            "equivalent": true,
+            "kind": "identical",
+            "quad_flips": []
+          },
+          "visual_acceptance_passed": false,
+          "blueprint": "/Game/MetaHumans/cat29MH结构检查/Assembly/cat29MH结构检查/BP_cat29MH结构检查.BP_cat29MH结构检查"
+        },
+        "cooked_result": {
+          "path": "I:\\Document\\UE5\\SmartNPC\\Saved\\MHCatFit\\result.json",
+          "sha256": "b76e2f5a16455b4053ccb4ab8a622d6b5522f354a88606f68363f1c6f97d9e62",
+          "result": {
+            "passed": true,
+            "cooked": true,
+            "reason": "Dynamic spawn, BeginPlay, animation, surface isolation, EndPlay and respawn passed",
+            "class": "/Game/MetaHumans/cat29MH结构检查/Assembly/cat29MH结构检查/BP_cat29MH结构检查.BP_cat29MH结构检查_C",
+            "visual_acceptance_passed": false
+          }
+        },
+        "quality_status": "ExperimentalStructuralMismatchRetained",
+        "visual_acceptance_passed": false
+      }
+    }
+  },
+  "completed_local": "2026-09-26T23:03:30.615654+08:00",
+  "shared_residual_algorithm_unchanged": true,
+  "engineering_tests": {
+    "unit_tests": {
+      "face": 51,
+      "metahuman": 14,
+      "passed": 65
+    },
+    "python_compileall_passed": true,
+    "git_diff_check_passed": true,
+    "cpp_changed_this_turn": false,
+    "code_at_verification": {
+      "vam_face_cohort_input.py": "632e6267d58e7f39b083bd1b6d9b752f9c03cb736e4b52f3dabea44a50bbb04c",
+      "ue_face_cohort_initial.py": "9d59f08f70b5a36647f87a95ca90a3874ef9317d4b774a7a65e2ae605aebb3d8",
+      "vam_face_cohort_report.py": "d7a76d95ed1ea1a51ae4a44ba77bb62ae04c5b94dfac7ef0e9611dddceb1a0c1",
+      "vam_face_cohort_lifecycle.py": "5ae5514fbef15a0f2f9fb77ed42f0535fd70a4d436d4d649b5cf859db46a7d6e",
+      "vam_face_ocular_evidence.py": "f67127f7ff1afdd56c3989af52d37a112e0f4f3137d5d899fb97d18cbb8984f5",
+      "vam_metahuman.py": "64f559966ed35bd53e26f9c850677f7eb17019a95390b9ed7b4816f245564749",
+      "ue_metahuman_job.py": "363e2d8873709f0d5ef3645decb1b45f08e4ed6b690ae533535f9d50122afc6f",
+      "vam_face_pipeline.py": "cd2feac17a4a00ede5d7f729d96e8fdcc8ab7c5cc91f4b1ed1773f1429f5f523",
+      "vam_face_fidelity_finish.py": "e96c59b8f62a129d54177d7092c7fedf14241de58660a45f408c4639b36569a4",
+      "ue_metahuman_surface_template.py": "0ecd145ad12d1e5c3e73aeec1f11d5586d984d55cdab277772384bcdfc98cb74",
+      "ue_face_fidelity_export.py": "bbbec67c24ace0a7ad79ef26c0928fbac887973a012005a0d37ec4e1d6dca00b",
+      "vam_face_template_contract.py": "cda8272836efa0fc561dcf454aa0a8b02ba58106e43d7751f14d22b952986e6f",
+      "vam_face_adaptive_verify.py": "8fc61e11ceead1399a939fff19ded7072fd3e5881ac30aae60e00207a029d166"
+    },
+    "visual_acceptance_passed": false
+  },
+  "source_readonly_check": {
+    "fei": {
+      "source_ir_hash_verified": true,
+      "plan_and_original_source_hashes_verified": true,
+      "source_ir_errors": 0
+    },
+    "cat29": {
+      "source_ir_hash_verified": true,
+      "plan_and_original_source_hashes_verified": true,
+      "source_ir_errors": 0
+    },
+    "native_reference": {
+      "checked": 114,
+      "changed": []
+    }
+  },
+  "remaining_limitations": [
+    "G2F only; no G2M generalization claimed",
+    "Fei residual blocked at initial self intersection",
+    "Cat29 nose correspondence absent and nose distortion retained despite geometric score improvement",
+    "Source ocular component homology and identity bone formula evaluation remain incomplete",
+    "No human visual acceptance; NullRHI runtime test does not validate rendering"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "cooked": true,
+  "reason": "Dynamic spawn, BeginPlay, animation, surface isolation, EndPlay and respawn passed",
+  "class": "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/BP_启梦MH00.BP_启梦MH00_C",
+  "visual_acceptance_passed": false,
+  "engine": "5.8.3-58210709",
+  "mode": "Development, NullRHI; no visual/performance acceptance",
+  "executable": "I:\\Document\\UE5\\SmartNPC\\Saved\\MetaHumanCook02\\PackageLoose\\Windows\\MH00Cook\\Binaries\\Win64\\MH00Cook.exe",
+  "executable_sha256": "81ea373fa2cf1089c280702a81d94bde49a173eca840e338a45129dfef83e0b5",
+  "cook_log": "I:\\Document\\UE5\\SmartNPC\\Saved\\MetaHumanCook02\\package-loose02.log",
+  "cook_log_sha256": "756c1b353c0bb3da744dc1415db15151195131548a8751e68efb813d92f09034",
+  "game_log": "I:\\Document\\UE5\\SmartNPC\\Saved\\MetaHumanCook02\\game-loose.log",
+  "game_log_sha256": "d6a7f7acf76e96a41aa2ec5f852e4eb2c831331675488a83f1d1c74e8663ba6d",
+  "game_exit_code": 0,
+  "uat_exit_code": 0,
+  "source_assets_in_host": false
+}

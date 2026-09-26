@@ -1,0 +1,456 @@
+{
+  "schema": "vam-metahuman-capabilities/1",
+  "engine": {
+    "MajorVersion": 5,
+    "MinorVersion": 8,
+    "PatchVersion": 3,
+    "Changelist": 58210709,
+    "CompatibleChangelist": 55116800,
+    "IsLicenseeVersion": 0,
+    "IsPromotedBuild": 1,
+    "BranchName": "++UE5+Release-5.8"
+  },
+  "plugins": {
+    "RigLogic": {
+      "path": "I:\\Program\\Epic Games\\UE_5.8\\Engine\\Plugins\\Animation\\RigLogic\\RigLogic.uplugin",
+      "sha256": "8a05054eef27d511e7c4a6e9112616b9f62590f1834da0d5ddd6b04760e036a6",
+      "modules": [
+        {
+          "Name": "RigLogicLib",
+          "Type": "Runtime",
+          "LoadingPhase": "PreDefault"
+        },
+        {
+          "Name": "RigLogicLibTest",
+          "Type": "UncookedOnly",
+          "LoadingPhase": "PreDefault",
+          "PlatformAllowList": [
+            "Win64"
+          ]
+        },
+        {
+          "Name": "RigLogicModule",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "RigLogicDeveloper",
+          "Type": "UncookedOnly",
+          "LoadingPhase": "PreDefault"
+        },
+        {
+          "Name": "RigLogicEditor",
+          "Type": "Editor",
+          "LoadingPhase": "Default",
+          "PlatformAllowList": [
+            "Win64"
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "Name": "ControlRig",
+          "Enabled": true
+        }
+      ]
+    },
+    "ChaosClothAsset": {
+      "path": "I:\\Program\\Epic Games\\UE_5.8\\Engine\\Plugins\\ChaosClothAsset\\ChaosClothAsset.uplugin",
+      "sha256": "53dd36d64b02261bab131e05935f849be603ae56ec0644726c4ee1e7497458da",
+      "modules": [
+        {
+          "Name": "ChaosClothAsset",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "ChaosClothAssetEngine",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "ChaosClothAssetTools",
+          "Type": "Editor",
+          "LoadingPhase": "Default",
+          "PlatformAllowList": [
+            "Win64",
+            "Mac",
+            "Linux"
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "Name": "ChaosCloth",
+          "Enabled": true
+        },
+        {
+          "Name": "GeometryCache",
+          "Enabled": true
+        },
+        {
+          "Name": "Dataflow",
+          "Enabled": true
+        }
+      ]
+    },
+    "ChaosClothAssetEditor": {
+      "path": "I:\\Program\\Epic Games\\UE_5.8\\Engine\\Plugins\\ChaosClothAssetEditor\\ChaosClothAssetEditor.uplugin",
+      "sha256": "e6853681d389278a2eb508f36958cbedb6741f6dc11fd1592df9be2fa7e9164a",
+      "modules": [],
+      "dependencies": [
+        {
+          "Name": "ChaosClothAssetEditorCore",
+          "Enabled": true
+        },
+        {
+          "Name": "ChaosClothAssetUsdDataflowNodes",
+          "Enabled": true
+        }
+      ]
+    },
+    "ChaosOutfitAsset": {
+      "path": "I:\\Program\\Epic Games\\UE_5.8\\Engine\\Plugins\\ChaosOutfitAsset\\ChaosOutfitAsset.uplugin",
+      "sha256": "6a0393ccfdee31abcac176e46eb092e2a816d76007b3ebb63897ddfd7c351e0a",
+      "modules": [
+        {
+          "Name": "ChaosOutfitAssetDataflowNodes",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "ChaosOutfitAssetEngine",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "ChaosOutfitAssetEditor",
+          "Type": "Editor",
+          "LoadingPhase": "Default",
+          "PlatformAllowList": [
+            "Win64",
+            "Mac",
+            "Linux"
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "Name": "ChaosClothAsset",
+          "Enabled": true
+        },
+        {
+          "Name": "Dataflow",
+          "Enabled": true
+        },
+        {
+          "Name": "MeshResizing",
+          "Enabled": true
+        },
+        {
+          "Name": "ChaosClothAssetEditorCore",
+          "Enabled": true,
+          "TargetAllowList": [
+            "Editor"
+          ]
+        }
+      ]
+    },
+    "MetaHumanCharacter": {
+      "path": "I:\\Program\\Epic Games\\UE_5.8\\Engine\\Plugins\\MetaHuman\\MetaHumanCharacter\\MetaHumanCharacter.uplugin",
+      "sha256": "8bbb0999550e17f333454f2548203e3da3b4152f7dd807bece72ba78e1c54eb9",
+      "modules": [
+        {
+          "Name": "MetaHumanCharacterEditor",
+          "Type": "Editor",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanCharacter",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanCharacterPaletteEditor",
+          "Type": "Editor",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanCharacterPalette",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanDefaultPipeline",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanDefaultEditorPipeline",
+          "Type": "Editor",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanCharacterMigrationEditor",
+          "Type": "Editor",
+          "LoadingPhase": "Default"
+        }
+      ],
+      "dependencies": [
+        {
+          "Name": "MeshModelingToolset",
+          "Enabled": true
+        },
+        {
+          "Name": "EditorScriptingUtilities",
+          "Enabled": true
+        },
+        {
+          "Name": "AppleARKit",
+          "Enabled": true,
+          "TargetAllowList": [
+            "Editor"
+          ]
+        },
+        {
+          "Name": "AppleARKitFaceSupport",
+          "Enabled": true,
+          "TargetAllowList": [
+            "Editor"
+          ]
+        },
+        {
+          "Name": "LiveLink",
+          "Enabled": true
+        },
+        {
+          "Name": "LiveLinkControlRig",
+          "Enabled": true
+        },
+        {
+          "Name": "RigLogic",
+          "Enabled": true
+        },
+        {
+          "Name": "MetaHumanSDK",
+          "Enabled": true
+        },
+        {
+          "Name": "HairStrands",
+          "Enabled": true
+        },
+        {
+          "Name": "Dataflow",
+          "Enabled": true
+        },
+        {
+          "Name": "MetaHuman",
+          "Enabled": true,
+          "TargetAllowList": [
+            "Editor"
+          ]
+        },
+        {
+          "Name": "TextureGraph",
+          "Enabled": true,
+          "TargetAllowList": [
+            "Editor"
+          ]
+        },
+        {
+          "Name": "ChaosClothAsset",
+          "Enabled": true
+        },
+        {
+          "Name": "ChaosClothAssetEditorCore",
+          "Enabled": true
+        },
+        {
+          "Name": "ChaosOutfitAsset",
+          "Enabled": true
+        },
+        {
+          "Name": "PerformanceCaptureCore",
+          "Enabled": true
+        },
+        {
+          "Name": "IKRig",
+          "Enabled": true
+        },
+        {
+          "Name": "PluginUtils",
+          "Enabled": true
+        },
+        {
+          "Name": "ScriptableToolsFramework",
+          "Enabled": true
+        },
+        {
+          "Name": "GeometryScripting",
+          "Enabled": true,
+          "TargetAllowList": [
+            "Editor"
+          ]
+        }
+      ]
+    },
+    "MetaHumanCoreTech": {
+      "path": "I:\\Program\\Epic Games\\UE_5.8\\Engine\\Plugins\\MetaHuman\\MetaHumanCoreTechLib\\MetaHumanCoreTech.uplugin",
+      "sha256": "5c98f04d1be2bf173b3da5d5fecd6b82abb023e6d54158f372640d40fd83bdd5",
+      "modules": [
+        {
+          "Name": "MetaHumanCoreTechLib",
+          "Type": "Editor",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanCoreTech",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanImageViewer",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanCaptureData",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanPipelineCore",
+          "Type": "Editor",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "MetaHumanBodyTrackerInterface",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        }
+      ],
+      "dependencies": [
+        {
+          "Name": "MeshModelingToolset",
+          "Enabled": true
+        },
+        {
+          "Name": "EditorScriptingUtilities",
+          "Enabled": true
+        },
+        {
+          "Name": "RigLogic",
+          "Enabled": true
+        },
+        {
+          "Name": "MetaHumanSDK",
+          "Enabled": true
+        },
+        {
+          "Name": "CaptureData",
+          "Enabled": true
+        },
+        {
+          "Name": "StreamingADA",
+          "Enabled": true
+        },
+        {
+          "Name": "MetaHumanCoreML",
+          "Enabled": true,
+          "PlatformAllowList": [
+            "Mac",
+            "IOS",
+            "TVOS",
+            "VisionOS"
+          ]
+        }
+      ]
+    },
+    "HairStrands": {
+      "path": "I:\\Program\\Epic Games\\UE_5.8\\Engine\\Plugins\\Runtime\\HairStrands\\HairStrands.uplugin",
+      "sha256": "facd132092e26fba918538c13b73e6aeb0d4dcff798ddfb393b9980c08fd8c47",
+      "modules": [
+        {
+          "Name": "HairStrandsCore",
+          "Type": "Runtime",
+          "LoadingPhase": "PostConfigInit"
+        },
+        {
+          "Name": "HairStrandsDeformer",
+          "Type": "Runtime",
+          "LoadingPhase": "PreDefault",
+          "PlatformDenyList": [
+            "Android",
+            "IOS"
+          ]
+        },
+        {
+          "Name": "HairStrandsRuntime",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "HairStrandsEditor",
+          "Type": "Editor",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "HairCardGeneratorFramework",
+          "Type": "Editor",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "HairStrandsDataflow",
+          "Type": "Editor",
+          "LoadingPhase": "Default"
+        },
+        {
+          "Name": "HairStrandsSolver",
+          "Type": "Runtime",
+          "LoadingPhase": "PreDefault"
+        }
+      ],
+      "dependencies": [
+        {
+          "Name": "Niagara",
+          "Enabled": true
+        },
+        {
+          "Name": "GeometryCache",
+          "Enabled": true
+        },
+        {
+          "Name": "DeformerGraph",
+          "Enabled": true
+        },
+        {
+          "Name": "Dataflow",
+          "Enabled": true
+        },
+        {
+          "Name": "ComputeFramework",
+          "Enabled": true
+        }
+      ]
+    }
+  },
+  "core_files": {
+    "texture_models": 1,
+    "body_textures": 7
+  },
+  "core_data": true,
+  "header": "I:\\Program\\Epic Games\\UE_5.8\\Engine\\Plugins\\MetaHuman\\MetaHumanCharacter\\Source\\MetaHumanCharacterEditor\\Public\\MetaHumanCharacterEditorSubsystem.h",
+  "header_sha256": "0121fc08fb29bd32fb11c18293b2e4fdee7b45ce4446f63e6878a6613101bc39",
+  "public_symbols": {
+    "ConformToTargetMeshes": true,
+    "ConformTargetMeshesAsync": true,
+    "OnAsyncMeshConformCompleted": true,
+    "CancelMeshAsyncProcess": true,
+    "RequestAutoRigging": true,
+    "BuildMetaHuman": true,
+    "ImportFromTemplate": true
+  },
+  "scope": "Local file probe only; enabled modules, rendering, authentication and Cook require UE checks",
+  "cloud_authorized": false,
+  "visual_acceptance_passed": false
+}

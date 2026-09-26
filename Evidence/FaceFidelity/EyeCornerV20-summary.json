@@ -1,0 +1,96 @@
+{
+  "schema": "vam-eye-corner-delivery/1",
+  "state": "VerifiedEditorAssemblyAndCookedLifecycle",
+  "character": "/Game/MetaHumans/启梦MH眼周稳定修复/启梦MH眼周稳定修复.启梦MH眼周稳定修复",
+  "bp": "/Game/MetaHumans/启梦MH眼周稳定修复/Assembly/启梦MH眼周稳定修复/BP_启梦MH眼周稳定修复.BP_启梦MH眼周稳定修复",
+  "chosen_solver_profile": "Balanced",
+  "metrics": {
+    "scope": "same geodesic eye topology ROI; actual official neutral head exports",
+    "source_semantics_verified": false,
+    "visual_acceptance_passed": false,
+    "roi_vertices": 3513,
+    "previous": {
+      "export": "Saved\\MetaHuman\\FaceFidelity\\AdaptiveExperimentV9\\Official\\RigReload\\actual-head.json",
+      "unique_skin_crossing_pairs": 303,
+      "exterior_surface_mean_mm": 0.12210905006135482,
+      "exterior_surface_max_mm": 2.2034844133264424,
+      "exterior_normal_one_minus_cosine": 0.1531930372378525
+    },
+    "new": {
+      "export": "Saved\\MetaHuman\\FaceFidelity\\EyeCornerV20\\Official\\RigReload\\actual-head.json",
+      "unique_skin_crossing_pairs": 0,
+      "exterior_surface_mean_mm": 0.1777022158958505,
+      "exterior_surface_max_mm": 2.534001033819455,
+      "exterior_normal_one_minus_cosine": 0.13559992552206213
+    },
+    "discrete_skin_crossing_gate_passed": true
+  },
+  "assembly_valid": true,
+  "rig_to_assembly": {
+    "head_vertex_count": 24049,
+    "max_rig_to_assembly_delta_cm": 0.0,
+    "topology_check": {
+      "equivalent": true,
+      "kind": "identical",
+      "quad_flips": []
+    },
+    "visual_acceptance_passed": false,
+    "mesh": "/Game/MetaHumans/启梦MH眼周稳定修复/Assembly/启梦MH眼周稳定修复/Face/SKM_启梦MH眼周稳定修复_FaceMesh.SKM_启梦MH眼周稳定修复_FaceMesh",
+    "reference_sha256": "73686ae72787381893bd8ea78cdcc3ad7c5e186c2a064dff220270425ccd15c9",
+    "assembled_head_sha256": "73686ae72787381893bd8ea78cdcc3ad7c5e186c2a064dff220270425ccd15c9"
+  },
+  "source_readonly": {
+    "native_checked": 114,
+    "native_changed": [],
+    "source_character_unchanged": true,
+    "old_v9_historical_receipt_match": false,
+    "old_v9_current_sha256": "eee7ff054c64d32880b3aeb0f6ce39c900613ac59a04b33f98af4acbb8a47bee",
+    "old_v9_note": "Historical rig-export receipt differs from current file; no turn-start asset hash is available to attribute this change. Preserve current asset; no rollback."
+  },
+  "tests": {
+    "face": 47,
+    "metahuman": 13,
+    "compileall": true,
+    "diff_check": true
+  },
+  "shared_vertex_audit": {
+    "initial": {
+      "shared_one_vertex_crossing_pairs": 0,
+      "pairs": []
+    },
+    "Balanced": {
+      "shared_one_vertex_crossing_pairs": 0,
+      "pairs": []
+    },
+    "actual_post_rig": {
+      "shared_one_vertex_crossing_pairs": 0,
+      "pairs": []
+    }
+  },
+  "current_code_sha256": {
+    "vam_face_eye_correspondence.py": "4de977b7709b2ab5c59ab03fbfe37d66e696c97d86af92dbb99a8ecc1b21bb20",
+    "vam_face_eye_intersections.py": "1f2933c6b060e5e515cc79cee12c9c9eae8aa355c30aae5190a88300cf407ca0",
+    "vam_face_eye_regions.py": "5eb9ef774ce3a84f6a52ff3691829105598ae0b9412b5c54e573f68abdceb004",
+    "vam_face_adaptive.py": "4108f520ce67baecde2b4b5df99980bde54cae923ffff4fd8e8ff9ec09b5c331",
+    "vam_face_adaptive_cli.py": "db5386079c1bc6fcd2b13beda62ca87fcc2436f6bcd9a460b5156ea2a1a18ad3",
+    "vam_face_adaptive_verify.py": "5784e333c852dce3d9aa0b7a246731e3e50a427b6cde99a2d1f852c754944c9f",
+    "vam_face_pipeline.py": "9f21af4249de113239847fbd771b0749788347d9cf341ebe12d4bcaf6b784828",
+    "vam_face_eye_views.py": "a6a86fd6602bcc268b6f355c66208072eaf0159bc095f3f9342866aa39b43939",
+    "vam_face_eye_report.py": "2d834d0ec32b8f651344391c72be73f4a388161beb350056e7f7d86d22e55d97",
+    "test_face_eye_correspondence.py": "b9a6a1a8ae3e514879aac5818175aedfd8b4b68ee7c58b6f385f7d3f5778b7dd"
+  },
+  "actual_solver_snapshot": "Saved\\MetaHuman\\FaceFidelity\\EyeCornerV20\\AlgorithmSnapshot",
+  "cooked_lifecycle_verified": true,
+  "visual_acceptance_passed": false,
+  "cooked_receipt": {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Saved\\MHEye20\\result.json",
+    "sha256": "eae948c689aa0e4df3dcaf281179d754579d122c5c562881e4eafa4e9da49e00",
+    "result": {
+      "passed": true,
+      "cooked": true,
+      "reason": "Dynamic spawn, BeginPlay, animation, surface isolation, EndPlay and respawn passed",
+      "class": "/Game/MetaHumans/启梦MH眼周稳定修复/Assembly/启梦MH眼周稳定修复/BP_启梦MH眼周稳定修复.BP_启梦MH眼周稳定修复_C",
+      "visual_acceptance_passed": false
+    }
+  }
+}

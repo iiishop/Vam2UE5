@@ -1,0 +1,977 @@
+{
+  "schema": "vam-metahuman-verification/1",
+  "source_valid": true,
+  "visual_acceptance_passed": false,
+  "cooked_lifecycle_verified": false,
+  "assembly": {
+    "Body": {
+      "dna": true,
+      "lods": 4,
+      "mesh": "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/SKM_启梦MH00_BodyMesh.SKM_启梦MH00_BodyMesh",
+      "skeleton": "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Female/Medium/NormalWeight/Body/metahuman_base_skel.metahuman_base_skel",
+      "animation": "None",
+      "animation_node_structs": [],
+      "post_process": "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Body/ABP_Body_PostProcess.ABP_Body_PostProcess_C"
+    },
+    "Face": {
+      "dna": true,
+      "lods": 8,
+      "mesh": "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/SKM_启梦MH00_FaceMesh.SKM_启梦MH00_FaceMesh",
+      "skeleton": "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/Face_Archetype_Skeleton.Face_Archetype_Skeleton",
+      "animation": "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ABP_Face.ABP_Face_C",
+      "animation_node_structs": [
+        "AnimSubsystemInstance",
+        "AnimSubsystemInstance",
+        "AnimNode_Root",
+        "AnimNode_CopyPoseFromMesh",
+        "SoftClassPath",
+        "AnimNotifyQueue"
+      ],
+      "post_process": "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ABP_Face_PostProcess.ABP_Face_PostProcess_C"
+    },
+    "valid": true,
+    "visual_acceptance_passed": false
+  },
+  "components": [
+    {
+      "name": "Root",
+      "class": "SceneComponent"
+    },
+    {
+      "name": "Body",
+      "class": "SkeletalMeshComponent"
+    },
+    {
+      "name": "Face",
+      "class": "SkeletalMeshComponent"
+    },
+    {
+      "name": "Hair",
+      "class": "GroomComponent"
+    },
+    {
+      "name": "Eyebrows",
+      "class": "GroomComponent"
+    },
+    {
+      "name": "Fuzz",
+      "class": "GroomComponent"
+    },
+    {
+      "name": "Eyelashes",
+      "class": "GroomComponent"
+    },
+    {
+      "name": "Mustache",
+      "class": "GroomComponent"
+    },
+    {
+      "name": "Beard",
+      "class": "GroomComponent"
+    },
+    {
+      "name": "LODSync",
+      "class": "LODSyncComponent"
+    },
+    {
+      "name": "MetaHuman",
+      "class": "MetaHumanComponentUE"
+    },
+    {
+      "name": "VamMetaHuman",
+      "class": "VamMetaHumanComponent"
+    }
+  ],
+  "dependency_closure": [
+    "/ControlRig/Controls/ControlRigGizmoMaterial",
+    "/ControlRig/Controls/ControlRig_Arrow2_1mm",
+    "/ControlRig/Controls/ControlRig_Arrow2_3mm",
+    "/ControlRig/Controls/ControlRig_Arrow2_solid",
+    "/ControlRig/Controls/ControlRig_Arrow4_1mm",
+    "/ControlRig/Controls/ControlRig_Arrow4_3mm",
+    "/ControlRig/Controls/ControlRig_Arrow4_solid",
+    "/ControlRig/Controls/ControlRig_Arrow_1mm",
+    "/ControlRig/Controls/ControlRig_Arrow_3mm",
+    "/ControlRig/Controls/ControlRig_Arrow_solid",
+    "/ControlRig/Controls/ControlRig_Box_1mm",
+    "/ControlRig/Controls/ControlRig_Box_3mm",
+    "/ControlRig/Controls/ControlRig_Box_solid",
+    "/ControlRig/Controls/ControlRig_Circle_1mm",
+    "/ControlRig/Controls/ControlRig_Circle_3mm",
+    "/ControlRig/Controls/ControlRig_Circle_solid",
+    "/ControlRig/Controls/ControlRig_Diamond_1mm",
+    "/ControlRig/Controls/ControlRig_Diamond_3mm",
+    "/ControlRig/Controls/ControlRig_Diamond_solid",
+    "/ControlRig/Controls/ControlRig_HalfCircle_1mm",
+    "/ControlRig/Controls/ControlRig_HalfCircle_3mm",
+    "/ControlRig/Controls/ControlRig_HalfCircle_solid",
+    "/ControlRig/Controls/ControlRig_Hexagon_1mm",
+    "/ControlRig/Controls/ControlRig_Hexagon_3mm",
+    "/ControlRig/Controls/ControlRig_Hexagon_solid",
+    "/ControlRig/Controls/ControlRig_Line",
+    "/ControlRig/Controls/ControlRig_Octagon_1mm",
+    "/ControlRig/Controls/ControlRig_Octagon_3mm",
+    "/ControlRig/Controls/ControlRig_Octagon_solid",
+    "/ControlRig/Controls/ControlRig_Pyramid_1mm",
+    "/ControlRig/Controls/ControlRig_Pyramid_3mm",
+    "/ControlRig/Controls/ControlRig_Pyramid_solid",
+    "/ControlRig/Controls/ControlRig_QuarterCircle_1mm",
+    "/ControlRig/Controls/ControlRig_QuarterCircle_3mm",
+    "/ControlRig/Controls/ControlRig_QuarterCircle_solid",
+    "/ControlRig/Controls/ControlRig_RoundedSquare_1mm",
+    "/ControlRig/Controls/ControlRig_RoundedSquare_3mm",
+    "/ControlRig/Controls/ControlRig_RoundedSquare_solid",
+    "/ControlRig/Controls/ControlRig_RoundedTriangle_1mm",
+    "/ControlRig/Controls/ControlRig_RoundedTriangle_3mm",
+    "/ControlRig/Controls/ControlRig_RoundedTriangle_solid",
+    "/ControlRig/Controls/ControlRig_Sphere_1mm",
+    "/ControlRig/Controls/ControlRig_Sphere_3mm",
+    "/ControlRig/Controls/ControlRig_Sphere_solid",
+    "/ControlRig/Controls/ControlRig_Square_1mm",
+    "/ControlRig/Controls/ControlRig_Square_3mm",
+    "/ControlRig/Controls/ControlRig_Square_Joystick",
+    "/ControlRig/Controls/ControlRig_Square_solid",
+    "/ControlRig/Controls/ControlRig_Star4_1mm",
+    "/ControlRig/Controls/ControlRig_Star4_3mm",
+    "/ControlRig/Controls/ControlRig_Star4_solid",
+    "/ControlRig/Controls/ControlRig_Triangle_1mm",
+    "/ControlRig/Controls/ControlRig_Triangle_3mm",
+    "/ControlRig/Controls/ControlRig_Triangle_solid",
+    "/ControlRig/Controls/ControlRig_Wedge_1mm",
+    "/ControlRig/Controls/ControlRig_Wedge_3mm",
+    "/ControlRig/Controls/ControlRig_Wedge_solid",
+    "/ControlRig/Controls/DefaultGizmoLibrary",
+    "/ControlRig/Controls/DefaultGizmoLibraryNormalized",
+    "/Engine/Animation/DefaultAnimCurveCompressionSettings",
+    "/Engine/Animation/DefaultRecorderBoneCompression",
+    "/Engine/Animation/DefaultVariableFrameStrippingSettings",
+    "/Engine/EditorBlueprintResources/StandardMacros",
+    "/Engine/EngineMaterials/DefaultDiffuse",
+    "/Engine/EngineMaterials/T_Default_Material_Grid_M",
+    "/Engine/EngineMaterials/T_Default_Material_Grid_N",
+    "/Engine/EngineMaterials/WorldGridMaterial",
+    "/Engine/Functions/Engine_MaterialFunctions01/Gradient/LinearGradient",
+    "/Engine/Functions/Engine_MaterialFunctions01/ImageAdjustment/LinearTosRGB",
+    "/Engine/Functions/Engine_MaterialFunctions01/ImageAdjustment/sRGBToLinear",
+    "/Engine/Functions/Engine_MaterialFunctions01/Opacity/CameraDepthFade",
+    "/Engine/Functions/Engine_MaterialFunctions01/Texturing/ComputeMipLevel",
+    "/Engine/Functions/Engine_MaterialFunctions01/Texturing/FlattenNormal",
+    "/Engine/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter",
+    "/Engine/Functions/Engine_MaterialFunctions01/Texturing/TextureCropping",
+    "/Engine/Functions/Engine_MaterialFunctions02/ExampleContent/DebugNumberStrip",
+    "/Engine/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/DebugNumberPeriod",
+    "/Engine/Functions/Engine_MaterialFunctions02/Masking/ThresholdWithRange",
+    "/Engine/Functions/Engine_MaterialFunctions02/Math/DeriveNormalZ_Function",
+    "/Engine/Functions/Engine_MaterialFunctions02/SafeNormalize",
+    "/Engine/Functions/Engine_MaterialFunctions02/SmoothStep",
+    "/Engine/Functions/Engine_MaterialFunctions02/TangentBasis",
+    "/Engine/Functions/Engine_MaterialFunctions02/Texturing/CustomRotator",
+    "/Engine/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals",
+    "/Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components",
+    "/Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components",
+    "/Engine/Functions/Engine_MaterialFunctions02/Utility/CustomReflectionVector",
+    "/Engine/Functions/Engine_MaterialFunctions02/Utility/DebugScalarValues",
+    "/Engine/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2",
+    "/Engine/Functions/Engine_MaterialFunctions02/Utility/MakeFloat3",
+    "/Engine/Functions/Engine_MaterialFunctions02/Utility/MakeFloat4",
+    "/Engine/Functions/Engine_MaterialFunctions02/Utility/VectorLength",
+    "/Engine/Functions/Engine_MaterialFunctions02/WorldPositionOffset/CameraOffset",
+    "/Engine/Functions/Engine_MaterialFunctions03/Math/RemapValueRange",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Animation/ABP_Clothing_PostProcess",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Animation/ABP_MH_LiveLink",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Animation/CR_PlaceHolder",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Body/ABP_Body_PostProcess",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Body/IdentityTemplate/Body_LODSettings",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Common/MetaHuman_ControlRig",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/CRSL_MetaHuman_Gizmo",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/M_RigControlActor_Black",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/SM_MetaHuman_Faceboard_2x",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/SM_MetaHuman_Faceboard_Convergence",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/SM_MetaHuman_Faceboard_FollowGrp",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ABP_Face",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ABP_Face_PostProcess",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ARKit/AS_MetaHuman_ARKit_Mapping",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ARKit/PA_MetaHuman_ARKit_Mapping",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/CR_MetaHuman_HeadMovement_IK_Proc",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/Face_Archetype_Skeleton",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/Face_ControlBoard_CtrlRig",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/Face_LODSettings",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/PHYS_Face",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/SKM_Face",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/SKM_Face_DNA",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Female/Medium/NormalWeight/Body/metahuman_base_skel",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_UDIMs",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_UHM_QualitySwitch_MaterialAttributes",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_UHM_QualitySwitch_Scalar",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_UHM_QualitySwitch_Vector3",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_blendNormals",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_color_LinearTosRGB",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_color_sRGBToLinear",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_normalRotator",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_normalStrength",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_ruler",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Black_M",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Black_M_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_C",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_C_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_HDR_C",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_linear",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_N_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_White_C",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_White_C_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/T_MH_BentNormal_AO",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/T_MicroDetail001_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/T_TilingNoise_001",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Material_Functions/MF_circularMask",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Material_Functions/MF_customIris",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Material_Functions/MF_pupilScale",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Material_Functions/MF_refractedUVs",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/Baked/MI_EyeL_Baked",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/MI_eye_eyeball_unified_MH_preset_left",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/MI_eye_lacrimal_fluid_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/MI_eye_occlusion_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/M_eye_eyeball_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/M_eye_lacrimal_fluid_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/M_eye_occlusion_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/SSP_eye_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_Iris_H_M",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_Iris_I_M",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_iris_H_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_iris_I_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/feather_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Base_Tile_DetailNormal",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EV_DustPanner_01",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EyeMidPlaneDisplacement",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EyeSclera_D",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EyeSclera_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Eye_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Iris001_01_D",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Shared_Eye_AO",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Veins_D",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_alice_sun_painted",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_iris_color_picker",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_lacrimal_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_Skin_ScalableNormals",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_Skin_ScalableNormals_Regions",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_animated",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_bakedInputs",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_bentNormalsAO",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_fakeAO",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_fuzzApply",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_globalAdjustmentsPostBake",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_microSkinDetails",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_mipmapAdjustments",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_scalability",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_scatterAnisotropyPT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_utils",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_AnimatedMaps",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_HeadMask_01A",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_HeadMask_02A",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_HeadMask_03A",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_HeadMask_TexArraySample",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Materials/Baked/MI_Head_Baked_LOD0_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Materials/M_skin_unified_baked",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Materials/SSP_skin_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_FlowMap",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Horizontal_Normal3C",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Neutral_Normal3C",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Nose_Normal3C",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_PoreMask",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_RegionMask",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Vertical_Normal3C",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm13_msk_01",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_01",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_02",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_03",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_04a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm2_msk_01",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm2_msk_02",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm2_msk_03a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm3_msk_01",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm3_msk_02",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm_msk_Array",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/T_SkinMicro3_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/T_skinMicro3_CAV",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Materials/MI_teeth_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Materials/MI_teeth_unified_MH_preset",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Materials/M_teeth_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Materials/SSP_teeth_unified",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_BaseColor",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_DetailNormal",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_Masks_001",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_Masks_002",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_Normal",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_SharpNormal",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_GrayNormal",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_RGB2YCbCr",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_RedHairBoost",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_YCbCr2RGB",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_YCbCrAdjustments_BoostRedness",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MI_Eyelashes_HigherLODs",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MI_Eyelashes_LowerLODs",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_Eyelashes_Cards",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_GrayTexture_Eyes",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_GrayTexture_Head",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_GrayTexture_Teeth",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_Hide",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/T_Black_Linear",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Optional/BodyTextures/T_Skin_Microtiling_M",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/Eyelashes/T_Eyelashes_S_Sparse_Coverage",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_Eyes_D",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_Head_D",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_Teeth_D",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/BP_启梦MH00",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_BC_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_N_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_SRMF_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_Scatter_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Materials/MI_Body_Baked_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/PHYS_启梦MH00",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/SKM_启梦MH00_BodyMesh",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/SKM_启梦MH00_BodyMesh_DNA",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_BakedNormal_LOD3",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_BakedNormal_LOD4",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_BakedNormal_LOD5",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisL_BC",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisL_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisR_BC",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisR_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraL_BC",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraL_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraR_BC",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraR_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_BC_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_N_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_SRMF_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_Scatter_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_BC",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_N",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_SRM",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_Scatter",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_EyeL_Baked",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_EyeR_Baked",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_EyeShell",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Eyelashes",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_EyelashesHiLODs",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_LacrimalFluid",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD0_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD1_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD2_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD3_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD4_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD5to7_VT",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Teeth_Baked",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/SKM_启梦MH00_FaceMesh",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/SKM_启梦MH00_FaceMesh_DNA",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Basecolor_Animated_CM1",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Basecolor_Animated_CM2",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Basecolor_Animated_CM3",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Normal_Animated_WM1",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Normal_Animated_WM2",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Normal_Animated_WM3",
+    "/Script/AnimGraph",
+    "/Script/AnimGraphRuntime",
+    "/Script/AnimationCore",
+    "/Script/AnimationData",
+    "/Script/AnimationModifiers",
+    "/Script/ControlRig",
+    "/Script/ControlRigDeveloper",
+    "/Script/ControlRigSpline",
+    "/Script/CoreUObject",
+    "/Script/HairStrandsCore",
+    "/Script/InterchangeEngine",
+    "/Script/LiveLink",
+    "/Script/LiveLinkAnimationCore",
+    "/Script/LiveLinkGraphNode",
+    "/Script/LiveLinkInterface",
+    "/Script/MetaHumanSDKRuntime",
+    "/Script/MovieScene",
+    "/Script/NavigationSystem",
+    "/Script/PBIK",
+    "/Script/RigLogicDeveloper",
+    "/Script/RigLogicModule",
+    "/Script/RigVM",
+    "/Script/RigVMDeveloper",
+    "/Script/VamCharacterRuntime"
+  ],
+  "game_package_sha256": {
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/BP_启梦MH00": "c3b2862f958d5454167c6816d4ac5400652687c060f399a069c8964c93a6f90d",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/SKM_启梦MH00_FaceMesh": "a9077033cf4e9b55765af6edac71e3e51711cacfe4c3031deba158034180357f",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Teeth_Baked": "b9abef98ed16a5e768d301ec00fa605738e5cea24e58678e945adce6efa78b66",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Materials/MI_teeth_unified_MH_preset": "53ef1eb6fede75baee242301fb40074ee3aa32534c164abfb3ef644fac49df0a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_SharpNormal": "2cab6de3d90364cdbc05e991e3ce3d3ac35d0a1a43465c30ed18de63b1246b17",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_Normal": "49f2d72d9240d40ea01fa16bc3cdd111ae93a96f7301dd7c02b584319c4e5468",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_Masks_002": "d13bc4c961f67ff53f25e0e5a8572fad59a7b0b3486234fbabcc9b782e6bef89",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_Masks_001": "40cd7be487c12f2ee891c7f815bba2ada2160a95c4b235e255cc003448d9063b",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_DetailNormal": "88ef76faf26584be744b558dc624cd9c3634345d79efdff43cb482a579824fb2",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_BaseColor": "a2956c9d6e5f13f7bae3efaa85288ddc3c9ac0541137de353ebd4f169ad99f66",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Materials/SSP_teeth_unified": "7d244a80d6d758de53117f2e5064b59734167881c7a7c946367719e4e47042db",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Materials/MI_teeth_unified": "6a78f5858c74fe974a25678b82cd0ad1b026c63a57e8f42d8a91b49b20bc1c46",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Materials/M_teeth_unified": "a699f9c989ae5f32da3b445eba087137b7db83ce4a88998a0e9b5dbe623c3c67",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_White_C": "eaa1128db41c0ae09afbcdf4c37efe62885845a93eeaf01edec2e253ba6cb381",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_N": "3069f9e09e3b548129ad46b4ec3c54c674afcdb2565f0fe9bc7ff4e0c07d669f",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_C": "cada6d0943a00d946aaf58764b123709f507fe5ae0f0e4026b4e857bcb4cab0b",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Black_M": "b15e795f386446ee3742399cc283fec69276b27ea4a2e550a846457a78424ed9",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/T_MicroDetail001_N": "0a16ddf3194768a5637f11a73774c6499cba0f0b523d701fa9807b64fcb0d8df",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_UHM_QualitySwitch_MaterialAttributes": "aca6f1d438de35956cc4a7d4edd7422d31e78c1124d1935fffd615e5fc4a5d4b",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_normalStrength": "4e9b3338bbb243f921e8c31dabd919daba138e8b4ab23f8c1cb64cf36eee60c5",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_SRM": "214c84a3c9e2068fe00fa580f56537ed8f05fb0e76082caa3041e5e6aa886ef8",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_Scatter": "ae8b213705495858d60a7b50f6eb326ba8648113e12581a4d0f0ef7db8763533",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_N": "b4fd8f324b8bf2886d3cc79c5125eebf171873a34e676b030a4a892c6adba1bb",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_BC": "2554fef234c4d47436724b0f6abc71acca2cf681f52e04fa8b890cb85884bd42",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD5to7_VT": "7b242a7e85f682017fc639002bac89940983ac4faa0b2d1f5e41acc6db723cce",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Normal_Animated_WM3": "a7dce73a2bf9920105eb255f7222805aa7b1901a8142ff1e3a149ca5f097edc2",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Normal_Animated_WM2": "5be341eb99d68709d360eb862b228d6adbc9d77b1211b3dec3da20b60aeaaffa",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Normal_Animated_WM1": "739e8b516fa8ce1cb4fdd6c5c03e3d5947258a207f43cf64e2eb4c7203682b96",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Basecolor_Animated_CM3": "8f7b53017c6a728a97df9adcf19f363a55477f4e1334296ef66cd7735a06c8a4",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Basecolor_Animated_CM2": "fdbc02cc719da883798ead2c5a546a36178c960f0ca41e8011916c8012369051",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Basecolor_Animated_CM1": "1271e0866ff300fb24028dc67115ff346de8bbca4008c5aadb5d658895889064",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD4_VT": "0f1b66a501fbc992142eb58e95db7da9e8e264bc1f086e84d879774d79ec49f5",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD3_VT": "3f7347249dcafd944c9b52b98fda89a523b7c41ac4540d0bcf1892337f72e186",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD2_VT": "9862233c0275025587a91d8a6a1bfaf9b3f46168adb6a4580929f2bfc86a9d0c",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD1_VT": "f295f6c909d1f664380038d92149a722a9b3a1ce595e9c63ab18b84f25aa7b73",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Skin_Baked_LOD0_VT": "a3dfd23a4e301c5e305c261dc847c0da17d0c90514c2134f071e1ad17dfb6d83",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Materials/M_skin_unified_baked": "0e46af42a1aae02c578c43b83edb57bf07e1d71c2ccaa514646d116da974df2c",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm_msk_Array": "133ba4099d1187353b7f236adc4f94d7605144756878a907518322a42d67cc44",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm3_msk_02": "749da2eb2d6b9102e759d62e63f9f6834facc0210be92d54a93326ebf018d288",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm3_msk_01": "a32bbd34321756c8f1fc19c9320eef0d9364322347a2a23c6b932cb4f8e452e5",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm2_msk_03a": "a85af056d7d8113e8fdb10e599ac92f795f2f721e4c90440bee477ff9827904a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm2_msk_02": "94ba9badc79c1baf6322f83f4b14d58373f0d13ef94936c552800647f4f5d1d3",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm2_msk_01": "722bc32e0980db78cce454dcce7beccd4335a0a142500703fab2a64658a744cf",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_04a": "3590339598484e848c96b7d1cde59e0f5b328c30692eb2c634aa9344a1adc1c8",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_03": "9f81f9971660112caf037749bb102f694b7499c57e1c4a7b89a3c387a3c5c3ab",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_02": "10bc9ee241f2fd4d1e86e981fb763fb9908cb0e3d638c14251227a1e2221d8e2",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_01": "f38c7e4857f93e9c83899434c873f2241a4f50e9efc70166b366f7c2b4b865cc",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm13_msk_01": "d4eced5cba1d4e8a64be9e6e4f2d483b30184f4c101c3cf91eeed25755881c0f",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_White_C_VT": "0364ba37e9dbb6bedf6a636f04717bc63e5922b9cbe5ea8391c5aba44faf30d7",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_N_VT": "b588b2397c036fbd89a1b9b02e95e61433349267f02b7b164c89c5181a39ff38",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_linear": "0cfe4dd645db2f43d0038dcca73f4f458d39b337a2d6cfc5f531b684da7f9543",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_HDR_C": "60907fac7193bba23553773b9f198f0173558de4740ff20ccb1ce8e8abf58540",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_C_VT": "3dcb4fe6986d9c15059872a6386c44ee0b68d25280bbbd0e14f03c34444c2892",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Black_M_VT": "9fb22bc762cc5be7965fcb883a8d731389f48517bfef91567fddf7f1a3e98386",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Vertical_Normal3C": "e236cf93b8d57744325696f1ae9aafdc711139b0f3803d2593ea9399e3cf128c",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_RegionMask": "3adf1f184c05d2d8225f4c6b2b8790069b7ed666dfa13f192c6e0472558de60a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_PoreMask": "526e81f7f75518e1105124ecf5e1ad5145f3f690eb7c6b5fc74a0ddd7a167312",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Nose_Normal3C": "9554cb79b8beffc158bbcf6ce7309141098c493599bfb4a284cd1f1ff13a10a3",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Neutral_Normal3C": "429e7d1a0171858950a27141c9e1fd0b394ff04300db6984be08edbdaf18ffb3",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Horizontal_Normal3C": "e802772b1fe7e43f39fa7973c5e6b4bb4bbdcac0611b7f8e502ea5f02acdb156",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_FlowMap": "d9483372a3248dff180400db14e73b1ce9730421091d255072e45b03797b1222",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_HeadMask_TexArraySample": "422423a46cec9af3b104009f90cd2e628bcd8934214754746ddbb668f6cf6cea",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_HeadMask_03A": "8f54c13a615a60988c3bb8e57931d454e6d00705d3e3374dbaafae4b1cc185ca",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_HeadMask_02A": "cf7ceea9aeaa7c20a88036aaae4a9bd4261f981aac08c6a01ab46169d0a21bef",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_HeadMask_01A": "4ca1bc7d71fb385c5a8bb2ea03bbd4beeff56ed5f30ebde2a76b7a8c03862323",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/Skin_Animated/MF_AnimatedMaps": "2d49cb2ea59b88039e75db356ebfdae9b4432462d6780dbeceba76d5414e400c",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/T_MH_BentNormal_AO": "a0b21502995fa12d69d09177ddfaef32ac37bd8be99d21f37b09dfc96be18aeb",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_UHM_QualitySwitch_Vector3": "25b618de6b9abee3d6369a211b759efd575a8e3a516cc8536793f29e2068a8a1",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_UHM_QualitySwitch_Scalar": "a490c760fd475d534056b2139256bebbb6cd1a852f5b4634be0159f0eac4ff5a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_UDIMs": "835cfcd72aaafb63f21384650519997e7c13d671b3037a3e1e78bdcff1fd2b0d",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_ruler": "8a1397e119149dd099116cc2361fbb20d44d676101b249f915cbca52fc28a09a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_color_sRGBToLinear": "37333af471ca9a4d3759a941c3dfa1eb538c1bd671ad270777f7bcdee8c64cfb",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_color_LinearTosRGB": "ed050ed7f11ef1f25c983cc724b483892b2a67d529d23917b5d81e9f976120ac",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_blendNormals": "01443dabadd5b7b37b5470ce33b62d2415ce304baa0077b5a15216c876b49170",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/T_SkinMicro3_N": "7668f8773162c99e8e947c45d3dddcad64711a50e5a7befd56679fc840d01a65",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/T_skinMicro3_CAV": "4730be438312ff63125db292a040ad638354e74c1d79b88cb44c7eaa59cf0000",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_utils": "76e4666b51e5b7d73204f7d93f5f60a6b8568ce91b386a7fe527a8cbcd3e557f",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_scatterAnisotropyPT": "2766248f562f4f5412c09ec11ac0914a1f294677157a6ad8ca7fea312f6679c6",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_Skin_ScalableNormals_Regions": "6ea2f83716b359eaee503b297338949a9fb9dd9922164073835c6d7f46a45067",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_Skin_ScalableNormals": "10500a405ac749cdb680aed0a582c7833d61f10003040075056ebf571ff7536e",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_scalability": "3c745230b81451e886bdd628118889e6a4c85ca7b4a5fea515999d8b0128385d",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_mipmapAdjustments": "4b63a3e36d76cc46a6b45f13656d3fd6e802f3bf15ea03de44b9f345685f4859",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_microSkinDetails": "769404e85725fdc32ec5381a80e67d0bbf0ac703a1f26a7e4f14c1650f88d729",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_globalAdjustmentsPostBake": "f9c23ff9e853be5d506fa2d3805d2a3d6540b9e1517562b74aa923ba0fca4f9a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_fuzzApply": "1f66eafe762bfe96ad663d0af94ee7f9e3478a9fa40f1d8391e64ad4af2fca25",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_fakeAO": "747a90b25d0de6ab58da8e3063dae1f2a64cbd670362738370e2f0f9bfa0c963",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_bentNormalsAO": "cb047b85d83a28d04dc2787275220a7a86cdff8f696692b2f91294fc9179f235",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_bakedInputs": "a854289cdf47e47bf8f5b7f477f9632d3fb0dc2d4f51aad9b4eaf0404e8cef57",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Material_Functions/MF_skin_animated": "981107d3a23007e519f487afb188c77bc61037a91317b5ec1c35ef17db23803c",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Materials/SSP_skin_unified": "c60a4ca656253fcc32d11786e16702024725e452ac0a065a0e46eb7af8283f4f",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_SRMF_VT": "7cdbcc0ae280a522486eef934e1956a87ed6968587bba85c52052329a23ca2a8",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_Scatter_VT": "a33349c2aef421f2cf5daceb75a9bb570e4c184bdffad6bdc3d603f27ab6a9d3",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_N_VT": "2461f90bc6533cae4a6466bdfeb23c802e21fd9fabbcd571bd96b8fa4bad88b4",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_BC_VT": "084fb28b11b155c08c24f668f3fa96b09e06563749c43da59dc15ded70cd0c36",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Optional/BodyTextures/T_Skin_Microtiling_M": "52816f7593b2c96fd64460c2209288e081100b7fdf1bb327f35895bdb88ad617",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_BakedNormal_LOD3": "c253a1f848378eab5b4bd4c4c44672a4dbecbf342b32d98412f27e337f2a0740",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_BakedNormal_LOD4": "1121ffedc1fc11725832c7d0ab48279f584f134af4bf3f5789b4caecdd5f21ac",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_BakedNormal_LOD5": "c181cdd4172ef563d0749ff9e842871809e24d161c1940d0124b89936468f4cc",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_LacrimalFluid": "e3fb2e0fc09bde700b83f8dea7010950ee9464fd09d39084c531fd49a9b13cd6",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/MI_eye_lacrimal_fluid_unified": "0a84226647304668b057a24d9c5a0f480fd797373e689b5f03765957f9cf082b",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/M_eye_lacrimal_fluid_unified": "b4a69996c1961b23f9836e551deee6efbc36077d130824ed55425d6f66d417bd",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_lacrimal_N": "3c846b96d76d4af06863d6dd2e3e07fe5f4ae3a9b1e9ba44ebd0abd1b2710d8d",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_EyeShell": "5efbf98282ed4798196fa630841bb7f4a35e505e524baad19b40ece2dd12b007",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/MI_eye_occlusion_unified": "feeeb599ac253befa8aec0a85d86866ef0770283539b6026bfd99ec1ce16f1f5",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/M_eye_occlusion_unified": "7a44b7e1712b38bbd5713bba1406367240728bcbde1cfc99d26234c6b32e9bc4",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_EyelashesHiLODs": "91467aec7d7c1e4d2d99effdb28f04de8ebf038fb2d181b974add5bceaadecb9",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MI_Eyelashes_HigherLODs": "6539a4cef2c3659b7d3e70e0f614fcd8ca176b9d6e42f0c261a31275fe4fb852",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/Eyelashes/T_Eyelashes_S_Sparse_Coverage": "8e5802f245a0a536cf693518fcbf318ae63f76dd4a4ef9ef0092972486245506",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_Eyelashes_Cards": "271ca40020fcba6d82a42d38903679c736f88d7f5f283d6103639cb65155478c",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/T_Black_Linear": "0811e84366b0f10ae90700ce137c58181e60a939960fa2518b61fe8bc9f246e2",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_YCbCrAdjustments_BoostRedness": "48bb612c3a53a97e641ab53a3bc160ff453ae6b6a8c53098d51ccf7bbbd61147",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_YCbCr2RGB": "c1df2839db094d27c204461da2729832faef71ab4ce23d06fd45e7aa1eeb6a90",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_RGB2YCbCr": "d7f0b92185a4b11f8db8babd4eff94d2e5b84eca0d8a01be2079d76ef7213c40",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_RedHairBoost": "1a5b4946d21fc010330de2680a5ab0c001d7358c910dcb4944f1bbfe207693e8",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_Face_Eyelashes": "1013e6484414ebfb1ab7e9e046a4ea8647886117688196828b533e6f1a5f4218",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MI_Eyelashes_LowerLODs": "d88a654a9043abde4cc66ba0a19becd8272aa40b6ce0a7caec1962d1e93408d7",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_EyeR_Baked": "854691a9800986782e75b4967ee2ed1bb929f235c33968b2182bb1128bcdba85",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/Baked/MI_EyeL_Baked": "f46304c2e432ee5a8e170ee0bc378650cc8cfdebbba7bb80eb646f113c2c39ab",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/SSP_eye_unified": "219376fb0584bf06a58930e36c80b118fb605979fad9e9e7112faa0527645008",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/MI_eye_eyeball_unified_MH_preset_left": "791ca445f09713db0e288931de9ebd1f566cdd39ae7debbf7eecb3c357ef2285",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_iris_I_N": "81c689f1ad103b83b864864ff07235ceb8609354a45abec8f6a9d9769ce1cf09",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_Iris_I_M": "cc500bc2f04919055a9dbfab0938ac508d367421d35bd5c05106a0d968d28fa5",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Materials/M_eye_eyeball_unified": "da023683015b87e08cc7591facf226c6b3695f99b4def4e7e09cad9c22dfa3be",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_iris_H_N": "6c53378b100c4c0cc82e1932ce9486c8f4d3f2822cc751918e75010f78de624b",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_Iris_H_M": "697db055dcd68958ed1c097f2b7b9ed8b3692f9d9f658cd6324e765e5892eda3",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/feather_N": "b3366615493c91852e0c549f0be8b5581dd09b756a6c68c29e9135bef21d30cb",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Veins_D": "73ea520bf38585a369bab69c95632d3e12c8830a9a9e393b29696d964305bd52",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Shared_Eye_AO": "2904b8d34c6f27b2392ff6216d6ba62ebdc00ad0515eee61027b95409e0f4d5f",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_iris_color_picker": "97115882d022eb7dbae9b0fca9f05fc0fa7c0d367a2b29d6f4627f150c54b983",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Iris001_01_D": "9680da4367750fdcfa5d0790b9967e292f2a6b6d7bfadf2fa19c14fd83a067de",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Eye_N": "57fa971bc9c64964416cceec5996c186e20b7c288e200d63cee3dfe4a7a77ee7",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EyeSclera_N": "e17d63bb1084b9ca886f4622f000cc0e730c3e750781e0c17b3e15339b337b8a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EyeSclera_D": "443b9ac4d73c0d0e389f9464a65a3b1858a6a6019bd05467e701e96a6abc4a1c",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EyeMidPlaneDisplacement": "a0a8d754b2fa0c7d7afcd1fda4a6bbb45b4b9dd4f827245df13dd0811c1bf746",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EV_DustPanner_01": "3f82061c7dcf9db53b3b732410fa540d7881b5bdff32910a3f0795ab6691e69d",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Base_Tile_DetailNormal": "65e2e18ef8c51f91ed6be3bca0e58e7af39be8725342c26e135a7774631567c7",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_alice_sun_painted": "6175205f7a05a1f3fe6fadef54170a0cacf0155bfee0c460c74d912614929514",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Material_Functions/MF_refractedUVs": "38e79bc1666a63fb1ee104ff597d12a5d993ff79ba418eaeca309f3ea4ede450",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Material_Functions/MF_pupilScale": "6a50a1ab208964e1a78dbb758edeb4334cbe7e2632f0ba5b9785de2cd777ef6b",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Material_Functions/MF_customIris": "a73857754cdf12f101ceb648230368ef65fa70e086e797d6542edbebbcc86c59",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Material_Functions/MF_circularMask": "e4480bb521ebc217a43f44eb4cca628a2dd97bd37cfd0d48b288f4a520576b45",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/T_TilingNoise_001": "86151a04b86dbcacc47a67addc9085a36a610a35c6cdd902114450614448b415",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Material_Functions/MF_normalRotator": "7e3613415f671adcd9517420906e4a42d8d86904ad827e64e2d7eb21163c221e",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraR_N": "854fa96a315c8927302316805b5c017ae90df44278df01f8754a1804c62e8b39",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraR_BC": "170e913b134ff18ea9126d8194d26e4a2b6bf3f581596266616e200ffba90e4b",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisR_N": "8d702bdaaaec4f45fb48959be88cc2a7bd303d935a252bc76469f3af38db9bd3",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisR_BC": "0e3a7b94542d3fa16a6e366134ce431048a943fd7b53b2e827dbf35d9297d6cc",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Materials/MI_EyeL_Baked": "26112d7929df5ce8fe01e8ee1289e212a660f2b7a1fd0505a3af483a85dfb25e",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraL_N": "3b0a10c80045c9fd0a0f720a3fcfd826f0d7a9027aecd9b06479ae9013c162ec",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraL_BC": "ffe18084206a1060a07af293bee483493a52f2fa36b34c1573ff3ee50d2b25c4",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisL_N": "34f1b3716b6582e14a7fb90b9afc0ae2edd249e01675abeb0ca6f480b2918c3a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisL_BC": "5795a60bec8d9de60329ddbe25ea858c6cac15418b9a2c7884e9f22e5282e4e1",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/SKM_启梦MH00_FaceMesh_DNA": "5404dc558d5af42009241eef30ae0fdfdf89828d4087de8634c82e765a9b5cd6",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_Hide": "6077adba8235baca2c17d9a44ebeef0072108ab1bc42f1c688a9f6e52d2d67f2",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/PHYS_Face": "485d72b328cb5fb312db17360efdf496842c9e11e6676584b23ef644c7e6fe42",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/SKM_Face": "60f330af6aa17784eaa45c88ee751274399fe5bfb03ad1705aec76aac19848de",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_GrayTexture_Teeth": "0264e3d7b2f900bc3fbf529eec349d4ae86d19f2fad3987bb246ee102f1e342a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_Teeth_D": "4ee5a7da757d788c595f7f2ef2792e7265386b29f5dcd95e0372c59216db3182",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_N": "f563b63278862a78c192d9ccd98ea2d9ea4f6283d1921d6525458f1390aabebc",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/MF_GrayNormal": "95aa416d6667bc091f80275d2267bf0667bb7f64cdace92daf814432602d304a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_GrayTexture_Head": "483043556c78a53a78164ab56fcd543923e3edd5322ddee28bb390505f9b9b6f",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_Head_D": "6d918c7fd4ad85a378c2eb46efb9417350a27f5c5aa6dce3bdbb91d04d2800b5",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/M_GrayTexture_Eyes": "574b5f8c0bdc6edba725952e7f24a0627588656cb8bd0d3144c82c28d622db24",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_Eyes_D": "0b7efd66f36beb04d00e49f9c6fea13b9c3c36d516005f28fff79076aff8ae9a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/SKM_Face_DNA": "2e9cb3de939a8b81a80a6c3bee1d86a47557505212c5bcbbf75f72cf5684ba65",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/Face_LODSettings": "3ac95b87ecbb57fd2c34d748e50c28c0c20e0d5f1cb5ad056e6fb1f49d3a0e61",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/Face_ControlBoard_CtrlRig": "1f53ab35a5aa3b0790156744d9442cec8de5d36370ce52c42184cc3eb2b0ccd1",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/CRSL_MetaHuman_Gizmo": "c83d69b759fe3c4b44eb7a29f795a72e5dc6dd24744650c8022fa8196d3a4faf",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/SM_MetaHuman_Faceboard_FollowGrp": "9793134f75147164e372ff66c9afb2eff30fa72cf6874fb3b6bd8db405ffc019",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/M_RigControlActor_Black": "9c3ec1190f399c98f182255c51973c92de72e159ea19655506176d1afcf1924f",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/SM_MetaHuman_Faceboard_Convergence": "8a31b76f8730b00249b8653babff14f9bf8b3b6d535b925086f377773eb7aef9",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Controls/SM_MetaHuman_Faceboard_2x": "9b6e067691f991f2c668f6081c6640c4013cc7bce38b9740aaeda2204a93426e",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/Face_Archetype_Skeleton": "6107ae8fb414c74c5d294838a62d069caf5a4c156d1051b9f957285c120ecfec",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Female/Medium/NormalWeight/Body/metahuman_base_skel": "0b4e1a2804bfc6ad14d7dc08b619765707f068d50472f61d9c7b2b0d991745a9",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ABP_Face_PostProcess": "db19437b1cea427af967febdf3830d679228ef7944acb4b67463102788b99ced",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/CR_MetaHuman_HeadMovement_IK_Proc": "3d4da967f1c204961f119d2b2ccd5c31ea17db34cfb8c82072f29d478dbfb086",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/SKM_启梦MH00_BodyMesh": "a394b72d1f0aab764e3bb59fac07e44dd6ee75eb5c4f04905fa71eb6e9cd47fe",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Body/IdentityTemplate/Body_LODSettings": "a3bacf7401d2c4de9be7cb0311a1084aa4a0e5b447683a2763d6eb6386e0ec00",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Materials/MI_Body_Baked_VT": "74be2af616b59168bac9670669fb22908ad19e375ed9556dddfb47adb42c181a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Materials/Baked/MI_Head_Baked_LOD0_VT": "9161cd72d68be07028ed408d29b1bddd672abbe5326ef3b800833e106ca10df7",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_SRMF_VT": "16b0d904b9ada1a6661a22cebd21e4a288a833bc8c674b83a740de4d0e882c23",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_Scatter_VT": "601246d863ddb48f4519f8662f26e2cfc7838530dbb2076dc3c8392ed8e194b8",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_N_VT": "60fb869576a9719e456d22d23736ad8e5495a58db17cc8a4989d37a76f69ed0e",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_BC_VT": "2697bf53517eb7f3c3ddd74b729b3b96c399160b44bd7b029e2d3b91e03c2bad",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/SKM_启梦MH00_BodyMesh_DNA": "9d3834ce5b93301ea2fb4664e30082039d19e05f3b6fa7b0695a92795850642a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/PHYS_启梦MH00": "1c0f77c5c6cb082b43140fa2c952e9ecf07332e3a0b6ed8c21d6019aa833cb39",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Common/MetaHuman_ControlRig": "b3841d7a1b17703bb0f04d814ef3c6da438ce1ad315ea0096c036762e1e21572",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Body/ABP_Body_PostProcess": "2e3ee81d0f128f966d78d62a98dbe5bc1ca9661d6b62dcccdb7217655f9fded8",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ABP_Face": "accce2d3f404888e82a58be085e43d990a1822cdc1b8005aa39f8e15c65d159a",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Animation/ABP_MH_LiveLink": "2e75a1c82c52d682eacfbea42d1c9bcfeade98883c4bc68834607e8cbce68e80",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ARKit/PA_MetaHuman_ARKit_Mapping": "26db5583a91f542f7b60b9ed271349b623ac5cb073cc1b0f30b69b6380259580",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Face/ARKit/AS_MetaHuman_ARKit_Mapping": "e8e1eae141a42425775e19d4a7e2116f941fd05c1b750d6cff68a16860d5d699",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Animation/ABP_Clothing_PostProcess": "f0e498b1662f04fd4cf2d3cf9b64efa9b2c0f8e96034b2d0ddf231f616943a7b",
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Animation/CR_PlaceHolder": "d60fe20d20003d07d6914600671b80ec0b4f7f5e9d68b26f2a5005a55f3d51b7"
+  },
+  "texture_dimensions": {
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_SharpNormal.T_Teeth_SharpNormal": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_Normal.T_Teeth_Normal": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_Masks_002.T_Teeth_Masks_002": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_Masks_001.T_Teeth_Masks_001": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_DetailNormal.T_Teeth_DetailNormal": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Teeth/Textures/T_Teeth_BaseColor.T_Teeth_BaseColor": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_White_C.T_Flat_White_C": [
+      32,
+      32
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_N.T_Flat_N": [
+      16,
+      16
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_C.T_Flat_Grey_C": [
+      32,
+      32
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Black_M.T_Flat_Black_M": [
+      32,
+      32
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/T_MicroDetail001_N.T_MicroDetail001_N": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_SRM.T_Teeth_SRM": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_Scatter.T_Teeth_Scatter": [
+      256,
+      256
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_N.T_Teeth_N": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Teeth_BC.T_Teeth_BC": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Normal_Animated_WM3.T_Face_Normal_Animated_WM3": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Normal_Animated_WM2.T_Face_Normal_Animated_WM2": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Normal_Animated_WM1.T_Face_Normal_Animated_WM1": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Basecolor_Animated_CM3.T_Face_Basecolor_Animated_CM3": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Basecolor_Animated_CM2.T_Face_Basecolor_Animated_CM2": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Textures/T_Face_Basecolor_Animated_CM1.T_Face_Basecolor_Animated_CM1": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm3_msk_02.T_head_wm3_msk_02": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm3_msk_01.T_head_wm3_msk_01": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm2_msk_03a.T_head_wm2_msk_03a": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm2_msk_02.T_head_wm2_msk_02": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm2_msk_01.T_head_wm2_msk_01": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_04a.T_head_wm1_msk_04a": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_03.T_head_wm1_msk_03": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_02.T_head_wm1_msk_02": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm1_msk_01.T_head_wm1_msk_01": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Skin_Animated/T_head_wm13_msk_01.T_head_wm13_msk_01": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_White_C_VT.T_Flat_White_C_VT": [
+      32,
+      32
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_N_VT.T_Flat_N_VT": [
+      16,
+      16
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_linear.T_Flat_Grey_linear": [
+      32,
+      32
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_HDR_C.T_Flat_Grey_HDR_C": [
+      32,
+      32
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Grey_C_VT.T_Flat_Grey_C_VT": [
+      32,
+      32
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/Placeholders/T_Flat_Black_M_VT.T_Flat_Black_M_VT": [
+      32,
+      32
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Vertical_Normal3C.T_Pores_Vertical_Normal3C": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_RegionMask.T_Pores_RegionMask": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_PoreMask.T_Pores_PoreMask": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Nose_Normal3C.T_Pores_Nose_Normal3C": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Neutral_Normal3C.T_Pores_Neutral_Normal3C": [
+      512,
+      511
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_Horizontal_Normal3C.T_Pores_Horizontal_Normal3C": [
+      512,
+      511
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/Scalable_Normals/T_Pores_FlowMap.T_Pores_FlowMap": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/T_MH_BentNormal_AO.T_MH_BentNormal_AO": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/T_SkinMicro3_N.T_SkinMicro3_N": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Skin/Textures/T_skinMicro3_CAV.T_skinMicro3_CAV": [
+      1024,
+      1024
+    ],
+    "/Engine/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/DebugNumberPeriod.DebugNumberPeriod": [
+      128,
+      128
+    ],
+    "/Engine/Functions/Engine_MaterialFunctions02/ExampleContent/DebugNumberStrip.DebugNumberStrip": [
+      128,
+      1024
+    ],
+    "/Engine/EngineMaterials/DefaultDiffuse.DefaultDiffuse": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_SRMF_VT.T_Head_SRMF_VT": [
+      8192,
+      8192
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_Scatter_VT.T_Head_Scatter_VT": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_N_VT.T_Head_N_VT": [
+      8192,
+      8192
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_Head_BC_VT.T_Head_BC_VT": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Optional/BodyTextures/T_Skin_Microtiling_M.T_Skin_Microtiling_M": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_BakedNormal_LOD3.T_BakedNormal_LOD3": [
+      256,
+      256
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_BakedNormal_LOD4.T_BakedNormal_LOD4": [
+      256,
+      256
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_BakedNormal_LOD5.T_BakedNormal_LOD5": [
+      256,
+      256
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_lacrimal_N.T_lacrimal_N": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/Eyelashes/T_Eyelashes_S_Sparse_Coverage.T_Eyelashes_S_Sparse_Coverage": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Materials/T_Black_Linear.T_Black_Linear": [
+      32,
+      32
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_iris_I_N.T_iris_I_N": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_Iris_I_M.T_Iris_I_M": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_iris_H_N.T_iris_H_N": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/T_Iris_H_M.T_Iris_H_M": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/Iris/feather_N.feather_N": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Veins_D.T_Veins_D": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Shared_Eye_AO.T_Shared_Eye_AO": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_iris_color_picker.T_iris_color_picker": [
+      512,
+      256
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Iris001_01_D.T_Iris001_01_D": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Eye_N.T_Eye_N": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EyeSclera_N.T_EyeSclera_N": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EyeSclera_D.T_EyeSclera_D": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EyeMidPlaneDisplacement.T_EyeMidPlaneDisplacement": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_EV_DustPanner_01.T_EV_DustPanner_01": [
+      256,
+      256
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Eye/Textures/T_Base_Tile_DetailNormal.T_Base_Tile_DetailNormal": [
+      256,
+      256
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Lookdev_UHM/Common/Textures/T_TilingNoise_001.T_TilingNoise_001": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraR_N.T_EyeScleraR_N": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraR_BC.T_EyeScleraR_BC": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisR_N.T_EyeIrisR_N": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisR_BC.T_EyeIrisR_BC": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraL_N.T_EyeScleraL_N": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeScleraL_BC.T_EyeScleraL_BC": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisL_N.T_EyeIrisL_N": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Face/Baked/T_EyeIrisL_BC.T_EyeIrisL_BC": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_Teeth_D.T_Gray_Teeth_D": [
+      1024,
+      1024
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_N.T_Gray_N": [
+      64,
+      64
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_Head_D.T_Gray_Head_D": [
+      2048,
+      2048
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/Common/Textures/T_Gray_Eyes_D.T_Gray_Eyes_D": [
+      1024,
+      1024
+    ],
+    "/Engine/EngineMaterials/T_Default_Material_Grid_N.T_Default_Material_Grid_N": [
+      256,
+      256
+    ],
+    "/Engine/EngineMaterials/T_Default_Material_Grid_M.T_Default_Material_Grid_M": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_SRMF_VT.T_Body_SRMF_VT": [
+      8192,
+      8192
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_Scatter_VT.T_Body_Scatter_VT": [
+      512,
+      512
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_N_VT.T_Body_N_VT": [
+      8192,
+      8192
+    ],
+    "/Game/MetaHumans/启梦MH00/AssemblyV3/启梦MH00/Body/Baked/T_Body_BC_VT.T_Body_BC_VT": [
+      4096,
+      4096
+    ]
+  }
+}

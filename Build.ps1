@@ -11,6 +11,9 @@ foreach ($entry in @('VamResourceBrowser.uplugin', 'Source', 'Config', 'Content'
     Copy-Item -LiteralPath (Join-Path $pluginRoot $entry) -Destination $stage -Recurse
 }
 $scriptStage = New-Item -ItemType Directory -Path (Join-Path $stage 'Scripts')
+foreach ($entry in @('CAPABILITIES.md','MIGRATION_MAP.md','MANUAL_REVIEW.md','MH00_FIT_REPAIR.md','RunMetaHuman.ps1','RunMetaHumanCooked.ps1')) {
+    Copy-Item -LiteralPath (Join-Path $pluginRoot $entry) -Destination $stage
+}
 Get-ChildItem -LiteralPath (Join-Path $pluginRoot 'Scripts') -File -Filter '*.py' | Copy-Item -Destination $scriptStage.FullName
 $descriptor = Join-Path $stage 'VamResourceBrowser.uplugin'
 & (Join-Path $Engine 'Engine\Build\BatchFiles\RunUAT.bat') BuildPlugin "-Plugin=$descriptor" "-Package=$buildOutput" -TargetPlatforms=Win64 -Rocket
