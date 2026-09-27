@@ -12,14 +12,16 @@ class VAMCHARACTERRUNTIME_API UVamBreastSkeletalMeshComponent : public USkeletal
 public:
     UPROPERTY(Transient) TObjectPtr<UVamBreastJiggleProfile> BreastProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle") bool bJiggleEnabled=true;
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0.2",ClampMax="100",UIMax="20")) double Softness=1;
-    UPROPERTY(BlueprintReadOnly, Transient, Category="VaM|Breast Jiggle") double DensityOverrideKgPerCm3=0;
-    UFUNCTION(BlueprintCallable, Category="VaM|Breast Jiggle") void SetBreastDensity(double DensityKgPerCm3);
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0.2",ClampMax="3")) FVector FrequencyScale=FVector(1);
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0.05",ClampMax="4")) FVector DampingScale=FVector(1);
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0.25",ClampMax="4")) FVector TravelScale=FVector(1);
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0",ClampMax="2")) double CouplingScale=1;
-    UFUNCTION(BlueprintCallable, Category="VaM|Breast Jiggle") void ApplyBreastTuningPreset(FName Preset);
+    // Legacy fields retained for schema-1 assets only; absent from the formal tuning UI.
+    UPROPERTY() double Softness=1;
+    UPROPERTY(Transient) double DensityOverrideKgPerCm3=0;
+    UFUNCTION(BlueprintCallable, Category="VaM|Legacy",meta=(DeprecatedFunction,DeprecationMessage="Use calibrated Mass Scale; Density is internal")) void SetBreastDensity(double DensityKgPerCm3);
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0.1",ClampMax="10")) double Support=1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0.1",ClampMax="4")) double Damping=1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(DisplayName="Mobility",ClampMin="0.25",ClampMax="3")) double BreastMobility=1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0",ClampMax="4")) double InternalCoupling=1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, AdvancedDisplay, Category="VaM|Breast Jiggle",meta=(ClampMin="0.1",ClampMax="10")) double MassScale=1;
+    UFUNCTION(BlueprintCallable, Category="VaM|Breast Jiggle") void ResetBreastTuning();
     FVamBreastTuning GetBreastTuning() const;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle") bool bShowHelperBones=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle") bool bShowRegionWeights=false;

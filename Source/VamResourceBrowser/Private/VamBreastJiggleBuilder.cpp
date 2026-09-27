@@ -1,6 +1,8 @@
 #include "VamBreastJiggleBuilder.h"
 #include "VamNativeBuilder.h"
 #include "VamBreastJiggleProfile.h"
+#include "VamBreastCalibration.h"
+#include "VamBreastWeightUtils.h"
 #include "VamCharacterDefinition.h"
 #include "Engine/SkeletalMesh.h"
 #include "Animation/Skeleton.h"
@@ -68,7 +70,9 @@ struct FMeasure
 {
     double Volume=0,Area=0,Radius=0,Depth=0;
     FVector COM=FVector::ZeroVector;
-    TArray<FVector> Nodes;
+    TArray<FVector> Nodes,MassCenters;
+    TArray<double> NodeVolumes;
+    FVector Size=FVector::ZeroVector,RootSize=FVector::ZeroVector;
 };
 FMeasure Measure(const FVamNativeMeshInput& I,const TArray<FVector>& V,const TArray<float>& Region,const FTransform& Anchor,double SideSign)
 {
@@ -99,6 +103,29 @@ FMeasure Measure(const FVamNativeMeshInput& I,const TArray<FVector>& V,const TAr
         M.Nodes[N]+=Local[J]*W;Sum[N]+=W;
     }
     for(int32 N=0;N<5;++N) M.Nodes[N]/=FMath::Max(Sum[N],1.e-12);
+    // Partition each support cone by normalized semantic kernels; no fixed mass fractions.
+    M.NodeVolumes.Init(0,5);M.MassCenters.Init(FVector::ZeroVector,5);
+    FVector Variance=FVector::ZeroVector;double RootWeight=0;FVector RootVariance=FVector::ZeroVector;
+    for(int32 J=0;J<V.Num();++J)
+    {
+        const FVector D=Local[J]-Mean;Variance+=D*D*Region[J];
+        const double W=Region[J]*FMath::Exp(-FMath::Square(Local[J].X/FMath::Max(.1,M.Depth*.5)));
+        RootVariance+=D*D*W;RootWeight+=W;
+    }
+    for(int32 A=0;A<3;++A) { M.Size[A]=FMath::Max(.1,4*FMath::Sqrt(Variance[A]/FMath::Max(Weight,1.e-12)));M.RootSize[A]=FMath::Max(.1,4*FMath::Sqrt(RootVariance[A]/FMath::Max(RootWeight,1.e-12))); }
+    M.Size.X=FMath::Max(M.Size.X,M.Depth);
+    for(int32 T=0;T<I.Triangles.Num();T+=3)
+    {
+        const int32 A=I.Triangles[T],B=I.Triangles[T+1],C=I.Triangles[T+2];
+        const FVector Center=(Local[A]+Local[B]+Local[C])/3.;
+        const double W=(Region[A]+Region[B]+Region[C])/3.;
+        const double Volume=FMath::Abs(FVector::CrossProduct(Local[B]-Local[A],Local[C]-Local[A]).X)*.5*W*FMath::Max(0.,Center.X)/3.;
+        double Kernels[5],Total=0;
+        for(int32 N=0;N<5;++N) { Kernels[N]=FMath::Exp(-(Center-Centers[N]).SizeSquared()/FMath::Square(Scale*.65));Total+=Kernels[N]; }
+        if(Total<1.e-30) continue;
+        for(int32 N=0;N<5;++N) { const double Part=Volume*Kernels[N]/Total;M.NodeVolumes[N]+=Part;M.MassCenters[N]+=Center*.75*Part; }
+    }
+    for(int32 N=0;N<5;++N) M.MassCenters[N]/=FMath::Max(1.e-12,M.NodeVolumes[N]);
     return M;
 }
 }
@@ -115,7 +142,9 @@ UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVam
     auto* Shape=Source->Shape.LoadSynchronous();auto* Geometry=Shape ? Shape->Geometry.LoadSynchronous() : nullptr;
     if(!Geometry || Geometry->InputToSource.Num()!=I.Vertices.Num()) return Fail(TEXT("Source topology correspondence unavailable"));
     P->SourceTopologyIdentity=Geometry->TopologyDigest;P->SkeletonFamily=Family->GetStringField(TEXT("family"));
+    P->SchemaVersion=2;P->BuildAlgorithmVersion=TEXT("breast-calibration-v2");P->DensityKgPerCm3=.00102;
     P->SourceBoneCount=I.Bones.Num();P->Sides.Reset();
+    P->CompressedDonorVertices=P->SaturatedVerticesWithHelpers=P->SaturatedVerticesWithoutEligibleDonors=0;P->MeanHelperWeight=0;
     TArray<FTransform> CS;for(int32 B=0;B<I.Bones.Num();++B) CS.Add(I.Bones[B].Parent<0 ? I.Bones[B].LocalBind : I.Bones[B].LocalBind*CS[I.Bones[B].Parent]);
     auto Bone=[&](const TCHAR* Key)->int32 { FString Name; if(!(*Mapping)->TryGetStringField(Key,Name)) return INDEX_NONE;return I.Bones.IndexOfByPredicate([&](const FVamBuildBone& B){return B.Name==FName(*Name);}); };
     const int32 Chest=Bone(TEXT("chest")),Superior=Bone(TEXT("superior")),Left=Bone(TEXT("left_pectoral")),Right=Bone(TEXT("right_pectoral"));
@@ -192,15 +221,13 @@ UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVam
         // Imported p0 is the zero-offset shape in its authored upright orientation.
         R.ImportedGravityLocal=Anchor.InverseTransformVectorNoScale(-Z*980.);
         R.AnchorBone=I.Bones.Num();FVamBuildBone AB;AB.Name=FName(*(R.Side.ToString()+TEXT("_BreastAnchor")));AB.Parent=Chest;AB.LocalBind=R.AnchorLocal;I.Bones.Add(AB);
-        const double Frequencies[5]={3.,4.8,2.5,4.5,2.6};const double Fractions[5]={.4,.15,.2,.1,.15};
+        R.SizeCm=M.Size;R.RootSizeCm=M.RootSize;
         for(int32 N=0;N<5;++N)
         {
-            FVamBreastNodeParameters Node;Node.Semantic=Semantics[N];Node.BoneIndex=I.Bones.Num();Node.Rest=M.Nodes[N];Node.MassFraction=Fractions[N];
-            Node.FrequencyHz=FVector(Frequencies[N],Frequencies[N]*1.2,Frequencies[N]*.9);
-            const double Limit=M.Radius*(N==1 || N==3 ? .18 : .35);
-            Node.PositiveLimitCm=FVector(Limit,Limit,Limit);Node.NegativeLimitCm=FVector(Limit*.5,Limit,Limit);
+            FVamBreastNodeParameters Node;Node.Semantic=Semantics[N];Node.BoneIndex=I.Bones.Num();Node.Rest=M.Nodes[N];Node.EffectiveVolumeCm3=M.NodeVolumes[N];Node.MassCenter=M.MassCenters[N];
             R.Nodes.Add(Node);FVamBuildBone B;B.Name=FName(*(R.Side.ToString()+TEXT("_Breast_")+Semantics[N].ToString()));B.Parent=R.AnchorBone;B.LocalBind=FTransform(Node.Rest);I.Bones.Add(B);
         }
+        VamBreastCalibration::Calibrate(R,P->DensityKgPerCm3,P->EffectiveModulusPa);
         for(int32 V=0;V<I.Vertices.Num();++V) R.RegionPoints.Add(Anchor.InverseTransformPosition(I.Vertices[V]));
         for(const auto& Parameter:Source->Parameters)
         {
@@ -223,11 +250,13 @@ UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVam
             Response.AnchorTranslationDelta=AnchorDelta;Response.DepthDelta=Next.Depth-M.Depth;Response.SupportAreaDelta=Next.Area-M.Area;
             Response.LogVolumeSlope=FMath::Loge(FMath::Max(1.e-6,Next.Volume/M.Volume));Response.COMDelta=Next.COM-M.COM;Response.RadiusDelta=Next.Radius-M.Radius;
             for(int32 N=0;N<5;++N) Response.NodeDeltas.Add(Next.Nodes[N]-M.Nodes[N]);
+            Response.SizeDelta=Next.Size-M.Size;Response.RootSizeDelta=Next.RootSize-M.RootSize;
+            for(int32 N=0;N<5;++N) { Response.NodeVolumeLogSlopes.Add(FMath::Loge(FMath::Max(1.e-8,Next.NodeVolumes[N]/FMath::Max(1.e-8,M.NodeVolumes[N]))));Response.NodeMassCenterDeltas.Add(Next.MassCenters[N]-M.MassCenters[N]); }
             R.ShapeResponses.Add(Response);
         }
         P->Sides.Add(R);
     }
-    // Continuous RBF partition; retained original source influences are never truncated.
+    // Continuous geometry-driven redistribution. Only approved donor weights may be compressed.
     for(int32 V=0;V<I.Vertices.Num();++V)
     {
         for(int32 Side=0;Side<2;++Side)
@@ -236,7 +265,9 @@ UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVam
             const int32 Other=Side==0 ? Right : Left;
             const FVector Local=R.RegionPoints[V];
             const double RootFade=Smooth(Local.X/FMath::Max(.1,R.EffectiveDepthCm));
-            const double Transfer=Region*RootFade*.65;
+            const double Lower=Smooth((R.COM.Z-Local.Z)/FMath::Max(.1,R.SizeCm.Z*.4));
+            const double Lateral=Smooth(FMath::Abs(Local.Y-R.COM.Y)/FMath::Max(.1,R.SizeCm.Y*.5));
+            const double Transfer=Region*RootFade*(.55+.25*RootFade+.1*FMath::Max(Lower,Lateral));
             TArray<TPair<int32,double>> Added;double Sum=0;
             for(int32 N=0;N<5;++N)
             {
@@ -245,14 +276,17 @@ UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVam
                 Added.Emplace(R.Nodes[N].BoneIndex,W);Sum+=W;
             }
             Added.Sort([](const auto& A,const auto& B){return A.Value>B.Value;});
-            const int32 Available=FMath::Max(0,8-Weights[V].Num());if(!Available || Sum<1.e-12) continue;
-            Added.SetNum(FMath::Min(Available,Added.Num()));Sum=0;for(const auto& A:Added) Sum+=A.Value;
-            double Moved=0;for(auto& W:Weights[V]) if(Donors.Contains(W.Key) && W.Key!=Other) { const double Amount=W.Value*Transfer;W.Value-=Amount;Moved+=Amount; }
-            for(const auto& A:Added) if(A.Value>1.e-12 && Moved>0) Weights[V].Add(A.Key,Moved*A.Value/Sum);
+            TSet<int32> AllowedDonors=Donors;AllowedDonors.Remove(Other);
+            const bool Saturated=Weights[V].Num()>=8;
+            const int32 Compressed=VamBreastWeights::Redistribute(Weights[V],AllowedDonors,Added,Transfer);
+            if(Compressed>0) ++P->CompressedDonorVertices;
+            if(Saturated && Compressed>=0) ++P->SaturatedVerticesWithHelpers;
+            if(Saturated && Compressed<0) ++P->SaturatedVerticesWithoutEligibleDonors;
         }
         double Sum=0;for(const auto& W:Weights[V]) Sum+=W.Value;
-        for(auto& W:Weights[V]) W.Value/=Sum;
+        for(auto& W:Weights[V]) { W.Value/=Sum;if(W.Key>=P->SourceBoneCount) P->MeanHelperWeight+=W.Value; }
     }
+    P->MeanHelperWeight/=Weights.Num();
     I.Influences.Reset();for(int32 V=0;V<Weights.Num();++V) for(const auto& W:Weights[V]) { FVamBuildInfluence F;F.Vertex=V;F.Bone=W.Key;F.Weight=W.Value;I.Influences.Add(F); }
     P->RegionProvenance=TEXT("Source pectoral support + persisted topology adjacency/seam identity + morph delta evidence + chest frame and mirrored side gates; 8 diffusion passes. Effective volume is a surface-to-support cone proxy, not anatomical volume.");
     P->SkinWeightIdentity=FMD5::HashAnsiString(*(P->BuildAlgorithmVersion+P->SourceTopologyIdentity+Source->SourceDigest+Source->BindSignature));

@@ -4,23 +4,16 @@
 #include "Engine/SkeletalMesh.h"
 #include "GameFramework/Actor.h"
 #include "DrawDebugHelpers.h"
+#include "VamBreastCalibration.h"
 
 FVamBreastTuning UVamBreastSkeletalMeshComponent::GetBreastTuning() const
 {
-    FVamBreastTuning Result;Result.FrequencyScale=FrequencyScale;Result.DampingScale=DampingScale;
-    Result.TravelScale=TravelScale;Result.CouplingScale=CouplingScale;return Result;
+    FVamBreastTuning Result;Result.Support=Support;Result.Damping=Damping;Result.Mobility=BreastMobility;
+    Result.InternalCoupling=InternalCoupling;Result.MassScale=MassScale;Result.LegacyCompliance=Softness;return Result;
 }
-void UVamBreastSkeletalMeshComponent::ApplyBreastTuningPreset(FName Preset)
+void UVamBreastSkeletalMeshComponent::ResetBreastTuning()
 {
-    if(Preset!=TEXT("Profile") && Preset!=TEXT("Lively") && Preset!=TEXT("Exaggerated")) return;
-    FrequencyScale=DampingScale=TravelScale=FVector(1);CouplingScale=Softness=1;
-    if(Preset==TEXT("Lively"))
-    { FrequencyScale=FVector(.8,.75,.7);DampingScale=FVector(.65);TravelScale=FVector(1.4);CouplingScale=.7; }
-    else if(Preset==TEXT("Exaggerated"))
-    { FrequencyScale=FVector(.6,.55,.5);DampingScale=FVector(.4);TravelScale=FVector(2);CouplingScale=.45; }
-    DensityOverrideKgPerCm3=0;
-    if(BreastProfile) for(auto& R:RestSides) R.MassKg=R.EffectiveVolumeCm3*BreastProfile->DensityKgPerCm3;
-    ResetBreastJiggle();
+    Support=Damping=BreastMobility=InternalCoupling=MassScale=1;ResetBreastJiggle();
 }
 
 void UVamBreastSkeletalMeshComponent::ResetBreastJiggle()
@@ -44,12 +37,23 @@ void UVamBreastSkeletalMeshComponent::UpdateBreastShape(const TMap<FName,float>&
             R.EffectiveDepthCm+=Response.DepthDelta*Delta;R.SupportAreaCm2+=Response.SupportAreaDelta*Delta;
             LogScale+=Delta*Response.LogVolumeSlope;R.COM+=Response.COMDelta*Delta;
             R.EffectiveRadiusCm+=Response.RadiusDelta*Delta;
-            for(int32 N=0;N<R.Nodes.Num();++N) if(Response.NodeDeltas.IsValidIndex(N)) R.Nodes[N].Rest+=Response.NodeDeltas[N]*Delta;
+            R.SizeCm+=Response.SizeDelta*Delta;R.RootSizeCm+=Response.RootSizeDelta*Delta;
+            for(int32 N=0;N<R.Nodes.Num();++N)
+            {
+                if(Response.NodeDeltas.IsValidIndex(N)) R.Nodes[N].Rest+=Response.NodeDeltas[N]*Delta;
+                if(Response.NodeMassCenterDeltas.IsValidIndex(N)) R.Nodes[N].MassCenter+=Response.NodeMassCenterDeltas[N]*Delta;
+                if(Response.NodeVolumeLogSlopes.IsValidIndex(N)) R.Nodes[N].EffectiveVolumeCm3*=FMath::Exp(FMath::Clamp(Response.NodeVolumeLogSlopes[N]*Delta,-3.,3.));
+            }
         }
         const double Ratio=FMath::Exp(FMath::Clamp(LogScale,-3.,3.));
         R.EffectiveVolumeCm3*=Ratio;R.MassKg=R.EffectiveVolumeCm3*(DensityOverrideKgPerCm3>0 ? DensityOverrideKgPerCm3 : BreastProfile->DensityKgPerCm3);
         R.EffectiveRadiusCm=FMath::Max(.1,R.EffectiveRadiusCm);
         R.EffectiveDepthCm=FMath::Max(.01,R.EffectiveDepthCm);R.SupportAreaCm2=FMath::Max(.01,R.SupportAreaCm2);
+        if(BreastProfile->SchemaVersion>=2)
+        {
+            for(int32 Axis=0;Axis<3;++Axis) { R.SizeCm[Axis]=FMath::Max(.1,R.SizeCm[Axis]);R.RootSizeCm[Axis]=FMath::Max(.1,R.RootSizeCm[Axis]); }
+            VamBreastCalibration::Calibrate(R,BreastProfile->DensityKgPerCm3,BreastProfile->EffectiveModulusPa);
+        }
         if(Reference.IsValidIndex(R.AnchorBone)) Reference[R.AnchorBone]=R.AnchorLocal;
         for(const auto& N:R.Nodes) if(Reference.IsValidIndex(N.BoneIndex)) Reference[N.BoneIndex].SetTranslation(N.Rest);
         if(Previous.IsValidIndex(Side) && Solvers.IsValidIndex(Side) &&
@@ -81,17 +85,20 @@ void UVamBreastSkeletalMeshComponent::FinalizeBoneTransform()
             Pose[R.AnchorBone]=AnchorCS;
             if(bJiggleEnabled && Dt>0)
             {
-                const auto Tuning=GetBreastTuning();const auto Dynamics=Tuning.DynamicsRest(R);
-                Solver.Advance(*BreastProfile,Dynamics,World,Dt,FVector(0,0,GetWorld()->GetGravityZ()),Reset,Paused,Softness,Tuning.CouplingScale);
+                const auto Tuning=GetBreastTuning();
+                Solver.Advance(*BreastProfile,R,World,Dt,FVector(0,0,GetWorld()->GetGravityZ()),Reset,Paused,Tuning);
             }
             else if(!bJiggleEnabled) Solver.Reset();
             for(int32 I=0;I<R.Nodes.Num();++I)
             {
                 const auto& N=R.Nodes[I];if(!Pose.IsValidIndex(N.BoneIndex)) continue;
                 FVector Offset=Solver.Nodes.IsValidIndex(I) && bJiggleEnabled ? Solver.Nodes[I].Displacement : FVector::ZeroVector;
-                // Small-angle orientation follows semantic lever deflection; no extra rotational DOF.
-                FVector Rotation=FVector::CrossProduct(N.Rest,Offset)/FMath::Max(1.,N.Rest.SizeSquared());
-                Rotation=Rotation.GetClampedToMaxSize(BreastProfile->MaximumRotationRadians);
+                const FVector Angular=bJiggleEnabled && BreastProfile->SchemaVersion>=2?Solver.AngularDisplacement:FVector::ZeroVector;
+                const FQuat AngularQ=Angular.IsNearlyZero()?FQuat::Identity:FQuat(Angular.GetSafeNormal(),Angular.Size());
+                Offset+=AngularQ.RotateVector(N.Rest-R.COM)-(N.Rest-R.COM);
+                // Legacy orientation remains available only for schema 1; v2 uses integrated angular state.
+                FVector Rotation=BreastProfile->SchemaVersion>=2?Angular:FVector::CrossProduct(N.Rest,Offset)/FMath::Max(1.,N.Rest.SizeSquared());
+                if(BreastProfile->SchemaVersion==1) Rotation=Rotation.GetClampedToMaxSize(BreastProfile->MaximumRotationRadians);
                 FTransform Local(Rotation.IsNearlyZero() ? FQuat::Identity : FQuat(Rotation.GetSafeNormal(),Rotation.Size()),N.Rest+Offset);
                 Pose[N.BoneIndex]=Local*AnchorCS;
                 if(bShowHelperBones || bShowDynamicNodes)
@@ -113,23 +120,22 @@ void UVamBreastSkeletalMeshComponent::FinalizeBoneTransform()
 FString UVamBreastSkeletalMeshComponent::BreastDiagnostics() const
 {
     if(!BreastProfile) return TEXT("Breast Jiggle: unsupported / profile absent; upgrade this character Runtime");
-    FString Out=FString::Printf(TEXT("Breast Jiggle %s | density %.6f kg/cm3 | softness %.2f\n"),bJiggleEnabled?TEXT("Enabled"):TEXT("Disabled"),DensityOverrideKgPerCm3>0?DensityOverrideKgPerCm3:BreastProfile->DensityKgPerCm3,Softness);
+    FString Out=FString::Printf(TEXT("Breast calibration schema %d | %s\n"),BreastProfile->SchemaVersion,*BreastProfile->BuildAlgorithmVersion);
+    if(BreastProfile->SchemaVersion==1) Out+=TEXT("Legacy profile: use Upgrade Runtime for calibrated controls and angular dynamics.\n");
     for(int32 I=0;I<RestSides.Num();++I)
     {
-        const auto& R=RestSides[I];
-        const auto Dynamics=GetBreastTuning().DynamicsRest(R);
-        Out+=FString::Printf(TEXT("%s effective volume %.2f cm3 mass %.4f kg COM %s\n"),*R.Side.ToString(),R.EffectiveVolumeCm3,R.MassKg,*R.COM.ToCompactString());
+        const auto& R=RestSides[I];const auto E=GetBreastTuning().DynamicsRest(R);
+        Out+=FString::Printf(TEXT("%s Volume %.2f cm3 Mass %.4f kg COM %s Root %.2f cm2 Depth %.2f cm Size AP/ML/SI %s\nInertia diag %s offdiag(XY/XZ/YZ) %s kg cm2\n"),*R.Side.ToString(),R.EffectiveVolumeCm3,E.MassKg,*R.COM.ToCompactString(),R.SupportAreaCm2,R.EffectiveDepthCm,*R.SizeCm.ToCompactString(),*E.InertiaDiagonal.ToCompactString(),*E.InertiaOffDiagonal.ToCompactString());
         if(!Solvers.IsValidIndex(I)) continue;
         const auto& S=Solvers[I];
-        Out+=FString::Printf(TEXT("v %s a %s omega %s alpha %s steps %d dropped %d sleep %d\n"),*S.LinearVelocity.ToCompactString(),*S.LinearAcceleration.ToCompactString(),*S.AngularVelocity.ToCompactString(),*S.AngularAcceleration.ToCompactString(),S.LastSteps,S.DroppedSteps,S.bSleeping);
-        for(int32 N=0;N<S.Nodes.Num() && N<Dynamics.Nodes.Num();++N)
+        Out+=FString::Printf(TEXT("v %s a %s omega %s alpha %s steps %d dropped %d sleep %d emergency limits %d\nAngular displacement %s rad velocity %s rad/s\n"),*S.LinearVelocity.ToCompactString(),*S.LinearAcceleration.ToCompactString(),*S.AngularVelocity.ToCompactString(),*S.AngularAcceleration.ToCompactString(),S.LastSteps,S.DroppedSteps,S.bSleeping,S.LimitCorrections,*S.AngularDisplacement.ToCompactString(),*S.RelativeAngularVelocity.ToCompactString());
+        for(int32 N=0;N<E.Nodes.Num();++N)
         {
-            const auto& Node=Dynamics.Nodes[N];const auto& Offset=S.Nodes[N].Displacement;
-            const FVector Hz=Node.FrequencyHz*FMath::Sqrt((R.ReferenceMassKg>0?R.ReferenceMassKg/R.MassKg:1.)/FMath::Clamp(FMath::IsFinite(Softness)?Softness:1.,.2,100.));
-            double Usage=0;for(int32 Axis=0;Axis<3;++Axis) Usage=FMath::Max(Usage,FMath::Abs(Offset[Axis])/(Offset[Axis]>=0?Node.PositiveLimitCm[Axis]:Node.NegativeLimitCm[Axis]));
-            Out+=FString::Printf(TEXT("%s: %s cm | small-signal Hz %s | damping %s | limit %.0f%%\n"),*Node.Semantic.ToString(),*Offset.ToCompactString(),*Hz.ToCompactString(),*Node.DampingRatio.ToCompactString(),Usage*100);
+            const auto& Node=E.Nodes[N];
+            FVector Hz;for(int32 A=0;A<3;++A) Hz[A]=FMath::Sqrt(Node.SupportStiffness[A]/FMath::Max(1.e-8,E.MassKg*Node.MassFraction))/(2*PI);
+            Out+=FString::Printf(TEXT("%s mass %.1f%% volume %.2f lever %.2f | support %s kg/s2 Hz %s damping %s | travel +%s -%s cm\n"),*Node.Semantic.ToString(),Node.MassFraction*100,Node.EffectiveVolumeCm3,Node.LeverArmCm,*Node.SupportStiffness.ToCompactString(),*Hz.ToCompactString(),*Node.DampingRatio.ToCompactString(),*Node.PositiveLimitCm.ToCompactString(),*Node.NegativeLimitCm.ToCompactString());
+            if(S.Nodes.IsValidIndex(N)) Out+=TEXT("displacement ")+S.Nodes[N].Displacement.ToCompactString()+TEXT(" cm\n");
         }
-        Out+=TEXT("\n");
     }
     return Out;
 }
@@ -166,6 +172,7 @@ void UVamBreastSkeletalMeshComponent::TickComponent(float Dt,ELevelTick TickType
 
 void UVamBreastSkeletalMeshComponent::SetBreastDensity(double Density)
 {
+    if(BreastProfile && BreastProfile->SchemaVersion>=2) return;
     if(!FMath::IsFinite(Density) || Density<=0 || Density>.1) return;
     DensityOverrideKgPerCm3=Density;
     for(auto& R:RestSides) R.MassKg=R.EffectiveVolumeCm3*Density;

@@ -37,6 +37,19 @@ for side in profile.get_editor_property('sides'):
         morph_responses=len(side.get_editor_property('shape_responses')),
         nodes=[dict(semantic=str(n.get_editor_property('semantic')),index=n.get_editor_property('bone_index'),rest=vector(n.get_editor_property('rest')),
             frequency_hz=vector(n.get_editor_property('frequency_hz')),mass_fraction=n.get_editor_property('mass_fraction')) for n in side.get_editor_property('nodes')]))
+    if profile.get_editor_property('schema_version') >= 2:
+        sides[-1].update(size_cm=vector(side.get_editor_property('size_cm')),
+            inertia_diagonal=vector(side.get_editor_property('inertia_diagonal')),
+            inertia_off_diagonal=vector(side.get_editor_property('inertia_off_diagonal')),
+            rotational_stiffness=vector(side.get_editor_property('rotational_stiffness')),
+            angular_limits=vector(side.get_editor_property('angular_limit_radians')),
+            coupling=[dict(a=e.get_editor_property('a'),b=e.get_editor_property('b'),stiffness=vector(e.get_editor_property('stiffness'))) for e in side.get_editor_property('couplings')])
+        assert len(sides[-1]['coupling'])==8
+        assert abs(sum(n['mass_fraction'] for n in sides[-1]['nodes'])-1)<1e-6
+        for record,node in zip(sides[-1]['nodes'],side.get_editor_property('nodes')):
+            record.update(volume_cm3=node.get_editor_property('effective_volume_cm3'),mass_center=vector(node.get_editor_property('mass_center')),
+                support=vector(node.get_editor_property('support_stiffness')),damping=vector(node.get_editor_property('damping_ratio')),
+                positive_limit=vector(node.get_editor_property('positive_limit_cm')),negative_limit=vector(node.get_editor_property('negative_limit_cm')))
 map_path='/Game/BreastJiggleEngineering/Empty_'+report['identity'][:12]
 if not u.EditorAssetLibrary.does_asset_exist(map_path):
     world=u.EditorLoadingAndSavingUtils.new_blank_map(False)
@@ -49,5 +62,7 @@ result=dict(configuration=report['configuration'],blueprint=report['blueprint'],
     morph_parameters=len(definition.get_editor_property('parameters')),parts=len(definition.get_editor_property('parts')),
     checks=dict(existing_indices_preserved=True,helper_hierarchy=True,weights_normalized=True,influence_limit=8,zero_bind_tolerance_cm=.001,morphs_native_build_validated=True,reloaded=True),
     visual_assessment=None)
+result['calibration_schema']=profile.get_editor_property('schema_version')
+result['weight_statistics']={key:profile.get_editor_property(key) for key in ('compressed_donor_vertices','saturated_vertices_with_helpers','saturated_vertices_without_eligible_donors','mean_helper_weight')}
 report_path.with_name('audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8')
 u.log('VAM_BREAST_AUDIT '+json.dumps(result,ensure_ascii=False))

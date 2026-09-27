@@ -11,21 +11,24 @@ FVamBreastSideProfile FVamBreastTuning::DynamicsRest(const FVamBreastSideProfile
 {
     // Only solver inputs: never copy dense region weights/points during pose evaluation.
     FVamBreastSideProfile Result;
-    Result.MassKg=Source.MassKg;Result.ReferenceMassKg=Source.ReferenceMassKg;
-    Result.ImportedGravityLocal=Source.ImportedGravityLocal;Result.Nodes=Source.Nodes;
-    for(auto& Node:Result.Nodes) for(int32 Axis=0;Axis<3;++Axis)
+    const double M=TuningValue(MassScale,.1,10.),S=TuningValue(Support,.1,10.),D=TuningValue(Damping,.1,4.),L=TuningValue(Mobility,.25,3.),C=TuningValue(InternalCoupling,0.,4.);
+    Result.MassKg=Source.MassKg*M;Result.ReferenceMassKg=Source.ReferenceMassKg;
+    Result.COM=Source.COM;Result.InertiaDiagonal=Source.InertiaDiagonal*M;Result.InertiaOffDiagonal=Source.InertiaOffDiagonal*M;
+    Result.RotationalStiffness=Source.RotationalStiffness*S;Result.RotationalDampingRatio=Source.RotationalDampingRatio*D;
+    Result.AngularLimitRadians=Source.AngularLimitRadians*L;
+    Result.ImportedGravityLocal=Source.ImportedGravityLocal;Result.Nodes=Source.Nodes;Result.Couplings=Source.Couplings;
+    for(auto& Node:Result.Nodes)
     {
-        Node.FrequencyHz[Axis]*=TuningValue(FrequencyScale[Axis],.2,3.);
-        Node.DampingRatio[Axis]*=TuningValue(DampingScale[Axis],.05,4.);
-        Node.PositiveLimitCm[Axis]*=TuningValue(TravelScale[Axis],.25,4.);
-        Node.NegativeLimitCm[Axis]*=TuningValue(TravelScale[Axis],.25,4.);
+        Node.SupportStiffness*=S;Node.DampingRatio*=D;
+        Node.PositiveLimitCm*=L;Node.NegativeLimitCm*=L;
     }
+    for(auto& Edge:Result.Couplings) Edge.Stiffness*=C;
     return Result;
 }
 
 bool UVamBreastJiggleProfile::IsValidProfile() const
 {
-    if(SchemaVersion!=1 || Sides.Num()!=2 || SourceTopologyIdentity.IsEmpty() || DensityKgPerCm3<=0 ||
+    if((SchemaVersion!=1 && SchemaVersion!=2) || Sides.Num()!=2 || SourceTopologyIdentity.IsEmpty() || DensityKgPerCm3<=0 ||
         !FMath::IsFinite(DensityKgPerCm3) || !FMath::IsFinite(FixedStep) || !FMath::IsFinite(CouplingHz) || CouplingHz<0 || CouplingHz>15 ||
         !FMath::IsFinite(SoftLimitFraction) || SoftLimitFraction<=0 || SoftLimitFraction>=1 || FixedStep<=0 || FixedStep>1./60. || MaxSubsteps<1 || MaxSubsteps>64) return false;
     for(const auto& S:Sides)
@@ -34,18 +37,33 @@ bool UVamBreastJiggleProfile::IsValidProfile() const
         for(const auto& N:S.Nodes)
             if(N.BoneIndex<=S.AnchorBone || N.MassFraction<=0 || N.FrequencyHz.GetMin()<=0 || N.DampingRatio.GetMin()<0 ||
                 N.PositiveLimitCm.GetMin()<=0 || N.NegativeLimitCm.GetMin()<=0 || N.Rest.ContainsNaN() || N.FrequencyHz.ContainsNaN() || N.DampingRatio.ContainsNaN() || N.PositiveLimitCm.ContainsNaN() || N.NegativeLimitCm.ContainsNaN()) return false;
+        if(SchemaVersion>=2)
+        {
+            if(S.InertiaDiagonal.ContainsNaN() || S.InertiaOffDiagonal.ContainsNaN() || S.InertiaDiagonal.GetMin()<=0 || S.RotationalStiffness.ContainsNaN() || S.RotationalStiffness.GetMin()<=0 || S.AngularLimitRadians.ContainsNaN() || S.AngularLimitRadians.GetMin()<=0 || S.SizeCm.GetMin()<=0 || S.Couplings.Num()!=8) return false;
+            const auto& D=S.InertiaDiagonal;const auto& O=S.InertiaOffDiagonal;
+            if(D.X*D.Y-O.X*O.X<=0 || D.X*D.Y*D.Z+2*O.X*O.Y*O.Z-D.X*O.Z*O.Z-D.Y*O.Y*O.Y-D.Z*O.X*O.X<=0) return false;
+            double Fractions=0;
+            for(const auto& N:S.Nodes)
+            {
+                Fractions+=N.MassFraction;
+                if(N.MassCenter.ContainsNaN() || N.SupportStiffness.ContainsNaN() || N.SupportStiffness.GetMin()<=0 || !FMath::IsFinite(N.EffectiveVolumeCm3) || N.EffectiveVolumeCm3<=0) return false;
+            }
+            if(FMath::Abs(Fractions-1)>1.e-6) return false;
+            for(const auto& E:S.Couplings) if(E.A<0 || E.A>=5 || E.B<0 || E.B>=5 || E.A==E.B || E.Stiffness.ContainsNaN() || E.Stiffness.GetMin()<0) return false;
+        }
     }
     return true;
 }
 void FVamBreastSolver::Reset(bool Preserve)
 {
-    if(!Preserve) Nodes.Reset();
+    if(!Preserve) { Nodes.Reset();AngularDisplacement=FVector::ZeroVector; }
+    RelativeAngularVelocity=FVector::ZeroVector;LimitCorrections=0;
     for(auto& N:Nodes) N.Velocity=FVector::ZeroVector;
     Samples=LastSteps=0;Accumulator=0;bSleeping=false;
     PreviousVelocity=PreviousOmega=LinearVelocity=LinearAcceleration=AngularVelocity=AngularAcceleration=FVector::ZeroVector;
 }
 void FVamBreastSolver::Advance(const UVamBreastJiggleProfile& P,const FVamBreastSideProfile& R,
-    const FTransform& Frame,double Dt,const FVector& GravityWorld,bool ResetHistory,bool Paused,double Softness,double CouplingScale)
+    const FTransform& Frame,double Dt,const FVector& GravityWorld,bool ResetHistory,bool Paused,const FVamBreastTuning& Tuning)
 {
     LastSteps=0;
     if(Paused || Dt<=0) { Samples=0;Accumulator=0;return; }
@@ -70,11 +88,11 @@ void FVamBreastSolver::Advance(const UVamBreastJiggleProfile& P,const FVamBreast
     Accumulator+=Accepted;
     while(Accumulator+1.e-10>=P.FixedStep && LastSteps<P.MaxSubsteps)
     {
-        Step(P,R,P.FixedStep,Frame.InverseTransformVectorNoScale(GravityWorld),Softness,CouplingScale);
+        Step(P,R,P.FixedStep,Frame.InverseTransformVectorNoScale(GravityWorld),Tuning);
         Accumulator-=P.FixedStep;++LastSteps;
     }
 }
-void FVamBreastSolver::Step(const UVamBreastJiggleProfile& P,const FVamBreastSideProfile& R,double H,const FVector& G,double Softness,double CouplingScale)
+void FVamBreastSolver::StepLegacy(const UVamBreastJiggleProfile& P,const FVamBreastSideProfile& R,double H,const FVector& G,double Softness,double CouplingScale)
 {
     if(Nodes.Num()!=R.Nodes.Num()) Nodes.SetNum(R.Nodes.Num());
     const auto Before=Nodes;
@@ -125,4 +143,11 @@ void FVamBreastSolver::Step(const UVamBreastJiggleProfile& P,const FVamBreastSid
     }
     bSleeping=MaxSpeed<P.SleepSpeedCmS && MaxAcceleration<P.SleepAccelerationCmS2;
     if(bSleeping) for(auto& N:Nodes) N.Velocity=FVector::ZeroVector;
+}
+
+void FVamBreastSolver::Step(const UVamBreastJiggleProfile& P,const FVamBreastSideProfile& R,double H,const FVector& G,const FVamBreastTuning& Tuning)
+{
+    if(P.SchemaVersion==1) { StepLegacy(P,R,H,G,Tuning.LegacyCompliance,1.);return; }
+    const auto Effective=Tuning.DynamicsRest(R);
+    StepCalibrated(P,Effective,H,G);
 }

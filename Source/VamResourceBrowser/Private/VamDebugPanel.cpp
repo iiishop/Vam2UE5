@@ -442,11 +442,22 @@ TSharedRef<SWidget> BreastControls()
             .OnCheckStateChanged_Lambda([Body,Flag](ECheckBoxState State){if(auto* B=Body()){bool& V=Flag==0?B->bJiggleEnabled:Flag==1?B->bShowHelperBones:Flag==2?B->bShowRegionWeights:B->bShowDynamicNodes;V=State==ECheckBoxState::Checked;}})
             [SNew(STextBlock).Text(FText::FromString(Names[Flag]))]];
     }
-    Box->AddSlot().AutoHeight()[SNew(SHorizontalBox)
-        +SHorizontalBox::Slot().AutoWidth()[SNew(STextBlock).Text(FText::FromString(TEXT("Density kg/cm3")))]
-        +SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<double>).MinValue(.0001).MaxValue(.1).MaxSliderValue(.01).Delta(.00005).Value_Lambda([Body](){auto* B=Body();return B && B->BreastProfile ? (B->DensityOverrideKgPerCm3>0?B->DensityOverrideKgPerCm3:B->BreastProfile->DensityKgPerCm3):.001;}).OnValueChanged_Lambda([Body](double V){if(auto* B=Body())B->SetBreastDensity(V);})]
-        +SHorizontalBox::Slot().AutoWidth()[SNew(STextBlock).Text(FText::FromString(TEXT("Softness (compliance scale)")))]
-        +SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<double>).MinValue(.2).MaxValue(100.).MaxSliderValue(20.).Delta(.1).Value_Lambda([Body](){auto* B=Body();return B?B->Softness:1.;}).OnValueChanged_Lambda([Body](double V){if(auto* B=Body())B->Softness=V;})]];
+    const TCHAR* Labels[]={TEXT("Support · 胸廓支承"),TEXT("Damping · 能量衰减"),TEXT("Mobility · 位移范围"),TEXT("Internal Coupling · 内部连接"),TEXT("Mass Scale · 质量与转动惯量")};
+    const TCHAR* Tips[]={TEXT("只缩放 Anchor 恢复刚度。小值更易偏移，大值恢复更快。"),TEXT("只缩放阻尼比。小值余振更久；过阻尼也可能使回位变慢。"),TEXT("只缩放软/硬位移与角度范围，不改变小振幅刚度。"),TEXT("只缩放语义节点之间的弹性连接，不改变胸廓支承。"),TEXT("只缩放质量和惯量，不改变刚度、阻尼比或限位。")};
+    auto Advanced=SNew(SVerticalBox);
+    for(int32 Index=0;Index<5;++Index)
+    {
+        auto Value=[Index](UVamBreastSkeletalMeshComponent* B)->double& { return Index==0?B->Support:Index==1?B->Damping:Index==2?B->BreastMobility:Index==3?B->InternalCoupling:B->MassScale; };
+        auto Row=SNew(SHorizontalBox)
+            +SHorizontalBox::Slot().FillWidth(.6)[SNew(STextBlock).Text(FText::FromString(Labels[Index])).ToolTipText(FText::FromString(Tips[Index]))]
+            +SHorizontalBox::Slot().FillWidth(.4)[SNew(SSpinBox<double>).MinValue(Index==3?0.:Index==2?.25:.1).MaxValue(Index==0 || Index==4?10.:Index==2?3.:4.).Delta(.05)
+                .IsEnabled_Lambda([Body](){auto* B=Body();return B && B->BreastProfile && B->BreastProfile->SchemaVersion>=2;})
+                .Value_Lambda([Body,Value](){auto* B=Body();return B?Value(B):1.;})
+                .OnValueChanged_Lambda([Body,Value](double V){if(auto* B=Body()) Value(B)=V;})];
+        if(Index==4) Advanced->AddSlot().AutoHeight()[Row];else Box->AddSlot().AutoHeight().Padding(2)[Row];
+    }
+    Box->AddSlot().AutoHeight()[SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Advanced")))].BodyContent()[Advanced]];
+    Box->AddSlot().AutoHeight()[SNew(SButton).Text(FText::FromString(TEXT("恢复自动校准参数（全部 1.0）"))).OnClicked_Lambda([Body](){if(auto* B=Body()) B->ResetBreastTuning();return FReply::Handled();})];
     auto Buttons=SNew(SWrapBox).UseAllottedSize(true);
     for(const TCHAR* Name:{TEXT("Forward accelerate"),TEXT("Stop"),TEXT("Lateral accelerate"),TEXT("Jump impulse"),TEXT("Rotate continuously"),TEXT("Stop rotation"),TEXT("Reset")})
     {

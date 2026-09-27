@@ -1,0 +1,140 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "SM",
+			"instance": "BA29149D4DB5370016E3DBBE1AA68F8F",
+			"instanceName": "SM-13600",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 10 (22H2) [10.0.19045.7725] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4070 Ti",
+			"cPUModel": "12th Gen Intel(R) Core(TM) i5-12600KF",
+			"rAMInGB": 40,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.27-16.31.15",
+	"succeeded": 3,
+	"succeededWithWarnings": 1,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.66456645727157593,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Calibration",
+			"fullTestPath": "Vam.Breast.Calibration",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"BA29149D4DB5370016E3DBBE1AA68F8F"
+			],
+			"duration": 0.037822600454092026,
+			"dateTime": "2026.09.27-16.31.14",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Calibrated divergence 30/120 0.034610 cm 60/120 0.011445 cm angular 0.000255 rad",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.27-16.31.14"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Dynamics",
+			"fullTestPath": "Vam.Breast.Dynamics",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"BA29149D4DB5370016E3DBBE1AA68F8F"
+			],
+			"duration": 0.0094031989574432373,
+			"dateTime": "2026.09.27-16.31.14",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Full trajectory max divergence: 30/120 0.023793 cm; 60/120 0.007892 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.27-16.31.14"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeRuntime",
+			"fullTestPath": "Vam.Breast.NativeRuntime",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"BA29149D4DB5370016E3DBBE1AA68F8F"
+			],
+			"duration": 0.61440730094909668,
+			"dateTime": "2026.09.27-16.31.14",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Breast calibration schema 2 | breast-calibration-v2\nL Volume 585.39 cm3 Mass 0.5971 kg COM V(X=13.31, Y=-3.13, Z=0.97) Root 100.85 cm2 Depth 17.41 cm Size AP/ML/SI V(X=17.41, Y=10.44, Z=11.69)\nInertia diag V(X=5.50, Y=4.80, Z=3.79) offdiag(XY/XZ/YZ) V(X=-0.34, Y=0.67, Z=-0.08) kg cm2\nv V(X=0.39, Y=0.00, Z=-0.67) a V(X=-0.32, Y=-0.00, Z=0.53) omega V(X=0.00, Y=0.04, Z=0.00) alpha V(X=-0.00, Y=-0.03, Z=-0.00) steps 2 dropped 0 sleep 0 emergency limits 0\nAngular displacement V(0) rad velocity V(X=-0.00, Y=0.00, Z=-0.00) rad/s\nCore mass 14.0% volume 82.14 lever 14.47 | support V(X=4.77, Y=6.83, Z=5.46) kg/s2 Hz V(X=1.20, Y=1.44, Z=1.28) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=3.83, Y=2.51, Z=2.57) -V(X=1.57, Y=2.51, Z=2.18) cm\ndisplacement V(X=-0.22, Y=0.01, Z=-0.00) cm\nUpper mass 26.9% volume 157.68 lever 13.16 | support V(X=16.51, Y=23.62, Z=18.87) kg/s2 Hz V(X=1.61, Y=1.93, Z=1.72) damping V(X=0.27, Y=0.31, Z=0.28) | travel +V(X=3.13, Y=2.05, Z=2.10) -V(X=1.28, Y=2.05, Z=1.72) cm\ndisplacement V(X=-0.21, Y=0.01, Z=-0.02) cm\nLower mass 19.7% volume 115.37 lever 14.31 | support V(X=4.59, Y=6.57, Z=5.25) kg/s2 Hz V(X=0.99, Y=1.19, Z=1.06) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=4.58, Y=3.00, Z=3.07) -V(X=1.87, Y=3.00, Z=3.04) cm\ndisplacement V(X=-0.22, Y=0.00, Z=0.00) cm\nMedial mass 26.5% volume 155.19 lever 14.14 | support V(X=12.64, Y=18.09, Z=14.45) kg/s2 Hz V(X=1.42, Y=1.70, Z=1.52) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=3.30, Y=2.16, Z=2.21) -V(X=1.35, Y=2.16, Z=1.86) cm\ndisplacement V(X=-0.22, Y=0.01, Z=-0.00) cm\nLateral mass 12.8% volume 75.02 lever 13.86 | support V(X=3.73, Y=5.33, Z=4.26) kg/s2 Hz V(X=1.11, Y=1.33, Z=1.19) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=4.28, Y=2.80, Z=2.88) -V(X=1.75, Y=2.80, Z=2.46) cm\ndisplacement V(X=-0.22, Y=0.00, Z=-0.00) cm\nR Volume 583.43 cm3 Mass 0.5951 kg COM V(X=13.25, Y=3.13, Z=0.98) Root 100.92 cm2 Depth 17.34 cm Size AP/ML/SI V(X=17.34, Y=10.44, Z=11.70)\nInertia diag V(X=5.49, Y=4.78, Z=3.76) offdiag(XY/XZ/YZ) V(X=0.33, Y=0.66, Z=0.08) kg cm2\nv V(X=0.39, Y=0.00, Z=-0.67) a V(X=-0.32, Y=-0.00, Z=0.53) omega V(X=0.00, Y=0.04, Z=0.00) alpha V(X=-0.00, Y=-0.03, Z=-0.00) steps 2 dropped 0 sleep 0 emergency limits 0\nAngular displacement V(0) rad velocity V(X=0.00, Y=0.00, Z=0.00) rad/s\nCore mass 14.0% volume 81.86 lever 14.40 | support V(X=4.81, Y=6.89, Z=5.50) kg/s2 Hz V(X=1.21, Y=1.45, Z=1.29) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=3.82, Y=2.51, Z=2.57) -V(X=1.56, Y=2.51, Z=2.18) cm\ndisplacement V(X=-0.22, Y=0.01, Z=-0.00) cm\nUpper mass 27.0% volume 157.37 lever 13.12 | support V(X=16.62, Y=23.77, Z=18.98) kg/s2 Hz V(X=1.62, Y=1.94, Z=1.73) damping V(X=0.27, Y=0.31, Z=0.28) | travel +V(X=3.12, Y=2.05, Z=2.10) -V(X=1.27, Y=2.05, Z=1.72) cm\ndisplacement V(X=-0.21, Y=0.01, Z=-0.02) cm\nLower mass 19.7% volume 115.01 lever 14.25 | support V(X=4.63, Y=6.62, Z=5.29) kg/s2 Hz V(X=1.00, Y=1.20, Z=1.07) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=4.56, Y=3.00, Z=3.08) -V(X=1.87, Y=3.00, Z=3.04) cm\ndisplacement V(X=-0.22, Y=0.01, Z=0.00) cm\nMedial mass 26.4% volume 154.23 lever 14.08 | support V(X=12.70, Y=18.17, Z=14.51) kg/s2 Hz V(X=1.43, Y=1.71, Z=1.53) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=3.28, Y=2.16, Z=2.21) -V(X=1.34, Y=2.16, Z=1.86) cm\ndisplacement V(X=-0.22, Y=0.00, Z=0.00) cm\nLateral mass 12.8% volume 74.97 lever 13.81 | support V(X=3.76, Y=5.38, Z=4.30) kg/s2 Hz V(X=1.12, Y=1.34, Z=1.19) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=4.27, Y=2.80, Z=2.88) -V(X=1.75, Y=2.80, Z=2.46) cm\ndisplacement V(X=-0.22, Y=0.01, Z=-0.01) cm\n",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.27-16.31.15"
+				},
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.27-16.31.15"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "WeightCompression",
+			"fullTestPath": "Vam.Breast.WeightCompression",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"BA29149D4DB5370016E3DBBE1AA68F8F"
+			],
+			"duration": 0.0029334016144275665,
+			"dateTime": "2026.09.27-16.31.15",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

@@ -1,0 +1,205 @@
+{
+  "schema": "vam-breast-calibration-evidence/2",
+  "head": "1c07fd5cb30f785dc231fccdfcebd37891246504",
+  "branch": "feature/jiggle/breasts",
+  "working_tree_changes": true,
+  "primary": {
+    "status": "committed",
+    "identity": "195d0e65b3cfff3909fd36d242072cd76f320f9162d909f7429a7c4b6ed635f2",
+    "configuration": "/Game/VamRuntime/R_195d0e65b3cfff3909fd36d2/RC_Runtime",
+    "blueprint": "/Game/VamRuntime/R_195d0e65b3cfff3909fd36d2/BP_VamCharacter.BP_VamCharacter",
+    "writer_pid": 41988,
+    "reloader_pid": 42092,
+    "publication_verifier_pid": 36312
+  },
+  "secondary": {
+    "status": "committed",
+    "identity": "e0c94d2ffa9b00b4cc3adc43147c593e64b3aeb59f37ab24281e110e9b2e2c92",
+    "configuration": "/Game/VamRuntime/R_e0c94d2ffa9b00b4cc3adc43/RC_Runtime",
+    "blueprint": "/Game/VamRuntime/R_e0c94d2ffa9b00b4cc3adc43/BP_VamCharacter.BP_VamCharacter",
+    "writer_pid": 42452,
+    "reloader_pid": 31636,
+    "publication_verifier_pid": 35496
+  },
+  "secondary_workflow": "ue_runtime_upgrade.py on previous committed BP",
+  "calibration_schema": 2,
+  "algorithm": "breast-calibration-v2",
+  "compiled": [
+    "Editor Development",
+    "Game Development",
+    "Game Shipping"
+  ],
+  "cook": {
+    "total": 832,
+    "cooked": 825,
+    "platform_skipped": 7,
+    "errors": 0,
+    "warnings": 0
+  },
+  "python_regression": {
+    "passed": 19
+  },
+  "unchanged_source_assets_verified": true,
+  "algorithm_fingerprints_verified": true,
+  "fps": {
+    "max_30_120_cm": 0.03461,
+    "max_60_120_cm": 0.011445,
+    "max_angular_30_120_rad": 0.000255
+  },
+  "tests": {
+    "PrimaryTests": {
+      "succeeded": 3,
+      "succeededWithWarnings": 1,
+      "failed": 0,
+      "cases": [
+        {
+          "name": "Vam.Breast.Calibration",
+          "state": "Success"
+        },
+        {
+          "name": "Vam.Breast.Dynamics",
+          "state": "Success"
+        },
+        {
+          "name": "Vam.Breast.NativeRuntime",
+          "state": "Success"
+        },
+        {
+          "name": "Vam.Breast.WeightCompression",
+          "state": "Success"
+        }
+      ]
+    },
+    "SecondaryTests": {
+      "succeeded": 3,
+      "succeededWithWarnings": 1,
+      "failed": 0,
+      "cases": [
+        {
+          "name": "Vam.Breast.Calibration",
+          "state": "Success"
+        },
+        {
+          "name": "Vam.Breast.Dynamics",
+          "state": "Success"
+        },
+        {
+          "name": "Vam.Breast.NativeRuntime",
+          "state": "Success"
+        },
+        {
+          "name": "Vam.Breast.WeightCompression",
+          "state": "Success"
+        }
+      ]
+    },
+    "InstalledTests": {
+      "succeeded": 3,
+      "succeededWithWarnings": 1,
+      "failed": 0,
+      "cases": [
+        {
+          "name": "Vam.Breast.Calibration",
+          "state": "Success"
+        },
+        {
+          "name": "Vam.Breast.Dynamics",
+          "state": "Success"
+        },
+        {
+          "name": "Vam.Breast.NativeRuntime",
+          "state": "Success"
+        },
+        {
+          "name": "Vam.Breast.WeightCompression",
+          "state": "Success"
+        }
+      ]
+    }
+  },
+  "installed_binaries": {
+    "UnrealEditor-VamCharacterRuntime-0024.dll": "5a8cc6ae41ff706e7491e6e027713e4db323a931c036f9cef6bd65823a636185",
+    "UnrealEditor-VamCharacterRuntime-0027.dll": "b6dae87d40ba07baf450e917e48232d79a8c78961f37e8a382c2d5ea97ced8bd",
+    "UnrealEditor-VamCharacterRuntime-0029.dll": "799feddf7e116d11141791c85f2784d1e9442760f065d076b5146ae297dc6549",
+    "UnrealEditor-VamCharacterRuntime-6005.dll": "56fe329d42aedaa9273541b38482236351fa83d3b10eeea9fb7f84e64af01dc3",
+    "UnrealEditor-VamCharacterRuntime-6006.dll": "610104638dbf43f68417167a75a04d9bf6ebf3bc3f4b21da929a09949e77e672",
+    "UnrealEditor-VamCharacterRuntime-6007.dll": "17b19701304ed56ed3fa16068d0d6eaba0d1d10cd7be051d8b62ee7fbebafbb4",
+    "UnrealEditor-VamCharacterRuntime-6008.dll": "92a6a02e9d124d5d171a128bf863999f869a701d7fd51ba41901e4dd493fdcc9",
+    "UnrealEditor-VamCharacterRuntime-6009.dll": "3cb6b6a0ff8ea24e402d3f31352d29b16f2a06ad04cd7993bf6b63d7d83fa9d9",
+    "UnrealEditor-VamCharacterRuntime-6010.dll": "5a45e3edab0174451bacfb917e709b38600854ee724842fafc4f9f8a5327645a",
+    "UnrealEditor-VamCharacterRuntime-6011.dll": "1249adc0c91f38972a5224e0797c37ebc99f3088c7f893b4c8ea417651995e25",
+    "UnrealEditor-VamCharacterRuntime-6012.dll": "bce3892b17614475dda2d2f6d903767aa6c6e999876c66f58739ff53c2b44ecd",
+    "UnrealEditor-VamCharacterRuntime-6013.dll": "16f5428d1be18acb180c13a79b779516a691b03d9743951c08e0ed6b52b58798",
+    "UnrealEditor-VamCharacterRuntime-6014.dll": "17f4f0c9a581862686c6ef9044e9cb98e7d0df765396f6ef4c5926a892e14860",
+    "UnrealEditor-VamCharacterRuntime-6015.dll": "b2830182a26c04cc984331c3f52567ac08d1bceec2a8d3402afe78fe417c8e5b",
+    "UnrealEditor-VamCharacterRuntime-6016.dll": "d3e46f064ea69b341272c9354972ac89d2938af814d0fdf399864d8bbe61493e",
+    "UnrealEditor-VamCharacterRuntime-6017.dll": "688ef62374b6ef0f89ad3a08c9d6aa5486fa6155ffc0afe224e1057239b05e97",
+    "UnrealEditor-VamCharacterRuntime-6018.dll": "ce6dc255cca28c2f1d7820f650117e4a839fd1ab1890549f883da9fe621a4445",
+    "UnrealEditor-VamCharacterRuntime-6019.dll": "00ad2682838c1081ae3a2b503e171e82209437e2be70573a181d3f3608dde694",
+    "UnrealEditor-VamCharacterRuntime-6022.dll": "9a4b649d939bd5d812c33b89f1ff47d2ac6828067fd50be59516735c03531050",
+    "UnrealEditor-VamCharacterRuntime-6023.dll": "ebd7b044f34656430eac013a6e034d8e42a2082d72d906f41c836629ab97df65",
+    "UnrealEditor-VamCharacterRuntime-6024.dll": "b66e512d1fa1cd712456123c5ffba14d3162bce1e2d199bbaf8a289904d596e7",
+    "UnrealEditor-VamCharacterRuntime-6025.dll": "9fb9ef4bdfc07229139fa25b551c40f6bcce9ae58e939e3c6f708bfc2694204a",
+    "UnrealEditor-VamCharacterRuntime-6026.dll": "5f57b529cb874efad7782bdfc5692475d1caf4e0797f8f1778d6c85820c3dceb",
+    "UnrealEditor-VamCharacterRuntime-6027.dll": "969e0fa1f54650d37f14459ab1faeb70aada263e0639022d8cbddac2be76f7ed",
+    "UnrealEditor-VamCharacterRuntime-6030.dll": "d519ac955bf869dc00dd6aed758c636c784dbdd7d956120085bea871d039a2b9",
+    "UnrealEditor-VamCharacterRuntime-6033.dll": "f653cc8afc7498b39a392990702a8ddf1be0522bb541ff4ece6be9eb475f303d",
+    "UnrealEditor-VamCharacterRuntime-6035.dll": "ba1def06e1b6fc1de647743e011ddf68fd59abca8f841db9ccefd29fc4fe6e54",
+    "UnrealEditor-VamCharacterRuntime.dll": "255b3cec3a5aa4437ddf8bf04fed1a5f8e1cebd3715b2f5de30544a65d87ef91",
+    "UnrealEditor-VamResourceBrowser-6005.dll": "288c833c4c1e7c55ac6bf93a634a23288f156085ba81dff08eca715bfd5f2751",
+    "UnrealEditor-VamResourceBrowser-6006.dll": "3f276a8294b70bd556b32e5ba1e4f73ad07cd8292506209c8a9396071cafda15",
+    "UnrealEditor-VamResourceBrowser-6007.dll": "6dd50dd76c66cbc12b50f4db5267e993b362a679682b51ee99e187f855ddd859",
+    "UnrealEditor-VamResourceBrowser-6008.dll": "9ae076737485abc15be0244c4703e6f86b192f7a6bb40eb55a6eeb3b7c9df91f",
+    "UnrealEditor-VamResourceBrowser-6009.dll": "f2a824b4027b5ff0c946dcda6cd7d025addaa45e3e1e1e9c6ef4c2862ae2808c",
+    "UnrealEditor-VamResourceBrowser-6010.dll": "6fd506fa18f8a951c99196b669520df2391922fcee5a9671aa01f57b2d490eb9",
+    "UnrealEditor-VamResourceBrowser-6011.dll": "04f09f6efbf10677d398125355d04693327f401edff89cb00c4c9785103bb442",
+    "UnrealEditor-VamResourceBrowser-6012.dll": "4cc3177d5dc1ae4afad75f580fea85cdc5952e61f75560789ebdc2cbc5454ee4",
+    "UnrealEditor-VamResourceBrowser-6013.dll": "f2467e038d6dc93f81f3370d6dc007961b8c392ef2966b54a778c291bb7bd007",
+    "UnrealEditor-VamResourceBrowser-6014.dll": "1f8704acc6702a5bd3159be0d74248c1f0bb7db20bb2b33d519eab906040367a",
+    "UnrealEditor-VamResourceBrowser-6015.dll": "0b0c7c3845d4b226c4fe948fee5072acc93bf3906b4fe7045fb6008e92d1f5a8",
+    "UnrealEditor-VamResourceBrowser-6016.dll": "ee9b1dec2b56db3c522e0811b17ffb07652464b91f892ad185454eff8d958a4f",
+    "UnrealEditor-VamResourceBrowser-6017.dll": "fa9563da0931475dcc444f3856d44c45d9b49f52568395683836ddf362e4e97b",
+    "UnrealEditor-VamResourceBrowser-6018.dll": "045990fc66d0f4fcf9aaee2432adc1e354a24b1e5a2540c760723c8f887d03c9",
+    "UnrealEditor-VamResourceBrowser-6019.dll": "ed01f8434fc5ffaf93ed0cf2a66882c49f2beddabf0c73d09c75c08fd00c1482",
+    "UnrealEditor-VamResourceBrowser-6022.dll": "2e9e16f6b8b00eb35d8b3b52e9f2d74c3c834a24e05e69e929f03cc7181d4b6a",
+    "UnrealEditor-VamResourceBrowser-6023.dll": "0b8b15f04db583065f41200d494594a9b0c72f053705b03adb326d338e2287ab",
+    "UnrealEditor-VamResourceBrowser-6024.dll": "bc0147fa9efb1371e4c42042d88311efdd4d110b8c24839f885f3e6df90ad018",
+    "UnrealEditor-VamResourceBrowser-6025.dll": "90495a1831113af66001d463b8c6ddecbc1d0d04b4c98a29b35f24866bed9b3a",
+    "UnrealEditor-VamResourceBrowser-6026.dll": "bebe88db1830c0347c0890e7de4fa3df90b1d139c729249bdf1912cd0fd4ce19",
+    "UnrealEditor-VamResourceBrowser-6027.dll": "cd22447376449c33818f3201be33943b37c280010993446b63b025075dd747eb",
+    "UnrealEditor-VamResourceBrowser-6032.dll": "3565067c82771b7c288efbe4a06673c81ab88060bb03acc5492271b0bcbec0eb",
+    "UnrealEditor-VamResourceBrowser-6034.dll": "af7420e5a2cad6ddcd322d6259e88400ba163995552f4cab6c04dc60f965b537",
+    "UnrealEditor-VamResourceBrowser-6036.dll": "7b951a79224e5092d87be88ab35f044154da7737f0230d5785596f6f27c62cd5",
+    "UnrealEditor-VamResourceBrowser-6733.dll": "8a911e39c03d10b17efb0cb5839225db989e1426bea3ea739fe443cc3774da35",
+    "UnrealEditor-VamResourceBrowser-6734.dll": "438d905fdad94c94e77c5ea0168504ace1d09b05061b64a63b753b683d8d33ab",
+    "UnrealEditor-VamResourceBrowser-FaceAudit.dll": "4afad4cffeb44e8110104c5bfa663c18623eb49894967f25a46ca2e44c6821ca",
+    "UnrealEditor-VamResourceBrowser-FaceAudit2.dll": "1a6f8cce7dbbca24595d36fab7b70aedb3b279677ad7ae6bfa0ed480d3a5b76d",
+    "UnrealEditor-VamResourceBrowser-FitRepair.dll": "f95af04c506253dccf4ef6b5745b816646db28741d45b9cbf4a689da4c5f8b94",
+    "UnrealEditor-VamResourceBrowser.dll": "26aadb07a328137dce5393863d5338912ab63ae1bf775cea7bb2c9c19d1c246a"
+  },
+  "visual_assessment": null,
+  "limitations": [
+    "Effective surface-cone volume, not anatomical volume",
+    "Material modulus is an engineering coefficient, not fitted experimental tissue data",
+    "Finite-region inertia approximation and small-angle COM mode",
+    "Shape response locally linear/log-linear",
+    "Seven non-donors plus one substantial donor at eight influences cannot add another bone while preserving donor and non-donors; counted fallback, zero such vertices in both real outputs",
+    "No cloth/contact/collision",
+    "NativeRuntime test world teardown warning retained from baseline",
+    "Source VAR decoding not rerun; two persisted Native sources rebuilt"
+  ],
+  "evidence_sha256": {
+    "CalibrationCompile.log": "09141a333753355e70c2482d326cd30834433c28d460fa9d1ba7a22397bf292a",
+    "cook.log": "7b7e0fc0fb90f2b169bb0cd35949eeb5b1293776253372eaab66bbe61f457b41",
+    "game-Development.log": "20c830702d96e02b248ce6d1a8e453bfdc4ef701e5cabb3fda3f7984d3a715c1",
+    "game-Shipping.log": "6f80bf7603a641c5983c83cc869d5e917d7fbbdeedd007577c5869dd859d4584",
+    "installed-tests.json": "255fd4af3ea72c84eba447fa42cae54e8bb1abcfc91fef39cfc5c49d78bdb05f",
+    "installed-tests.log": "c3b8718e2055fc1870f093796ed449d50660c177b487efbc941afedc37a5a575",
+    "primary-audit.json": "15905b8692f84f9ea80afb983005577f2bea0cacd87eb3c170ed32dc952c9ab2",
+    "primary-tests.json": "06924f17c6339178cca1f58335929a67476aadb03e07a2ee9926228701dcc083",
+    "primary-tests.log": "f97ea27960a630cb2b6b6215445c651c0ef7f3ac693461e03bae9b8d3a43698e",
+    "secondary-audit.json": "c20ad72b93e34c1abcb6f69a713a197f88460d13af6f7e0b5a0bd677bcd3afd6",
+    "secondary-tests.json": "8a62a556f53e9f9b7d4efa5d48b6d83bb0731706e1e00be81ef88732485ae713",
+    "secondary-tests.log": "e497d70d3c03bbdbd3f9c9c5767b65117a0b906f8286f036117d4a55bbad82bf"
+  }
+}
