@@ -459,7 +459,7 @@ TSharedRef<SWidget> BreastControls()
     Box->AddSlot().AutoHeight()[SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Advanced")))].BodyContent()[Advanced]];
     Box->AddSlot().AutoHeight()[SNew(SButton).Text(FText::FromString(TEXT("恢复自动校准参数（全部 1.0）"))).OnClicked_Lambda([Body](){if(auto* B=Body()) B->ResetBreastTuning();return FReply::Handled();})];
     auto Buttons=SNew(SWrapBox).UseAllottedSize(true);
-    for(const TCHAR* Name:{TEXT("Forward accelerate"),TEXT("Stop"),TEXT("Lateral accelerate"),TEXT("Jump impulse"),TEXT("Rotate continuously"),TEXT("Stop rotation"),TEXT("Reset")})
+    for(const TCHAR* Name:{TEXT("Smooth Forward Accelerate"),TEXT("Smooth Stop"),TEXT("Hard Stop"),TEXT("Smooth Rotate Start"),TEXT("Continuous Rotate"),TEXT("Smooth Rotate Stop"),TEXT("Hard Rotate Stop"),TEXT("Jump"),TEXT("Reset")})
     {
         const FName Command(Name);
         Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->BreastMotionCommand(Command);return FReply::Handled();})];

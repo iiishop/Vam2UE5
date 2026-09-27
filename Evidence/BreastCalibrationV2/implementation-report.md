@@ -1,10 +1,4 @@
-# Breast Jiggle：当前版本 v3
-
-当前实现、数值结果、资产路径及 Empty Level 操作见 [v3 完整报告](BREAST_JIGGLE_V3.md)。
-
-v3 增加移动参考系速度事件、COM/rotation/residual 三模态和连续调试轨迹。普通四参数及其范围保持 v2。下面是 v2 历史报告；其中旧按钮、资产路径和 HEAD 不代表当前交付。
-
-# Breast Jiggle 自动校准 v2：历史工程报告
+# Breast Jiggle 自动校准 v2：实现与工程报告
 
 日期：2026-09-28。分支：`feature/jiggle/breasts`。
 

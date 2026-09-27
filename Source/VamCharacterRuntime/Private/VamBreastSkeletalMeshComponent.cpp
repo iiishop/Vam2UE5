@@ -60,7 +60,7 @@ void UVamBreastSkeletalMeshComponent::UpdateBreastShape(const TMap<FName,float>&
             FMath::Abs(R.EffectiveVolumeCm3/Previous[Side].EffectiveVolumeCm3-1)>BreastProfile->LargeShapeChangeRatio) Solvers[Side].Reset();
     }
     // Shape transactions rebase motion history, never differentiate the user's morph edits.
-    for(auto& S:Solvers) { S.Samples=0;S.Accumulator=0; }
+    for(int32 I=0;I<Solvers.Num();++I) { Solvers[I].Samples=0;Solvers[I].Accumulator=0;if(RestSides.IsValidIndex(I)) Solvers[I].ProjectResidual(RestSides[I]); }
 }
 void UVamBreastSkeletalMeshComponent::FinalizeBoneTransform()
 {
@@ -92,10 +92,9 @@ void UVamBreastSkeletalMeshComponent::FinalizeBoneTransform()
             for(int32 I=0;I<R.Nodes.Num();++I)
             {
                 const auto& N=R.Nodes[I];if(!Pose.IsValidIndex(N.BoneIndex)) continue;
-                FVector Offset=Solver.Nodes.IsValidIndex(I) && bJiggleEnabled ? Solver.Nodes[I].Displacement : FVector::ZeroVector;
+                FVector Offset=FVector::ZeroVector;
+                if(bJiggleEnabled) Offset=BreastProfile->SchemaVersion>=2?Solver.NodeOffset(R,I):(Solver.Nodes.IsValidIndex(I)?Solver.Nodes[I].Displacement:FVector::ZeroVector);
                 const FVector Angular=bJiggleEnabled && BreastProfile->SchemaVersion>=2?Solver.AngularDisplacement:FVector::ZeroVector;
-                const FQuat AngularQ=Angular.IsNearlyZero()?FQuat::Identity:FQuat(Angular.GetSafeNormal(),Angular.Size());
-                Offset+=AngularQ.RotateVector(N.Rest-R.COM)-(N.Rest-R.COM);
                 // Legacy orientation remains available only for schema 1; v2 uses integrated angular state.
                 FVector Rotation=BreastProfile->SchemaVersion>=2?Angular:FVector::CrossProduct(N.Rest,Offset)/FMath::Max(1.,N.Rest.SizeSquared());
                 if(BreastProfile->SchemaVersion==1) Rotation=Rotation.GetClampedToMaxSize(BreastProfile->MaximumRotationRadians);
@@ -129,12 +128,13 @@ FString UVamBreastSkeletalMeshComponent::BreastDiagnostics() const
         if(!Solvers.IsValidIndex(I)) continue;
         const auto& S=Solvers[I];
         Out+=FString::Printf(TEXT("v %s a %s omega %s alpha %s steps %d dropped %d sleep %d emergency limits %d\nAngular displacement %s rad velocity %s rad/s\n"),*S.LinearVelocity.ToCompactString(),*S.LinearAcceleration.ToCompactString(),*S.AngularVelocity.ToCompactString(),*S.AngularAcceleration.ToCompactString(),S.LastSteps,S.DroppedSteps,S.bSleeping,S.LimitCorrections,*S.AngularDisplacement.ToCompactString(),*S.RelativeAngularVelocity.ToCompactString());
+        Out+=FString::Printf(TEXT("COM displacement %s cm velocity %s cm/s\nCentrifugal load %s kg cm/s2 | modal force translation %.4f residual %.4f torque %.4f kg cm2/s2\n"),*S.COMDisplacement.ToCompactString(),*S.COMVelocity.ToCompactString(),*S.CentrifugalLoad.ToCompactString(),S.TranslationLoadMagnitude,S.ResidualLoadMagnitude,S.RotationLoadMagnitude);
         for(int32 N=0;N<E.Nodes.Num();++N)
         {
             const auto& Node=E.Nodes[N];
             FVector Hz;for(int32 A=0;A<3;++A) Hz[A]=FMath::Sqrt(Node.SupportStiffness[A]/FMath::Max(1.e-8,E.MassKg*Node.MassFraction))/(2*PI);
             Out+=FString::Printf(TEXT("%s mass %.1f%% volume %.2f lever %.2f | support %s kg/s2 Hz %s damping %s | travel +%s -%s cm\n"),*Node.Semantic.ToString(),Node.MassFraction*100,Node.EffectiveVolumeCm3,Node.LeverArmCm,*Node.SupportStiffness.ToCompactString(),*Hz.ToCompactString(),*Node.DampingRatio.ToCompactString(),*Node.PositiveLimitCm.ToCompactString(),*Node.NegativeLimitCm.ToCompactString());
-            if(S.Nodes.IsValidIndex(N)) Out+=TEXT("displacement ")+S.Nodes[N].Displacement.ToCompactString()+TEXT(" cm\n");
+            if(S.Nodes.IsValidIndex(N)) Out+=TEXT("residual displacement ")+S.Nodes[N].Displacement.ToCompactString()+TEXT(" cm\n");
         }
     }
     return Out;
@@ -143,29 +143,52 @@ FString UVamBreastSkeletalMeshComponent::BreastDiagnostics() const
 void UVamBreastSkeletalMeshComponent::BreastMotionCommand(FName Command)
 {
     if(!GetOwner() || !GetWorld() || !GetWorld()->IsGameWorld()) return;
-    DebugTime=0;
-    if(Command==TEXT("Reset")) { DebugCommand=NAME_None;DebugVelocity=FVector::ZeroVector;ResetBreastJiggle();return; }
-    if(Command==TEXT("Stop") || Command==TEXT("Stop rotation")) { DebugCommand=NAME_None;DebugVelocity=FVector::ZeroVector;return; }
-    DebugCommand=Command;
-    DebugDirection=Command==TEXT("Lateral accelerate") ? GetOwner()->GetActorRightVector() : GetOwner()->GetActorForwardVector();
-    if(Command==TEXT("Jump impulse")) DebugVelocity=FVector(0,0,250);
+    if(Command==TEXT("Reset")) { bDebugLinear=bDebugYaw=bDebugJump=false;ResetBreastJiggle();return; }
+    if(Command==TEXT("Jump") || Command==TEXT("Jump impulse"))
+    {
+        if(!bDebugJump) { DebugJump.Gravity=FMath::Max(1.,-GetWorld()->GetGravityZ());DebugJumpTime=0;bDebugJump=true; }return;
+    }
+    const bool Yaw=Command==TEXT("Smooth Rotate Start") || Command==TEXT("Continuous Rotate") || Command==TEXT("Rotate continuously") || Command==TEXT("Smooth Rotate Stop") || Command==TEXT("Stop rotation") || Command==TEXT("Hard Rotate Stop");
+    if(Yaw)
+    {
+        const bool Stop=Command==TEXT("Smooth Rotate Stop") || Command==TEXT("Stop rotation") || Command==TEXT("Hard Rotate Stop");
+        double X=0,V=0,A=0,J=0;if(bDebugYaw) DebugYaw.Evaluate(DebugYawTime,X,V,A,J);
+        if(Command==TEXT("Hard Rotate Stop")) { V=A=J=0; }
+        DebugYaw.Start(V,A,J,Stop?0:1.5,Stop?.4:.6);DebugYawTime=0;bDebugYaw=true;return;
+    }
+    const bool Stop=Command==TEXT("Smooth Stop") || Command==TEXT("Stop") || Command==TEXT("Hard Stop");
+    const FVector Direction=Command==TEXT("Lateral accelerate")?GetOwner()->GetActorRightVector():GetOwner()->GetActorForwardVector();
+    for(int32 I=0;I<3;++I)
+    {
+        double X=0,V=0,A=0,J=0;if(bDebugLinear) DebugLinear[I].Evaluate(DebugLinearTime,X,V,A,J);
+        if(Command==TEXT("Hard Stop")) V=A=J=0;
+        DebugLinear[I].Start(V,A,J,Stop?0:150*Direction[I],Stop?.4:1.);
+    }
+    DebugLinearTime=0;bDebugLinear=true;
 }
 void UVamBreastSkeletalMeshComponent::TickComponent(float Dt,ELevelTick TickType,FActorComponentTickFunction* TickFunction)
 {
-    const auto* Motion=GetOwner() ? GetOwner()->FindComponentByClass<UVamMotionComponent>() : nullptr;
-    if(!DebugCommand.IsNone() && GetWorld() && GetWorld()->IsGameWorld() && !GetWorld()->IsPaused() && !(Motion && Motion->GetClock().bPaused))
+    const auto* Motion=GetOwner()?GetOwner()->FindComponentByClass<UVamMotionComponent>():nullptr;
+    if((bDebugLinear || bDebugYaw || bDebugJump) && GetWorld() && GetWorld()->IsGameWorld() && !GetWorld()->IsPaused() && !(Motion && Motion->GetClock().bPaused))
     {
-        FTransform Next=GetOwner()->GetActorTransform();
-        if(DebugCommand==TEXT("Rotate continuously")) Next.SetRotation((FQuat(FVector::UpVector,Dt*1.5)*Next.GetRotation()).GetNormalized());
-        else
+        FTransform Next=GetOwner()->GetActorTransform();double Old=0,New=0,V=0,A=0,J=0;
+        if(bDebugLinear)
         {
-            FVector A=DebugDirection*150.;
-            if(DebugCommand==TEXT("Jump impulse")) A=FVector(0,0,GetWorld()->GetGravityZ());
-            if(DebugTime>1. && DebugCommand!=TEXT("Jump impulse")) A=FVector::ZeroVector;
-            Next.AddToTranslation(DebugVelocity*Dt+A*(.5*Dt*Dt));DebugVelocity+=A*Dt;
-            if(DebugCommand==TEXT("Jump impulse") && DebugTime+Dt>.5) { DebugCommand=NAME_None;DebugVelocity=FVector::ZeroVector; }
+            FVector Delta=FVector::ZeroVector;
+            for(int32 I=0;I<3;++I) { DebugLinear[I].Evaluate(DebugLinearTime,Old,V,A,J);DebugLinear[I].Evaluate(DebugLinearTime+Dt,New,V,A,J);Delta[I]=New-Old; }
+            Next.AddToTranslation(Delta);DebugLinearTime+=Dt;
         }
-        GetOwner()->SetActorTransform(Next,false,nullptr,ETeleportType::None);DebugTime+=Dt;
+        if(bDebugYaw)
+        {
+            DebugYaw.Evaluate(DebugYawTime,Old,V,A,J);DebugYaw.Evaluate(DebugYawTime+Dt,New,V,A,J);
+            Next.SetRotation((FQuat(FVector::UpVector,New-Old)*Next.GetRotation()).GetNormalized());DebugYawTime+=Dt;
+        }
+        if(bDebugJump)
+        {
+            DebugJump.Evaluate(DebugJumpTime,Old,V,A,J);DebugJump.Evaluate(DebugJumpTime+Dt,New,V,A,J);
+            Next.AddToTranslation(FVector(0,0,New-Old));DebugJumpTime+=Dt;if(DebugJumpTime>=DebugJump.Duration()) bDebugJump=false;
+        }
+        GetOwner()->SetActorTransform(Next,false,nullptr,ETeleportType::None);
     }
     Super::TickComponent(Dt,TickType,TickFunction);
 }

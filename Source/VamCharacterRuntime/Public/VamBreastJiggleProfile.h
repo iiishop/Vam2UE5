@@ -72,6 +72,10 @@ struct VAMCHARACTERRUNTIME_API FVamBreastSideProfile
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Calibration") FVector RotationalStiffness=FVector::ZeroVector;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Calibration") FVector RotationalDampingRatio=FVector(.3);
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Calibration") FVector AngularLimitRadians=FVector(.2);
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Calibration") FVector COMSupport=FVector::ZeroVector;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Calibration") FVector COMDampingRatio=FVector::ZeroVector;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Calibration") FVector COMPositiveLimit=FVector::ZeroVector;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Calibration") FVector COMNegativeLimit=FVector::ZeroVector;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Calibration") TArray<FVamBreastCoupling> Couplings;
     /** Natural frequencies are authored at this imported reference mass; shape/density change inertia, not elastic coefficients. */
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Breast") double ReferenceMassKg=0;

@@ -36,18 +36,21 @@ bool Extract(USkeletalMesh* Mesh,FVamNativeMeshInput& I,FString& Error)
     if(!D) { Error=TEXT("Source has no retained native MeshDescription; reimport required");return false; }
     FSkeletalMeshConstAttributes A(*D);
     const int32 Count=D->Vertices().Num();
-    I.Vertices.SetNum(Count);I.Normals.Init(FVector::UpVector,Count);I.UV.SetNum(Count);I.SourceVertices.SetNum(Count);
+    I.Vertices.SetNum(Count);I.Normals.Init(FVector::UpVector,Count);I.UV.Init(FVector2D::ZeroVector,Count);I.SourceVertices.SetNum(Count);
     for(const auto V:D->Vertices().GetElementIDs())
     {
         const int32 Id=V.GetValue();if(!I.Vertices.IsValidIndex(Id)) { Error=TEXT("Noncompact source vertex domain unsupported");return false; }
         I.Vertices[Id]=FVector(A.GetVertexPositions()[V]);I.SourceVertices[Id]=Id;
         for(const auto& W:A.GetVertexSkinWeights().Get(V)) { FVamBuildInfluence F;F.Vertex=Id;F.Bone=W.GetBoneIndex();F.Weight=W.GetWeight();I.Influences.Add(F); }
     }
+    TSet<int32> ReferencedVertices;
     for(const auto V:D->VertexInstances().GetElementIDs())
     {
         const int32 Id=D->GetVertexInstanceVertex(V).GetValue();
+        ReferencedVertices.Add(Id);
         I.Normals[Id]=FVector(A.GetVertexInstanceNormals()[V]);I.UV[Id]=FVector2D(A.GetVertexInstanceUVs().Get(V,0));
     }
+    if(ReferencedVertices.Num()<Count) UE_LOG(LogTemp,Display,TEXT("VAM_NATIVE_EXTRACT: %s retains %d unused vertices; UV initialized deterministically"),*Mesh->GetPathName(),Count-ReferencedVertices.Num());
     for(const auto T:D->Triangles().GetElementIDs())
     {
         for(const auto V:D->GetTriangleVertices(T)) I.Triangles.Add(V.GetValue());
@@ -142,7 +145,7 @@ UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVam
     auto* Shape=Source->Shape.LoadSynchronous();auto* Geometry=Shape ? Shape->Geometry.LoadSynchronous() : nullptr;
     if(!Geometry || Geometry->InputToSource.Num()!=I.Vertices.Num()) return Fail(TEXT("Source topology correspondence unavailable"));
     P->SourceTopologyIdentity=Geometry->TopologyDigest;P->SkeletonFamily=Family->GetStringField(TEXT("family"));
-    P->SchemaVersion=2;P->BuildAlgorithmVersion=TEXT("breast-calibration-v2");P->DensityKgPerCm3=.00102;
+    P->SchemaVersion=3;P->BuildAlgorithmVersion=TEXT("breast-modal-v3");P->DensityKgPerCm3=.00102;
     P->SourceBoneCount=I.Bones.Num();P->Sides.Reset();
     P->CompressedDonorVertices=P->SaturatedVerticesWithHelpers=P->SaturatedVerticesWithoutEligibleDonors=0;P->MeanHelperWeight=0;
     TArray<FTransform> CS;for(int32 B=0;B<I.Bones.Num();++B) CS.Add(I.Bones[B].Parent<0 ? I.Bones[B].LocalBind : I.Bones[B].LocalBind*CS[I.Bones[B].Parent]);
@@ -302,7 +305,7 @@ UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVam
         FVamNativeMeshInput PartInput;if(!Extract(Source->Parts[Part].LoadSynchronous(),PartInput,Error)) return nullptr;
         PartInput.Bones=I.Bones;
         auto* Mesh=UVamNativeBuilder::BuildMesh(Root+FString::Printf(TEXT("/SK_Part_%d"),Part),PartInput,Error);
-        if(!Mesh || !UVamNativeBuilder::ShareCompatibleSkeleton(Mesh,Body)) return Fail(TEXT("Part helper hierarchy build failed: ")+Error);
+        if(!Mesh || !UVamNativeBuilder::ShareCompatibleSkeleton(Mesh,Body)) return Fail(TEXT("Part helper hierarchy build failed: ")+Source->Parts[Part].ToString()+TEXT(": ")+Error);
         Result->Parts.Add(Mesh);
     }
     P->MarkPackageDirty();Result->MarkPackageDirty();
@@ -361,3 +364,23 @@ bool UVamBreastJiggleBuilder::ExcludeRigidHelpers(UPhysicsAsset* Physics,USkelet
     Physics->CollisionDisableTable=MoveTemp(Disabled);Physics->UpdateBodySetupIndexMap();Physics->UpdateBoundsBodiesArray();Physics->MarkPackageDirty();
     return true;
 }
+
+#if WITH_DEV_AUTOMATION_TESTS
+#include "Misc/AutomationTest.h"
+#include <limits>
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamBreastExtractTest,"Vam.Breast.OrphanVertexExtraction",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FVamBreastExtractTest::RunTest(const FString& Parameters)
+{
+    FMeshDescription D;FSkeletalMeshAttributes A(D);A.Register();A.GetVertexInstanceUVs().SetNumChannels(1);
+    const auto Used=D.CreateVertex(),Orphan=D.CreateVertex();A.GetVertexPositions()[Used]=FVector3f(0,0,0);A.GetVertexPositions()[Orphan]=FVector3f(1,0,0);
+    const auto Instance=D.CreateVertexInstance(Used);A.GetVertexInstanceNormals()[Instance]=FVector3f(0,0,1);A.GetVertexInstanceUVs().Set(Instance,0,FVector2f(.25,.75));
+    auto* Mesh=NewObject<USkeletalMesh>();Mesh->AddLODInfo();Mesh->CreateMeshDescription(0,MoveTemp(D));
+    FVamNativeMeshInput Input;FString Error;
+    // Seed the target with invalid old values so this test cannot pass by allocator luck.
+    Input.UV.Init(FVector2D(std::numeric_limits<double>::quiet_NaN()),2);
+    TestTrue(TEXT("Extract retains unused source correspondence"),Extract(Mesh,Input,Error) && Input.Vertices.Num()==2 && Input.SourceVertices[1]==1);
+    TestTrue(TEXT("Used vertex UV preserved"),Input.UV[0].Equals(FVector2D(.25,.75),1.e-8));
+    TestTrue(TEXT("Unused UV deterministic and finite"),Input.UV[1]==FVector2D::ZeroVector);
+    return true;
+}
+#endif

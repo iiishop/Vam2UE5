@@ -44,6 +44,12 @@ for side in profile.get_editor_property('sides'):
             rotational_stiffness=vector(side.get_editor_property('rotational_stiffness')),
             angular_limits=vector(side.get_editor_property('angular_limit_radians')),
             coupling=[dict(a=e.get_editor_property('a'),b=e.get_editor_property('b'),stiffness=vector(e.get_editor_property('stiffness'))) for e in side.get_editor_property('couplings')])
+        if profile.get_editor_property('schema_version') >= 3:
+            sides[-1].update(com_support=vector(side.get_editor_property('com_support')),
+                com_damping_ratio=vector(side.get_editor_property('com_damping_ratio')),
+                com_positive_limit=vector(side.get_editor_property('com_positive_limit')),
+                com_negative_limit=vector(side.get_editor_property('com_negative_limit')))
+            assert min(sides[-1]['com_support'])>0 and min(sides[-1]['com_positive_limit'])>0
         assert len(sides[-1]['coupling'])==8
         assert abs(sum(n['mass_fraction'] for n in sides[-1]['nodes'])-1)<1e-6
         for record,node in zip(sides[-1]['nodes'],side.get_editor_property('nodes')):

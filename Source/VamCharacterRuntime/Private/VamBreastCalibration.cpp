@@ -1,5 +1,17 @@
 #include "VamBreastCalibration.h"
 
+void VamBreastCalibration::CalibrateCOM(FVamBreastSideProfile& R)
+{
+    R.COMSupport=R.COMDampingRatio=R.COMPositiveLimit=R.COMNegativeLimit=FVector::ZeroVector;
+    for(const auto& N:R.Nodes)
+    {
+        R.COMSupport+=N.SupportStiffness;
+        R.COMDampingRatio+=N.DampingRatio*N.MassFraction;
+        R.COMPositiveLimit+=N.PositiveLimitCm*N.MassFraction;
+        R.COMNegativeLimit+=N.NegativeLimitCm*N.MassFraction;
+    }
+}
+
 void VamBreastCalibration::Calibrate(FVamBreastSideProfile& R,double Density,double Modulus)
 {
     R.MassKg=R.EffectiveVolumeCm3*Density;R.ReferenceMassKg=R.MassKg;
@@ -58,4 +70,5 @@ void VamBreastCalibration::Calibrate(FVamBreastSideProfile& R,double Density,dou
         const double Area=FMath::Pow(FMath::Min(A.EffectiveVolumeCm3,B.EffectiveVolumeCm3),2./3.);
         E.Stiffness=FVector(Modulus*.01*Area/Length*(I<4?.12:.035));R.Couplings.Add(E);
     }
+    CalibrateCOM(R);
 }

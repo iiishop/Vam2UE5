@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "VamBreastSolver.h"
+#include "VamBreastDebugTrajectory.h"
 #include "VamBreastSkeletalMeshComponent.generated.h"
 
 /** Native GPU skeletal skinning; the hook runs after rigid blending, before buffer publication. */
@@ -35,9 +36,10 @@ public:
     TArray<FVamBreastSolver> Solvers;
     TArray<FVamBreastSideProfile> RestSides;
 private:
-    FName DebugCommand;
-    FVector DebugVelocity=FVector::ZeroVector,DebugDirection=FVector::ZeroVector;
-    double DebugTime=0;
+    FVamMotionRamp DebugLinear[3],DebugYaw;
+    FVamJumpTrajectory DebugJump;
+    double DebugLinearTime=0,DebugYawTime=0,DebugJumpTime=0;
+    bool bDebugLinear=false,bDebugYaw=false,bDebugJump=false;
     double LastTime=-1;
     int32 LastTeleport=INDEX_NONE;
     bool bRebase=true,bWasEnabled=true;
