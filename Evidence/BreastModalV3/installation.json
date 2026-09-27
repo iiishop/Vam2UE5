@@ -1,0 +1,20 @@
+{
+  "backup": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\ModalV3\\BinariesBackup-20260928-015628",
+  "files": [
+    {
+      "file": "UnrealEditor-VamCharacterRuntime.dll",
+      "sha256": "2E906C65485141E8428BE24322E01646B7ECA4EB773253336CF7A86F7AB163EC",
+      "matches": true
+    },
+    {
+      "file": "UnrealEditor-VamResourceBrowser.dll",
+      "sha256": "8F69202054C8FD88144DDFC71B9F8782C20EA085DE866DC0B06A259EA254CE9B",
+      "matches": true
+    },
+    {
+      "file": "UnrealEditor.modules",
+      "sha256": "861529759FB48AF230B238D504E9C17ADC27CB8CB874EF68F697320817DC8899",
+      "matches": true
+    }
+  ]
+}

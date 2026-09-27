@@ -1,5 +1,6 @@
 #include "VamCharacterComponent.h"
 #include "VamCharacterDefinition.h"
+#include "VamBreastSkeletalMeshComponent.h"
 #include "VamRuntimeConfiguration.h"
 #include "VamShapeAnimInstance.h"
 #include "VamRigProfile.h"
@@ -29,6 +30,13 @@ UVamCharacterComponent::UVamCharacterComponent()
 
 void UVamCharacterComponent::BeginPlay() { Super::BeginPlay(); LoadCharacter(); }
 void UVamCharacterComponent::EndPlay(const EEndPlayReason::Type Reason) { UnloadCharacter(); Super::EndPlay(Reason); }
+
+void UVamCharacterComponent::SetImportedPartsVisible(bool bPartsVisible)
+{
+    bImportedPartsVisible = bPartsVisible;
+    for (auto Part : LoadedParts)
+        if (IsValid(Part)) Part->SetVisibility(bPartsVisible, false);
+}
 
 void UVamCharacterComponent::UnloadCharacter()
 {
@@ -88,6 +96,7 @@ void UVamCharacterComponent::LoadMeshes(uint64 Ticket)
     { OnLoaded.Broadcast(false, TEXT("Definition missing or source build not verified")); return; }
     TArray<FSoftObjectPath> Paths { LoadedDefinition->Body.ToSoftObjectPath(), LoadedDefinition->Skeleton.ToSoftObjectPath() };
     if (!LoadedDefinition->Shape.IsNull()) Paths.AddUnique(LoadedDefinition->Shape.ToSoftObjectPath());
+    if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->BreastJiggle.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->BreastJiggle.ToSoftObjectPath());
     if (!RigProfile.IsNull()) Paths.AddUnique(RigProfile.ToSoftObjectPath());
     if (!AnimationClass.IsNull()) Paths.AddUnique(AnimationClass.ToSoftObjectPath());
     if (!BaseAnimation.IsNull()) Paths.AddUnique(BaseAnimation.ToSoftObjectPath());
@@ -130,7 +139,14 @@ void UVamCharacterComponent::Assemble(uint64 Ticket)
     if (const UPhysicsAsset* Asset=PhysicsAsset.Get())
         if (Asset->SkeletalBodySetups.IsEmpty() || Asset->ConstraintSetup.IsEmpty())
         { OnLoaded.Broadcast(false,TEXT("Stage06 physics asset has no bodies or constraints")); return; }
-    Body = NewObject<USkeletalMeshComponent>(GetOwner(), NAME_None, RF_Transient);
+    Body = NewObject<UVamBreastSkeletalMeshComponent>(GetOwner(), NAME_None, RF_Transient);
+    if(LoadedRuntimeConfiguration)
+    {
+        auto* Jiggle=CastChecked<UVamBreastSkeletalMeshComponent>(Body);
+        Jiggle->BreastProfile=LoadedRuntimeConfiguration->BreastJiggle.Get();
+        if(!LoadedRuntimeConfiguration->BreastJiggle.IsNull() && (!Jiggle->BreastProfile || !Jiggle->BreastProfile->IsValidProfile()))
+        { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid BreastJiggleProfile"));return; }
+    }
     Body->SetupAttachment(this);
     Body->SetSkeletalMeshAsset(Mesh);
     if (UPhysicsAsset* Asset=PhysicsAsset.Get())
@@ -192,6 +208,7 @@ void UVamCharacterComponent::Assemble(uint64 Ticket)
         Part->SetSkeletalMeshAsset(PartMesh);
         Part->SetCollisionEnabled(ECollisionEnabled::NoCollision);
         Part->SetLeaderPoseComponent(Body);
+        Part->SetVisibility(bImportedPartsVisible, false);
         Part->RegisterComponent();
         if (const UVamMaterialProfile* Profile=MaterialProfile.Get())
             if (Profile->PartMaterials.IsValidIndex(PartIndex))
@@ -300,6 +317,7 @@ bool UVamCharacterComponent::ApplyShape(const TArray<FName>& Changed, bool bComm
                     Event.Bones.AddUnique(Body->GetSkeletalMeshAsset()->GetRefSkeleton().GetBoneName(Offset.BoneIndex));
         }
     }
+    if(auto* Jiggle=Cast<UVamBreastSkeletalMeshComponent>(Body)) Jiggle->UpdateBreastShape(PreviewState.Values,NextReference,bCommitted);
     TArray<FTransform> OldCS=PreviousReference, NewCS=NextReference;
     for(int32 I=0;I<NewCS.Num();++I) if(Ref.GetParentIndex(I)>=0)
     { NewCS[I]=NewCS[I]*NewCS[Ref.GetParentIndex(I)]; OldCS[I]=OldCS[I]*OldCS[Ref.GetParentIndex(I)]; }

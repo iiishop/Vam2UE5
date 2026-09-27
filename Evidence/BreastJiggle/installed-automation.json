@@ -1,0 +1,97 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "SM",
+			"instance": "EC7739E442313CC620A9A993BCD20AF2",
+			"instanceName": "SM-28812",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 10 (22H2) [10.0.19045.7725] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4070 Ti",
+			"cPUModel": "12th Gen Intel(R) Core(TM) i5-12600KF",
+			"rAMInGB": 40,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.27-13.06.36",
+	"succeeded": 1,
+	"succeededWithWarnings": 1,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.60143613815307617,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Dynamics",
+			"fullTestPath": "Vam.Breast.Dynamics",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"EC7739E442313CC620A9A993BCD20AF2"
+			],
+			"duration": 0.008051801472902298,
+			"dateTime": "2026.09.27-13.06.35",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Full trajectory max divergence: 30/120 0.023793 cm; 60/120 0.007892 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.27-13.06.35"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeRuntime",
+			"fullTestPath": "Vam.Breast.NativeRuntime",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"EC7739E442313CC620A9A993BCD20AF2"
+			],
+			"duration": 0.59338432550430298,
+			"dateTime": "2026.09.27-13.06.35",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Breast Jiggle Enabled | density 0.001000 kg/cm3 | softness 1.00\nL effective volume 585.39 cm3 mass 0.5854 kg COM V(X=13.31, Y=-3.13, Z=0.97)\nv V(X=0.39, Y=0.00, Z=-0.67) a V(X=-0.32, Y=-0.00, Z=0.53) omega V(X=0.00, Y=0.04, Z=0.00) alpha V(X=-0.00, Y=-0.03, Z=-0.00) steps 2 dropped 0 sleep 0\nCore: V(X=-0.04, Y=0.00, Z=-0.00) cm; Upper: V(X=-0.02, Y=0.00, Z=-0.00) cm; Lower: V(X=-0.05, Y=0.00, Z=-0.00) cm; Medial: V(X=-0.02, Y=0.00, Z=-0.00) cm; Lateral: V(X=-0.05, Y=0.00, Z=-0.00) cm; \nR effective volume 583.43 cm3 mass 0.5834 kg COM V(X=13.25, Y=3.13, Z=0.98)\nv V(X=0.39, Y=0.00, Z=-0.67) a V(X=-0.32, Y=-0.00, Z=0.53) omega V(X=0.00, Y=0.04, Z=0.00) alpha V(X=-0.00, Y=-0.03, Z=-0.00) steps 2 dropped 0 sleep 0\nCore: V(X=-0.04, Y=0.00, Z=-0.00) cm; Upper: V(X=-0.02, Y=0.00, Z=-0.00) cm; Lower: V(X=-0.05, Y=0.00, Z=-0.00) cm; Medial: V(X=-0.02, Y=0.00, Z=-0.00) cm; Lateral: V(X=-0.05, Y=0.00, Z=-0.00) cm; \n",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.27-13.06.36"
+				},
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.27-13.06.36"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

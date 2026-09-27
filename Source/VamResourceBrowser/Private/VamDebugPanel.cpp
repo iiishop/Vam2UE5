@@ -4,6 +4,10 @@
 #include "VamCharacterDefinition.h"
 #include "VamRigProfile.h"
 #include "VamMotionComponent.h"
+#include "VamBreastSkeletalMeshComponent.h"
+#include "Widgets/Input/SCheckBox.h"
+#include "Widgets/Layout/SWrapBox.h"
+#include "Widgets/Layout/SExpandableArea.h"
 #include "VamInteractionComponent.h"
 #include "VamActivePoseComponent.h"
 #include "VamRuntimeConfiguration.h"
@@ -426,6 +430,45 @@ void AddControls(TSharedRef<SVerticalBox> Rows,AVamCharacterActor* Actor,const F
     }
 }
 
+TSharedRef<SWidget> BreastControls()
+{
+    auto Body=[]()->UVamBreastSkeletalMeshComponent* { auto* A=CurrentActor();return A && A->Character ? Cast<UVamBreastSkeletalMeshComponent>(A->Character->Body) : nullptr; };
+    auto Box=SNew(SVerticalBox);
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text(FText::FromString(TEXT("Breast Jiggle")))];
+    for(int32 Flag=0;Flag<4;++Flag)
+    {
+        const TCHAR* Names[]={TEXT("Enabled"),TEXT("Show helper bones"),TEXT("Show region weights"),TEXT("Show dynamic node state")};
+        Box->AddSlot().AutoHeight()[SNew(SCheckBox).IsChecked_Lambda([Body,Flag](){auto* B=Body();if(!B)return ECheckBoxState::Unchecked;const bool V=Flag==0?B->bJiggleEnabled:Flag==1?B->bShowHelperBones:Flag==2?B->bShowRegionWeights:B->bShowDynamicNodes;return V?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
+            .OnCheckStateChanged_Lambda([Body,Flag](ECheckBoxState State){if(auto* B=Body()){bool& V=Flag==0?B->bJiggleEnabled:Flag==1?B->bShowHelperBones:Flag==2?B->bShowRegionWeights:B->bShowDynamicNodes;V=State==ECheckBoxState::Checked;}})
+            [SNew(STextBlock).Text(FText::FromString(Names[Flag]))]];
+    }
+    const TCHAR* Labels[]={TEXT("Support · 胸廓支承"),TEXT("Damping · 能量衰减"),TEXT("Mobility · 位移范围"),TEXT("Internal Coupling · 内部连接"),TEXT("Mass Scale · 质量与转动惯量")};
+    const TCHAR* Tips[]={TEXT("只缩放 Anchor 恢复刚度。小值更易偏移，大值恢复更快。"),TEXT("只缩放阻尼比。小值余振更久；过阻尼也可能使回位变慢。"),TEXT("只缩放软/硬位移与角度范围，不改变小振幅刚度。"),TEXT("只缩放语义节点之间的弹性连接，不改变胸廓支承。"),TEXT("只缩放质量和惯量，不改变刚度、阻尼比或限位。")};
+    auto Advanced=SNew(SVerticalBox);
+    for(int32 Index=0;Index<5;++Index)
+    {
+        auto Value=[Index](UVamBreastSkeletalMeshComponent* B)->double& { return Index==0?B->Support:Index==1?B->Damping:Index==2?B->BreastMobility:Index==3?B->InternalCoupling:B->MassScale; };
+        auto Row=SNew(SHorizontalBox)
+            +SHorizontalBox::Slot().FillWidth(.6)[SNew(STextBlock).Text(FText::FromString(Labels[Index])).ToolTipText(FText::FromString(Tips[Index]))]
+            +SHorizontalBox::Slot().FillWidth(.4)[SNew(SSpinBox<double>).MinValue(Index==3?0.:Index==2?.25:.1).MaxValue(Index==0 || Index==4?10.:Index==2?3.:4.).Delta(.05)
+                .IsEnabled_Lambda([Body](){auto* B=Body();return B && B->BreastProfile && B->BreastProfile->SchemaVersion>=2;})
+                .Value_Lambda([Body,Value](){auto* B=Body();return B?Value(B):1.;})
+                .OnValueChanged_Lambda([Body,Value](double V){if(auto* B=Body()) Value(B)=V;})];
+        if(Index==4) Advanced->AddSlot().AutoHeight()[Row];else Box->AddSlot().AutoHeight().Padding(2)[Row];
+    }
+    Box->AddSlot().AutoHeight()[SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Advanced")))].BodyContent()[Advanced]];
+    Box->AddSlot().AutoHeight()[SNew(SButton).Text(FText::FromString(TEXT("恢复自动校准参数（全部 1.0）"))).OnClicked_Lambda([Body](){if(auto* B=Body()) B->ResetBreastTuning();return FReply::Handled();})];
+    auto Buttons=SNew(SWrapBox).UseAllottedSize(true);
+    for(const TCHAR* Name:{TEXT("Smooth Forward Accelerate"),TEXT("Smooth Stop"),TEXT("Hard Stop"),TEXT("Smooth Rotate Start"),TEXT("Continuous Rotate"),TEXT("Smooth Rotate Stop"),TEXT("Hard Rotate Stop"),TEXT("Jump"),TEXT("Reset")})
+    {
+        const FName Command(Name);
+        Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->BreastMotionCommand(Command);return FReply::Handled();})];
+    }
+    Box->AddSlot().AutoHeight()[Buttons];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->BreastDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)];
+    return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Breast Jiggle · Runtime")))].BodyContent()[Box];
+}
+
 TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
 {
     bPanelOpen=true;
@@ -469,6 +512,11 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
                 return FReply::Handled();})]
             +SHorizontalBox::Slot().AutoWidth().Padding(8,0)[SNew(SButton).Text(FText::FromString(TEXT("重置骨骼姿态"))).OnClicked_Lambda([](){if (auto* Actor=CurrentActor()) {Actor->Character->ResetPoseControlRotations();Actor->Character->ResetDebugBoneOffsets();}return FReply::Handled();})]
             +SHorizontalBox::Slot().AutoWidth().Padding(8,0)[SNew(SButton).Text(FText::FromString(TEXT("恢复导入形状"))).OnClicked_Lambda([](){if (auto* Actor=CurrentActor()) Actor->Character->ResetToImportedAppearance();return FReply::Handled();})]]
+        +SVerticalBox::Slot().AutoHeight().Padding(8,0)[SNew(SButton)
+            .Text_Lambda([](){auto* A=CurrentActor();return FText::FromString(A && A->Character && !A->Character->AreImportedPartsVisible()?TEXT("显示衣服 / 配饰"):TEXT("隐藏衣服 / 配饰"));})
+            .ToolTipText(FText::FromString(TEXT("切换当前人物导入的衣服与配饰显示。身体保持显示；再次点击恢复，不修改资产。")))
+            .IsEnabled_Lambda([](){auto* A=CurrentActor();return A && A->Character && A->Character->Body;})
+            .OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Character) A->Character->SetImportedPartsVisible(!A->Character->AreImportedPartsVisible());return FReply::Handled();})]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SButton).Text(FText::FromString(TEXT("加载内容浏览器所选 RuntimeConfiguration"))).OnClicked_Lambda([State](){
             TArray<FAssetData> Assets;FModuleManager::LoadModuleChecked<FContentBrowserModule>(TEXT("ContentBrowser")).Get().GetSelectedAssets(Assets);
             if(Assets.Num()!=1) return FReply::Handled();
@@ -517,6 +565,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
             +SHorizontalBox::Slot().AutoWidth().Padding(6,0)[SNew(STextBlock).Text(FText::FromString(TEXT("Z")))]
             +SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<float>).MinValue(-360.f).MaxValue(360.f).Value_Lambda([](){return BoneRotationAxis(2);}).OnValueChanged_Lambda([](float Value){SetBoneRotationAxis(2,Value);})]
             +SHorizontalBox::Slot().AutoWidth().Padding(6,0)[SNew(SButton).Text(FText::FromString(TEXT("重置此关节"))).OnClicked_Lambda([](){if (PoseSelected()) if (auto* Actor=CurrentActor()) Actor->Character->SetPoseControlRotation(SelectedBone,FRotator::ZeroRotator);return FReply::Handled();})]]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[BreastControls()]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("Stage06 · 运行时与惯性见证")))]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("暂停/继续见证时钟"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->SetPreviewPaused(!A->Motion->GetClock().bPaused);return FReply::Handled();})]

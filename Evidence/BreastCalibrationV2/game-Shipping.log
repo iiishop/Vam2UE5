@@ -1,0 +1,45 @@
+Using bundled DotNet SDK version: 10.0 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" UnrealGame Win64 Shipping -Project=I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject -plugin=I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/VamResourceBrowser.uplugin -NoUBA -NoHotReload
+Log file: C:\Users\Administrator\AppData\Local\UnrealBuildTool\Log.txt
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+Creating makefile for UnrealGame (no existing makefile)
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+Building UnrealGame...
+===== Toolchain Information =====
+Using ISPC compiler (I:\Program\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (E:\Windows Kits\10).
+[Adaptive Build] Excluded from VamCharacterRuntime unity file: VamActivePoseComponent.cpp, VamBreastCalibratedSolver.cpp, VamBreastCalibration.cpp, VamBreastSkeletalMeshComponent.cpp, VamBreastSolver.cpp, VamCharacterActor.cpp, VamCharacterComponent.cpp, VamCharacterRuntime.cpp, VamInteractionComponent.cpp, VamMotionComponent.cpp, VamPhysicsOutputComponent.cpp, VamPhysicsShapeProfile.cpp, VamPreviewTool.cpp, VamShapeAnimInstance.cpp, VamShapeTestPanel.cpp, VamStage06AcceptanceActor.cpp, VamStage07CompositionProbe.cpp, VamBreastCalibrationTests.cpp, VamBreastSolverTests.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 20 action(s)
+  CPU 10 physical cores, 16 logical cores
+  Memory 39.82 GB physical, 35.98 GB/95.64 GB committed
+  UBA Storage capacity 40 GB
+[1/20] Compile [x64] VamBreastSolverTests.cpp [NoUba]
+[2/20] Compile [x64] VamBreastCalibrationTests.cpp [NoUba]
+[3/20] Compile [x64] VamCharacterRuntime.cpp [NoUba]
+[4/20] Compile [x64] VamBreastCalibration.cpp [NoUba]
+[5/20] Compile [x64] VamBreastCalibratedSolver.cpp [NoUba]
+[6/20] Compile [x64] VamBreastSolver.cpp [NoUba]
+[7/20] Compile [x64] VamCharacterActor.cpp [NoUba]
+[8/20] Compile [x64] VamPhysicsShapeProfile.cpp [NoUba]
+[9/20] Compile [x64] VamMotionComponent.cpp [NoUba]
+[10/20] Compile [x64] VamActivePoseComponent.cpp [NoUba]
+[11/20] Compile [x64] VamBreastSkeletalMeshComponent.cpp [NoUba]
+[12/20] Compile [x64] Module.VamCharacterRuntime.cpp [NoUba]
+[13/20] Compile [x64] VamPreviewTool.cpp [NoUba]
+[14/20] Compile [x64] VamInteractionComponent.cpp [NoUba]
+[15/20] Compile [x64] VamShapeAnimInstance.cpp [NoUba]
+[16/20] Compile [x64] VamCharacterComponent.cpp [NoUba]
+[17/20] Compile [x64] VamStage06AcceptanceActor.cpp [NoUba]
+[18/20] Compile [x64] VamShapeTestPanel.cpp [NoUba]
+[19/20] Compile [x64] VamPhysicsOutputComponent.cpp [NoUba]
+[20/20] Compile [x64] VamStage07CompositionProbe.cpp [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 31.43 seconds
+Output binary: I:\Program\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealGame-Win64-Shipping.exe
+
+Result: Succeeded
+Total execution time: 33.10 seconds
+Trace written to file C:\Users\Administrator\AppData\Local\UnrealBuildTool\Trace.uba with size 8.9kb

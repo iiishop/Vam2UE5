@@ -1,0 +1,175 @@
+{
+  "head": "77b3266fe04e394885390de1cf0b08f7c3843355",
+  "branch": "feature/jiggle/breasts",
+  "uncommitted": true,
+  "visual_assessment": null,
+  "characters": {
+    "primary": {
+      "identity": "4c802e30dff86c7bdcc9d1285ca7e36839a1a02c42a2dd4341858b9d2f173dbb",
+      "blueprint": "/Game/VamRuntime/R_4c802e30dff86c7bdcc9d128/BP_VamCharacter.BP_VamCharacter",
+      "configuration": "/Game/VamRuntime/R_4c802e30dff86c7bdcc9d128/RC_Runtime",
+      "profile": "/Game/VamRuntime/R_4c802e30dff86c7bdcc9d128/DA_BreastJiggle.DA_BreastJiggle",
+      "map": "/Game/BreastJiggleEngineering/Empty_4c802e30dff8",
+      "independent_reload": true,
+      "source_files_unchanged_at_publication": true,
+      "algorithm_fingerprints_match_worktree": true,
+      "volumes": [
+        585.3916448704266,
+        583.4258327084777
+      ],
+      "masses": [
+        0.5970994777678352,
+        0.5950943493626474
+      ]
+    },
+    "secondary": {
+      "identity": "14e3fa311bf786b6946b7886870a1768a79453375c9727a78e1625557f07b0cf",
+      "blueprint": "/Game/VamRuntime/R_14e3fa311bf786b6946b7886/BP_VamCharacter.BP_VamCharacter",
+      "configuration": "/Game/VamRuntime/R_14e3fa311bf786b6946b7886/RC_Runtime",
+      "profile": "/Game/VamRuntime/R_14e3fa311bf786b6946b7886/DA_BreastJiggle.DA_BreastJiggle",
+      "map": "/Game/BreastJiggleEngineering/Empty_14e3fa311bf7",
+      "independent_reload": true,
+      "source_files_unchanged_at_publication": true,
+      "algorithm_fingerprints_match_worktree": true,
+      "volumes": [
+        189.57324701966667,
+        189.16018556860874
+      ],
+      "masses": [
+        0.19336471196006003,
+        0.19294338927998092
+      ]
+    }
+  },
+  "tests": {
+    "primary": [
+      {
+        "name": "Vam.Breast.Calibration",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.Dynamics",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.MovingFrameModal",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.NativeRuntime",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.OrphanVertexExtraction",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.SmoothJump",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.WeightCompression",
+        "state": "Success"
+      }
+    ],
+    "secondary": [
+      {
+        "name": "Vam.Breast.Calibration",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.Dynamics",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.MovingFrameModal",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.NativeRuntime",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.OrphanVertexExtraction",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.SmoothJump",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.WeightCompression",
+        "state": "Success"
+      }
+    ],
+    "installed": [
+      {
+        "name": "Vam.Breast.Calibration",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.Dynamics",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.MovingFrameModal",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.NativeRuntime",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.OrphanVertexExtraction",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.SmoothJump",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.WeightCompression",
+        "state": "Success"
+      }
+    ]
+  },
+  "metrics": [
+    "Calibrated divergence 30/120 0.004897 cm 60/120 0.001888 cm angular 0.000378 rad",
+    "Full trajectory max divergence: 30/120 0.023793 cm; 60/120 0.007892 cm",
+    "Momentum error 3.6888820278e-15; modal mean 1.39925101062e-17 moment 2.2568079057e-17; steady COM 0.863749 residual RMS 0.077343 cm",
+    "Jump known twist 1 body apex 0.505102 tissue apex 0.508333; takeoff lag -2.409486; landing tail 19.432660; FPS error 0.008706 / 0.000080 cm",
+    "Jump known twist 0 body apex 0.505102 tissue apex 0.508333; takeoff lag -2.409486; landing tail 19.414968; FPS error 0.214716 / 0.017848 cm",
+    "Resolved jump phase body 0.508333 tissue 0.550000 delay 0.041667 s tissue velocity at body top 40.578283 cm/s hard limits 0"
+  ],
+  "known_test_warning": "Temporary test world cleanup reports missing EndPlay; all test states Success, no failed assertions.",
+  "python_tests": 46,
+  "editor_compile": "Succeeded",
+  "game_development": "Succeeded",
+  "game_shipping": "Succeeded",
+  "cook": {
+    "status": "Succeeded",
+    "packages": 832,
+    "errors": 0,
+    "warnings": 0
+  },
+  "installed_binary_hashes": {
+    "backup": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\ModalV3\\BinariesBackup-20260928-015628",
+    "files": [
+      {
+        "file": "UnrealEditor-VamCharacterRuntime.dll",
+        "sha256": "2E906C65485141E8428BE24322E01646B7ECA4EB773253336CF7A86F7AB163EC",
+        "matches": true
+      },
+      {
+        "file": "UnrealEditor-VamResourceBrowser.dll",
+        "sha256": "8F69202054C8FD88144DDFC71B9F8782C20EA085DE866DC0B06A259EA254CE9B",
+        "matches": true
+      },
+      {
+        "file": "UnrealEditor.modules",
+        "sha256": "861529759FB48AF230B238D504E9C17ADC27CB8CB874EF68F697320817DC8899",
+        "matches": true
+      }
+    ]
+  }
+}

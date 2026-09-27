@@ -1,0 +1,124 @@
+{
+  "schema": "vam-breast-engineering-evidence/1",
+  "base_head": "5d4c54c6299ac38312b34c87a2a29f1d2ecee97b",
+  "branch": "feature/jiggle/breasts",
+  "primary": {
+    "configuration": "/Game/VamRuntime/R_fb3c4337cc55a8df4700fa75/RC_Runtime",
+    "blueprint": "/Game/VamRuntime/R_fb3c4337cc55a8df4700fa75/BP_VamCharacter.BP_VamCharacter",
+    "identity": "fb3c4337cc55a8df4700fa75c35bccaac1b7b78a1df807a38b0e25f6bd3654af",
+    "status": "committed",
+    "writer_pid": 9404,
+    "reloader_pid": 32828,
+    "verifier_pid": 16344
+  },
+  "secondary": {
+    "configuration": "/Game/VamRuntime/R_97a588b8c1dd7e544f797040/RC_Runtime",
+    "blueprint": "/Game/VamRuntime/R_97a588b8c1dd7e544f797040/BP_VamCharacter.BP_VamCharacter",
+    "identity": "97a588b8c1dd7e544f797040e37c3b78f8a5af2c21ccd01ff18c6a95f9141442",
+    "status": "committed",
+    "writer_pid": 35096,
+    "reloader_pid": 34840,
+    "verifier_pid": 32404
+  },
+  "compiled": [
+    "Editor Win64 Development",
+    "Game Win64 Development",
+    "Game Win64 Shipping"
+  ],
+  "installed": {
+    "outputs": [
+      "/Game/VamRuntime/R_fb3c4337cc55a8df4700fa75/RC_Runtime",
+      "/Game/VamRuntime/R_97a588b8c1dd7e544f797040/RC_Runtime"
+    ],
+    "distribution": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-090aef42dc3e43e093d46f3e0c48c6c4",
+    "runtime_dll_sha256": "8f2f9ce8802ce4949d006c7ea8f8bc2bb57d32a9a0adc2075037a62a889197af",
+    "editor_dll_sha256": "291eefda9e76f1e85d9fc11e48a2eab7ecfef8fcc757d4d4bbf200e74ad71946",
+    "all_source_and_output_hashes_verified": true
+  },
+  "installed_automation": {
+    "succeeded": 1,
+    "succeeded_with_warnings": 1,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Vam.Breast.Dynamics",
+        "state": "Success"
+      },
+      {
+        "name": "Vam.Breast.NativeRuntime",
+        "state": "Success"
+      }
+    ]
+  },
+  "automation_warning": "NativeRuntime temporary UWorld teardown warns that World EndPlay was not routed; test actors were destroyed. Not a runtime asset load failure.",
+  "python_regression": {
+    "command": "python -m pytest Scripts/test_runtime_recipe.py Scripts/test_runtime_upgrade.py Scripts/test_shape_kernel.py -q",
+    "passed": 19
+  },
+  "cook": {
+    "target": "Windows",
+    "packages": 725,
+    "errors": 0,
+    "warnings": 0,
+    "scope": "Primary production BP in an isolated empty level; cook, not packaged-game visual acceptance",
+    "runtime_closure": [
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/abp_character",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/bp_vamcharacter",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/cd_character",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/da_breastjiggle",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/da_nativematerials",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/da_physicsshape",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/da_rig",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/gd_bindings",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_eye_0b6a1fc3063f",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_eye_7c0cef78dc9e",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_eye_clear_4b597f7cc7da",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_eye_clear_c6248a3e2455",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_eye_clear_dccc7b2c9ac1",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_eye_clear_f34da322d484",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_eye_df3fb2670507",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_mouth_23fefff8eac0",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_mouth_cd08b3336b29",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_mouth_f07f96919f19",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_nail_db3eee1279a6",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_skin_3878959f1e07",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_skin_3c756f051a42",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_skin_79ba13ce8a74",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_skin_904e37508cc2",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_skin_b5794771542a",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_skin_c7158a459c3d",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_skin_d808928b5e5e",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_skin_d860f603e8c1",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/materials/m_skin_efa222df2f11",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/pa_body",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/rc_runtime",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sd_shape",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_body",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_body_skeleton",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_0",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_1",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_10",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_11",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_2",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_3",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_4",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_5",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_6",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_7",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_8",
+      "/game/vamruntime/r_fb3c4337cc55a8df4700fa75/sk_part_9"
+    ]
+  },
+  "fps_max_displacement_divergence_cm": {
+    "30_vs_120": 0.023793,
+    "60_vs_120": 0.007892
+  },
+  "visual_assessment": null,
+  "limitations": [
+    "No fresh VAR source decode this run; two persisted native sources were rebuilt.",
+    "Precomputed Shape response is a local approximation.",
+    "Region debug points show build geometry in the current Anchor frame.",
+    "Clothing retains original weights; soft collisions and cloth dynamics are not implemented.",
+    "Legacy Stage07 composition grab baseline failure was not reclassified."
+  ]
+}

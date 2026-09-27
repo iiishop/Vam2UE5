@@ -1,3 +1,5 @@
+> 后续 Breast Jiggle 实现与验证见 [BREAST_JIGGLE.md](BREAST_JIGGLE.md)。下文保留物理清理提交当时的基线记录。
+
 # Native Skeletal Runtime — 2026-09-27
 
 本次仅清理旧物理实现。没有新的 Jiggle、Contact Flesh、辅助骨或 Flesh asset；没有视觉效果通过判定。STAGE07、STAGE071_RUNTIME、STAGE07_TESTING 和 Evidence/Stage07、Evidence/Stage071 是 superseded 历史资料，不能作为当前源码通过证据。
