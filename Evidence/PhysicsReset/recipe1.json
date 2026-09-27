@@ -1,0 +1,11 @@
+{
+  "schema": "vam-runtime-recipe/1",
+  "revision": "native-reset-1",
+  "definition": "/Game/VamCharacters/C_c6e9958caee9598900461d95/CD_Character",
+  "source_mapping": "/Game/VamCharacters/C_c6e9958caee9598900461d95/DA_SourceMapping",
+  "destination_root": "/Game/VamRuntime",
+  "family": "I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Config/RigFamilies/VamFemale88.json",
+  "base_animation": "/Game/ResetValidationInputs/C_c6e9958caee9598900461d95/A_Test",
+  "blink_source_ids": [],
+  "skin_shading": "source"
+}

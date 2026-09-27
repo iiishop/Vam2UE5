@@ -1,0 +1,12 @@
+{
+  "cooked_asset_closure_passed": true,
+  "retired_package_matches": [],
+  "runtime_bundles": [
+    "R_f03f68ad4da2cff8ccacad43"
+  ],
+  "map": "/Game/ResetValidation/L_RuntimeSmoke3",
+  "file_count": 873,
+  "csv_sha256": "fab56fa1217b1fc91c54b261f0dee7ce4ebaab3f7e4d443b7d7c8575e8beeee8",
+  "scope": "Cooked container filenames plus Editor class/dependency audit; no graphics validation",
+  "engine_metadata_note": "Stock UE staging can include the ProceduralMeshComponent descriptor; the character module has no dependency and creates no such component"
+}

@@ -33,14 +33,6 @@
     {
       "Name": "FullBodyIK",
       "Enabled": true
-    },
-    {
-      "Name": "ChaosFlesh",
-      "Enabled": true
-    },
-    {
-      "Enabled": true,
-      "Name": "ProceduralMeshComponent"
     }
   ],
   "Modules": [

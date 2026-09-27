@@ -1,5 +1,6 @@
 """Upgrade orchestration: exact input selection, failure gates and policy preservation."""
 import importlib.util
+import contextlib
 import json
 import os
 from pathlib import Path
@@ -67,7 +68,7 @@ class UpgradeTests(unittest.TestCase):
         recipe = json.loads((self.root/'runtime-recipe.json').read_text())
         self.assertEqual(recipe['source_mapping'], '/Game/People/Independent/DA_SourceMapping')
         self.assertNotIn('base_animation', recipe)
-        self.assertTrue(recipe['soft_tissue']['regions'])
+        self.assertNotIn('soft_tissue', recipe)
 
     def test_failed_build_never_reloads_or_publishes(self):
         with patch.object(self.module.subprocess, 'run', return_value=types.SimpleNamespace(returncode=1)) as run:
@@ -83,15 +84,29 @@ class UpgradeTests(unittest.TestCase):
     def test_existing_runtime_preserves_custom_recipe_and_family(self):
         recipe = {'schema':'vam-runtime-recipe/1','definition':Definition().get_path_name(),
                   'source_mapping':'/Game/Custom/DA_SourceMapping','destination_root':'/Game/CustomRuntime',
-                  'family':'old-file.json','base_animation':'/Game/Custom/Idle','skin_shading':'subsurface'}
+                  'soft_tissue':{'quality':'High','regions':[]},'family':'old-file.json','base_animation':'/Game/Custom/Idle','skin_shading':'subsurface'}
         family = {'family':'custom family'}
         config = types.SimpleNamespace(get_editor_property=lambda key: Definition() if key == 'definition' else json.dumps({'recipe':recipe,'family':family}))
         self.unreal.get_default_object = lambda _: Actor(config)
         with patch.object(self.module.subprocess, 'run', side_effect=self.complete_phase): self.module.run()
         result = json.loads((self.root/'runtime-recipe.json').read_text())
+        self.assertNotIn('soft_tissue', result)
         self.assertEqual(result['base_animation'], recipe['base_animation'])
         self.assertEqual(result['destination_root'], recipe['destination_root'])
         self.assertEqual(json.loads(Path(result['family']).read_text()), family)
+
+    def test_relative_engine_saved_path_is_persisted_as_absolute_policy_path(self):
+        recipe = {'schema':'vam-runtime-recipe/1','definition':Definition().get_path_name(),
+                  'source_mapping':'/Game/Custom/Mapping','destination_root':'/Game/Runtime','family':'old.json'}
+        config = types.SimpleNamespace(get_editor_property=lambda key: Definition() if key == 'definition' else json.dumps({'recipe':recipe,'family':{'family':'test'}}))
+        self.unreal.get_default_object = lambda _: Actor(config)
+        self.unreal.Paths.project_saved_dir = lambda: '../Saved'
+        with contextlib.chdir(self.root/'Scripts'), patch.object(self.module.subprocess, 'run', side_effect=self.complete_phase):
+            self.module.run()
+        result = json.loads((self.root/'runtime-recipe.json').read_text())
+        self.assertTrue(Path(result['family']).is_absolute())
+        self.assertEqual(Path(result['family']).parent, (self.root/'Saved/VamRuntimeUpgrade/Policies').resolve())
+        self.assertTrue(Path(result['family']).is_file())
 
 
 if __name__ == '__main__': unittest.main()

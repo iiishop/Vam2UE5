@@ -39,20 +39,13 @@ class RuntimeRecipeTests(unittest.TestCase):
     def test_duplicate_semantics_rejected(self):
         self.family['joints']*=2
         with self.assertRaisesRegex(ValueError,'Duplicate'):validate_family(self.bones,self.family)
-    def test_tissue_settings_are_identity_inputs(self):
-        original=build_identity(self.recipe,self.family,{}, {},'engine')
-        self.recipe['soft_tissue']={'regions':[{'name':'region','bone':'joint'}],'enabled_regions':['region'],'quality':'Balanced'}
-        validate_recipe(self.recipe)
-        first=build_identity(self.recipe,self.family,{}, {},'engine')
-        self.assertNotEqual(original,first)
-        self.recipe['soft_tissue']['quality']='High'
-        self.assertNotEqual(first,build_identity(self.recipe,self.family,{}, {},'engine'))
-    def test_tissue_unknown_region_and_invalid_material_rejected(self):
-        self.recipe['soft_tissue']={'regions':[{'name':'region','bone':'joint'}],'enabled_regions':['missing']}
-        with self.assertRaisesRegex(ValueError,'Unknown enabled'):validate_recipe(self.recipe)
-        self.recipe['soft_tissue']['enabled_regions']=['region']
-        self.recipe['soft_tissue']['regions'][0]['density_kg_per_cm3']=float('nan')
-        with self.assertRaisesRegex(ValueError,'density'):validate_recipe(self.recipe)
+    def test_retired_policy_requires_explicit_migration(self):
+        for value in (None, {}, {'regions':[{'name':'region','bone':'joint'}]}):
+            recipe=dict(self.recipe,soft_tissue=value)
+            with self.assertRaisesRegex(ValueError,'Retired soft_tissue'):validate_recipe(recipe)
+    def test_native_identity_has_new_algorithm_namespace(self):
+        from vam_runtime_recipe import ALGORITHM
+        self.assertEqual(ALGORITHM,'runtime-bundle-v3-native-skeletal')
     def test_all_derivation_inputs_change_identity(self):
         base=build_identity(self.recipe,self.family,{'mesh':'a','morphset':'b','material':'c'},{'algorithm':'x'},'engine')
         for key in ('mesh','morphset','material'):

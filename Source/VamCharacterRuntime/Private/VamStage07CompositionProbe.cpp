@@ -53,6 +53,7 @@ void AVamStage07CompositionProbe::Finish(bool Passed,const FString& Reason)
 {
     TSharedRef<FJsonObject> Report=MakeShared<FJsonObject>();
     Report->SetBoolField(TEXT("composition_passed"),Passed);
+    Report->SetBoolField(TEXT("native_skeletal_runtime_passed"),Passed);
     Report->SetBoolField(TEXT("stage07_passed"),false);
     Report->SetBoolField(TEXT("timing_motion_settle_passed"),TimingPassed);
     Report->SetStringField(TEXT("reason"),Reason);
@@ -95,6 +96,20 @@ void AVamStage07CompositionProbe::Tick(float DeltaSeconds)
     if(Now-Started>70) { Finish(false,TEXT("timeout"));return; }
     if(Subjects.Num()<2) { Finish(false,TEXT("two_subjects_required"));return; }
     for(const auto& Actor:Subjects) if(!Actor || !Actor->Character->Body) return;
+    // Regression only: the production actor must render its native Body and own
+    // no retired dynamic surface/solver objects, throughout every transaction.
+    for(const auto& Actor:Subjects)
+    {
+        if(!Actor->Character->Body->IsVisible()) {Finish(false,TEXT("native_body_hidden"));return;}
+        TArray<UActorComponent*> Components;Actor->GetComponents(Components);
+        for(const auto* Component:Components)
+        {
+            const FString Name=Component->GetClass()->GetName();
+            if(Name.Contains(TEXT("Flesh")) || Name.Contains(TEXT("SoftTissue")) ||
+                Name.Contains(TEXT("Deformable")) || Name.Contains(TEXT("ProceduralMesh")))
+            {Finish(false,TEXT("retired_runtime_component_created"));return;}
+        }
+    }
     if(Phase>=5) { TickTiming(Now);return; }
     if(Phase==0)
     {

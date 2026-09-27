@@ -154,7 +154,7 @@ class FVamResourceBrowserModule final : public IModuleInterface
                         return FReply::Handled();
                     }) ]
                 + SHorizontalBox::Slot().AutoWidth().Padding(8,0)
-                [ SNew(SButton).Text(LOCTEXT("UpgradeRuntime", "升级已导入人物软组织"))
+                [ SNew(SButton).Text(LOCTEXT("UpgradeRuntime", "升级已导入人物 Runtime"))
                     .ToolTipText(LOCTEXT("UpgradeRuntimeTip", "先在内容浏览器选择人物 BP 或 CD_Character；保存、独立重载后生成 Runtime BP"))
                     .OnClicked_Lambda([](){ShowVamNativeBuildWindow(true);return FReply::Handled();}) ]
                 + SHorizontalBox::Slot().AutoWidth().Padding(8,0)

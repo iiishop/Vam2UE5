@@ -2,12 +2,22 @@ param([string]$Engine = 'I:\Program\Epic Games\UE_5.8', [switch]$NoInstall)
 $ErrorActionPreference = 'Stop'
 $pluginRoot = $PSScriptRoot
 $projectRoot = Split-Path (Split-Path $pluginRoot -Parent) -Parent
-$buildOutput = Join-Path $projectRoot 'Saved\VamBrowserBuild'
+# UAT removes the package directory. Never reuse a host that might contain a
+# Content junction to user assets. This path is unique and must not exist.
+$buildOutput = Join-Path $projectRoot ('Saved\VamBrowserBuild-' + [guid]::NewGuid().ToString('N'))
+if (Test-Path -LiteralPath $buildOutput) { throw "Build output must not exist: $buildOutput" }
+$ancestor = Get-Item -LiteralPath $projectRoot
+while ($ancestor) {
+    if ($ancestor.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw "Build root traverses a reparse point: $($ancestor.FullName)" }
+    $ancestor = $ancestor.Parent
+}
+$savedRoot = Join-Path $projectRoot 'Saved'
+if ((Test-Path -LiteralPath $savedRoot) -and ((Get-Item -LiteralPath $savedRoot).Attributes -band [IO.FileAttributes]::ReparsePoint)) { throw 'Saved must not be a reparse point' }
 $stage = Join-Path $projectRoot ('Saved\VamBrowserSource-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $stage | Out-Null
 # UAT copies the entire input directory before applying package filters. Never
 # include live service locks, the resource index, or cached user data in it.
-foreach ($entry in @('VamResourceBrowser.uplugin', 'Source', 'Config', 'Content', 'Web', 'Evidence', 'README.md', 'STAGE02.md', 'STAGE03.md', 'STAGE04.md', 'STAGE05.md', 'STAGE06.md', 'STAGE07.md', 'SetupDecoder.ps1', 'RunStage07Regression.ps1', 'RunStage07Composition.ps1', 'RunStage07Cooked.ps1', 'BuildRuntimeConfiguration.ps1', 'Build.ps1')) {
+foreach ($entry in @('VamResourceBrowser.uplugin', 'Source', 'Config', 'Content', 'Web', 'Evidence', 'README.md', 'PHYSICS_RESET.md', 'STAGE02.md', 'STAGE03.md', 'STAGE04.md', 'STAGE05.md', 'STAGE06.md', 'STAGE07.md', 'SetupDecoder.ps1', 'RunStage07Regression.ps1', 'RunStage07Composition.ps1', 'RunStage07Cooked.ps1', 'BuildRuntimeConfiguration.ps1', 'Build.ps1')) {
     Copy-Item -LiteralPath (Join-Path $pluginRoot $entry) -Destination $stage -Recurse
 }
 $scriptStage = New-Item -ItemType Directory -Path (Join-Path $stage 'Scripts')

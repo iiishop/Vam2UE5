@@ -1,0 +1,50 @@
+{
+	"composition_passed": false,
+	"native_skeletal_runtime_passed": false,
+	"stage07_passed": false,
+	"timing_motion_settle_passed": false,
+	"reason": "grab_or_final_ik_failed",
+	"final_ik_tolerance_cm": 3,
+	"minimum_base_motion_cm": 0.0099999997764825821,
+	"minimum_grab_motion_cm": 1,
+	"subjects": [
+		{
+			"configuration": "/Game/VamRuntime/R_f03f68ad4da2cff8ccacad43/RC_Runtime.RC_Runtime",
+			"clock_travel_seconds": 3.0000764988362789,
+			"base_motion_cm": 2.7532401084899902,
+			"final_ik_max_error_cm": 0.48709547519683838,
+			"blink_peak": 0.96036708354949951,
+			"breath_peak": 1,
+			"grab_motion_cm": 0.3480980396270752,
+			"release_velocity_delta_cm_s": 0,
+			"shape_transactions": 0,
+			"shape_velocity_delta_cm_s": 0,
+			"final_foot_error_cm": 0.003947502002120018,
+			"collider_change_cm": 0,
+			"maximum_physics_bridge_delay_seconds": 0,
+			"shape_parameter": "None",
+			"settled_speed_cm_s": 0,
+			"settled_drift_cm": 0,
+			"final_joint_limit_error_degrees": 3.4150946248701075e-06
+		},
+		{
+			"configuration": "/Game/VamRuntime/R_f03f68ad4da2cff8ccacad43/RC_Runtime.RC_Runtime",
+			"clock_travel_seconds": 3.0000764988362789,
+			"base_motion_cm": 2.7532401084899902,
+			"final_ik_max_error_cm": 0.48709547519683838,
+			"blink_peak": 0.96036708354949951,
+			"breath_peak": 1,
+			"grab_motion_cm": 0,
+			"release_velocity_delta_cm_s": 0,
+			"shape_transactions": 0,
+			"shape_velocity_delta_cm_s": 0,
+			"final_foot_error_cm": 0.003947502002120018,
+			"collider_change_cm": 0,
+			"maximum_physics_bridge_delay_seconds": 0,
+			"shape_parameter": "None",
+			"settled_speed_cm_s": 0,
+			"settled_drift_cm": 0,
+			"final_joint_limit_error_degrees": 3.4150946248701075e-06
+		}
+	]
+}

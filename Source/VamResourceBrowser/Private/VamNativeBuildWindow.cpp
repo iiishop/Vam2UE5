@@ -45,9 +45,9 @@ void ShowVamNativeBuildWindow(bool UpgradeExisting)
     if (UpgradeExisting) {
         TArray<FAssetData> Selected;FModuleManager::LoadModuleChecked<FContentBrowserModule>(TEXT("ContentBrowser")).Get().GetSelectedAssets(Selected);
         InitialTarget=Selected.Num()==1 ? Selected[0].GetObjectPathString() : TEXT("");
-        State->Status=TEXT("选择已保存的原生 BP_VamCharacter 或 CD_Character；生成新的 Runtime BP，保留原资产和场景实例。仅支持已验证的骨架家族。当前胸/腿代理质量与性能仍待完善。");
+        State->Status=TEXT("选择已保存的 BP_VamCharacter 或 CD_Character；生成新的原生 Skeletal Runtime BP，保留原资产和场景实例。旧软组织配置会退役，仅支持已验证的骨架家族。");
     }
-    auto Window=SNew(SWindow).Title(FText::FromString(UpgradeExisting ? TEXT("升级人物 Runtime / 软组织") : TEXT("导入人物与 Runtime / 软组织"))).ClientSize(FVector2D(740,320));
+    auto Window=SNew(SWindow).Title(FText::FromString(UpgradeExisting ? TEXT("升级人物 Runtime") : TEXT("导入人物与 Runtime"))).ClientSize(FVector2D(740,320));
     ExistingWindow=Window;
     Window->SetContent(SNew(SVerticalBox)
         +SVerticalBox::Slot().AutoHeight().Padding(12)[SNew(STextBlock).Text(FText::FromString(UpgradeExisting ? TEXT("人物 BP 或 CharacterDefinition 资产路径（从内容浏览器选中后打开）") : TEXT("目标目录（项目 Content 路径；完成后另生成 Runtime BP）")))]

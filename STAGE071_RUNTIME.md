@@ -1,3 +1,9 @@
+# LEGACY / SUPERSEDED — 2026-09-27
+
+本页全部内容是旧实现和旧构建的历史记录，不是当前能力或验收入口。旧 Flesh/SoftTissue 已退役，本文中的类、脚本、地图和 Cooked 包不得用于验证当前源码。当前人物链、迁移和自测见 [PHYSICS_RESET.md](PHYSICS_RESET.md)。
+
+---
+
 # Stage07.1 人物自身的软组织能力
 
 本页描述新的正式 Runtime 接入。旧 `AVamFleshCapabilityActor` 和其 Cooked 包只保留为后端实验，不能证明本页功能。视觉验收由用户进行；编译、生命周期测试和资源依赖检查不代表外观质量通过。

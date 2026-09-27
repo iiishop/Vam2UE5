@@ -213,6 +213,8 @@ bool UVamStage06AssetEditor::SetRuntimeConfigurationIdentity(UVamRuntimeConfigur
     if(!Configuration || !Definition || Identity.Len()!=64) return false;
     const UVamShapeDefinition* Shape=Definition->Shape.LoadSynchronous();
     if(!Shape || Shape->MorphSetLockDigest.Len()!=64) return false;
+    Configuration->SchemaVersion=3;
+    Configuration->bIndependentReloadVerified=false;
     Configuration->BuildIdentity=Identity;
     Configuration->SourceDigest=Definition->SourceDigest;
     Configuration->BindSignature=Definition->BindSignature;
@@ -224,6 +226,6 @@ bool UVamStage06AssetEditor::SetRuntimeConfigurationIdentity(UVamRuntimeConfigur
 
 bool UVamStage06AssetEditor::PublishRuntimeConfiguration(UVamRuntimeConfiguration* Configuration)
 {
-    if(!Configuration || Configuration->SchemaVersion!=2 || Configuration->BuildIdentity.Len()!=64 || Configuration->ReceiptJson.IsEmpty()) return false;
+    if(!Configuration || Configuration->SchemaVersion!=3 || Configuration->BuildIdentity.Len()!=64 || Configuration->ReceiptJson.IsEmpty()) return false;
     Configuration->bIndependentReloadVerified=true;Configuration->MarkPackageDirty();return true;
 }

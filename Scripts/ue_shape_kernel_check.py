@@ -61,7 +61,7 @@ def tick(dt):
         assert a.get_shape_state().revision>tick.revision
         assert almost(values(b),defaults)
         snapshot=a.get_character_state()
-        assert not snapshot.has_simulation and snapshot.simulation_shape_revision==-1 and not snapshot.simulated_surface
+        assert not snapshot.has_simulation and snapshot.simulation_shape_revision==-1
         assert len(snapshot.pose_component_space)==len(neutral)
         checks.extend(['batch_atomic_rejection','commit_cancel','zero_shape_and_neutral_bind','restore_imported','monotonic_revision'])
         checks.append('shape_pose_simulation_separation')

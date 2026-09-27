@@ -1,3 +1,7 @@
+# 当前物理架构：原生 Skeletal Runtime
+
+旧 Chaos Flesh / SoftTissue 已退役。当前能力、旧资产升级及工程自测见 [PHYSICS_RESET.md](PHYSICS_RESET.md)；STAGE07 / STAGE071 文档仅是历史记录。
+
 # VaM 资源浏览器 · 阶段 01–04
 
 UE 5.8 / Windows 编辑器插件。读取 VaM 松散目录和 VAR，解析依赖并解码已验证格式，用于临时几何检查。不执行 VaM 脚本，不向 VaM 目录写入文件。

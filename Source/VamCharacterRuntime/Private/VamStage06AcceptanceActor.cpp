@@ -4,6 +4,7 @@
 #include "VamInteractionComponent.h"
 #include "VamMotionComponent.h"
 #include "VamActivePoseComponent.h"
+#include "VamShapeAnimInstance.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "PhysicsEngine/PhysicsAsset.h"
 #include "Kismet/GameplayStatics.h"
@@ -60,6 +61,12 @@ void AVamStage06AcceptanceActor::Tick(float DeltaSeconds)
     }
     if (Phase==0)
     {
+        // This older probe compares the peer's hand against a stationary sample.
+        // Stop authored clips explicitly; the Stage07 composition probe separately
+        // measures isolation with advancing base animation. Actor time dilation
+        // does not pause SkeletalMesh component animation evaluation.
+        for (USkeletalMeshComponent* Mesh : {Body,Other})
+            if (auto* Anim=Cast<UVamShapeAnimInstance>(Mesh->GetAnimInstance())) Anim->SetBaseAnimation(nullptr);
         if (!Body->GetPhysicsAsset() || Body->GetPhysicsAsset()->SkeletalBodySetups.Num()<20 ||
             Body->GetPhysicsAsset()->ConstraintSetup.Num()<20)
         { Finish(false,TEXT("physics_asset_incomplete")); return; }

@@ -1,0 +1,17 @@
+{
+  "cook_passed": true,
+  "executable_sha256": "BBA5FD3C4CB6FAB320815B8D807279582D0B355D75462CD1A75A5F3D76A1C9B6",
+  "result": {
+    "status": "passed",
+    "reason": "runtime_chain_verified",
+    "max_witness_cm": 0.26144,
+    "max_blink_left": 0.934277,
+    "max_blink_right": 0.934277,
+    "physics_bodies": 30,
+    "constraints": 29
+  },
+  "visual_acceptance_performed": false,
+  "exit_code": 0,
+  "null_rhi": true,
+  "runtime_smoke_passed": true
+}

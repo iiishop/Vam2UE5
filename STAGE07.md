@@ -1,3 +1,9 @@
+# LEGACY / SUPERSEDED — 2026-09-27
+
+本页全部内容是旧实现和旧构建的历史记录，不是当前能力或验收入口。旧 Flesh/SoftTissue 已退役，本文中的类、脚本、地图和 Cooked 包不得用于验证当前源码。当前人物链、迁移和自测见 [PHYSICS_RESET.md](PHYSICS_RESET.md)。
+
+---
+
 # Stage07 — 07.0 基线回归通过，软组织纵切待交付
 
 本文件记录实现与证据边界，不是整个 Stage07 完成声明。起点为 `21bd244`。本轮没有重做 Stage05，没有加入 MetaHuman。

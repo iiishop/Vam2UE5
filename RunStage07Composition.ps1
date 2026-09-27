@@ -20,7 +20,7 @@ $runRoot=Join-Path $PSScriptRoot ('Saved/Stage07/Composition-'+$runId)
 $hostRoot=Join-Path $runRoot 'Host'
 New-Item -ItemType Directory -Path (Join-Path $hostRoot 'Plugins') -Force | Out-Null
 Copy-Item -LiteralPath $distributionRoot -Destination (Join-Path $hostRoot 'Plugins/VamResourceBrowser') -Recurse
-New-Item -ItemType Junction -Path (Join-Path $hostRoot 'Content') -Target (Join-Path $projectRoot 'Content') | Out-Null
+Copy-Item -LiteralPath (Join-Path $projectRoot 'Content') -Destination (Join-Path $hostRoot 'Content') -Recurse
 $hostProject=Join-Path $hostRoot 'Composition.uproject'
 '{"FileVersion":3,"Plugins":[{"Name":"VamResourceBrowser","Enabled":true},{"Name":"PythonScriptPlugin","Enabled":true}]}' | Set-Content $hostProject -Encoding utf8
 $spec=@{build_reports=@($BuildReports | ForEach-Object {(Resolve-Path -LiteralPath $_).Path});quality=(Resolve-Path $Quality).Path;map_root=('/Game/VamRuntimeTests/Run_'+$runId);shared_asset_instance=$true;warm_material_shaders=[bool]$Graphics}

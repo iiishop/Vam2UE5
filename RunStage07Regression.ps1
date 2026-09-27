@@ -16,9 +16,9 @@ $hostRoot = Join-Path $runRoot 'Host'
 $hostPlugins = New-Item -ItemType Directory -Path (Join-Path $hostRoot 'Plugins') -Force
 $isolatedPlugin = Join-Path $hostPlugins.FullName 'VamResourceBrowser'
 Copy-Item -LiteralPath $distributionRoot -Destination $isolatedPlugin -Recurse
-# Read-only tests load the actual project packages through this link. No package
-# save operation is performed by either probe. The host is retained for audit.
-New-Item -ItemType Junction -Path (Join-Path $hostRoot 'Content') -Target (Join-Path $projectRoot 'Content') | Out-Null
+# Tests use a physical snapshot, never a link into user Content.
+# The host is retained for audit.
+Copy-Item -LiteralPath (Join-Path $projectRoot 'Content') -Destination (Join-Path $hostRoot 'Content') -Recurse
 $hostProject = Join-Path $hostRoot 'Stage07Regression.uproject'
 '{"FileVersion":3,"Plugins":[{"Name":"VamResourceBrowser","Enabled":true},{"Name":"PythonScriptPlugin","Enabled":true}]}' | Set-Content -LiteralPath $hostProject -Encoding utf8
 $config = Get-Content -LiteralPath $ProbeConfig -Raw | ConvertFrom-Json

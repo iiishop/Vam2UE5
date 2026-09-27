@@ -32,9 +32,10 @@ def run():
     if previous:
         receipt = json.loads(previous.get_editor_property('receipt_json'))
         recipe = receipt['recipe']
-        # Preserve explicit existing settings, including animation and region policy.
-        recipe.setdefault('soft_tissue', policy['soft_tissue'])
-        family_file = Path(u.Paths.project_saved_dir())/'VamRuntimeUpgrade/Policies'/('family-'+digest(receipt['family'])+'.json')
+        # Preserve generic settings; explicitly retire the old backend policy.
+        if recipe.pop('soft_tissue', None) is not None:
+            progress('migration', 'Legacy soft_tissue policy removed; publishing a new native Skeletal Runtime bundle', False)
+        family_file = Path(u.Paths.project_saved_dir()).resolve()/'VamRuntimeUpgrade/Policies'/('family-'+digest(receipt['family'])+'.json')
         family_file.parent.mkdir(parents=True, exist_ok=True)
         family_file.write_text(json.dumps(receipt['family']), encoding='utf8')
         recipe['family'] = str(family_file)
@@ -43,7 +44,7 @@ def run():
                       definition=asset.get_path_name(), source_mapping=folder+'/DA_SourceMapping',
                       destination_root=policy['destination_root'],
                       family=str((policy_path.parent / policy['family']).resolve()),
-                      skin_shading='source', soft_tissue=policy['soft_tissue'])
+                      skin_shading='source')
         idle = folder+'/Animations/A_VamIdle'
         if u.EditorAssetLibrary.does_asset_exist(idle):
             recipe['base_animation'] = idle
@@ -54,7 +55,7 @@ def run():
     editor = Path(u.Paths.engine_dir())/'Binaries/Win64/UnrealEditor-Cmd.exe'
     for phase, expected in [('build','saved_pending_reload'), ('reload','published_pending_verification'), ('verify','committed')]:
         check_cancel()
-        progress('runtime-'+phase, 'Building character-owned soft tissue; native assets remain unchanged', False)
+        progress('runtime-'+phase, 'Building native Skeletal Runtime; source assets remain unchanged', False)
         env = dict(os.environ, VAM_RUNTIME_RECIPE=str(recipe_file), VAM_RUNTIME_REPORT=str(report_file), VAM_RUNTIME_PHASE=phase)
         result = subprocess.run([str(editor), u.Paths.get_project_file_path(), '-run=pythonscript',
             '-script='+str(SCRIPTS/'ue_runtime_build.py'), '-NullRHI', '-unattended', '-nosplash',
