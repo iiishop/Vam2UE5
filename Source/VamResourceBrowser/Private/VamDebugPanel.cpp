@@ -4,6 +4,10 @@
 #include "VamCharacterDefinition.h"
 #include "VamRigProfile.h"
 #include "VamMotionComponent.h"
+#include "VamBreastSkeletalMeshComponent.h"
+#include "Widgets/Input/SCheckBox.h"
+#include "Widgets/Layout/SWrapBox.h"
+#include "Widgets/Layout/SExpandableArea.h"
 #include "VamInteractionComponent.h"
 #include "VamActivePoseComponent.h"
 #include "VamRuntimeConfiguration.h"
@@ -426,6 +430,34 @@ void AddControls(TSharedRef<SVerticalBox> Rows,AVamCharacterActor* Actor,const F
     }
 }
 
+TSharedRef<SWidget> BreastControls()
+{
+    auto Body=[]()->UVamBreastSkeletalMeshComponent* { auto* A=CurrentActor();return A && A->Character ? Cast<UVamBreastSkeletalMeshComponent>(A->Character->Body) : nullptr; };
+    auto Box=SNew(SVerticalBox);
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text(FText::FromString(TEXT("Breast Jiggle")))];
+    for(int32 Flag=0;Flag<4;++Flag)
+    {
+        const TCHAR* Names[]={TEXT("Enabled"),TEXT("Show helper bones"),TEXT("Show region weights"),TEXT("Show dynamic node state")};
+        Box->AddSlot().AutoHeight()[SNew(SCheckBox).IsChecked_Lambda([Body,Flag](){auto* B=Body();if(!B)return ECheckBoxState::Unchecked;const bool V=Flag==0?B->bJiggleEnabled:Flag==1?B->bShowHelperBones:Flag==2?B->bShowRegionWeights:B->bShowDynamicNodes;return V?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
+            .OnCheckStateChanged_Lambda([Body,Flag](ECheckBoxState State){if(auto* B=Body()){bool& V=Flag==0?B->bJiggleEnabled:Flag==1?B->bShowHelperBones:Flag==2?B->bShowRegionWeights:B->bShowDynamicNodes;V=State==ECheckBoxState::Checked;}})
+            [SNew(STextBlock).Text(FText::FromString(Names[Flag]))]];
+    }
+    Box->AddSlot().AutoHeight()[SNew(SHorizontalBox)
+        +SHorizontalBox::Slot().AutoWidth()[SNew(STextBlock).Text(FText::FromString(TEXT("Density kg/cm3")))]
+        +SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<double>).MinValue(.0001).MaxValue(.1).MaxSliderValue(.01).Delta(.00005).Value_Lambda([Body](){auto* B=Body();return B && B->BreastProfile ? (B->DensityOverrideKgPerCm3>0?B->DensityOverrideKgPerCm3:B->BreastProfile->DensityKgPerCm3):.001;}).OnValueChanged_Lambda([Body](double V){if(auto* B=Body())B->SetBreastDensity(V);})]
+        +SHorizontalBox::Slot().AutoWidth()[SNew(STextBlock).Text(FText::FromString(TEXT("Softness (compliance scale)")))]
+        +SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<double>).MinValue(.2).MaxValue(100.).MaxSliderValue(20.).Delta(.1).Value_Lambda([Body](){auto* B=Body();return B?B->Softness:1.;}).OnValueChanged_Lambda([Body](double V){if(auto* B=Body())B->Softness=V;})]];
+    auto Buttons=SNew(SWrapBox).UseAllottedSize(true);
+    for(const TCHAR* Name:{TEXT("Forward accelerate"),TEXT("Stop"),TEXT("Lateral accelerate"),TEXT("Jump impulse"),TEXT("Rotate continuously"),TEXT("Stop rotation"),TEXT("Reset")})
+    {
+        const FName Command(Name);
+        Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->BreastMotionCommand(Command);return FReply::Handled();})];
+    }
+    Box->AddSlot().AutoHeight()[Buttons];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->BreastDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)];
+    return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Breast Jiggle · Runtime")))].BodyContent()[Box];
+}
+
 TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
 {
     bPanelOpen=true;
@@ -469,6 +501,11 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
                 return FReply::Handled();})]
             +SHorizontalBox::Slot().AutoWidth().Padding(8,0)[SNew(SButton).Text(FText::FromString(TEXT("重置骨骼姿态"))).OnClicked_Lambda([](){if (auto* Actor=CurrentActor()) {Actor->Character->ResetPoseControlRotations();Actor->Character->ResetDebugBoneOffsets();}return FReply::Handled();})]
             +SHorizontalBox::Slot().AutoWidth().Padding(8,0)[SNew(SButton).Text(FText::FromString(TEXT("恢复导入形状"))).OnClicked_Lambda([](){if (auto* Actor=CurrentActor()) Actor->Character->ResetToImportedAppearance();return FReply::Handled();})]]
+        +SVerticalBox::Slot().AutoHeight().Padding(8,0)[SNew(SButton)
+            .Text_Lambda([](){auto* A=CurrentActor();return FText::FromString(A && A->Character && !A->Character->AreImportedPartsVisible()?TEXT("显示衣服 / 配饰"):TEXT("隐藏衣服 / 配饰"));})
+            .ToolTipText(FText::FromString(TEXT("切换当前人物导入的衣服与配饰显示。身体保持显示；再次点击恢复，不修改资产。")))
+            .IsEnabled_Lambda([](){auto* A=CurrentActor();return A && A->Character && A->Character->Body;})
+            .OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Character) A->Character->SetImportedPartsVisible(!A->Character->AreImportedPartsVisible());return FReply::Handled();})]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SButton).Text(FText::FromString(TEXT("加载内容浏览器所选 RuntimeConfiguration"))).OnClicked_Lambda([State](){
             TArray<FAssetData> Assets;FModuleManager::LoadModuleChecked<FContentBrowserModule>(TEXT("ContentBrowser")).Get().GetSelectedAssets(Assets);
             if(Assets.Num()!=1) return FReply::Handled();
@@ -517,6 +554,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
             +SHorizontalBox::Slot().AutoWidth().Padding(6,0)[SNew(STextBlock).Text(FText::FromString(TEXT("Z")))]
             +SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<float>).MinValue(-360.f).MaxValue(360.f).Value_Lambda([](){return BoneRotationAxis(2);}).OnValueChanged_Lambda([](float Value){SetBoneRotationAxis(2,Value);})]
             +SHorizontalBox::Slot().AutoWidth().Padding(6,0)[SNew(SButton).Text(FText::FromString(TEXT("重置此关节"))).OnClicked_Lambda([](){if (PoseSelected()) if (auto* Actor=CurrentActor()) Actor->Character->SetPoseControlRotation(SelectedBone,FRotator::ZeroRotator);return FReply::Handled();})]]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[BreastControls()]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("Stage06 · 运行时与惯性见证")))]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("暂停/继续见证时钟"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->SetPreviewPaused(!A->Motion->GetClock().bPaused);return FReply::Handled();})]

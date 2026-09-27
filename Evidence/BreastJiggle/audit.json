@@ -1,0 +1,452 @@
+{
+  "configuration": "/Game/VamRuntime/R_fb3c4337cc55a8df4700fa75/RC_Runtime",
+  "blueprint": "/Game/VamRuntime/R_fb3c4337cc55a8df4700fa75/BP_VamCharacter.BP_VamCharacter",
+  "profile": "/Game/VamRuntime/R_fb3c4337cc55a8df4700fa75/DA_BreastJiggle.DA_BreastJiggle",
+  "map": "/Game/BreastJiggleEngineering/Empty_fb3c4337cc55",
+  "source_bones": 88,
+  "max_source_bind_translation_error_cm": 0.0,
+  "helper_bones": [
+    {
+      "name": "L_BreastAnchor",
+      "parent": 10,
+      "translation": [
+        -3.696392080508724,
+        -2.952001664920453,
+        4.431713136441395
+      ],
+      "quaternion_xyzw": [
+        -0.0003578137950777599,
+        -0.013532155587440706,
+        9.595463881817914e-05,
+        0.9999083675653248
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Core",
+      "parent": 88,
+      "translation": [
+        19.01542289767838,
+        -5.677338971236279,
+        0.6769715266231128
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Upper",
+      "parent": 88,
+      "translation": [
+        18.567372129287765,
+        -5.514167066288804,
+        1.9770867291190493
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Lower",
+      "parent": 88,
+      "translation": [
+        18.963587559047138,
+        -5.645243114772786,
+        -0.7979359642330229
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Medial",
+      "parent": 88,
+      "translation": [
+        19.364459767402977,
+        -4.0671193403066646,
+        0.7359655570219004
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Lateral",
+      "parent": 88,
+      "translation": [
+        18.394594914138334,
+        -6.7271386253470125,
+        0.6020376922804289
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_BreastAnchor",
+      "parent": 10,
+      "translation": [
+        -3.6976160552390764,
+        2.971000399100579,
+        4.432806682867946
+      ],
+      "quaternion_xyzw": [
+        -0.0003578137950777599,
+        -0.013532155587440706,
+        9.595463881817914e-05,
+        0.9999083675653248
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Core",
+      "parent": 94,
+      "translation": [
+        18.923100212524055,
+        5.659245240392661,
+        0.6827134144287142
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Upper",
+      "parent": 94,
+      "translation": [
+        18.476892638870943,
+        5.499559416499397,
+        1.9823852957787802
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Lower",
+      "parent": 94,
+      "translation": [
+        18.872150312760862,
+        5.628711550702684,
+        -0.7878630950367366
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Medial",
+      "parent": 94,
+      "translation": [
+        19.266469159592944,
+        4.0526529612083015,
+        0.7413633750233516
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Lateral",
+      "parent": 94,
+      "translation": [
+        18.305681095828035,
+        6.71473723921245,
+        0.6092883807167849
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "sides": [
+    {
+      "side": "L",
+      "volume_cm3": 585.3916448704266,
+      "density_kg_cm3": 0.001,
+      "mass_kg": 0.5853916448704266,
+      "com": [
+        13.3130349591222,
+        -3.13343466039131,
+        0.9707455743908097
+      ],
+      "radius_cm": 3.918338603788775,
+      "depth_cm": 17.41319183265581,
+      "support_area_cm2": 100.85313200982712,
+      "region_vertices": 482,
+      "region_max": 0.9999995827674866,
+      "morph_responses": 15,
+      "nodes": [
+        {
+          "semantic": "Core",
+          "index": 89,
+          "rest": [
+            19.01542289767838,
+            -5.677338971236279,
+            0.6769715266231128
+          ],
+          "frequency_hz": [
+            3.0,
+            3.5999999999999996,
+            2.7
+          ],
+          "mass_fraction": 0.4
+        },
+        {
+          "semantic": "Upper",
+          "index": 90,
+          "rest": [
+            18.567372129287765,
+            -5.514167066288804,
+            1.9770867291190493
+          ],
+          "frequency_hz": [
+            4.8,
+            5.76,
+            4.32
+          ],
+          "mass_fraction": 0.15
+        },
+        {
+          "semantic": "Lower",
+          "index": 91,
+          "rest": [
+            18.963587559047138,
+            -5.645243114772786,
+            -0.7979359642330229
+          ],
+          "frequency_hz": [
+            2.5,
+            3.0,
+            2.25
+          ],
+          "mass_fraction": 0.2
+        },
+        {
+          "semantic": "Medial",
+          "index": 92,
+          "rest": [
+            19.364459767402977,
+            -4.0671193403066646,
+            0.7359655570219004
+          ],
+          "frequency_hz": [
+            4.5,
+            5.3999999999999995,
+            4.05
+          ],
+          "mass_fraction": 0.1
+        },
+        {
+          "semantic": "Lateral",
+          "index": 93,
+          "rest": [
+            18.394594914138334,
+            -6.7271386253470125,
+            0.6020376922804289
+          ],
+          "frequency_hz": [
+            2.6,
+            3.12,
+            2.3400000000000003
+          ],
+          "mass_fraction": 0.15
+        }
+      ]
+    },
+    {
+      "side": "R",
+      "volume_cm3": 583.4258327084777,
+      "density_kg_cm3": 0.001,
+      "mass_kg": 0.5834258327084778,
+      "com": [
+        13.253647181376001,
+        3.1340903661909967,
+        0.979263495787781
+      ],
+      "radius_cm": 3.920444743940758,
+      "depth_cm": 17.342375632423824,
+      "support_area_cm2": 100.92489836588835,
+      "region_vertices": 483,
+      "region_max": 0.9999995827674866,
+      "morph_responses": 11,
+      "nodes": [
+        {
+          "semantic": "Core",
+          "index": 95,
+          "rest": [
+            18.923100212524055,
+            5.659245240392661,
+            0.6827134144287142
+          ],
+          "frequency_hz": [
+            3.0,
+            3.5999999999999996,
+            2.7
+          ],
+          "mass_fraction": 0.4
+        },
+        {
+          "semantic": "Upper",
+          "index": 96,
+          "rest": [
+            18.476892638870943,
+            5.499559416499397,
+            1.9823852957787802
+          ],
+          "frequency_hz": [
+            4.8,
+            5.76,
+            4.32
+          ],
+          "mass_fraction": 0.15
+        },
+        {
+          "semantic": "Lower",
+          "index": 97,
+          "rest": [
+            18.872150312760862,
+            5.628711550702684,
+            -0.7878630950367366
+          ],
+          "frequency_hz": [
+            2.5,
+            3.0,
+            2.25
+          ],
+          "mass_fraction": 0.2
+        },
+        {
+          "semantic": "Medial",
+          "index": 98,
+          "rest": [
+            19.266469159592944,
+            4.0526529612083015,
+            0.7413633750233516
+          ],
+          "frequency_hz": [
+            4.5,
+            5.3999999999999995,
+            4.05
+          ],
+          "mass_fraction": 0.1
+        },
+        {
+          "semantic": "Lateral",
+          "index": 99,
+          "rest": [
+            18.305681095828035,
+            6.71473723921245,
+            0.6092883807167849
+          ],
+          "frequency_hz": [
+            2.6,
+            3.12,
+            2.3400000000000003
+          ],
+          "mass_fraction": 0.15
+        }
+      ]
+    }
+  ],
+  "morph_parameters": 60,
+  "parts": 12,
+  "checks": {
+    "existing_indices_preserved": true,
+    "helper_hierarchy": true,
+    "weights_normalized": true,
+    "influence_limit": 8,
+    "zero_bind_tolerance_cm": 0.001,
+    "morphs_native_build_validated": true,
+    "reloaded": true
+  },
+  "visual_assessment": null
+}

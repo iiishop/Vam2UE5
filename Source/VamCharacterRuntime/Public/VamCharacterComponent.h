@@ -37,6 +37,9 @@ public:
     UPROPERTY(BlueprintAssignable, Category="VaM") FVamCharacterLoadResult OnLoaded;
     UFUNCTION(BlueprintCallable, Category="VaM") void LoadCharacter();
     UFUNCTION(BlueprintCallable, Category="VaM") void UnloadCharacter();
+    /** Instance-only visibility for imported clothing/accessory parts; never hides Body. */
+    UFUNCTION(BlueprintCallable, Category="VaM|Appearance") void SetImportedPartsVisible(bool bPartsVisible);
+    UFUNCTION(BlueprintPure, Category="VaM|Appearance") bool AreImportedPartsVisible() const { return bImportedPartsVisible; }
     uint64 GetLoadGeneration() const { return Generation; }
     UFUNCTION(BlueprintCallable, Category="VaM") bool SetParameter(FName Name, float Value);
     /** Complete transient expression layer. Strongest absolute closure wins over authored
@@ -87,6 +90,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<UVamCharacterDefinition> LoadedDefinition;
     UPROPERTY(Transient) TObjectPtr<UVamRuntimeConfiguration> LoadedRuntimeConfiguration;
     UPROPERTY(Transient) TArray<TObjectPtr<USkeletalMeshComponent>> LoadedParts;
+    UPROPERTY(Transient) bool bImportedPartsVisible = true;
     TSharedPtr<FStreamableHandle> Pending;
     UPROPERTY(Transient) FVamShapeState PreviewState;
     UPROPERTY(Transient) FVamShapeState CommittedState;

@@ -35,6 +35,11 @@ def run():
         # Preserve generic settings; explicitly retire the old backend policy.
         if recipe.pop('soft_tissue', None) is not None:
             progress('migration', 'Legacy soft_tissue policy removed; publishing a new native Skeletal Runtime bundle', False)
+        family_policy=(policy_path.parent/policy['family']).resolve()
+        if 'breast_jiggle' not in receipt['family'] and family_policy.is_file():
+            current_family=json.loads(family_policy.read_text(encoding='utf8'))
+            if receipt['family']['family']==current_family['family']:
+                receipt['family']['breast_jiggle']=current_family['breast_jiggle']
         family_file = Path(u.Paths.project_saved_dir()).resolve()/'VamRuntimeUpgrade/Policies'/('family-'+digest(receipt['family'])+'.json')
         family_file.parent.mkdir(parents=True, exist_ok=True)
         family_file.write_text(json.dumps(receipt['family']), encoding='utf8')

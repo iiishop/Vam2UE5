@@ -1969,5 +1969,18 @@
         0
       ]
     }
-  ]
+  ],
+  "breast_jiggle": {
+    "chest": "chest",
+    "superior": "neck",
+    "left_pectoral": "lPectoral",
+    "right_pectoral": "rPectoral",
+    "support": [
+      "chest",
+      "abdomen2"
+    ],
+    "topology_policy": "persisted GeometryBinding topology digest plus exact family skeleton validation",
+    "left_front_reference": "lNipple",
+    "right_front_reference": "rNipple"
+  }
 }
