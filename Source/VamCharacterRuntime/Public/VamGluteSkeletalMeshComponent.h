@@ -17,8 +17,12 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Structure") bool bShowPoseTension=false;
     UFUNCTION(BlueprintPure, Category="VaM|Glute Structure") FString GluteDiagnostics() const;
     UFUNCTION(BlueprintCallable, Category="VaM|Glute Structure") void GlutePoseCommand(FName Command);
-    void UpdateGluteShape(const TMap<FName,float>& Values,TArray<FTransform>& Reference);
+    void UpdateGluteShape(const TMap<FName,float>& Values,TArray<FTransform>& Reference,int32 ShapeRevision=0);
+    UPROPERTY(Transient, BlueprintReadOnly, Category="VaM|Glute Structure") FVamHipPoseState HipPoseState;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Structure") int32 DebugGluteSide=-1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Structure") bool bShowFoldSemantics=false;
     virtual void FinalizeBoneTransform() override;
     TArray<FVamGluteSide> GluteRest;
-    TArray<FVamGluteStructuralState> GluteStates;
+    UPROPERTY(Transient, BlueprintReadOnly, Category="VaM|Glute Structure") TArray<FVamGluteStructuralState> GluteStates;
+    int32 GluteShapeRevision=0;
 };

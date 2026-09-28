@@ -30,12 +30,21 @@ for side in profile.get_editor_property('sides'):
         row.update(semantic=str(node.get_editor_property('semantic')))
         row.update({k:v(node.get_editor_property(k)) for k in ('rest','pelvis_point','thigh_point_local','mass_center','inertia_candidate')})
         assert abs(row['pelvis_attachment']+row['thigh_attachment']-1)<1e-8
+        if profile.get_editor_property('refinement_version')==1:
+            response=node.get_editor_property('pose_response')
+            row['pose_response']={k:response.get_editor_property(k) for k in ('maximum_downward_fraction','thigh_follow','pelvis_tether','projection_retention','maximum_orientation_radians')}
+            row['pose_response'].update({k:v(response.get_editor_property(k)) for k in ('flexion_offset','extension_offset','abduction_offset','rotation_offset','orientation_gains','maximum_offset_fraction')})
+            gains=response.get_editor_property('support_gains');row['pose_response']['support_gains']=[gains.x,gains.y,gains.z,gains.w]
         nodes.append(row)
     assert abs(sum(n['mass_fraction_candidate'] for n in nodes)-1)<1e-6
     sides.append(dict(side=str(side.get_editor_property('side')),anchor_index=side.get_editor_property('anchor_bone'),
         volume_cm3=side.get_editor_property('effective_volume_cm3'),com=v(side.get_editor_property('com')),dimensions=v(side.get_editor_property('dimensions')),
         support_area_cm2=side.get_editor_property('support_area_cm2'),region_vertices=sum(w>.001 for w in weights),max_weight=max(weights),
         shape_responses=len(side.get_editor_property('shape_responses')),fold_references=[v(p) for p in side.get_editor_property('fold_references')],regions=nodes))
+    if profile.get_editor_property('refinement_version')==1:
+        fold=side.get_editor_property('fold_semantic_map')
+        sides[-1]['fold_semantic_map']={k:v(fold.get_editor_property(k)) for k in ('medial_infragluteal_anchor','middle_transition','lateral_fade','extension_gains','flexion_stretch_gains','abduction_gains','rotation_gains')}
+        sides[-1]['femur_axis']=v(side.get_editor_property('femur_axis_in_anchor'))
 shape_values={}
 shape_test=os.environ.get('VAM_GLUTE_TEST_REPORT')
 if shape_test:
@@ -61,7 +70,7 @@ if not u.EditorAssetLibrary.does_asset_exist(map_path):
         variant.get_editor_property('character').set_editor_property('initial_shape_values',shape_values)
         variant.set_actor_label('G0 supported Shape variation')
     assert u.EditorLoadingAndSavingUtils.save_map(world,map_path)
-result=dict(configuration=report['configuration'],blueprint=report['blueprint'],profile=profile.get_path_name(),body=definition.get_editor_property('body').get_path_name(),
+result=dict(schema_version=profile.get_editor_property('schema_version'),refinement_version=profile.get_editor_property('refinement_version'),configuration=report['configuration'],blueprint=report['blueprint'],profile=profile.get_path_name(),body=definition.get_editor_property('body').get_path_name(),
     map=map_path,source_bones=len(original),final_bones=len(derived),appended_helpers=derived[len(original):],sides=sides,
     source_topology=str(profile.get_editor_property('source_topology_identity')),family=str(profile.get_editor_property('skeleton_family')),
     shape_variant={name:dict(value=value,display_name=parameters[name].get_editor_property('display_name'),source_id=parameters[name].get_editor_property('source_id')) for name,value in shape_values.items()},

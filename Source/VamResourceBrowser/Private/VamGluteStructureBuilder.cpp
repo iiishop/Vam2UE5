@@ -93,12 +93,14 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
     FVamNativeMeshInput I;if(!UVamBreastJiggleBuilder::ExtractNative(Source->Body.LoadSynchronous(),I,Error)) return nullptr;
     auto* Shape=Source->Shape.LoadSynchronous();auto* Geometry=Shape?Shape->Geometry.LoadSynchronous():nullptr;
     if(!Geometry || Geometry->InputToSource.Num()!=I.Vertices.Num()) return Fail(TEXT("Glute source topology correspondence unavailable"));
+    P->SchemaVersion=2;P->RefinementVersion=1;P->Algorithm=TEXT("glute-structure-g05-v1");
     P->SourceTopologyIdentity=Geometry->TopologyDigest;P->SkeletonFamily=Family->GetStringField(TEXT("family"));P->SourceBoneCount=I.Bones.Num();P->Sides.Reset();
     auto Bone=[&](const TCHAR* Key)->int32 { FString Name;if(!(*Map)->TryGetStringField(Key,Name)) return INDEX_NONE;return I.Bones.IndexOfByPredicate([&](const FVamBuildBone& B){return B.Name==FName(*Name);}); };
     const int32 Pelvis=Bone(TEXT("pelvis")),Superior=Bone(TEXT("superior"));
     const int32 Glutes[]={Bone(TEXT("left_glute")),Bone(TEXT("right_glute"))},Thighs[]={Bone(TEXT("left_thigh")),Bone(TEXT("right_thigh"))},Shins[]={Bone(TEXT("left_shin")),Bone(TEXT("right_shin"))};
     if(Pelvis<0 || Superior<0 || Glutes[0]<0 || Glutes[1]<0 || Thighs[0]<0 || Thighs[1]<0 || Shins[0]<0 || Shins[1]<0) return Fail(TEXT("Glute Structure unsupported family: required source semantics absent"));
     TArray<FTransform> CS;for(const auto& B:I.Bones) CS.Add(B.Parent<0?B.LocalBind:B.LocalBind*CS[B.Parent]);
+    P->RestPelvisComponent=CS[Pelvis];
     TArray<TMap<int32,double>> W;W.SetNum(I.Vertices.Num());for(const auto& F:I.Influences) W[F.Vertex].Add(F.Bone,F.Weight);
     TArray<TArray<int32>> Adj;Adj.SetNum(I.Vertices.Num());
     for(int32 T=0;T<I.Triangles.Num();T+=3) for(int32 K=0;K<3;++K) { const int32 A=I.Triangles[T+K],B=I.Triangles[T+(K+1)%3];Adj[A].AddUnique(B);Adj[B].AddUnique(A); }
@@ -167,6 +169,8 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
         }
         const FVector Shin=Anchor.InverseTransformPosition(CS[Shins[Side]].GetLocation());
         Measure(S,I,I.Vertices,Anchor,W,Shin,P->DensityCandidateKgPerCm3,P->EffectiveModulusPa);
+        S.FemurAxisInAnchor=(Shin-S.RestThighInAnchor.GetLocation()).GetSafeNormal();
+        VamGluteStructure::CalibratePoseRefinement(S);
         if(S.EffectiveVolumeCm3<=.01) return Fail(TEXT("Glute effective volume evidence empty"));
         S.AnchorBone=I.Bones.Num();FVamBuildBone A;A.Name=FName(*(S.Side.ToString()+TEXT("_Glute_Anchor")));A.Parent=Pelvis;A.LocalBind=S.AnchorLocal;I.Bones.Add(A);
         for(auto& R:S.Regions) { R.BoneIndex=I.Bones.Num();FVamBuildBone B;B.Name=FName(*(S.Side.ToString()+TEXT("_Glute_")+R.Semantic.ToString()));B.Parent=S.AnchorBone;B.LocalBind=FTransform(VamGluteStructure::FiberBasis(S,R),R.Rest);I.Bones.Add(B); }

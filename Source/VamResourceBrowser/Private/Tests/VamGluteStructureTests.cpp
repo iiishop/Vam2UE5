@@ -148,6 +148,16 @@ bool FVamGluteNativeTest::RunTest(const FString& Parameters)
         if(MA->GluteStates.Num()==2 && MB->GluteStates.Num()==2)
         {
             const auto Peer=MB->GluteStates;const auto Neutral=MA->GluteStates;
+            TestEqual(TEXT("Primary hip snapshot both sides"),MA->HipPoseState.Sides.Num(),2);
+            TestTrue(TEXT("Snapshot reads primary pelvis"),MA->HipPoseState.PelvisComponent.Equals(MA->GetComponentSpaceTransforms()[P->Sides[0].PelvisBone],1.e-8));
+            MA->DebugGluteSide=0;MA->GlutePoseCommand(TEXT("Hip flexion"));Tick(1./60);
+            TestTrue(TEXT("One sided pose keeps other structural state"),MA->GluteStates[1].Regions[0].Transform.Equals(Neutral[1].Regions[0].Transform,1.e-6));
+            MA->GlutePoseCommand(TEXT("Reset"));MA->DebugGluteSide=-1;Tick(1./60);
+            // Poison only helper outputs: final structural evaluation must use original primary bones.
+            auto Expected=MA->GluteStates;
+            for(const auto& Side:P->Sides) for(const auto& Region:Side.Regions) MA->GetEditableComponentSpaceTransforms()[Region.BoneIndex].AddToTranslation(FVector(100,200,300));
+            MA->FinalizeBoneTransform();
+            TestTrue(TEXT("Helper output cannot feed back into structural inputs"),MA->GluteStates[0].Regions[0].Transform.Equals(Expected[0].Regions[0].Transform,1.e-8));
             const auto Anchor=MA->GetComponentSpaceTransforms()[P->Sides[0].AnchorBone];
             for(FName Command:{FName(TEXT("Hip flexion")),FName(TEXT("Hip extension")),FName(TEXT("Abduction")),FName(TEXT("External rotation"))})
             {
@@ -178,6 +188,25 @@ bool FVamGluteNativeTest::RunTest(const FString& Parameters)
                 if(RequestedLogChange>=.25) break;
             }
             TestTrue(TEXT("Source MorphSet provides a materially different glute shape"),RequestedLogChange>=.15);
+            auto PriorState=MA->GluteStates;
+            for(int32 Step=0;Step<=40;++Step)
+            {
+                TMap<FName,float> Intermediate;
+                for(const auto& Value:ShapeValues)
+                {
+                    const auto* Param=D->Parameters.FindByPredicate([&](const FVamMorphParameter& R){return R.Target==Value.Key;});
+                    Intermediate.Add(Value.Key,FMath::Lerp(Param->DefaultValue,Value.Value,Step/40.f));
+                }
+                TestTrue(TEXT("Continuous Shape preview accepted"),A->Character->PreviewParameters(Intermediate));Tick(1./60);
+                for(int32 Side=0;Side<2;++Side) for(int32 N=0;N<5;++N)
+                {
+                    const auto& Current=MA->GluteStates[Side].Regions[N];
+                    TestFalse(TEXT("Shape sweep finite"),Current.Transform.ContainsNaN());
+                    if(Step) TestTrue(TEXT("Shape sweep continuous"),(Current.Transform.GetLocation()-PriorState[Side].Regions[N].Transform.GetLocation()).Size()<2);
+                }
+                PriorState=MA->GluteStates;
+            }
+            TestTrue(TEXT("Shape revision snapshot populated"),MA->HipPoseState.ShapeRevision>0);
             TestTrue(TEXT("Large supported Shape preview accepted"),A->Character->PreviewParameters(ShapeValues));
             TestTrue(TEXT("Large Shape commit accepted"),A->Character->CommitShape());Tick(1./60);
             const double ShapeRatio=MA->GluteRest[0].EffectiveVolumeCm3/ImmutableVolume;

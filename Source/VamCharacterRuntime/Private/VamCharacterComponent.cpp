@@ -1,5 +1,5 @@
-#include "VamGluteSkeletalMeshComponent.h"
 #include "VamCharacterComponent.h"
+#include "VamGluteSkeletalMeshComponent.h"
 #include "VamCharacterDefinition.h"
 #include "VamBreastSkeletalMeshComponent.h"
 #include "VamRuntimeConfiguration.h"
@@ -324,7 +324,7 @@ bool UVamCharacterComponent::ApplyShape(const TArray<FName>& Changed, bool bComm
         }
     }
     if(auto* Jiggle=Cast<UVamBreastSkeletalMeshComponent>(Body)) Jiggle->UpdateBreastShape(PreviewState.Values,NextReference,bCommitted);
-    if(auto* Glute=Cast<UVamGluteSkeletalMeshComponent>(Body)) Glute->UpdateGluteShape(PreviewState.Values,NextReference);
+    if(auto* Glute=Cast<UVamGluteSkeletalMeshComponent>(Body)) Glute->UpdateGluteShape(PreviewState.Values,NextReference,PreviewState.Revision+1);
     TArray<FTransform> OldCS=PreviousReference, NewCS=NextReference;
     for(int32 I=0;I<NewCS.Num();++I) if(Ref.GetParentIndex(I)>=0)
     { NewCS[I]=NewCS[I]*NewCS[Ref.GetParentIndex(I)]; OldCS[I]=OldCS[I]*OldCS[Ref.GetParentIndex(I)]; }

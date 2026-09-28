@@ -1,12 +1,27 @@
-#include <cmath>
 #include "VamGluteStructure.h"
+#include <cmath>
 
 bool UVamGluteStructureProfile::IsValidProfile() const
 {
-    if(SchemaVersion!=1 || Sides.Num()!=2 || SourceTopologyIdentity.IsEmpty() || !FMath::IsFinite(MaximumLogStretch) || MaximumLogStretch<=0 || !FMath::IsFinite(PassiveTensionGain) || PassiveTensionGain<0) return false;
+    if((SchemaVersion!=1 && SchemaVersion!=2) || Sides.Num()!=2 || SourceTopologyIdentity.IsEmpty() || !FMath::IsFinite(MaximumLogStretch) || MaximumLogStretch<=0 || !FMath::IsFinite(PassiveTensionGain) || PassiveTensionGain<0) return false;
+    if(SchemaVersion==2 && RefinementVersion!=1) return false;
     for(const auto& S:Sides)
     {
         if(S.Regions.Num()!=5 || S.PelvisBone<0 || S.ThighBone<0 || S.AnchorBone<SourceBoneCount || !FMath::IsFinite(S.EffectiveVolumeCm3) || S.EffectiveVolumeCm3<=0) return false;
+        if(RefinementVersion==1)
+        {
+            if(!S.FemurAxisInAnchor.IsNormalized() || S.Dimensions.ContainsNaN() || S.Dimensions.GetMin()<=0 || RestPelvisComponent.ContainsNaN()) return false;
+            const TCHAR* Semantics[]={TEXT("Core"),TEXT("Upper"),TEXT("Lower"),TEXT("Medial"),TEXT("Lateral")};
+            for(int32 I=0;I<5;++I)
+            {
+                const auto& C=S.Regions[I].PoseResponse;
+                if(S.Regions[I].Semantic!=Semantics[I] || C.SupportGains.ContainsNaN() || C.FlexionOffset.ContainsNaN() || C.ExtensionOffset.ContainsNaN() || C.AbductionOffset.ContainsNaN() || C.RotationOffset.ContainsNaN() || C.OrientationGains.ContainsNaN() || C.MaximumOffsetFraction.ContainsNaN() || C.MaximumOffsetFraction.GetMin()<=0) return false;
+                for(double Value:{C.MaximumDownwardFraction,C.ThighFollow,C.PelvisTether,C.ProjectionRetention,C.MaximumOrientationRadians}) if(!FMath::IsFinite(Value) || Value<0) return false;
+                if(C.MaximumOrientationRadians<=0 || C.ProjectionRetention>1) return false;
+            }
+            const auto& F=S.FoldSemanticMap;
+            for(const FVector& V:{F.MedialInfraglutealAnchor,F.MiddleTransition,F.LateralFade,F.ExtensionGains,F.FlexionStretchGains,F.AbductionGains,F.RotationGains}) if(V.ContainsNaN()) return false;
+        }
         for(const auto& A:S.ShapeResponses) if(A.RestDeltas.Num()!=5 || A.PelvisDeltas.Num()!=5 || A.ThighDeltas.Num()!=5 || A.VolumeSlopes.Num()!=5 || A.MassCenterDeltas.Num()!=5 || A.PelvisAttachmentDeltas.Num()!=5) return false;
         for(const auto& R:S.Regions) if(R.BoneIndex<=S.AnchorBone || R.Rest.ContainsNaN() || R.PelvisPoint.ContainsNaN() || R.ThighPointLocal.ContainsNaN() || !FMath::IsFinite(R.SupportBaseline) || R.SupportBaseline<=0 || !FMath::IsFinite(R.ThighAttachment) || !FMath::IsFinite(R.PelvisAttachment) || R.PelvisAttachment<=0 || R.ThighAttachment<=0 || FMath::Abs(R.PelvisAttachment+R.ThighAttachment-1)>1.e-6) return false;
     }
@@ -19,7 +34,7 @@ FQuat VamGluteStructure::FiberBasis(const FVamGluteSide& S,const FVamGluteRegion
 }
 FVamGluteStructuralState VamGluteStructure::Evaluate(const UVamGluteStructureProfile& P,const FVamGluteSide& S,const FTransform& ThighInAnchor)
 {
-    FVamGluteStructuralState Out;
+    FVamGluteStructuralState Out;Out.HipPose=HipSidePose(S,ThighInAnchor);Out.FinalRestCOM=S.COM;
     FQuat Delta=(ThighInAnchor.GetRotation()*S.RestThighInAnchor.GetRotation().Inverse()).GetNormalized();
     if(Delta.W<0) Delta=Delta*-1.;
     FVector Axis;double Angle;Delta.ToAxisAndAngle(Axis,Angle);
@@ -49,8 +64,10 @@ FVamGluteStructuralState VamGluteStructure::Evaluate(const UVamGluteStructurePro
         const double Floor=R.Rest.X*R.PelvisAttachment,Gap=FMath::Max(.001,R.Rest.X-Floor);
         Position.X=Floor+Gap*FMath::Exp(std::tanh((Position.X-R.Rest.X)/Gap));
         N.Transform=FTransform((Bend*Basis).GetNormalized(),Position,Scale);
+        N.StructuralOffset=Position-R.Rest;N.OrientationAdjustment=Bend;N.RegionalStiffnessBaseline=FVector(N.Support);
         Out.Regions.Add(N);
     }
+    if(P.RefinementVersion==1) RefinePose(P,S,Out);
     return Out;
 }
 void VamGluteStructure::ApplyShape(FVamGluteSide& S,const TMap<FName,float>& Values)
