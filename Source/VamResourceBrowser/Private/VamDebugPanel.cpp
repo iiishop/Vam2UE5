@@ -1,4 +1,5 @@
 #include "VamDebugPanel.h"
+#include "VamGluteSurfaceSnapshot.h"
 #include "VamGluteSkeletalMeshComponent.h"
 #include "VamCharacterActor.h"
 #include "VamCharacterComponent.h"
@@ -446,9 +447,20 @@ TSharedRef<SWidget> GluteControls()
         const FName Command(Name);Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->GlutePoseCommand(Command);return FReply::Handled();})];
     }
     for(int32 I=-1;I<2;++I) Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(I<0?TEXT("Target both"):I==0?TEXT("Target left"):TEXT("Target right"))).OnClicked_Lambda([Body,I](){if(auto* B=Body()) B->DebugGluteSide=I;return FReply::Handled();})];
+    auto Snapshot=MakeShared<FString>();
+    Box->AddSlot().AutoHeight()[SNew(SButton).Text(FText::FromString(TEXT("对比当前姿态：Corrective OFF / ON（15 秒）"))).OnClicked_Lambda([Body,Snapshot](){if(auto* B=Body()) *Snapshot=CaptureGluteSurface(*B);return FReply::Handled();})];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Snapshot](){return FText::FromString(*Snapshot);}).AutoWrapText(true)];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text(FText::FromString(TEXT("查看构建时诊断目标（以下按钮只选择向量，不改变人物姿态）")))];
+    auto Inspect=SNew(SWrapBox).UseAllottedSize(true);
+    const TCHAR* Targets[]={TEXT("Neutral"),TEXT("Flex30"),TEXT("Flex60"),TEXT("Flex90"),TEXT("Extension"),TEXT("Abduction"),TEXT("Adduction"),TEXT("External"),TEXT("Internal"),TEXT("FlexAbduction"),TEXT("FlexExternal")};
+    for(int32 T=1;T<11;++T) Inspect->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(Targets[T])).OnClicked_Lambda([Body,T](){if(auto* B=Body()) B->CorrectiveDiagnosticTarget=T;return FReply::Handled();})];
+    const TCHAR* Stages[]={TEXT("Raw Source"),TEXT("Source Adapted"),TEXT("Procedural"),TEXT("Final"),TEXT("Skinning Residual")};
+    for(int32 T=0;T<5;++T) Inspect->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(Stages[T])).OnClicked_Lambda([Body,T](){if(auto* B=Body()) { B->CorrectiveDiagnosticStage=T;B->bShowCorrectiveDelta=true; }return FReply::Handled();})];
+    Box->AddSlot().AutoHeight()[Inspect];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text(FText::FromString(TEXT("设置人物姿态（以下按钮会摆动选中侧髋关节）")))];
     Box->AddSlot().AutoHeight()[Buttons];
     Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->GluteDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)];
-    return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Glute Structural Debug - G0.5 / G0.6")))].BodyContent()[Box];
+    return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Glute Structural Debug - G0.5 / G0.6.2")))].BodyContent()[Box];
 }
 
 TSharedRef<SWidget> BreastControls()

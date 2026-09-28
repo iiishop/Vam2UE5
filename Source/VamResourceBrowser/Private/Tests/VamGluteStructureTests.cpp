@@ -1,5 +1,6 @@
 #if WITH_DEV_AUTOMATION_TESTS
 #include "Misc/AutomationTest.h"
+#include "VamGluteSurfaceSnapshot.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "VamGluteStructure.h"
@@ -159,9 +160,10 @@ bool FVamGluteNativeTest::RunTest(const FString& Parameters)
             MA->FinalizeBoneTransform();
             TestTrue(TEXT("Helper output cannot feed back into structural inputs"),MA->GluteStates[0].Regions[0].Transform.Equals(Expected[0].Regions[0].Transform,1.e-8));
             const auto Anchor=MA->GetComponentSpaceTransforms()[P->Sides[0].AnchorBone];
-            for(FName Command:{FName(TEXT("Hip flexion")),FName(TEXT("Hip extension")),FName(TEXT("Abduction")),FName(TEXT("External rotation"))})
+            for(FName Command:{FName(TEXT("Flexion 90")),FName(TEXT("Hip flexion")),FName(TEXT("Hip extension")),FName(TEXT("Abduction")),FName(TEXT("External rotation"))})
             {
                 MA->GlutePoseCommand(Command);Tick(1./60);
+                const auto BeforeSnapshot=MA->GetComponentSpaceTransforms();const auto Snapshot=CaptureGluteSurface(*MA,false);TestTrue(TEXT("Current-instance snapshot measured LOD surface"),Snapshot.Contains(TEXT("RMS")));bool Unchanged=true;for(int32 Bone=0;Bone<BeforeSnapshot.Num();++Bone) Unchanged&=BeforeSnapshot[Bone].Equals(MA->GetComponentSpaceTransforms()[Bone],0);TestTrue(TEXT("Snapshot does not mutate final pose"),Unchanged);AddInfo(Snapshot);
                 TestTrue(TEXT("Final thigh pose changes G0 without actor motion"),!MA->GluteStates[0].Regions[0].Transform.Equals(Neutral[0].Regions[0].Transform,1.e-5));
                 TestTrue(TEXT("Thigh pose does not move pelvis anchor"),Anchor.Equals(MA->GetComponentSpaceTransforms()[P->Sides[0].AnchorBone],1.e-6));
             }
@@ -172,6 +174,7 @@ bool FVamGluteNativeTest::RunTest(const FString& Parameters)
                 for(const auto& W:Corrective) TestTrue(TEXT("G06 reaches native morph buffer in same frame"),FMath::Abs(MA->AppliedCorrectiveWeight(W.Key)-W.Value)<1.e-4);
                 MA->bCorrectiveEnabled=false;MA->FinalizeBoneTransform();
                 for(const auto& W:Corrective) TestTrue(TEXT("G06 disabled clears same-frame native weights"),FMath::Abs(MA->AppliedCorrectiveWeight(W.Key))<1.e-8);
+                const auto DisabledSnapshot=CaptureGluteSurface(*MA,false);TestTrue(TEXT("Disabled snapshot can still compare hypothetical ON"),DisabledSnapshot.Contains(TEXT("RMS")));AddInfo(DisabledSnapshot);
                 MA->bCorrectiveEnabled=true;MA->FinalizeBoneTransform();
                 MA->bGluteEnabled=false;MA->FinalizeBoneTransform();
                 for(const auto& W:Corrective) TestTrue(TEXT("G05 switch independent of G06 driver"),FMath::Abs(MA->CorrectiveWeights.FindRef(W.Key)-W.Value)<1.e-6);

@@ -1,5 +1,7 @@
 # G0.6 — Pose-space Glute Corrective Geometry
 
+后续幅度审计、来源 graft 映射修复与 target-aware safety 见 [G0.6.1 文档](GLUTE_CORRECTIVE_G061.md)。下文保留 G0.6 初始实现记录。
+
 ## 1. 基线与范围
 
 基于 `feature/jiggle/hip` 最新本地/远端 HEAD

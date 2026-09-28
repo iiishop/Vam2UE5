@@ -29,6 +29,8 @@ public:
     UPROPERTY(Transient) TObjectPtr<UVamGluteCorrectiveProfile> CorrectiveProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Corrective") bool bCorrectiveEnabled=true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Corrective") bool bShowCorrectiveDelta=false;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Corrective") int32 CorrectiveDiagnosticTarget=3;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Corrective") int32 CorrectiveDiagnosticStage=3;
     /** G06 final-rest surface = G05 transforms plus these native morph weights. */
     UPROPERTY(Transient, BlueprintReadOnly, Category="VaM|Glute Corrective") TMap<FName,float> CorrectiveWeights;
     TArray<TArray<double>> CorrectiveTargetWeights;

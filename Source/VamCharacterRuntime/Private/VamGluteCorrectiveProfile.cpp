@@ -3,7 +3,7 @@
 
 bool UVamGluteCorrectiveProfile::IsValidProfile() const
 {
-    if(SchemaVersion!=1 || Targets.Num()<2 || Targets.Num()>32 || !Targets[0].Degrees.IsNearlyZero(1.e-12) || BuildDimensions.Num()!=2 || SourceTopologyIdentity.IsEmpty() || MetricDegrees.ContainsNaN() || MetricDegrees.GetMin()<=0 || !FMath::IsFinite(BlendWidth) || BlendWidth<=0 || !FMath::IsFinite(MaximumDimensionFraction) || MaximumDimensionFraction<=0 || MaximumDimensionFraction>.2 || Bases.IsEmpty()) return false;
+    if((SchemaVersion!=1 && SchemaVersion!=2 && SchemaVersion!=3) || Targets.Num()<2 || Targets.Num()>32 || !Targets[0].Degrees.IsNearlyZero(1.e-12) || BuildDimensions.Num()!=2 || SourceTopologyIdentity.IsEmpty() || MetricDegrees.ContainsNaN() || MetricDegrees.GetMin()<=0 || !FMath::IsFinite(BlendWidth) || BlendWidth<=0 || !FMath::IsFinite(MaximumDimensionFraction) || MaximumDimensionFraction<=0 || MaximumDimensionFraction>.2 || Bases.IsEmpty()) return false;
     for(int32 I=0;I<Targets.Num();++I) { if(Targets[I].Degrees.ContainsNaN()) return false;for(int32 J=0;J<I;++J) if(Targets[I].Degrees.Equals(Targets[J].Degrees,1.e-6)) return false; }
     for(const FVector& D:BuildDimensions) if(D.ContainsNaN() || D.GetMin()<=0) return false;
     TSet<FName> Names;
@@ -11,6 +11,16 @@ bool UVamGluteCorrectiveProfile::IsValidProfile() const
     {
         if(B.Side<0 || B.Side>1 || B.Target<1 || B.Target>=Targets.Num() || B.Axis<0 || B.Axis>2 || B.Morph.IsNone() || Names.Contains(B.Morph) || !FMath::IsFinite(B.MaximumCm) || B.MaximumCm<=0 || B.RegionalRmsCm.Num()!=5 || B.DebugPositions.Num()!=B.DebugLocalDeltas.Num()) return false;
         Names.Add(B.Morph);
+    }
+    if(SchemaVersion>=2)
+    {
+        if(Diagnostics.Num()!=2*(Targets.Num()-1) || FidelityAuditJson.IsEmpty() || FamilyReferenceJson.IsEmpty()) return false;
+        for(const auto& D:Diagnostics)
+        {
+            if(D.Side<0 || D.Side>1 || D.Target<1 || D.Target>=Targets.Num() || D.Positions.Num()!=D.Raw.Num() || D.Positions.Num()!=D.Adapted.Num() || D.Positions.Num()!=D.Procedural.Num() || D.Positions.Num()!=D.Final.Num()) return false;
+            if(SchemaVersion>=3 && D.Positions.Num()!=D.SkinningResidual.Num()) return false;
+            for(double X:{D.SkinningResidualRms,D.SourceRms,D.ProceduralRms,D.RawP95,D.AdaptedP95,D.FinalP95,D.AttenuationRatio,D.SafetyLoss,D.SmoothingLoss}) if(!FMath::IsFinite(X)) return false;
+        }
     }
     return true;
 }

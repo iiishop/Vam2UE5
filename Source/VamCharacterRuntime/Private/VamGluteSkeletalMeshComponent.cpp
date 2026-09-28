@@ -97,11 +97,17 @@ FString UVamGluteSkeletalMeshComponent::GluteDiagnostics() const
     if(CorrectiveProfile)
     {
         Out+=TEXT("G06 ")+CorrectiveProfile->Provenance+TEXT("\n");
+        Out+=CorrectiveProfile->Algorithm+TEXT(" | ")+CorrectiveProfile->GetPathName()+TEXT("\n");
         for(int32 Side=0;Side<CorrectiveTargetWeights.Num();++Side)
             for(int32 T=0;T<CorrectiveTargetWeights[Side].Num();++T) if(CorrectiveTargetWeights[Side][T]>.001)
                 Out+=FString::Printf(TEXT("%s %s weight %.4f\n"),Side==0?TEXT("L"):TEXT("R"),*CorrectiveProfile->Targets[T].Name.ToString(),CorrectiveTargetWeights[Side][T]);
-        Out+=FString::Printf(TEXT("Corrective displacement upper bound %.4f cm | regional RMS bounds: "),CorrectiveMagnitudeBound);
-        for(double B:CorrectiveRegionalBounds) Out+=FString::Printf(TEXT("%.4f "),B);Out+=TEXT("\n");
+        Out+=TEXT("Corrective Diagnostics: selected target at build Shape, true surface samples (cm); not current blended/Shape preview measurement.\n");
+        for(const auto& D:CorrectiveProfile->Diagnostics) if(D.Target==CorrectiveDiagnosticTarget && (DebugGluteSide<0 || D.Side==DebugGluteSide))
+        {
+            Out+=FString::Printf(TEXT("%s %s | source/procedural RMS %.5f / %.5f | raw/adapted/final P95 %.5f / %.5f / %.5f\n"),D.Side==0?TEXT("L"):TEXT("R"),*CorrectiveProfile->Targets[D.Target].Name.ToString(),D.SourceRms,D.ProceduralRms,D.RawP95,D.AdaptedP95,D.FinalP95);
+            Out+=FString::Printf(TEXT("source retention %.4f | target safety loss %.4f | smoothing RMS loss %.6f | affected surface vertices %d\n"),D.AttenuationRatio,D.SafetyLoss,D.SmoothingLoss,D.AffectedVertices);
+            if(CorrectiveProfile->SchemaVersion>=3) Out+=FString::Printf(TEXT("Independent skinning residual RMS %.5f cm\n"),D.SkinningResidualRms);
+        }
     }
     else Out+=TEXT("G06 profile absent: Upgrade Runtime to create corrective geometry.\n");
     return Out;

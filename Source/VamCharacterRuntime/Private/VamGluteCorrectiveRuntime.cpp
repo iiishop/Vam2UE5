@@ -17,7 +17,7 @@ void UVamGluteSkeletalMeshComponent::ApplyGluteCorrectives()
         CorrectiveWeights.Add(Basis.Morph,W);SetMorphTarget(Basis.Morph,W,false);
         CorrectiveMagnitudeBound+=FMath::Abs(W)*Basis.MaximumCm;
         for(int32 N=0;N<5;++N) CorrectiveRegionalBounds[Basis.Side*5+N]+=FMath::Abs(W)*Basis.RegionalRmsCm[N];
-        if(bShowCorrectiveDelta && GetWorld() && W>.001)
+        if(CorrectiveProfile->SchemaVersion==1 && bShowCorrectiveDelta && GetWorld() && W>.001)
         {
             const FTransform World=S.AnchorLocal*HipPoseState.PelvisComponent*GetComponentTransform();
             for(int32 I=0;I<Basis.DebugPositions.Num();++I)
@@ -26,6 +26,14 @@ void UVamGluteSkeletalMeshComponent::ApplyGluteCorrectives()
                 DrawDebugLine(GetWorld(),Start,Start+World.TransformVectorNoScale(Basis.DebugLocalDeltas[I]*W),FColor::Orange,false,0,0,.6f);
             }
         }
+    }
+    if(bShowCorrectiveDelta && GetWorld()) for(const auto& D:CorrectiveProfile->Diagnostics)
+    {
+        if(D.Target!=CorrectiveDiagnosticTarget || (DebugGluteSide>=0 && D.Side!=DebugGluteSide)) continue;
+        const auto& Vectors=CorrectiveDiagnosticStage==0?D.Raw:CorrectiveDiagnosticStage==1?D.Adapted:CorrectiveDiagnosticStage==2?D.Procedural:CorrectiveDiagnosticStage==4?D.SkinningResidual:D.Final;
+        const FColor Colors[]={FColor::Cyan,FColor::Green,FColor::Yellow,FColor::Orange,FColor::Magenta};
+        const FTransform World=GluteRest[D.Side].AnchorLocal*HipPoseState.PelvisComponent*GetComponentTransform();
+        for(int32 V=0;V<D.Positions.Num() && V<Vectors.Num();++V) { const FVector Start=World.TransformPosition(D.Positions[V]);DrawDebugLine(GetWorld(),Start,Start+World.TransformVectorNoScale(Vectors[V]),Colors[FMath::Clamp(CorrectiveDiagnosticStage,0,4)],false,0,0,.6f); }
     }
     // Finalize runs after primary animation/rigid completion, before native render publication.
     // Refresh native curve buffers now, rather than waiting for next TickAnimation's curve cache.

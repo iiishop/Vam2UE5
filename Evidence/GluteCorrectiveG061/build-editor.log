@@ -1,0 +1,45 @@
+Using bundled DotNet SDK version: 10.0 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" UnrealEditor Win64 Development -Project=I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject -NoUBA -NoHotReload -gather
+Log file: C:\Users\Administrator\AppData\Local\UnrealBuildTool\Log.txt
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+UHT compiled-in object format Default
+UHT processed UnrealEditor in 6.1292088 seconds (2 generated files written)
+Building UnrealEditor...
+===== Toolchain Information =====
+Using ISPC compiler (I:\Program\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (E:\Windows Kits\10).
+[Adaptive Build] Excluded from VamResourceBrowser unity file: VamBreastJiggleBuilder.cpp, VamDebugPanel.cpp, VamGluteCorrectiveBuilder.cpp, VamGluteStructureBuilder.cpp, VamNativeBuilder.cpp, VamNativeBuildWindow.cpp, VamResourceBrowserModule.cpp, VamStage06AssetEditor.cpp, VamBreastNativeTests.cpp, VamBreastWeightTests.cpp, VamGluteCorrectiveTests.cpp, VamGluteFidelityTests.cpp, VamGluteRefinementTests.cpp, VamGluteStructureTests.cpp
+[Adaptive Build] Excluded from VamCharacterRuntime unity file: VamActivePoseComponent.cpp, VamBreastCalibratedSolver.cpp, VamBreastCalibration.cpp, VamBreastDebugTrajectory.cpp, VamBreastSkeletalMeshComponent.cpp, VamBreastSolver.cpp, VamCharacterActor.cpp, VamCharacterComponent.cpp, VamCharacterRuntime.cpp, VamGluteCorrectiveProfile.cpp, VamGluteCorrectiveRuntime.cpp, VamGlutePoseRefinement.cpp, VamGluteSkeletalMeshComponent.cpp, VamGluteStructure.cpp, VamInteractionComponent.cpp, VamMotionComponent.cpp, VamPhysicsOutputComponent.cpp, VamPhysicsShapeProfile.cpp, VamPreviewTool.cpp, VamShapeAnimInstance.cpp, VamShapeTestPanel.cpp, VamStage06AcceptanceActor.cpp, VamStage07CompositionProbe.cpp, VamBreastCalibrationTests.cpp, VamBreastSolverTests.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 16 action(s)
+  CPU 10 physical cores, 16 logical cores
+  Memory 39.82 GB physical, 38.83 GB/95.64 GB committed
+  UBA Storage capacity 40 GB
+[1/16] Compile [x64] VamGluteCorrectiveProfile.cpp [NoUba]
+[2/16] Compile [x64] VamGluteCorrectiveRuntime.cpp [NoUba]
+[3/16] Compile [x64] VamGluteSkeletalMeshComponent.cpp [NoUba]
+[4/16] Compile [x64] VamGluteCorrectiveTests.cpp [NoUba]
+[5/16] Compile [x64] Module.VamCharacterRuntime.cpp [NoUba]
+[6/16] Compile [x64] VamGluteFidelityTests.cpp [NoUba]
+[7/16] Compile [x64] VamGluteStructureBuilder.cpp [NoUba]
+[8/16] Compile [x64] VamDebugPanel.cpp [NoUba]
+[9/16] Compile [x64] VamGluteStructureTests.cpp [NoUba]
+[10/16] Compile [x64] VamCharacterComponent.cpp [NoUba]
+[11/16] Link [x64] UnrealEditor-VamCharacterRuntime.lib [NoUba]
+  ￕ�ￔￚﾴﾴﾽﾨ﾿￢ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamCharacterRuntime/UnrealEditor-VamCharacterRuntime.lib ﾺￍﾶￔￏ￳ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamCharacterRuntime/UnrealEditor-VamCharacterRuntime.exp
+[12/16] Link [x64] UnrealEditor-VamCharacterRuntime.dll [NoUba]
+[13/16] Compile [x64] VamGluteCorrectiveBuilder.cpp [NoUba]
+[14/16] Link [x64] UnrealEditor-VamResourceBrowser.lib [NoUba]
+  ￕ�ￔￚﾴﾴﾽﾨ﾿￢ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamResourceBrowser/UnrealEditor-VamResourceBrowser.lib ﾺￍﾶￔￏ￳ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamResourceBrowser/UnrealEditor-VamResourceBrowser.exp
+[15/16] Link [x64] UnrealEditor-VamResourceBrowser.dll [NoUba]
+[16/16] WriteMetadata UnrealEditor.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 27.19 seconds
+Output binary: I:\Program\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+
+Result: Succeeded
+Total execution time: 34.62 seconds
+Trace written to file C:\Users\Administrator\AppData\Local\UnrealBuildTool\Trace.uba with size 8.6kb

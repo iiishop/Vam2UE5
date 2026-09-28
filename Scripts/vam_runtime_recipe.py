@@ -4,7 +4,7 @@ import json
 import math
 import re
 
-ALGORITHM = 'runtime-bundle-v9-glute-pose-corrective'
+ALGORITHM = 'runtime-bundle-v11-glute-skinning-residual'
 
 def digest(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode()).hexdigest()

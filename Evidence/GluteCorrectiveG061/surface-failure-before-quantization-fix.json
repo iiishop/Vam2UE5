@@ -1,0 +1,961 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "SM",
+			"instance": "F1AF3A224D90A9CFD0115E91974F2FCC",
+			"instanceName": "SM-44252",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 10 (22H2) [10.0.19045.7725] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4070 Ti",
+			"cPUModel": "12th Gen Intel(R) Core(TM) i5-12600KF",
+			"rAMInGB": 40,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.28-11.54.23",
+	"succeeded": 9,
+	"succeededWithWarnings": 2,
+	"failed": 1,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 4.8345575332641602,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Calibration",
+			"fullTestPath": "Vam.Breast.Calibration",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 0.044774502515792847,
+			"dateTime": "2026.09.28-11.54.19",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Calibrated divergence 30/120 0.004897 cm 60/120 0.001888 cm angular 0.000378 rad",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.19"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Dynamics",
+			"fullTestPath": "Vam.Breast.Dynamics",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 0.0090205967426300049,
+			"dateTime": "2026.09.28-11.54.19",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Full trajectory max divergence: 30/120 0.023793 cm; 60/120 0.007892 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.19"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MovingFrameModal",
+			"fullTestPath": "Vam.Breast.MovingFrameModal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 0.014500997960567474,
+			"dateTime": "2026.09.28-11.54.19",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Momentum error 3.6888820278e-15; modal mean 1.39925101062e-17 moment 2.2568079057e-17; steady COM 0.863749 residual RMS 0.077343 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.19"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeRuntime",
+			"fullTestPath": "Vam.Breast.NativeRuntime",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 1.227381706237793,
+			"dateTime": "2026.09.28-11.54.19",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Breast calibration schema 3 | breast-modal-v3\nL Volume 585.39 cm3 Mass 0.5971 kg COM V(X=13.31, Y=-3.13, Z=0.97) Root 100.85 cm2 Depth 17.41 cm Size AP/ML/SI V(X=17.41, Y=10.44, Z=11.69)\nInertia diag V(X=5.50, Y=4.80, Z=3.79) offdiag(XY/XZ/YZ) V(X=-0.34, Y=0.67, Z=-0.08) kg cm2\nv V(X=0.39, Y=0.00, Z=-0.67) a V(X=-0.33, Y=-0.00, Z=0.54) omega V(X=0.00, Y=0.04, Z=0.00) alpha V(X=-0.00, Y=-0.03, Z=-0.00) steps 2 dropped 0 sleep 0 emergency limits 0\nAngular displacement V(0) rad velocity V(X=-0.00, Y=0.00, Z=-0.00) rad/s\nCOM displacement V(X=-0.22, Y=0.01, Z=-0.01) cm velocity V(X=0.42, Y=-0.00, Z=-0.05) cm/s\nCentrifugal load V(X=0.01, Y=-0.00, Z=0.00) kg cm/s2 | modal force translation 9.0864 residual 0.0008 torque 0.0004 kg cm2/s2\nCore mass 14.0% volume 82.14 lever 14.47 | support V(X=4.77, Y=6.83, Z=5.46) kg/s2 Hz V(X=1.20, Y=1.44, Z=1.28) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=3.83, Y=2.51, Z=2.57) -V(X=1.57, Y=2.51, Z=2.18) cm\nresidual displacement V(0) cm\nUpper mass 26.9% volume 157.68 lever 13.16 | support V(X=16.51, Y=23.62, Z=18.87) kg/s2 Hz V(X=1.61, Y=1.93, Z=1.72) damping V(X=0.27, Y=0.31, Z=0.28) | travel +V(X=3.13, Y=2.05, Z=2.10) -V(X=1.28, Y=2.05, Z=1.72) cm\nresidual displacement V(0) cm\nLower mass 19.7% volume 115.37 lever 14.31 | support V(X=4.59, Y=6.57, Z=5.25) kg/s2 Hz V(X=0.99, Y=1.19, Z=1.06) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=4.58, Y=3.00, Z=3.07) -V(X=1.87, Y=3.00, Z=3.04) cm\nresidual displacement V(0) cm\nMedial mass 26.5% volume 155.19 lever 14.14 | support V(X=12.64, Y=18.09, Z=14.45) kg/s2 Hz V(X=1.42, Y=1.70, Z=1.52) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=3.30, Y=2.16, Z=2.21) -V(X=1.35, Y=2.16, Z=1.86) cm\nresidual displacement V(0) cm\nLateral mass 12.8% volume 75.02 lever 13.86 | support V(X=3.73, Y=5.33, Z=4.26) kg/s2 Hz V(X=1.11, Y=1.33, Z=1.19) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=4.28, Y=2.80, Z=2.88) -V(X=1.75, Y=2.80, Z=2.46) cm\nresidual displacement V(0) cm\nR Volume 583.43 cm3 Mass 0.5951 kg COM V(X=13.25, Y=3.13, Z=0.98) Root 100.92 cm2 Depth 17.34 cm Size AP/ML/SI V(X=17.34, Y=10.44, Z=11.70)\nInertia diag V(X=5.49, Y=4.78, Z=3.76) offdiag(XY/XZ/YZ) V(X=0.33, Y=0.66, Z=0.08) kg cm2\nv V(X=0.39, Y=0.00, Z=-0.67) a V(X=-0.33, Y=-0.00, Z=0.54) omega V(X=0.00, Y=0.04, Z=0.00) alpha V(X=-0.00, Y=-0.03, Z=-0.00) steps 2 dropped 0 sleep 0 emergency limits 0\nAngular displacement V(0) rad velocity V(X=0.00, Y=0.00, Z=0.00) rad/s\nCOM displacement V(X=-0.22, Y=0.01, Z=-0.01) cm velocity V(X=0.42, Y=-0.00, Z=-0.05) cm/s\nCentrifugal load V(X=0.01, Y=-0.00, Z=0.00) kg cm/s2 | modal force translation 9.0560 residual 0.0007 torque 0.0004 kg cm2/s2\nCore mass 14.0% volume 81.86 lever 14.40 | support V(X=4.81, Y=6.89, Z=5.50) kg/s2 Hz V(X=1.21, Y=1.45, Z=1.29) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=3.82, Y=2.51, Z=2.57) -V(X=1.56, Y=2.51, Z=2.18) cm\nresidual displacement V(0) cm\nUpper mass 27.0% volume 157.37 lever 13.12 | support V(X=16.62, Y=23.77, Z=18.98) kg/s2 Hz V(X=1.62, Y=1.94, Z=1.73) damping V(X=0.27, Y=0.31, Z=0.28) | travel +V(X=3.12, Y=2.05, Z=2.10) -V(X=1.27, Y=2.05, Z=1.72) cm\nresidual displacement V(0) cm\nLower mass 19.7% volume 115.01 lever 14.25 | support V(X=4.63, Y=6.62, Z=5.29) kg/s2 Hz V(X=1.00, Y=1.20, Z=1.07) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=4.56, Y=3.00, Z=3.08) -V(X=1.87, Y=3.00, Z=3.04) cm\nresidual displacement V(0) cm\nMedial mass 26.4% volume 154.23 lever 14.08 | support V(X=12.70, Y=18.17, Z=14.51) kg/s2 Hz V(X=1.43, Y=1.71, Z=1.53) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=3.28, Y=2.16, Z=2.21) -V(X=1.34, Y=2.16, Z=1.86) cm\nresidual displacement V(0) cm\nLateral mass 12.8% volume 74.97 lever 13.81 | support V(X=3.76, Y=5.38, Z=4.30) kg/s2 Hz V(X=1.12, Y=1.34, Z=1.19) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=4.27, Y=2.80, Z=2.88) -V(X=1.75, Y=2.80, Z=2.46) cm\nresidual displacement V(0) cm\n",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.19"
+				},
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.20"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OrphanVertexExtraction",
+			"fullTestPath": "Vam.Breast.OrphanVertexExtraction",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 0.0034408010542392731,
+			"dateTime": "2026.09.28-11.54.20",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SmoothJump",
+			"fullTestPath": "Vam.Breast.SmoothJump",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 0.0093027018010616302,
+			"dateTime": "2026.09.28-11.54.20",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Jump known twist 1 body apex 0.505102 tissue apex 0.508333; takeoff lag -2.409486; landing tail 19.432660; FPS error 0.008706 / 0.000080 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.20"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Jump known twist 0 body apex 0.505102 tissue apex 0.508333; takeoff lag -2.409486; landing tail 19.414968; FPS error 0.214716 / 0.017848 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.20"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Resolved jump phase body 0.508333 tissue 0.550000 delay 0.041667 s tissue velocity at body top 40.578283 cm/s hard limits 0",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.20"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "WeightCompression",
+			"fullTestPath": "Vam.Breast.WeightCompression",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 0.008333597332239151,
+			"dateTime": "2026.09.28-11.54.20",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CorrectiveGeometry",
+			"fullTestPath": "Vam.Glute.CorrectiveGeometry",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 0.41843581199645996,
+			"dateTime": "2026.09.28-11.54.20",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G06_GEOMETRY targets=11 morphs=60 max_bind_delta_cm=1.741963 source_vertex_reuse=1035 provenance=Verified !Bend Fix; Boundary graft transfer; source-only TriAx thigh-X reference; independent-side extension; target-local safety. Procedural residual separately gated/smoothed.Verified thigh-average driver to target morph to source vertex deltas; localized and pose-space adapted, not exact VaM runtime reproduction",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.20"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeRuntime",
+			"fullTestPath": "Vam.Glute.NativeRuntime",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 0.50573092699050903,
+			"dateTime": "2026.09.28-11.54.20",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G0_SHAPE_PARAMETER M_75d9f4791b4ab929c7815039=0.000000 logVolume=0.230654",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G0_SHAPE_PARAMETER M_084f62446f75d686d71f2f01=1.000000 logVolume=0.222617",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G0_SHAPE_COMPARISON imported 190.883846 changed 300.346523 ratio 1.573452 dimensions X=19.654 Y=24.535 Z=13.374",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "glute-structure-g05-v1 | deterministic pose function; no Jiggle\nShape revision 43 | pelvis tilt/yaw/roll deg 0.00 / 0.00 / 0.00\nL effective volume 300.35 cm3 COM V(X=12.53, Y=9.24, Z=-14.84) AP/ML/SI V(X=19.65, Y=24.53, Z=13.37) cm\nprimary hip flex/abd/external deg V(Z=30.00)\nFold medial/middle/lateral 0.004 / 0.006 / 0.026 | stretch V(0) | final COM V(X=12.69, Y=9.04, Z=-14.92)\norientation R(P=-0.17, Y=-1.65, R=0.07) | AP/ML/SI support V(X=43.91, Y=43.91, Z=43.91)\nCore pelvis/thigh 0.835/0.165 -> 0.880/0.120 | offset V(X=-0.07, Y=-0.09, Z=-0.03) | passive 0.012 | support 43.907\norientation R(P=-0.11, Y=-0.83, R=0.05) | AP/ML/SI support V(X=113.68, Y=113.68, Z=113.68)\nUpper pelvis/thigh 0.851/0.149 -> 0.889/0.111 | offset V(X=-0.04, Y=-0.05, Z=-0.02) | passive 0.004 | support 113.677\norientation R(P=-0.39, Y=-4.24, R=0.12) | AP/ML/SI support V(X=77.06, Y=77.06, Z=77.06)\nLower pelvis/thigh 0.808/0.192 -> 0.818/0.182 | offset V(X=-0.15, Y=0.11, Z=-0.11) | passive 0.019 | support 77.056\norientation R(P=-0.05, Y=-0.49, R=0.02) | AP/ML/SI support V(X=22.12, Y=22.12, Z=22.12)\nMedial pelvis/thigh 0.841/0.159 -> 0.933/0.067 | offset V(X=-0.02, Y=-0.02, Z=-0.01) | passive 0.030 | support 22.117\norientation R(P=-0.38, Y=-6.32, R=0.14) | AP/ML/SI support V(X=161.15, Y=161.15, Z=161.15)\nLateral pelvis/thigh 0.798/0.202 -> 0.861/0.139 | offset V(X=-0.04, Y=0.38, Z=-0.16) | passive 0.141 | support 161.153\nR effective volume 349.63 cm3 COM V(X=12.86, Y=-8.84, Z=-16.25) AP/ML/SI V(X=20.01, Y=22.25, Z=9.90) cm\nprimary hip flex/abd/external deg V(Z=30.00)\nFold medial/middle/lateral 0.004 / 0.006 / 0.022 | stretch V(0) | final COM V(X=13.01, Y=-8.54, Z=-16.37)\norientation R(P=-0.20, Y=1.67, R=-0.10) | AP/ML/SI support V(X=42.92, Y=42.92, Z=42.92)\nCore pelvis/thigh 0.825/0.175 -> 0.871/0.129 | offset V(X=-0.08, Y=0.10, Z=-0.04) | passive 0.011 | support 42.920\norientation R(P=-0.11, Y=0.83, R=-0.06) | AP/ML/SI support V(X=106.96, Y=106.96, Z=106.96)\nUpper pelvis/thigh 0.849/0.151 -> 0.886/0.114 | offset V(X=-0.04, Y=0.06, Z=-0.02) | passive 0.004 | support 106.958\norientation R(P=-0.44, Y=4.28, R=-0.16) | AP/ML/SI support V(X=102.94, Y=102.94, Z=102.94)\nLower pelvis/thigh 0.805/0.195 -> 0.815/0.185 | offset V(X=-0.16, Y=-0.06, Z=-0.11) | passive 0.019 | support 102.935\norientation R(P=-0.06, Y=0.50, R=-0.03) | AP/ML/SI support V(X=19.08, Y=19.08, Z=19.08)\nMedial pelvis/thigh 0.834/0.166 -> 0.929/0.071 | offset V(X=-0.02, Y=0.03, Z=-0.01) | passive 0.029 | support 19.076\norientation R(P=-0.40, Y=6.15, R=-0.20) | AP/ML/SI support V(X=183.58, Y=183.58, Z=183.58)\nLateral pelvis/thigh 0.814/0.186 -> 0.874/0.126 | offset V(X=-0.03, Y=-0.34, Z=-0.14) | passive 0.145 | support 183.577\nG06 Verified !Bend Fix; Boundary graft transfer; source-only TriAx thigh-X reference; independent-side extension; target-local safety. Procedural residual separately gated/smoothed.Verified thigh-average driver to target morph to source vertex deltas; localized and pose-space adapted, not exact VaM runtime reproduction\nL External weight 1.0000\nR External weight 1.0000\nCorrective Diagnostics: selected target at build Shape, true surface samples (cm); not current blended/Shape preview measurement.\nL Flex90 | source/procedural RMS 0.17687 / 0.10038 | raw/adapted/final P95 0.11514 / 0.40592 / 0.42082\nsource retention 0.9442 | target safety loss 0.0503 | smoothing RMS loss -0.000000 | affected surface vertices 817\nR Flex90 | source/procedural RMS 0.17200 / 0.09295 | raw/adapted/final P95 0.13402 / 0.41454 / 0.42452\nsource retention 0.8637 | target safety loss 0.1305 | smoothing RMS loss -0.000000 | affected surface vertices 1032\n",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.21"
+				},
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.21"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PoseFunction",
+			"fullTestPath": "Vam.Glute.PoseFunction",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 0.1350117027759552,
+			"dateTime": "2026.09.28-11.54.21",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PoseRefinement",
+			"fullTestPath": "Vam.Glute.PoseRefinement",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 1.2902774810791016,
+			"dateTime": "2026.09.28-11.54.21",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SurfaceTruth",
+			"fullTestPath": "Vam.Glute.SurfaceTruth",
+			"tags": [],
+			"state": "Fail",
+			"deviceInstance": [
+				"F1AF3A224D90A9CFD0115E91974F2FCC"
+			],
+			"duration": 1.1683464050292969,
+			"dateTime": "2026.09.28-11.54.22",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogTemp: VAM_NATIVE_EXTRACT: /Game/VamRuntime/R_41d321463932d166a980c60f/Glute/SK_Body.SK_Body retains 253 unused vertices; UV initialized deterministically",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStreaming: FlushAsyncLoading(643): 1 QueuedPackages, 0 AsyncPackages",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 0 step 36 tri 41649 area0 0.0015943805528 area1 0.00185051890877 dot -7.60465298405e-09 ratio 1.16065070257",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 0 pose 36' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 0 step 47 tri 44415 area0 0.0703777065786 area1 0.0429792142667 dot -6.83605108668e-06 ratio 0.61069358972",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 0 pose 47' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 0 step 67 tri 41643 area0 0.00384536804616 area1 0.00438212845097 dot -2.42006336048e-07 ratio 1.13958622383",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 0 pose 67' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 2 tri 43548 area0 0.0634622619762 area1 0.0454249544046 dot -5.60660460366e-05 ratio 0.715778999836",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 2' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 3 tri 43548 area0 0.0663247648601 area1 0.075234141619 dot -0.00206848773829 ratio 1.13432956419",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 3' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 16 tri 43548 area0 0.0633146733717 area1 0.0477002970506 dot -0.00024521322695 ratio 0.753384555433",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 16' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 17 tri 43548 area0 0.0649740213305 area1 0.0576869576216 dot -0.00114306108483 ratio 0.887846502962",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 17' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 40 tri 43548 area0 0.0634622619762 area1 0.0454249544046 dot -5.60660460366e-05 ratio 0.715778999836",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 40' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 45 tri 43548 area0 0.0642030077107 area1 0.0483509955036 dot -0.000414815080405 ratio 0.753095489256",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 45' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 46 tri 43548 area0 0.0659158352124 area1 0.0613351660226 dot -0.00140802903601 ratio 0.930507302607",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 46' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 47 tri 43548 area0 0.0691275600082 area1 0.045170115012 dot -9.08980796397e-05 ratio 0.653431352222",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 47' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 48 tri 43548 area0 0.0652140738636 area1 0.0549512238673 dot -0.000666726074658 ratio 0.842628294962",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 48' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 49 tri 43548 area0 0.0663247648601 area1 0.075234141619 dot -0.00206848773829 ratio 1.13432956419",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 49' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 50 tri 43548 area0 0.0691163235115 area1 0.0470754437368 dot -6.21429118136e-05 ratio 0.68110456901",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 50' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 63 tri 43548 area0 0.0667799865276 area1 0.0587347758607 dot -0.00118761401451 ratio 0.879526620396",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 63' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 64 tri 43548 area0 0.0682167943243 area1 0.0657482150054 dot -0.00174952643784 ratio 0.963812733458",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 64' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 65 tri 43548 area0 0.0712163676851 area1 0.0537416523239 dot -0.00084398495458 ratio 0.75462501207",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 65' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 66 tri 43548 area0 0.067776407124 area1 0.0626195034847 dot -0.00128172148944 ratio 0.92391299778",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 66' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 67 tri 43548 area0 0.0685487446439 area1 0.0706929519601 dot -0.00193290218639 ratio 1.03128003769",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 67' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 68 tri 43548 area0 0.0708464841462 area1 0.0547616296042 dot -0.000836559837228 ratio 0.772961852154",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 68' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 69 tri 43548 area0 0.070693469507 area1 0.0554808278915 dot -0.000469232322542 ratio 0.784808388645",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 69' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 70 tri 43548 area0 0.0701559869173 area1 0.0563658100764 dot -0.000690028191451 ratio 0.803435495004",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 70' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "SURFACE_FAILURE side 1 step 71 tri 43548 area0 0.0709443526298 area1 0.0512035131148 dot -0.000366921332016 ratio 0.72174191767",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-11.54.23"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No inversion/explosion, side 1 pose 71' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Plugins\\VamResourceBrowser\\Source\\VamResourceBrowser\\Private\\Tests\\VamGluteFidelityTests.cpp",
+					"lineNumber": 48,
+					"timestamp": "2026.09.28-11.54.23"
+				}
+			],
+			"warnings": 0,
+			"errors": 23,
+			"artifacts": []
+		}
+	]
+}

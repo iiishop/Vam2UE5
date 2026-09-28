@@ -1,0 +1,25 @@
+{
+  "safety_thresholds_relaxed": false,
+  "fixes": [
+    {
+      "issue": "Global safety and repeated region/safety masking attenuated verified source",
+      "change": "Separate verified/procedural branches, mapped Boundary topology, target-specific actual-field safety, moment-preserving diffusion"
+    },
+    {
+      "issue": "Sparse render-to-input reconstruction filled welded input vertices with zero",
+      "change": "SurfaceTruth now uses final LOD vertices, triangles, section bone maps and actual Morph LOD indices"
+    },
+    {
+      "issue": "Seam assertion mixed exact retained identity and per-basis UE omission error",
+      "change": "Retained aliases checked at 1e-6 cm; each render basis checked at existing NativeBuilder 1e-4 cm component bound; measured omission errors propagated to complete seam"
+    },
+    {
+      "issue": "No-source combined safety did not converge when remaining displacement came from low blend-weight targets",
+      "change": "Condition targets by actual per-vertex displacement contribution; Secondary converged in four iterations in the validation build"
+    },
+    {
+      "issue": "Changing DataAsset class defaults misclassified older assets with omitted default properties",
+      "change": "Retain schema 1 / G06 class defaults; explicitly stamp schema 2 / G061 in Builder. Final reload and legacy regression verify serialization"
+    }
+  ]
+}
