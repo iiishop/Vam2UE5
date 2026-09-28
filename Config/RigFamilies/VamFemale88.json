@@ -1982,5 +1982,15 @@
     "topology_policy": "persisted GeometryBinding topology digest plus exact family skeleton validation",
     "left_front_reference": "lNipple",
     "right_front_reference": "rNipple"
+  },
+  "glute_structure": {
+    "pelvis": "pelvis",
+    "superior": "abdomen2",
+    "left_glute": "LGlute",
+    "right_glute": "RGlute",
+    "left_thigh": "lThigh",
+    "right_thigh": "rThigh",
+    "left_shin": "lShin",
+    "right_shin": "rShin"
   }
 }

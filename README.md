@@ -85,6 +85,8 @@ UE 5.8 / Windows 编辑器插件。读取 VaM 松散目录和 VAR，解析依赖
 
 ## 人物调试面板
 
+G0 Structural Glute 已接入正式人物生成与 Upgrade Runtime：自动生成 pelvis/thigh 双支承结构、连续蒙皮和 `DA_GluteStructure`。调试面板新增 **Glute Structure - G0**。模型、工程边界见 [GLUTE_STRUCTURE_G0.md](GLUTE_STRUCTURE_G0.md)，当前资产路径、测试证据和 Empty Level 操作见 [G0 完成报告](Evidence/GluteStructureG0/implementation-report.md)。G0 只计算姿态相关结构，不运行臀部 Jiggle。
+
 重新编译并启动 UE 后，从 **窗口 → VaM 人物调试** 或资源浏览器顶部的 **人物调试** 打开。选中场景中的 `VamCharacterActor` 后点击“使用选中人物 / 刷新”；也可点击“加载最新导入人物”，在当前场景生成临时预览实例。加载完成后，所有骨骼控制点直接叠加显示在人物身上。点击青色点，再用视口移动或旋转工具调整骨骼；黄色点表示当前骨骼。面板还提供骨骼名称筛选、局部位移/旋转数值编辑、逐骨骼与全姿态重置，以及所有可编辑 Morph 参数滑块。
 
 骨骼姿态调整只保存在该人物实例的临时动画状态，不写入导入的骨架、网格或 Definition。Morph 调整使用现有预览参数接口，可用“恢复导入形状”复原。Stage06 另提供可放置人物、PBIK、刚体局部响应/布娃娃、Physics Handle 抓取、连续运动输入、主动呼吸和惯性见证区域；预览关卡与运行方法见 [STAGE06.md](STAGE06.md)。惯性见证不是肌肉或软体求解器；布料、头发和全身软组织仍待后续阶段。后续诊断工具与数据显示可继续加入该停靠面板。

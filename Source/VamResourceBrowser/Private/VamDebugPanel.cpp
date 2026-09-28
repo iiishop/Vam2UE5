@@ -1,3 +1,4 @@
+#include "VamGluteSkeletalMeshComponent.h"
 #include "VamDebugPanel.h"
 #include "VamCharacterActor.h"
 #include "VamCharacterComponent.h"
@@ -430,6 +431,25 @@ void AddControls(TSharedRef<SVerticalBox> Rows,AVamCharacterActor* Actor,const F
     }
 }
 
+TSharedRef<SWidget> GluteControls()
+{
+    auto Body=[]()->UVamGluteSkeletalMeshComponent* { auto* A=CurrentActor();return A && A->Character ? Cast<UVamGluteSkeletalMeshComponent>(A->Character->Body) : nullptr; };
+    auto Box=SNew(SVerticalBox);
+    auto Flag=[](UVamGluteSkeletalMeshComponent* B,int32 I)->bool& { return I==0?B->bGluteEnabled:I==1?B->bShowGluteRegion:I==2?B->bShowStructuralBones:I==3?B->bShowPelvisAttachments:I==4?B->bShowThighAttachments:B->bShowPoseTension; };
+    const TCHAR* Labels[]={TEXT("Enabled"),TEXT("Show Glute Region"),TEXT("Show Structural Bones"),TEXT("Show Pelvis Attachments"),TEXT("Show Thigh Attachments"),TEXT("Show Pose Tension")};
+    for(int32 I=0;I<6;++I)
+        Box->AddSlot().AutoHeight()[SNew(SCheckBox).IsChecked_Lambda([Body,Flag,I](){auto* B=Body();return B && Flag(B,I)?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
+            .OnCheckStateChanged_Lambda([Body,Flag,I](ECheckBoxState V){if(auto* B=Body()) Flag(B,I)=V==ECheckBoxState::Checked;})[SNew(STextBlock).Text(FText::FromString(Labels[I]))]];
+    auto Buttons=SNew(SWrapBox).UseAllottedSize(true);
+    for(const TCHAR* Name:{TEXT("Neutral standing"),TEXT("Hip flexion"),TEXT("Hip extension"),TEXT("Abduction"),TEXT("External rotation"),TEXT("Reset")})
+    {
+        const FName Command(Name);Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->GlutePoseCommand(Command);return FReply::Handled();})];
+    }
+    Box->AddSlot().AutoHeight()[Buttons];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->GluteDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)];
+    return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Glute Structure - G0")))].BodyContent()[Box];
+}
+
 TSharedRef<SWidget> BreastControls()
 {
     auto Body=[]()->UVamBreastSkeletalMeshComponent* { auto* A=CurrentActor();return A && A->Character ? Cast<UVamBreastSkeletalMeshComponent>(A->Character->Body) : nullptr; };
@@ -566,6 +586,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
             +SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<float>).MinValue(-360.f).MaxValue(360.f).Value_Lambda([](){return BoneRotationAxis(2);}).OnValueChanged_Lambda([](float Value){SetBoneRotationAxis(2,Value);})]
             +SHorizontalBox::Slot().AutoWidth().Padding(6,0)[SNew(SButton).Text(FText::FromString(TEXT("重置此关节"))).OnClicked_Lambda([](){if (PoseSelected()) if (auto* Actor=CurrentActor()) Actor->Character->SetPoseControlRotation(SelectedBone,FRotator::ZeroRotator);return FReply::Handled();})]]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[BreastControls()]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[GluteControls()]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("Stage06 · 运行时与惯性见证")))]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("暂停/继续见证时钟"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->SetPreviewPaused(!A->Motion->GetClock().bPaused);return FReply::Handled();})]

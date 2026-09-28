@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "sha256": "FFB0FE7DA38B4426204913E8CB7F08447B4BAF78B3B93050C14AEE133D5DA1E1",
+      "name": "UnrealEditor-VamCharacterRuntime.dll"
+    },
+    {
+      "sha256": "75969900A41BF24C727015C083C7238D34187894B7C530C85A3AD8E349F11BE8",
+      "name": "UnrealEditor-VamCharacterRuntime.pdb"
+    },
+    {
+      "sha256": "1ABDEB594CAC901AF2940BC2360BA04411ABBB667112DD8A5A0C9AA80AF560F8",
+      "name": "UnrealEditor-VamResourceBrowser.dll"
+    },
+    {
+      "sha256": "8A2EC10C4929B38643A14C4EABDF65095F06C302197BB2CF823452EA557A0ACB",
+      "name": "UnrealEditor-VamResourceBrowser.pdb"
+    },
+    {
+      "sha256": "861529759FB48AF230B238D504E9C17ADC27CB8CB874EF68F697320817DC8899",
+      "name": "UnrealEditor.modules"
+    }
+  ],
+  "backup": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG0\\BinaryBackup-20260928-083723"
+}

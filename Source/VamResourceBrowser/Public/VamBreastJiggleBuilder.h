@@ -7,6 +7,8 @@ class VAMRESOURCEBROWSER_API UVamBreastJiggleBuilder : public UBlueprintFunction
 {
     GENERATED_BODY()
 public:
+    // Shared retained native input extraction; preserves morphs and unused source vertices.
+    static bool ExtractNative(class USkeletalMesh* Mesh,struct FVamNativeMeshInput& Input,FString& Error);
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static class UVamCharacterDefinition* Build(const FString& Root,class UVamCharacterDefinition* Source,
         class UVamBreastJiggleProfile* Profile,const FString& FamilyJson,FString& Error);

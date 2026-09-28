@@ -132,6 +132,7 @@ FMeasure Measure(const FVamNativeMeshInput& I,const TArray<FVector>& V,const TAr
     return M;
 }
 }
+bool UVamBreastJiggleBuilder::ExtractNative(USkeletalMesh* Mesh,FVamNativeMeshInput& Input,FString& Error) { return Extract(Mesh,Input,Error); }
 UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVamCharacterDefinition* Source,UVamBreastJiggleProfile* P,const FString& FamilyJson,FString& Error)
 {
     Error.Reset();auto Fail=[&Error](const FString& Why)->UVamCharacterDefinition*{Error=Why;return nullptr;};
@@ -320,7 +321,7 @@ FString UVamBreastJiggleBuilder::Validate(UVamCharacterDefinition* D,UVamBreastJ
     if(!D || !P || !P->IsValidProfile()) return TEXT("Invalid breast profile");
     auto* Mesh=D->Body.LoadSynchronous();if(!Mesh) return TEXT("Missing body");
     const auto& Ref=Mesh->GetRefSkeleton();
-    if(Ref.GetRawBoneNum()!=P->SourceBoneCount+12) return TEXT("Helper count mismatch");
+    if(Ref.GetRawBoneNum()<P->SourceBoneCount+12) return TEXT("Helper count mismatch");
     for(const auto& S:P->Sides)
     {
         if(Ref.GetParentIndex(S.AnchorBone)!=S.ChestBone) return TEXT("Invalid helper anchor parent");
