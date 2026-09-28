@@ -1,0 +1,32 @@
+test_missing_library (test_glute_corrective_source.CorrectiveSourceTests.test_missing_library) ... ok
+test_retained_chain_offline (test_glute_corrective_source.CorrectiveSourceTests.test_retained_chain_offline) ... ok
+test_retained_digest_rejected (test_glute_corrective_source.CorrectiveSourceTests.test_retained_digest_rejected) ... ok
+test_unsupported (test_glute_corrective_source.CorrectiveSourceTests.test_unsupported) ... ok
+test_active_mode_not_has_general_flag (test_native_source.NativeSourceTests.test_active_mode_not_has_general_flag) ... ok
+test_basis_rotation_not_euler_permutation (test_native_source.NativeSourceTests.test_basis_rotation_not_euler_permutation) ... ok
+test_cycle_rejected (test_native_source.NativeSourceTests.test_cycle_rejected) ... ok
+test_general_duplicates_sum_fullweight_not_added (test_native_source.NativeSourceTests.test_general_duplicates_sum_fullweight_not_added) ... ok
+test_parent_first_and_world_to_local (test_native_source.NativeSourceTests.test_parent_first_and_world_to_local) ... ok
+test_all_derivation_inputs_change_identity (test_runtime_recipe.RuntimeRecipeTests.test_all_derivation_inputs_change_identity) ... ok
+test_duplicate_semantics_rejected (test_runtime_recipe.RuntimeRecipeTests.test_duplicate_semantics_rejected) ... ok
+test_explicit_source_required (test_runtime_recipe.RuntimeRecipeTests.test_explicit_source_required) ... ok
+test_native_identity_has_new_algorithm_namespace (test_runtime_recipe.RuntimeRecipeTests.test_native_identity_has_new_algorithm_namespace) ... ok
+test_nonfinite_policy_rejected (test_runtime_recipe.RuntimeRecipeTests.test_nonfinite_policy_rejected) ... ok
+test_proportions_do_not_copy_template_lengths (test_runtime_recipe.RuntimeRecipeTests.test_proportions_do_not_copy_template_lengths) ... ok
+test_quaternion_sign_is_not_a_different_axis_frame (test_runtime_recipe.RuntimeRecipeTests.test_quaternion_sign_is_not_a_different_axis_frame) ... ok
+test_rejects_changed_local_axes (test_runtime_recipe.RuntimeRecipeTests.test_rejects_changed_local_axes) ... ok
+test_rejects_changed_parent (test_runtime_recipe.RuntimeRecipeTests.test_rejects_changed_parent) ... ok
+test_rejects_cycles_and_scale (test_runtime_recipe.RuntimeRecipeTests.test_rejects_cycles_and_scale) ... ok
+test_retired_policy_requires_explicit_migration (test_runtime_recipe.RuntimeRecipeTests.test_retired_policy_requires_explicit_migration) ... ok
+test_shading_policy_changes_identity_and_rejects_unknown (test_runtime_recipe.RuntimeRecipeTests.test_shading_policy_changes_identity_and_rejects_unknown) ... ok
+test_disjoint_merged_nodes_not_overwritten (test_triax_lbs.TriAxFitTests.test_disjoint_merged_nodes_not_overwritten) ... ok
+test_full_weight_rigid_motion (test_triax_lbs.TriAxFitTests.test_full_weight_rigid_motion) ... ok
+test_uncovered_domain_rejected (test_triax_lbs.TriAxFitTests.test_uncovered_domain_rejected) ... ok
+test_weighted_angle_not_linear_blend (test_triax_lbs.TriAxFitTests.test_weighted_angle_not_linear_blend) ... ok
+test_cancel_is_separate_from_published_progress (test_shape_kernel.ShapeKernelTests.test_cancel_is_separate_from_published_progress) ... ok
+test_center_replacement_parent_offset_and_oriented_local_bind (test_shape_kernel.ShapeKernelTests.test_center_replacement_parent_offset_and_oriented_local_bind) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.045s
+
+OK

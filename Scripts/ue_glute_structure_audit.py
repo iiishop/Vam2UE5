@@ -77,5 +77,13 @@ result=dict(schema_version=profile.get_editor_property('schema_version'),refinem
     algorithm=str(profile.get_editor_property('algorithm')),provenance=str(profile.get_editor_property('region_provenance')),
     morph_parameters=len(definition.get_editor_property('parameters')),parts=len(definition.get_editor_property('parts')),
     checks=dict(source_indices_and_binds_preserved=True,helper_hierarchy=True,weights_normalized=True,influence_limit=8,zero_bind_tolerance_cm=.001,morphs_native_build_validated=True,independent_reload=True),visual_assessment=None)
+corrective=config.get_editor_property('glute_corrective')
+if corrective:
+    assert corrective.is_valid_profile()
+    result['corrective']=dict(profile=corrective.get_path_name(),algorithm=corrective.get_editor_property('algorithm'),
+        family_policy_identity=corrective.get_editor_property('family_policy_identity'),provenance=corrective.get_editor_property('provenance'),
+        reused_source_vertex_count=corrective.get_editor_property('reused_source_vertex_count'),
+        targets=[dict(name=str(t.get_editor_property('name')),degrees=v(t.get_editor_property('degrees'))) for t in corrective.get_editor_property('targets')],
+        bases=[dict(morph=str(b.get_editor_property('morph')),side=b.get_editor_property('side'),target=b.get_editor_property('target'),axis=b.get_editor_property('axis'),maximum_cm=b.get_editor_property('maximum_cm'),regional_rms_cm=list(b.get_editor_property('regional_rms_cm'))) for b in corrective.get_editor_property('bases')])
 report_path.with_name('audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf8')
 u.log('VAM_GLUTE_AUDIT '+json.dumps(result,ensure_ascii=False))

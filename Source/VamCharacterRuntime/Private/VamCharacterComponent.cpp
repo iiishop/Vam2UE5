@@ -99,6 +99,7 @@ void UVamCharacterComponent::LoadMeshes(uint64 Ticket)
     if (!LoadedDefinition->Shape.IsNull()) Paths.AddUnique(LoadedDefinition->Shape.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->BreastJiggle.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->BreastJiggle.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteStructure.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteStructure.ToSoftObjectPath());
+    if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteCorrective.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteCorrective.ToSoftObjectPath());
     if (!RigProfile.IsNull()) Paths.AddUnique(RigProfile.ToSoftObjectPath());
     if (!AnimationClass.IsNull()) Paths.AddUnique(AnimationClass.ToSoftObjectPath());
     if (!BaseAnimation.IsNull()) Paths.AddUnique(BaseAnimation.ToSoftObjectPath());
@@ -148,6 +149,9 @@ void UVamCharacterComponent::Assemble(uint64 Ticket)
         Jiggle->BreastProfile=LoadedRuntimeConfiguration->BreastJiggle.Get();
         auto* Glute=CastChecked<UVamGluteSkeletalMeshComponent>(Body);
         Glute->GluteProfile=LoadedRuntimeConfiguration->GluteStructure.Get();
+        Glute->CorrectiveProfile=LoadedRuntimeConfiguration->GluteCorrective.Get();
+        if(!LoadedRuntimeConfiguration->GluteCorrective.IsNull() && (!Glute->CorrectiveProfile || !Glute->CorrectiveProfile->IsValidProfile() || !Glute->GluteProfile || Glute->CorrectiveProfile->SourceTopologyIdentity!=Glute->GluteProfile->SourceTopologyIdentity))
+        { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteCorrectiveProfile"));return; }
         if(!LoadedRuntimeConfiguration->GluteStructure.IsNull() && (!Glute->GluteProfile || !Glute->GluteProfile->IsValidProfile()))
         { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteStructureProfile"));return; }
         if(!LoadedRuntimeConfiguration->BreastJiggle.IsNull() && (!Jiggle->BreastProfile || !Jiggle->BreastProfile->IsValidProfile()))

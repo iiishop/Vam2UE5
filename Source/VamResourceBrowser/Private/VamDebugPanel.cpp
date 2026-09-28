@@ -435,20 +435,20 @@ TSharedRef<SWidget> GluteControls()
 {
     auto Body=[]()->UVamGluteSkeletalMeshComponent* { auto* A=CurrentActor();return A && A->Character ? Cast<UVamGluteSkeletalMeshComponent>(A->Character->Body) : nullptr; };
     auto Box=SNew(SVerticalBox);
-    auto Flag=[](UVamGluteSkeletalMeshComponent* B,int32 I)->bool& { return I==0?B->bGluteEnabled:I==1?B->bShowGluteRegion:I==2?B->bShowStructuralBones:I==3?B->bShowPelvisAttachments:I==4?B->bShowThighAttachments:I==5?B->bShowPoseTension:B->bShowFoldSemantics; };
-    const TCHAR* Labels[]={TEXT("Enabled"),TEXT("Show Glute Region"),TEXT("Show Structural Bones"),TEXT("Show Pelvis Attachments"),TEXT("Show Thigh Attachments"),TEXT("Show Pose Tension"),TEXT("Show Fold Semantics")};
-    for(int32 I=0;I<7;++I)
+    auto Flag=[](UVamGluteSkeletalMeshComponent* B,int32 I)->bool& { return I==0?B->bGluteEnabled:I==1?B->bShowGluteRegion:I==2?B->bShowStructuralBones:I==3?B->bShowPelvisAttachments:I==4?B->bShowThighAttachments:I==5?B->bShowPoseTension:I==6?B->bShowFoldSemantics:I==7?B->bCorrectiveEnabled:B->bShowCorrectiveDelta; };
+    const TCHAR* Labels[]={TEXT("Enabled"),TEXT("Show Glute Region"),TEXT("Show Structural Bones"),TEXT("Show Pelvis Attachments"),TEXT("Show Thigh Attachments"),TEXT("Show Pose Tension"),TEXT("Show Fold Semantics"),TEXT("G0.6 Corrective Enabled"),TEXT("Show Corrective Delta")};
+    for(int32 I=0;I<9;++I)
         Box->AddSlot().AutoHeight()[SNew(SCheckBox).IsChecked_Lambda([Body,Flag,I](){auto* B=Body();return B && Flag(B,I)?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
             .OnCheckStateChanged_Lambda([Body,Flag,I](ECheckBoxState V){if(auto* B=Body()) Flag(B,I)=V==ECheckBoxState::Checked;})[SNew(STextBlock).Text(FText::FromString(Labels[I]))]];
     auto Buttons=SNew(SWrapBox).UseAllottedSize(true);
-    for(const TCHAR* Name:{TEXT("Neutral standing"),TEXT("Hip flexion"),TEXT("Hip extension"),TEXT("Abduction"),TEXT("Adduction"),TEXT("External rotation"),TEXT("Internal rotation"),TEXT("Reset")})
+    for(const TCHAR* Name:{TEXT("Neutral standing"),TEXT("Flexion 30"),TEXT("Flexion 60"),TEXT("Flexion 90"),TEXT("Hip flexion"),TEXT("Hip extension"),TEXT("Abduction"),TEXT("Adduction"),TEXT("External rotation"),TEXT("Internal rotation"),TEXT("Reset")})
     {
         const FName Command(Name);Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->GlutePoseCommand(Command);return FReply::Handled();})];
     }
     for(int32 I=-1;I<2;++I) Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(I<0?TEXT("Target both"):I==0?TEXT("Target left"):TEXT("Target right"))).OnClicked_Lambda([Body,I](){if(auto* B=Body()) B->DebugGluteSide=I;return FReply::Handled();})];
     Box->AddSlot().AutoHeight()[Buttons];
     Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->GluteDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)];
-    return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Glute Structural Debug - G0.5")))].BodyContent()[Box];
+    return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Glute Structural Debug - G0.5 / G0.6")))].BodyContent()[Box];
 }
 
 TSharedRef<SWidget> BreastControls()

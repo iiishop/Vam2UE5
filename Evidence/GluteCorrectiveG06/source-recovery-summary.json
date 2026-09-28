@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "mode": "source_delta_plus_procedural",
+  "reason": "Verified thigh-average driver to target morph to source vertex deltas; localized and pose-space adapted, not exact VaM runtime reproduction",
+  "driver_object": "-2144543990319575669",
+  "bank_object": "-8794021882651021437",
+  "target": "!Bend Fix",
+  "driver": {
+    "m_GameObject": {
+      "m_FileID": 0,
+      "m_PathID": -3469561831842750223
+    },
+    "m_Enabled": 1,
+    "m_Script": {
+      "m_FileID": 0,
+      "m_PathID": 6973472052714655341
+    },
+    "m_Name": "",
+    "_morphBank": {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    "_morphBankAlt": {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    "_morphBankAlt2": {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    "morph1Name": "!Bend Fix",
+    "morph1Low": 0.0,
+    "morph1High": 1.0,
+    "currentMorph1Value": 0.0,
+    "updateOnEnableAndDisable": 1,
+    "dazBone1": {
+      "m_FileID": 0,
+      "m_PathID": 1435757931564910538
+    },
+    "dazBone2": {
+      "m_FileID": 0,
+      "m_PathID": -6600373697719441507
+    },
+    "updateEnabled": 1,
+    "angleLow": 0.0,
+    "angleHigh": -100.0,
+    "angleAxis1": 0,
+    "angleAxis2": 0,
+    "currentAxisAngle1": 0.0,
+    "currentAxisAngle2": 0.0,
+    "_multiplier": 1.0,
+    "clampMorphValue": 1
+  },
+  "source_hashes": {
+    "VaM_Data/StreamingAssets/a_per": "57fa0ea1b9992aa8397ee4cde9ab6f24d7bb38227c49fcdd2230a378c21b8e35",
+    "VaM_Data/StreamingAssets/f_mb": "f7402f626fe759ed94e93683da53d4ab7bbe2b3be98d60e8acdde7f140693978"
+  }
+}

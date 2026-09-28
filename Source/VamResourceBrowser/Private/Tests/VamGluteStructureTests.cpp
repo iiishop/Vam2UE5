@@ -90,7 +90,7 @@ bool FVamGluteNativeTest::RunTest(const FString& Parameters)
         FVamNativeMeshInput Original,Derived;FString Error;
         if(TestNotNull(TEXT("Original native source"),Source) && TestTrue(TEXT("Extract original morphs"),UVamBreastJiggleBuilder::ExtractNative(Source->Body.LoadSynchronous(),Original,Error)) && TestTrue(TEXT("Extract derived morphs"),UVamBreastJiggleBuilder::ExtractNative(D->Body.LoadSynchronous(),Derived,Error)))
         {
-            TestEqual(TEXT("Morph target count preserved"),Original.Morphs.Num(),Derived.Morphs.Num());
+            TestTrue(TEXT("Source Morphs retained; derived corrective Morphs allowed"),Derived.Morphs.Num()>=Original.Morphs.Num());
             bool Preserved=Original.Vertices.Num()==Derived.Vertices.Num();
             for(int32 V=0;V<Original.Vertices.Num() && Preserved;++V) Preserved=Original.Vertices[V].Equals(Derived.Vertices[V],1.e-6);
             TestTrue(TEXT("Imported positions preserved"),Preserved);
@@ -165,6 +165,20 @@ bool FVamGluteNativeTest::RunTest(const FString& Parameters)
                 TestTrue(TEXT("Final thigh pose changes G0 without actor motion"),!MA->GluteStates[0].Regions[0].Transform.Equals(Neutral[0].Regions[0].Transform,1.e-5));
                 TestTrue(TEXT("Thigh pose does not move pelvis anchor"),Anchor.Equals(MA->GetComponentSpaceTransforms()[P->Sides[0].AnchorBone],1.e-6));
             }
+            if(MA->CorrectiveProfile)
+            {
+                TestTrue(TEXT("G06 actual pose activates corrective"),MA->CorrectiveMagnitudeBound>.001);
+                const auto Corrective=MA->CorrectiveWeights;
+                for(const auto& W:Corrective) TestTrue(TEXT("G06 reaches native morph buffer in same frame"),FMath::Abs(MA->AppliedCorrectiveWeight(W.Key)-W.Value)<1.e-4);
+                MA->bCorrectiveEnabled=false;MA->FinalizeBoneTransform();
+                for(const auto& W:Corrective) TestTrue(TEXT("G06 disabled clears same-frame native weights"),FMath::Abs(MA->AppliedCorrectiveWeight(W.Key))<1.e-8);
+                MA->bCorrectiveEnabled=true;MA->FinalizeBoneTransform();
+                MA->bGluteEnabled=false;MA->FinalizeBoneTransform();
+                for(const auto& W:Corrective) TestTrue(TEXT("G05 switch independent of G06 driver"),FMath::Abs(MA->CorrectiveWeights.FindRef(W.Key)-W.Value)<1.e-6);
+                MA->bGluteEnabled=true;MA->FinalizeBoneTransform();
+                for(double FPS:{30.,60.,120.}) { Tick(1/FPS);for(const auto& W:Corrective) TestTrue(TEXT("G06 native FPS equivalent"),FMath::Abs(MA->CorrectiveWeights.FindRef(W.Key)-W.Value)<1.e-6); }
+                for(const auto& W:MB->CorrectiveWeights) TestTrue(TEXT("G06 peer remains neutral"),FMath::Abs(W.Value)<1.e-6);
+            }
             const auto Baseline=MA->GluteStates[0];
             for(double FPS:{30.,60.,120.}) { Tick(1/FPS);TestTrue(TEXT("Native hook frame rate equivalence"),MA->GluteStates[0].Regions[0].Transform.Equals(Baseline.Regions[0].Transform,1.e-6)); }
             TestTrue(TEXT("Peer instance unchanged"),Peer[0].Regions[0].Transform.Equals(MB->GluteStates[0].Regions[0].Transform,1.e-6));
@@ -205,6 +219,16 @@ bool FVamGluteNativeTest::RunTest(const FString& Parameters)
                     if(Step) TestTrue(TEXT("Shape sweep continuous"),(Current.Transform.GetLocation()-PriorState[Side].Regions[N].Transform.GetLocation()).Size()<2);
                 }
                 PriorState=MA->GluteStates;
+            }
+            if(MA->CorrectiveProfile)
+            {
+                for(const auto& Basis:MA->CorrectiveProfile->Bases)
+                {
+                    const FVector Scale=VamGluteCorrective::ShapeScale(MA->CorrectiveProfile->BuildDimensions[Basis.Side],MA->GluteRest[Basis.Side].Dimensions);
+                    const double ExpectedWeight=MA->CorrectiveTargetWeights[Basis.Side][Basis.Target]*Scale[Basis.Axis];
+                    TestTrue(TEXT("Shape adapted corrective reaches native buffer"),FMath::Abs(MA->AppliedCorrectiveWeight(Basis.Morph)-ExpectedWeight)<1.e-4);
+                }
+                TestTrue(TEXT("G06 immutable calibration survives Shape preview"),MA->CorrectiveProfile->BuildDimensions[0].Equals(P->Sides[0].Dimensions,0));
             }
             TestTrue(TEXT("Shape revision snapshot populated"),MA->HipPoseState.ShapeRevision>0);
             TestTrue(TEXT("Large supported Shape preview accepted"),A->Character->PreviewParameters(ShapeValues));

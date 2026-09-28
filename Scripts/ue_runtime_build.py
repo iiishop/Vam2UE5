@@ -66,6 +66,8 @@ def inputs(recipe_path):
     require(shape.get_editor_property('morph_set_lock_digest')==contract['editable_morph_lock']['lock_id'],'Shape MorphSet lock mismatch')
     verify_native_binding(json.loads(u.VamStage06AssetEditor.describe_mesh_binding(mesh)),contract['bones'])
     validate_family(contract['neutral_bones'],family)
+    from vam_glute_corrective_source import recover
+    family['glute_corrective_source']=recover(json.loads(mapping.get_editor_property('source_ir_json')),SCRIPTS.parent/'Saved/settings.json',family)
     for part in definition.get_editor_property('parts'):
         require(part.get_editor_property('skeleton')==skeleton,'Part skeleton mismatch')
         verify_native_binding(json.loads(u.VamStage06AssetEditor.describe_mesh_binding(part)),contract['bones'])
@@ -77,7 +79,7 @@ def inputs(recipe_path):
         for file in sorted((SCRIPTS.parent/base).rglob('*')):
             if file.is_file() and file.suffix in ('.h','.cpp','.cs'):
                 algorithms[str(file.relative_to(SCRIPTS.parent))]=hashlib.sha256(file.read_bytes()).hexdigest()
-    for name in ('vam_runtime_recipe.py','ue_runtime_build.py','ue_stage06_materials.py'):
+    for name in ('vam_runtime_recipe.py','ue_runtime_build.py','ue_stage06_materials.py','vam_glute_corrective_source.py'):
         algorithms['Scripts/'+name]=hashlib.sha256((SCRIPTS/name).read_bytes()).hexdigest()
     identity=build_identity(recipe,family,files,algorithms,u.SystemLibrary.get_engine_version())
     return recipe,family,definition,contract,files,identity,algorithms
@@ -119,7 +121,8 @@ def build(recipe_path,report_path):
     definition,error=u.VamBreastJiggleBuilder.build(root,source_definition,jiggle,json.dumps(family))
     require(definition is not None,str(error))
     glute=create('DA_GluteStructure',root,u.VamGluteStructureProfile)
-    definition,error=u.VamGluteStructureBuilder.build(root+'/Glute',definition,glute,json.dumps(family))
+    corrective=create('DA_GluteCorrective',root,u.VamGluteCorrectiveProfile)
+    definition,error=u.VamGluteStructureBuilder.build(root+'/Glute',definition,glute,corrective,json.dumps(family))
     require(definition is not None,str(error))
     # Every derived mesh, bind, morph and helper is saved before downstream assets fingerprint it.
     for path in u.EditorAssetLibrary.list_assets(root,True,False):save(load(str(path)))
@@ -152,7 +155,7 @@ def build(recipe_path,report_path):
     materials=build_material_profile(definition,root,recipe.get('part_material_category','reference'),recipe.get('skin_shading','source'));save(materials)
     config=create('RC_Runtime',root,u.VamRuntimeConfiguration)
     require(u.VamStage06AssetEditor.set_runtime_configuration_identity(config,definition,identity,''),'Could not initialize runtime identity')
-    for key,value in [('definition',definition),('breast_jiggle',jiggle),('glute_structure',glute),('rig',rig),('physics',physics),('physics_shape',physics_shape),('animation_class',animation.generated_class()),('materials',materials)]:config.set_editor_property(key,value)
+    for key,value in [('definition',definition),('breast_jiggle',jiggle),('glute_structure',glute),('glute_corrective',corrective),('rig',rig),('physics',physics),('physics_shape',physics_shape),('animation_class',animation.generated_class()),('materials',materials)]:config.set_editor_property(key,value)
     if base_animation:config.set_editor_property('base_animation',base_animation)
     factory=u.BlueprintFactory();factory.set_editor_property('parent_class',u.VamCharacterActor)
     host=create('BP_VamCharacter',root,u.Blueprint,factory)
@@ -171,7 +174,7 @@ def build(recipe_path,report_path):
     assets=[str(x).split('.')[0] for x in u.EditorAssetLibrary.list_assets(root,True,False) if str(x).split('.')[0]!=config_path]
     receipt={'schema':'vam-runtime-receipt/3','algorithms':algorithms,'identity':identity,'recipe':recipe,'family':family,'source_files':source_files,
         'rig':asset_path(rig),'physics':asset_path(physics),'animation':asset_path(animation),'materials':asset_path(materials),'blueprint':asset_path(host),
-        'breast_jiggle':asset_path(jiggle),'glute_structure':asset_path(glute),'source_definition':asset_path(source_definition),'base_animation':asset_path(base_animation) if base_animation else None,'physics_shape':asset_path(physics_shape),'definition':asset_path(definition),'rig_snapshot':rig_snapshot(rig),'physics_summary':physics_summary,'blink_targets':targets,
+        'breast_jiggle':asset_path(jiggle),'glute_structure':asset_path(glute),'glute_corrective':asset_path(corrective),'source_definition':asset_path(source_definition),'base_animation':asset_path(base_animation) if base_animation else None,'physics_shape':asset_path(physics_shape),'definition':asset_path(definition),'rig_snapshot':rig_snapshot(rig),'physics_summary':physics_summary,'blink_targets':targets,
         'body_slots':len(mesh.get_editor_property('materials')),'part_slots':[len(p.get_editor_property('materials')) for p in definition.get_editor_property('parts')],
         'body_shading_models':[str(m.get_editor_property('shading_model')) if isinstance(m,u.Material) else None for m in materials.get_editor_property('body_materials')],
         'output_files':{p:fingerprint(p) for p in assets}}
@@ -202,6 +205,8 @@ def reload_and_publish(recipe_path,report_path):
     require(config.get_editor_property('glute_structure')==glute,'Glute profile reference mismatch')
     error=u.VamGluteStructureBuilder.validate(definition,glute)
     require(not error,'Reloaded G0 validation failed: '+str(error))
+    corrective=load(receipt['glute_corrective'],u.VamGluteCorrectiveProfile)
+    require(corrective.is_valid_profile() and config.get_editor_property('glute_corrective')==corrective,'Corrective profile reload validation failed')
     original=json.loads(u.VamStage06AssetEditor.describe_mesh_binding(source_definition.get_editor_property('body')))
     derived=json.loads(u.VamStage06AssetEditor.describe_mesh_binding(definition.get_editor_property('body')))
     verify_native_binding(derived[:len(original)],original)

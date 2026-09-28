@@ -1992,5 +1992,107 @@
     "right_thigh": "rThigh",
     "left_shin": "lShin",
     "right_shin": "rShin"
+  },
+  "glute_corrective": {
+    "version": 1,
+    "metric_degrees": [
+      60,
+      35,
+      30
+    ],
+    "blend_width": 1.2,
+    "maximum_dimension_fraction": 0.12,
+    "targets": [
+      {
+        "name": "Neutral",
+        "degrees": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Flex30",
+        "degrees": [
+          30,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Flex60",
+        "degrees": [
+          60,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Flex90",
+        "degrees": [
+          90,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Extension",
+        "degrees": [
+          -20,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Abduction",
+        "degrees": [
+          0,
+          35,
+          0
+        ]
+      },
+      {
+        "name": "Adduction",
+        "degrees": [
+          0,
+          -20,
+          0
+        ]
+      },
+      {
+        "name": "External",
+        "degrees": [
+          0,
+          0,
+          30
+        ]
+      },
+      {
+        "name": "Internal",
+        "degrees": [
+          0,
+          0,
+          -25
+        ]
+      },
+      {
+        "name": "FlexAbduction",
+        "degrees": [
+          60,
+          25,
+          0
+        ]
+      },
+      {
+        "name": "FlexExternal",
+        "degrees": [
+          60,
+          0,
+          25
+        ]
+      }
+    ],
+    "provenance": "Family engineering targets within current hip control bounds; not clinical limits. Source driver lookup is reference validated, never display-name-only.",
+    "source_target": "!Bend Fix"
   }
 }

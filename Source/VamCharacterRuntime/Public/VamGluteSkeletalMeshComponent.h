@@ -1,6 +1,7 @@
 #pragma once
 #include "VamBreastSkeletalMeshComponent.h"
 #include "VamGluteStructure.h"
+#include "VamGluteCorrectiveProfile.h"
 #include "VamGluteSkeletalMeshComponent.generated.h"
 
 UCLASS()
@@ -25,4 +26,15 @@ public:
     TArray<FVamGluteSide> GluteRest;
     UPROPERTY(Transient, BlueprintReadOnly, Category="VaM|Glute Structure") TArray<FVamGluteStructuralState> GluteStates;
     int32 GluteShapeRevision=0;
+    UPROPERTY(Transient) TObjectPtr<UVamGluteCorrectiveProfile> CorrectiveProfile;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Corrective") bool bCorrectiveEnabled=true;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Corrective") bool bShowCorrectiveDelta=false;
+    /** G06 final-rest surface = G05 transforms plus these native morph weights. */
+    UPROPERTY(Transient, BlueprintReadOnly, Category="VaM|Glute Corrective") TMap<FName,float> CorrectiveWeights;
+    TArray<TArray<double>> CorrectiveTargetWeights;
+    TArray<double> CorrectiveRegionalBounds;
+    double CorrectiveMagnitudeBound=0;
+    void ApplyGluteCorrectives();
+    float AppliedCorrectiveWeight(FName Morph) const;
+
 };

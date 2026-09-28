@@ -68,6 +68,7 @@ void UVamGluteSkeletalMeshComponent::FinalizeBoneTransform()
             GluteStates.Add(MoveTemp(State));
         }
     }
+    ApplyGluteCorrectives();
     // Both use final rigid-blended source poses; writes are disjoint. Breast then publishes native buffers.
     Super::FinalizeBoneTransform();
 }
@@ -81,7 +82,10 @@ FString UVamGluteSkeletalMeshComponent::GluteDiagnostics() const
         const auto& S=GluteRest[I];
         Out+=FString::Printf(TEXT("%s effective volume %.2f cm3 COM %s AP/ML/SI %s cm\n"),*S.Side.ToString(),S.EffectiveVolumeCm3,*S.COM.ToCompactString(),*S.Dimensions.ToCompactString());
         if(!GluteStates.IsValidIndex(I)) continue;
-        const auto& State=GluteStates[I];Out+=TEXT("hip flex/abd/external deg ")+State.HipAnglesDegrees.ToCompactString()+TEXT("\n");
+        const auto& State=GluteStates[I];
+        FVector InputAngles=State.HipAnglesDegrees;
+        if(HipPoseState.Sides.IsValidIndex(I)) { const auto& H=HipPoseState.Sides[I];InputAngles=FVector(H.FlexionExtension,H.AbductionAdduction,H.ExternalInternalRotation)*(180./PI); }
+        Out+=TEXT("primary hip flex/abd/external deg ")+InputAngles.ToCompactString()+TEXT("\n");
         Out+=FString::Printf(TEXT("Fold medial/middle/lateral %.3f / %.3f / %.3f | stretch %s | final COM %s\n"),State.FoldState.MedialAnchorFactor,State.FoldState.MiddleTransitionFactor,State.FoldState.LateralFadeFactor,*State.FoldState.StretchState.ToCompactString(),*State.FinalRestCOM.ToCompactString());
         for(int32 J=0;J<S.Regions.Num();++J)
         {
@@ -90,6 +94,16 @@ FString UVamGluteSkeletalMeshComponent::GluteDiagnostics() const
             Out+=FString::Printf(TEXT("%s pelvis/thigh %.3f/%.3f -> %.3f/%.3f | offset %s | passive %.3f | support %.3f\n"),*R.Semantic.ToString(),R.PelvisAttachment,R.ThighAttachment,N.PelvisAttachment,N.ThighAttachment,*(N.Transform.GetLocation()-R.Rest).ToCompactString(),N.Tension,N.Support);
         }
     }
+    if(CorrectiveProfile)
+    {
+        Out+=TEXT("G06 ")+CorrectiveProfile->Provenance+TEXT("\n");
+        for(int32 Side=0;Side<CorrectiveTargetWeights.Num();++Side)
+            for(int32 T=0;T<CorrectiveTargetWeights[Side].Num();++T) if(CorrectiveTargetWeights[Side][T]>.001)
+                Out+=FString::Printf(TEXT("%s %s weight %.4f\n"),Side==0?TEXT("L"):TEXT("R"),*CorrectiveProfile->Targets[T].Name.ToString(),CorrectiveTargetWeights[Side][T]);
+        Out+=FString::Printf(TEXT("Corrective displacement upper bound %.4f cm | regional RMS bounds: "),CorrectiveMagnitudeBound);
+        for(double B:CorrectiveRegionalBounds) Out+=FString::Printf(TEXT("%.4f "),B);Out+=TEXT("\n");
+    }
+    else Out+=TEXT("G06 profile absent: Upgrade Runtime to create corrective geometry.\n");
     return Out;
 }
 void UVamGluteSkeletalMeshComponent::GlutePoseCommand(FName Command)
@@ -102,6 +116,9 @@ void UVamGluteSkeletalMeshComponent::GlutePoseCommand(FName Command)
         const auto& S=GluteProfile->Sides[I];
         FVector Axis=FVector::YAxisVector;double Angle=0;
         if(Command==TEXT("Hip flexion")) Angle=70;
+        if(Command==TEXT("Flexion 30")) Angle=30;
+        if(Command==TEXT("Flexion 60")) Angle=60;
+        if(Command==TEXT("Flexion 90")) Angle=90;
         if(Command==TEXT("Hip extension")) Angle=-20;
         if(Command==TEXT("Abduction")) { Axis=FVector::XAxisVector;Angle=S.SideSign*30; }
         if(Command==TEXT("Adduction")) { Axis=FVector::XAxisVector;Angle=-S.SideSign*20; }

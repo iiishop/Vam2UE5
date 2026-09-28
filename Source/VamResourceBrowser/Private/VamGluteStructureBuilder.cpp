@@ -1,5 +1,6 @@
 #include "VamGluteStructureBuilder.h"
 #include "VamBreastJiggleBuilder.h"
+#include "VamGluteCorrectiveBuilder.h"
 #include "VamBreastWeightUtils.h"
 #include "VamNativeBuilder.h"
 #include "VamGluteStructure.h"
@@ -84,7 +85,7 @@ void Measure(FVamGluteSide& S,const FVamNativeMeshInput& Input,const TArray<FVec
     S.FoldReferences={Lower-FVector(0,S.SideSign*S.Dimensions.Y*.2,0),Lower,Lower+FVector(0,S.SideSign*S.Dimensions.Y*.2,0)};
 }
 }
-UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UVamCharacterDefinition* Source,UVamGluteStructureProfile* P,const FString& FamilyJson,FString& Error)
+UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UVamCharacterDefinition* Source,UVamGluteStructureProfile* P,UVamGluteCorrectiveProfile* Corrective,const FString& FamilyJson,FString& Error)
 {
     Error.Reset();auto Fail=[&](const FString& Why)->UVamCharacterDefinition* { Error=Why;return nullptr; };
     if(!Source || !P) return Fail(TEXT("Missing Glute source/profile"));
@@ -211,6 +212,7 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
     I.Influences.Reset();for(int32 V=0;V<W.Num();++V) for(const auto& F:W[V]) { FVamBuildInfluence R;R.Vertex=V;R.Bone=F.Key;R.Weight=F.Value;I.Influences.Add(R); }
     P->RegionProvenance=FString(HasGluteWeights?TEXT("Glute source skin support present. "):TEXT("Glute source skin support absent: source glute bind landmarks localize pelvis/proximal femur donor evidence. "))+TEXT("Original glute/pelvis/proximal femur weights; actual morph delta support; source triangle adjacency and source-ID seam weld; signed posterior pelvis frame; smooth side/posterior/proximal gates; 8 diffusion passes. Surface-to-pelvis-wall cone volume is an effective proxy. Regional attachments inferred from donor evidence and distances, not measured anatomy.");
     P->SkinWeightIdentity=FMD5::HashAnsiString(*(P->Algorithm+P->SourceTopologyIdentity+Source->SourceDigest));
+    if(!Corrective || !VamGluteCorrectiveBuilder::Build(I,Geometry->InputToSource,*P,*Corrective,FamilyJson,Error)) return nullptr;
     auto* Body=UVamNativeBuilder::BuildMesh(Root+TEXT("/SK_Body"),I,Error);if(!Body) return nullptr;
     auto* Result=Copy(Source,Root+TEXT("/CD_Character"));auto* NewShape=Copy(Shape,Root+TEXT("/SD_Shape"));auto* NewGeometry=Copy(Geometry,Root+TEXT("/GD_Bindings"));
     if(!Result || !NewShape || !NewGeometry) return Fail(TEXT("Glute immutable destination conflict"));

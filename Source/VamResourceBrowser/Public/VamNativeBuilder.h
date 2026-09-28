@@ -29,6 +29,7 @@ struct FVamBuildMorph
     GENERATED_BODY()
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") FName Name;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") TArray<FVector> Deltas;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") TArray<FVector> NormalDeltas;
 };
 USTRUCT(BlueprintType)
 struct FVamNativeMeshInput
