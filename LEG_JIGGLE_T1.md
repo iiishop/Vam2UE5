@@ -86,3 +86,15 @@ A new Restore Leg Defaults button resets these controls and solver history witho
 Additional Shape correction: recompute COM and attachment points from the changed rest geometry, update radial dimensions, and scale node coupling stiffness consistently with node support. Previously these remained at imported values after Shape changes.
 
 The thigh branch fast-forwarded to e4f721a to preserve the previously completed Breast amplitude=2 feature. No runtime asset rebuild or new test character is required.
+
+## Connected hip/leg transition (2026-09-29)
+
+The previous `1-smoothstep(glute_region/0.02)` exclusion eliminated thigh helpers even at tiny hip evidence values. Replaced it with remaining source thigh ownership: hip influence already transferred out of the donor is retained, while remaining thigh weight can contribute to leg dynamics. Proximal/distal joint fades now span 28%/30% of segment length from each endpoint rather than starting inside the segment at 8%/92%. The knee remains structurally supported; no free simulated hinge or soft collision is added.
+
+Hip and thigh helpers now share an eight-influence allocation. Original non-helper influences remain; only the owning primary bone donates to leg helpers. Existing hip-helper total weight and new leg-helper total weight are preserved separately during helper reduction, with at least one slot per group where the legal budget allows. This avoids dropping the thigh layer entirely when a hip transition already uses eight influences. Duplicate source vertices are still welded to identical final weights. Allocation reduces the regional helper basis where slots are scarce, so it is an approximation, not a continuum mechanics guarantee.
+
+After the artistic amplitude, leg output passes through an analytic soft envelope: offset / sqrt(1 + |offset/envelope|²). The envelope is 0.35 of effective radius transversely and 0.18 longitudinally, in the segment frame. This keeps small displacement response approximately unchanged while preventing amplified gravity sag from producing a large localized bulge when prone or side lying. Solver mass, gravity, spring integration, pose tension and velocities are unchanged; debug node positions use the actual bounded output.
+
+This connects skin participation across the hip/thigh boundary; it does not merge the hip and leg solvers or impose cross-segment physical constraints. No visual acceptance is claimed. New algorithm identity `leg-pose-tension-t1-v3-connected` requires a newly generated mesh/profile. The latest Hip upper-region expansion and waist tether are retained.
+
+Delivery: Editor and Game Development compilation succeeded; installed Editor DLLs match build hashes. New committed BP: `/Game/VamRuntime/R_862d0d7a1122e7280277c70e/BP_VamCharacter`. Build, independent reload and publication each exited 0. Builder reported 724 vertices sharing hip and leg influence and zero duplicate-source seam weight difference after welding. Old two runtime bundles moved outside Content to Saved/VamRuntimeCleanup after publication. No visual acceptance or automated dynamics test suite was run.

@@ -72,7 +72,11 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
             const double Value=S.bCalf?CalfAmplitude:ThighAmplitude,Amplitude=FMath::Clamp(FMath::IsFinite(Value)?Value:3.,0.,10.);
             for(int32 N=0;N<5;++N)
             {
-                const auto& Node=Dynamics.Nodes[N];const FVector Offset=bLegJiggleEnabled?LegSolvers[I].Nodes[N].Displacement*Amplitude:FVector::ZeroVector;
+                const auto& Node=Dynamics.Nodes[N];FVector Offset=bLegJiggleEnabled?LegSolvers[I].Nodes[N].Displacement*Amplitude:FVector::ZeroVector;
+                // Bound amplified output smoothly in segment-local geometry. This also
+                // prevents the reference-gravity residual becoming a large static bulge.
+                const FVector Envelope(FMath::Max(.1,S.Radius*.35),FMath::Max(.1,S.Radius*.35),FMath::Max(.1,S.Radius*.18));
+                Offset/=FMath::Sqrt(1+(Offset/Envelope).SizeSquared());
                 Pose[Node.BoneIndex]=FTransform(Node.Rest+Offset)*Anchor;
                 const FVector Rest=Input.Pelvis.TransformPosition(Node.Rest),Position=Input.Pelvis.TransformPosition(Node.Rest+Offset);
                 if(bShowLegNodes){DrawDebugPoint(GetWorld(),Position,7,FColor::Orange,false,0);DrawDebugLine(GetWorld(),Rest,Position,FColor::Magenta,false,0);}
