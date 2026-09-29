@@ -112,7 +112,16 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
     const TSharedPtr<FJsonObject>* SkinPolicy=nullptr;
     if(!(*Map)->TryGetObjectField(TEXT("skin_transfer"),SkinPolicy) || !(*SkinPolicy)->TryGetNumberField(TEXT("maximum_donor_fraction"),P->SkinTransferMaximum) || !(*SkinPolicy)->TryGetNumberField(TEXT("full_region_confidence"),P->SkinTransferFullConfidence) || !FMath::IsFinite(P->SkinTransferMaximum) || P->SkinTransferMaximum<=0 || P->SkinTransferMaximum>.85 || !FMath::IsFinite(P->SkinTransferFullConfidence) || P->SkinTransferFullConfidence<=0 || P->SkinTransferFullConfidence>1)
         return Fail(TEXT("Unsupported glute skin transfer policy: require bounded family confidence/participation mapping"));
-    P->SchemaVersion=2;P->RefinementVersion=1;P->Algorithm=TEXT("glute-structure-g05-surface-v3");
+    double SuperiorExtent=2.5,SuperiorFade=1.,SuperiorEvidence=2.;
+    const TSharedPtr<FJsonObject>* UpperPolicy=nullptr;
+    if((*Map)->TryGetObjectField(TEXT("superior_transition"),UpperPolicy))
+    {
+        if(!(*UpperPolicy)->TryGetNumberField(TEXT("extent_sigma"),SuperiorExtent) || !(*UpperPolicy)->TryGetNumberField(TEXT("fade_sigma"),SuperiorFade) || !(*UpperPolicy)->TryGetNumberField(TEXT("evidence_sigma"),SuperiorEvidence)
+            || !FMath::IsFinite(SuperiorExtent) || !FMath::IsFinite(SuperiorFade) || !FMath::IsFinite(SuperiorEvidence)
+            || SuperiorExtent<2.5 || SuperiorExtent>4 || SuperiorFade<1 || SuperiorFade>2 || SuperiorEvidence<2 || SuperiorEvidence>3)
+            return Fail(TEXT("Invalid superior glute transition family policy"));
+    }
+    P->SchemaVersion=2;P->RefinementVersion=1;P->Algorithm=TEXT("glute-structure-g05-surface-v4-upper");
     P->SourceTopologyIdentity=Geometry->TopologyDigest;P->SkeletonFamily=Family->GetStringField(TEXT("family"));P->SourceBoneCount=I.Bones.Num();P->Sides.Reset();
     auto Bone=[&](const TCHAR* Key)->int32 { FString Name;if(!(*Map)->TryGetStringField(Key,Name)) return INDEX_NONE;return I.Bones.IndexOfByPredicate([&](const FVamBuildBone& B){return B.Name==FName(*Name);}); };
     const int32 Pelvis=Bone(TEXT("pelvis")),Superior=Bone(TEXT("superior"));
@@ -172,11 +181,14 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
         for(int32 V=0;V<I.Vertices.Num();++V)
         {
             const FVector L=Anchor.InverseTransformPosition(I.Vertices[V]);const double G=Seeds[V],T=W[V].FindRef(S.ThighBone),PW=W[V].FindRef(Pelvis);
-            const double Nearby=FMath::Exp(-.5*((L-Mean)/(Spread*2)).SizeSquared());
+            FVector EvidenceScale=Spread*2;
+            // Extend only the superior evidence tail, preserving side/posterior and inferior gates.
+            if(L.Z>Mean.Z) EvidenceScale.Z=Spread.Z*SuperiorEvidence;
+            const double Nearby=FMath::Exp(-.5*((L-Mean)/EvidenceScale).SizeSquared());
             const double PosteriorGate=Smooth(L.X/FMath::Max(.1,Mean.X*.6));
             const double SideGate=Smooth(S.SideSign*L.Y/FMath::Max(.1,FMath::Abs(Mean.Y)*.45));
             const double Inferior=Smooth((L.Z-(Mean.Z-Spread.Z*2-FemurLength*.05))/FMath::Max(.1,Spread.Z));
-            const double SuperiorGate=Smooth((Mean.Z+Spread.Z*2.5-L.Z)/FMath::Max(.1,Spread.Z));
+            const double SuperiorGate=Smooth((Mean.Z+Spread.Z*SuperiorExtent-L.Z)/FMath::Max(.1,Spread.Z*SuperiorFade));
             Gate[V]=AreaWeights[V]<=1.e-12?0:PosteriorGate*SideGate*Inferior*SuperiorGate*FMath::Clamp(G+(PW+T)*Nearby,0.,1.);
             const double ME=MaxMorph>0?FMath::Sqrt(MorphEvidence[V]/MaxMorph):0;
             S.RegionWeights[V]=Gate[V]*FMath::Clamp(G*2+Nearby*(PW*.35+T*.15)+ME*.25,0.,1.);
@@ -235,7 +247,8 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
     I.Influences.Reset();for(int32 V=0;V<W.Num();++V) for(const auto& F:W[V]) { FVamBuildInfluence R;R.Vertex=V;R.Bone=F.Key;R.Weight=F.Value;I.Influences.Add(R); }
     P->RegionProvenance=FString(HasGluteWeights?TEXT("Glute source skin support present. "):TEXT("Glute source skin support absent: source glute bind landmarks localize pelvis/proximal femur donor evidence. "))+TEXT("Surface-area quadrature; unused vertices excluded; original glute/pelvis/proximal femur weights; actual morph delta support; source triangle adjacency and source-ID seam weld; signed posterior pelvis frame; smooth side/posterior/proximal gates; 8 diffusion passes. Surface-to-pelvis-wall cone volume is an effective proxy. Regional attachments inferred from donor evidence and distances, not measured anatomy.");
     P->RegionProvenance+=TEXT(" Skin participation uses family smooth confidence mapping; donor maximum and full confidence serialized in profile; original donor support retained.");
-    P->SkinWeightIdentity=FMD5::HashAnsiString(*(P->Algorithm+P->SourceTopologyIdentity+Source->SourceDigest+FString::Printf(TEXT("|%.17g|%.17g"),P->SkinTransferMaximum,P->SkinTransferFullConfidence)));
+    P->RegionProvenance+=FString::Printf(TEXT(" Superior transition: extent %.3f sigma, fade %.3f sigma, evidence %.3f sigma; measured source-weight spread, posterior/pelvis donor gates retained."),SuperiorExtent,SuperiorFade,SuperiorEvidence);
+    P->SkinWeightIdentity=FMD5::HashAnsiString(*(P->Algorithm+P->SourceTopologyIdentity+Source->SourceDigest+FMD5::HashAnsiString(*FamilyJson)+FString::Printf(TEXT("|%.17g|%.17g"),P->SkinTransferMaximum,P->SkinTransferFullConfidence)));
     if(!Corrective || !VamGluteCorrectiveBuilder::Build(I,OriginalInfluences,Geometry->InputToSource,*P,*Corrective,FamilyJson,Error)) return nullptr;
     auto* Body=UVamNativeBuilder::BuildMesh(Root+TEXT("/SK_Body"),I,Error);if(!Body) return nullptr;
     auto* Result=Copy(Source,Root+TEXT("/CD_Character"));auto* NewShape=Copy(Shape,Root+TEXT("/SD_Shape"));auto* NewGeometry=Copy(Geometry,Root+TEXT("/GD_Bindings"));

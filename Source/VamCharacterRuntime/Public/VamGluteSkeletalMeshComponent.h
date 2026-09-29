@@ -14,6 +14,8 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bGluteJiggleEnabled=true;
     /** Presentation gain on the final secondary offset, independent of physical calibration. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle", meta=(ClampMin="0", ClampMax="10")) double GluteAmplitude=3.;
+    /** Fade secondary motion toward the upper pelvic/waist attachment; 0 restores legacy gain. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle",meta=(ClampMin="0",ClampMax="1")) double GluteWaistTether=.85;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteSupport=.45;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteDamping=.65;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteMobility=2.;

@@ -47,6 +47,7 @@ def run():
         if family_policy.is_file():
             current_family=json.loads(family_policy.read_text(encoding='utf8'))
             if receipt['family']['family']==current_family['family']:
+                if 'superior_transition' in current_family['glute_structure']: receipt['family']['glute_structure']['superior_transition']=current_family['glute_structure']['superior_transition']
                 receipt['family']['glute_corrective']=current_family['glute_corrective']
                 if 'leg_jiggle' in current_family: receipt['family']['leg_jiggle']=current_family['leg_jiggle']
         family_file = Path(u.Paths.project_saved_dir()).resolve()/'VamRuntimeUpgrade/Policies'/('family-'+digest(receipt['family'])+'.json')
