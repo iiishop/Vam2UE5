@@ -9,8 +9,8 @@ TSharedRef<SWidget> GluteJiggleControls()
     for(int32 I=0;I<6;++I) Box->AddSlot().AutoHeight()[SNew(SCheckBox).IsChecked_Lambda([Body,Flag,I](){auto* B=Body();return B && Flag(B,I)?ECheckBoxState::Checked:ECheckBoxState::Unchecked;}).OnCheckStateChanged_Lambda([Body,Flag,I](ECheckBoxState S){if(auto* B=Body()) Flag(B,I)=S==ECheckBoxState::Checked;})[SNew(STextBlock).Text(FText::FromString(Names[I]))]];
     auto Advanced=SNew(SVerticalBox);
     Box->AddSlot().AutoHeight()[SNew(SHorizontalBox)
-        +SHorizontalBox::Slot().FillWidth(.65)[SNew(STextBlock).Text(FText::FromString(TEXT("Amplitude · 臀部动态幅度（默认 3 倍）")))]
-        +SHorizontalBox::Slot().FillWidth(.35)[SNew(SNumericEntryBox<double>).MinValue(0.).MaxValue(10.).MinSliderValue(0.).MaxSliderValue(10.).Value_Lambda([Body]()->TOptional<double>{auto* B=Body();return B?B->GluteAmplitude:3.;}).OnValueChanged_Lambda([Body](double X){if(auto* B=Body()) B->GluteAmplitude=X;})]];
+        +SHorizontalBox::Slot().FillWidth(.65)[SNew(STextBlock).Text(FText::FromString(TEXT("Strength · 臀部强度（默认 1 = 旧 1.5）")))]
+        +SHorizontalBox::Slot().FillWidth(.35)[SNew(SNumericEntryBox<double>).MinValue(0.).MaxValue(10.).MinSliderValue(0.).MaxSliderValue(10.).Value_Lambda([Body]()->TOptional<double>{auto* B=Body();return B?B->GluteAmplitude:1.;}).OnValueChanged_Lambda([Body](double X){if(auto* B=Body()) B->GluteAmplitude=X;})]];
     Box->AddSlot().AutoHeight()[SNew(SHorizontalBox)
         +SHorizontalBox::Slot().FillWidth(.65)[SNew(STextBlock).Text(FText::FromString(TEXT("Upper Tether · 上缘差异约束")))]
         +SHorizontalBox::Slot().FillWidth(.35)[SNew(SNumericEntryBox<double>).MinValue(0.).MaxValue(1.)

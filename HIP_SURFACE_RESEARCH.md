@@ -61,3 +61,7 @@ The intermediate lower-envelope candidate is superseded: total participation is 
 - Evidence: Saved/LegJiggleT1/PrimaryGeodesic4, Saved/LegJiggleT1/SecondaryGeodesic4 and Saved/HipAsymmetry/final-evidence.json.
 - Five installed Editor binary/module files SHA256-matched host build. Latest backup: I:/Document/UE5/SmartNPC/Saved/HipGeodesicFinalBackup/20260929-231932.
 - No new automation test suite, cook or visual acceptance was performed. Engineering evidence must not be presented as proof that all visible folds are eliminated.
+
+## Accepted default strength (2026-09-29)
+
+User accepted the surface revision and requested the former Amplitude 1.5 to become the new unit/default. GluteAmplitude now defaults to 1; runtime effective displacement multiplier is 1.5 * GluteAmplitude (UI strength bounded 0..10). The debug label explains the new unit and surface audit records both displayed strength and effective amplitude. Existing explicitly overridden instance values are not rewritten; set Strength to 1 to use the accepted default. No mesh/profile regeneration is required.

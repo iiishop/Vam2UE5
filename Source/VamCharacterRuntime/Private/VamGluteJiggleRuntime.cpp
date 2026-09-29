@@ -22,7 +22,8 @@ void UVamGluteSkeletalMeshComponent::ApplyGluteJiggle()
     const bool Paused=GetWorld()->IsPaused() || (Motion && Motion->GetClock().bPaused);
     const bool Reset=Teleport!=GluteLastTeleport || bGluteWasEnabled!=bGluteJiggleEnabled;
     auto& Pose=GetEditableComponentSpaceTransforms();GluteDynamics.SetNum(2);
-    const double Amplitude=FMath::Clamp(FMath::IsFinite(GluteAmplitude)?GluteAmplitude:3.,0.,10.);
+    // User strength 1 is the accepted former amplitude 1.5.
+    const double Amplitude=1.5*FMath::Clamp(FMath::IsFinite(GluteAmplitude)?GluteAmplitude:1.,0.,10.);
     for(int32 I=0;I<2;++I)
     {
         const auto& S=GluteRest[I];const auto& Structural=GluteStates[I];auto& Solver=GluteSolvers[I];auto& R=GluteDynamics[I];R=VamGluteDynamics::Calibrate(*GluteJiggleProfile,S,Structural);
@@ -88,7 +89,7 @@ FString UVamGluteSkeletalMeshComponent::GluteJiggleDiagnostics() const
     Text+=GluteJiggleProfile->bBilateralMaterialCalibration?TEXT("Bilateral material: shared k/m and normalized travel; independent shape/pose/state.\n"):TEXT("Legacy independent material calibration.\n");
     Text+=FString::Printf(TEXT("Upper residual tether %.2f: common motion preserved.\n"),GluteWaistTether);
     Text+=FString::Printf(TEXT("Coherence %.2f: 0 = independent regional output, 1 = common translation.\n"),GluteCoherence);
-    Text+=FString::Printf(TEXT("Amplitude %.2fx：最终 helper 动态位移倍率；下方 offset / travel 为未放大的 solver 状态。\n"),GluteAmplitude);
+    Text+=FString::Printf(TEXT("Strength %.2fx（1 = 旧 Amplitude 1.5）：最终 helper 动态位移强度；下方 offset / travel 为未放大的 solver 状态。\n"),GluteAmplitude);
     if(GluteJiggleProfile->SchemaVersion<2) Text+=TEXT("旧 G1 重力契约：Upgrade Runtime required。当前资产保留旧行为；仅更新 DLL 不会升级 Profile。\n");
     Text+=bGluteGravityOverride?TEXT("Gravity override：仅当前人物 Glute solver；不修改场景、Breast 或项目重力。\n"):TEXT("Gravity Default：使用当前 World gravity。\n");
     if(GluteProfile && GluteProfile->Algorithm!=TEXT("glute-structure-g05-surface-v3"))

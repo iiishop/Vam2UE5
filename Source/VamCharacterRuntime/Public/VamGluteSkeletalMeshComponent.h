@@ -14,7 +14,7 @@ public:
     UPROPERTY(Transient) TObjectPtr<UVamGluteJiggleProfile> GluteJiggleProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bGluteJiggleEnabled=true;
     /** Presentation gain on the final secondary offset, independent of physical calibration. */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle", meta=(ClampMin="0", ClampMax="10")) double GluteAmplitude=3.;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle", meta=(ClampMin="0", ClampMax="10")) double GluteAmplitude=1.;
     /** Constrain upper regional residual only; common glute motion is preserved. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle",meta=(ClampMin="0",ClampMax="1")) double GluteWaistTether=.85;
     /** Blend regional output toward the mass-weighted common displacement. */
