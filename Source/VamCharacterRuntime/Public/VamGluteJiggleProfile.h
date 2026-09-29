@@ -44,12 +44,26 @@ struct VAMCHARACTERRUNTIME_API FVamGluteDynamicSide
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") TArray<FVamGluteDynamicNode> Nodes;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") TArray<FVamGluteDynamicEdge> Couplings;
 };
+/** Tangent gradients of final, quantized helper skin weights on one source triangle. */
+USTRUCT()
+struct FVamGluteSurfaceGradient
+{
+    GENERATED_BODY()
+    UPROPERTY() int32 Side=0;
+    UPROPERTY() TArray<FVector2D> WeightGradients;
+};
 /** Immutable calibration; mutable particles and histories belong to the component. */
 UCLASS(BlueprintType)
 class VAMCHARACTERRUNTIME_API UVamGluteJiggleProfile : public UDataAsset
 {
     GENERATED_BODY()
 public:
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") int32 SurfaceGuardVersion=0;
+    /** Shared dimensionless material calibration; geometry, pose and states remain independent. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") bool bBilateralMaterialCalibration=false;
+    UPROPERTY() TArray<FVamGluteSurfaceGradient> SurfaceGradients;
+    // Bounds regional residual only; common motion is retained.
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") double SurfaceGradientBudget=.2;
     // Keep schema 1 as the CDO default so old serialized assets retain their gravity contract.
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FVector AuthoredGravityWorld=FVector::ZeroVector;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") int32 SchemaVersion=1;

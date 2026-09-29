@@ -15,3 +15,13 @@ Family policy `glute_structure.superior_transition`: extent_sigma=3.5 (previous 
 This is a body-surface glute coverage approximation; the source has no internal muscle segmentation and does not establish coverage of the entire anatomical gluteus maximus. Profile provenance records the policy, and skin identity includes family JSON. Builder algorithm is `glute-structure-g05-surface-v4-upper`. Upgrade refreshes this family policy and builds a new immutable output. A new generated BP is required because mesh weights change. Waist Tether remains available for upper support.
 
 Delivery: Editor compiled and DLL installation hashes matched. New BP `/Game/VamRuntime/R_a3e162d37e0419cbf724624b/BP_VamCharacter` completed build, independent reload and publication (all exit 0). Read-only profile inspection shows region-weight >0.01 vertex counts L 534→573, R 559→602; at >0.1, L 291→308 and R 292→316. These counts are coverage diagnostics, not an anatomical or visual acceptance result. Reports: `Saved/LegJiggleT1/PrimaryUpperGlute/`. The previous BP remains available for comparison.
+
+## Superseding fix: coherent whole-glute output
+
+The earlier upper fade suppressed the entire Upper displacement by 85% at default, which could make the upper half appear anchored while the lower half moved. It is replaced by a common/residual decomposition. For each side, compute the mass-weighted mean solver displacement d_common and relative velocity. Output node displacement is:
+
+`Amplitude * (d_common + (1-Coherence) * (1-WaistTether*smoothstep(u)) * (d_node-d_common))`.
+
+Default Coherence=0.75, upper residual tether=0.85. Common translation is never attenuated by the upper tether. At uniform node displacement, every helper receives precisely the same amplified displacement. At Coherence=1 every helper receives common translation while existing pose-dependent structural transforms remain. At Coherence=0 and tether=0 output is the original independent-node amplification. This changes final bone presentation, not solver forces, mass, or physical energy. The displayed velocity uses the same decomposition. No independent free angular mode is added.
+
+Panel: `Coherence · 臀部整体联动` and renamed `Upper Tether · 上缘差异约束`. The original waist-tether instructions above are historical and superseded: this control now limits relative deformation only. Existing latest BP does not require regeneration. Preserves upper coverage, hip/leg transition weights, Breast gain and Leg ring-down. Visual confirmation remains manual.

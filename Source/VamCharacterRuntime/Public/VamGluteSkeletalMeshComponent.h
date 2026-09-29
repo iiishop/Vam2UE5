@@ -10,12 +10,15 @@ class VAMCHARACTERRUNTIME_API UVamGluteSkeletalMeshComponent : public UVamBreast
 {
     GENERATED_BODY()
 public:
+    double GluteSurfaceScale[2]={1,1};
     UPROPERTY(Transient) TObjectPtr<UVamGluteJiggleProfile> GluteJiggleProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bGluteJiggleEnabled=true;
     /** Presentation gain on the final secondary offset, independent of physical calibration. */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle", meta=(ClampMin="0", ClampMax="10")) double GluteAmplitude=3.;
-    /** Fade secondary motion toward the upper pelvic/waist attachment; 0 restores legacy gain. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle", meta=(ClampMin="0", ClampMax="10")) double GluteAmplitude=1.;
+    /** Constrain upper regional residual only; common glute motion is preserved. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle",meta=(ClampMin="0",ClampMax="1")) double GluteWaistTether=.85;
+    /** Blend regional output toward the mass-weighted common displacement. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle",meta=(ClampMin="0",ClampMax="1")) double GluteCoherence=.75;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteSupport=.45;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteDamping=.65;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteMobility=2.;

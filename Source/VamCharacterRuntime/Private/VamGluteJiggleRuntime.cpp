@@ -22,7 +22,8 @@ void UVamGluteSkeletalMeshComponent::ApplyGluteJiggle()
     const bool Paused=GetWorld()->IsPaused() || (Motion && Motion->GetClock().bPaused);
     const bool Reset=Teleport!=GluteLastTeleport || bGluteWasEnabled!=bGluteJiggleEnabled;
     auto& Pose=GetEditableComponentSpaceTransforms();GluteDynamics.SetNum(2);
-    const double Amplitude=FMath::Clamp(FMath::IsFinite(GluteAmplitude)?GluteAmplitude:3.,0.,10.);
+    // User strength 1 is the accepted former amplitude 1.5.
+    const double Amplitude=1.5*FMath::Clamp(FMath::IsFinite(GluteAmplitude)?GluteAmplitude:1.,0.,10.);
     for(int32 I=0;I<2;++I)
     {
         const auto& S=GluteRest[I];const auto& Structural=GluteStates[I];auto& Solver=GluteSolvers[I];auto& R=GluteDynamics[I];R=VamGluteDynamics::Calibrate(*GluteJiggleProfile,S,Structural);
@@ -31,23 +32,50 @@ void UVamGluteSkeletalMeshComponent::ApplyGluteJiggle()
         const FVector Gravity=bGluteGravityOverride?GluteDebugGravityWorld:FVector(0,0,GetWorld()->GetGravityZ());
         if(bGluteJiggleEnabled) Solver.Advance(*GluteJiggleProfile,R,M,Dt,Gravity,GetGluteTuning(),Reset,Paused,bGluteShapeRebase);
         else Solver.Reset();
-        // Source structural geometry defines the upper attachment direction.
-        // A smooth fade anchors the waist without reducing the core/lower gain.
+        // Decompose output into whole-glute translation and regional residual.
+        // The upper attachment may constrain residual motion, never the common mode.
+        FVector Common=FVector::ZeroVector,CommonVelocity=FVector::ZeroVector;double TotalMass=0;
+        for(int32 N=0;N<5;++N)
+        {
+            const double Mass=R.Nodes[N].MassKg;
+            Common+=Solver.Nodes[N].Displacement*Mass;CommonVelocity+=Solver.Nodes[N].RelativeVelocity*Mass;TotalMass+=Mass;
+        }
+        if(TotalMass>1.e-12){Common/=TotalMass;CommonVelocity/=TotalMass;}
+        const double Coherence=FMath::Clamp(FMath::IsFinite(GluteCoherence)?GluteCoherence:.75,0.,1.);
         const FVector UpperSpan=S.Regions[1].Rest-S.Regions[0].Rest;
         const double SpanSquared=UpperSpan.SizeSquared();
         const double Waist=FMath::Clamp(FMath::IsFinite(GluteWaistTether)?GluteWaistTether:.85,0.,1.);
+        FVector OutputOffsets[5],OutputVelocities[5];
         for(int32 N=0;N<5;++N)
         {
-            const auto& Node=R.Nodes[N];const auto& Dynamic=Solver.Nodes[N];auto Local=Structural.Regions[N].Transform;
             const double U=SpanSquared>1.e-8?FMath::Clamp(FVector::DotProduct(S.Regions[N].Rest-S.Regions[0].Rest,UpperSpan)/SpanSquared,0.,1.):0.;
-            const double OutputGain=Amplitude*(1-Waist*U*U*(3-2*U));
-            const FVector Offset=bGluteJiggleEnabled?Dynamic.Displacement*OutputGain:FVector::ZeroVector;Local.AddToTranslation(Offset);Pose[Node.BoneIndex]=Local*AnchorCS;
+            const double Gain=(1-Coherence)*(1-Waist*U*U*(3-2*U));
+            OutputOffsets[N]=(Common+(Solver.Nodes[N].Displacement-Common)*Gain)*Amplitude;
+            OutputVelocities[N]=(CommonVelocity+(Solver.Nodes[N].RelativeVelocity-CommonVelocity)*Gain)*Amplitude;
+        }
+        // Evaluate only the reduced skinning gradient, never CPU-skin the full mesh.
+        // Bound regional residual only. Common translation is the intended jiggle mode;
+        // its weight-boundary gradient must not attenuate the entire side.
+        double MaxGradient=0;
+        for(const auto& G:GluteJiggleProfile->SurfaceGradients) if(G.Side==I && G.WeightGradients.Num()==5)
+        {
+            FVector DX=FVector::ZeroVector,DY=FVector::ZeroVector;
+            for(int32 N=0;N<5;++N){const FVector Residual=OutputOffsets[N]-Common*Amplitude;DX+=Residual*G.WeightGradients[N].X;DY+=Residual*G.WeightGradients[N].Y;}
+            MaxGradient=FMath::Max(MaxGradient,FMath::Sqrt(DX.SizeSquared()+DY.SizeSquared()));
+        }
+        const double Budget=FMath::Max(.01,GluteJiggleProfile->SurfaceGradientBudget);
+        GluteSurfaceScale[I]=1/FMath::Pow(1+FMath::Pow(MaxGradient/Budget,4),.25);
+        for(int32 N=0;N<5;++N)
+        {
+            const auto& Node=R.Nodes[N];auto Local=Structural.Regions[N].Transform;
+            const FVector Offset=bGluteJiggleEnabled?(Common*Amplitude+(OutputOffsets[N]-Common*Amplitude)*GluteSurfaceScale[I]):FVector::ZeroVector;
+            Local.AddToTranslation(Offset);Pose[Node.BoneIndex]=Local*AnchorCS;
             const FVector Rest=M.Pelvis.TransformPosition(Node.Rest),Position=M.Pelvis.TransformPosition(Local.GetLocation());
             if(bShowGluteDynamicNodes) DrawDebugPoint(GetWorld(),Position,7,FColor::Orange,false,0);
             if(bShowGluteRestDynamic) { DrawDebugPoint(GetWorld(),Rest,5,FColor::Cyan,false,0);DrawDebugLine(GetWorld(),Rest,Position,FColor::Magenta,false,0,0,1); }
             if(bShowGluteDynamicPelvis) DrawDebugLine(GetWorld(),M.Pelvis.TransformPosition(Node.PelvisPoint),Position,FColor::Green,false,0);
             if(bShowGluteDynamicThigh) DrawDebugLine(GetWorld(),M.Thigh.TransformPosition(Node.ThighPointLocal),Position,FColor::Yellow,false,0);
-            if(bShowGluteVelocity) DrawDebugLine(GetWorld(),Position,Position+M.Pelvis.TransformVectorNoScale(Dynamic.RelativeVelocity)*(.05*OutputGain),FColor::Red,false,0);
+            if(bShowGluteVelocity) DrawDebugLine(GetWorld(),Position,Position+M.Pelvis.TransformVectorNoScale(CommonVelocity*Amplitude+(OutputVelocities[N]-CommonVelocity*Amplitude)*GluteSurfaceScale[I])*.05,FColor::Red,false,0);
         }
     }
     GluteLastTime=Now;GluteLastTeleport=Teleport;bGluteWasEnabled=bGluteJiggleEnabled;bGluteShapeRebase=false;
@@ -56,8 +84,12 @@ FString UVamGluteSkeletalMeshComponent::GluteJiggleDiagnostics() const
 {
     if(!GluteJiggleProfile) return TEXT("G1 profile absent: Upgrade Runtime to a new output.");
     FString Text=GluteJiggleProfile->Algorithm+TEXT(" | ")+GluteJiggleProfile->GetPathName()+TEXT("\n");
-    Text+=FString::Printf(TEXT("Waist tether %.2f: smooth upper-attachment output fade; 0 = legacy.\n"),GluteWaistTether);
-    Text+=FString::Printf(TEXT("Amplitude %.2fx：最终 helper 动态位移倍率；下方 offset / travel 为未放大的 solver 状态。\n"),GluteAmplitude);
+    Text+=FString::Printf(TEXT("Surface data v%d | residual L/R gain %.3f / %.3f | %d gradients | common motion 100%%\n"),GluteJiggleProfile->SurfaceGuardVersion,GluteSurfaceScale[0],GluteSurfaceScale[1],GluteJiggleProfile->SurfaceGradients.Num());
+    if(!GluteJiggleProfile->SurfaceGuardVersion) Text+=TEXT("Upgrade Runtime for regional residual gradient protection.\n");
+    Text+=GluteJiggleProfile->bBilateralMaterialCalibration?TEXT("Bilateral material: shared k/m and normalized travel; independent shape/pose/state.\n"):TEXT("Legacy independent material calibration.\n");
+    Text+=FString::Printf(TEXT("Upper residual tether %.2f: common motion preserved.\n"),GluteWaistTether);
+    Text+=FString::Printf(TEXT("Coherence %.2f: 0 = independent regional output, 1 = common translation.\n"),GluteCoherence);
+    Text+=FString::Printf(TEXT("Strength %.2fx（1 = 旧 Amplitude 1.5）：最终 helper 动态位移强度；下方 offset / travel 为未放大的 solver 状态。\n"),GluteAmplitude);
     if(GluteJiggleProfile->SchemaVersion<2) Text+=TEXT("旧 G1 重力契约：Upgrade Runtime required。当前资产保留旧行为；仅更新 DLL 不会升级 Profile。\n");
     Text+=bGluteGravityOverride?TEXT("Gravity override：仅当前人物 Glute solver；不修改场景、Breast 或项目重力。\n"):TEXT("Gravity Default：使用当前 World gravity。\n");
     if(GluteProfile && GluteProfile->Algorithm!=TEXT("glute-structure-g05-surface-v3"))

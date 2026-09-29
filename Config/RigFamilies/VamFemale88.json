@@ -5730,6 +5730,7 @@
     "left_toe": "lToe",
     "right_toe": "rToe",
     "skin_transfer": 0.65,
+    "hip_surface_transition": {"width_fraction": 0.35, "core_fraction": 0.65},
     "thigh_regions": [
       {
         "name": "RectusFemoris",
