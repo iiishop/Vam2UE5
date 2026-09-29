@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "target": "!Bend Fix",
+  "reason": "Verified thigh-average driver to target morph to source vertex deltas; localized and pose-space adapted, not exact VaM runtime reproduction",
+  "source_hashes": {
+    "VaM_Data/StreamingAssets/a_per": "57fa0ea1b9992aa8397ee4cde9ab6f24d7bb38227c49fcdd2230a378c21b8e35",
+    "VaM_Data/StreamingAssets/f_mb": "f7402f626fe759ed94e93683da53d4ab7bbe2b3be98d60e8acdde7f140693978"
+  },
+  "topology_mapping": {
+    "replay": "source Boundary graft replay",
+    "target": "-9044083248675462886",
+    "graft": "-2430897016803086942",
+    "raw_count": 266,
+    "mapped_count": 1664,
+    "raw_visible_count": 266,
+    "mapped_visible_count": 1626,
+    "method": "Boundary",
+    "vertices": 1452,
+    "boundary_pairs": 92
+  },
+  "reference_scope": "DAZSkinV2 CPU bilateral isolated thigh-X equation replay before post-skin smoothing/physics; not captured VaM render truth"
+}

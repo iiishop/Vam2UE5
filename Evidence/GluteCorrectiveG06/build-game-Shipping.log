@@ -1,0 +1,26 @@
+Using bundled DotNet SDK version: 10.0 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" UnrealGame Win64 Shipping -Project=I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\HostProject.uproject -plugin=I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\VamResourceBrowser.uplugin -NoUBA -NoHotReload -gather
+Log file: C:\Users\Administrator\AppData\Local\UnrealBuildTool\Log.txt
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+Building UnrealGame...
+===== Toolchain Information =====
+Using ISPC compiler (I:\Program\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (E:\Windows Kits\10).
+[Adaptive Build] Excluded from VamCharacterRuntime unity file: VamActivePoseComponent.cpp, VamBreastCalibratedSolver.cpp, VamBreastCalibration.cpp, VamBreastDebugTrajectory.cpp, VamBreastSkeletalMeshComponent.cpp, VamBreastSolver.cpp, VamCharacterActor.cpp, VamCharacterComponent.cpp, VamCharacterRuntime.cpp, VamGluteCorrectiveProfile.cpp, VamGluteCorrectiveRuntime.cpp, VamGlutePoseRefinement.cpp, VamGluteSkeletalMeshComponent.cpp, VamGluteStructure.cpp, VamInteractionComponent.cpp, VamMotionComponent.cpp, VamPhysicsOutputComponent.cpp, VamPhysicsShapeProfile.cpp, VamPreviewTool.cpp, VamShapeAnimInstance.cpp, VamShapeTestPanel.cpp, VamStage06AcceptanceActor.cpp, VamStage07CompositionProbe.cpp, VamBreastCalibrationTests.cpp, VamBreastSolverTests.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 2 action(s)
+  CPU 10 physical cores, 16 logical cores
+  Memory 39.82 GB physical, 39.02 GB/95.64 GB committed
+  UBA Storage capacity 40 GB
+[1/2] Compile [x64] VamGluteCorrectiveProfile.cpp [NoUba]
+[2/2] Compile [x64] VamGluteSkeletalMeshComponent.cpp [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 10.51 seconds
+Output binary: I:\Program\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealGame-Win64-Shipping.exe
+
+Result: Succeeded
+Total execution time: 11.44 seconds
+Trace written to file C:\Users\Administrator\AppData\Local\UnrealBuildTool\Trace.uba with size 4.1kb

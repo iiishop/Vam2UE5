@@ -40,6 +40,14 @@ def run():
             current_family=json.loads(family_policy.read_text(encoding='utf8'))
             if receipt['family']['family']==current_family['family']:
                 receipt['family']['breast_jiggle']=current_family['breast_jiggle']
+        if 'glute_structure' not in receipt['family'] and family_policy.is_file():
+            current_family=json.loads(family_policy.read_text(encoding='utf8'))
+            if receipt['family']['family']==current_family['family']:
+                receipt['family']['glute_structure']=current_family['glute_structure']
+        if family_policy.is_file():
+            current_family=json.loads(family_policy.read_text(encoding='utf8'))
+            if receipt['family']['family']==current_family['family']:
+                receipt['family']['glute_corrective']=current_family['glute_corrective']
         family_file = Path(u.Paths.project_saved_dir()).resolve()/'VamRuntimeUpgrade/Policies'/('family-'+digest(receipt['family'])+'.json')
         family_file.parent.mkdir(parents=True, exist_ok=True)
         family_file.write_text(json.dumps(receipt['family']), encoding='utf8')

@@ -1,4 +1,6 @@
 #include "VamDebugPanel.h"
+#include "VamGluteSurfaceSnapshot.h"
+#include "VamGluteSkeletalMeshComponent.h"
 #include "VamCharacterActor.h"
 #include "VamCharacterComponent.h"
 #include "VamCharacterDefinition.h"
@@ -39,6 +41,7 @@
 #include "Widgets/Input/SButton.h"
 #include "Widgets/Input/SSlider.h"
 #include "Widgets/Input/SSpinBox.h"
+#include "Widgets/Input/SNumericEntryBox.h"
 #include "Widgets/Input/SSearchBox.h"
 #include "Widgets/Layout/SScrollBox.h"
 #include "Widgets/SBoxPanel.h"
@@ -430,6 +433,39 @@ void AddControls(TSharedRef<SVerticalBox> Rows,AVamCharacterActor* Actor,const F
     }
 }
 
+#include "VamGluteJigglePanel.h"
+
+TSharedRef<SWidget> GluteControls()
+{
+    auto Body=[]()->UVamGluteSkeletalMeshComponent* { auto* A=CurrentActor();return A && A->Character ? Cast<UVamGluteSkeletalMeshComponent>(A->Character->Body) : nullptr; };
+    auto Box=SNew(SVerticalBox);
+    auto Flag=[](UVamGluteSkeletalMeshComponent* B,int32 I)->bool& { return I==0?B->bGluteEnabled:I==1?B->bShowGluteRegion:I==2?B->bShowStructuralBones:I==3?B->bShowPelvisAttachments:I==4?B->bShowThighAttachments:I==5?B->bShowPoseTension:I==6?B->bShowFoldSemantics:I==7?B->bCorrectiveEnabled:B->bShowCorrectiveDelta; };
+    const TCHAR* Labels[]={TEXT("Enabled"),TEXT("Show Glute Region"),TEXT("Show Structural Bones"),TEXT("Show Pelvis Attachments"),TEXT("Show Thigh Attachments"),TEXT("Show Pose Tension"),TEXT("Show Fold Semantics"),TEXT("G0.6 Corrective Enabled"),TEXT("Show Corrective Delta")};
+    for(int32 I=0;I<9;++I)
+        Box->AddSlot().AutoHeight()[SNew(SCheckBox).IsChecked_Lambda([Body,Flag,I](){auto* B=Body();return B && Flag(B,I)?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
+            .OnCheckStateChanged_Lambda([Body,Flag,I](ECheckBoxState V){if(auto* B=Body()) Flag(B,I)=V==ECheckBoxState::Checked;})[SNew(STextBlock).Text(FText::FromString(Labels[I]))]];
+    auto Buttons=SNew(SWrapBox).UseAllottedSize(true);
+    for(const TCHAR* Name:{TEXT("Neutral standing"),TEXT("Flexion 30"),TEXT("Flexion 60"),TEXT("Flexion 90"),TEXT("Hip flexion"),TEXT("Hip extension"),TEXT("Abduction"),TEXT("Adduction"),TEXT("External rotation"),TEXT("Internal rotation"),TEXT("Reset")})
+    {
+        const FName Command(Name);Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->GlutePoseCommand(Command);return FReply::Handled();})];
+    }
+    for(int32 I=-1;I<2;++I) Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(I<0?TEXT("Target both"):I==0?TEXT("Target left"):TEXT("Target right"))).OnClicked_Lambda([Body,I](){if(auto* B=Body()) B->DebugGluteSide=I;return FReply::Handled();})];
+    auto Snapshot=MakeShared<FString>();
+    Box->AddSlot().AutoHeight()[SNew(SButton).Text(FText::FromString(TEXT("对比当前姿态：Corrective OFF / ON（15 秒）"))).OnClicked_Lambda([Body,Snapshot](){if(auto* B=Body()) *Snapshot=CaptureGluteSurface(*B);return FReply::Handled();})];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Snapshot](){return FText::FromString(*Snapshot);}).AutoWrapText(true)];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text(FText::FromString(TEXT("查看构建时诊断目标（以下按钮只选择向量，不改变人物姿态）")))];
+    auto Inspect=SNew(SWrapBox).UseAllottedSize(true);
+    const TCHAR* Targets[]={TEXT("Neutral"),TEXT("Flex30"),TEXT("Flex60"),TEXT("Flex90"),TEXT("Extension"),TEXT("Abduction"),TEXT("Adduction"),TEXT("External"),TEXT("Internal"),TEXT("FlexAbduction"),TEXT("FlexExternal")};
+    for(int32 T=1;T<11;++T) Inspect->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(Targets[T])).OnClicked_Lambda([Body,T](){if(auto* B=Body()) B->CorrectiveDiagnosticTarget=T;return FReply::Handled();})];
+    const TCHAR* Stages[]={TEXT("Raw Source"),TEXT("Source Adapted"),TEXT("Procedural"),TEXT("Final"),TEXT("Skinning Residual")};
+    for(int32 T=0;T<5;++T) Inspect->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(Stages[T])).OnClicked_Lambda([Body,T](){if(auto* B=Body()) { B->CorrectiveDiagnosticStage=T;B->bShowCorrectiveDelta=true; }return FReply::Handled();})];
+    Box->AddSlot().AutoHeight()[Inspect];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text(FText::FromString(TEXT("设置人物姿态（以下按钮会摆动选中侧髋关节）")))];
+    Box->AddSlot().AutoHeight()[Buttons];
+    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->GluteDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)];
+    return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Glute Structural Debug - G0.5 / G0.6.2")))].BodyContent()[Box];
+}
+
 TSharedRef<SWidget> BreastControls()
 {
     auto Body=[]()->UVamBreastSkeletalMeshComponent* { auto* A=CurrentActor();return A && A->Character ? Cast<UVamBreastSkeletalMeshComponent>(A->Character->Body) : nullptr; };
@@ -566,6 +602,8 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
             +SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<float>).MinValue(-360.f).MaxValue(360.f).Value_Lambda([](){return BoneRotationAxis(2);}).OnValueChanged_Lambda([](float Value){SetBoneRotationAxis(2,Value);})]
             +SHorizontalBox::Slot().AutoWidth().Padding(6,0)[SNew(SButton).Text(FText::FromString(TEXT("重置此关节"))).OnClicked_Lambda([](){if (PoseSelected()) if (auto* Actor=CurrentActor()) Actor->Character->SetPoseControlRotation(SelectedBone,FRotator::ZeroRotator);return FReply::Handled();})]]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[BreastControls()]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[GluteControls()]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[GluteJiggleControls()]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("Stage06 · 运行时与惯性见证")))]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("暂停/继续见证时钟"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->SetPreviewPaused(!A->Motion->GetClock().bPaused);return FReply::Handled();})]

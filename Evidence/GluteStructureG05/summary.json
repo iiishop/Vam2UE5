@@ -1,0 +1,84 @@
+{
+  "head": "6f159ffed33029f623db8ed9a4141af71a471c21",
+  "branch": "feature/jiggle/hip",
+  "worktree_changes_uncommitted": true,
+  "visual_acceptance": null,
+  "characters": [
+    {
+      "name": "Primary",
+      "blueprint": "/Game/VamRuntime/R_396242bf2a0053ff47f744ed/BP_VamCharacter.BP_VamCharacter",
+      "profile": "/Game/VamRuntime/R_396242bf2a0053ff47f744ed/DA_GluteStructure.DA_GluteStructure",
+      "map": "/Game/GluteStructureEngineering/Empty_396242bf2a00",
+      "tests_passed": 10,
+      "warning_tests": 2,
+      "geometry": [
+        {
+          "side": "L",
+          "volume_cm3": 190.88384641151833,
+          "dimensions": [
+            15.529871085811065,
+            20.34294474619227,
+            12.275981318979808
+          ]
+        },
+        {
+          "side": "R",
+          "volume_cm3": 224.32052950378565,
+          "dimensions": [
+            15.036039484101641,
+            18.502356630316598,
+            10.706534210933379
+          ]
+        }
+      ],
+      "shape_comparison": [
+        "G0_SHAPE_COMPARISON imported 190.883846 changed 300.346523 ratio 1.573452 dimensions X=19.654 Y=24.535 Z=13.374"
+      ],
+      "source_fingerprints_verified": true
+    },
+    {
+      "name": "Secondary",
+      "blueprint": "/Game/VamRuntime/R_186a115985471a688e407bc5/BP_VamCharacter.BP_VamCharacter",
+      "profile": "/Game/VamRuntime/R_186a115985471a688e407bc5/DA_GluteStructure.DA_GluteStructure",
+      "map": "/Game/GluteStructureEngineering/Empty_186a11598547",
+      "tests_passed": 10,
+      "warning_tests": 2,
+      "geometry": [
+        {
+          "side": "L",
+          "volume_cm3": 198.08875694547206,
+          "dimensions": [
+            16.134292192143807,
+            19.95155077420574,
+            11.796109970280389
+          ]
+        },
+        {
+          "side": "R",
+          "volume_cm3": 196.49192467732323,
+          "dimensions": [
+            15.899144252819047,
+            19.76072379631772,
+            11.47600835547578
+          ]
+        }
+      ],
+      "shape_comparison": [
+        "G0_SHAPE_COMPARISON imported 198.088757 changed 429.423848 ratio 2.167836 dimensions X=19.923 Y=26.619 Z=12.796"
+      ],
+      "source_fingerprints_verified": true
+    }
+  ],
+  "installed_tests": true,
+  "legacy_native_test": true,
+  "cook": {
+    "exit_code": 0,
+    "maps": [
+      "/Game/GluteStructureEngineering/Empty_396242bf2a00",
+      "/Game/GluteStructureEngineering/Empty_186a11598547"
+    ],
+    "cooked_packages": 834,
+    "errors": 0,
+    "warnings": 0
+  }
+}

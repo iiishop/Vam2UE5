@@ -1,0 +1,100 @@
+{
+  "devices": [
+    {
+      "deviceName": "SM",
+      "instance": "25BE13314BBFAB9D702C04A558E3C6C5",
+      "instanceName": "SM-49872",
+      "platform": "WindowsEditor",
+      "oSVersion": "Windows 10 (22H2) [10.0.19045.7725] ",
+      "model": "Default",
+      "gPU": "NVIDIA GeForce RTX 4070 Ti",
+      "cPUModel": "12th Gen Intel(R) Core(TM) i5-12600KF",
+      "rAMInGB": 40,
+      "renderMode": "SM6",
+      "rHI": "",
+      "appInstanceLog": ""
+    }
+  ],
+  "reportCreatedOn": "2026.09.28-12.25.12",
+  "succeeded": 0,
+  "succeededWithWarnings": 1,
+  "failed": 0,
+  "notRun": 0,
+  "inProcess": 0,
+  "totalDuration": 1.1823629140853882,
+  "comparisonExported": false,
+  "comparisonExportDirectory": "",
+  "tests": [
+    {
+      "testDisplayName": "NativeRuntime",
+      "fullTestPath": "Vam.Glute.NativeRuntime",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "25BE13314BBFAB9D702C04A558E3C6C5"
+      ],
+      "duration": 1.1823629140853882,
+      "dateTime": "2026.09.28-12.25.11",
+      "entries": [
+        {
+          "event": {
+            "type": "Info",
+            "message": "G0_SHAPE_PARAMETER M_75d9f4791b4ab929c7815039=0.000000 logVolume=0.230654",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.09.28-12.25.12"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "G0_SHAPE_PARAMETER M_084f62446f75d686d71f2f01=1.000000 logVolume=0.222617",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.09.28-12.25.12"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "G0_SHAPE_COMPARISON imported 190.883846 changed 300.346523 ratio 1.573452 dimensions X=19.654 Y=24.535 Z=13.374",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.09.28-12.25.12"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "glute-structure-g05-v1 | deterministic pose function; no Jiggle\nShape revision 43 | pelvis tilt/yaw/roll deg 0.00 / 0.00 / 0.00\nL effective volume 300.35 cm3 COM V(X=12.53, Y=9.24, Z=-14.84) AP/ML/SI V(X=19.65, Y=24.53, Z=13.37) cm\nprimary hip flex/abd/external deg V(Z=30.00)\nFold medial/middle/lateral 0.004 / 0.006 / 0.026 | stretch V(0) | final COM V(X=12.69, Y=9.04, Z=-14.92)\norientation R(P=-0.17, Y=-1.65, R=0.07) | AP/ML/SI support V(X=43.91, Y=43.91, Z=43.91)\nCore pelvis/thigh 0.835/0.165 -> 0.880/0.120 | offset V(X=-0.07, Y=-0.09, Z=-0.03) | passive 0.012 | support 43.907\norientation R(P=-0.11, Y=-0.83, R=0.05) | AP/ML/SI support V(X=113.68, Y=113.68, Z=113.68)\nUpper pelvis/thigh 0.851/0.149 -> 0.889/0.111 | offset V(X=-0.04, Y=-0.05, Z=-0.02) | passive 0.004 | support 113.677\norientation R(P=-0.39, Y=-4.24, R=0.12) | AP/ML/SI support V(X=77.06, Y=77.06, Z=77.06)\nLower pelvis/thigh 0.808/0.192 -> 0.818/0.182 | offset V(X=-0.15, Y=0.11, Z=-0.11) | passive 0.019 | support 77.056\norientation R(P=-0.05, Y=-0.49, R=0.02) | AP/ML/SI support V(X=22.12, Y=22.12, Z=22.12)\nMedial pelvis/thigh 0.841/0.159 -> 0.933/0.067 | offset V(X=-0.02, Y=-0.02, Z=-0.01) | passive 0.030 | support 22.117\norientation R(P=-0.38, Y=-6.32, R=0.14) | AP/ML/SI support V(X=161.15, Y=161.15, Z=161.15)\nLateral pelvis/thigh 0.798/0.202 -> 0.861/0.139 | offset V(X=-0.04, Y=0.38, Z=-0.16) | passive 0.141 | support 161.153\nR effective volume 349.63 cm3 COM V(X=12.86, Y=-8.84, Z=-16.25) AP/ML/SI V(X=20.01, Y=22.25, Z=9.90) cm\nprimary hip flex/abd/external deg V(Z=30.00)\nFold medial/middle/lateral 0.004 / 0.006 / 0.022 | stretch V(0) | final COM V(X=13.01, Y=-8.54, Z=-16.37)\norientation R(P=-0.20, Y=1.67, R=-0.10) | AP/ML/SI support V(X=42.92, Y=42.92, Z=42.92)\nCore pelvis/thigh 0.825/0.175 -> 0.871/0.129 | offset V(X=-0.08, Y=0.10, Z=-0.04) | passive 0.011 | support 42.920\norientation R(P=-0.11, Y=0.83, R=-0.06) | AP/ML/SI support V(X=106.96, Y=106.96, Z=106.96)\nUpper pelvis/thigh 0.849/0.151 -> 0.886/0.114 | offset V(X=-0.04, Y=0.06, Z=-0.02) | passive 0.004 | support 106.958\norientation R(P=-0.44, Y=4.28, R=-0.16) | AP/ML/SI support V(X=102.94, Y=102.94, Z=102.94)\nLower pelvis/thigh 0.805/0.195 -> 0.815/0.185 | offset V(X=-0.16, Y=-0.06, Z=-0.11) | passive 0.019 | support 102.935\norientation R(P=-0.06, Y=0.50, R=-0.03) | AP/ML/SI support V(X=19.08, Y=19.08, Z=19.08)\nMedial pelvis/thigh 0.834/0.166 -> 0.929/0.071 | offset V(X=-0.02, Y=0.03, Z=-0.01) | passive 0.029 | support 19.076\norientation R(P=-0.40, Y=6.15, R=-0.20) | AP/ML/SI support V(X=183.58, Y=183.58, Z=183.58)\nLateral pelvis/thigh 0.814/0.186 -> 0.874/0.126 | offset V(X=-0.03, Y=-0.34, Z=-0.14) | passive 0.145 | support 183.577\nG06 Verified thigh-average driver to target morph to source vertex deltas; localized and pose-space adapted, not exact VaM runtime reproduction; family curvature residual; source deltas regionalized, dimension adapted and driven by cardinal pose space.\nL External weight 1.0000\nR External weight 1.0000\nCorrective Diagnostics: selected target at build Shape, true surface samples (cm); not current blended/Shape preview measurement.\n",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.09.28-12.25.12"
+        },
+        {
+          "event": {
+            "type": "Warning",
+            "message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)",
+            "context": "log",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.09.28-12.25.12"
+        }
+      ],
+      "warnings": 1,
+      "errors": 0,
+      "artifacts": []
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "head": "7f325187fd8af912c40e129913c6dfb218c80344",
+  "branch": "feature/jiggle/hip",
+  "implementation": "uncommitted working tree",
+  "visual_assessment": null,
+  "characters": [
+    {
+      "sample": "Primary",
+      "blueprint": "/Game/VamRuntime/R_63c4791def59b8e34504a5bc/BP_VamCharacter.BP_VamCharacter",
+      "profile": "/Game/VamRuntime/R_63c4791def59b8e34504a5bc/DA_GluteStructure.DA_GluteStructure",
+      "body": "/Game/VamRuntime/R_63c4791def59b8e34504a5bc/Glute/SK_Body.SK_Body",
+      "map": "/Game/GluteStructureEngineering/Empty_63c4791def59",
+      "sides": [
+        {
+          "side": "L",
+          "volume_cm3": 190.88384641151833,
+          "dimensions": [
+            15.529871085811065,
+            20.34294474619227,
+            12.275981318979808
+          ],
+          "com": [
+            10.086057748607821,
+            7.973715856009761,
+            -14.573811732953539
+          ],
+          "region_vertices": 905,
+          "shape_responses": 17
+        },
+        {
+          "side": "R",
+          "volume_cm3": 224.32052950378565,
+          "dimensions": [
+            15.036039484101641,
+            18.502356630316598,
+            10.706534210933379
+          ],
+          "com": [
+            9.99098214138092,
+            -7.614986970560773,
+            -14.60144637452392
+          ],
+          "region_vertices": 1009,
+          "shape_responses": 13
+        }
+      ],
+      "shape_evidence": [
+        "G0_SHAPE_PARAMETER M_75d9f4791b4ab929c7815039=0.000000 logVolume=0.230654",
+        "G0_SHAPE_PARAMETER M_084f62446f75d686d71f2f01=1.000000 logVolume=0.222617",
+        "G0_SHAPE_COMPARISON imported 190.883846 changed 300.346523 ratio 1.573452 dimensions X=19.654 Y=24.535 Z=13.374"
+      ]
+    },
+    {
+      "sample": "Secondary",
+      "blueprint": "/Game/VamRuntime/R_295247eac43ac01125059132/BP_VamCharacter.BP_VamCharacter",
+      "profile": "/Game/VamRuntime/R_295247eac43ac01125059132/DA_GluteStructure.DA_GluteStructure",
+      "body": "/Game/VamRuntime/R_295247eac43ac01125059132/Glute/SK_Body.SK_Body",
+      "map": "/Game/GluteStructureEngineering/Empty_295247eac43a",
+      "sides": [
+        {
+          "side": "L",
+          "volume_cm3": 198.08875694547206,
+          "dimensions": [
+            16.134292192143807,
+            19.95155077420574,
+            11.796109970280389
+          ],
+          "com": [
+            9.403745079942647,
+            7.386570832927219,
+            -14.93966512382462
+          ],
+          "region_vertices": 813,
+          "shape_responses": 5
+        },
+        {
+          "side": "R",
+          "volume_cm3": 196.49192467732323,
+          "dimensions": [
+            15.899144252819047,
+            19.76072379631772,
+            11.47600835547578
+          ],
+          "com": [
+            9.368443782712982,
+            -7.340811440067955,
+            -14.986001670327948
+          ],
+          "region_vertices": 817,
+          "shape_responses": 5
+        }
+      ],
+      "shape_evidence": [
+        "G0_SHAPE_PARAMETER M_3326b7515d72471c87d955ce=0.000000 logVolume=0.773729",
+        "G0_SHAPE_COMPARISON imported 198.088757 changed 429.423848 ratio 2.167836 dimensions X=19.923 Y=26.619 Z=12.796"
+      ]
+    },
+    {
+      "sample": "Third",
+      "blueprint": "/Game/VamRuntime/R_a1a8a6813534636c2f7ab1ca/BP_VamCharacter.BP_VamCharacter",
+      "profile": "/Game/VamRuntime/R_a1a8a6813534636c2f7ab1ca/DA_GluteStructure.DA_GluteStructure",
+      "body": "/Game/VamRuntime/R_a1a8a6813534636c2f7ab1ca/Glute/SK_Body.SK_Body",
+      "map": "/Game/GluteStructureEngineering/Empty_a1a8a6813534",
+      "sides": [
+        {
+          "side": "L",
+          "volume_cm3": 198.08875694547206,
+          "dimensions": [
+            16.134292192143807,
+            19.95155077420574,
+            11.796109970280389
+          ],
+          "com": [
+            9.403745079942647,
+            7.386570832927219,
+            -14.93966512382462
+          ],
+          "region_vertices": 813,
+          "shape_responses": 5
+        },
+        {
+          "side": "R",
+          "volume_cm3": 196.49192467732323,
+          "dimensions": [
+            15.899144252819047,
+            19.76072379631772,
+            11.47600835547578
+          ],
+          "com": [
+            9.368443782712982,
+            -7.340811440067955,
+            -14.986001670327948
+          ],
+          "region_vertices": 817,
+          "shape_responses": 5
+        }
+      ],
+      "shape_evidence": [
+        "G0_SHAPE_PARAMETER M_3326b7515d72471c87d955ce=0.000000 logVolume=0.773729",
+        "G0_SHAPE_COMPARISON imported 198.088757 changed 429.423848 ratio 2.167836 dimensions X=19.923 Y=26.619 Z=12.796"
+      ]
+    }
+  ],
+  "tests": {
+    "Primary": {
+      "Vam.Breast.Calibration": "Success",
+      "Vam.Breast.Dynamics": "Success",
+      "Vam.Breast.MovingFrameModal": "Success",
+      "Vam.Breast.NativeRuntime": "Success",
+      "Vam.Breast.OrphanVertexExtraction": "Success",
+      "Vam.Breast.SmoothJump": "Success",
+      "Vam.Breast.WeightCompression": "Success",
+      "Vam.Glute.NativeRuntime": "Success",
+      "Vam.Glute.PoseFunction": "Success"
+    },
+    "Secondary": {
+      "Vam.Breast.Calibration": "Success",
+      "Vam.Breast.Dynamics": "Success",
+      "Vam.Breast.MovingFrameModal": "Success",
+      "Vam.Breast.NativeRuntime": "Success",
+      "Vam.Breast.OrphanVertexExtraction": "Success",
+      "Vam.Breast.SmoothJump": "Success",
+      "Vam.Breast.WeightCompression": "Success",
+      "Vam.Glute.NativeRuntime": "Success",
+      "Vam.Glute.PoseFunction": "Success"
+    },
+    "Third": {
+      "Vam.Breast.Calibration": "Success",
+      "Vam.Breast.Dynamics": "Success",
+      "Vam.Breast.MovingFrameModal": "Success",
+      "Vam.Breast.NativeRuntime": "Success",
+      "Vam.Breast.OrphanVertexExtraction": "Success",
+      "Vam.Breast.SmoothJump": "Success",
+      "Vam.Breast.WeightCompression": "Success",
+      "Vam.Glute.NativeRuntime": "Success",
+      "Vam.Glute.PoseFunction": "Success"
+    },
+    "InstalledSmartNPC": {
+      "Vam.Breast.Calibration": "Success",
+      "Vam.Breast.Dynamics": "Success",
+      "Vam.Breast.MovingFrameModal": "Success",
+      "Vam.Breast.NativeRuntime": "Success",
+      "Vam.Breast.OrphanVertexExtraction": "Success",
+      "Vam.Breast.SmoothJump": "Success",
+      "Vam.Breast.WeightCompression": "Success",
+      "Vam.Glute.NativeRuntime": "Success",
+      "Vam.Glute.PoseFunction": "Success"
+    }
+  },
+  "cook": {
+    "exit_code": 0,
+    "maps": [
+      "/Game/GluteStructureEngineering/Empty_63c4791def59",
+      "/Game/GluteStructureEngineering/Empty_295247eac43a",
+      "/Game/GluteStructureEngineering/Empty_a1a8a6813534"
+    ]
+  },
+  "builds": {
+    "build-editor.log": "Succeeded",
+    "build-game-Development.log": "Succeeded",
+    "build-game-Shipping.log": "Succeeded"
+  },
+  "source_sha256": {
+    "Source/VamCharacterRuntime/Private/Tests/VamBreastCalibrationTests.cpp": "c1a8f0d2c2e8cdec38cf2299e10561fc6b204993f32ac553f751454cb5aa6518",
+    "Source/VamCharacterRuntime/Private/Tests/VamBreastSolverTests.cpp": "c1e5bd0cd2b52173ea2f9d096a7c6c6e05de07ac3483a76f08cf7c844e305480",
+    "Source/VamCharacterRuntime/Private/VamActivePoseComponent.cpp": "f6b99d1c1896ffa59d7d42f17e6458f1320a568c05e4ec743aa6c70ce6ef9a28",
+    "Source/VamCharacterRuntime/Private/VamBreastCalibratedSolver.cpp": "53c557537a38f6fa9b3a6d2c9f4dfca26f168a2d417aefa1506b31dfaf38330d",
+    "Source/VamCharacterRuntime/Private/VamBreastCalibration.cpp": "f4b5e2fa3469b148770a7abd689f8b300838ffb2e1a5768b7a00d28e468e39d5",
+    "Source/VamCharacterRuntime/Private/VamBreastDebugTrajectory.cpp": "bcac6022168328c9c8daa3bba6208236fe9b83ae8b21c4b0c74b1d26d00ffcb3",
+    "Source/VamCharacterRuntime/Private/VamBreastSkeletalMeshComponent.cpp": "9de021cdf3a02c0a7c8c170598840eeb4eb0e8b61e2460dbbea19e2476e6241d",
+    "Source/VamCharacterRuntime/Private/VamBreastSolver.cpp": "914698645a3fbd55722a899fe725bee94892b87a2bc53ee80c80babc963d4662",
+    "Source/VamCharacterRuntime/Private/VamCharacterActor.cpp": "c4c769976833ac4e0cfd62e32ec3816824e2203996e6eff79b1995de2eca678a",
+    "Source/VamCharacterRuntime/Private/VamCharacterComponent.cpp": "a3ada9488d160b1f59688b4921072cf964cd0f628f37e9cebcbe78d8315a7a7b",
+    "Source/VamCharacterRuntime/Private/VamCharacterRuntime.cpp": "87ccd2228adf966dd00103f0cac7ffde3196254fd5488adb1ff4ab583e6cfe53",
+    "Source/VamCharacterRuntime/Private/VamGluteSkeletalMeshComponent.cpp": "56117a03bc35eb4f61e60d975171ce36065c48f709d8996bf3751a3ae4246701",
+    "Source/VamCharacterRuntime/Private/VamGluteStructure.cpp": "dcbcad88b7a47053a4c2673772b5b4a4278306ca4acfa687a6ab3ab23c667dbf",
+    "Source/VamCharacterRuntime/Private/VamInteractionComponent.cpp": "0ee09ea440c2f4f0aeafc43eba46fc995bd173cda5d62013a7f92a6f9ec4f8b4",
+    "Source/VamCharacterRuntime/Private/VamMotionComponent.cpp": "d692c1302867edc2a9c60268393eb83b5ef2fe752c7ecd57e2ed025017d5cee5",
+    "Source/VamCharacterRuntime/Private/VamPhysicsOutputComponent.cpp": "cd2d1f6c1ae0a5cea02ce0957771f9aad3bff6ffe5f7cac4b8dc49937258ffae",
+    "Source/VamCharacterRuntime/Private/VamPhysicsShapeProfile.cpp": "37bada1b6ba5ca629088b80fd0df04b01fdd6c9fc509d0f90fd4417d0fc2622a",
+    "Source/VamCharacterRuntime/Private/VamPreviewTool.cpp": "1a4b02c7771bb9b5db33b20105c6f52848c2df02a1772003131a7595164cf054",
+    "Source/VamCharacterRuntime/Private/VamShapeAnimInstance.cpp": "1c095ee355da046d0069036f5b26c0dcf9c5ed6756a61091aa2a5a8f6f873585",
+    "Source/VamCharacterRuntime/Private/VamShapeTestPanel.cpp": "0c80745785f6d436c42dad361c01f79389ada24e7189533267562abeb5b299a7",
+    "Source/VamCharacterRuntime/Private/VamStage06AcceptanceActor.cpp": "7d411fdcf9ecbf82dd13a61e4c862b6fc98aedf0d3ccfd84091b878854e2ca0f",
+    "Source/VamCharacterRuntime/Private/VamStage07CompositionProbe.cpp": "16adaed9d2ad3b492049afbfec195d1da6038936c328e3f0d933c8de1a46e14e",
+    "Source/VamCharacterRuntime/Public/VamActivePoseComponent.h": "3e38791f2f3ee56f84321eb17f8dddcdc7dbbd85fe1b1040ec5371188249adbc",
+    "Source/VamCharacterRuntime/Public/VamBreastCalibration.h": "e66b37f94fb00b983c3dcba3ad539826d8f06155742812764a8350cd2ea453e4",
+    "Source/VamCharacterRuntime/Public/VamBreastDebugTrajectory.h": "a2418907cf19c4779a2b11f123bbd0032ca264dfe5da94a804ad62ca5babfc46",
+    "Source/VamCharacterRuntime/Public/VamBreastJiggleProfile.h": "deeab5dea4f74bea0c2114c46bd17c1ef70d875e93f4458743541a62f672d667",
+    "Source/VamCharacterRuntime/Public/VamBreastSkeletalMeshComponent.h": "ceb8b77167f650ae407e407b311314afe6864360c19597baf198a4f693d87f46",
+    "Source/VamCharacterRuntime/Public/VamBreastSolver.h": "305aeedde89fb50867f9770d33c3faa13e9a3234005e1aefc1f682ac78ce82ef",
+    "Source/VamCharacterRuntime/Public/VamCharacterActor.h": "afd99e544d08ed52dbff6471c19539c4366a102f85c2634bd4d1789405831bfc",
+    "Source/VamCharacterRuntime/Public/VamCharacterComponent.h": "3559c5a606c6fc23ea57f72851d33a21d78bfaafa7d9d4ce86e527cd867edd05",
+    "Source/VamCharacterRuntime/Public/VamCharacterDefinition.h": "b882cd3857afd4ea72eba4619109626f942034698cb22939f56915e7d4fe2bbb",
+    "Source/VamCharacterRuntime/Public/VamGluteSkeletalMeshComponent.h": "d8c001f8a4302d79599976348ab48a01e01b6be33e49fb84cbfa8de2fa37d750",
+    "Source/VamCharacterRuntime/Public/VamGluteStructure.h": "896f23255174e0ed47ab5e0dca51aa90c522a82953cd7133c90f861bf1605487",
+    "Source/VamCharacterRuntime/Public/VamGluteStructureProfile.h": "0a5db6be4e4fcea992577dfe8798f7dbb42594c32e1ce1253d2969e30b3d14dc",
+    "Source/VamCharacterRuntime/Public/VamInteractionComponent.h": "25169d42920fb5c37f5849770afd389ab171cd122a7d3c259b1e5ba6dbef5076",
+    "Source/VamCharacterRuntime/Public/VamMaterialProfile.h": "f4a89fa0cb6d44cb127dd59522bfb5bab53e72d8b2fe5e9fbcf251a64c2ea236",
+    "Source/VamCharacterRuntime/Public/VamMotionComponent.h": "ec008d00f7728b6cbcc54ed436187b7dcdaced3a66e507b6e9776dde3ccac967",
+    "Source/VamCharacterRuntime/Public/VamPhysicsOutputComponent.h": "38e3579c8914db638ce8dd4587c135fa97fdd17f30c1455439db185a8b6b675c",
+    "Source/VamCharacterRuntime/Public/VamPhysicsShapeProfile.h": "3b2e5e258fda34483c6af9cdaaf06a2e50c96bb579f4fa512936644cf00a4eeb",
+    "Source/VamCharacterRuntime/Public/VamPreviewTool.h": "844ddd96a3feb685d583a215d3ffd71d329278601949fb2e7e7b445906ad2f3b",
+    "Source/VamCharacterRuntime/Public/VamRigProfile.h": "2fcee76aadcd0623649685e6ea363e3662933d0c1c1e8155e24994e89b92c05d",
+    "Source/VamCharacterRuntime/Public/VamRuntimeConfiguration.h": "e53dccb9a9a117d71d02875cca12da752f9899dc6052cc8d74beee34eebac5f3",
+    "Source/VamCharacterRuntime/Public/VamShapeAnimInstance.h": "5d476224b822b164ae3d0a07621ef0bd3db5add622362286b8b3f45ef99f1cf9",
+    "Source/VamCharacterRuntime/Public/VamShapeData.h": "f489cdfc6a39972a2b154e89c77663222cb10249710ed37c5774e19a261e0473",
+    "Source/VamCharacterRuntime/Public/VamShapeTestPanel.h": "1232e596a51b051744a50fce2bfa89fc088db4276d166cd543d1fdc2fb78f576",
+    "Source/VamCharacterRuntime/Public/VamSourceMapping.h": "203efae49eabb3a88f16ee2900067f83dff2eecfe1ee6f16a73c2abbc881988a",
+    "Source/VamCharacterRuntime/Public/VamStage06AcceptanceActor.h": "2e004cd3fc9b698c1ea14d90f794e519c2eb55c1437c29955f522603924558f2",
+    "Source/VamCharacterRuntime/Public/VamStage07CompositionProbe.h": "e65c4090fdcd50be252dd3be5ab1edbde16b656b2aa53a32ab737bbde23ea187",
+    "Source/VamCharacterRuntime/VamCharacterRuntime.Build.cs": "1a865f2c29a409447c16843354b6e7c5f41739eab9a3789e016425dc2724b9fe",
+    "Source/VamResourceBrowser/Private/Tests/VamBreastNativeTests.cpp": "11a02a5b08594dc2ee1049147e415ec1135c84db3f39144779603aaf5af4026a",
+    "Source/VamResourceBrowser/Private/Tests/VamBreastWeightTests.cpp": "e5cafdac0775069a790650264f1ce70e7e71628ac3f1f2ca285e0d0c00289b27",
+    "Source/VamResourceBrowser/Private/Tests/VamGluteStructureTests.cpp": "001044cb3847f16f4f9afb07b56f22ae29e27fd020e32d266e16a5caff32a1c1",
+    "Source/VamResourceBrowser/Private/VamBreastJiggleBuilder.cpp": "b80dc6f8f9d179d8aa38da7ac13a2cbf64bbde6a5f05a84b98fe5fe550a34be6",
+    "Source/VamResourceBrowser/Private/VamBreastWeightUtils.h": "1797c86225ba8c338c66ca908e8d063983b3d09269678745412f3b7d2101fa55",
+    "Source/VamResourceBrowser/Private/VamDebugPanel.cpp": "60f99a63dcafc43718eaf9addb1bb792a5e2f0c1e76ca722402d93d48b8d2fe4",
+    "Source/VamResourceBrowser/Private/VamDebugPanel.h": "6115dacf13ca0292329c6df4e361934591dba075a925404c4f291ce7a1063a70",
+    "Source/VamResourceBrowser/Private/VamGluteStructureBuilder.cpp": "2c7ab8d490726398b9f54dedb1727240b8ffd22cbfe8b094d2d0fe9cc706f10b",
+    "Source/VamResourceBrowser/Private/VamNativeBuilder.cpp": "ad2fddd6164fceeb2d884618ae54aa2ca7a5596005fe517ad3c034812d85950c",
+    "Source/VamResourceBrowser/Private/VamNativeBuildWindow.cpp": "e1acee70d2475726ba39c8de4735a7c7618016d749af347ed1390e966f7c77fc",
+    "Source/VamResourceBrowser/Private/VamNativeBuildWindow.h": "a8bc3cdf5d43b4b02e398bf5d7b0179e8fb8ada4d7e73523c4e769d9a7643e14",
+    "Source/VamResourceBrowser/Private/VamResourceBrowserModule.cpp": "6ff89220a4f05c836fb9e534a29f91438282f6a78caea5866c40600d4f93e91c",
+    "Source/VamResourceBrowser/Private/VamStage06AssetEditor.cpp": "fe4bfc068d39a889e130cd6bb9815f12d5988b71aad9d2c91c757278d37f4d66",
+    "Source/VamResourceBrowser/Public/VamBreastJiggleBuilder.h": "fb9730aa1edba2e5f71e1f616e699cae13975adb268c5ab1451310cde306ef7d",
+    "Source/VamResourceBrowser/Public/VamGluteStructureBuilder.h": "fdacd723bbe0ef61b0a9691a91b6f7404eed7a52ef34b0dbeebab8e70b66710b",
+    "Source/VamResourceBrowser/Public/VamNativeBuilder.h": "bf16057ce178efe1cf07ffc201e7076c4a66d503faa0ee4fba51f3006a360792",
+    "Source/VamResourceBrowser/Public/VamStage06AssetEditor.h": "69bcaecb4eed15be269fd7c37b52a3b2aa9982cf1e3d4513186e8c4b83a45431",
+    "Source/VamResourceBrowser/VamResourceBrowser.Build.cs": "64b9bc91968f368572e8b27c06966599442850a692b9225bdfca943ca450fceb"
+  }
+}

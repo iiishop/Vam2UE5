@@ -1,0 +1,63 @@
+{
+  "roots": {
+    "/Game/VamRuntime/R_01ca281828f6a4a0fe99cce8": {
+      "package_count": 92,
+      "external_referencers": []
+    },
+    "/Game/VamRuntime/R_266bb20a77f5b5d27333407e": {
+      "package_count": 88,
+      "external_referencers": []
+    },
+    "/Game/VamRuntime/R_416cbe19752e0833bcf3408b": {
+      "package_count": 88,
+      "external_referencers": []
+    },
+    "/Game/VamRuntime/R_4173d00aaf77658e405891f9": {
+      "package_count": 92,
+      "external_referencers": [
+        "/Game/GluteStructureEngineering/Empty_4173d00aaf77"
+      ]
+    },
+    "/Game/VamRuntime/R_41d321463932d166a980c60f": {
+      "package_count": 88,
+      "external_referencers": []
+    },
+    "/Game/VamRuntime/R_6a3abbf3d5b9abd4960fe9fa": {
+      "package_count": 88,
+      "external_referencers": [
+        "/Game/GluteStructureEngineering/Empty_6a3abbf3d5b9"
+      ]
+    },
+    "/Game/VamRuntime/R_8cd5ac964d886d4e0f6a8a72": {
+      "package_count": 88,
+      "external_referencers": []
+    },
+    "/Game/VamRuntime/R_975de5dff96a42c0243c5eb1": {
+      "package_count": 88,
+      "external_referencers": [
+        "/Game/GluteStructureEngineering/Empty_975de5dff96a",
+        "/Game/__ExternalActors__/ThirdPerson/Lvl_ThirdPerson/5/PS/Z9IBVEKGGPF897QB7VDAJJ"
+      ]
+    },
+    "/Game/VamRuntime/R_af37152f380e0d3cc6388019": {
+      "package_count": 88,
+      "external_referencers": []
+    },
+    "/Game/VamRuntime/R_b340fafe646bbe5f137a7c00": {
+      "package_count": 88,
+      "external_referencers": []
+    },
+    "/Game/VamRuntime/R_c20a18215d76249d9c4c444b": {
+      "package_count": 88,
+      "external_referencers": []
+    },
+    "/Game/VamRuntime/R_f49ca00eb1d0696d27b89993": {
+      "package_count": 88,
+      "external_referencers": []
+    },
+    "/Game/VamRuntime/R_f9e4dcd56d0104a391d599fe": {
+      "package_count": 88,
+      "external_referencers": []
+    }
+  }
+}

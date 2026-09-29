@@ -303,6 +303,17 @@ def decode_plan(plan, catalog, progress=None):
     ir={'schema':1,'decoder':'vam-decode-2','plan_id':plan['plan_id'],'coordinates':{'source':'VaM metres, Y up, Z forward','target':'UE centimetres, Z up, X forward','position':'100 * (z,x,y)','uv':'(u,1-v)','triangulation':'VaM DAZ winding: c,b,a and a,d,c; index maps retained'},
         'source_hashes':source_hashes,'skeleton':bones,'records':raw_records,'applied_morphs':applied,
         'plan_documents':plan['documents'],'statistics':statistics,'errors':errors,'warnings':sorted(set(warnings))}
+    # Preserve the reference-checked corrective chain in immutable IR when the
+    # selected source plan already locks both required bundles. Missing chains
+    # remain explicit procedural fallback; no additional unlocked source is read.
+    family=json.loads((SCRIPTS.parent/'Config/RigFamilies/VamFemale88.json').read_text(encoding='utf8'))
+    if 'glute_corrective' in family and {'lThigh','rThigh','LGlute','RGlute'} <= {b['name'] for b in bones}:
+        from vam_glute_corrective_source import extract
+        corrective=extract(root,source_hashes,family)
+        if corrective['deltas']:
+            neutral=next((r['mesh'] for r in raw_records if r.get('class')=='DAZMergedMesh'),None)
+            if neutral:corrective['neutral_vertices_cm']=[to_ue(v) for v in neutral['vertices']]
+        raw_records.append({'kind':'glute_pose_corrective','data':corrective})
     finite(ir);digest=sha(canonical(ir));ir['decode_id']=digest
     preview={'schema':1,'decode_id':digest,'plan_id':plan['plan_id'],'meshes':render,
              'skeleton':[{'name':b['name'],'parent':b['parent'],'position':to_ue(b['position'])}for b in bones],

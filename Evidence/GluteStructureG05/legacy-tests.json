@@ -1,0 +1,105 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "SM",
+			"instance": "AB6FF0FC4F6A420907EA1C89B0F21915",
+			"instanceName": "SM-21984",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 10 (22H2) [10.0.19045.7725] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4070 Ti",
+			"cPUModel": "12th Gen Intel(R) Core(TM) i5-12600KF",
+			"rAMInGB": 40,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.28-01.25.15",
+	"succeeded": 0,
+	"succeededWithWarnings": 1,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 1.4147703647613525,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "NativeRuntime",
+			"fullTestPath": "Vam.Glute.NativeRuntime",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"AB6FF0FC4F6A420907EA1C89B0F21915"
+			],
+			"duration": 1.4147703647613525,
+			"dateTime": "2026.09.28-01.25.14",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G0_SHAPE_PARAMETER M_75d9f4791b4ab929c7815039=0.000000 logVolume=0.230654",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-01.25.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G0_SHAPE_PARAMETER M_084f62446f75d686d71f2f01=1.000000 logVolume=0.222617",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-01.25.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G0_SHAPE_COMPARISON imported 190.883846 changed 300.346523 ratio 1.573452 dimensions X=19.654 Y=24.535 Z=13.374",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-01.25.15"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "glute-structure-g0-v1 | deterministic pose function; no Jiggle\nShape revision 43 | pelvis tilt/yaw/roll deg 0.00 / 0.00 / 0.00\nL effective volume 300.35 cm3 COM V(X=12.53, Y=9.24, Z=-14.84) AP/ML/SI V(X=19.65, Y=24.53, Z=13.37) cm\nhip flex/abd/external deg V(Z=30.00)\nFold medial/middle/lateral 0.000 / 0.000 / 0.000 | stretch V(0) | final COM V(X=12.53, Y=9.24, Z=-14.84)\norientation R(P=0.10, Y=-1.73, R=-0.16) | AP/ML/SI support V(X=34.31, Y=34.31, Z=34.31)\nCore pelvis/thigh 0.835/0.165 -> 0.835/0.165 | offset V(X=-0.19, Y=-0.37, Z=-0.01) | passive 0.000 | support 34.306\norientation R(P=0.02, Y=-1.52, R=-0.03) | AP/ML/SI support V(X=97.40, Y=97.40, Z=97.40)\nUpper pelvis/thigh 0.851/0.149 -> 0.851/0.149 | offset V(X=-0.18, Y=-0.36, Z=-0.00) | passive 0.000 | support 97.396\norientation R(P=0.23, Y=-2.02, R=-0.38) | AP/ML/SI support V(X=56.64, Y=56.64, Z=56.64)\nLower pelvis/thigh 0.808/0.192 -> 0.808/0.192 | offset V(X=-0.20, Y=-0.40, Z=-0.02) | passive 0.000 | support 56.642\norientation R(P=0.07, Y=-1.66, R=-0.11) | AP/ML/SI support V(X=15.14, Y=15.14, Z=15.14)\nMedial pelvis/thigh 0.841/0.159 -> 0.841/0.159 | offset V(X=-0.18, Y=-0.37, Z=-0.01) | passive 0.000 | support 15.141\norientation R(P=0.13, Y=-2.40, R=-0.24) | AP/ML/SI support V(X=77.46, Y=77.46, Z=77.46)\nLateral pelvis/thigh 0.798/0.202 -> 0.798/0.202 | offset V(X=-0.22, Y=-0.45, Z=-0.01) | passive 0.000 | support 77.464\nR effective volume 349.63 cm3 COM V(X=12.86, Y=-8.84, Z=-16.25) AP/ML/SI V(X=20.01, Y=22.25, Z=9.90) cm\nhip flex/abd/external deg V(Z=30.00)\nFold medial/middle/lateral 0.000 / 0.000 / 0.000 | stretch V(0) | final COM V(X=12.86, Y=-8.84, Z=-16.25)\norientation R(P=0.04, Y=1.92, R=0.07) | AP/ML/SI support V(X=33.60, Y=33.60, Z=33.60)\nCore pelvis/thigh 0.825/0.175 -> 0.825/0.175 | offset V(X=-0.21, Y=0.43, Z=-0.00) | passive 0.000 | support 33.597\norientation R(P=-0.00, Y=1.54, R=-0.00) | AP/ML/SI support V(X=91.66, Y=91.66, Z=91.66)\nUpper pelvis/thigh 0.849/0.151 -> 0.849/0.151 | offset V(X=-0.20, Y=0.40, Z=0.00) | passive 0.000 | support 91.664\norientation R(P=0.19, Y=2.12, R=0.32) | AP/ML/SI support V(X=75.71, Y=75.71, Z=75.71)\nLower pelvis/thigh 0.805/0.195 -> 0.805/0.195 | offset V(X=-0.21, Y=0.42, Z=-0.02) | passive 0.000 | support 75.712\norientation R(P=0.03, Y=1.78, R=0.05) | AP/ML/SI support V(X=13.08, Y=13.08, Z=13.08)\nMedial pelvis/thigh 0.834/0.166 -> 0.834/0.166 | offset V(X=-0.20, Y=0.41, Z=-0.00) | passive 0.000 | support 13.082\norientation R(P=0.06, Y=2.11, R=0.10) | AP/ML/SI support V(X=87.61, Y=87.61, Z=87.61)\nLateral pelvis/thigh 0.814/0.186 -> 0.814/0.186 | offset V(X=-0.22, Y=0.45, Z=-0.01) | passive 0.000 | support 87.611\n",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-01.25.15"
+				},
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.28-01.25.15"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

@@ -1,0 +1,106 @@
+{
+  "head": "74d7dcd1e974a20ff4685652c381cc192625ad9f",
+  "branch": "feature/jiggle/hip",
+  "changes_committed": false,
+  "visual_acceptance": false,
+  "characters": {
+    "Primary": {
+      "blueprint": "/Game/VamRuntime/R_975de5dff96a42c0243c5eb1/BP_VamCharacter.BP_VamCharacter",
+      "configuration": "/Game/VamRuntime/R_975de5dff96a42c0243c5eb1/RC_Runtime",
+      "corrective_profile": "/Game/VamRuntime/R_975de5dff96a42c0243c5eb1/DA_GluteCorrective.DA_GluteCorrective",
+      "map": "/Game/GluteStructureEngineering/Empty_975de5dff96a",
+      "native_bones": 112,
+      "source_bones": 88,
+      "corrective_bases": 54,
+      "source_reuse_count": 245,
+      "provenance": "Verified thigh-average driver to target morph to source vertex deltas; localized and pose-space adapted, not exact VaM runtime reproduction; family curvature residual; source deltas regionalized, dimension adapted and driven by cardinal pose space.",
+      "family_policy_identity": "9e9f8ad0ca8b5fb61f770657b0a923de",
+      "algorithm_hashes_verified": 80,
+      "independent_reload_verified": true,
+      "tests": {
+        "succeeded": 9,
+        "succeededWithWarnings": 2,
+        "failed": 0,
+        "notRun": 0
+      },
+      "geometry_shape_evidence": [
+        {
+          "event": {
+            "type": "Info",
+            "message": "G06_GEOMETRY targets=11 morphs=54 max_bind_delta_cm=1.327287 source_vertex_reuse=245 provenance=Verified thigh-average driver to target morph to source vertex deltas; localized and pose-space adapted, not exact VaM runtime reproduction; family curvature residual; source deltas regionalized, dimension adapted and driven by cardinal pose space.",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.09.28-05.07.07"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "G0_SHAPE_COMPARISON imported 190.883846 changed 300.346523 ratio 1.573452 dimensions X=19.654 Y=24.535 Z=13.374",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.09.28-05.07.08"
+        }
+      ]
+    },
+    "Secondary": {
+      "blueprint": "/Game/VamRuntime/R_cc1780198614f8100223e560/BP_VamCharacter.BP_VamCharacter",
+      "configuration": "/Game/VamRuntime/R_cc1780198614f8100223e560/RC_Runtime",
+      "corrective_profile": "/Game/VamRuntime/R_cc1780198614f8100223e560/DA_GluteCorrective.DA_GluteCorrective",
+      "map": "/Game/GluteStructureEngineering/Empty_cc1780198614",
+      "native_bones": 112,
+      "source_bones": 88,
+      "corrective_bases": 48,
+      "source_reuse_count": 0,
+      "provenance": "Source bundle digest differs from persisted source IR; family curvature residual; source deltas regionalized, dimension adapted and driven by cardinal pose space.",
+      "family_policy_identity": "9e9f8ad0ca8b5fb61f770657b0a923de",
+      "algorithm_hashes_verified": 80,
+      "independent_reload_verified": true,
+      "tests": {
+        "succeeded": 9,
+        "succeededWithWarnings": 2,
+        "failed": 0,
+        "notRun": 0
+      },
+      "geometry_shape_evidence": [
+        {
+          "event": {
+            "type": "Info",
+            "message": "G06_GEOMETRY targets=11 morphs=48 max_bind_delta_cm=0.223722 source_vertex_reuse=0 provenance=Source bundle digest differs from persisted source IR; family curvature residual; source deltas regionalized, dimension adapted and driven by cardinal pose space.",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.09.28-05.07.08"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "G0_SHAPE_COMPARISON imported 198.088757 changed 429.423848 ratio 2.167836 dimensions X=19.923 Y=26.619 Z=12.796",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.09.28-05.07.08"
+        }
+      ]
+    }
+  },
+  "cook": {
+    "exit_code": 0,
+    "maps": [
+      "/Game/GluteStructureEngineering/Empty_975de5dff96a",
+      "/Game/GluteStructureEngineering/Empty_cc1780198614"
+    ],
+    "packages": 836,
+    "errors": 0,
+    "warnings": 0
+  }
+}

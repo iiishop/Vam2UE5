@@ -20,6 +20,9 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") FString MorphSetLockDigest;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamCharacterDefinition> Definition;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamBreastJiggleProfile> BreastJiggle;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamGluteStructureProfile> GluteStructure;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamGluteCorrectiveProfile> GluteCorrective;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamGluteJiggleProfile> GluteJiggle;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamRigProfile> Rig;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftClassPtr<class UVamShapeAnimInstance> AnimationClass;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UAnimSequence> BaseAnimation;

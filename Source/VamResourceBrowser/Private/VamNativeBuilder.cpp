@@ -76,7 +76,7 @@ USkeletalMesh* UVamNativeBuilder::BuildMesh(const FString& Path, const FVamNativ
     }
     for (const auto& M : I.Morphs)
     {
-        A.RegisterMorphTargetAttribute(M.Name, false);
+        A.RegisterMorphTargetAttribute(M.Name, M.NormalDeltas.Num()==Count);
         auto Deltas = A.GetVertexMorphPositionDelta(M.Name);
         for (int32 V=0; V<Count; ++V) Deltas[FVertexID(V)] = FVector3f(M.Deltas[V]);
     }
@@ -96,6 +96,7 @@ USkeletalMesh* UVamNativeBuilder::BuildMesh(const FString& Path, const FVamNativ
             A.GetVertexInstanceUVs().Set(Corner, 0, FVector2f(I.UV[V]));
             A.GetVertexInstanceNormals()[Corner] = FVector3f(I.Normals[V].GetSafeNormal());
             A.GetVertexInstanceColors()[Corner] = FVector4f(1,1,1,1);
+            for(const auto& M:I.Morphs) if(M.NormalDeltas.Num()==Count) A.GetVertexInstanceMorphNormalDelta(M.Name)[Corner]=FVector3f(M.NormalDeltas[V]);
         }
         Description.CreateTriangle(Groups[I.TriangleMaterials[T/3]], Corners);
     }

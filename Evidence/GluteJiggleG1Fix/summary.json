@@ -1,0 +1,203 @@
+{
+  "baseline_head": "119c23b8aa7f9ca96673f1c2ca611a15304b320a",
+  "characters": [
+    {
+      "name": "FinalPrimary",
+      "blueprint": "/Game/VamRuntime/R_9584ad8ea42c00ed6e45eef9/BP_VamCharacter.BP_VamCharacter",
+      "configuration": "/Game/VamRuntime/R_9584ad8ea42c00ed6e45eef9/RC_Runtime",
+      "tests": {
+        "succeeded": 16,
+        "succeededWithWarnings": 2,
+        "failed": 0,
+        "notRun": 0
+      },
+      "warnings": [
+        {
+          "test": "Vam.Breast.NativeRuntime",
+          "message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)"
+        },
+        {
+          "test": "Vam.Glute.NativeRuntime",
+          "message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)"
+        }
+      ],
+      "spatial": [
+        {
+          "side": "L",
+          "semantic": "Core",
+          "before_cm": 6.8534126270681615,
+          "after_cm": 0.6292326087377395,
+          "normalized": 0.025561815356005605
+        },
+        {
+          "side": "L",
+          "semantic": "Upper",
+          "before_cm": 8.809888140002236,
+          "after_cm": 1.043901234105199,
+          "normalized": 0.04614729294227912
+        },
+        {
+          "side": "L",
+          "semantic": "Lower",
+          "before_cm": 5.710938667233979,
+          "after_cm": 1.3299932485967678,
+          "normalized": 0.05397763750038671
+        },
+        {
+          "side": "L",
+          "semantic": "Medial",
+          "before_cm": 7.062185120742547,
+          "after_cm": 2.2910637787158845,
+          "normalized": 0.09890142372746759
+        },
+        {
+          "side": "L",
+          "semantic": "Lateral",
+          "before_cm": 8.44271213418033,
+          "after_cm": 1.1645065128307577,
+          "normalized": 0.06386659902715552
+        },
+        {
+          "side": "R",
+          "semantic": "Core",
+          "before_cm": 6.584849097547965,
+          "after_cm": 0.6957524578373561,
+          "normalized": 0.031686561049425965
+        },
+        {
+          "side": "R",
+          "semantic": "Upper",
+          "before_cm": 8.693883054987861,
+          "after_cm": 1.3349660693382888,
+          "normalized": 0.05585181109572259
+        },
+        {
+          "side": "R",
+          "semantic": "Lower",
+          "before_cm": 5.662882223043248,
+          "after_cm": 1.5427115995675422,
+          "normalized": 0.06543357906538404
+        },
+        {
+          "side": "R",
+          "semantic": "Medial",
+          "before_cm": 6.577794913199416,
+          "after_cm": 1.7939760270775231,
+          "normalized": 0.08012640105063963
+        },
+        {
+          "side": "R",
+          "semantic": "Lateral",
+          "before_cm": 7.23423480567111,
+          "after_cm": 1.691031676530144,
+          "normalized": 0.09632969542185052
+        }
+      ],
+      "native_surface_dynamic_max_cm": 0.1597011120066599,
+      "unused_vertices": 253,
+      "unused_region_weight": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "FinalSecondary",
+      "blueprint": "/Game/VamRuntime/R_cc46a2c81d851cdb45dca5b4/BP_VamCharacter.BP_VamCharacter",
+      "configuration": "/Game/VamRuntime/R_cc46a2c81d851cdb45dca5b4/RC_Runtime",
+      "tests": {
+        "succeeded": 16,
+        "succeededWithWarnings": 2,
+        "failed": 0,
+        "notRun": 0
+      },
+      "warnings": [
+        {
+          "test": "Vam.Breast.NativeRuntime",
+          "message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)"
+        },
+        {
+          "test": "Vam.Glute.NativeRuntime",
+          "message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)"
+        }
+      ],
+      "spatial": [
+        {
+          "side": "L",
+          "semantic": "Core",
+          "before_cm": 4.2400260499832045,
+          "after_cm": 0.8613644702701881,
+          "normalized": 0.04777191013230828
+        },
+        {
+          "side": "L",
+          "semantic": "Upper",
+          "before_cm": 5.440832356829084,
+          "after_cm": 1.348718115278844,
+          "normalized": 0.07155844515215239
+        },
+        {
+          "side": "L",
+          "semantic": "Lower",
+          "before_cm": 4.158685760396199,
+          "after_cm": 1.1042423386527649,
+          "normalized": 0.05849731693300779
+        },
+        {
+          "side": "L",
+          "semantic": "Medial",
+          "before_cm": 4.190395182114131,
+          "after_cm": 1.6820876363466555,
+          "normalized": 0.09162435428416825
+        },
+        {
+          "side": "L",
+          "semantic": "Lateral",
+          "before_cm": 3.0061361876655774,
+          "after_cm": 0.5355760732211733,
+          "normalized": 0.029216171252978852
+        },
+        {
+          "side": "R",
+          "semantic": "Core",
+          "before_cm": 4.206344246932642,
+          "after_cm": 0.8867462654311115,
+          "normalized": 0.049422783908634006
+        },
+        {
+          "side": "R",
+          "semantic": "Upper",
+          "before_cm": 5.387348994586399,
+          "after_cm": 1.3633569833606578,
+          "normalized": 0.0723982261364181
+        },
+        {
+          "side": "R",
+          "semantic": "Lower",
+          "before_cm": 4.13391428553569,
+          "after_cm": 1.1426341484584313,
+          "normalized": 0.06082884235682416
+        },
+        {
+          "side": "R",
+          "semantic": "Medial",
+          "before_cm": 4.191052755956426,
+          "after_cm": 1.594697150264213,
+          "normalized": 0.08648429799158452
+        },
+        {
+          "side": "R",
+          "semantic": "Lateral",
+          "before_cm": 3.6198455551709006,
+          "after_cm": 0.5432085980952046,
+          "normalized": 0.02962808203110683
+        }
+      ],
+      "native_surface_dynamic_max_cm": 0.21774316286628556,
+      "unused_vertices": 254,
+      "unused_region_weight": [
+        0,
+        0
+      ]
+    }
+  ]
+}

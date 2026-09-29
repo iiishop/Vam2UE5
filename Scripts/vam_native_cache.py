@@ -13,8 +13,8 @@ SCRIPTS = Path(__file__).resolve().parent
 CODE = ('vam_native_cache.py', 'vam_native_calibrate.py', 'vam_native_source.py',
         'vam_triax_lbs.py', 'vam_fit.py', 'vam_editable_morphs.py', 'vam_unity.py',
         'vam_decode.py', 'vam_ue_mesh.py', 'vam_plan.py', 'vam_index.py',
-        'vam_native_input.py', 'vam_zip_compat.py')
-CONFIG = ('BuiltinCatalog.json', 'DecodeLayouts.json', 'Stage05Quality.json')
+        'vam_native_input.py', 'vam_zip_compat.py', 'vam_glute_corrective_source.py', 'vam_preview.py')
+CONFIG = ('BuiltinCatalog.json', 'DecodeLayouts.json', 'Stage05Quality.json', 'RigFamilies/VamFemale88.json')
 
 
 def _sha_file(path):

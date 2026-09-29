@@ -1,0 +1,26 @@
+{
+  "installed": true,
+  "backup": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteContour\\InstallBackup-20260928-210903",
+  "files": [
+    {
+      "name": "UnrealEditor-VamCharacterRuntime.dll",
+      "sha256": "A3959B5F545658593BA88EEE20629130D7A3B3CF819364CADA9E06C0DDA90C95"
+    },
+    {
+      "name": "UnrealEditor-VamCharacterRuntime.pdb",
+      "sha256": "1B9C4AFD8D088C01B0B1305E110B8090C4D0BE644820CDF49B47C15439CF92F6"
+    },
+    {
+      "name": "UnrealEditor-VamResourceBrowser.dll",
+      "sha256": "6333F47ADDE9957F8CA8945516F533783933AB0ED5FC75AA3B80A04289B654C0"
+    },
+    {
+      "name": "UnrealEditor-VamResourceBrowser.pdb",
+      "sha256": "8EC50DDFDA018FAD59FF751464167DD1BC4586D46724B8F98F321B29F82EE09D"
+    },
+    {
+      "name": "UnrealEditor.modules",
+      "sha256": "861529759FB48AF230B238D504E9C17ADC27CB8CB874EF68F697320817DC8899"
+    }
+  ]
+}

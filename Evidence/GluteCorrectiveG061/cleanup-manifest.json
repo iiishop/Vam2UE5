@@ -1,0 +1,90 @@
+{
+  "archive": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059",
+  "entries": [
+    {
+      "files": 92,
+      "bytes": 256932667.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_01ca281828f6a4a0fe99cce8",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_01ca281828f6a4a0fe99cce8"
+    },
+    {
+      "files": 88,
+      "bytes": 499616685.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_266bb20a77f5b5d27333407e",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_266bb20a77f5b5d27333407e"
+    },
+    {
+      "files": 88,
+      "bytes": 488678010.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_416cbe19752e0833bcf3408b",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_416cbe19752e0833bcf3408b"
+    },
+    {
+      "files": 88,
+      "bytes": 488678744.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_41d321463932d166a980c60f",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_41d321463932d166a980c60f"
+    },
+    {
+      "files": 88,
+      "bytes": 484480163.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_8cd5ac964d886d4e0f6a8a72",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_8cd5ac964d886d4e0f6a8a72"
+    },
+    {
+      "files": 88,
+      "bytes": 488678608.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_af37152f380e0d3cc6388019",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_af37152f380e0d3cc6388019"
+    },
+    {
+      "files": 88,
+      "bytes": 488678012.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_b340fafe646bbe5f137a7c00",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_b340fafe646bbe5f137a7c00"
+    },
+    {
+      "files": 88,
+      "bytes": 488678047.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_c20a18215d76249d9c4c444b",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_c20a18215d76249d9c4c444b"
+    },
+    {
+      "files": 88,
+      "bytes": 484569091.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_f49ca00eb1d0696d27b89993",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_f49ca00eb1d0696d27b89993"
+    },
+    {
+      "files": 88,
+      "bytes": 488607184.0,
+      "moved": true,
+      "external_referencers": [],
+      "destination": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG061\\RuntimeArchive-20260928-203059\\R_f9e4dcd56d0104a391d599fe",
+      "source": "I:\\Document\\UE5\\SmartNPC\\Content\\VamRuntime\\R_f9e4dcd56d0104a391d599fe"
+    }
+  ],
+  "retained": [
+    "R_4173d00aaf77658e405891f9",
+    "R_6a3abbf3d5b9abd4960fe9fa",
+    "R_975de5dff96a42c0243c5eb1"
+  ]
+}

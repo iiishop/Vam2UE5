@@ -1,4 +1,5 @@
 #include "VamCharacterComponent.h"
+#include "VamGluteSkeletalMeshComponent.h"
 #include "VamCharacterDefinition.h"
 #include "VamBreastSkeletalMeshComponent.h"
 #include "VamRuntimeConfiguration.h"
@@ -97,6 +98,9 @@ void UVamCharacterComponent::LoadMeshes(uint64 Ticket)
     TArray<FSoftObjectPath> Paths { LoadedDefinition->Body.ToSoftObjectPath(), LoadedDefinition->Skeleton.ToSoftObjectPath() };
     if (!LoadedDefinition->Shape.IsNull()) Paths.AddUnique(LoadedDefinition->Shape.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->BreastJiggle.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->BreastJiggle.ToSoftObjectPath());
+    if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteJiggle.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteJiggle.ToSoftObjectPath());
+    if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteStructure.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteStructure.ToSoftObjectPath());
+    if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteCorrective.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteCorrective.ToSoftObjectPath());
     if (!RigProfile.IsNull()) Paths.AddUnique(RigProfile.ToSoftObjectPath());
     if (!AnimationClass.IsNull()) Paths.AddUnique(AnimationClass.ToSoftObjectPath());
     if (!BaseAnimation.IsNull()) Paths.AddUnique(BaseAnimation.ToSoftObjectPath());
@@ -139,11 +143,20 @@ void UVamCharacterComponent::Assemble(uint64 Ticket)
     if (const UPhysicsAsset* Asset=PhysicsAsset.Get())
         if (Asset->SkeletalBodySetups.IsEmpty() || Asset->ConstraintSetup.IsEmpty())
         { OnLoaded.Broadcast(false,TEXT("Stage06 physics asset has no bodies or constraints")); return; }
-    Body = NewObject<UVamBreastSkeletalMeshComponent>(GetOwner(), NAME_None, RF_Transient);
+    Body = NewObject<UVamGluteSkeletalMeshComponent>(GetOwner(), NAME_None, RF_Transient);
     if(LoadedRuntimeConfiguration)
     {
         auto* Jiggle=CastChecked<UVamBreastSkeletalMeshComponent>(Body);
         Jiggle->BreastProfile=LoadedRuntimeConfiguration->BreastJiggle.Get();
+        auto* Glute=CastChecked<UVamGluteSkeletalMeshComponent>(Body);
+        Glute->GluteProfile=LoadedRuntimeConfiguration->GluteStructure.Get();
+        Glute->CorrectiveProfile=LoadedRuntimeConfiguration->GluteCorrective.Get();
+        Glute->GluteJiggleProfile=LoadedRuntimeConfiguration->GluteJiggle.Get();
+        if(!LoadedRuntimeConfiguration->GluteJiggle.IsNull() && (!Glute->GluteJiggleProfile || !Glute->GluteJiggleProfile->IsValidProfile() || !Glute->GluteProfile || Glute->GluteJiggleProfile->SourceTopologyIdentity!=Glute->GluteProfile->SourceTopologyIdentity)) { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteJiggleProfile"));return; }
+        if(!LoadedRuntimeConfiguration->GluteCorrective.IsNull() && (!Glute->CorrectiveProfile || !Glute->CorrectiveProfile->IsValidProfile() || !Glute->GluteProfile || Glute->CorrectiveProfile->SourceTopologyIdentity!=Glute->GluteProfile->SourceTopologyIdentity))
+        { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteCorrectiveProfile"));return; }
+        if(!LoadedRuntimeConfiguration->GluteStructure.IsNull() && (!Glute->GluteProfile || !Glute->GluteProfile->IsValidProfile()))
+        { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteStructureProfile"));return; }
         if(!LoadedRuntimeConfiguration->BreastJiggle.IsNull() && (!Jiggle->BreastProfile || !Jiggle->BreastProfile->IsValidProfile()))
         { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid BreastJiggleProfile"));return; }
     }
@@ -318,6 +331,7 @@ bool UVamCharacterComponent::ApplyShape(const TArray<FName>& Changed, bool bComm
         }
     }
     if(auto* Jiggle=Cast<UVamBreastSkeletalMeshComponent>(Body)) Jiggle->UpdateBreastShape(PreviewState.Values,NextReference,bCommitted);
+    if(auto* Glute=Cast<UVamGluteSkeletalMeshComponent>(Body)) Glute->UpdateGluteShape(PreviewState.Values,NextReference,PreviewState.Revision+1);
     TArray<FTransform> OldCS=PreviousReference, NewCS=NextReference;
     for(int32 I=0;I<NewCS.Num();++I) if(Ref.GetParentIndex(I)>=0)
     { NewCS[I]=NewCS[I]*NewCS[Ref.GetParentIndex(I)]; OldCS[I]=OldCS[I]*OldCS[Ref.GetParentIndex(I)]; }

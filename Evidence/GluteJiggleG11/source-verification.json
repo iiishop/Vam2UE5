@@ -1,0 +1,18 @@
+{
+  "Primary": {
+    "algorithm_files": 103,
+    "mismatches": [],
+    "independent_reload_verified": true,
+    "writer_pid": 33820,
+    "reloader_pid": 60228,
+    "verifier_pid": 4316
+  },
+  "Secondary": {
+    "algorithm_files": 103,
+    "mismatches": [],
+    "independent_reload_verified": true,
+    "writer_pid": 48996,
+    "reloader_pid": 31872,
+    "verifier_pid": 25408
+  }
+}
