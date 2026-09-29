@@ -7,5 +7,6 @@ class VAMRESOURCEBROWSER_API UVamGluteJiggleBuilder : public UBlueprintFunctionL
 {
     GENERATED_BODY()
 public:
+    UFUNCTION(BlueprintCallable, Category="VaM|Editor") static FString BuildSurfaceGuard(class UVamCharacterDefinition* Definition,class UVamGluteJiggleProfile* Profile);
     UFUNCTION(BlueprintCallable, Category="VaM|Editor") static FString Build(class UVamGluteStructureProfile* Structure,class UVamGluteJiggleProfile* Profile);
 };

@@ -130,6 +130,8 @@ def build(recipe_path,report_path):
     leg_jiggle=create('DA_LegJiggle',root,u.VamLegJiggleProfile)
     definition,error=u.VamLegJiggleBuilder.build(root+'/Leg',definition,leg_jiggle,glute,json.dumps(family))
     require(definition is not None,str(error))
+    error=u.VamGluteJiggleBuilder.build_surface_guard(definition,glute_jiggle)
+    require(not error,'Glute surface guard: '+str(error))
     # Every derived mesh, bind, morph and helper is saved before downstream assets fingerprint it.
     for path in u.EditorAssetLibrary.list_assets(root,True,False):save(load(str(path)))
     mesh=definition.get_editor_property('body');skeleton=definition.get_editor_property('skeleton')
@@ -178,7 +180,7 @@ def build(recipe_path,report_path):
     defaults.get_editor_property('active_pose').set_editor_property('blink_morph_target','')
     u.BlueprintEditorLibrary.compile_blueprint(host);save(host)
     assets=[str(x).split('.')[0] for x in u.EditorAssetLibrary.list_assets(root,True,False) if str(x).split('.')[0]!=config_path]
-    receipt={'schema':'vam-runtime-receipt/3','algorithms':algorithms,'identity':identity,'recipe':recipe,'family':family,'source_files':source_files,
+    receipt={'glute_bilateral_material':True,'glute_surface_guard_version':1,'schema':'vam-runtime-receipt/3','algorithms':algorithms,'identity':identity,'recipe':recipe,'family':family,'source_files':source_files,
         'rig':asset_path(rig),'physics':asset_path(physics),'animation':asset_path(animation),'materials':asset_path(materials),'blueprint':asset_path(host),
         'breast_jiggle':asset_path(jiggle),'glute_structure':asset_path(glute),'glute_corrective':asset_path(corrective),'glute_jiggle':asset_path(glute_jiggle),'leg_jiggle':asset_path(leg_jiggle),'source_definition':asset_path(source_definition),'base_animation':asset_path(base_animation) if base_animation else None,'physics_shape':asset_path(physics_shape),'definition':asset_path(definition),'rig_snapshot':rig_snapshot(rig),'physics_summary':physics_summary,'blink_targets':targets,
         'body_slots':len(mesh.get_editor_property('materials')),'part_slots':[len(p.get_editor_property('materials')) for p in definition.get_editor_property('parts')],
@@ -215,6 +217,10 @@ def reload_and_publish(recipe_path,report_path):
     require(corrective.is_valid_profile() and config.get_editor_property('glute_corrective')==corrective,'Corrective profile reload validation failed')
     glute_jiggle=load(receipt['glute_jiggle'],u.VamGluteJiggleProfile)
     require(glute_jiggle.is_valid_profile() and config.get_editor_property('glute_jiggle')==glute_jiggle,'G1 independent reload failed')
+    if receipt.get('glute_bilateral_material'):
+        require(glute_jiggle.get_editor_property('bilateral_material_calibration'),'Bilateral material calibration did not survive reload')
+    if receipt.get('glute_surface_guard_version'):
+        require(glute_jiggle.get_editor_property('surface_guard_version')==receipt['glute_surface_guard_version'],'Glute surface guard did not survive reload')
     if receipt.get('leg_jiggle'):
         leg=load(receipt['leg_jiggle'],u.VamLegJiggleProfile)
         require(config.get_editor_property('leg_jiggle')==leg and not u.VamLegJiggleBuilder.validate(definition,leg),'Leg independent reload validation failed')

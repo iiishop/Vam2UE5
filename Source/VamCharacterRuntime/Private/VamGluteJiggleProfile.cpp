@@ -16,6 +16,15 @@ FVamGluteDynamicSide VamGluteDynamics::Calibrate(const UVamGluteJiggleProfile& P
         D.PositiveTravel=S.Dimensions*(.12*Freedom);D.PositiveTravel.X=FMath::Min(D.PositiveTravel.X,FMath::Max(.05,R.Rest.X)*.3);
         D.NegativeTravel=D.PositiveTravel*FVector(.65,1,.8);
         for(int32 A=0;A<3;++A) { D.PositiveTravel[A]=FMath::Max(.02,D.PositiveTravel[A]);D.NegativeTravel[A]=FMath::Max(.02,D.NegativeTravel[A]); }
+        if(P.bBilateralMaterialCalibration) for(const auto& Imported:P.Sides) if(Imported.Side==S.Side && Imported.Nodes.Num()==5)
+        {
+            const auto& Base=Imported.Nodes[I];
+            // Preserve regional pose tension, Shape mass, and side-specific dimensions.
+            D.Support=(Base.Support/Base.MassKg)*D.MassKg*(N.RegionalStiffnessBaseline/FMath::Max(1.e-8,R.SupportBaseline));
+            D.PositiveTravel=Base.PositiveTravel/Imported.Dimensions*S.Dimensions;
+            D.NegativeTravel=Base.NegativeTravel/Imported.Dimensions*S.Dimensions;
+            break;
+        }
         Out.Nodes.Add(D);
     }
     const int32 Graph[][2]={{0,1},{0,2},{0,3},{0,4},{1,3},{1,4},{2,3},{2,4}};
@@ -34,6 +43,19 @@ bool UVamGluteJiggleProfile::IsValidProfile() const
     if((SchemaVersion!=1 && SchemaVersion!=2) || Sides.Num()!=2 || SourceTopologyIdentity.IsEmpty() || SkeletonFamily.IsEmpty() || !FMath::IsFinite(DensityKgPerCm3) || DensityKgPerCm3<=0 || !FMath::IsFinite(FixedStep) || FixedStep<=0 || FixedStep>1./60. || MaxSubsteps<1 || MaxSubsteps>64 || SoftLimitFraction<=0 || SoftLimitFraction>=1) return false;
     if(SchemaVersion==2 && (AuthoredGravityWorld.ContainsNaN() || !FMath::IsNearlyEqual(AuthoredGravityWorld.Size(),980.,1.e-6) || Algorithm!=TEXT("glute-dual-attachment-g1.1-reference-gravity-v1") || GravityPolicy!=TEXT("body-attached-imported-1g-v1"))) return false;
     for(double Value:{DynamicModulusFraction,TeleportDistanceCm,TeleportAngleRadians,PoseDiscontinuityRadians,LargeShapeChangeRatio,SleepSpeedCmS,SleepDisplacementCm,SoftLimitFraction,NonlinearGain,LimitHardening}) if(!FMath::IsFinite(Value) || Value<=0) return false;
+    if(SurfaceGuardVersion<0 || SurfaceGuardVersion>1) return false;
+    if(SurfaceGuardVersion==1)
+    {
+        if(SurfaceGradients.IsEmpty() || !FMath::IsFinite(SurfaceGradientBudget) || SurfaceGradientBudget<=0 || SurfaceGradientBudget>=.5) return false;
+        bool Seen[2]={false,false};
+        for(const auto& G:SurfaceGradients)
+        {
+            if(G.Side<0 || G.Side>1 || G.WeightGradients.Num()!=5) return false;
+            Seen[G.Side]=true;
+            for(const auto& W:G.WeightGradients) if(!FMath::IsFinite(W.X) || !FMath::IsFinite(W.Y)) return false;
+        }
+        if(!Seen[0] || !Seen[1]) return false;
+    }
     TSet<int32> Bones;
     for(const auto& S:Sides)
     {

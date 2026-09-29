@@ -1,4 +1,7 @@
 #include "VamLegJiggleBuilder.h"
+#include <queue>
+#include <vector>
+#include <functional>
 #include "VamLegJiggleProfile.h"
 #include "VamGluteStructureProfile.h"
 #include "VamBreastJiggleBuilder.h"
@@ -164,6 +167,97 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
         }
         for(int32 V=0;V<Area.Num();++V){TArray<TPair<int32,double>> Helpers;for(int32 N=0;N<5;++N) Helpers.Emplace(S.Dynamics.Nodes[N].BoneIndex,Share[V][N]);BlendLegWeights(Weights[V],Primary,HipBones,Helpers,Transfer*Smooth(S.RegionWeights[V]/.65));}
         P->Segments.Add(MoveTemp(S));
+    }
+    WeldWeights();
+    // A surface-distance extension provides transition width OUTSIDE the old mask.
+    // Diffusing only inside that mask cannot remove its narrow fixed boundary.
+    const TSharedPtr<FJsonObject>* TransitionPolicy=nullptr;
+    if(!Map->TryGetObjectField(TEXT("hip_surface_transition"),TransitionPolicy)) return Fail(TEXT("Unsupported family: missing hip surface transition policy"));
+    const auto Transition=*TransitionPolicy;
+    const double WidthFraction=Transition->GetNumberField(TEXT("width_fraction"));
+    const double CoreFraction=Transition->GetNumberField(TEXT("core_fraction"));
+    if(!FMath::IsFinite(WidthFraction) || WidthFraction<.1 || WidthFraction>.6 || !FMath::IsFinite(CoreFraction) || CoreFraction<.4 || CoreFraction>.9) return Fail(TEXT("Invalid hip surface transition policy"));
+    auto Quintic=[](double T){T=FMath::Clamp(T,0.,1.);return T*T*T*(10+T*(-15+6*T));};
+    for(const auto& Side:Glute->Sides)
+    {
+        TSet<int32> Bones;for(const auto& R:Side.Regions) Bones.Add(R.BoneIndex);
+        TArray<double> Original,Capacity,Distance,Gate;Original.Init(0,Weights.Num());Capacity.Init(0,Weights.Num());Distance.Init(1.e30,Weights.Num());Gate.Init(0,Weights.Num());
+        double Peak=0,PeakRegion=0;for(float W:Side.RegionWeights) PeakRegion=FMath::Max(PeakRegion,double(W));
+        const FTransform Anchor=Side.AnchorLocal*Glute->RestPelvisComponent;
+        const double Width=FMath::Max(.1,Side.Dimensions.Z*WidthFraction);
+        using Entry=std::pair<double,int32>;
+        std::priority_queue<Entry,std::vector<Entry>,std::greater<Entry>> Queue;
+        for(int32 V=0;V<Weights.Num();++V)
+        {
+            for(const auto& W:Weights[V]) if(Bones.Contains(W.Key)) Original[V]+=W.Value;
+            Capacity[V]=Original[V]+Weights[V].FindRef(Pelvis)+Weights[V].FindRef(Side.ThighBone);
+            const FVector Local=Anchor.InverseTransformPosition(Input.Vertices[V]);
+            Gate[V]=Quintic(Local.X/FMath::Max(.1,Side.Dimensions.X*.35))*Quintic(Side.SideSign*Local.Y/FMath::Max(.1,Side.Dimensions.Y*.22));
+            Peak=FMath::Max(Peak,Original[V]);
+            if(Area[V]>0 && Side.RegionWeights[V]>=PeakRegion*CoreFraction && Original[V]>1.e-5) {Distance[V]=0;Queue.emplace(0,V);}
+        }
+        if(Queue.empty()) return Fail(TEXT("Missing hip transition core"));
+        while(!Queue.empty())
+        {
+            const auto Current=Queue.top();Queue.pop();const int32 V=Current.second;
+            if(Current.first>Distance[V] || Current.first>=Width) continue;
+            for(int32 N:Adj[V])
+            {
+                if(Capacity[N]<1.e-6 || Gate[N]<=0) continue;
+                const double Next=Current.first+(Input.Vertices[N]-Input.Vertices[V]).Size();
+                if(Next<Distance[N] && Next<Width) {Distance[N]=Next;Queue.emplace(Next,N);}
+            }
+        }
+        int32 Expanded=0,Changed=0;double CoreBefore=0,CoreAfter=0;
+        TArray<double> Final;Final.Init(0,Weights.Num());
+        for(int32 V=0;V<Weights.Num();++V)
+        {
+            auto& W=Weights[V];const double Donor=Capacity[V]-Original[V];
+            if(Donor<=1.e-8 || (Distance[V]>=Width && Original[V]<=1.e-8)) {Final[V]=Original[V];continue;}
+            const double Field=Peak*(1-Quintic(Distance[V]/Width))*Gate[V];
+            const double Desired=FMath::Min(Field,Capacity[V]*.85);
+            TArray<TPair<int32,double>> Helpers;
+            for(const auto& Pair:W) if(Bones.Contains(Pair.Key) && Pair.Value>0) Helpers.Add(Pair);
+            for(int32 HelperIndex:Bones) W.Remove(HelperIndex);
+            for(auto& Pair:W) if(Pair.Key==Pelvis || Pair.Key==Side.ThighBone) Pair.Value+=Original[V]*Pair.Value/Donor;
+            const FVector Point=Anchor.InverseTransformPosition(Input.Vertices[V]);
+            if(Helpers.IsEmpty()) for(const auto& R:Side.Regions) Helpers.Emplace(R.BoneIndex,FMath::Exp(-((Point-R.Rest)/Side.Dimensions).SizeSquared()*16));
+            VamBreastWeights::Redistribute(W,{Pelvis,Side.ThighBone},Helpers,Desired/FMath::Max(1.e-8,Capacity[V]));
+            for(const auto& Pair:W) if(Bones.Contains(Pair.Key)) Final[V]+=Pair.Value;
+            if(Original[V]<1.e-5 && Final[V]>1.e-4) ++Expanded;
+            if(FMath::Abs(Final[V]-Original[V])>1.e-5) ++Changed;
+            if(Distance[V]==0){CoreBefore+=Area[V]*Original[V];CoreAfter+=Area[V]*Final[V];}
+        }
+        // Fit semantic support centers without changing the total motion field.
+        // Positive multiplicative reweighting retains sparsity and the eight-slot budget.
+        for(int32 Pass=0;Pass<96;++Pass)
+        {
+            FVector Centers[5];double Totals[5]={};for(auto& C:Centers) C=FVector::ZeroVector;
+            for(int32 V=0;V<Weights.Num();++V) for(int32 N=0;N<5;++N)
+            {
+                const double W=Weights[V].FindRef(Side.Regions[N].BoneIndex)*Area[V];
+                Centers[N]+=Side.RegionPoints[V]*W;Totals[N]+=W;
+            }
+            for(int32 N=0;N<5;++N) Centers[N]/=FMath::Max(1.e-12,Totals[N]);
+            for(int32 V=0;V<Weights.Num();++V) if(Final[V]>1.e-8)
+            {
+                double Sum=0;
+                for(int32 N=0;N<5;++N) if(double* W=Weights[V].Find(Side.Regions[N].BoneIndex))
+                {
+                    const FVector ErrorDirection=(Side.Regions[N].Rest-Centers[N])/Side.Dimensions;
+                    const FVector Relative=(Side.RegionPoints[V]-Centers[N])/Side.Dimensions;
+                    *W*=FMath::Exp(FMath::Clamp(8*FVector::DotProduct(Relative,ErrorDirection),-.5,.5));Sum+=*W;
+                }
+                if(Sum>1.e-12) for(int32 N=0;N<5;++N) if(double* W=Weights[V].Find(Side.Regions[N].BoneIndex)) *W*=Final[V]/Sum;
+            }
+        }
+        double Before=0,After=0;
+        for(int32 V=0;V<Weights.Num();++V) for(int32 N:Adj[V]) if(N>V)
+        {
+            const double Length=(Input.Vertices[N]-Input.Vertices[V]).Size();if(Length<1.e-5) continue;
+            Before=FMath::Max(Before,FMath::Abs(Original[N]-Original[V])/Length);After=FMath::Max(After,FMath::Abs(Final[N]-Final[V])/Length);
+        }
+        UE_LOG(LogTemp,Display,TEXT("HIP_GEODESIC side=%s width=%.3f expanded=%d changed=%d core retention=%.4f max edge gradient %.4f -> %.4f"),*Side.Side.ToString(),Width,Expanded,Changed,CoreAfter/FMath::Max(1.e-8,CoreBefore),Before,After);
     }
     WeldWeights();
     int32 SharedVertices=0;

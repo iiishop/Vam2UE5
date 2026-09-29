@@ -40,6 +40,18 @@ FString UVamGluteStructureBuilder::SpatialAudit(UVamCharacterDefinition* D,UVamG
             // stay within one quarter of the anatomical dimensions of its support.
             Valid&=W>1.e-8 && FMath::IsFinite(SpatialError) && SpatialError<.25;Nodes.Add(MakeShared<FJsonValueObject>(Node));
         }
+        TArray<double> Hip;Hip.Init(0,I.Vertices.Num());
+        for(const auto& F:I.Influences) for(const auto& R:S.Regions) if(F.Bone==R.BoneIndex) Hip[F.Vertex]+=F.Weight;
+        double MaxGradient=0;int32 WorstA=0,WorstB=0;
+        for(int32 T=0;T<I.Triangles.Num();T+=3) for(int32 K=0;K<3;++K)
+        {
+            const int32 A=I.Triangles[T+K],B=I.Triangles[T+(K+1)%3];const double L=(I.Vertices[A]-I.Vertices[B]).Size();
+            if(L<1.e-5) continue;const double Gradient=FMath::Abs(Hip[A]-Hip[B])/L;
+            if(Gradient>MaxGradient){MaxGradient=Gradient;WorstA=A;WorstB=B;}
+        }
+        Side->SetNumberField(TEXT("max_edge_gradient"),MaxGradient);
+        Side->SetArrayField(TEXT("worst_edge_a"),Vector(S.RegionPoints[WorstA]));Side->SetArrayField(TEXT("worst_edge_b"),Vector(S.RegionPoints[WorstB]));
+        Side->SetNumberField(TEXT("worst_weight_a"),Hip[WorstA]);Side->SetNumberField(TEXT("worst_weight_b"),Hip[WorstB]);
         Side->SetArrayField(TEXT("nodes"),Nodes);Result->SetObjectField(S.Side.ToString(),Side);
     }
     Result->SetBoolField(TEXT("valid"),Valid);return VamGluteAudit::Json(Result);
