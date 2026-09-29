@@ -1995,6 +1995,11 @@
     "skin_transfer": {
       "maximum_donor_fraction": 0.7,
       "full_region_confidence": 0.45
+    },
+    "superior_transition": {
+      "extent_sigma": 3.5,
+      "fade_sigma": 1.5,
+      "evidence_sigma": 3.0
     }
   },
   "glute_corrective": {

@@ -11,6 +11,11 @@ TSharedRef<SWidget> GluteJiggleControls()
     Box->AddSlot().AutoHeight()[SNew(SHorizontalBox)
         +SHorizontalBox::Slot().FillWidth(.65)[SNew(STextBlock).Text(FText::FromString(TEXT("Amplitude · 臀部动态幅度（默认 3 倍）")))]
         +SHorizontalBox::Slot().FillWidth(.35)[SNew(SNumericEntryBox<double>).MinValue(0.).MaxValue(10.).MinSliderValue(0.).MaxSliderValue(10.).Value_Lambda([Body]()->TOptional<double>{auto* B=Body();return B?B->GluteAmplitude:3.;}).OnValueChanged_Lambda([Body](double X){if(auto* B=Body()) B->GluteAmplitude=X;})]];
+    Box->AddSlot().AutoHeight()[SNew(SHorizontalBox)
+        +SHorizontalBox::Slot().FillWidth(.65)[SNew(STextBlock).Text(FText::FromString(TEXT("Waist Tether · 腰部衔接（0 = 原效果）")))]
+        +SHorizontalBox::Slot().FillWidth(.35)[SNew(SNumericEntryBox<double>).MinValue(0.).MaxValue(1.)
+            .Value_Lambda([Body]()->TOptional<double>{auto* B=Body();return B?B->GluteWaistTether:.85;})
+            .OnValueChanged_Lambda([Body](double X){if(auto* B=Body()) B->GluteWaistTether=X;})]];
     const TCHAR* Labels[]={TEXT("Support · 双支承刚度"),TEXT("Damping · 能量衰减"),TEXT("Mobility · 非线性行程"),TEXT("Internal Coupling · 区域连接"),TEXT("Mass Scale · 质量")};
     const double Minimum[]={.1,.1,.25,0,.1},Maximum[]={10,4,3,4,10};
     for(int32 I=0;I<5;++I)

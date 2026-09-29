@@ -31,16 +31,23 @@ void UVamGluteSkeletalMeshComponent::ApplyGluteJiggle()
         const FVector Gravity=bGluteGravityOverride?GluteDebugGravityWorld:FVector(0,0,GetWorld()->GetGravityZ());
         if(bGluteJiggleEnabled) Solver.Advance(*GluteJiggleProfile,R,M,Dt,Gravity,GetGluteTuning(),Reset,Paused,bGluteShapeRebase);
         else Solver.Reset();
+        // Source structural geometry defines the upper attachment direction.
+        // A smooth fade anchors the waist without reducing the core/lower gain.
+        const FVector UpperSpan=S.Regions[1].Rest-S.Regions[0].Rest;
+        const double SpanSquared=UpperSpan.SizeSquared();
+        const double Waist=FMath::Clamp(FMath::IsFinite(GluteWaistTether)?GluteWaistTether:.85,0.,1.);
         for(int32 N=0;N<5;++N)
         {
             const auto& Node=R.Nodes[N];const auto& Dynamic=Solver.Nodes[N];auto Local=Structural.Regions[N].Transform;
-            const FVector Offset=bGluteJiggleEnabled?Dynamic.Displacement*Amplitude:FVector::ZeroVector;Local.AddToTranslation(Offset);Pose[Node.BoneIndex]=Local*AnchorCS;
+            const double U=SpanSquared>1.e-8?FMath::Clamp(FVector::DotProduct(S.Regions[N].Rest-S.Regions[0].Rest,UpperSpan)/SpanSquared,0.,1.):0.;
+            const double OutputGain=Amplitude*(1-Waist*U*U*(3-2*U));
+            const FVector Offset=bGluteJiggleEnabled?Dynamic.Displacement*OutputGain:FVector::ZeroVector;Local.AddToTranslation(Offset);Pose[Node.BoneIndex]=Local*AnchorCS;
             const FVector Rest=M.Pelvis.TransformPosition(Node.Rest),Position=M.Pelvis.TransformPosition(Local.GetLocation());
             if(bShowGluteDynamicNodes) DrawDebugPoint(GetWorld(),Position,7,FColor::Orange,false,0);
             if(bShowGluteRestDynamic) { DrawDebugPoint(GetWorld(),Rest,5,FColor::Cyan,false,0);DrawDebugLine(GetWorld(),Rest,Position,FColor::Magenta,false,0,0,1); }
             if(bShowGluteDynamicPelvis) DrawDebugLine(GetWorld(),M.Pelvis.TransformPosition(Node.PelvisPoint),Position,FColor::Green,false,0);
             if(bShowGluteDynamicThigh) DrawDebugLine(GetWorld(),M.Thigh.TransformPosition(Node.ThighPointLocal),Position,FColor::Yellow,false,0);
-            if(bShowGluteVelocity) DrawDebugLine(GetWorld(),Position,Position+M.Pelvis.TransformVectorNoScale(Dynamic.RelativeVelocity)*(.05*Amplitude),FColor::Red,false,0);
+            if(bShowGluteVelocity) DrawDebugLine(GetWorld(),Position,Position+M.Pelvis.TransformVectorNoScale(Dynamic.RelativeVelocity)*(.05*OutputGain),FColor::Red,false,0);
         }
     }
     GluteLastTime=Now;GluteLastTeleport=Teleport;bGluteWasEnabled=bGluteJiggleEnabled;bGluteShapeRebase=false;
@@ -49,6 +56,7 @@ FString UVamGluteSkeletalMeshComponent::GluteJiggleDiagnostics() const
 {
     if(!GluteJiggleProfile) return TEXT("G1 profile absent: Upgrade Runtime to a new output.");
     FString Text=GluteJiggleProfile->Algorithm+TEXT(" | ")+GluteJiggleProfile->GetPathName()+TEXT("\n");
+    Text+=FString::Printf(TEXT("Waist tether %.2f: smooth upper-attachment output fade; 0 = legacy.\n"),GluteWaistTether);
     Text+=FString::Printf(TEXT("Amplitude %.2fx：最终 helper 动态位移倍率；下方 offset / travel 为未放大的 solver 状态。\n"),GluteAmplitude);
     if(GluteJiggleProfile->SchemaVersion<2) Text+=TEXT("旧 G1 重力契约：Upgrade Runtime required。当前资产保留旧行为；仅更新 DLL 不会升级 Profile。\n");
     Text+=bGluteGravityOverride?TEXT("Gravity override：仅当前人物 Glute solver；不修改场景、Breast 或项目重力。\n"):TEXT("Gravity Default：使用当前 World gravity。\n");
