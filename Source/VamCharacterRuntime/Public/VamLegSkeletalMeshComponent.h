@@ -12,8 +12,11 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") bool bLegJiggleEnabled=true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double ThighAmplitude=3;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double CalfAmplitude=3;
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double LegSupport=1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double LegSupport=.85;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double LegDamping=1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle",meta=(ClampMin="0.1",ClampMax="4")) double ThighDamping=.3;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle",meta=(ClampMin="0.1",ClampMax="4")) double CalfDamping=.4;
+    UFUNCTION(BlueprintCallable, Category="VaM|Leg Jiggle") void ResetLegTuning();
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") bool bShowLegNodes=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") bool bShowLegRegion=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") bool bShowLegTension=false;
@@ -27,6 +30,8 @@ public:
     TArray<double> LegTension[4];
     FVector LegAngles[4]={};
 private:
+    UPROPERTY(Transient) TObjectPtr<UVamGluteJiggleProfile> LegIntegration;
+    UPROPERTY(Transient) TObjectPtr<UVamLegJiggleProfile> IntegrationSource;
     double LegLastTime=-1;
     int32 LegLastTeleport=INDEX_NONE;
     bool bLegShapeRebase=false,bLegWasEnabled=true;

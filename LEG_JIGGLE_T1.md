@@ -74,3 +74,15 @@ Generation includes intrinsic profile/hierarchy/weight/bind checks. No automated
 - New algorithm identity: leg-pose-tension-t1-v2-seams. Existing generated meshes must be upgraded/rebuilt because their skin weights are stored in the asset.
 
 Fix delivery: Editor and Game Development compilation succeeded; updated Editor DLLs installed with matching hashes. New committed BP: `/Game/VamRuntime/R_9345f3209950f77911bda5eb/BP_VamCharacter`. Intrinsic builder log: 2012 coincident source-vertex copies, maximum incoming representative weight difference 0.344365597; after region/weight generation, 0.000000000. Build, independent reload and publication all exited 0. These are asset-generation diagnostics, not visual acceptance. Logs: `Saved/LegJiggleT1/PrimarySeamFix/`.
+
+## T1 ring-down refinement (2026-09-29)
+
+The old regional damping ratios (typically 0.35, anterior calf 0.5) dissipated motion quickly; backward Euler at 120 Hz added numerical damping. Runtime now uses a per-instance copy of integration settings at 240 Hz, retaining the original hitch time budget (normally 32 substeps). Shared profiles and Hip/Breast integration are unchanged. Existing generated Leg profiles work without regeneration.
+
+Defaults: thigh output amplitude 3, calf amplitude 3, support 0.85, global legacy damping 1, new thigh damping multiplier 0.30, calf damping multiplier 0.40. Panel exposes the two regional damping controls separately; smaller values sustain motion longer. Passive pose tension continues to increase regional support and damping. These controls reduce damping rather than multiplying visible amplitude again. The effective solver damping multiplier is the global multiplier times the segment multiplier, clamped by the existing solver to 0.1–4.
+
+A new Restore Leg Defaults button resets these controls and solver history without changing pose. Diagnostics report 240 Hz and current damping multipliers. Substep work is approximately twice the prior configuration at the same rendered frame rate; no performance benchmark or visual acceptance is claimed.
+
+Additional Shape correction: recompute COM and attachment points from the changed rest geometry, update radial dimensions, and scale node coupling stiffness consistently with node support. Previously these remained at imported values after Shape changes.
+
+The thigh branch fast-forwarded to e4f721a to preserve the previously completed Breast amplitude=2 feature. No runtime asset rebuild or new test character is required.

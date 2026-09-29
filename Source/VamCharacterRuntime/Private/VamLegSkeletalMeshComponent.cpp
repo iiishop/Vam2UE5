@@ -6,6 +6,10 @@
 #include "GameFramework/Actor.h"
 #include "DrawDebugHelpers.h"
 
+void UVamLegSkeletalMeshComponent::ResetLegTuning()
+{
+    ThighAmplitude=CalfAmplitude=3;LegSupport=.85;LegDamping=1;ThighDamping=.3;CalfDamping=.4;ResetLegJiggle();
+}
 void UVamLegSkeletalMeshComponent::ResetLegJiggle(){for(auto& S:LegSolvers) S.Reset();LegLastTime=-1;}
 void UVamLegSkeletalMeshComponent::UpdateLegShape(const TMap<FName,float>& Values,TArray<FTransform>& Reference)
 {
@@ -22,6 +26,16 @@ void UVamLegSkeletalMeshComponent::UpdateLegShape(const TMap<FName,float>& Value
         const double VolumeScale=FMath::Exp(FMath::Clamp(VolumeLogChange,-2.,2.)),RadiusScale=FMath::Pow(VolumeScale,1./3.);
         S.EffectiveVolumeCm3*=VolumeScale;S.Dynamics.MassKg*=VolumeScale;S.Radius*=RadiusScale;
         for(auto& N:S.Dynamics.Nodes){N.MassKg*=VolumeScale;N.Support*=VolumeScale/RadiusScale;N.PositiveTravel*=RadiusScale;N.NegativeTravel*=RadiusScale;Reference[N.BoneIndex]=FTransform(N.Rest);}
+        S.Dynamics.COM=FVector::ZeroVector;
+        const FTransform Anchor=S.AnchorLocal*CS[S.bCalf?S.Shin:S.Thigh];
+        for(auto& N:S.Dynamics.Nodes)
+        {
+            N.COM=N.Rest;S.Dynamics.COM+=N.COM*N.MassKg;N.PelvisPoint=FVector(0,0,N.Rest.Z);
+            N.ThighPointLocal=CS[S.bCalf?S.Foot:S.Shin].InverseTransformPosition(Anchor.TransformPosition(N.Rest));
+        }
+        S.Dynamics.COM/=S.Dynamics.MassKg;
+        S.Dynamics.Dimensions.X*=RadiusScale;S.Dynamics.Dimensions.Y*=RadiusScale;
+        for(auto& Edge:S.Dynamics.Couplings) Edge.Stiffness*=VolumeScale/RadiusScale;
         S.JointRest={CS[S.Thigh].GetRelativeTransform(CS[S.Pelvis]),CS[S.Shin].GetRelativeTransform(CS[S.Thigh]),CS[S.Foot].GetRelativeTransform(CS[S.Shin])};
         S.ParentRestRotations={CS[S.Pelvis].GetRotation(),CS[S.Thigh].GetRotation(),CS[S.Shin].GetRotation()};Reference[S.AnchorBone]=S.AnchorLocal;
     }
@@ -30,6 +44,16 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
 {
     if(LegProfile && LegProfile->IsValidProfile() && GetWorld())
     {
+        if(!LegIntegration || IntegrationSource!=LegProfile)
+        {
+            if(IntegrationSource && IntegrationSource!=LegProfile) LegRest.Reset();
+            ResetLegJiggle();
+            LegIntegration=DuplicateObject<UVamGluteJiggleProfile>(LegProfile->Integration,this,MakeUniqueObjectName(this,UVamGluteJiggleProfile::StaticClass()));
+            const double TimeBudget=LegIntegration->FixedStep*LegIntegration->MaxSubsteps;
+            LegIntegration->FixedStep=1./240.;
+            LegIntegration->MaxSubsteps=FMath::Clamp(FMath::CeilToInt(TimeBudget/LegIntegration->FixedStep),32,128);
+            IntegrationSource=LegProfile;
+        }
         if(LegRest.Num()!=4) LegRest=LegProfile->Segments;
         auto& Pose=GetEditableComponentSpaceTransforms();const auto PrimaryPose=Pose;
         const double Now=GetWorld()->GetTimeSeconds(),Dt=LegLastTime<0?0:Now-LegLastTime;
@@ -42,8 +66,8 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
             const auto Dynamics=VamLegDynamics::Evaluate(*LegProfile,S,LegAngles[I],SideAngles,LegTension[I]);
             const FTransform Anchor=S.AnchorLocal*PrimaryPose[S.bCalf?S.Shin:S.Thigh];Pose[S.AnchorBone]=Anchor;
             FVamGluteMotion Input;Input.Pelvis=Anchor*GetComponentTransform();Input.Thigh=PrimaryPose[S.bCalf?S.Foot:S.Shin]*GetComponentTransform();
-            FVamGluteTuning Tuning;Tuning.Support=LegSupport;Tuning.Damping=LegDamping;
-            if(bLegJiggleEnabled && GetWorld()->IsGameWorld()) LegSolvers[I].Advance(*LegProfile->Integration,Dynamics,Input,Dt,FVector(0,0,GetWorld()->GetGravityZ()),Tuning,Revision!=LegLastTeleport || bLegWasEnabled!=bLegJiggleEnabled,Paused,bLegShapeRebase);
+            FVamGluteTuning Tuning;Tuning.Support=LegSupport;Tuning.Damping=LegDamping*(S.bCalf?CalfDamping:ThighDamping);
+            if(bLegJiggleEnabled && GetWorld()->IsGameWorld()) LegSolvers[I].Advance(*LegIntegration,Dynamics,Input,Dt,FVector(0,0,GetWorld()->GetGravityZ()),Tuning,Revision!=LegLastTeleport || bLegWasEnabled!=bLegJiggleEnabled,Paused,bLegShapeRebase);
             else LegSolvers[I].Reset();
             const double Value=S.bCalf?CalfAmplitude:ThighAmplitude,Amplitude=FMath::Clamp(FMath::IsFinite(Value)?Value:3.,0.,10.);
             for(int32 N=0;N<5;++N)
@@ -65,6 +89,7 @@ FString UVamLegSkeletalMeshComponent::LegDiagnostics() const
 {
     if(!LegProfile) return TEXT("Leg Jiggle profile absent: Generate / Upgrade Runtime to a new BP.");
     FString Out=LegProfile->Algorithm+TEXT(" | ")+LegProfile->GetPathName()+TEXT("\nPose tension is passive length-based approximation, not active muscle activation.\n");
+    Out+=FString::Printf(TEXT("240 Hz | support %.2f | thigh damping %.2f calf damping %.2f (lower = longer ring-down)\n"),LegSupport,LegDamping*ThighDamping,LegDamping*CalfDamping);
     for(int32 I=0;I<LegRest.Num();++I)
     {
         const auto& S=LegRest[I];const auto& Solver=LegSolvers[I];Out+=FString::Printf(TEXT("%s hip/knee/ankle %s deg | volume %.2f cm3 mass %.3f kg | gravity residual %s\nsteps %d limits %d solver %.2f us\n"),*S.Name.ToString(),*(LegAngles[I]*(180./PI)).ToCompactString(),S.EffectiveVolumeCm3,S.Dynamics.MassKg,*Solver.GravityResidualLocal.ToCompactString(),Solver.LastSteps,Solver.LimitCorrections,Solver.LastCostMicroseconds);
