@@ -1,5 +1,6 @@
 #include "VamCharacterComponent.h"
 #include "VamGluteSkeletalMeshComponent.h"
+#include "VamLegSkeletalMeshComponent.h"
 #include "VamCharacterDefinition.h"
 #include "VamBreastSkeletalMeshComponent.h"
 #include "VamRuntimeConfiguration.h"
@@ -98,6 +99,7 @@ void UVamCharacterComponent::LoadMeshes(uint64 Ticket)
     TArray<FSoftObjectPath> Paths { LoadedDefinition->Body.ToSoftObjectPath(), LoadedDefinition->Skeleton.ToSoftObjectPath() };
     if (!LoadedDefinition->Shape.IsNull()) Paths.AddUnique(LoadedDefinition->Shape.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->BreastJiggle.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->BreastJiggle.ToSoftObjectPath());
+    if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->LegJiggle.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->LegJiggle.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteJiggle.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteJiggle.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteStructure.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteStructure.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteCorrective.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteCorrective.ToSoftObjectPath());
@@ -143,9 +145,11 @@ void UVamCharacterComponent::Assemble(uint64 Ticket)
     if (const UPhysicsAsset* Asset=PhysicsAsset.Get())
         if (Asset->SkeletalBodySetups.IsEmpty() || Asset->ConstraintSetup.IsEmpty())
         { OnLoaded.Broadcast(false,TEXT("Stage06 physics asset has no bodies or constraints")); return; }
-    Body = NewObject<UVamGluteSkeletalMeshComponent>(GetOwner(), NAME_None, RF_Transient);
+    Body = NewObject<UVamLegSkeletalMeshComponent>(GetOwner(), NAME_None, RF_Transient);
     if(LoadedRuntimeConfiguration)
     {
+        auto* Leg=CastChecked<UVamLegSkeletalMeshComponent>(Body);Leg->LegProfile=LoadedRuntimeConfiguration->LegJiggle.Get();
+        if(!LoadedRuntimeConfiguration->LegJiggle.IsNull() && (!Leg->LegProfile || !Leg->LegProfile->IsValidProfile())) {Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid LegJiggleProfile"));return;}
         auto* Jiggle=CastChecked<UVamBreastSkeletalMeshComponent>(Body);
         Jiggle->BreastProfile=LoadedRuntimeConfiguration->BreastJiggle.Get();
         auto* Glute=CastChecked<UVamGluteSkeletalMeshComponent>(Body);
@@ -332,6 +336,7 @@ bool UVamCharacterComponent::ApplyShape(const TArray<FName>& Changed, bool bComm
     }
     if(auto* Jiggle=Cast<UVamBreastSkeletalMeshComponent>(Body)) Jiggle->UpdateBreastShape(PreviewState.Values,NextReference,bCommitted);
     if(auto* Glute=Cast<UVamGluteSkeletalMeshComponent>(Body)) Glute->UpdateGluteShape(PreviewState.Values,NextReference,PreviewState.Revision+1);
+    if(auto* Leg=Cast<UVamLegSkeletalMeshComponent>(Body)) Leg->UpdateLegShape(PreviewState.Values,NextReference);
     TArray<FTransform> OldCS=PreviousReference, NewCS=NextReference;
     for(int32 I=0;I<NewCS.Num();++I) if(Ref.GetParentIndex(I)>=0)
     { NewCS[I]=NewCS[I]*NewCS[Ref.GetParentIndex(I)]; OldCS[I]=OldCS[I]*OldCS[Ref.GetParentIndex(I)]; }
