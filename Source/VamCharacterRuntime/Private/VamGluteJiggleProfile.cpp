@@ -3,6 +3,7 @@
 FVamGluteDynamicSide VamGluteDynamics::Calibrate(const UVamGluteJiggleProfile& P,const FVamGluteSide& S,const FVamGluteStructuralState& State)
 {
     FVamGluteDynamicSide Out;Out.Side=S.Side;Out.COM=State.FinalRestCOM;Out.Dimensions=S.Dimensions;Out.MassKg=S.EffectiveVolumeCm3*P.DensityKgPerCm3;
+    for(const auto& Imported:P.Sides) if(Imported.Side==S.Side) { Out.ReferenceGravityLocal=Imported.ReferenceGravityLocal;break; }
     if(S.Regions.Num()!=5 || State.Regions.Num()!=5) return Out;
     for(int32 I=0;I<S.Regions.Num();++I)
     {
@@ -30,11 +31,13 @@ FVamGluteDynamicSide VamGluteDynamics::Calibrate(const UVamGluteJiggleProfile& P
 }
 bool UVamGluteJiggleProfile::IsValidProfile() const
 {
-    if(SchemaVersion!=1 || Sides.Num()!=2 || SourceTopologyIdentity.IsEmpty() || SkeletonFamily.IsEmpty() || !FMath::IsFinite(DensityKgPerCm3) || DensityKgPerCm3<=0 || !FMath::IsFinite(FixedStep) || FixedStep<=0 || FixedStep>1./60. || MaxSubsteps<1 || MaxSubsteps>64 || SoftLimitFraction<=0 || SoftLimitFraction>=1) return false;
+    if((SchemaVersion!=1 && SchemaVersion!=2) || Sides.Num()!=2 || SourceTopologyIdentity.IsEmpty() || SkeletonFamily.IsEmpty() || !FMath::IsFinite(DensityKgPerCm3) || DensityKgPerCm3<=0 || !FMath::IsFinite(FixedStep) || FixedStep<=0 || FixedStep>1./60. || MaxSubsteps<1 || MaxSubsteps>64 || SoftLimitFraction<=0 || SoftLimitFraction>=1) return false;
+    if(SchemaVersion==2 && (AuthoredGravityWorld.ContainsNaN() || !FMath::IsNearlyEqual(AuthoredGravityWorld.Size(),980.,1.e-6) || Algorithm!=TEXT("glute-dual-attachment-g1.1-reference-gravity-v1") || GravityPolicy!=TEXT("body-attached-imported-1g-v1"))) return false;
     for(double Value:{DynamicModulusFraction,TeleportDistanceCm,TeleportAngleRadians,PoseDiscontinuityRadians,LargeShapeChangeRatio,SleepSpeedCmS,SleepDisplacementCm,SoftLimitFraction,NonlinearGain,LimitHardening}) if(!FMath::IsFinite(Value) || Value<=0) return false;
     TSet<int32> Bones;
     for(const auto& S:Sides)
     {
+        if(SchemaVersion==2 && (S.ReferenceGravityLocal.ContainsNaN() || !FMath::IsNearlyEqual(S.ReferenceGravityLocal.Size(),AuthoredGravityWorld.Size(),1.e-6))) return false;
         if(S.Nodes.Num()!=5 || S.Couplings.Num()!=8 || S.MassKg<=0 || !FMath::IsFinite(S.MassKg) || S.Dimensions.ContainsNaN()) return false;
         if(S.Dimensions.GetMin()<=0 || S.COM.ContainsNaN()) return false;
         const FName Semantics[]={TEXT("Core"),TEXT("Upper"),TEXT("Lower"),TEXT("Medial"),TEXT("Lateral")};

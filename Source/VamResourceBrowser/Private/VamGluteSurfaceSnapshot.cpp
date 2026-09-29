@@ -62,6 +62,7 @@ FString CaptureGluteSurface(UVamGluteSkeletalMeshComponent& B,bool Draw,bool Jig
     if(Jiggle)
     {
         Report->SetBoolField(TEXT("g1_enabled"),B.bGluteJiggleEnabled);Report->SetStringField(TEXT("g1_diagnostics"),B.GluteJiggleDiagnostics());
+        Report->SetNumberField(TEXT("amplitude_scale"),B.GluteAmplitude);
         Report->SetNumberField(TEXT("support_scale"),B.GluteSupport);Report->SetNumberField(TEXT("damping_scale"),B.GluteDamping);Report->SetNumberField(TEXT("mobility_scale"),B.GluteMobility);Report->SetNumberField(TEXT("coupling_scale"),B.GluteInternalCoupling);Report->SetNumberField(TEXT("mass_scale"),B.GluteMassScale);
         Report->SetStringField(TEXT("primary_pelvis"),B.HipPoseState.PelvisComponent.ToHumanReadableString());Report->SetStringField(TEXT("primary_left_femur"),B.HipPoseState.LeftFemurComponent.ToHumanReadableString());Report->SetStringField(TEXT("primary_right_femur"),B.HipPoseState.RightFemurComponent.ToHumanReadableString());
     }

@@ -1,5 +1,9 @@
 # G1 — Glute Dual-Attachment Secondary Dynamics
 
+Gravity behavior for newly generated schema-2 assets is superseded by
+[G1.1 Reference-Gravity Equilibrium](GLUTE_JIGGLE_G11.md).
+See the [G1.1 verified report](Evidence/GluteJiggleG11/REPORT_ZH.md) for current assets and results.
+
 Status: implemented, compiled, installed and engineering-verified on 2026-09-29.
 Full results and Chinese operating instructions: `Evidence/GluteJiggleG1/implementation-report.md`.
 Baseline HEAD is `119c23b8aa7f9ca96673f1c2ca611a15304b320a`; G1 changes are uncommitted.

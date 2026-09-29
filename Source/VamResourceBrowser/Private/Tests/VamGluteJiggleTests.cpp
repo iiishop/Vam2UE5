@@ -83,6 +83,27 @@ bool FVamGluteG1AssetTest::RunTest(const FString& Parameters)
         const auto Deep=VamGluteStructure::Evaluate(*G,S,Flex);const auto Tense=VamGluteDynamics::Calibrate(*P,S,Deep);
         TestEqual(TEXT("Pose tension cannot change mass"),R.MassKg,Tense.MassKg);
         TestTrue(TEXT("Core passive tension raises support"),Tense.Nodes[0].Support.GetMin()>R.Nodes[0].Support.GetMin());
+        if(P->SchemaVersion>=2)
+        {
+            const FTransform Imported=S.AnchorLocal*G->RestPelvisComponent;
+            TestTrue(TEXT("Reference gravity derives from real imported anchor"),R.ReferenceGravityLocal.Equals(Imported.GetRotation().UnrotateVector(P->AuthoredGravityWorld),1.e-7));
+            TestTrue(TEXT("Hip pose preserves immutable gravity reference"),R.ReferenceGravityLocal==Tense.ReferenceGravityLocal);
+            for(int32 FPS:{30,60,120})
+            {
+                FVamGluteSolver Zero,Fall;double Error=0;
+                for(int32 Frame=0;Frame<=FPS*2;++Frame)
+                {
+                    const double Time=double(Frame)/FPS;FVamGluteMotion A,B;A.bKnownTwist=B.bKnownTwist=true;
+                    A.Pelvis=Imported;A.Thigh=S.RestThighInAnchor*Imported;B=A;
+                    B.Pelvis.AddToTranslation(FVector(0,0,-490*Time*Time));B.Thigh.AddToTranslation(FVector(0,0,-490*Time*Time));B.PelvisVelocity=B.ThighVelocity=FVector(0,0,-980*Time);
+                    FVamGluteTuning Tune;Tune.Support=.45;Tune.Damping=.65;Tune.Mobility=2;
+                    Zero.Advance(*P,R,A,1./FPS,FVector::ZeroVector,Tune);Fall.Advance(*P,R,B,1./FPS,P->AuthoredGravityWorld,Tune);
+                    for(int32 N=0;N<5;++N) Error=FMath::Max(Error,(Zero.Nodes[N].Displacement-Fall.Nodes[N].Displacement).Size());
+                }
+                AddInfo(FString::Printf(TEXT("Measured character %s freefall FPS %d maximum relative error %.9f cm"),*S.Side.ToString(),FPS,Error));
+                TestTrue(TEXT("Measured freefall error bounded by fixed-step approximation"),Error<.5);
+            }
+        }
         TestTrue(TEXT("Regional response differs"),!(Tense.Nodes[0].Support/R.Nodes[0].Support).Equals(Tense.Nodes[2].Support/R.Nodes[2].Support,1.e-5));
         for(int32 I=0;I<5;++I) TestTrue(TEXT("Tension keeps mass/travel/helper identity"),R.Nodes[I].MassKg==Tense.Nodes[I].MassKg && R.Nodes[I].PositiveTravel==Tense.Nodes[I].PositiveTravel && R.Nodes[I].BoneIndex==Tense.Nodes[I].BoneIndex);
         FVamGluteSolver Solver;double Peak[5]={},Cost=0;
@@ -90,7 +111,7 @@ bool FVamGluteG1AssetTest::RunTest(const FString& Parameters)
         {
             const double Time=Frame/120.;auto Thigh=S.RestThighInAnchor;Thigh.SetRotation(FQuat(FVector::YAxisVector,.4*FMath::Sin(Time*4))*Thigh.GetRotation());
             const auto State=VamGluteStructure::Evaluate(*G,S,Thigh);const auto Current=VamGluteDynamics::Calibrate(*P,S,State);
-            FVamGluteMotion M;M.Thigh=Thigh;Solver.Advance(*P,Current,M,1./120.,FVector(0,0,-980),FVamGluteTuning());Cost+=Solver.LastCostMicroseconds;
+            FVamGluteMotion M;M.Pelvis=S.AnchorLocal*G->RestPelvisComponent;M.Thigh=Thigh*M.Pelvis;Solver.Advance(*P,Current,M,1./120.,FVector(0,0,-980),FVamGluteTuning());Cost+=Solver.LastCostMicroseconds;
             for(int32 I=0;I<5;++I) Peak[I]=FMath::Max(Peak[I],Solver.Nodes[I].Displacement.Size());
         }
         TestTrue(TEXT("Measured lower/lateral moving attachment response"),Peak[2]>.001 && Peak[4]>.001);
@@ -100,7 +121,7 @@ bool FVamGluteG1AssetTest::RunTest(const FString& Parameters)
         {
             auto Thigh=S.RestThighInAnchor;Thigh.SetRotation(FQuat(FVector::YAxisVector,Angles.X)*FQuat(FVector::XAxisVector,Angles.Y)*FQuat(S.FemurAxisInAnchor,Angles.Z)*Thigh.GetRotation());
             const auto State=VamGluteStructure::Evaluate(*G,S,Thigh);const auto Current=VamGluteDynamics::Calibrate(*P,S,State);Solver.Reset();
-            FVamGluteMotion M;M.Thigh=Thigh;Solver.Advance(*P,Current,M,0,FVector(0,0,-980),FVamGluteTuning());
+            FVamGluteMotion M;M.Pelvis=S.AnchorLocal*G->RestPelvisComponent;M.Thigh=Thigh*M.Pelvis;Solver.Advance(*P,Current,M,0,FVector(0,0,-980),FVamGluteTuning());
             for(auto& N:Solver.Nodes) { N.PositionWorld+=FVector(.05,0,.05);N.VelocityWorld=FVector(1,0,0); }
             for(int32 Frame=0;Frame<2400;++Frame) Solver.Advance(*P,Current,M,1./120.,FVector(0,0,-980),FVamGluteTuning());
             for(const auto& N:Solver.Nodes) TestTrue(TEXT("All fixed poses settle to G0.5 rest"),N.Displacement.Size()<1.e-5 && N.RelativeVelocity.Size()<1.e-5);
@@ -119,7 +140,10 @@ bool FVamGluteG1NativeTest::RunTest(const FString& Parameters)
     GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(World);World->InitializeActorsForPlay(FURL());World->GetWorldSettings()->NotifyBeginPlay();
     auto* A=World->SpawnActor<AVamCharacterActor>();auto* B=World->SpawnActor<AVamCharacterActor>();
     A->Character->RuntimeConfiguration=C;B->Character->RuntimeConfiguration=C;A->LoadCharacter();B->LoadCharacter();
-    auto Tick=[&](double Dt){++GFrameCounter;FTSTicker::GetCoreTicker().Tick(Dt);FTickableGameObject::TickObjects(nullptr,LEVELTICK_All,false,Dt);World->Tick(LEVELTICK_All,Dt);};
+    // This test advances minutes of simulated time inside one automation call.
+    // Defer engine periodic GC until the temporary world is fully torn down;
+    // subsystem cleanup (including Water) is not reentrant during this batch.
+    auto Tick=[&](double Dt){GEngine->DelayGarbageCollection();++GFrameCounter;FTSTicker::GetCoreTicker().Tick(Dt);FTickableGameObject::TickObjects(nullptr,LEVELTICK_All,false,Dt);World->Tick(LEVELTICK_All,Dt);};
     for(int32 I=0;I<30;++I){FlushAsyncLoading();Tick(1./60);}
     auto* MA=Cast<UVamGluteSkeletalMeshComponent>(A->Character->Body);auto* MB=Cast<UVamGluteSkeletalMeshComponent>(B->Character->Body);
     auto Evidence=MakeShared<FJsonObject>();
@@ -144,6 +168,47 @@ bool FVamGluteG1NativeTest::RunTest(const FString& Parameters)
             for(const auto& W:Weights) TestEqual(TEXT("G1 switch does not change corrective weights"),MA->CorrectiveWeights.FindRef(W.Key),W.Value);
             for(const auto& Side:MA->GluteRest) for(const auto& R:Side.Regions) TestTrue(TEXT("Settled helper pose equals disabled"),On[R.BoneIndex].Equals(MA->GetComponentSpaceTransforms()[R.BoneIndex],1.e-4));
             MA->bGluteJiggleEnabled=true;Tick(1./120);
+        }
+        if(MA->GluteJiggleProfile->SchemaVersion>=2)
+        {
+            MA->GlutePoseCommand(TEXT("Neutral standing"));for(int32 I=0;I<600;++I) Tick(1./120);
+            const auto NeutralWeights=MA->CorrectiveWeights;const FQuat Original=A->GetActorQuat();
+            auto GravitySnapshot=[&](const FString& Name)
+            {
+                for(int32 I=0;I<1200;++I) Tick(1./120);
+                const double SurfaceDelta=Snapshot(Name);
+                auto Data=Evidence->GetObjectField(Name);
+                for(int32 Side=0;Side<2;++Side)
+                {
+                    const auto& Solver=MA->GluteSolvers[Side];auto Values=MakeShared<FJsonObject>();
+                    Values->SetStringField(TEXT("world"),Solver.WorldGravity.ToString());Values->SetStringField(TEXT("current_local"),Solver.CurrentGravityLocal.ToString());
+                    Values->SetStringField(TEXT("reference_local"),Solver.ReferenceGravityLocal.ToString());Values->SetStringField(TEXT("residual_local"),Solver.GravityResidualLocal.ToString());
+                    Values->SetNumberField(TEXT("residual_magnitude"),Solver.GravityResidualLocal.Size());Values->SetNumberField(TEXT("hard_limit_corrections"),Solver.LimitCorrections);
+                    Data->SetObjectField(Side==0?TEXT("gravity_left"):TEXT("gravity_right"),Values);
+                    TestTrue(TEXT("Gravity surface state finite"),!Solver.Nodes[0].Displacement.ContainsNaN());
+                    TestEqual(TEXT("Ordinary static gravity avoids emergency hard limits"),Solver.LimitCorrections,0);
+                }
+                return SurfaceDelta;
+            };
+            TestTrue(TEXT("Standing retains authored surface"),GravitySnapshot(TEXT("GravityStanding"))<1.e-4);
+            MA->GluteMotionCommand(TEXT("Rotate Character 90 Pitch"));TestTrue(TEXT("Supine produces surface equilibrium shift"),GravitySnapshot(TEXT("GravitySupine"))>.001);
+            MA->GluteMotionCommand(TEXT("Rotate Character 90 Roll"));TestTrue(TEXT("Side lying produces surface equilibrium shift"),GravitySnapshot(TEXT("GravitySideLying"))>.001);
+            const FVector SideResidual=MA->GluteSolvers[0].GravityResidualLocal;const FVector NeutralDisplacement=MA->GluteSolvers[0].Nodes[0].Displacement;
+            MA->GlutePoseCommand(TEXT("Flexion 90"));GravitySnapshot(TEXT("GravitySideLyingFlex90"));
+            TestTrue(TEXT("Thigh-only pose does not change gravity load"),MA->GluteSolvers[0].GravityResidualLocal.Equals(SideResidual,1.e-4));
+            TestTrue(TEXT("Pose support changes loaded equilibrium"),!MA->GluteSolvers[0].Nodes[0].Displacement.Equals(NeutralDisplacement,1.e-4));
+            const FVector Settled=MA->GluteSolvers[0].Nodes[2].Displacement;MA->GluteMotionCommand(TEXT("Walk Cycle / Alternating Thigh Swing"));double SwingDelta=0;
+            for(int32 Frame=0;Frame<240;++Frame) {Tick(1./120);SwingDelta=FMath::Max(SwingDelta,(MA->GluteSolvers[0].Nodes[2].Displacement-Settled).Size());}
+            TestTrue(TEXT("Moving thigh superposes on side-gravity load"),SwingDelta>.01 && MA->GluteSolvers[0].GravityResidualLocal.Equals(SideResidual,1.e-4));
+            MA->GluteMotionCommand(TEXT("Reset"));
+            MA->GlutePoseCommand(TEXT("Neutral standing"));MA->GluteMotionCommand(TEXT("Reset Orientation"));GravitySnapshot(TEXT("GravityOrientationRestored"));
+            TestTrue(TEXT("Reset restores original orientation"),A->GetActorQuat().Equals(Original,1.e-6));
+            MA->GluteMotionCommand(TEXT("Gravity Zero"));TestTrue(TEXT("Zero gravity changes surface"),GravitySnapshot(TEXT("GravityZero"))>.001);
+            MA->GluteMotionCommand(TEXT("Gravity Half"));TestTrue(TEXT("Half gravity changes surface"),GravitySnapshot(TEXT("GravityHalf"))>.001);
+            MA->GluteMotionCommand(TEXT("Gravity Double"));TestTrue(TEXT("Double gravity changes surface"),GravitySnapshot(TEXT("GravityDouble"))>.001);
+            TestTrue(TEXT("Gravity override is per instance"),!MB->bGluteGravityOverride && MB->GluteSolvers[0].Nodes[0].Displacement.Size()<1.e-6);
+            for(const auto& W:NeutralWeights) TestEqual(TEXT("Gravity never changes morph weights"),MA->CorrectiveWeights.FindRef(W.Key),W.Value);
+            MA->GluteMotionCommand(TEXT("Gravity Default"));TestTrue(TEXT("Restored 1g returns to baseline surface"),GravitySnapshot(TEXT("GravityRestored1g"))<1.e-4);
         }
         MA->GlutePoseCommand(TEXT("Flexion 90"));Tick(1./120);const auto Weights=MA->CorrectiveWeights;
         double Peak=0;
@@ -187,12 +252,17 @@ bool FVamGluteG1NativeTest::RunTest(const FString& Parameters)
         {
             TMap<FName,float> Values;Values.Add(Parameter,Value);TestTrue(TEXT("Shape preview accepted"),A->Character->PreviewParameters(Values));Tick(1./120);
             TestTrue(TEXT("Shape recalibrates mass per instance"),MA->GluteDynamics[0].MassKg!=PeerMass && MB->GluteDynamics[0].MassKg==PeerMass);
+            TestTrue(TEXT("Shape preserves immutable reference gravity"),MA->GluteDynamics[0].ReferenceGravityLocal==MA->GluteJiggleProfile->Sides[0].ReferenceGravityLocal);
             TestTrue(TEXT("Shape preview does not create motion impulse"),MA->GluteSolvers[0].Nodes[0].Displacement.Size()<1.e-5);
             TestTrue(TEXT("Shape commit accepted"),A->Character->CommitShape());Tick(1./120);
             TestTrue(TEXT("Shape commit preserves skeleton/helper identity"),Skeleton==MA->GetSkeletalMeshAsset()->GetSkeleton() && BoneCount==MA->GetSkeletalMeshAsset()->GetRefSkeleton().GetRawBoneNum());
         }
     }
     FString Report;if(FParse::Value(FCommandLine::Get(),TEXT("VamGluteG1Report="),Report)) { FString Json;auto Writer=TJsonWriterFactory<>::Create(&Json);FJsonSerializer::Serialize(Evidence,Writer);TestTrue(TEXT("Save G1 surface evidence"),FFileHelper::SaveStringToFile(Json,*Report)); }
-    A->Destroy();B->Destroy();Tick(1./60);World->EndPlay(EEndPlayReason::Quit);World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return true;
+    A->Destroy();B->Destroy();Tick(1./60);World->EndPlay(EEndPlayReason::Quit);World->DestroyWorld(false);GEngine->DestroyWorldContext(World);
+    // The batch advanced >60 seconds without returning to the engine loop.
+    // Restore its normal purge interval before the next automation world.
+    GEngine->SetTimeUntilNextGarbageCollection(60);return true;
 }
 #endif
+

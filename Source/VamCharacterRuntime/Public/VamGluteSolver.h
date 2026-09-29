@@ -30,6 +30,7 @@ struct VAMCHARACTERRUNTIME_API FVamGluteSolver
     FVamGluteDynamicSide PreviousRest;
     FVector LinearVelocity=FVector::ZeroVector,LinearAcceleration=FVector::ZeroVector,Omega=FVector::ZeroVector,Alpha=FVector::ZeroVector;
     FVector GravityForce=FVector::ZeroVector,GravityPreload=FVector::ZeroVector;
+    FVector WorldGravity=FVector::ZeroVector,CurrentGravityLocal=FVector::ZeroVector,ReferenceGravityLocal=FVector::ZeroVector,GravityResidualLocal=FVector::ZeroVector;
     FVector IntervalV=FVector::ZeroVector,IntervalW=FVector::ZeroVector,ThighIntervalV=FVector::ZeroVector,ThighIntervalW=FVector::ZeroVector;
     double Accumulator=0,PreviousDt=0,LastCostMicroseconds=0;
     int32 Samples=0,LastSteps=0,DroppedSteps=0,LimitCorrections=0;

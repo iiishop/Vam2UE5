@@ -1,0 +1,47 @@
+{
+	"meaning": "Exact native skin response to coherent 1 cm helper translation; area x region weighted. No solver, rotation or visual scoring.",
+	"Glute_L":
+	{
+		"max_region": 0.48489773273468018,
+		"region_area_cm2": 166.12680649896433,
+		"mean_transfer": 0.3258033229964627,
+		"core_transfer": 0.48211959593011972,
+		"max_transfer": 0.69985505938529968,
+		"p10_transfer": 0.036530099110677838,
+		"p50_transfer": 0.31911192089319229,
+		"p90_transfer": 0.64792857365682721
+	},
+	"Glute_R":
+	{
+		"max_region": 0.4743538498878479,
+		"region_area_cm2": 170.73853467177415,
+		"mean_transfer": 0.35258028196958008,
+		"core_transfer": 0.4962730893953391,
+		"max_transfer": 0.69953458057716489,
+		"p10_transfer": 0.045014115050435066,
+		"p50_transfer": 0.36575875617563725,
+		"p90_transfer": 0.64141297154128551
+	},
+	"Breast_L":
+	{
+		"max_region": 0.99999958276748657,
+		"region_area_cm2": 171.48950939995188,
+		"mean_transfer": 0.56601089897366175,
+		"core_transfer": 0.6524200159613891,
+		"max_transfer": 0.88056761398911476,
+		"p10_transfer": 0.17900359258055687,
+		"p50_transfer": 0.60590524598956108,
+		"p90_transfer": 0.84277105331420898
+	},
+	"Breast_R":
+	{
+		"max_region": 0.99999958276748657,
+		"region_area_cm2": 170.01284637853612,
+		"mean_transfer": 0.56617821327888218,
+		"core_transfer": 0.65439600749756299,
+		"max_transfer": 0.88032349199056625,
+		"p10_transfer": 0.18077362701296806,
+		"p50_transfer": 0.60534064844250679,
+		"p90_transfer": 0.84275579452514648
+	}
+}

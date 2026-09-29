@@ -1,0 +1,1074 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "SM",
+			"instance": "38A8263B4D9C85BD0EA9E9BD8A73DF8C",
+			"instanceName": "SM-46932",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 10 (22H2) [10.0.19045.7725] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4070 Ti",
+			"cPUModel": "12th Gen Intel(R) Core(TM) i5-12600KF",
+			"rAMInGB": 40,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.09.29-04.59.28",
+	"succeeded": 18,
+	"succeededWithWarnings": 2,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 20.22517204284668,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Calibration",
+			"fullTestPath": "Vam.Breast.Calibration",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.046377502381801605,
+			"dateTime": "2026.09.29-04.59.08",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Calibrated divergence 30/120 0.004897 cm 60/120 0.001888 cm angular 0.000378 rad",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Dynamics",
+			"fullTestPath": "Vam.Breast.Dynamics",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.0089625976979732513,
+			"dateTime": "2026.09.29-04.59.08",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Full trajectory max divergence: 30/120 0.023793 cm; 60/120 0.007892 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MovingFrameModal",
+			"fullTestPath": "Vam.Breast.MovingFrameModal",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.015185598284006119,
+			"dateTime": "2026.09.29-04.59.08",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Momentum error 3.6888820278e-15; modal mean 1.39925101062e-17 moment 2.2568079057e-17; steady COM 0.863749 residual RMS 0.077343 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeRuntime",
+			"fullTestPath": "Vam.Breast.NativeRuntime",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 1.4152766466140747,
+			"dateTime": "2026.09.29-04.59.08",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Breast calibration schema 3 | breast-modal-v3\nL Volume 585.39 cm3 Mass 0.5971 kg COM V(X=13.31, Y=-3.13, Z=0.97) Root 100.85 cm2 Depth 17.41 cm Size AP/ML/SI V(X=17.41, Y=10.44, Z=11.69)\nInertia diag V(X=5.50, Y=4.80, Z=3.79) offdiag(XY/XZ/YZ) V(X=-0.34, Y=0.67, Z=-0.08) kg cm2\nv V(X=0.39, Y=0.00, Z=-0.67) a V(X=-0.33, Y=-0.00, Z=0.54) omega V(X=0.00, Y=0.04, Z=0.00) alpha V(X=-0.00, Y=-0.03, Z=-0.00) steps 2 dropped 0 sleep 0 emergency limits 0\nAngular displacement V(0) rad velocity V(X=-0.00, Y=0.00, Z=-0.00) rad/s\nCOM displacement V(X=-0.22, Y=0.01, Z=-0.01) cm velocity V(X=0.42, Y=-0.00, Z=-0.05) cm/s\nCentrifugal load V(X=0.01, Y=-0.00, Z=0.00) kg cm/s2 | modal force translation 9.0864 residual 0.0008 torque 0.0004 kg cm2/s2\nCore mass 14.0% volume 82.14 lever 14.47 | support V(X=4.77, Y=6.83, Z=5.46) kg/s2 Hz V(X=1.20, Y=1.44, Z=1.28) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=3.83, Y=2.51, Z=2.57) -V(X=1.57, Y=2.51, Z=2.18) cm\nresidual displacement V(0) cm\nUpper mass 26.9% volume 157.68 lever 13.16 | support V(X=16.51, Y=23.62, Z=18.87) kg/s2 Hz V(X=1.61, Y=1.93, Z=1.72) damping V(X=0.27, Y=0.31, Z=0.28) | travel +V(X=3.13, Y=2.05, Z=2.10) -V(X=1.28, Y=2.05, Z=1.72) cm\nresidual displacement V(0) cm\nLower mass 19.7% volume 115.37 lever 14.31 | support V(X=4.59, Y=6.57, Z=5.25) kg/s2 Hz V(X=0.99, Y=1.19, Z=1.06) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=4.58, Y=3.00, Z=3.07) -V(X=1.87, Y=3.00, Z=3.04) cm\nresidual displacement V(0) cm\nMedial mass 26.5% volume 155.19 lever 14.14 | support V(X=12.64, Y=18.09, Z=14.45) kg/s2 Hz V(X=1.42, Y=1.70, Z=1.52) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=3.30, Y=2.16, Z=2.21) -V(X=1.35, Y=2.16, Z=1.86) cm\nresidual displacement V(0) cm\nLateral mass 12.8% volume 75.02 lever 13.86 | support V(X=3.73, Y=5.33, Z=4.26) kg/s2 Hz V(X=1.11, Y=1.33, Z=1.19) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=4.28, Y=2.80, Z=2.88) -V(X=1.75, Y=2.80, Z=2.46) cm\nresidual displacement V(0) cm\nR Volume 583.43 cm3 Mass 0.5951 kg COM V(X=13.25, Y=3.13, Z=0.98) Root 100.92 cm2 Depth 17.34 cm Size AP/ML/SI V(X=17.34, Y=10.44, Z=11.70)\nInertia diag V(X=5.49, Y=4.78, Z=3.76) offdiag(XY/XZ/YZ) V(X=0.33, Y=0.66, Z=0.08) kg cm2\nv V(X=0.39, Y=0.00, Z=-0.67) a V(X=-0.33, Y=-0.00, Z=0.54) omega V(X=0.00, Y=0.04, Z=0.00) alpha V(X=-0.00, Y=-0.03, Z=-0.00) steps 2 dropped 0 sleep 0 emergency limits 0\nAngular displacement V(0) rad velocity V(X=0.00, Y=0.00, Z=0.00) rad/s\nCOM displacement V(X=-0.22, Y=0.01, Z=-0.01) cm velocity V(X=0.42, Y=-0.00, Z=-0.05) cm/s\nCentrifugal load V(X=0.01, Y=-0.00, Z=0.00) kg cm/s2 | modal force translation 9.0560 residual 0.0007 torque 0.0004 kg cm2/s2\nCore mass 14.0% volume 81.86 lever 14.40 | support V(X=4.81, Y=6.89, Z=5.50) kg/s2 Hz V(X=1.21, Y=1.45, Z=1.29) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=3.82, Y=2.51, Z=2.57) -V(X=1.56, Y=2.51, Z=2.18) cm\nresidual displacement V(0) cm\nUpper mass 27.0% volume 157.37 lever 13.12 | support V(X=16.62, Y=23.77, Z=18.98) kg/s2 Hz V(X=1.62, Y=1.94, Z=1.73) damping V(X=0.27, Y=0.31, Z=0.28) | travel +V(X=3.12, Y=2.05, Z=2.10) -V(X=1.27, Y=2.05, Z=1.72) cm\nresidual displacement V(0) cm\nLower mass 19.7% volume 115.01 lever 14.25 | support V(X=4.63, Y=6.62, Z=5.29) kg/s2 Hz V(X=1.00, Y=1.20, Z=1.07) damping V(X=0.26, Y=0.31, Z=0.27) | travel +V(X=4.56, Y=3.00, Z=3.08) -V(X=1.87, Y=3.00, Z=3.04) cm\nresidual displacement V(0) cm\nMedial mass 26.4% volume 154.23 lever 14.08 | support V(X=12.70, Y=18.17, Z=14.51) kg/s2 Hz V(X=1.43, Y=1.71, Z=1.53) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=3.28, Y=2.16, Z=2.21) -V(X=1.34, Y=2.16, Z=1.86) cm\nresidual displacement V(0) cm\nLateral mass 12.8% volume 74.97 lever 13.81 | support V(X=3.76, Y=5.38, Z=4.30) kg/s2 Hz V(X=1.12, Y=1.34, Z=1.19) damping V(X=0.26, Y=0.31, Z=0.28) | travel +V(X=4.27, Y=2.80, Z=2.88) -V(X=1.75, Y=2.80, Z=2.46) cm\nresidual displacement V(0) cm\n",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.09"
+				},
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OrphanVertexExtraction",
+			"fullTestPath": "Vam.Breast.OrphanVertexExtraction",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.0018391013145446777,
+			"dateTime": "2026.09.29-04.59.10",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SmoothJump",
+			"fullTestPath": "Vam.Breast.SmoothJump",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.010746698826551437,
+			"dateTime": "2026.09.29-04.59.10",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Jump known twist 1 body apex 0.505102 tissue apex 0.508333; takeoff lag -2.409486; landing tail 19.432660; FPS error 0.008706 / 0.000080 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Jump known twist 0 body apex 0.505102 tissue apex 0.508333; takeoff lag -2.409486; landing tail 19.414968; FPS error 0.214716 / 0.017848 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Resolved jump phase body 0.508333 tissue 0.550000 delay 0.041667 s tissue velocity at body top 40.578283 cm/s hard limits 0",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "WeightCompression",
+			"fullTestPath": "Vam.Breast.WeightCompression",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.0080236010253429413,
+			"dateTime": "2026.09.29-04.59.10",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AttachmentDamping",
+			"fullTestPath": "Vam.Glute.G1.AttachmentDamping",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.0072676986455917358,
+			"dateTime": "2026.09.29-04.59.10",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CharacterCalibration",
+			"fullTestPath": "Vam.Glute.G1.CharacterCalibration",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.082361496984958649,
+			"dateTime": "2026.09.29-04.59.10",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Measured character L freefall FPS 30 maximum relative error 0.349263773 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Measured character L freefall FPS 60 maximum relative error 0.349263773 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Measured character L freefall FPS 120 maximum relative error 0.349263773 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "/Game/VamRuntime/R_732d900601c0c230e0980b1b/RC_Runtime L volume 332.871683 mass 0.349515 thigh peaks 0.435397 0.195056 1.846009 0.436567 0.531775 cost 2.084 us",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Measured character R freefall FPS 30 maximum relative error 0.359762764 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Measured character R freefall FPS 60 maximum relative error 0.359762764 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Measured character R freefall FPS 120 maximum relative error 0.359762764 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "/Game/VamRuntime/R_732d900601c0c230e0980b1b/RC_Runtime R volume 368.426610 mass 0.386848 thigh peaks 0.681577 0.271299 2.059989 0.482305 0.751562 cost 2.109 us",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FrameRateStability",
+			"fullTestPath": "Vam.Glute.G1.FrameRateStability",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.15026989579200745,
+			"dateTime": "2026.09.29-04.59.10",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 30 FPS peak 0.689124 cm spectral phase 0.561211 s settle 1.266667 s",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 60 FPS peak 0.689459 cm spectral phase 0.561210 s settle 1.266667 s",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 120 FPS peak 0.689546 cm spectral phase 0.561215 s settle 1.283333 s",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 trajectory divergence 30/120 0.004273226 cm 60/120 0.000826831 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 five-node advance mean 1.804 us (12000 calls; Development CPU measurement)",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Extreme tuning settle envelope 0.050596 s^-1; horizon 395.292 s",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Mechanics",
+			"fullTestPath": "Vam.Glute.G1.Mechanics",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.024514798074960709,
+			"dateTime": "2026.09.29-04.59.10",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Thigh-only peaks cm core 0.121617 upper 0.015831 lower 0.229196 medial 0.009510 lateral 0.189454",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Jump peak 1.369154 landing peak 1.369087 tail 0.000000000 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Galilean boost 300 cm/s max residual difference 0.000000000001 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.10"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeSurface",
+			"fullTestPath": "Vam.Glute.G1.NativeSurface",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 11.084318161010742,
+			"dateTime": "2026.09.29-04.59.10",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 native dynamic helper peak 1.073258 cm surface max 0.788279 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.19"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 panel Walk Cycle / Alternating Thigh Swing node peak 5.120045 cm sampled surface peak 1.165651 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.20"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 panel Jump node peak 5.542064 cm sampled surface peak 1.785312 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.20"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 panel Smooth Turn node peak 1.388554 cm sampled surface peak 0.778422 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SpatialCalibration",
+			"fullTestPath": "Vam.Glute.G1.SpatialCalibration",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.25244829058647156,
+			"dateTime": "2026.09.29-04.59.21",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "L Core helper/support distance 0.861124 cm, normalized 0.033613",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "L Upper helper/support distance 0.546073 cm, normalized 0.024466",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "L Lower helper/support distance 0.591810 cm, normalized 0.028192",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "L Medial helper/support distance 1.963964 cm, normalized 0.085183",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "L Lateral helper/support distance 1.128952 cm, normalized 0.061489",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "R Core helper/support distance 0.955592 cm, normalized 0.040938",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "R Upper helper/support distance 0.787478 cm, normalized 0.034079",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "R Lower helper/support distance 1.116293 cm, normalized 0.053452",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "R Medial helper/support distance 1.597146 cm, normalized 0.073182",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "R Lateral helper/support distance 1.680130 cm, normalized 0.093773",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 surface transfer L mean 0.325803 core 0.482120",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G1 surface transfer R mean 0.352580 core 0.496273",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ReferenceGravity",
+			"fullTestPath": "Vam.Glute.G11.ReferenceGravity",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.12267989665269852,
+			"dateTime": "2026.09.29-04.59.21",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Gravity transition FPS 120 peak 3.575353999 max frame change 0.278202860 restored 0.000000000 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Gravity transition FPS 60 peak 3.575353999 max frame change 0.550667377 restored 0.000000000 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Gravity transition FPS 30 peak 3.575353999 max frame change 1.054245833 restored 0.000000000 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Freefall / zero-g FPS 30 maximum relative trajectory error 0.238147697 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Freefall / zero-g FPS 60 maximum relative trajectory error 0.238147697 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Freefall / zero-g FPS 120 maximum relative trajectory error 0.238147697 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Freefall / zero-g FPS 240 maximum relative trajectory error 0.122635702 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Freefall / zero-g FPS 480 maximum relative trajectory error 0.062342358 cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Same-run solver legacy 1.842033 us reference-gravity 2.069392 us",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.21"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CorrectiveGeometry",
+			"fullTestPath": "Vam.Glute.CorrectiveGeometry",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.30826610326766968,
+			"dateTime": "2026.09.29-04.59.21",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G06_GEOMETRY targets=11 morphs=60 max_bind_delta_cm=4.719348 source_vertex_reuse=802 provenance=Verified !Bend Fix; Boundary graft transfer; source-only TriAx thigh-X reference; independent-side extension; target-local safety. Procedural residual separately gated/smoothed.Verified thigh-average driver to target morph to source vertex deltas; localized and pose-space adapted, not exact VaM runtime reproduction Local rotation-blend minus LBS residual; fixed source contribution; baked GPU Morphs.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativeRuntime",
+			"fullTestPath": "Vam.Glute.NativeRuntime",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.64237749576568604,
+			"dateTime": "2026.09.29-04.59.22",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "当前姿态快照（同姿态 OFF 青色 / ON 品红；1:1，显示 15 秒）\nL RMS 1.280 / P95 2.673 / Max 3.384 cm\nR RMS 1.270 / P95 2.670 / Max 3.384 cm\n快照已保存：../../../../../../Document/UE5/SmartNPC/Saved/VamDiagnostics/GluteSurface_5D016BA444A25913B56677BDAABC750B.json",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "当前姿态快照（同姿态 OFF 青色 / ON 品红；1:1，显示 15 秒）\nL RMS 0.611 / P95 1.250 / Max 1.978 cm\nR RMS 0.652 / P95 1.310 / Max 2.209 cm\n快照已保存：../../../../../../Document/UE5/SmartNPC/Saved/VamDiagnostics/GluteSurface_E823FF434D75A16ECC0C7B847253302D.json",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "当前姿态快照（同姿态 OFF 青色 / ON 品红；1:1，显示 15 秒）\nL RMS 0.092 / P95 0.167 / Max 0.215 cm\nR RMS 0.082 / P95 0.129 / Max 0.146 cm\n快照已保存：../../../../../../Document/UE5/SmartNPC/Saved/VamDiagnostics/GluteSurface_ECB47FE54F6DED275AA59D995D2035AA.json",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "当前姿态快照（同姿态 OFF 青色 / ON 品红；1:1，显示 15 秒）\nL RMS 0.324 / P95 0.600 / Max 0.686 cm\nR RMS 0.298 / P95 0.579 / Max 0.688 cm\n快照已保存：../../../../../../Document/UE5/SmartNPC/Saved/VamDiagnostics/GluteSurface_DBABA4114736B14B355CC09299B2963B.json",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "当前姿态快照（同姿态 OFF 青色 / ON 品红；1:1，显示 15 秒）\nL RMS 0.136 / P95 0.239 / Max 0.288 cm\nR RMS 0.121 / P95 0.199 / Max 0.277 cm\n快照已保存：../../../../../../Document/UE5/SmartNPC/Saved/VamDiagnostics/GluteSurface_C57915A142E3B930E97533B746325DE0.json",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "当前姿态快照（同姿态 OFF 青色 / ON 品红；1:1，显示 15 秒）\nL RMS 0.136 / P95 0.239 / Max 0.288 cm\nR RMS 0.121 / P95 0.199 / Max 0.277 cm\n快照已保存：../../../../../../Document/UE5/SmartNPC/Saved/VamDiagnostics/GluteSurface_C15B2C6C4AC1CDBD8762AB8E837E1118.json",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G0_SHAPE_PARAMETER M_084f62446f75d686d71f2f01=1.000000 logVolume=0.263608",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "G0_SHAPE_COMPARISON imported 332.871683 changed 433.271912 ratio 1.301618 dimensions X=21.335 Y=23.577 Z=26.828",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "glute-structure-g05-surface-v3 | deterministic pose function; no Jiggle\nShape revision 43 | pelvis tilt/yaw/roll deg 0.00 / 0.00 / 0.00\nL effective volume 433.27 cm3 COM V(X=11.66, Y=9.72, Z=-12.33) AP/ML/SI V(X=21.33, Y=23.58, Z=26.83) cm\nprimary hip flex/abd/external deg V(Z=30.00)\nFold medial/middle/lateral 0.071 / 0.107 / 0.216 | stretch V(0) | final COM V(X=11.99, Y=9.02, Z=-12.31)\norientation R(P=0.41, Y=-4.27, R=0.90) | AP/ML/SI support V(X=108.91, Y=108.91, Z=108.91)\nCore pelvis/thigh 0.387/0.613 -> 0.412/0.588 | offset V(X=0.43, Y=-0.74, Z=-0.06) | passive 0.050 | support 108.909\norientation R(P=0.12, Y=-1.64, R=0.37) | AP/ML/SI support V(X=144.61, Y=144.61, Z=144.61)\nUpper pelvis/thigh 0.638/0.362 -> 0.684/0.316 | offset V(X=0.12, Y=-0.31, Z=-0.04) | passive 0.058 | support 144.609\norientation R(P=0.27, Y=-14.21, R=-0.29) | AP/ML/SI support V(X=104.42, Y=104.42, Z=104.42)\nLower pelvis/thigh 0.163/0.837 -> 0.140/0.860 | offset V(X=1.61, Y=-2.25, Z=0.19) | passive 0.037 | support 104.424\norientation R(P=-0.31, Y=-1.55, R=0.25) | AP/ML/SI support V(X=142.53, Y=142.53, Z=142.53)\nMedial pelvis/thigh 0.325/0.675 -> 0.435/0.565 | offset V(X=-0.14, Y=-0.18, Z=-0.05) | passive 0.011 | support 142.528\norientation R(P=1.15, Y=-9.73, R=1.41) | AP/ML/SI support V(X=99.57, Y=99.57, Z=99.57)\nLateral pelvis/thigh 0.386/0.614 -> 0.412/0.588 | offset V(X=1.05, Y=-1.43, Z=-0.16) | passive 0.139 | support 99.573\nR effective volume 476.42 cm3 COM V(X=11.59, Y=-9.45, Z=-12.81) AP/ML/SI V(X=20.71, Y=24.28, Z=25.96) cm\nprimary hip flex/abd/external deg V(Z=30.00)\nFold medial/middle/lateral 0.084 / 0.118 / 0.273 | stretch V(0) | final COM V(X=11.83, Y=-8.75, Z=-12.85)\norientation R(P=0.24, Y=5.39, R=-1.09) | AP/ML/SI support V(X=114.13, Y=114.13, Z=114.13)\nCore pelvis/thigh 0.257/0.743 -> 0.268/0.732 | offset V(X=0.42, Y=0.80, Z=-0.11) | passive 0.024 | support 114.129\norientation R(P=0.16, Y=2.10, R=-0.54) | AP/ML/SI support V(X=152.16, Y=152.16, Z=152.16)\nUpper pelvis/thigh 0.506/0.494 -> 0.543/0.457 | offset V(X=0.17, Y=0.43, Z=-0.05) | passive 0.045 | support 152.161\norientation R(P=-0.52, Y=15.68, R=1.08) | AP/ML/SI support V(X=116.68, Y=116.68, Z=116.68)\nLower pelvis/thigh 0.117/0.883 -> 0.099/0.901 | offset V(X=0.91, Y=2.32, Z=-0.02) | passive 0.013 | support 116.683\norientation R(P=-0.39, Y=1.55, R=-0.21) | AP/ML/SI support V(X=143.91, Y=143.91, Z=143.91)\nMedial pelvis/thigh 0.261/0.739 -> 0.348/0.652 | offset V(X=-0.22, Y=0.19, Z=-0.07) | passive 0.010 | support 143.912\norientation R(P=1.39, Y=10.44, R=-1.68) | AP/ML/SI support V(X=105.55, Y=105.55, Z=105.55)\nLateral pelvis/thigh 0.297/0.703 -> 0.307/0.693 | offset V(X=1.22, Y=1.77, Z=-0.16) | passive 0.120 | support 105.547\nG06 Verified !Bend Fix; Boundary graft transfer; source-only TriAx thigh-X reference; independent-side extension; target-local safety. Procedural residual separately gated/smoothed.Verified thigh-average driver to target morph to source vertex deltas; localized and pose-space adapted, not exact VaM runtime reproduction Local rotation-blend minus LBS residual; fixed source contribution; baked GPU Morphs.\nglute-corrective-g062-v1 | /Game/VamRuntime/R_732d900601c0c230e0980b1b/DA_GluteCorrective.DA_GluteCorrective\nL External weight 1.0000\nR External weight 1.0000\nCorrective Diagnostics: selected target at build Shape, true surface samples (cm); not current blended/Shape preview measurement.\nL Flex90 | source/procedural RMS 0.09429 / 0.09096 | raw/adapted/final P95 0.05428 / 0.35239 / 2.67411\nsource retention 0.8018 | target safety loss 0.1929 | smoothing RMS loss -0.000000 | affected surface vertices 906\nIndependent skinning residual RMS 1.34639 cm\nR Flex90 | source/procedural RMS 0.11511 / 0.08641 | raw/adapted/final P95 0.09010 / 0.36209 / 2.71023\nsource retention 0.8805 | target safety loss 0.1127 | smoothing RMS loss 0.000000 | affected surface vertices 1126\nIndependent skinning residual RMS 1.36354 cm\n",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				},
+				{
+					"event":
+					{
+						"type": "Warning",
+						"message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)",
+						"context": "log",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.09.29-04.59.22"
+				}
+			],
+			"warnings": 1,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PoseFunction",
+			"fullTestPath": "Vam.Glute.PoseFunction",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.13644330203533173,
+			"dateTime": "2026.09.29-04.59.22",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PoseRefinement",
+			"fullTestPath": "Vam.Glute.PoseRefinement",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 1.2549686431884766,
+			"dateTime": "2026.09.29-04.59.23",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RotationBlendReference",
+			"fullTestPath": "Vam.Glute.RotationBlendReference",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 0.010362099856138229,
+			"dateTime": "2026.09.29-04.59.24",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SurfaceTruth",
+			"fullTestPath": "Vam.Glute.SurfaceTruth",
+			"tags": [],
+			"state": "Success",
+			"deviceInstance": [
+				"38A8263B4D9C85BD0EA9E9BD8A73DF8C"
+			],
+			"duration": 4.642484188079834,
+			"dateTime": "2026.09.29-04.59.24",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

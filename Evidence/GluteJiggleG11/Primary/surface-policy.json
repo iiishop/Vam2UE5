@@ -1,0 +1,5 @@
+{
+  "normalized_attachment_damping": true,
+  "maximum_donor_fraction": 0.7,
+  "full_region_confidence": 0.45
+}

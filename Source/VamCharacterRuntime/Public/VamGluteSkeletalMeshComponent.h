@@ -12,6 +12,8 @@ class VAMCHARACTERRUNTIME_API UVamGluteSkeletalMeshComponent : public UVamBreast
 public:
     UPROPERTY(Transient) TObjectPtr<UVamGluteJiggleProfile> GluteJiggleProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bGluteJiggleEnabled=true;
+    /** Presentation gain on the final secondary offset, independent of physical calibration. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle", meta=(ClampMin="0", ClampMax="10")) double GluteAmplitude=3.;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteSupport=.45;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteDamping=.65;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteMobility=2.;
@@ -26,6 +28,9 @@ public:
     UFUNCTION(BlueprintCallable, Category="VaM|Glute Jiggle") void GluteMotionCommand(FName Command);
     UFUNCTION(BlueprintPure, Category="VaM|Glute Jiggle") FString GluteJiggleDiagnostics() const;
     FVamGluteTuning GetGluteTuning() const;
+    /** Transient, selected-instance Glute solver override; never edits WorldSettings. */
+    UPROPERTY(Transient, BlueprintReadOnly, Category="VaM|Glute Jiggle") bool bGluteGravityOverride=false;
+    UPROPERTY(Transient, BlueprintReadOnly, Category="VaM|Glute Jiggle") FVector GluteDebugGravityWorld=FVector::ZeroVector;
     FVamGluteSolver GluteSolvers[2];
     TArray<FVamGluteDynamicSide> GluteDynamics;
     void ApplyGluteJiggle();
@@ -60,6 +65,9 @@ public:
     void ApplyGluteCorrectives();
     float AppliedCorrectiveWeight(FName Morph) const;
 private:
+    bool bGluteOrientationCaptured=false,bGluteOrientationMoving=false;
+    FQuat GluteOriginalOrientation=FQuat::Identity,GluteOrientationStart=FQuat::Identity,GluteOrientationTarget=FQuat::Identity;
+    double GluteOrientationTime=0;
     double GluteLastTime=-1,GluteWalkTime=0;
     int32 GluteLastTeleport=INDEX_NONE;
     bool bGluteWasEnabled=true,bGluteShapeRebase=false,bGluteWalking=false;

@@ -35,6 +35,8 @@ USTRUCT(BlueprintType)
 struct VAMCHARACTERRUNTIME_API FVamGluteDynamicSide
 {
     GENERATED_BODY()
+    /** Authored gravity in the same anatomical anchor axes as Rest; immutable across pose/Shape. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FVector ReferenceGravityLocal=FVector::ZeroVector;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FName Side;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") double MassKg=0;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FVector COM=FVector::ZeroVector;
@@ -48,6 +50,8 @@ class VAMCHARACTERRUNTIME_API UVamGluteJiggleProfile : public UDataAsset
 {
     GENERATED_BODY()
 public:
+    // Keep schema 1 as the CDO default so old serialized assets retain their gravity contract.
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FVector AuthoredGravityWorld=FVector::ZeroVector;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") int32 SchemaVersion=1;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FString Algorithm=TEXT("glute-dual-attachment-g1-v1");
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FString SourceTopologyIdentity;

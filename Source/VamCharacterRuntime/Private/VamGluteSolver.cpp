@@ -1,5 +1,6 @@
 #include "VamGluteSolver.h"
 #include "VamSecondaryMath.h"
+#include "VamSecondaryGravity.h"
 #include "HAL/PlatformTime.h"
 
 namespace
@@ -77,7 +78,11 @@ void FVamGluteSolver::Step(const UVamGluteJiggleProfile& P,const FVamGluteDynami
     double A[15][15]={},B[15]={},X[15]={};FVector LocalX[5],Rest[5],K[5],C[5];double Mass[5];
     const FQuat Q=M.Pelvis.GetRotation();const FVector Origin=M.Pelvis.GetLocation();
     const double Support=Scale(T.Support,.1,10),Damping=Scale(T.Damping,.1,4),Mobility=Scale(T.Mobility,.25,3),Coupling=Scale(T.InternalCoupling,0,4),MassScale=Scale(T.MassScale,.1,10);
-    GravityForce=G*(R.MassKg*MassScale);GravityPreload=-GravityForce;
+    WorldGravity=G;CurrentGravityLocal=Q.UnrotateVector(G);ReferenceGravityLocal=R.ReferenceGravityLocal;
+    GravityForce=G*(R.MassKg*MassScale);
+    // Schema 1 deliberately keeps the legacy cancellation. Never reinterpret old assets.
+    GravityResidualLocal=P.SchemaVersion>=2?VamSecondaryGravity::ResidualLocal(G,Q,ReferenceGravityLocal):FVector::ZeroVector;
+    GravityPreload=P.SchemaVersion>=2?VamSecondaryGravity::PreloadWorld(Q,ReferenceGravityLocal)*(R.MassKg*MassScale):-GravityForce;
     for(int32 I=0;I<5;++I)
     {
         const auto& D=R.Nodes[I];auto& N=Nodes[I];LocalX[I]=Q.UnrotateVector(N.PositionWorld-Origin);Rest[I]=D.Rest;const FVector Offset=LocalX[I]-Rest[I];
@@ -109,8 +114,7 @@ void FVamGluteSolver::Step(const UVamGluteJiggleProfile& P,const FVamGluteDynami
             const FVector PLocal=Q.UnrotateVector(PelvisPoint-Origin),TLocal=Q.UnrotateVector(ThighPoint-Origin);
             const double EP=(LocalX[I][J]-PLocal[J])-(Rest[I][J]-PLocal[J]),ET=(LocalX[I][J]-TLocal[J])-(Rest[I][J]-TLocal[J]);
             const double Elastic=-K[I][J]*(D.PelvisAttachment*EP+D.ThighAttachment*ET);
-            const FVector GravityResidual=Q.UnrotateVector(G+GravityPreload/FMath::Max(1.e-12,R.MassKg*MassScale));
-            B[Ndx]=Mass[I]*V[J]+H*(Elastic+CP*PV[J]+CT*TV[J]+Mass[I]*GravityResidual[J]);
+            B[Ndx]=Mass[I]*V[J]+H*(Elastic+CP*PV[J]+CT*TV[J]+Mass[I]*GravityResidualLocal[J]);
             N.Travel[J]=Limit;
         }
         N.Support=D.Support*Support;N.Damping=C[I];N.NonlinearTravel=0;
@@ -121,6 +125,48 @@ void FVamGluteSolver::Step(const UVamGluteJiggleProfile& P,const FVamGluteDynami
         A[U][U]+=H*H*Kij;A[V][V]+=H*H*Kij;A[U][V]-=H*H*Kij;A[V][U]-=H*H*Kij;B[U]+=H*Force;B[V]-=H*Force;
     }
     if(!VamSecondaryMath::Solve(A,B,X,15)) { Reset();return; }
+    if(P.SchemaVersion>=2)
+    {
+        // Preserve the old interior spring exactly. Only the final half of its
+        // soft-to-hard region gains a C1 barrier. Solve that force implicitly:
+        // lagging a near-singular stiffness produces artificial oscillations.
+        const double Start=(1+P.SoftLimitFraction)*.5,Span=1-Start;
+        bool Active=false;
+        for(int32 I=0;I<5;++I) for(int32 J=0;J<3;++J)
+        {
+            const int32 Index=3*I+J;const double Offset=LocalX[I][J]-Rest[I][J],End=Offset+H*X[Index];
+            const double Limit=(End>=0?R.Nodes[I].PositiveTravel[J]:R.Nodes[I].NegativeTravel[J])*Mobility;
+            Active|=FMath::Abs(End)>Start*Limit;
+            X[Index]=(FMath::Clamp(End,-R.Nodes[I].NegativeTravel[J]*Mobility*.98,R.Nodes[I].PositiveTravel[J]*Mobility*.98)-Offset)/H;
+        }
+        if(Active) for(int32 Iteration=0;Iteration<24;++Iteration)
+        {
+            double Jacobian[15][15],Rhs[15],Next[15];FMemory::Memcpy(Jacobian,A,sizeof(A));FMemory::Memcpy(Rhs,B,sizeof(B));
+            for(int32 I=0;I<5;++I) for(int32 J=0;J<3;++J)
+            {
+                const int32 Index=3*I+J;const double End=LocalX[I][J]-Rest[I][J]+H*X[Index];
+                const double Limit=(End>=0?R.Nodes[I].PositiveTravel[J]:R.Nodes[I].NegativeTravel[J])*Mobility;
+                const double U=FMath::Max(0.,(FMath::Abs(End)/Limit-Start)/Span),Denominator=FMath::Max(1.e-8,1-U);
+                const double Coefficient=R.Nodes[I].Support[J]*Support*P.LimitHardening;
+                const double Stiffness=Coefficient*U*U/Denominator;
+                const double Tangent=Stiffness+FMath::Abs(End)*Coefficient*U*(2-U)/(Denominator*Denominator*Limit*Span);
+                Jacobian[Index][Index]+=H*H*Tangent;
+                Rhs[Index]+=H*H*Tangent*X[Index]-H*Stiffness*End;
+            }
+            if(!VamSecondaryMath::Solve(Jacobian,Rhs,Next,15)) {Reset();return;}
+            double LineFraction=1,Change=0;
+            for(int32 I=0;I<5;++I) for(int32 J=0;J<3;++J)
+            {
+                const int32 Index=3*I+J;const double End=LocalX[I][J]-Rest[I][J]+H*X[Index],Delta=H*(Next[Index]-X[Index]);
+                const double Positive=R.Nodes[I].PositiveTravel[J]*Mobility,Negative=R.Nodes[I].NegativeTravel[J]*Mobility;
+                if(Delta>0) LineFraction=FMath::Min(LineFraction,.99*(Positive-End)/Delta);
+                if(Delta<0) LineFraction=FMath::Min(LineFraction,.99*(-Negative-End)/Delta);
+            }
+            LineFraction=FMath::Clamp(LineFraction,0.,1.);
+            for(int32 Index=0;Index<15;++Index) {const double Delta=LineFraction*(Next[Index]-X[Index]);X[Index]+=Delta;Change=FMath::Max(Change,FMath::Abs(H*Delta));}
+            if(Change<1.e-9) break;
+        }
+    }
     bSleeping=true;
     for(int32 I=0;I<5;++I)
     {
@@ -138,3 +184,4 @@ void FVamGluteSolver::Step(const UVamGluteJiggleProfile& P,const FVamGluteDynami
         bSleeping&=N.Displacement.Size()<P.SleepDisplacementCm && Relative.Size()<P.SleepSpeedCmS;
     }
 }
+
