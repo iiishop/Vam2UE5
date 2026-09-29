@@ -44,7 +44,7 @@ class VAMCHARACTERRUNTIME_API UVamLegJiggleProfile : public UDataAsset
     GENERATED_BODY()
 public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Leg Jiggle") int32 SchemaVersion=1;
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Leg Jiggle") FString Algorithm=TEXT("leg-pose-tension-t1-v2-seams");
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Leg Jiggle") FString Algorithm=TEXT("leg-pose-tension-t1-v3-connected");
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Leg Jiggle") FString SkeletonFamily;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Leg Jiggle") FString SourceTopologyIdentity;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Leg Jiggle") FString Provenance;

@@ -26,6 +26,25 @@ FVector Vector(const TSharedPtr<FJsonObject>& Row,const TCHAR* Name)
 {
     const auto& A=Row->GetArrayField(Name);return FVector(A[0]->AsNumber(),A[1]->AsNumber(),A[2]->AsNumber());
 }
+// Preserve hip and leg participation separately while sharing the eight-slot budget.
+void BlendLegWeights(TMap<int32,double>& W,int32 Primary,const TSet<int32>& HipBones,TArray<TPair<int32,double>> Leg,double Fraction)
+{
+    const double Moved=W.FindRef(Primary)*FMath::Clamp(Fraction,0.,.85);if(Moved<1.e-8) return;
+    TArray<TPair<int32,double>> Hip;double HipMass=0;
+    for(const auto& Pair:W) if(HipBones.Contains(Pair.Key) && Pair.Value>0){Hip.Add(Pair);HipMass+=Pair.Value;}
+    const int32 Slots=8-(W.Num()-Hip.Num());if(Slots<(Hip.IsEmpty()?1:2)) return;
+    auto Sort=[](auto& Group){Group.Sort([](const auto& A,const auto& B){return A.Value==B.Value?A.Key<B.Key:A.Value>B.Value;});};
+    Sort(Hip);Sort(Leg);int32 H=Hip.IsEmpty()?0:1,L=1;
+    while(H+L<Slots && (H<Hip.Num() || L<Leg.Num()))
+    {
+        const double HV=H<Hip.Num()?Hip[H].Value:-1,LV=L<Leg.Num()?Leg[L].Value*Moved:-1;
+        if(HV>LV) ++H;else ++L;
+    }
+    for(const auto& Pair:Hip) W.Remove(Pair.Key);
+    W.FindChecked(Primary)-=Moved;
+    auto Write=[&](const auto& Group,int32 Count,double Mass){double Sum=0;for(int32 K=0;K<Count;++K) Sum+=Group[K].Value;if(Sum>0) for(int32 K=0;K<Count;++K) W.Add(Group[K].Key,Mass*Group[K].Value/Sum);};
+    Write(Hip,H,HipMass);Write(Leg,L,Moved);
+}
 double Kernel(const FVector& Point,const FVector& Center,double Radius,double Length)
 {
     return FMath::Exp(-((Point-Center)/FVector(Radius,Radius,Length*.35)).SizeSquared()*2);
@@ -83,6 +102,7 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
         UE_LOG(LogTemp,Display,TEXT("LEG_SEAM_WELD copies=%d max incoming weight difference=%.9f"),Copies,MaxDifference);
     };
     WeldWeights();
+    TSet<int32> HipBones;for(const auto& Side:Glute->Sides) for(const auto& Region:Side.Regions) HipBones.Add(Region.BoneIndex);
     const double Transfer=Map->GetNumberField(TEXT("skin_transfer"));if(Transfer<=0 || Transfer>.85) return Fail(TEXT("Invalid leg donor participation"));
     for(int32 Side=0;Side<2;++Side) for(int32 Part=0;Part<2;++Part)
     {
@@ -98,8 +118,10 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
         for(int32 V=0;V<Area.Num();++V)
         {
             const FVector Local=Anchor.InverseTransformPosition(Input.Vertices[V]);S.RegionPoints[V]=Local;const double U=.5-Local.Z/S.Length;
-            double Exclusion=1;for(const auto& G:Glute->Sides) if(G.RegionWeights.IsValidIndex(V)) Exclusion*=1-Smooth(G.RegionWeights[V]/.02);
-            const double Weight=Area[V]>0?Weights[V].FindRef(Primary)*Smooth((U-.08)/.16)*Smooth((.92-U)/.16)*Exclusion:0;
+            // Remaining primary-bone ownership already excludes the mass assigned to hip helpers.
+            // Do not cut off the leg at tiny glute evidence values: allow a shared transition.
+            const double Exclusion=1;
+            const double Weight=Area[V]>0?Weights[V].FindRef(Primary)*Smooth(U/.28)*Smooth((1-U)/.30)*Exclusion:0;
             S.RegionWeights[V]=Weight;Sum+=Area[V]*Weight;Radial+=Area[V]*Weight*(Local.X*Local.X+Local.Y*Local.Y);
         }
         if(Sum<1) return Fail(TEXT("Insufficient source leg weight support: ")+S.Name.ToString());S.Radius=FMath::Sqrt(Radial/Sum);
@@ -140,12 +162,20 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
             for(int32 N=0;N<5;++N){FVector Mean=FVector::ZeroVector;double Total=0;for(int32 V=0;V<Area.Num();++V){const double W=Area[V]*S.RegionWeights[V]*Share[V][N];const FVector Point=NextAnchor.InverseTransformPosition(Input.Vertices[V]+(Morph?Morph->Deltas[V]:FVector::ZeroVector));Mean+=Point*W;Total+=W;Volume+=W*FVector(Point.X,Point.Y,0).Size()*.5;}const FVector Delta=Mean/FMath::Max(1.e-12,Total)-S.Dynamics.Nodes[N].Rest;Response.RestDeltas.Add(Delta);Evidence+=Delta.SizeSquared();}
             Response.LogVolume=FMath::Loge(FMath::Max(1.e-6,Volume/S.EffectiveVolumeCm3));if(Evidence>1.e-12 || FMath::Abs(Response.LogVolume)>1.e-8) S.ShapeResponses.Add(Response);
         }
-        for(int32 V=0;V<Area.Num();++V){TArray<TPair<int32,double>> Helpers;for(int32 N=0;N<5;++N) Helpers.Emplace(S.Dynamics.Nodes[N].BoneIndex,Share[V][N]);VamBreastWeights::Redistribute(Weights[V],TSet<int32>{Primary},Helpers,Transfer*Smooth(S.RegionWeights[V]/.65));}
+        for(int32 V=0;V<Area.Num();++V){TArray<TPair<int32,double>> Helpers;for(int32 N=0;N<5;++N) Helpers.Emplace(S.Dynamics.Nodes[N].BoneIndex,Share[V][N]);BlendLegWeights(Weights[V],Primary,HipBones,Helpers,Transfer*Smooth(S.RegionWeights[V]/.65));}
         P->Segments.Add(MoveTemp(S));
     }
     WeldWeights();
+    int32 SharedVertices=0;
+    for(const auto& VertexWeights:Weights)
+    {
+        double HipShare=0,LegShare=0;
+        for(const auto& W:VertexWeights){if(HipBones.Contains(W.Key)) HipShare+=W.Value;if(W.Key>=P->SourceBoneCount) LegShare+=W.Value;}
+        if(HipShare>1.e-4 && LegShare>1.e-4) ++SharedVertices;
+    }
+    UE_LOG(LogTemp,Display,TEXT("LEG_HIP_SHARED_TRANSITION vertices=%d"),SharedVertices);
     Input.Influences.Reset();for(int32 V=0;V<Weights.Num();++V){double Total=0;for(const auto& W:Weights[V]) Total+=W.Value;for(const auto& W:Weights[V]){FVamBuildInfluence F;F.Vertex=V;F.Bone=W.Key;F.Weight=W.Value/Total;Input.Influences.Add(F);}}
-    P->Provenance=TEXT("Source segment skin ownership + anatomical joint endpoints + glute exclusion + triangle-area quadrature + seam-aware adjacency diffusion. Smooth longitudinal joint fade. Regional normalized kernels; measured surface-radius volume proxy, not medical volume. Morph/bone-center responses precomputed. Passive length responses are family engineering approximations, not measured activation.");
+    P->Provenance=TEXT("Source segment skin ownership + anatomical joint endpoints + shared hip/leg influence-budget transition + triangle-area quadrature + seam-aware adjacency diffusion. Smooth longitudinal joint fade. Regional normalized kernels; measured surface-radius volume proxy, not medical volume. Morph/bone-center responses precomputed. Passive length responses are family engineering approximations, not measured activation.");
     auto* Body=UVamNativeBuilder::BuildMesh(Root+TEXT("/SK_Body"),Input,Error);if(!Body) return nullptr;
     auto* Result=CopyAsset(Source,Root+TEXT("/CD_Character"));auto* NewShape=CopyAsset(Shape,Root+TEXT("/SD_Shape"));auto* NewGeometry=CopyAsset(Geometry,Root+TEXT("/GD_Bindings"));if(!Result || !NewShape || !NewGeometry) return Fail(TEXT("Leg immutable destination conflict"));
     Result->Body=Body;Result->Skeleton=Body->GetSkeleton();Result->Shape=NewShape;Result->SkeletonExtensionVersion+=TEXT("+")+P->Algorithm;Result->Parts.Reset();NewShape->Geometry=NewGeometry;NewGeometry->RenderToInput=UVamNativeBuilder::GetRenderToInputMap(Body);
