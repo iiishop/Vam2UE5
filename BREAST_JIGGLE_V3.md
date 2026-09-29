@@ -181,3 +181,11 @@ v2 Profile 可由新版 Runtime 在实例上派生 COM 参数；正式升级生�
 Transform 采样存在信息限制及高阶微分对噪声的敏感性；已知 twist 通常更精确。超过可接受时间跨度按 reset policy 处理，不无限追赶。
 
 本轮验证两份已持久化 Native 来源的构建/正式升级链，没有重新解码原始 VAR。Cook 不代表独立打包游戏的性能或视觉验收。衣服仍不模拟；其显隐帮助观察皮肤。复杂动画噪声、更广泛胸型、区域边缘、参数手感和最终外观仍需人工观察。
+
+## Breast output amplitude (2026-09-29)
+
+`BreastAmplitude` is a per-instance final helper-output multiplier, default 2, range 0–10. A value of 1 preserves the previous output; 0 suppresses visible secondary displacement/rotation. It multiplies final helper translation offsets and small-angle rotations after solver integration, without changing mass, support, damping, mobility or shared profile data. Debug node positions use the amplified output. Solver diagnostics remain physical unamplified state and include the amplitude value. Reset tuning restores amplitude 2 and existing other controls to 1. This artistic output multiplier can exceed solver-space displacement limits, like the Hip output amplitude.
+
+Panel: Breast Jiggle · Runtime → Amplitude · 胸部强度（1 = 原效果）. Existing runtime characters pick up default 2 when their runtime component is recreated; no mesh rebuild is needed for this control.
+
+The Breast branch was fast-forwarded to local master `2096876` to retain completed Hip/Leg runtime classes. Cleanup retained `/Game/VamRuntime/R_9345f3209950f77911bda5eb/BP_VamCharacter` and moved 20 other generated bundles outside Content to `Saved/VamRuntimeCleanup/20260929-211105` with a manifest. Imported source characters were retained.
