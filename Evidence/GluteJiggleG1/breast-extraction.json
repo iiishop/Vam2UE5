@@ -1,0 +1,5 @@
+{
+  "body_text_identical": true,
+  "baseline_head": "119c23b8aa7f9ca96673f1c2ca611a15304b320a",
+  "scope": "Solve function body, signature, and operation order unchanged; namespace + inline linkage only"
+}

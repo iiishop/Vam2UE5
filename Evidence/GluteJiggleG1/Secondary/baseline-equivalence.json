@@ -1,0 +1,16 @@
+{
+  "g062_surface_rows_equal": 288,
+  "breast_quantitative_reports_identical": {
+    "Vam.Breast.Calibration": [
+      "Calibrated divergence 30/120 0.004897 cm 60/120 0.001888 cm angular 0.000378 rad"
+    ],
+    "Vam.Breast.MovingFrameModal": [
+      "Momentum error 3.6888820278e-15; modal mean 1.39925101062e-17 moment 2.2568079057e-17; steady COM 0.863749 residual RMS 0.077343 cm"
+    ],
+    "Vam.Breast.SmoothJump": [
+      "Jump known twist 1 body apex 0.505102 tissue apex 0.508333; takeoff lag -2.409486; landing tail 19.432660; FPS error 0.008706 / 0.000080 cm",
+      "Jump known twist 0 body apex 0.505102 tissue apex 0.508333; takeoff lag -2.409486; landing tail 19.414968; FPS error 0.214716 / 0.017848 cm",
+      "Resolved jump phase body 0.508333 tissue 0.550000 delay 0.041667 s tissue velocity at body top 40.578283 cm/s hard limits 0"
+    ]
+  }
+}

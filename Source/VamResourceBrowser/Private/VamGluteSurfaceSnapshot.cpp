@@ -12,7 +12,7 @@
 #include "Misc/Paths.h"
 #include "HAL/FileManager.h"
 
-FString CaptureGluteSurface(UVamGluteSkeletalMeshComponent& B,bool Draw)
+FString CaptureGluteSurface(UVamGluteSkeletalMeshComponent& B,bool Draw,bool Jiggle)
 {
     auto* Mesh=B.GetSkeletalMeshAsset();auto* P=B.CorrectiveProfile.Get();auto* G=B.GluteProfile.Get();
     if(!Mesh || !P || !G || B.GluteRest.Num()!=2 || B.HipPoseState.Sides.Num()!=2 || !Mesh->GetImportedModel() || Mesh->GetImportedModel()->LODModels.IsEmpty()) return TEXT("No initialized Glute instance / native LOD0.");
@@ -21,6 +21,17 @@ FString CaptureGluteSurface(UVamGluteSkeletalMeshComponent& B,bool Draw)
     if(Map.Num()!=int32(LOD.NumVertices) || Pose.Num()!=Mesh->GetRefSkeleton().GetNum()) return TEXT("Pose / LOD correspondence unavailable.");
     const auto Override=B.GetRefPoseOverride();const auto& Inverse=Override.IsValid()?Override->RefBasesInvMatrix:Mesh->GetRefBasesInvMatrix();
     TArray<FMatrix> BoneMatrices;for(int32 N=0;N<Pose.Num();++N) BoneMatrices.Add(FMatrix(Inverse[N])*Pose[N].ToMatrixWithScale());
+    auto StructuralMatrices=BoneMatrices;
+    if(Jiggle)
+    {
+        if(!B.GluteJiggleProfile || B.GluteStates.Num()!=2) return TEXT("G1 profile / current rest absent.");
+        for(int32 Side=0;Side<2;++Side) for(int32 N=0;N<5;++N)
+        {
+            const int32 Bone=B.GluteRest[Side].Regions[N].BoneIndex;
+            const FTransform Rest=B.GluteStates[Side].Regions[N].Transform*B.GluteRest[Side].AnchorLocal*B.HipPoseState.PelvisComponent;
+            StructuralMatrices[Bone]=FMatrix(Inverse[Bone])*Rest.ToMatrixWithScale();
+        }
+    }
     TArray<FVector> Base,Correction,Actual;Base.SetNumZeroed(LOD.NumVertices);Correction=Base;Actual=Base;
     TArray<TArray<double>> TargetWeights;for(const auto& H:B.HipPoseState.Sides) TargetWeights.Add(VamGluteCorrective::Weights(*P,H));
     for(const auto& Section:LOD.Sections) for(int32 J=0;J<Section.SoftVertices.Num();++J) Base[Section.BaseVertexIndex+J]=FVector(Section.SoftVertices[J].Position);
@@ -38,11 +49,25 @@ FString CaptureGluteSurface(UVamGluteSkeletalMeshComponent& B,bool Draw)
     {
         const auto& X=Section.SoftVertices[J];const int32 V=Section.BaseVertexIndex+J;FVector A=FVector::ZeroVector,D=A,C=A;
         for(int32 K=0;K<MAX_TOTAL_INFLUENCES;++K) if(X.InfluenceWeights[K]) { const double W=double(X.InfluenceWeights[K])/65535.;const auto& M=BoneMatrices[Section.BoneMap[X.InfluenceBones[K]]];A+=FVector(M.TransformPosition(Base[V]))*W;D+=FVector(M.TransformVector(Correction[V]))*W;C+=FVector(M.TransformVector(Actual[V]))*W; }
+        if(Jiggle)
+        {
+            const FVector Vertex=Base[V]+Actual[V];A=D=FVector::ZeroVector;
+            for(int32 K=0;K<MAX_TOTAL_INFLUENCES;++K) if(X.InfluenceWeights[K]) { const int32 Bone=Section.BoneMap[X.InfluenceBones[K]];const double W=double(X.InfluenceWeights[K])/65535.;const FVector Rest=FVector(StructuralMatrices[Bone].TransformPosition(Vertex));A+=Rest*W;D+=(FVector(BoneMatrices[Bone].TransformPosition(Vertex))-Rest)*W; }
+            C=D;
+        }
         Off[V]=A;Delta[V]=D;AppliedDelta[V]=C;
     }
     Report->SetStringField(TEXT("scope"),TEXT("Current instance native LOD0, final pose and active Shape/Morph buffers. Corrective OFF vs hypothetical ON with identical pose; excludes material WPO, cloth and GPU readback."));
+    if(Jiggle) { Report->SetStringField(TEXT("scope"),TEXT("G1 OFF structural rest vs current G1 dynamics; SAME current G0.6.2 Morph weights. Native LOD0 CPU reconstruction, excludes WPO/cloth/GPU readback."));Report->SetStringField(TEXT("jiggle_profile"),B.GluteJiggleProfile->GetPathName()); }
+    if(Jiggle)
+    {
+        Report->SetBoolField(TEXT("g1_enabled"),B.bGluteJiggleEnabled);Report->SetStringField(TEXT("g1_diagnostics"),B.GluteJiggleDiagnostics());
+        Report->SetNumberField(TEXT("support_scale"),B.GluteSupport);Report->SetNumberField(TEXT("damping_scale"),B.GluteDamping);Report->SetNumberField(TEXT("mobility_scale"),B.GluteMobility);Report->SetNumberField(TEXT("coupling_scale"),B.GluteInternalCoupling);Report->SetNumberField(TEXT("mass_scale"),B.GluteMassScale);
+        Report->SetStringField(TEXT("primary_pelvis"),B.HipPoseState.PelvisComponent.ToHumanReadableString());Report->SetStringField(TEXT("primary_left_femur"),B.HipPoseState.LeftFemurComponent.ToHumanReadableString());Report->SetStringField(TEXT("primary_right_femur"),B.HipPoseState.RightFemurComponent.ToHumanReadableString());
+    }
     Report->SetStringField(TEXT("mesh"),Mesh->GetPathName());Report->SetStringField(TEXT("profile"),P->GetPathName());Report->SetNumberField(TEXT("shape_revision"),B.GluteShapeRevision);Report->SetBoolField(TEXT("corrective_enabled"),B.bCorrectiveEnabled);Report->SetBoolField(TEXT("structural_enabled"),B.bGluteEnabled);Report->SetObjectField(TEXT("applied_morph_weights"),Curves);
     TArray<int32> Ids;for(int32 V=0;V<Map.Num();++V) Ids.Add(Map[V]);FString Summary=TEXT("当前姿态快照（同姿态 OFF 青色 / ON 品红；1:1，显示 15 秒）\n");
+    if(Jiggle) Summary=TEXT("G1 当前姿态表面：OFF 青色 / 当前动态 品红；G0.6 Morph 保持一致\n");
     TSet<int32> Used;for(uint32 V:LOD.IndexBuffer) Used.Add(V);
     for(int32 Side=0;Side<2;++Side)
     {

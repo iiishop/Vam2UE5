@@ -98,6 +98,7 @@ void UVamCharacterComponent::LoadMeshes(uint64 Ticket)
     TArray<FSoftObjectPath> Paths { LoadedDefinition->Body.ToSoftObjectPath(), LoadedDefinition->Skeleton.ToSoftObjectPath() };
     if (!LoadedDefinition->Shape.IsNull()) Paths.AddUnique(LoadedDefinition->Shape.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->BreastJiggle.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->BreastJiggle.ToSoftObjectPath());
+    if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteJiggle.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteJiggle.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteStructure.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteStructure.ToSoftObjectPath());
     if (LoadedRuntimeConfiguration && !LoadedRuntimeConfiguration->GluteCorrective.IsNull()) Paths.AddUnique(LoadedRuntimeConfiguration->GluteCorrective.ToSoftObjectPath());
     if (!RigProfile.IsNull()) Paths.AddUnique(RigProfile.ToSoftObjectPath());
@@ -150,6 +151,8 @@ void UVamCharacterComponent::Assemble(uint64 Ticket)
         auto* Glute=CastChecked<UVamGluteSkeletalMeshComponent>(Body);
         Glute->GluteProfile=LoadedRuntimeConfiguration->GluteStructure.Get();
         Glute->CorrectiveProfile=LoadedRuntimeConfiguration->GluteCorrective.Get();
+        Glute->GluteJiggleProfile=LoadedRuntimeConfiguration->GluteJiggle.Get();
+        if(!LoadedRuntimeConfiguration->GluteJiggle.IsNull() && (!Glute->GluteJiggleProfile || !Glute->GluteJiggleProfile->IsValidProfile() || !Glute->GluteProfile || Glute->GluteJiggleProfile->SourceTopologyIdentity!=Glute->GluteProfile->SourceTopologyIdentity)) { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteJiggleProfile"));return; }
         if(!LoadedRuntimeConfiguration->GluteCorrective.IsNull() && (!Glute->CorrectiveProfile || !Glute->CorrectiveProfile->IsValidProfile() || !Glute->GluteProfile || Glute->CorrectiveProfile->SourceTopologyIdentity!=Glute->GluteProfile->SourceTopologyIdentity))
         { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteCorrectiveProfile"));return; }
         if(!LoadedRuntimeConfiguration->GluteStructure.IsNull() && (!Glute->GluteProfile || !Glute->GluteProfile->IsValidProfile()))

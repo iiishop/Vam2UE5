@@ -8,6 +8,7 @@
 void UVamGluteSkeletalMeshComponent::UpdateGluteShape(const TMap<FName,float>& Values,TArray<FTransform>& Reference,int32 ShapeRevision)
 {
     if(!GluteProfile || !GluteProfile->IsValidProfile() || !GetSkeletalMeshAsset()) return;
+    const auto OldRest=GluteRest;bGluteShapeRebase=true;
     GluteShapeRevision=ShapeRevision;GluteRest=GluteProfile->Sides;
     auto CS=Reference;const auto& Ref=GetSkeletalMeshAsset()->GetRefSkeleton();
     for(int32 I=0;I<CS.Num();++I) if(Ref.GetParentIndex(I)>=0) CS[I]=CS[I]*CS[Ref.GetParentIndex(I)];
@@ -28,6 +29,7 @@ void UVamGluteSkeletalMeshComponent::UpdateGluteShape(const TMap<FName,float>& V
         Reference[S.AnchorBone]=S.AnchorLocal;
         for(const auto& R:S.Regions) Reference[R.BoneIndex]=FTransform(VamGluteStructure::FiberBasis(S,R),R.Rest);
     }
+    if(GluteJiggleProfile && OldRest.Num()==2) for(int32 I=0;I<2;++I) if(FMath::Abs(GluteRest[I].EffectiveVolumeCm3/OldRest[I].EffectiveVolumeCm3-1)>GluteJiggleProfile->LargeShapeChangeRatio) GluteSolvers[I].Reset();
 }
 void UVamGluteSkeletalMeshComponent::FinalizeBoneTransform()
 {
@@ -69,6 +71,7 @@ void UVamGluteSkeletalMeshComponent::FinalizeBoneTransform()
         }
     }
     ApplyGluteCorrectives();
+    ApplyGluteJiggle();
     // Both use final rigid-blended source poses; writes are disjoint. Breast then publishes native buffers.
     Super::FinalizeBoneTransform();
 }

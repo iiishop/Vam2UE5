@@ -29,14 +29,28 @@ double Kernel(const FVector& A,const FVector& B,const FVector& Dimensions)
 {
     const FVector D=(A-B)/Dimensions;return FMath::Exp(-D.SizeSquared()*16);
 }
+// Surface quadrature, not vertex counting: tessellation density and retained
+// source vertices with no triangle must not move anatomical statistics.
+TArray<double> SurfaceAreas(const FVamNativeMeshInput& Input,const TArray<FVector>& Vertices)
+{
+    TArray<double> A;A.Init(0,Vertices.Num());
+    for(int32 T=0;T<Input.Triangles.Num();T+=3)
+    {
+        const int32 U=Input.Triangles[T],V=Input.Triangles[T+1],W=Input.Triangles[T+2];
+        const double Share=FVector::CrossProduct(Vertices[V]-Vertices[U],Vertices[W]-Vertices[U]).Size()/6;
+        A[U]+=Share;A[V]+=Share;A[W]+=Share;
+    }
+    return A;
+}
 // Measure support cones, partitioned by normalized semantic kernels. No fixed regional mass shares.
 void Measure(FVamGluteSide& S,const FVamNativeMeshInput& Input,const TArray<FVector>& Vertices,const FTransform& Anchor,const TArray<TMap<int32,double>>& Weights,const FVector& Shin,double Density,double Modulus)
 {
     S.RegionPoints.Reset();S.EffectiveVolumeCm3=0;S.SupportAreaCm2=0;S.COM=FVector::ZeroVector;
+    const auto AreaWeights=SurfaceAreas(Input,Vertices);
     FVector Mean=FVector::ZeroVector,Variance=FVector::ZeroVector;double Total=0;
-    for(int32 V=0;V<Vertices.Num();++V) { const FVector L=Anchor.InverseTransformPosition(Vertices[V]);S.RegionPoints.Add(L);Mean+=L*S.RegionWeights[V];Total+=S.RegionWeights[V]; }
+    for(int32 V=0;V<Vertices.Num();++V) { const FVector L=Anchor.InverseTransformPosition(Vertices[V]);S.RegionPoints.Add(L);const double W=S.RegionWeights[V]*AreaWeights[V];Mean+=L*W;Total+=W; }
     Mean/=FMath::Max(1.e-9,Total);
-    for(int32 V=0;V<Vertices.Num();++V) { const FVector D=S.RegionPoints[V]-Mean;Variance+=D*D*S.RegionWeights[V]; }
+    for(int32 V=0;V<Vertices.Num();++V) { const FVector D=S.RegionPoints[V]-Mean;Variance+=D*D*S.RegionWeights[V]*AreaWeights[V]; }
     for(int32 A=0;A<3;++A) S.Dimensions[A]=FMath::Max(.1,4*FMath::Sqrt(Variance[A]/FMath::Max(1.e-9,Total)));
     S.Dimensions.X=FMath::Max(S.Dimensions.X,Mean.X);
     const FVector Centers[5]={Mean,Mean+FVector(0,0,S.Dimensions.Z*.22),Mean-FVector(0,0,S.Dimensions.Z*.22),Mean-FVector(0,S.SideSign*S.Dimensions.Y*.22,0),Mean+FVector(0,S.SideSign*S.Dimensions.Y*.22,0)};
@@ -49,7 +63,7 @@ void Measure(FVamGluteSide& S,const FVamNativeMeshInput& Input,const TArray<FVec
         double Sum=0,WP=0,WT=0,WG=0;
         for(int32 V=0;V<Vertices.Num();++V)
         {
-            const double W=S.RegionWeights[V]*Kernel(S.RegionPoints[V],Centers[N],S.Dimensions);
+            const double W=S.RegionWeights[V]*AreaWeights[V]*Kernel(S.RegionPoints[V],Centers[N],S.Dimensions);
             Sum+=W;R.Rest+=S.RegionPoints[V]*W;WP+=Weights[V].FindRef(S.PelvisBone)*W;WT+=Weights[V].FindRef(S.ThighBone)*W;WG+=Weights[V].FindRef(S.SourceGluteBone)*W;
         }
         R.Rest/=FMath::Max(Sum,1.e-9);R.PelvisPoint=FVector(0,R.Rest.Y,R.Rest.Z);
@@ -95,7 +109,10 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
     const auto OriginalInfluences=I.Influences;
     auto* Shape=Source->Shape.LoadSynchronous();auto* Geometry=Shape?Shape->Geometry.LoadSynchronous():nullptr;
     if(!Geometry || Geometry->InputToSource.Num()!=I.Vertices.Num()) return Fail(TEXT("Glute source topology correspondence unavailable"));
-    P->SchemaVersion=2;P->RefinementVersion=1;P->Algorithm=TEXT("glute-structure-g05-v1");
+    const TSharedPtr<FJsonObject>* SkinPolicy=nullptr;
+    if(!(*Map)->TryGetObjectField(TEXT("skin_transfer"),SkinPolicy) || !(*SkinPolicy)->TryGetNumberField(TEXT("maximum_donor_fraction"),P->SkinTransferMaximum) || !(*SkinPolicy)->TryGetNumberField(TEXT("full_region_confidence"),P->SkinTransferFullConfidence) || !FMath::IsFinite(P->SkinTransferMaximum) || P->SkinTransferMaximum<=0 || P->SkinTransferMaximum>.85 || !FMath::IsFinite(P->SkinTransferFullConfidence) || P->SkinTransferFullConfidence<=0 || P->SkinTransferFullConfidence>1)
+        return Fail(TEXT("Unsupported glute skin transfer policy: require bounded family confidence/participation mapping"));
+    P->SchemaVersion=2;P->RefinementVersion=1;P->Algorithm=TEXT("glute-structure-g05-surface-v3");
     P->SourceTopologyIdentity=Geometry->TopologyDigest;P->SkeletonFamily=Family->GetStringField(TEXT("family"));P->SourceBoneCount=I.Bones.Num();P->Sides.Reset();
     auto Bone=[&](const TCHAR* Key)->int32 { FString Name;if(!(*Map)->TryGetStringField(Key,Name)) return INDEX_NONE;return I.Bones.IndexOfByPredicate([&](const FVamBuildBone& B){return B.Name==FName(*Name);}); };
     const int32 Pelvis=Bone(TEXT("pelvis")),Superior=Bone(TEXT("superior"));
@@ -104,13 +121,14 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
     TArray<FTransform> CS;for(const auto& B:I.Bones) CS.Add(B.Parent<0?B.LocalBind:B.LocalBind*CS[B.Parent]);
     P->RestPelvisComponent=CS[Pelvis];
     TArray<TMap<int32,double>> W;W.SetNum(I.Vertices.Num());for(const auto& F:I.Influences) W[F.Vertex].Add(F.Bone,F.Weight);
+    const auto AreaWeights=SurfaceAreas(I,I.Vertices);
     TArray<TArray<int32>> Adj;Adj.SetNum(I.Vertices.Num());
     for(int32 T=0;T<I.Triangles.Num();T+=3) for(int32 K=0;K<3;++K) { const int32 A=I.Triangles[T+K],B=I.Triangles[T+(K+1)%3];Adj[A].AddUnique(B);Adj[B].AddUnique(A); }
     TMap<int32,int32> First;for(int32 V=0;V<I.Vertices.Num();++V) { const int32 Id=Geometry->InputToSource[V];if(const int32* Other=First.Find(Id)) { Adj[V].AddUnique(*Other);Adj[*Other].AddUnique(V); }else First.Add(Id,V); }
     const FVector Z=(CS[Superior].GetLocation()-CS[Pelvis].GetLocation()).GetSafeNormal();
     FVector Y=(CS[Thighs[0]].GetLocation()-CS[Thighs[1]].GetLocation());Y=(Y-Z*FVector::DotProduct(Y,Z)).GetSafeNormal();
     FVector X=FVector::CrossProduct(Y,Z).GetSafeNormal(),Posterior=FVector::ZeroVector;double Support=0;
-    for(int32 V=0;V<I.Vertices.Num();++V) { const double Weight=W[V].FindRef(Glutes[0])+W[V].FindRef(Glutes[1]);Posterior+=(I.Vertices[V]-CS[Pelvis].GetLocation())*Weight;Support+=Weight; }
+    for(int32 V=0;V<I.Vertices.Num();++V) { const double Weight=(W[V].FindRef(Glutes[0])+W[V].FindRef(Glutes[1]))*AreaWeights[V];Posterior+=(I.Vertices[V]-CS[Pelvis].GetLocation())*Weight;Support+=Weight; }
     const bool HasGluteWeights=Support>=1;
     if(!HasGluteWeights)
     {
@@ -134,18 +152,18 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
         for(int32 V=0;V<I.Vertices.Num();++V)
         {
             const FVector L=Anchor.InverseTransformPosition(I.Vertices[V]);
-            Seeds[V]=HasGluteWeights?W[V].FindRef(S.SourceGluteBone):
+            Seeds[V]=AreaWeights[V]<=1.e-12?0:HasGluteWeights?W[V].FindRef(S.SourceGluteBone):
                 (W[V].FindRef(Pelvis)+W[V].FindRef(S.ThighBone))*FMath::Exp(-(I.Vertices[V]-Landmark).SizeSquared()/FMath::Square(SeedRadius))*Smooth(L.X/FMath::Max(.1,SeedRadius*.5))*Smooth(S.SideSign*L.Y/FMath::Max(.1,SeedRadius*.5));
         }
         FVector Mean=FVector::ZeroVector,Variance=FVector::ZeroVector;double Sum=0;
-        for(int32 V=0;V<I.Vertices.Num();++V) { const double Weight=Seeds[V];Mean+=Anchor.InverseTransformPosition(I.Vertices[V])*Weight;Sum+=Weight; }
+        for(int32 V=0;V<I.Vertices.Num();++V) { const double Weight=Seeds[V]*AreaWeights[V];Mean+=Anchor.InverseTransformPosition(I.Vertices[V])*Weight;Sum+=Weight; }
         if(Sum<1) return Fail(TEXT("Insufficient original glute weight evidence"));Mean/=Sum;
-        for(int32 V=0;V<I.Vertices.Num();++V) { const FVector D=Anchor.InverseTransformPosition(I.Vertices[V])-Mean;Variance+=D*D*Seeds[V]; }
+        for(int32 V=0;V<I.Vertices.Num();++V) { const FVector D=Anchor.InverseTransformPosition(I.Vertices[V])-Mean;Variance+=D*D*Seeds[V]*AreaWeights[V]; }
         FVector Spread;for(int32 A=0;A<3;++A) Spread[A]=FMath::Max(.1,FMath::Sqrt(Variance[A]/Sum));
         TArray<double> MorphEvidence;MorphEvidence.Init(0,I.Vertices.Num());
         for(const auto& M:I.Morphs)
         {
-            double All=0,Local=0;for(int32 V=0;V<I.Vertices.Num();++V) { const double E=M.Deltas[V].SizeSquared();All+=E;Local+=E*Seeds[V]; }
+            double All=0,Local=0;for(int32 V=0;V<I.Vertices.Num();++V) { const double E=M.Deltas[V].SizeSquared()*AreaWeights[V];All+=E;Local+=E*Seeds[V]; }
             if(All<1.e-10 || Local/All<.25) continue;
             for(int32 V=0;V<I.Vertices.Num();++V) MorphEvidence[V]+=M.Deltas[V].SizeSquared()/All;
         }
@@ -159,7 +177,7 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
             const double SideGate=Smooth(S.SideSign*L.Y/FMath::Max(.1,FMath::Abs(Mean.Y)*.45));
             const double Inferior=Smooth((L.Z-(Mean.Z-Spread.Z*2-FemurLength*.05))/FMath::Max(.1,Spread.Z));
             const double SuperiorGate=Smooth((Mean.Z+Spread.Z*2.5-L.Z)/FMath::Max(.1,Spread.Z));
-            Gate[V]=PosteriorGate*SideGate*Inferior*SuperiorGate*FMath::Clamp(G+(PW+T)*Nearby,0.,1.);
+            Gate[V]=AreaWeights[V]<=1.e-12?0:PosteriorGate*SideGate*Inferior*SuperiorGate*FMath::Clamp(G+(PW+T)*Nearby,0.,1.);
             const double ME=MaxMorph>0?FMath::Sqrt(MorphEvidence[V]/MaxMorph):0;
             S.RegionWeights[V]=Gate[V]*FMath::Clamp(G*2+Nearby*(PW*.35+T*.15)+ME*.25,0.,1.);
         }
@@ -205,14 +223,19 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
         {
             TArray<TPair<int32,double>> Helpers;for(const auto& R:S.Regions) Helpers.Emplace(R.BoneIndex,Kernel(S.RegionPoints[V],R.Rest,S.Dimensions));
             TSet<int32> Donors={Pelvis,S.SourceGluteBone,S.ThighBone};
-            const double Transfer=.7*S.RegionWeights[V]*Smooth(S.RegionPoints[V].X/FMath::Max(.1,S.Dimensions.X*.5));
+            // Evidence confidence is not a second tissue fraction. Smoothly map
+            // confirmed interior evidence to partial donor participation; retain
+            // a zero-slope fade at the boundary and original root support.
+            const double Participation=Smooth(S.RegionWeights[V]/P->SkinTransferFullConfidence);
+            const double Transfer=P->SkinTransferMaximum*Participation*Smooth(S.RegionPoints[V].X/FMath::Max(.1,S.Dimensions.X*.5));
             VamBreastWeights::Redistribute(W[V],Donors,Helpers,Transfer);
         }
         double Total=0;for(const auto& F:W[V]) Total+=F.Value;for(auto& F:W[V]) F.Value/=Total;
     }
     I.Influences.Reset();for(int32 V=0;V<W.Num();++V) for(const auto& F:W[V]) { FVamBuildInfluence R;R.Vertex=V;R.Bone=F.Key;R.Weight=F.Value;I.Influences.Add(R); }
-    P->RegionProvenance=FString(HasGluteWeights?TEXT("Glute source skin support present. "):TEXT("Glute source skin support absent: source glute bind landmarks localize pelvis/proximal femur donor evidence. "))+TEXT("Original glute/pelvis/proximal femur weights; actual morph delta support; source triangle adjacency and source-ID seam weld; signed posterior pelvis frame; smooth side/posterior/proximal gates; 8 diffusion passes. Surface-to-pelvis-wall cone volume is an effective proxy. Regional attachments inferred from donor evidence and distances, not measured anatomy.");
-    P->SkinWeightIdentity=FMD5::HashAnsiString(*(P->Algorithm+P->SourceTopologyIdentity+Source->SourceDigest));
+    P->RegionProvenance=FString(HasGluteWeights?TEXT("Glute source skin support present. "):TEXT("Glute source skin support absent: source glute bind landmarks localize pelvis/proximal femur donor evidence. "))+TEXT("Surface-area quadrature; unused vertices excluded; original glute/pelvis/proximal femur weights; actual morph delta support; source triangle adjacency and source-ID seam weld; signed posterior pelvis frame; smooth side/posterior/proximal gates; 8 diffusion passes. Surface-to-pelvis-wall cone volume is an effective proxy. Regional attachments inferred from donor evidence and distances, not measured anatomy.");
+    P->RegionProvenance+=TEXT(" Skin participation uses family smooth confidence mapping; donor maximum and full confidence serialized in profile; original donor support retained.");
+    P->SkinWeightIdentity=FMD5::HashAnsiString(*(P->Algorithm+P->SourceTopologyIdentity+Source->SourceDigest+FString::Printf(TEXT("|%.17g|%.17g"),P->SkinTransferMaximum,P->SkinTransferFullConfidence)));
     if(!Corrective || !VamGluteCorrectiveBuilder::Build(I,OriginalInfluences,Geometry->InputToSource,*P,*Corrective,FamilyJson,Error)) return nullptr;
     auto* Body=UVamNativeBuilder::BuildMesh(Root+TEXT("/SK_Body"),I,Error);if(!Body) return nullptr;
     auto* Result=Copy(Source,Root+TEXT("/CD_Character"));auto* NewShape=Copy(Shape,Root+TEXT("/SD_Shape"));auto* NewGeometry=Copy(Geometry,Root+TEXT("/GD_Bindings"));
@@ -248,5 +271,11 @@ FString UVamGluteStructureBuilder::Validate(UVamCharacterDefinition* D,UVamGlute
         if(!(Position/Sum).Equals(FVector(V.Position),.001)) return TEXT("G0 bind reconstruction exceeded .001 cm");
     }
     if(!D->Shape.LoadSynchronous() || D->Shape.Get()->NeutralLocalBind.Num()!=Ref.GetRawBoneNum()) return TEXT("G0 Shape identity mismatch");
+    if(P->Algorithm.StartsWith(TEXT("glute-structure-g05-surface-")))
+    {
+        TSharedPtr<FJsonObject> Audit;bool Valid=false;
+        if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(SpatialAudit(D,P)),Audit) || !Audit || !Audit->TryGetBoolField(TEXT("valid"),Valid) || !Valid)
+            return TEXT("G0 spatial calibration invalid: unused region vertices or helper outside its skin support; inspect SpatialAudit");
+    }
     return FString();
 }

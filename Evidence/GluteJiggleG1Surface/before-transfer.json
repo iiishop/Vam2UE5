@@ -1,0 +1,88 @@
+{
+  "Primary": {
+    "meaning": "Exact native skin response to coherent 1 cm helper translation; area x region weighted. No solver, rotation or visual scoring.",
+    "Glute_L": {
+      "max_region": 0.4848977327346802,
+      "region_area_cm2": 166.12680649896433,
+      "mean_transfer": 0.14657759800797968,
+      "core_transfer": 0.20190571807307234,
+      "max_transfer": 0.334843976655975,
+      "p10_transfer": 0.03459220239892602,
+      "p50_transfer": 0.14712749025784433,
+      "p90_transfer": 0.26897077541798353
+    },
+    "Glute_R": {
+      "max_region": 0.4743538498878479,
+      "region_area_cm2": 170.73853467177415,
+      "mean_transfer": 0.15363741687773136,
+      "core_transfer": 0.20353074105537028,
+      "max_transfer": 0.31032272917218506,
+      "p10_transfer": 0.03730830899439752,
+      "p50_transfer": 0.16137941647320986,
+      "p90_transfer": 0.25908292829990387
+    },
+    "Breast_L": {
+      "max_region": 0.9999995827674866,
+      "region_area_cm2": 171.48950939995188,
+      "mean_transfer": 0.5660108989736617,
+      "core_transfer": 0.6524200159613891,
+      "max_transfer": 0.8805676139891148,
+      "p10_transfer": 0.17900359258055687,
+      "p50_transfer": 0.6059052459895611,
+      "p90_transfer": 0.842771053314209
+    },
+    "Breast_R": {
+      "max_region": 0.9999995827674866,
+      "region_area_cm2": 170.01284637853612,
+      "mean_transfer": 0.5661782132788822,
+      "core_transfer": 0.654396007497563,
+      "max_transfer": 0.8803234919905663,
+      "p10_transfer": 0.18077362701296806,
+      "p50_transfer": 0.6053406484425068,
+      "p90_transfer": 0.8427557945251465
+    }
+  },
+  "Secondary": {
+    "meaning": "Exact native skin response to coherent 1 cm helper translation; area x region weighted. No solver, rotation or visual scoring.",
+    "Glute_L": {
+      "max_region": 0.6125175952911377,
+      "region_area_cm2": 157.25195465033931,
+      "mean_transfer": 0.17583118066672207,
+      "core_transfer": 0.2404306076519787,
+      "max_transfer": 0.4190127400215715,
+      "p10_transfer": 0.03971923515200615,
+      "p50_transfer": 0.16458380804397166,
+      "p90_transfer": 0.3311665579676628
+    },
+    "Glute_R": {
+      "max_region": 0.6100963950157166,
+      "region_area_cm2": 157.85609434930484,
+      "mean_transfer": 0.17564643286335352,
+      "core_transfer": 0.2398005638629793,
+      "max_transfer": 0.4158999025821686,
+      "p10_transfer": 0.03906309721060097,
+      "p50_transfer": 0.16577401710674167,
+      "p90_transfer": 0.3259632238186896
+    },
+    "Breast_L": {
+      "max_region": 0.9999999403953552,
+      "region_area_cm2": 56.3030215693677,
+      "mean_transfer": 0.48158192816555,
+      "core_transfer": 0.6471572570583822,
+      "max_transfer": 0.8788738921284676,
+      "p10_transfer": 0.09248493146151304,
+      "p50_transfer": 0.5085679441690445,
+      "p90_transfer": 0.8284427970647812
+    },
+    "Breast_R": {
+      "max_region": 0.9999999403953552,
+      "region_area_cm2": 56.53825494766005,
+      "mean_transfer": 0.48249634122020796,
+      "core_transfer": 0.6483196056444579,
+      "max_transfer": 0.8793011084198952,
+      "p10_transfer": 0.0923933768644929,
+      "p50_transfer": 0.5090104639530182,
+      "p90_transfer": 0.8298161327838898
+    }
+  }
+}

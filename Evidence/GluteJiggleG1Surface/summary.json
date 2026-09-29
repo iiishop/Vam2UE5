@@ -1,0 +1,355 @@
+{
+  "head": "119c23b8aa7f9ca96673f1c2ca611a15304b320a",
+  "characters": [
+    {
+      "character": "Primary",
+      "blueprint": "/Game/VamRuntime/R_5e73d4eb197a244cad0bb11a/BP_VamCharacter.BP_VamCharacter",
+      "before_transfer": {
+        "meaning": "Exact native skin response to coherent 1 cm helper translation; area x region weighted. No solver, rotation or visual scoring.",
+        "Glute_L": {
+          "max_region": 0.4848977327346802,
+          "region_area_cm2": 166.12680649896433,
+          "mean_transfer": 0.14657759800797968,
+          "core_transfer": 0.20190571807307234,
+          "max_transfer": 0.334843976655975,
+          "p10_transfer": 0.03459220239892602,
+          "p50_transfer": 0.14712749025784433,
+          "p90_transfer": 0.26897077541798353
+        },
+        "Glute_R": {
+          "max_region": 0.4743538498878479,
+          "region_area_cm2": 170.73853467177415,
+          "mean_transfer": 0.15363741687773136,
+          "core_transfer": 0.20353074105537028,
+          "max_transfer": 0.31032272917218506,
+          "p10_transfer": 0.03730830899439752,
+          "p50_transfer": 0.16137941647320986,
+          "p90_transfer": 0.25908292829990387
+        },
+        "Breast_L": {
+          "max_region": 0.9999995827674866,
+          "region_area_cm2": 171.48950939995188,
+          "mean_transfer": 0.5660108989736617,
+          "core_transfer": 0.6524200159613891,
+          "max_transfer": 0.8805676139891148,
+          "p10_transfer": 0.17900359258055687,
+          "p50_transfer": 0.6059052459895611,
+          "p90_transfer": 0.842771053314209
+        },
+        "Breast_R": {
+          "max_region": 0.9999995827674866,
+          "region_area_cm2": 170.01284637853612,
+          "mean_transfer": 0.5661782132788822,
+          "core_transfer": 0.654396007497563,
+          "max_transfer": 0.8803234919905663,
+          "p10_transfer": 0.18077362701296806,
+          "p50_transfer": 0.6053406484425068,
+          "p90_transfer": 0.8427557945251465
+        }
+      },
+      "after_transfer": {
+        "meaning": "Exact native skin response to coherent 1 cm helper translation; area x region weighted. No solver, rotation or visual scoring.",
+        "Glute_L": {
+          "max_region": 0.4848977327346802,
+          "region_area_cm2": 166.12680649896433,
+          "mean_transfer": 0.3258033229964627,
+          "core_transfer": 0.4821195959301197,
+          "max_transfer": 0.6998550593852997,
+          "p10_transfer": 0.03653009911067784,
+          "p50_transfer": 0.3191119208931923,
+          "p90_transfer": 0.6479285736568272
+        },
+        "Glute_R": {
+          "max_region": 0.4743538498878479,
+          "region_area_cm2": 170.73853467177415,
+          "mean_transfer": 0.3525802819695801,
+          "core_transfer": 0.4962730893953391,
+          "max_transfer": 0.6995345805771649,
+          "p10_transfer": 0.045014115050435066,
+          "p50_transfer": 0.36575875617563725,
+          "p90_transfer": 0.6414129715412855
+        },
+        "Breast_L": {
+          "max_region": 0.9999995827674866,
+          "region_area_cm2": 171.48950939995188,
+          "mean_transfer": 0.5660108989736617,
+          "core_transfer": 0.6524200159613891,
+          "max_transfer": 0.8805676139891148,
+          "p10_transfer": 0.17900359258055687,
+          "p50_transfer": 0.6059052459895611,
+          "p90_transfer": 0.842771053314209
+        },
+        "Breast_R": {
+          "max_region": 0.9999995827674866,
+          "region_area_cm2": 170.01284637853612,
+          "mean_transfer": 0.5661782132788822,
+          "core_transfer": 0.654396007497563,
+          "max_transfer": 0.8803234919905663,
+          "p10_transfer": 0.18077362701296806,
+          "p50_transfer": 0.6053406484425068,
+          "p90_transfer": 0.8427557945251465
+        }
+      },
+      "before_surface": {
+        "DeepFlexAcceleration": {
+          "max": 0.1597011120066599,
+          "rms": 0.08331819611899453,
+          "p95": 0.13793104310856563
+        },
+        "Walk Cycle / Alternating Thigh Swing": {
+          "max": 0.2564532967554052,
+          "rms": 0.1232526802012148,
+          "p95": 0.22023304099425017
+        },
+        "Jump": {
+          "max": 0.36907592667125705,
+          "rms": 0.19833829938819916,
+          "p95": 0.3372477299424018
+        },
+        "Smooth Turn": {
+          "max": 0.1759744491567487,
+          "rms": 0.0778304028705606,
+          "p95": 0.15354555769198813
+        }
+      },
+      "after_surface": {
+        "DeepFlexAcceleration": {
+          "max": 0.37224756968925143,
+          "rms": 0.20228833540705837,
+          "p95": 0.3400126538874205
+        },
+        "Walk Cycle / Alternating Thigh Swing": {
+          "max": 0.641330870941502,
+          "rms": 0.305312202443481,
+          "p95": 0.5574801614171434
+        },
+        "Jump": {
+          "max": 0.8647500995997307,
+          "rms": 0.4739901688382957,
+          "p95": 0.8113911250166805
+        },
+        "Smooth Turn": {
+          "max": 0.3990785101737464,
+          "rms": 0.194847802690418,
+          "p95": 0.36658978109356166
+        }
+      },
+      "ratios": {
+        "DeepFlexAcceleration": {
+          "max": 2.3309015511033375,
+          "rms": 2.4279010447868004,
+          "p95": 2.465091586524118
+        },
+        "Walk Cycle / Alternating Thigh Swing": {
+          "max": 2.500770623951766,
+          "rms": 2.4771242454528934,
+          "p95": 2.5313193647073966
+        },
+        "Jump": {
+          "max": 2.3430140984783874,
+          "rms": 2.3898065592998496,
+          "p95": 2.405920197462136
+        },
+        "Smooth Turn": {
+          "max": 2.2678207665151913,
+          "rms": 2.503492150933209,
+          "p95": 2.3874984506483705
+        }
+      },
+      "tests": {
+        "succeeded": 17,
+        "succeededWithWarnings": 2,
+        "failed": 0,
+        "notRun": 0
+      },
+      "warnings": [
+        {
+          "test": "Vam.Breast.NativeRuntime",
+          "message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)"
+        },
+        {
+          "test": "Vam.Glute.NativeRuntime",
+          "message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)"
+        }
+      ],
+      "breast_numerics_identical": true,
+      "breast_weights_identical": true,
+      "structural_geometry_and_helpers_identical": true
+    },
+    {
+      "character": "Secondary",
+      "blueprint": "/Game/VamRuntime/R_282b5c70c1b647e7d8abe2b9/BP_VamCharacter.BP_VamCharacter",
+      "before_transfer": {
+        "meaning": "Exact native skin response to coherent 1 cm helper translation; area x region weighted. No solver, rotation or visual scoring.",
+        "Glute_L": {
+          "max_region": 0.6125175952911377,
+          "region_area_cm2": 157.25195465033931,
+          "mean_transfer": 0.17583118066672207,
+          "core_transfer": 0.2404306076519787,
+          "max_transfer": 0.4190127400215715,
+          "p10_transfer": 0.03971923515200615,
+          "p50_transfer": 0.16458380804397166,
+          "p90_transfer": 0.3311665579676628
+        },
+        "Glute_R": {
+          "max_region": 0.6100963950157166,
+          "region_area_cm2": 157.85609434930484,
+          "mean_transfer": 0.17564643286335352,
+          "core_transfer": 0.2398005638629793,
+          "max_transfer": 0.4158999025821686,
+          "p10_transfer": 0.03906309721060097,
+          "p50_transfer": 0.16577401710674167,
+          "p90_transfer": 0.3259632238186896
+        },
+        "Breast_L": {
+          "max_region": 0.9999999403953552,
+          "region_area_cm2": 56.3030215693677,
+          "mean_transfer": 0.48158192816555,
+          "core_transfer": 0.6471572570583822,
+          "max_transfer": 0.8788738921284676,
+          "p10_transfer": 0.09248493146151304,
+          "p50_transfer": 0.5085679441690445,
+          "p90_transfer": 0.8284427970647812
+        },
+        "Breast_R": {
+          "max_region": 0.9999999403953552,
+          "region_area_cm2": 56.53825494766005,
+          "mean_transfer": 0.48249634122020796,
+          "core_transfer": 0.6483196056444579,
+          "max_transfer": 0.8793011084198952,
+          "p10_transfer": 0.0923933768644929,
+          "p50_transfer": 0.5090104639530182,
+          "p90_transfer": 0.8298161327838898
+        }
+      },
+      "after_transfer": {
+        "meaning": "Exact native skin response to coherent 1 cm helper translation; area x region weighted. No solver, rotation or visual scoring.",
+        "Glute_L": {
+          "max_region": 0.6125175952911377,
+          "region_area_cm2": 157.25195465033931,
+          "mean_transfer": 0.37592012782311907,
+          "core_transfer": 0.5316270397240901,
+          "max_transfer": 0.7000076342374086,
+          "p10_transfer": 0.05598535086028278,
+          "p50_transfer": 0.38428320339880884,
+          "p90_transfer": 0.684061955427751
+        },
+        "Glute_R": {
+          "max_region": 0.6100963950157166,
+          "region_area_cm2": 157.85609434930484,
+          "mean_transfer": 0.37764468651820143,
+          "core_transfer": 0.5334002614251905,
+          "max_transfer": 0.7000076407566667,
+          "p10_transfer": 0.05691615166142583,
+          "p50_transfer": 0.3782558962702751,
+          "p90_transfer": 0.6816967930644751
+        },
+        "Breast_L": {
+          "max_region": 0.9999999403953552,
+          "region_area_cm2": 56.3030215693677,
+          "mean_transfer": 0.48158192816555,
+          "core_transfer": 0.6471572570583822,
+          "max_transfer": 0.8788738921284676,
+          "p10_transfer": 0.09248493146151304,
+          "p50_transfer": 0.5085679441690445,
+          "p90_transfer": 0.8284427970647812
+        },
+        "Breast_R": {
+          "max_region": 0.9999999403953552,
+          "region_area_cm2": 56.53825494766005,
+          "mean_transfer": 0.48249634122020796,
+          "core_transfer": 0.6483196056444579,
+          "max_transfer": 0.8793011084198952,
+          "p10_transfer": 0.0923933768644929,
+          "p50_transfer": 0.5090104639530182,
+          "p90_transfer": 0.8298161327838898
+        }
+      },
+      "before_surface": {
+        "DeepFlexAcceleration": {
+          "max": 0.21774316286628556,
+          "rms": 0.09751234190685043,
+          "p95": 0.19038866959314354
+        },
+        "Walk Cycle / Alternating Thigh Swing": {
+          "max": 0.3473727441616811,
+          "rms": 0.15840126853992573,
+          "p95": 0.2971550705000532
+        },
+        "Jump": {
+          "max": 0.5283224583217646,
+          "rms": 0.2318716979939933,
+          "p95": 0.46412329942313085
+        },
+        "Smooth Turn": {
+          "max": 0.19806152845589114,
+          "rms": 0.0863728686240237,
+          "p95": 0.1695587691686917
+        }
+      },
+      "after_surface": {
+        "DeepFlexAcceleration": {
+          "max": 0.4072689359526846,
+          "rms": 0.21193861690039395,
+          "p95": 0.3709360935735973
+        },
+        "Walk Cycle / Alternating Thigh Swing": {
+          "max": 0.8159080146029859,
+          "rms": 0.3802109069559824,
+          "p95": 0.6822296576285398
+        },
+        "Jump": {
+          "max": 0.9965742304616455,
+          "rms": 0.4945786222792748,
+          "p95": 0.9073617497774372
+        },
+        "Smooth Turn": {
+          "max": 0.3601288828480161,
+          "rms": 0.1963062094753585,
+          "p95": 0.34528310605976226
+        }
+      },
+      "ratios": {
+        "DeepFlexAcceleration": {
+          "max": 1.8704097551976195,
+          "rms": 2.1734542803089507,
+          "p95": 1.9483097096391275
+        },
+        "Walk Cycle / Alternating Thigh Swing": {
+          "max": 2.3487968711305394,
+          "rms": 2.4003021595761314,
+          "p95": 2.2958708275799644
+        },
+        "Jump": {
+          "max": 1.8862991999759002,
+          "rms": 2.1329840017477553,
+          "p95": 1.9550015069383875
+        },
+        "Smooth Turn": {
+          "max": 1.818267715369155,
+          "rms": 2.2727763081468155,
+          "p95": 2.0363624232035136
+        }
+      },
+      "tests": {
+        "succeeded": 17,
+        "succeededWithWarnings": 2,
+        "failed": 0,
+        "notRun": 0
+      },
+      "warnings": [
+        {
+          "test": "Vam.Breast.NativeRuntime",
+          "message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)"
+        },
+        {
+          "test": "Vam.Glute.NativeRuntime",
+          "message": "LogWorld: UWorld::CleanupWorld called on a world that has begun play, missing call to EndPlay (Untitled)"
+        }
+      ],
+      "breast_numerics_identical": true,
+      "breast_weights_identical": true,
+      "structural_geometry_and_helpers_identical": true
+    }
+  ]
+}

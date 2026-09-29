@@ -1991,7 +1991,11 @@
     "left_thigh": "lThigh",
     "right_thigh": "rThigh",
     "left_shin": "lShin",
-    "right_shin": "rShin"
+    "right_shin": "rShin",
+    "skin_transfer": {
+      "maximum_donor_fraction": 0.7,
+      "full_region_confidence": 0.45
+    }
   },
   "glute_corrective": {
     "version": 1,

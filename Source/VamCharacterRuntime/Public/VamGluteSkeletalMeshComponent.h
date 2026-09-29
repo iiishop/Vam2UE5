@@ -2,6 +2,7 @@
 #include "VamBreastSkeletalMeshComponent.h"
 #include "VamGluteStructure.h"
 #include "VamGluteCorrectiveProfile.h"
+#include "VamGluteSolver.h"
 #include "VamGluteSkeletalMeshComponent.generated.h"
 
 UCLASS()
@@ -9,6 +10,26 @@ class VAMCHARACTERRUNTIME_API UVamGluteSkeletalMeshComponent : public UVamBreast
 {
     GENERATED_BODY()
 public:
+    UPROPERTY(Transient) TObjectPtr<UVamGluteJiggleProfile> GluteJiggleProfile;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bGluteJiggleEnabled=true;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteSupport=.45;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteDamping=.65;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteMobility=2.;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") double GluteInternalCoupling=1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, AdvancedDisplay, Category="VaM|Glute Jiggle") double GluteMassScale=1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bShowGluteDynamicNodes=false;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bShowGluteDynamicPelvis=false;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bShowGluteDynamicThigh=false;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bShowGluteVelocity=false;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Jiggle") bool bShowGluteRestDynamic=false;
+    UFUNCTION(BlueprintCallable, Category="VaM|Glute Jiggle") void ResetGluteJiggle();
+    UFUNCTION(BlueprintCallable, Category="VaM|Glute Jiggle") void GluteMotionCommand(FName Command);
+    UFUNCTION(BlueprintPure, Category="VaM|Glute Jiggle") FString GluteJiggleDiagnostics() const;
+    FVamGluteTuning GetGluteTuning() const;
+    FVamGluteSolver GluteSolvers[2];
+    TArray<FVamGluteDynamicSide> GluteDynamics;
+    void ApplyGluteJiggle();
+    virtual void TickComponent(float Dt,ELevelTick Type,FActorComponentTickFunction* Tick) override;
     UPROPERTY(Transient) TObjectPtr<UVamGluteStructureProfile> GluteProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Structure") bool bGluteEnabled=true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Structure") bool bShowGluteRegion=false;
@@ -38,5 +59,8 @@ public:
     double CorrectiveMagnitudeBound=0;
     void ApplyGluteCorrectives();
     float AppliedCorrectiveWeight(FName Morph) const;
-
+private:
+    double GluteLastTime=-1,GluteWalkTime=0;
+    int32 GluteLastTeleport=INDEX_NONE;
+    bool bGluteWasEnabled=true,bGluteShapeRebase=false,bGluteWalking=false;
 };

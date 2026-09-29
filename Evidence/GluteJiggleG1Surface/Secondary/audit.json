@@ -1,0 +1,2391 @@
+{
+  "schema_version": 2,
+  "refinement_version": 1,
+  "configuration": "/Game/VamRuntime/R_282b5c70c1b647e7d8abe2b9/RC_Runtime",
+  "blueprint": "/Game/VamRuntime/R_282b5c70c1b647e7d8abe2b9/BP_VamCharacter.BP_VamCharacter",
+  "profile": "/Game/VamRuntime/R_282b5c70c1b647e7d8abe2b9/DA_GluteStructure.DA_GluteStructure",
+  "body": "/Game/VamRuntime/R_282b5c70c1b647e7d8abe2b9/Glute/SK_Body.SK_Body",
+  "map": "/Game/GluteStructureEngineering/Empty_282b5c70c1b6",
+  "source_bones": 88,
+  "final_bones": 112,
+  "appended_helpers": [
+    {
+      "name": "L_BreastAnchor",
+      "parent": 10,
+      "translation": [
+        -3.2365686597511343,
+        -2.618285026907883,
+        3.987488106141791
+      ],
+      "quaternion_xyzw": [
+        -0.0002745910857325456,
+        0.025704683445142814,
+        5.084195667954669e-05,
+        0.9996695410303429
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Core",
+      "parent": 88,
+      "translation": [
+        14.065926984642774,
+        -4.416917920809509,
+        4.495330856720164
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Upper",
+      "parent": 88,
+      "translation": [
+        13.935594263633973,
+        -4.401959934940762,
+        5.059159769832208
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Lower",
+      "parent": 88,
+      "translation": [
+        14.078197873049113,
+        -4.384624401993568,
+        3.7134156595215293
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Medial",
+      "parent": 88,
+      "translation": [
+        14.239119423125727,
+        -3.7048205610158753,
+        4.461340156763876
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Breast_Lateral",
+      "parent": 88,
+      "translation": [
+        13.798838377415413,
+        -4.951912999475638,
+        4.482386541843954
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_BreastAnchor",
+      "parent": 10,
+      "translation": [
+        -3.2369783196676214,
+        2.6221169069078827,
+        3.98845310290491
+      ],
+      "quaternion_xyzw": [
+        -0.0002745910857325456,
+        0.025704683445142814,
+        5.084195667954669e-05,
+        0.9996695410303429
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Core",
+      "parent": 94,
+      "translation": [
+        14.147948030622446,
+        4.439946698455555,
+        4.515610143381215
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Upper",
+      "parent": 94,
+      "translation": [
+        14.013995909320448,
+        4.423384967931874,
+        5.073880411662807
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Lower",
+      "parent": 94,
+      "translation": [
+        14.155142038937113,
+        4.405465960488134,
+        3.7337339922624206
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Medial",
+      "parent": 94,
+      "translation": [
+        14.32467277765197,
+        3.727381157315015,
+        4.48197555971466
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Breast_Lateral",
+      "parent": 94,
+      "translation": [
+        13.87422821731731,
+        4.9679904312767755,
+        4.502767905197855
+      ],
+      "quaternion_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Glute_Anchor",
+      "parent": 1,
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "quaternion_xyzw": [
+        -0.17863381237999496,
+        0.00032064320553395456,
+        0.9839155724867803,
+        -6.693679762543151e-05
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Glute_Core",
+      "parent": 100,
+      "translation": [
+        9.834952216311272,
+        11.58787117581177,
+        -14.586439770318075
+      ],
+      "quaternion_xyzw": [
+        -0.005620035920657971,
+        -0.03609762773302246,
+        -0.15373391922438778,
+        0.9874367111608765
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Glute_Upper",
+      "parent": 100,
+      "translation": [
+        9.786204286094936,
+        11.787251891421612,
+        -11.573655891750002
+      ],
+      "quaternion_xyzw": [
+        0.014123604690107571,
+        0.08347076278907363,
+        -0.16623394064554795,
+        0.9824456384591569
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Glute_Lower",
+      "parent": 100,
+      "translation": [
+        9.417960447314481,
+        11.292741385677388,
+        -17.891618048873987
+      ],
+      "quaternion_xyzw": [
+        -0.02850513338650231,
+        -0.19649445014071748,
+        -0.14070727804920874,
+        0.9699375497105457
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Glute_Medial",
+      "parent": 100,
+      "translation": [
+        10.483877361425588,
+        4.737001293205332,
+        -15.974849758695836
+      ],
+      "quaternion_xyzw": [
+        0.011336264437677492,
+        -0.10976925753414056,
+        0.10209980818884272,
+        0.988634324903199
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "L_Glute_Lateral",
+      "parent": 100,
+      "translation": [
+        8.71462016640521,
+        12.990934099296254,
+        -14.732978012575629
+      ],
+      "quaternion_xyzw": [
+        -0.00854870890714532,
+        -0.04176915090823938,
+        -0.2003269064340617,
+        0.9788009951808306
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Glute_Anchor",
+      "parent": 1,
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "quaternion_xyzw": [
+        -0.17863381237999496,
+        0.00032064320553395456,
+        0.9839155724867803,
+        -6.693679762543151e-05
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Glute_Core",
+      "parent": 106,
+      "translation": [
+        9.89127091584447,
+        -11.475281341125193,
+        -14.636352218358248
+      ],
+      "quaternion_xyzw": [
+        0.005860433092205262,
+        -0.038963624441795804,
+        0.14861933201823274,
+        0.9881091971258972
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Glute_Upper",
+      "parent": 106,
+      "translation": [
+        9.843700488183561,
+        -11.74772525214061,
+        -11.667221493167615
+      ],
+      "quaternion_xyzw": [
+        -0.013879803870409112,
+        0.0838229786182296,
+        0.16276961402169318,
+        0.9829990397000987
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Glute_Lower",
+      "parent": 106,
+      "translation": [
+        9.456019977979068,
+        -11.165959218489792,
+        -17.91907500169691
+      ],
+      "quaternion_xyzw": [
+        0.027637879881139738,
+        -0.19851572537170498,
+        0.13509452822738194,
+        0.9703489696077606
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Glute_Medial",
+      "parent": 106,
+      "translation": [
+        10.459632337242075,
+        -4.574140312829894,
+        -15.965683472140684
+      ],
+      "quaternion_xyzw": [
+        -0.012053289417718193,
+        -0.109015628912614,
+        -0.10923211165473257,
+        0.9879466871498928
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "R_Glute_Lateral",
+      "parent": 106,
+      "translation": [
+        8.732575392714702,
+        -13.009829590958125,
+        -14.758549681586647
+      ],
+      "quaternion_xyzw": [
+        0.008814697968743922,
+        -0.04318326710526691,
+        0.19980457870513732,
+        0.9788440309213198
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "sides": [
+    {
+      "side": "L",
+      "anchor_index": 100,
+      "volume_cm3": 254.19476812407348,
+      "com": [
+        9.562621586546804,
+        7.932032944229552,
+        -15.015599430642284
+      ],
+      "dimensions": [
+        17.326369827083344,
+        17.926815029357197,
+        19.54901037942021
+      ],
+      "support_area_cm2": 72.23931356779721,
+      "region_vertices": 651,
+      "max_weight": 0.6125175952911377,
+      "shape_responses": 5,
+      "fold_references": [
+        [
+          9.417960447314481,
+          7.707378379805949,
+          -17.891618048873987
+        ],
+        [
+          9.417960447314481,
+          11.292741385677388,
+          -17.891618048873987
+        ],
+        [
+          9.417960447314481,
+          14.878104391548828,
+          -17.891618048873987
+        ]
+      ],
+      "regions": [
+        {
+          "bone_index": 101,
+          "pelvis_attachment": 0.11717173305502798,
+          "thigh_attachment": 0.8828282669449721,
+          "effective_volume_cm3": 48.47114786979471,
+          "mass_fraction_candidate": 0.19068507281839786,
+          "lever_arm_cm": 9.561373584954815,
+          "support_baseline": 72.03441349526344,
+          "semantic": "Core",
+          "rest": [
+            9.834952216311272,
+            11.58787117581177,
+            -14.586439770318075
+          ],
+          "pelvis_point": [
+            0.0,
+            11.58787117581177,
+            -14.586439770318075
+          ],
+          "thigh_point_local": [
+            -2.35669361103771,
+            -1.5008460723450074,
+            -7.847127308825106
+          ],
+          "mass_center": [
+            9.7730388257843,
+            8.519233212103732,
+            -14.974688472899519
+          ],
+          "inertia_candidate": [
+            0.7635959973504174,
+            0.7258565287488385,
+            0.6788607309162878
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.025,
+            "thigh_follow": 0.816414133472486,
+            "pelvis_tether": 0.9257575995825419,
+            "projection_retention": 0.93,
+            "maximum_orientation_radians": 0.22,
+            "flexion_offset": [
+              0.025,
+              0.0,
+              0.012
+            ],
+            "extension_offset": [
+              0.02,
+              0.0,
+              -0.006
+            ],
+            "abduction_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_gains": [
+              0.04,
+              0.07,
+              0.04
+            ],
+            "maximum_offset_fraction": [
+              0.09,
+              0.035,
+              0.055
+            ],
+            "support_gains": [
+              1.1109091194990504,
+              0.4937373864440224,
+              0.3394444531802654,
+              0.30858586652751396
+            ]
+          }
+        },
+        {
+          "bone_index": 102,
+          "pelvis_attachment": 0.2361366224262118,
+          "thigh_attachment": 0.7638633775737882,
+          "effective_volume_cm3": 60.38117512752619,
+          "mass_fraction_candidate": 0.2375390161376331,
+          "lever_arm_cm": 9.474819384455632,
+          "support_baseline": 90.55399778651513,
+          "semantic": "Upper",
+          "rest": [
+            9.786204286094936,
+            11.787251891421612,
+            -11.573655891750002
+          ],
+          "pelvis_point": [
+            0.0,
+            11.787251891421612,
+            -11.573655891750002
+          ],
+          "thigh_point_local": [
+            -2.3631148964036113,
+            -1.5647848123930557,
+            -7.085627618169889
+          ],
+          "mass_center": [
+            9.95165476541559,
+            8.502212999339129,
+            -10.336880528703189
+          ],
+          "inertia_candidate": [
+            2.337724153232689,
+            2.298748842546946,
+            0.8512055827987953
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.012,
+            "thigh_follow": 0.4541590132721364,
+            "pelvis_tether": 1.4722732448524236,
+            "projection_retention": 0.96,
+            "maximum_orientation_radians": 0.16,
+            "flexion_offset": [
+              0.025,
+              0.0,
+              0.018
+            ],
+            "extension_offset": [
+              0.012,
+              0.0,
+              0.006
+            ],
+            "abduction_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_gains": [
+              0.025,
+              0.045,
+              0.02
+            ],
+            "maximum_offset_fraction": [
+              0.07,
+              0.025,
+              0.05
+            ],
+            "support_gains": [
+              1.7667278938229083,
+              0.3680683112131059,
+              0.29445464897048473,
+              0.22084098672786354
+            ]
+          }
+        },
+        {
+          "bone_index": 103,
+          "pelvis_attachment": 0.10233701442619413,
+          "thigh_attachment": 0.8976629855738059,
+          "effective_volume_cm3": 50.31884475578556,
+          "mass_fraction_candidate": 0.1979538962470885,
+          "lever_arm_cm": 10.286100213799516,
+          "support_baseline": 69.51154123394652,
+          "semantic": "Lower",
+          "rest": [
+            9.417960447314481,
+            11.292741385677388,
+            -17.891618048873987
+          ],
+          "pelvis_point": [
+            0.0,
+            11.292741385677388,
+            -17.891618048873987
+          ],
+          "thigh_point_local": [
+            -2.3643754616663184,
+            -1.4127466516225402,
+            -7.842811684708667
+          ],
+          "mass_center": [
+            9.442025969136127,
+            8.255426238712463,
+            -20.052931902390085
+          ],
+          "inertia_candidate": [
+            2.120591301808925,
+            2.0925343547544473,
+            0.6904756645192048
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.1,
+            "thigh_follow": 2.059578731967257,
+            "pelvis_tether": 0.30116850721309707,
+            "projection_retention": 0.78,
+            "maximum_orientation_radians": 0.4,
+            "flexion_offset": [
+              0.008,
+              0.0,
+              -0.04
+            ],
+            "extension_offset": [
+              0.014,
+              0.0,
+              0.035
+            ],
+            "abduction_offset": [
+              0.0,
+              0.035,
+              0.0
+            ],
+            "rotation_offset": [
+              0.006,
+              0.025,
+              0.0
+            ],
+            "orientation_gains": [
+              0.12,
+              0.13,
+              0.1
+            ],
+            "maximum_offset_fraction": [
+              0.12,
+              0.1,
+              0.14
+            ],
+            "support_gains": [
+              0.3915190593770262,
+              0.6625707158688136,
+              0.30116850721309707,
+              0.3915190593770262
+            ]
+          }
+        },
+        {
+          "bone_index": 104,
+          "pelvis_attachment": 0.1735920817409816,
+          "thigh_attachment": 0.8264079182590184,
+          "effective_volume_cm3": 62.44766889900273,
+          "mass_fraction_candidate": 0.245668584604864,
+          "lever_arm_cm": 9.51204770940971,
+          "support_baseline": 93.2865901180862,
+          "semantic": "Medial",
+          "rest": [
+            10.483877361425588,
+            4.737001293205332,
+            -15.974849758695836
+          ],
+          "pelvis_point": [
+            0.0,
+            4.737001293205332,
+            -15.974849758695836
+          ],
+          "thigh_point_local": [
+            -2.5350129839829156,
+            0.544212367292011,
+            -7.746948403569567
+          ],
+          "mass_center": [
+            9.690691097146901,
+            4.864577837274201,
+            -15.429436759380605
+          ],
+          "inertia_candidate": [
+            1.5892548649133724,
+            0.9444474405477957,
+            1.4671388754051073
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.008,
+            "thigh_follow": 0.23646118773885272,
+            "pelvis_tether": 2.0207762452229447,
+            "projection_retention": 0.98,
+            "maximum_orientation_radians": 0.08,
+            "flexion_offset": [
+              0.006,
+              0.0,
+              0.003
+            ],
+            "extension_offset": [
+              0.004,
+              0.0,
+              0.0
+            ],
+            "abduction_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_gains": [
+              0.015,
+              0.02,
+              0.012
+            ],
+            "maximum_offset_fraction": [
+              0.025,
+              0.008,
+              0.02
+            ],
+            "support_gains": [
+              1.4819025798301597,
+              0.40415524904458894,
+              1.0103881226114724,
+              0.5388736653927854
+            ]
+          }
+        },
+        {
+          "bone_index": 105,
+          "pelvis_attachment": 0.1481804967720288,
+          "thigh_attachment": 0.8518195032279712,
+          "effective_volume_cm3": 32.57593147196444,
+          "mass_fraction_candidate": 0.12815343019201716,
+          "lever_arm_cm": 9.914889147024553,
+          "support_baseline": 46.68592704946261,
+          "semantic": "Lateral",
+          "rest": [
+            8.71462016640521,
+            12.990934099296254,
+            -14.732978012575629
+          ],
+          "pelvis_point": [
+            0.0,
+            12.990934099296254,
+            -14.732978012575629
+          ],
+          "thigh_point_local": [
+            -2.320173679261801,
+            -1.91967546513477,
+            -7.867644018394524
+          ],
+          "mass_center": [
+            8.46921138290979,
+            11.382194644845029,
+            -15.174416665535196
+          ],
+          "inertia_candidate": [
+            0.9093603156137855,
+            0.5280096931378802,
+            0.890985811210741
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.055,
+            "thigh_follow": 1.6018195032279712,
+            "pelvis_tether": 0.45372634774042014,
+            "projection_retention": 0.85,
+            "maximum_orientation_radians": 0.35,
+            "flexion_offset": [
+              0.014,
+              0.0,
+              -0.01
+            ],
+            "extension_offset": [
+              0.01,
+              0.0,
+              0.012
+            ],
+            "abduction_offset": [
+              0.015,
+              0.04,
+              0.015
+            ],
+            "rotation_offset": [
+              0.012,
+              0.04,
+              -0.01
+            ],
+            "orientation_gains": [
+              0.15,
+              0.085,
+              0.16
+            ],
+            "maximum_offset_fraction": [
+              0.1,
+              0.12,
+              0.08
+            ],
+            "support_gains": [
+              0.5509534222562245,
+              0.518544397417623,
+              1.166724894189652,
+              1.166724894189652
+            ]
+          }
+        }
+      ],
+      "fold_semantic_map": {
+        "medial_infragluteal_anchor": [
+          9.417960447314481,
+          4.737001293205332,
+          -17.891618048873987
+        ],
+        "middle_transition": [
+          9.417960447314481,
+          11.292741385677388,
+          -17.891618048873987
+        ],
+        "lateral_fade": [
+          9.417960447314481,
+          12.990934099296254,
+          -17.891618048873987
+        ],
+        "extension_gains": [
+          1.1735920817409815,
+          1.8976629855738059,
+          1.8518195032279712
+        ],
+        "flexion_stretch_gains": [
+          0.1735920817409816,
+          1.8976629855738059,
+          1.8518195032279712
+        ],
+        "abduction_gains": [
+          0.052077624522294474,
+          0.8976629855738059,
+          1.7036390064559424
+        ],
+        "rotation_gains": [
+          0.8264079182590184,
+          0.8976629855738059,
+          1.7036390064559424
+        ]
+      },
+      "femur_axis": [
+        0.34710246094584535,
+        0.04429929493377705,
+        -0.9367803659736409
+      ]
+    },
+    {
+      "side": "R",
+      "anchor_index": 106,
+      "volume_cm3": 256.4300226912387,
+      "com": [
+        9.560225302255168,
+        -7.916000512308327,
+        -15.059939492107693
+      ],
+      "dimensions": [
+        17.32702712295249,
+        18.059883317001372,
+        19.42969938084513
+      ],
+      "support_area_cm2": 72.85720188506117,
+      "region_vertices": 668,
+      "max_weight": 0.6100963950157166,
+      "shape_responses": 5,
+      "fold_references": [
+        [
+          9.456019977979068,
+          -7.553982555089518,
+          -17.91907500169691
+        ],
+        [
+          9.456019977979068,
+          -11.165959218489792,
+          -17.91907500169691
+        ],
+        [
+          9.456019977979068,
+          -14.777935881890066,
+          -17.91907500169691
+        ]
+      ],
+      "regions": [
+        {
+          "bone_index": 107,
+          "pelvis_attachment": 0.11059072564385593,
+          "thigh_attachment": 0.889409274356144,
+          "effective_volume_cm3": 48.93226282058576,
+          "mass_fraction_candidate": 0.190821114887565,
+          "lever_arm_cm": 9.536767039119676,
+          "support_baseline": 72.88996593010577,
+          "semantic": "Core",
+          "rest": [
+            9.89127091584447,
+            -11.475281341125193,
+            -14.636352218358248
+          ],
+          "pelvis_point": [
+            0.0,
+            -11.475281341125193,
+            -14.636352218358248
+          ],
+          "thigh_point_local": [
+            -2.3630263806156773,
+            1.4578871015086585,
+            -7.846159918979383
+          ],
+          "mass_center": [
+            9.761817387680141,
+            -8.478431652163279,
+            -15.020974637098906
+          ],
+          "inertia_candidate": [
+            0.7695370283868734,
+            0.7276133549725642,
+            0.6888191702561965
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.025,
+            "thigh_follow": 0.8197046371780721,
+            "pelvis_tether": 0.915886088465784,
+            "projection_retention": 0.93,
+            "maximum_orientation_radians": 0.22,
+            "flexion_offset": [
+              0.025,
+              0.0,
+              0.012
+            ],
+            "extension_offset": [
+              0.02,
+              0.0,
+              -0.006
+            ],
+            "abduction_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_gains": [
+              0.04,
+              0.07,
+              0.04
+            ],
+            "maximum_offset_fraction": [
+              0.09,
+              0.035,
+              0.055
+            ],
+            "support_gains": [
+              1.0990633061589408,
+              0.4884725805150848,
+              0.33582489910412083,
+              0.305295362821928
+            ]
+          }
+        },
+        {
+          "bone_index": 108,
+          "pelvis_attachment": 0.22224926268285627,
+          "thigh_attachment": 0.7777507373171437,
+          "effective_volume_cm3": 60.834124011219,
+          "mass_fraction_candidate": 0.2372347955702048,
+          "lever_arm_cm": 9.496835554468062,
+          "support_baseline": 91.00011943919438,
+          "semantic": "Upper",
+          "rest": [
+            9.843700488183561,
+            -11.74772525214061,
+            -11.667221493167615
+          ],
+          "pelvis_point": [
+            0.0,
+            -11.74772525214061,
+            -11.667221493167615
+          ],
+          "thigh_point_local": [
+            -2.3655873570958867,
+            1.5430818952724201,
+            -7.198800555014932
+          ],
+          "mass_center": [
+            9.999263798823051,
+            -8.487408478234494,
+            -10.38261971571854
+          ],
+          "inertia_candidate": [
+            2.3546977341006534,
+            2.31164326196469,
+            0.8667282442568595
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.012,
+            "thigh_follow": 0.4583252211951431,
+            "pelvis_tether": 1.4444985253657125,
+            "projection_retention": 0.96,
+            "maximum_orientation_radians": 0.16,
+            "flexion_offset": [
+              0.025,
+              0.0,
+              0.018
+            ],
+            "extension_offset": [
+              0.012,
+              0.0,
+              0.006
+            ],
+            "abduction_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_gains": [
+              0.025,
+              0.045,
+              0.02
+            ],
+            "maximum_offset_fraction": [
+              0.07,
+              0.025,
+              0.05
+            ],
+            "support_gains": [
+              1.733398230438855,
+              0.36112463134142814,
+              0.2888997050731425,
+              0.2166747788048569
+            ]
+          }
+        },
+        {
+          "bone_index": 109,
+          "pelvis_attachment": 0.0999541769365027,
+          "thigh_attachment": 0.9000458230634973,
+          "effective_volume_cm3": 51.16007603215679,
+          "mass_fraction_candidate": 0.19950891668311949,
+          "lever_arm_cm": 10.27094502261321,
+          "support_baseline": 70.7610711022656,
+          "semantic": "Lower",
+          "rest": [
+            9.456019977979068,
+            -11.165959218489792,
+            -17.91907500169691
+          ],
+          "pelvis_point": [
+            0.0,
+            -11.165959218489792,
+            -17.91907500169691
+          ],
+          "thigh_point_local": [
+            -2.371075312140647,
+            1.3655569417780395,
+            -7.841515340949574
+          ],
+          "mass_center": [
+            9.44764848083553,
+            -8.210324441616851,
+            -20.06767661274709
+          ],
+          "inertia_candidate": [
+            2.1392636301952943,
+            2.106268125385964,
+            0.7063386511363093
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.1,
+            "thigh_follow": 2.0625572788293716,
+            "pelvis_tether": 0.29997708846825133,
+            "projection_retention": 0.78,
+            "maximum_orientation_radians": 0.4,
+            "flexion_offset": [
+              0.008,
+              0.0,
+              -0.04
+            ],
+            "extension_offset": [
+              0.014,
+              0.0,
+              0.035
+            ],
+            "abduction_offset": [
+              0.0,
+              0.035,
+              0.0
+            ],
+            "rotation_offset": [
+              0.006,
+              0.025,
+              0.0
+            ],
+            "orientation_gains": [
+              0.12,
+              0.13,
+              0.1
+            ],
+            "maximum_offset_fraction": [
+              0.12,
+              0.1,
+              0.14
+            ],
+            "support_gains": [
+              0.38997021500872675,
+              0.659949594630153,
+              0.29997708846825133,
+              0.38997021500872675
+            ]
+          }
+        },
+        {
+          "bone_index": 110,
+          "pelvis_attachment": 0.1757486240471775,
+          "thigh_attachment": 0.8242513759528225,
+          "effective_volume_cm3": 62.43720040050329,
+          "mass_fraction_candidate": 0.2434863115684486,
+          "lever_arm_cm": 9.540976650086314,
+          "support_baseline": 92.96601390399,
+          "semantic": "Medial",
+          "rest": [
+            10.459632337242075,
+            -4.574140312829894,
+            -15.965683472140684
+          ],
+          "pelvis_point": [
+            0.0,
+            -4.574140312829894,
+            -15.965683472140684
+          ],
+          "thigh_point_local": [
+            -2.542602322703674,
+            -0.602047855736819,
+            -7.742536913526212
+          ],
+          "mass_center": [
+            9.638222680874986,
+            -4.841860810924245,
+            -15.471589631945442
+          ],
+          "inertia_candidate": [
+            1.5917501658989952,
+            0.9371735698181406,
+            1.4754795101226736
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.008,
+            "thigh_follow": 0.23613770639292336,
+            "pelvis_tether": 2.0272458721415325,
+            "projection_retention": 0.98,
+            "maximum_orientation_radians": 0.08,
+            "flexion_offset": [
+              0.006,
+              0.0,
+              0.003
+            ],
+            "extension_offset": [
+              0.004,
+              0.0,
+              0.0
+            ],
+            "abduction_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation_offset": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation_gains": [
+              0.015,
+              0.02,
+              0.012
+            ],
+            "maximum_offset_fraction": [
+              0.025,
+              0.008,
+              0.02
+            ],
+            "support_gains": [
+              1.4866469729037906,
+              0.40544917442830647,
+              1.0136229360707663,
+              0.5405988992377421
+            ]
+          }
+        },
+        {
+          "bone_index": 111,
+          "pelvis_attachment": 0.14332636830473655,
+          "thigh_attachment": 0.8566736316952634,
+          "effective_volume_cm3": 33.06635942677426,
+          "mass_fraction_candidate": 0.1289488612906636,
+          "lever_arm_cm": 9.915162835943775,
+          "support_baseline": 47.37619227918801,
+          "semantic": "Lateral",
+          "rest": [
+            8.732575392714702,
+            -13.009829590958125,
+            -14.758549681586647
+          ],
+          "pelvis_point": [
+            0.0,
+            -13.009829590958125,
+            -14.758549681586647
+          ],
+          "thigh_point_local": [
+            -2.323095600109471,
+            1.9159373819550451,
+            -7.8692016885952505
+          ],
+          "mass_center": [
+            8.481080845853409,
+            -11.381786058876179,
+            -15.197505157182
+          ],
+          "inertia_candidate": [
+            0.9266834550357658,
+            0.5313166599735293,
+            0.9105553086660905
+          ],
+          "pose_response": {
+            "maximum_downward_fraction": 0.055,
+            "thigh_follow": 1.6066736316952634,
+            "pelvis_tether": 0.45032845781331554,
+            "projection_retention": 0.85,
+            "maximum_orientation_radians": 0.35,
+            "flexion_offset": [
+              0.014,
+              0.0,
+              -0.01
+            ],
+            "extension_offset": [
+              0.01,
+              0.0,
+              0.012
+            ],
+            "abduction_offset": [
+              0.015,
+              0.04,
+              0.015
+            ],
+            "rotation_offset": [
+              0.012,
+              0.04,
+              -0.01
+            ],
+            "orientation_gains": [
+              0.15,
+              0.085,
+              0.16
+            ],
+            "maximum_offset_fraction": [
+              0.1,
+              0.12,
+              0.08
+            ],
+            "support_gains": [
+              0.546827413059026,
+              0.5146610946437893,
+              1.1579874629485258,
+              1.1579874629485258
+            ]
+          }
+        }
+      ],
+      "fold_semantic_map": {
+        "medial_infragluteal_anchor": [
+          9.456019977979068,
+          -4.574140312829894,
+          -17.91907500169691
+        ],
+        "middle_transition": [
+          9.456019977979068,
+          -11.165959218489792,
+          -17.91907500169691
+        ],
+        "lateral_fade": [
+          9.456019977979068,
+          -13.009829590958125,
+          -17.91907500169691
+        ],
+        "extension_gains": [
+          1.1757486240471775,
+          1.9000458230634973,
+          1.8566736316952634
+        ],
+        "flexion_stretch_gains": [
+          0.1757486240471775,
+          1.9000458230634973,
+          1.8566736316952634
+        ],
+        "abduction_gains": [
+          0.05272458721415325,
+          0.9000458230634973,
+          1.713347263390527
+        ],
+        "rotation_gains": [
+          0.8242513759528225,
+          0.9000458230634973,
+          1.713347263390527
+        ]
+      },
+      "femur_axis": [
+        0.34742131512020324,
+        -0.045415727298740605,
+        -0.9366086917779884
+      ]
+    }
+  ],
+  "source_topology": "60957ac15bfcd5ca700d39da5290c409e0e3776b2e4564d2b10b5d1bc50e86c7",
+  "family": "vam-female-88-daz-zyx-v1",
+  "shape_variant": {},
+  "algorithm": "glute-structure-g05-surface-v3",
+  "provenance": "Glute source skin support absent: source glute bind landmarks localize pelvis/proximal femur donor evidence. Surface-area quadrature; unused vertices excluded; original glute/pelvis/proximal femur weights; actual morph delta support; source triangle adjacency and source-ID seam weld; signed posterior pelvis frame; smooth side/posterior/proximal gates; 8 diffusion passes. Surface-to-pelvis-wall cone volume is an effective proxy. Regional attachments inferred from donor evidence and distances, not measured anatomy. Skin participation uses family smooth confidence mapping; donor maximum and full confidence serialized in profile; original donor support retained.",
+  "morph_parameters": 6,
+  "parts": 13,
+  "checks": {
+    "source_indices_and_binds_preserved": true,
+    "helper_hierarchy": true,
+    "weights_normalized": true,
+    "influence_limit": 8,
+    "zero_bind_tolerance_cm": 0.001,
+    "morphs_native_build_validated": true,
+    "independent_reload": true
+  },
+  "visual_assessment": null,
+  "corrective": {
+    "profile": "/Game/VamRuntime/R_282b5c70c1b647e7d8abe2b9/DA_GluteCorrective.DA_GluteCorrective",
+    "algorithm": "glute-corrective-g062-v1",
+    "family_policy_identity": "b51158ac18095a784cb107f0084fe384",
+    "provenance": "Procedural family moment calibration; no source vertex deltas reused. Source bundle digest differs from persisted source IR Local rotation-blend minus LBS residual; fixed source contribution; baked GPU Morphs.",
+    "reused_source_vertex_count": 0,
+    "targets": [
+      {
+        "name": "Neutral",
+        "degrees": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "Flex30",
+        "degrees": [
+          30.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "Flex60",
+        "degrees": [
+          60.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "Flex90",
+        "degrees": [
+          90.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "Extension",
+        "degrees": [
+          -20.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "Abduction",
+        "degrees": [
+          0.0,
+          35.0,
+          0.0
+        ]
+      },
+      {
+        "name": "Adduction",
+        "degrees": [
+          0.0,
+          -20.0,
+          0.0
+        ]
+      },
+      {
+        "name": "External",
+        "degrees": [
+          0.0,
+          0.0,
+          30.0
+        ]
+      },
+      {
+        "name": "Internal",
+        "degrees": [
+          0.0,
+          0.0,
+          -25.0
+        ]
+      },
+      {
+        "name": "FlexAbduction",
+        "degrees": [
+          60.0,
+          25.0,
+          0.0
+        ]
+      },
+      {
+        "name": "FlexExternal",
+        "degrees": [
+          60.0,
+          0.0,
+          25.0
+        ]
+      }
+    ],
+    "bases": [
+      {
+        "morph": "G06_L_Flex30_0",
+        "side": 0,
+        "target": 1,
+        "axis": 0,
+        "maximum_cm": 0.8444771628732535,
+        "regional_rms_cm": [
+          0.3200880921908535,
+          0.24393336306774643,
+          0.4103898844969547,
+          0.28213254903140816,
+          0.3416695810779431
+        ]
+      },
+      {
+        "morph": "G06_L_Flex30_1",
+        "side": 0,
+        "target": 1,
+        "axis": 1,
+        "maximum_cm": 0.1614855704376719,
+        "regional_rms_cm": [
+          0.06928249874640167,
+          0.07747758377394072,
+          0.06993263514141793,
+          0.03213044800272417,
+          0.07358352488733683
+        ]
+      },
+      {
+        "morph": "G06_L_Flex30_2",
+        "side": 0,
+        "target": 1,
+        "axis": 2,
+        "maximum_cm": 0.6505427037163218,
+        "regional_rms_cm": [
+          0.19745498619206014,
+          0.14236088678818712,
+          0.26539508229710995,
+          0.30620279913634985,
+          0.19467059740155185
+        ]
+      },
+      {
+        "morph": "G06_L_Flex60_0",
+        "side": 0,
+        "target": 2,
+        "axis": 0,
+        "maximum_cm": 2.3348814274920384,
+        "regional_rms_cm": [
+          0.9596960183859122,
+          0.8410635567746096,
+          1.0901052212123572,
+          0.7654041071123153,
+          1.025947841184349
+        ]
+      },
+      {
+        "morph": "G06_L_Flex60_1",
+        "side": 0,
+        "target": 2,
+        "axis": 1,
+        "maximum_cm": 0.6561674517827262,
+        "regional_rms_cm": [
+          0.2504791769350648,
+          0.19842245235467035,
+          0.30994821522582783,
+          0.12483951422609618,
+          0.25114385899347075
+        ]
+      },
+      {
+        "morph": "G06_L_Flex60_2",
+        "side": 0,
+        "target": 2,
+        "axis": 2,
+        "maximum_cm": 2.207869091944806,
+        "regional_rms_cm": [
+          0.9016181317365976,
+          0.6930588206132156,
+          1.0976982752459383,
+          1.0572005828395046,
+          0.8320357289161495
+        ]
+      },
+      {
+        "morph": "G06_L_Flex90_0",
+        "side": 0,
+        "target": 3,
+        "axis": 0,
+        "maximum_cm": 2.7988734117128056,
+        "regional_rms_cm": [
+          0.9741723863825689,
+          0.9545983791282533,
+          1.0506933676775723,
+          0.7955554111696439,
+          1.0287162429609729
+        ]
+      },
+      {
+        "morph": "G06_L_Flex90_1",
+        "side": 0,
+        "target": 3,
+        "axis": 1,
+        "maximum_cm": 0.5746940816286836,
+        "regional_rms_cm": [
+          0.2425603532304631,
+          0.2336874187035924,
+          0.24430929560205666,
+          0.12855943359275462,
+          0.23548038313716382
+        ]
+      },
+      {
+        "morph": "G06_L_Flex90_2",
+        "side": 0,
+        "target": 3,
+        "axis": 2,
+        "maximum_cm": 3.1022388652952344,
+        "regional_rms_cm": [
+          1.3540936386347275,
+          1.1729483776158431,
+          1.4338204371438437,
+          1.5476642274923873,
+          1.1394637462530477
+        ]
+      },
+      {
+        "morph": "G06_L_Extension_0",
+        "side": 0,
+        "target": 4,
+        "axis": 0,
+        "maximum_cm": 0.17120827042929906,
+        "regional_rms_cm": [
+          0.05798777838217428,
+          0.07273451522554616,
+          0.04830222852810411,
+          0.0521010164919396,
+          0.05589793244000813
+        ]
+      },
+      {
+        "morph": "G06_L_Extension_1",
+        "side": 0,
+        "target": 4,
+        "axis": 1,
+        "maximum_cm": 0.06601490337140278,
+        "regional_rms_cm": [
+          0.045690199255602644,
+          0.04629266312680997,
+          0.04353119403386549,
+          0.01921849496812019,
+          0.048375829124426256
+        ]
+      },
+      {
+        "morph": "G06_L_Extension_2",
+        "side": 0,
+        "target": 4,
+        "axis": 2,
+        "maximum_cm": 0.2972027604209947,
+        "regional_rms_cm": [
+          0.06377872245459651,
+          0.048089633581313934,
+          0.08813610139109,
+          0.1229399712031368,
+          0.06666294894793884
+        ]
+      },
+      {
+        "morph": "G06_L_Abduction_0",
+        "side": 0,
+        "target": 5,
+        "axis": 0,
+        "maximum_cm": 0.34431829684379023,
+        "regional_rms_cm": [
+          0.12429758315826121,
+          0.1294238755271925,
+          0.1149127513638322,
+          0.24783344289032558,
+          0.10277158689799717
+        ]
+      },
+      {
+        "morph": "G06_L_Abduction_1",
+        "side": 0,
+        "target": 5,
+        "axis": 1,
+        "maximum_cm": 0.5697491260279908,
+        "regional_rms_cm": [
+          0.34087337722752004,
+          0.31297374507618825,
+          0.3764597858415721,
+          0.24931462681044003,
+          0.37511186370359273
+        ]
+      },
+      {
+        "morph": "G06_L_Abduction_2",
+        "side": 0,
+        "target": 5,
+        "axis": 2,
+        "maximum_cm": 1.0559887268598247,
+        "regional_rms_cm": [
+          0.3702509639056166,
+          0.2928550878583009,
+          0.45613114259379556,
+          0.5037318956428527,
+          0.36549026352044095
+        ]
+      },
+      {
+        "morph": "G06_L_Adduction_0",
+        "side": 0,
+        "target": 6,
+        "axis": 0,
+        "maximum_cm": 0.15997527098837747,
+        "regional_rms_cm": [
+          0.12394267848457437,
+          0.1331729282940119,
+          0.10753044105263124,
+          0.11577441076646215,
+          0.12098799251986332
+        ]
+      },
+      {
+        "morph": "G06_L_Adduction_1",
+        "side": 0,
+        "target": 6,
+        "axis": 1,
+        "maximum_cm": 0.28953908951341767,
+        "regional_rms_cm": [
+          0.16304609778086593,
+          0.1458647838863003,
+          0.18261700656272134,
+          0.09456276726477528,
+          0.17739521473625933
+        ]
+      },
+      {
+        "morph": "G06_L_Adduction_2",
+        "side": 0,
+        "target": 6,
+        "axis": 2,
+        "maximum_cm": 0.4111471179872402,
+        "regional_rms_cm": [
+          0.16652041851165375,
+          0.1329102327431349,
+          0.20564077710815673,
+          0.20293642412879542,
+          0.16904226262637848
+        ]
+      },
+      {
+        "morph": "G06_L_External_0",
+        "side": 0,
+        "target": 7,
+        "axis": 0,
+        "maximum_cm": 0.4261497294858666,
+        "regional_rms_cm": [
+          0.21295798459831947,
+          0.23060311521549282,
+          0.18202262507049982,
+          0.2230153290631008,
+          0.19314992965718003
+        ]
+      },
+      {
+        "morph": "G06_L_External_1",
+        "side": 0,
+        "target": 7,
+        "axis": 1,
+        "maximum_cm": 0.2004949523719736,
+        "regional_rms_cm": [
+          0.050550178325418714,
+          0.04921142892992199,
+          0.050977875036878416,
+          0.10005914673269603,
+          0.049491420869097344
+        ]
+      },
+      {
+        "morph": "G06_L_External_2",
+        "side": 0,
+        "target": 7,
+        "axis": 2,
+        "maximum_cm": 0.3854669787479499,
+        "regional_rms_cm": [
+          0.16939305450822312,
+          0.14914486904749738,
+          0.18938228440029703,
+          0.16986977313246027,
+          0.17612470581713688
+        ]
+      },
+      {
+        "morph": "G06_L_Internal_0",
+        "side": 0,
+        "target": 8,
+        "axis": 0,
+        "maximum_cm": 0.3451500466659406,
+        "regional_rms_cm": [
+          0.15489155440726338,
+          0.16698624500647358,
+          0.13240345074187318,
+          0.1917960625602304,
+          0.1366705285698251
+        ]
+      },
+      {
+        "morph": "G06_L_Internal_1",
+        "side": 0,
+        "target": 8,
+        "axis": 1,
+        "maximum_cm": 0.13258330107070201,
+        "regional_rms_cm": [
+          0.03670325318251725,
+          0.03481725708246627,
+          0.03683957451835476,
+          0.06475259621142194,
+          0.034765523336854315
+        ]
+      },
+      {
+        "morph": "G06_L_Internal_2",
+        "side": 0,
+        "target": 8,
+        "axis": 2,
+        "maximum_cm": 0.29855865943222026,
+        "regional_rms_cm": [
+          0.16678149818935953,
+          0.147411994748681,
+          0.18251898476491132,
+          0.1383249456413309,
+          0.1739389749590697
+        ]
+      },
+      {
+        "morph": "G06_L_FlexAbduction_0",
+        "side": 0,
+        "target": 9,
+        "axis": 0,
+        "maximum_cm": 2.5086786336458435,
+        "regional_rms_cm": [
+          1.1794009056242736,
+          1.1854628371570457,
+          1.1507853707815516,
+          0.6795096146034351,
+          1.2483697033846224
+        ]
+      },
+      {
+        "morph": "G06_L_FlexAbduction_1",
+        "side": 0,
+        "target": 9,
+        "axis": 1,
+        "maximum_cm": 1.1057387628473407,
+        "regional_rms_cm": [
+          0.5166866247096568,
+          0.500364117233022,
+          0.5278940382239672,
+          0.3831056971876326,
+          0.5407080768429019
+        ]
+      },
+      {
+        "morph": "G06_L_FlexAbduction_2",
+        "side": 0,
+        "target": 9,
+        "axis": 2,
+        "maximum_cm": 2.6180380834600743,
+        "regional_rms_cm": [
+          1.0635448237780225,
+          0.904588269649967,
+          1.1582022891133479,
+          1.3150027472859733,
+          0.9307228641534149
+        ]
+      },
+      {
+        "morph": "G06_L_FlexExternal_0",
+        "side": 0,
+        "target": 10,
+        "axis": 0,
+        "maximum_cm": 2.521262047466897,
+        "regional_rms_cm": [
+          0.8629896783527767,
+          0.7065008193908042,
+          1.0324213542813512,
+          0.7733357390364917,
+          0.9171714038450853
+        ]
+      },
+      {
+        "morph": "G06_L_FlexExternal_1",
+        "side": 0,
+        "target": 10,
+        "axis": 1,
+        "maximum_cm": 0.9429541608005358,
+        "regional_rms_cm": [
+          0.16662088996446617,
+          0.14581184066023026,
+          0.18253926098090237,
+          0.3608115092067212,
+          0.13867173573276487
+        ]
+      },
+      {
+        "morph": "G06_L_FlexExternal_2",
+        "side": 0,
+        "target": 10,
+        "axis": 2,
+        "maximum_cm": 2.350153116513276,
+        "regional_rms_cm": [
+          0.8414507123259203,
+          0.6389414222704114,
+          1.025792433024075,
+          1.09460678562496,
+          0.7538040865838637
+        ]
+      },
+      {
+        "morph": "G06_R_Flex30_0",
+        "side": 1,
+        "target": 1,
+        "axis": 0,
+        "maximum_cm": 0.8396546739528878,
+        "regional_rms_cm": [
+          0.3279819861214946,
+          0.25472383766579715,
+          0.4139480193744661,
+          0.284343975787011,
+          0.35065394550113566
+        ]
+      },
+      {
+        "morph": "G06_R_Flex30_1",
+        "side": 1,
+        "target": 1,
+        "axis": 1,
+        "maximum_cm": 0.15926302827904357,
+        "regional_rms_cm": [
+          0.06788150820005513,
+          0.07636997296468342,
+          0.06796152122376474,
+          0.03111020595175233,
+          0.07269445965046607
+        ]
+      },
+      {
+        "morph": "G06_R_Flex30_2",
+        "side": 1,
+        "target": 1,
+        "axis": 2,
+        "maximum_cm": 0.6650243038908624,
+        "regional_rms_cm": [
+          0.20456294793608626,
+          0.15011918222092688,
+          0.27187522656172614,
+          0.30631057596822364,
+          0.20126371610613236
+        ]
+      },
+      {
+        "morph": "G06_R_Flex60_0",
+        "side": 1,
+        "target": 2,
+        "axis": 0,
+        "maximum_cm": 2.3294301600127376,
+        "regional_rms_cm": [
+          0.9577771996402092,
+          0.8276296327733597,
+          1.126726981177376,
+          0.7559805364115364,
+          1.0311646913139176
+        ]
+      },
+      {
+        "morph": "G06_R_Flex60_1",
+        "side": 1,
+        "target": 2,
+        "axis": 1,
+        "maximum_cm": 0.7141535169699121,
+        "regional_rms_cm": [
+          0.24644900306804568,
+          0.1943246050849622,
+          0.3131299590003118,
+          0.1178170897696108,
+          0.2528257993792064
+        ]
+      },
+      {
+        "morph": "G06_R_Flex60_2",
+        "side": 1,
+        "target": 2,
+        "axis": 2,
+        "maximum_cm": 2.2248608465148543,
+        "regional_rms_cm": [
+          0.9158512462161512,
+          0.7051916044400007,
+          1.129204263367272,
+          1.0430021644725838,
+          0.8563122303265838
+        ]
+      },
+      {
+        "morph": "G06_R_Flex90_0",
+        "side": 1,
+        "target": 3,
+        "axis": 0,
+        "maximum_cm": 2.810136691843903,
+        "regional_rms_cm": [
+          0.9138502552208324,
+          0.8712010225023796,
+          1.0264201717447685,
+          0.7802435924771434,
+          0.9344287105618795
+        ]
+      },
+      {
+        "morph": "G06_R_Flex90_1",
+        "side": 1,
+        "target": 3,
+        "axis": 1,
+        "maximum_cm": 0.5565300645320235,
+        "regional_rms_cm": [
+          0.22799037261109692,
+          0.21673907620047425,
+          0.2339227493468334,
+          0.12043115585448937,
+          0.21590476567524577
+        ]
+      },
+      {
+        "morph": "G06_R_Flex90_2",
+        "side": 1,
+        "target": 3,
+        "axis": 2,
+        "maximum_cm": 3.1150547679323832,
+        "regional_rms_cm": [
+          1.3671376427930737,
+          1.1860336559288243,
+          1.4412677906196685,
+          1.5274758986396946,
+          1.130575003185304
+        ]
+      },
+      {
+        "morph": "G06_R_Extension_0",
+        "side": 1,
+        "target": 4,
+        "axis": 0,
+        "maximum_cm": 0.16531416810194577,
+        "regional_rms_cm": [
+          0.05179536904356236,
+          0.06400168822686535,
+          0.046150448588207736,
+          0.04738337621890235,
+          0.05047287422478407
+        ]
+      },
+      {
+        "morph": "G06_R_Extension_1",
+        "side": 1,
+        "target": 4,
+        "axis": 1,
+        "maximum_cm": 0.06623952027025559,
+        "regional_rms_cm": [
+          0.04515221205866709,
+          0.045953391371795146,
+          0.04292806170941254,
+          0.01828285966629141,
+          0.04819672077490751
+        ]
+      },
+      {
+        "morph": "G06_R_Extension_2",
+        "side": 1,
+        "target": 4,
+        "axis": 2,
+        "maximum_cm": 0.30178539710931906,
+        "regional_rms_cm": [
+          0.06681536788134275,
+          0.050837148723803884,
+          0.09134791061323348,
+          0.12503655177346368,
+          0.06969447779920784
+        ]
+      },
+      {
+        "morph": "G06_R_Abduction_0",
+        "side": 1,
+        "target": 5,
+        "axis": 0,
+        "maximum_cm": 0.3113895916339519,
+        "regional_rms_cm": [
+          0.10814777921489731,
+          0.10907079733055579,
+          0.103588764434201,
+          0.2231482182636004,
+          0.085426348528721
+        ]
+      },
+      {
+        "morph": "G06_R_Abduction_1",
+        "side": 1,
+        "target": 5,
+        "axis": 1,
+        "maximum_cm": 0.5686741498445523,
+        "regional_rms_cm": [
+          0.3393588643528024,
+          0.314686686385726,
+          0.3734302847912031,
+          0.24637429237340705,
+          0.3761144811790914
+        ]
+      },
+      {
+        "morph": "G06_R_Abduction_2",
+        "side": 1,
+        "target": 5,
+        "axis": 2,
+        "maximum_cm": 1.0656158133367766,
+        "regional_rms_cm": [
+          0.38591109060187345,
+          0.3114752350999005,
+          0.46768282116063437,
+          0.500658817726349,
+          0.3795402506350626
+        ]
+      },
+      {
+        "morph": "G06_R_Adduction_0",
+        "side": 1,
+        "target": 6,
+        "axis": 0,
+        "maximum_cm": 0.14302802975564202,
+        "regional_rms_cm": [
+          0.11237334958153661,
+          0.12046558940272274,
+          0.09757118011677927,
+          0.1022126355823999,
+          0.10991128495087668
+        ]
+      },
+      {
+        "morph": "G06_R_Adduction_1",
+        "side": 1,
+        "target": 6,
+        "axis": 1,
+        "maximum_cm": 0.28865529412302626,
+        "regional_rms_cm": [
+          0.16319645642075487,
+          0.14755180583222313,
+          0.18212862787174983,
+          0.09309436640938988,
+          0.1787857377176946
+        ]
+      },
+      {
+        "morph": "G06_R_Adduction_2",
+        "side": 1,
+        "target": 6,
+        "axis": 2,
+        "maximum_cm": 0.41840676140534905,
+        "regional_rms_cm": [
+          0.1754705068760435,
+          0.1435232136693916,
+          0.21229976234353198,
+          0.20669207540239237,
+          0.17753154846942362
+        ]
+      },
+      {
+        "morph": "G06_R_External_0",
+        "side": 1,
+        "target": 7,
+        "axis": 0,
+        "maximum_cm": 0.3968794724471025,
+        "regional_rms_cm": [
+          0.1946476916974063,
+          0.210336664325505,
+          0.16602774727039843,
+          0.19942687886414343,
+          0.17444717352765585
+        ]
+      },
+      {
+        "morph": "G06_R_External_1",
+        "side": 1,
+        "target": 7,
+        "axis": 1,
+        "maximum_cm": 0.2006370587592918,
+        "regional_rms_cm": [
+          0.05232834406415844,
+          0.0510146152626831,
+          0.052305317097457844,
+          0.09615321910081029,
+          0.050413124590811056
+        ]
+      },
+      {
+        "morph": "G06_R_External_2",
+        "side": 1,
+        "target": 7,
+        "axis": 2,
+        "maximum_cm": 0.39986819143920116,
+        "regional_rms_cm": [
+          0.18624270411152227,
+          0.1673905036449035,
+          0.20273057569725308,
+          0.18652209678116224,
+          0.1928181663087933
+        ]
+      },
+      {
+        "morph": "G06_R_Internal_0",
+        "side": 1,
+        "target": 8,
+        "axis": 0,
+        "maximum_cm": 0.32039499658806614,
+        "regional_rms_cm": [
+          0.14027145563738735,
+          0.15026106235169975,
+          0.11995836897931354,
+          0.17239369644159597,
+          0.1214385815525764
+        ]
+      },
+      {
+        "morph": "G06_R_Internal_1",
+        "side": 1,
+        "target": 8,
+        "axis": 1,
+        "maximum_cm": 0.1306055676276904,
+        "regional_rms_cm": [
+          0.03820830869052598,
+          0.03639722629269727,
+          0.03806256848633825,
+          0.06345426999270953,
+          0.03569085870410922
+        ]
+      },
+      {
+        "morph": "G06_R_Internal_2",
+        "side": 1,
+        "target": 8,
+        "axis": 2,
+        "maximum_cm": 0.310717250968652,
+        "regional_rms_cm": [
+          0.18088879686959777,
+          0.16348450910878407,
+          0.19319878737205495,
+          0.14875430992111668,
+          0.18818753644861025
+        ]
+      },
+      {
+        "morph": "G06_R_FlexAbduction_0",
+        "side": 1,
+        "target": 9,
+        "axis": 0,
+        "maximum_cm": 2.523541713285653,
+        "regional_rms_cm": [
+          1.0336788025408843,
+          1.005585942998803,
+          1.1251131497240927,
+          0.6308783418915108,
+          1.0858315703369494
+        ]
+      },
+      {
+        "morph": "G06_R_FlexAbduction_1",
+        "side": 1,
+        "target": 9,
+        "axis": 1,
+        "maximum_cm": 1.0992691450771288,
+        "regional_rms_cm": [
+          0.4482898851986193,
+          0.4173128080842414,
+          0.5099111591054654,
+          0.35382543408471145,
+          0.46983374794783794
+        ]
+      },
+      {
+        "morph": "G06_R_FlexAbduction_2",
+        "side": 1,
+        "target": 9,
+        "axis": 2,
+        "maximum_cm": 2.666084400572246,
+        "regional_rms_cm": [
+          1.0192086031886114,
+          0.8559855582959277,
+          1.1625955583668468,
+          1.2753887284283776,
+          0.8998454059597963
+        ]
+      },
+      {
+        "morph": "G06_R_FlexExternal_0",
+        "side": 1,
+        "target": 10,
+        "axis": 0,
+        "maximum_cm": 2.551463572763326,
+        "regional_rms_cm": [
+          0.9456448521393133,
+          0.7643411965443426,
+          1.1790329990908035,
+          0.7617443513316347,
+          1.0339126557184293
+        ]
+      },
+      {
+        "morph": "G06_R_FlexExternal_1",
+        "side": 1,
+        "target": 10,
+        "axis": 1,
+        "maximum_cm": 0.9399508642246716,
+        "regional_rms_cm": [
+          0.17253776485748692,
+          0.15231986186318738,
+          0.18733808406483968,
+          0.3479676317663091,
+          0.14340154031265162
+        ]
+      },
+      {
+        "morph": "G06_R_FlexExternal_2",
+        "side": 1,
+        "target": 10,
+        "axis": 2,
+        "maximum_cm": 2.3646244896491107,
+        "regional_rms_cm": [
+          0.8922297801179857,
+          0.6725839295833562,
+          1.12042375906899,
+          1.0763294730385253,
+          0.8229244271066708
+        ]
+      }
+    ]
+  }
+}

@@ -41,6 +41,7 @@
 #include "Widgets/Input/SButton.h"
 #include "Widgets/Input/SSlider.h"
 #include "Widgets/Input/SSpinBox.h"
+#include "Widgets/Input/SNumericEntryBox.h"
 #include "Widgets/Input/SSearchBox.h"
 #include "Widgets/Layout/SScrollBox.h"
 #include "Widgets/SBoxPanel.h"
@@ -432,6 +433,8 @@ void AddControls(TSharedRef<SVerticalBox> Rows,AVamCharacterActor* Actor,const F
     }
 }
 
+#include "VamGluteJigglePanel.h"
+
 TSharedRef<SWidget> GluteControls()
 {
     auto Body=[]()->UVamGluteSkeletalMeshComponent* { auto* A=CurrentActor();return A && A->Character ? Cast<UVamGluteSkeletalMeshComponent>(A->Character->Body) : nullptr; };
@@ -600,6 +603,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
             +SHorizontalBox::Slot().AutoWidth().Padding(6,0)[SNew(SButton).Text(FText::FromString(TEXT("重置此关节"))).OnClicked_Lambda([](){if (PoseSelected()) if (auto* Actor=CurrentActor()) Actor->Character->SetPoseControlRotation(SelectedBone,FRotator::ZeroRotator);return FReply::Handled();})]]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[BreastControls()]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[GluteControls()]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[GluteJiggleControls()]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("Stage06 · 运行时与惯性见证")))]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("暂停/继续见证时钟"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->SetPreviewPaused(!A->Motion->GetClock().bPaused);return FReply::Handled();})]

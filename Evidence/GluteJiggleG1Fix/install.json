@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "file": "UnrealEditor-VamCharacterRuntime.dll",
+      "sha256": "E6F1CF9A2007D3DFA5DB0427B9D1B68F3C664B40F6C441635BFF6714E7703F18"
+    },
+    {
+      "file": "UnrealEditor-VamCharacterRuntime.pdb",
+      "sha256": "F460080BFB327292BDE7EA3BF3BFD7AFBBCDA5CAE6E7138764F04322628482A1"
+    },
+    {
+      "file": "UnrealEditor-VamResourceBrowser.dll",
+      "sha256": "6741579ECAA2461F01FCEFB30ADEAF6E4B3D563B2F47A752E5A07B0B2988E59E"
+    },
+    {
+      "file": "UnrealEditor-VamResourceBrowser.pdb",
+      "sha256": "F5D9CF839DC80D51B5F72FFC5C92507E8DBEEFBCE8A0DAE1576C6FD4573761B5"
+    },
+    {
+      "file": "UnrealEditor.modules",
+      "sha256": "861529759FB48AF230B238D504E9C17ADC27CB8CB874EF68F697320817DC8899"
+    }
+  ],
+  "installed": "2026-09-29T02:12:55.7995763+08:00",
+  "backup": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\GluteG1Fix\\InstallBackup-20260929-021255"
+}

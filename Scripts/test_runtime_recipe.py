@@ -45,7 +45,7 @@ class RuntimeRecipeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'Retired soft_tissue'):validate_recipe(recipe)
     def test_native_identity_has_new_algorithm_namespace(self):
         from vam_runtime_recipe import ALGORITHM
-        self.assertEqual(ALGORITHM,'runtime-bundle-v11-glute-skinning-residual')
+        self.assertEqual(ALGORITHM,'runtime-bundle-v12-glute-dual-dynamics')
     def test_all_derivation_inputs_change_identity(self):
         base=build_identity(self.recipe,self.family,{'mesh':'a','morphset':'b','material':'c'},{'algorithm':'x'},'engine')
         for key in ('mesh','morphset','material'):

@@ -109,6 +109,8 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Glute") FString SkeletonFamily;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Glute") FString RegionProvenance;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Glute") FString SkinWeightIdentity;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Glute") double SkinTransferMaximum=.7;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Glute") double SkinTransferFullConfidence=1;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Glute") int32 SourceBoneCount=0;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Glute") double DensityCandidateKgPerCm3=.00105;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Glute") double EffectiveModulusPa=5000;
