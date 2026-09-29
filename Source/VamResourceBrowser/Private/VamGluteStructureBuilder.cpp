@@ -256,7 +256,7 @@ FString UVamGluteStructureBuilder::Validate(UVamCharacterDefinition* D,UVamGlute
 {
     if(!D || !P || !P->IsValidProfile()) return TEXT("Invalid G0 profile");
     auto* Mesh=D->Body.LoadSynchronous();if(!Mesh) return TEXT("Missing G0 body");const auto& Ref=Mesh->GetRefSkeleton();
-    if(Ref.GetRawBoneNum()!=P->SourceBoneCount+12) return TEXT("G0 append count mismatch");
+    if(Ref.GetRawBoneNum()<P->SourceBoneCount+12) return TEXT("G0 append count mismatch");
     for(const auto& S:P->Sides)
     {
         if(Ref.GetParentIndex(S.AnchorBone)!=S.PelvisBone) return TEXT("G0 anchor parent mismatch");

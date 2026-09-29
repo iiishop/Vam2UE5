@@ -1,6 +1,7 @@
 #include "VamDebugPanel.h"
 #include "VamGluteSurfaceSnapshot.h"
 #include "VamGluteSkeletalMeshComponent.h"
+#include "VamLegSkeletalMeshComponent.h"
 #include "VamCharacterActor.h"
 #include "VamCharacterComponent.h"
 #include "VamCharacterDefinition.h"
@@ -434,6 +435,7 @@ void AddControls(TSharedRef<SVerticalBox> Rows,AVamCharacterActor* Actor,const F
 }
 
 #include "VamGluteJigglePanel.h"
+#include "VamLegJigglePanel.h"
 
 TSharedRef<SWidget> GluteControls()
 {
@@ -604,6 +606,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
         +SVerticalBox::Slot().AutoHeight().Padding(8)[BreastControls()]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[GluteControls()]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[GluteJiggleControls()]
+        +SVerticalBox::Slot().AutoHeight().Padding(8)[LegJiggleControls()]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("Stage06 · 运行时与惯性见证")))]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SHorizontalBox)
             +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text(FText::FromString(TEXT("暂停/继续见证时钟"))).OnClicked_Lambda([](){if(auto* A=CurrentActor()) if(A->Motion) A->Motion->SetPreviewPaused(!A->Motion->GetClock().bPaused);return FReply::Handled();})]

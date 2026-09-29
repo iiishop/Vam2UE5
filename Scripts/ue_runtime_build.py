@@ -127,6 +127,9 @@ def build(recipe_path,report_path):
     glute_jiggle=create("DA_GluteJiggle",root,u.VamGluteJiggleProfile)
     error=u.VamGluteJiggleBuilder.build(glute,glute_jiggle)
     require(not error,"G1 calibration failed: "+str(error))
+    leg_jiggle=create('DA_LegJiggle',root,u.VamLegJiggleProfile)
+    definition,error=u.VamLegJiggleBuilder.build(root+'/Leg',definition,leg_jiggle,glute,json.dumps(family))
+    require(definition is not None,str(error))
     # Every derived mesh, bind, morph and helper is saved before downstream assets fingerprint it.
     for path in u.EditorAssetLibrary.list_assets(root,True,False):save(load(str(path)))
     mesh=definition.get_editor_property('body');skeleton=definition.get_editor_property('skeleton')
@@ -158,7 +161,7 @@ def build(recipe_path,report_path):
     materials=build_material_profile(definition,root,recipe.get('part_material_category','reference'),recipe.get('skin_shading','source'));save(materials)
     config=create('RC_Runtime',root,u.VamRuntimeConfiguration)
     require(u.VamStage06AssetEditor.set_runtime_configuration_identity(config,definition,identity,''),'Could not initialize runtime identity')
-    for key,value in [('definition',definition),('breast_jiggle',jiggle),('glute_structure',glute),('glute_corrective',corrective),('glute_jiggle',glute_jiggle),('rig',rig),('physics',physics),('physics_shape',physics_shape),('animation_class',animation.generated_class()),('materials',materials)]:config.set_editor_property(key,value)
+    for key,value in [('definition',definition),('breast_jiggle',jiggle),('glute_structure',glute),('glute_corrective',corrective),('glute_jiggle',glute_jiggle),('leg_jiggle',leg_jiggle),('rig',rig),('physics',physics),('physics_shape',physics_shape),('animation_class',animation.generated_class()),('materials',materials)]:config.set_editor_property(key,value)
     if base_animation:config.set_editor_property('base_animation',base_animation)
     factory=u.BlueprintFactory();factory.set_editor_property('parent_class',u.VamCharacterActor)
     host=create('BP_VamCharacter',root,u.Blueprint,factory)
@@ -177,7 +180,7 @@ def build(recipe_path,report_path):
     assets=[str(x).split('.')[0] for x in u.EditorAssetLibrary.list_assets(root,True,False) if str(x).split('.')[0]!=config_path]
     receipt={'schema':'vam-runtime-receipt/3','algorithms':algorithms,'identity':identity,'recipe':recipe,'family':family,'source_files':source_files,
         'rig':asset_path(rig),'physics':asset_path(physics),'animation':asset_path(animation),'materials':asset_path(materials),'blueprint':asset_path(host),
-        'breast_jiggle':asset_path(jiggle),'glute_structure':asset_path(glute),'glute_corrective':asset_path(corrective),'glute_jiggle':asset_path(glute_jiggle),'source_definition':asset_path(source_definition),'base_animation':asset_path(base_animation) if base_animation else None,'physics_shape':asset_path(physics_shape),'definition':asset_path(definition),'rig_snapshot':rig_snapshot(rig),'physics_summary':physics_summary,'blink_targets':targets,
+        'breast_jiggle':asset_path(jiggle),'glute_structure':asset_path(glute),'glute_corrective':asset_path(corrective),'glute_jiggle':asset_path(glute_jiggle),'leg_jiggle':asset_path(leg_jiggle),'source_definition':asset_path(source_definition),'base_animation':asset_path(base_animation) if base_animation else None,'physics_shape':asset_path(physics_shape),'definition':asset_path(definition),'rig_snapshot':rig_snapshot(rig),'physics_summary':physics_summary,'blink_targets':targets,
         'body_slots':len(mesh.get_editor_property('materials')),'part_slots':[len(p.get_editor_property('materials')) for p in definition.get_editor_property('parts')],
         'body_shading_models':[str(m.get_editor_property('shading_model')) if isinstance(m,u.Material) else None for m in materials.get_editor_property('body_materials')],
         'output_files':{p:fingerprint(p) for p in assets}}
@@ -212,6 +215,9 @@ def reload_and_publish(recipe_path,report_path):
     require(corrective.is_valid_profile() and config.get_editor_property('glute_corrective')==corrective,'Corrective profile reload validation failed')
     glute_jiggle=load(receipt['glute_jiggle'],u.VamGluteJiggleProfile)
     require(glute_jiggle.is_valid_profile() and config.get_editor_property('glute_jiggle')==glute_jiggle,'G1 independent reload failed')
+    if receipt.get('leg_jiggle'):
+        leg=load(receipt['leg_jiggle'],u.VamLegJiggleProfile)
+        require(config.get_editor_property('leg_jiggle')==leg and not u.VamLegJiggleBuilder.validate(definition,leg),'Leg independent reload validation failed')
     original=json.loads(u.VamStage06AssetEditor.describe_mesh_binding(source_definition.get_editor_property('body')))
     derived=json.loads(u.VamStage06AssetEditor.describe_mesh_binding(definition.get_editor_property('body')))
     verify_native_binding(derived[:len(original)],original)
