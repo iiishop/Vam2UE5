@@ -13,6 +13,8 @@ class VAMCHARACTERRUNTIME_API UVamBreastSkeletalMeshComponent : public USkeletal
 public:
     UPROPERTY(Transient) TObjectPtr<UVamBreastJiggleProfile> BreastProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle") bool bJiggleEnabled=true;
+    /** Visible secondary-motion multiplier; 1 preserves the original output. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0",ClampMax="10")) double BreastAmplitude=2;
     // Legacy fields retained for schema-1 assets only; absent from the formal tuning UI.
     UPROPERTY() double Softness=1;
     UPROPERTY(Transient) double DensityOverrideKgPerCm3=0;

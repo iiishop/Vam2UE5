@@ -13,7 +13,7 @@ FVamBreastTuning UVamBreastSkeletalMeshComponent::GetBreastTuning() const
 }
 void UVamBreastSkeletalMeshComponent::ResetBreastTuning()
 {
-    Support=Damping=BreastMobility=InternalCoupling=MassScale=1;ResetBreastJiggle();
+    BreastAmplitude=2;Support=Damping=BreastMobility=InternalCoupling=MassScale=1;ResetBreastJiggle();
 }
 
 void UVamBreastSkeletalMeshComponent::ResetBreastJiggle()
@@ -89,6 +89,7 @@ void UVamBreastSkeletalMeshComponent::FinalizeBoneTransform()
                 Solver.Advance(*BreastProfile,R,World,Dt,FVector(0,0,GetWorld()->GetGravityZ()),Reset,Paused,Tuning);
             }
             else if(!bJiggleEnabled) Solver.Reset();
+            const double Amplitude=FMath::Clamp(FMath::IsFinite(BreastAmplitude)?BreastAmplitude:2.,0.,10.);
             for(int32 I=0;I<R.Nodes.Num();++I)
             {
                 const auto& N=R.Nodes[I];if(!Pose.IsValidIndex(N.BoneIndex)) continue;
@@ -98,6 +99,7 @@ void UVamBreastSkeletalMeshComponent::FinalizeBoneTransform()
                 // Legacy orientation remains available only for schema 1; v2 uses integrated angular state.
                 FVector Rotation=BreastProfile->SchemaVersion>=2?Angular:FVector::CrossProduct(N.Rest,Offset)/FMath::Max(1.,N.Rest.SizeSquared());
                 if(BreastProfile->SchemaVersion==1) Rotation=Rotation.GetClampedToMaxSize(BreastProfile->MaximumRotationRadians);
+                Offset*=Amplitude;Rotation*=Amplitude;
                 FTransform Local(Rotation.IsNearlyZero() ? FQuat::Identity : FQuat(Rotation.GetSafeNormal(),Rotation.Size()),N.Rest+Offset);
                 Pose[N.BoneIndex]=Local*AnchorCS;
                 if(bShowHelperBones || bShowDynamicNodes)
@@ -119,7 +121,8 @@ void UVamBreastSkeletalMeshComponent::FinalizeBoneTransform()
 FString UVamBreastSkeletalMeshComponent::BreastDiagnostics() const
 {
     if(!BreastProfile) return TEXT("Breast Jiggle: unsupported / profile absent; upgrade this character Runtime");
-    FString Out=FString::Printf(TEXT("Breast calibration schema %d | %s\n"),BreastProfile->SchemaVersion,*BreastProfile->BuildAlgorithmVersion);
+    FString Out=FString::Printf(TEXT("Breast amplitude %.2f (1 = original output)\n"),BreastAmplitude);
+    Out+=FString::Printf(TEXT("Breast calibration schema %d | %s\n"),BreastProfile->SchemaVersion,*BreastProfile->BuildAlgorithmVersion);
     if(BreastProfile->SchemaVersion==1) Out+=TEXT("Legacy profile: use Upgrade Runtime for calibrated controls and angular dynamics.\n");
     for(int32 I=0;I<RestSides.Num();++I)
     {

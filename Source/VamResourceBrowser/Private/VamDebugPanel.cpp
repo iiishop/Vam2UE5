@@ -480,6 +480,11 @@ TSharedRef<SWidget> BreastControls()
             .OnCheckStateChanged_Lambda([Body,Flag](ECheckBoxState State){if(auto* B=Body()){bool& V=Flag==0?B->bJiggleEnabled:Flag==1?B->bShowHelperBones:Flag==2?B->bShowRegionWeights:B->bShowDynamicNodes;V=State==ECheckBoxState::Checked;}})
             [SNew(STextBlock).Text(FText::FromString(Names[Flag]))]];
     }
+    Box->AddSlot().AutoHeight().Padding(2)[SNew(SHorizontalBox)
+        +SHorizontalBox::Slot().FillWidth(.6)[SNew(STextBlock).Text(FText::FromString(TEXT("Amplitude · 胸部强度（1 = 原效果）")))]
+        +SHorizontalBox::Slot().FillWidth(.4)[SNew(SSpinBox<double>).MinValue(0.).MaxValue(10.).Delta(.1)
+            .Value_Lambda([Body](){auto* B=Body();return B?B->BreastAmplitude:2.;})
+            .OnValueChanged_Lambda([Body](double V){if(auto* B=Body()) B->BreastAmplitude=V;})]];
     const TCHAR* Labels[]={TEXT("Support · 胸廓支承"),TEXT("Damping · 能量衰减"),TEXT("Mobility · 位移范围"),TEXT("Internal Coupling · 内部连接"),TEXT("Mass Scale · 质量与转动惯量")};
     const TCHAR* Tips[]={TEXT("只缩放 Anchor 恢复刚度。小值更易偏移，大值恢复更快。"),TEXT("只缩放阻尼比。小值余振更久；过阻尼也可能使回位变慢。"),TEXT("只缩放软/硬位移与角度范围，不改变小振幅刚度。"),TEXT("只缩放语义节点之间的弹性连接，不改变胸廓支承。"),TEXT("只缩放质量和惯量，不改变刚度、阻尼比或限位。")};
     auto Advanced=SNew(SVerticalBox);
@@ -495,7 +500,7 @@ TSharedRef<SWidget> BreastControls()
         if(Index==4) Advanced->AddSlot().AutoHeight()[Row];else Box->AddSlot().AutoHeight().Padding(2)[Row];
     }
     Box->AddSlot().AutoHeight()[SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Advanced")))].BodyContent()[Advanced]];
-    Box->AddSlot().AutoHeight()[SNew(SButton).Text(FText::FromString(TEXT("恢复自动校准参数（全部 1.0）"))).OnClicked_Lambda([Body](){if(auto* B=Body()) B->ResetBreastTuning();return FReply::Handled();})];
+    Box->AddSlot().AutoHeight()[SNew(SButton).Text(FText::FromString(TEXT("恢复默认参数（强度 2，其余 1）"))).OnClicked_Lambda([Body](){if(auto* B=Body()) B->ResetBreastTuning();return FReply::Handled();})];
     auto Buttons=SNew(SWrapBox).UseAllottedSize(true);
     for(const TCHAR* Name:{TEXT("Smooth Forward Accelerate"),TEXT("Smooth Stop"),TEXT("Hard Stop"),TEXT("Smooth Rotate Start"),TEXT("Continuous Rotate"),TEXT("Smooth Rotate Stop"),TEXT("Hard Rotate Stop"),TEXT("Jump"),TEXT("Reset")})
     {
