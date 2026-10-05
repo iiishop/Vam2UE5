@@ -71,7 +71,7 @@ Pose Tension / regional support / 双 attachment 继续决定平衡位移。
 保留原内部曲线，在软过渡区最后一半增加 C1 连续屏障，使用隐式 Newton 求解和保持可行的步长。
 没有增加行程，没有更改 Support 0.45 / Damping 0.65 / Mobility 2.0 / Coupling 1.0 / Mass 1.0。
 最终两个人物的 standing、supine、side lying、Flex90 + side gravity、0g、0.5g、2g、恢复 1g 检查中，硬限位修正计数均为 0。
-屏障方程、作用区间及积分说明见项目 `GLUTE_JIGGLE_G11.md`。
+屏障方程、作用区间及积分说明见项目 `docs/runtime/GLUTE_JIGGLE_G11.md`。
 
 ## 11. Breast 与既有几何回归
 

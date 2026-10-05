@@ -1,6 +1,6 @@
 # LEGACY / SUPERSEDED — 2026-09-27
 
-本页全部内容是旧实现和旧构建的历史记录，不是当前能力或验收入口。旧 Flesh/SoftTissue 已退役，本文中的类、脚本、地图和 Cooked 包不得用于验证当前源码。当前人物链、迁移和自测见 [PHYSICS_RESET.md](PHYSICS_RESET.md)。
+本页全部内容是旧实现和旧构建的历史记录，不是当前能力或验收入口。旧 Flesh/SoftTissue 已退役，本文中的类、脚本、地图和 Cooked 包不得用于验证当前源码。当前人物链、迁移和自测见 [PHYSICS_RESET.md](../runtime/PHYSICS_RESET.md)。
 
 ---
 

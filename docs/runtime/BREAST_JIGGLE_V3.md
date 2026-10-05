@@ -6,7 +6,7 @@
 
 本轮开始核对的本地和远端 HEAD：`77b3266fe04e394885390de1cf0b08f7c3843355`。结束 HEAD 相同；本轮修改保留在工作区，未自动 commit/push。本文只报告工程事实，不作视觉验收。
 
-保留 v2 几何校准、五语义节点、稀疏 coupling、惯量张量、四参数、Native GPU skinning 和自动资产构建。旧版几何/权重细节见 [v2 历史报告](Evidence/BreastCalibrationV2/implementation-report.md)。没有新增 Chaos Flesh、按压、组织碰撞或 Cloth。
+保留 v2 几何校准、五语义节点、稀疏 coupling、惯量张量、四参数、Native GPU skinning 和自动资产构建。旧版几何/权重细节见 [v2 历史报告](../../Evidence/BreastCalibrationV2/implementation-report.md)。没有新增 Chaos Flesh、按压、组织碰撞或 Cloth。
 
 ## 2. Stop / Jump 的实际根因
 
@@ -146,7 +146,7 @@ v2 Profile 可由新版 Runtime 在实例上派生 COM 参数；正式升级生�
 
 相位例使用 Support=1、Damping=0.1、Mobility=3、MassScale=1。FPS 压力例使用 Support=0.1、Damping=0.1、MassScale=3，其他默认。这些是工程测试设置，不是默认效果建议。相位测试同时要求延迟超过一个完整物理步、身体最高点时组织仍有向上世界速度、没有硬限位介入，避免把采样误差当成相位证据。
 
-测试中的临时 UWorld 清理仍有既有的 missing EndPlay 警告；所有测试状态 Success，无失败断言。完整日志、资产审计、事务收据、安装哈希和摘要位于 [Evidence/BreastModalV3](Evidence/BreastModalV3/summary.json)。
+测试中的临时 UWorld 清理仍有既有的 missing EndPlay 警告；所有测试状态 Success，无失败断言。完整日志、资产审计、事务收据、安装哈希和摘要位于 [Evidence/BreastModalV3](../../Evidence/BreastModalV3/summary.json)。
 
 最终 Windows cook 成功：832 个 package，0 errors、0 warnings。两份普通 BP 的 cook 夹具分别为 `/Game/BreastJiggleEngineering/Empty_4c802e30dff8` 和 `/Game/BreastJiggleEngineering/Empty_14e3fa311bf7`；这些地图只是工程检查，不是 Runtime 依赖。完整 cook 日志已归档到 evidence。
 

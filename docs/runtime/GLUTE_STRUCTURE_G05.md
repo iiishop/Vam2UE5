@@ -145,4 +145,4 @@ contours and pose transitions remains necessary. No visual acceptance is asserte
 
 ## Completed verification
 
-Editor, Game Development and Game Shipping builds succeeded. Each of two character bundles passed 10/10 Glute/Breast tests; installed-project replay passed 10/10; the legacy G0 NativeRuntime test passed. Two NativeRuntime tests carry existing missing-EndPlay teardown warnings. Windows cook completed 834 packages with zero errors and warnings. See [implementation report](Evidence/GluteStructureG05/implementation-report.md) for exact assets and evidence.
+Editor, Game Development and Game Shipping builds succeeded. Each of two character bundles passed 10/10 Glute/Breast tests; installed-project replay passed 10/10; the legacy G0 NativeRuntime test passed. Two NativeRuntime tests carry existing missing-EndPlay teardown warnings. Windows cook completed 834 packages with zero errors and warnings. See [implementation report](../../Evidence/GluteStructureG05/implementation-report.md) for exact assets and evidence.

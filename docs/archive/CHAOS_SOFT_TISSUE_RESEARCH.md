@@ -1,3 +1,5 @@
+> 历史阶段快照：归档原因与当前入口见[归档索引](README.md)。文中的“当前”、本机状态及未完成项限定在记录时的版本。
+
 # 原生人物软组织与 Chaos 可行性报告
 
 日期：2026-09-27。研究范围：当前源码、UE 5.8 本机实现、官方资料、论文，以及用户提供的 Better Jiggle Mod 2.6.3。此次不实现功能、不执行 Mod、不修改人物资产。
@@ -27,7 +29,7 @@
 | `Source/VamCharacterRuntime/Private/VamTissueBackend.cpp` | Chaos 接入、碰撞对象增删更新 |
 | `Source/VamCharacterRuntime/Public/VamSoftTissueProfile.h` | 组织参数、绑定信息和质量配置 |
 | `Config/RuntimeImportPolicy.json` | 默认生成策略 |
-| `STAGE071_RUNTIME.md`、`STAGE07.md` | 现有能力与历史实验限制 |
+| `docs/archive/STAGE071_RUNTIME.md`、`docs/archive/STAGE07.md` | 现有能力与历史实验限制 |
 
 本机 Chaos Flesh 插件描述仍标记 `IsExperimentalVersion=true`。这不意味着不可用于游戏，但意味着版本兼容、缺失能力和性能应由项目自行验证。
 

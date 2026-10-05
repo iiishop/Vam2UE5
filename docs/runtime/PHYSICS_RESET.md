@@ -1,4 +1,4 @@
-> 后续 Breast Jiggle 实现与验证见 [BREAST_JIGGLE.md](BREAST_JIGGLE.md)。下文保留物理清理提交当时的基线记录。
+> 后续 Breast Jiggle 实现与验证见 [Breast v3 完整报告](BREAST_JIGGLE_V3.md)。下文保留物理清理提交当时的基线记录。
 
 # Native Skeletal Runtime — 2026-09-27
 

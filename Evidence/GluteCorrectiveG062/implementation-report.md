@@ -16,7 +16,7 @@
 5. Runtime 继续使用确定性 pose weights → native Morph → GPU skeletal skinning。没有运行时 DQS / CPU 全身蒙皮；没有新增 helper、改变 source bone index 或 donor weights。
 6. 新增 Editor 按需当前姿态 snapshot，读取当前实例最终 pose、Shape/Morph buffer 与原生 LOD0，显示同姿态 OFF / ON 叠加，并保存 JSON。两组调试按钮的说明区分了“离线诊断目标”和“人物姿态”。
 
-模型公式、研究来源与详细限制见 [GLUTE_CORRECTIVE_G062.md](../../GLUTE_CORRECTIVE_G062.md)。
+模型公式、研究来源与详细限制见 [GLUTE_CORRECTIVE_G062.md](../../docs/runtime/GLUTE_CORRECTIVE_G062.md)。
 
 ## 位移实测
 

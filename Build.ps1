@@ -17,7 +17,7 @@ $stage = Join-Path $projectRoot ('Saved\VamBrowserSource-' + [guid]::NewGuid().T
 New-Item -ItemType Directory -Path $stage | Out-Null
 # UAT copies the entire input directory before applying package filters. Never
 # include live service locks, the resource index, or cached user data in it.
-foreach ($entry in @('VamResourceBrowser.uplugin', 'Source', 'Config', 'Content', 'Web', 'Evidence', 'README.md', 'BREAST_JIGGLE.md', 'BREAST_CALIBRATION_RESEARCH.md', 'RunBreastJiggle.ps1', 'PHYSICS_RESET.md', 'STAGE02.md', 'STAGE03.md', 'STAGE04.md', 'STAGE05.md', 'STAGE06.md', 'STAGE07.md', 'SetupDecoder.ps1', 'RunStage07Regression.ps1', 'RunStage07Composition.ps1', 'RunStage07Cooked.ps1', 'BuildRuntimeConfiguration.ps1', 'Build.ps1')) {
+foreach ($entry in @('VamResourceBrowser.uplugin', 'Source', 'Config', 'Content', 'Web', 'Evidence', 'README.md', 'docs', 'RunBreastJiggle.ps1', 'STAGE02.md', 'STAGE03.md', 'STAGE04.md', 'STAGE05.md', 'SetupDecoder.ps1', 'RunStage07Regression.ps1', 'RunStage07Composition.ps1', 'RunStage07Cooked.ps1', 'BuildRuntimeConfiguration.ps1', 'Build.ps1')) {
     Copy-Item -LiteralPath (Join-Path $pluginRoot $entry) -Destination $stage -Recurse
 }
 $scriptStage = New-Item -ItemType Directory -Path (Join-Path $stage 'Scripts')

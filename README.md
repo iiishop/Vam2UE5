@@ -1,14 +1,16 @@
-# 当前物理架构：原生 Skeletal Runtime
+# VaM 资源浏览器
 
-旧 Chaos Flesh / SoftTissue 已退役。当前能力、旧资产升级及工程自测见 [PHYSICS_RESET.md](PHYSICS_RESET.md)；STAGE07 / STAGE071 文档仅是历史记录。
+完整导航见 [文档索引](docs/README.md)：[导入与预览](docs/README.md#导入与预览)、[人物与物理](docs/README.md#人物与物理)、[研究资料](docs/README.md#研究资料)、[历史归档](docs/archive/README.md)。
 
-# VaM 资源浏览器 · 阶段 01–04
+当前人物使用原生 Skeletal Runtime，并已接入 Breast v3、Glute G1.1 与 Leg T1。旧 Chaos Flesh / SoftTissue 已退役；旧资产迁移及清理时的基线见 [PHYSICS_RESET.md](docs/runtime/PHYSICS_RESET.md)，后续功能见文档索引。Stage07 / Stage071 是历史记录。
+
+## 浏览与导入
 
 UE 5.8 / Windows 编辑器插件。读取 VaM 松散目录和 VAR，解析依赖并解码已验证格式，用于临时几何检查。不执行 VaM 脚本，不向 VaM 目录写入文件。
 
-阶段 03：在就绪的导入计划中点击 **解码并预览 → 在 UE5 查看**。支持浏览器几何检查及独立 UE 临时窗口，不保存人物资产。格式能力、真实样本统计及尚未支持的效果见 [STAGE03.md](STAGE03.md)。
+阶段 03：在就绪的导入计划中点击 **解码并预览 → 在 UE5 查看**。支持浏览器几何检查及独立 UE 临时窗口，不保存人物资产。格式能力、真实样本统计及尚未支持的效果见 [STAGE03.md](docs/guides/STAGE03.md)。
 
-阶段 02 已增加“生成导入计划”和历史计划浏览。选中资源后点击详情中的按钮，可查看五类导入项、引用来源、声明依赖和最终版本锁定。具体行为、边界和保存格式见 [STAGE02.md](STAGE02.md)。C++ 模块的编译状态仍以 `VALIDATION.md` 为准。
+阶段 02 已增加“生成导入计划”和历史计划浏览。选中资源后点击详情中的按钮，可查看五类导入项、引用来源、声明依赖和最终版本锁定。具体行为、边界和保存格式见 [STAGE02.md](docs/guides/STAGE02.md)。早期解析器与浏览器的实测记录见 [阶段 01–02 验证归档](docs/archive/VALIDATION.md)；该记录不代表当前提交的编译状态。
 
 ## 打开与使用
 
@@ -69,11 +71,11 @@ UE 5.8 / Windows 编辑器插件。读取 VaM 松散目录和 VAR，解析依赖
 
 用引擎 Python 执行 `Tests/test_catalog.py`。覆盖分页、中文搜索、同名资源、增量修改 / 删除、取消事务、重启读索引、坏包、路径越界、元数据上限、几何禁读、旧版预设分类，以及无变化扫描不刷新页面。
 
-真实库测量记录见 `VALIDATION.md`。浏览器界面验证与 UE 内嵌加载验证分开记录；只有后者通过才表示完成 UE 内验收。
+早期真实库测量记录见 [验证归档](docs/archive/VALIDATION.md)。浏览器界面验证与 UE 内嵌加载验证分开记录；只有后者通过才表示完成 UE 内验收。
 
-阶段 04：几何完成后点击“解析来源材质 → 在 UE5 查看”。SourceMaterialIR、参考场景和当前还原边界见 [STAGE04.md](STAGE04.md)。
+阶段 04：几何完成后点击“解析来源材质 → 在 UE5 查看”。SourceMaterialIR、参考场景和当前还原边界见 [STAGE04.md](docs/guides/STAGE04.md)。
 
-正式人物资产构建会自动建立该人物专属的 IK Rig；若本工程含第三人称 Quinn 模板，还会直接生成同一骨架的待机、前进步行、前进慢跑动画。资产位于人物 Content 目录的 `Animations` 文件夹，骨链与动作姿态经过重新加载验证。来源模板缺失或 VaM 骨架层级未知时，导入报告会写明原因，不会把 UE 自动识别出的零长度骨链当作成功。详见 [STAGE05.md](STAGE05.md)。
+正式人物资产构建会自动建立该人物专属的 IK Rig；若本工程含第三人称 Quinn 模板，还会直接生成同一骨架的待机、前进步行、前进慢跑动画。资产位于人物 Content 目录的 `Animations` 文件夹，骨链与动作姿态经过重新加载验证。来源模板缺失或 VaM 骨架层级未知时，导入报告会写明原因，不会把 UE 自动识别出的零长度骨链当作成功。详见 [STAGE05.md](docs/guides/STAGE05.md)。
 
 ## 导入耗时与缓存
 
@@ -85,8 +87,8 @@ UE 5.8 / Windows 编辑器插件。读取 VaM 松散目录和 VAR，解析依赖
 
 ## 人物调试面板
 
-G0 Structural Glute 已接入正式人物生成与 Upgrade Runtime：自动生成 pelvis/thigh 双支承结构、连续蒙皮和 `DA_GluteStructure`。调试面板新增 **Glute Structure - G0**。模型、工程边界见 [GLUTE_STRUCTURE_G0.md](GLUTE_STRUCTURE_G0.md)，当前资产路径、测试证据和 Empty Level 操作见 [G0 完成报告](Evidence/GluteStructureG0/implementation-report.md)。G0 只计算姿态相关结构，不运行臀部 Jiggle。
+G0 Structural Glute 已接入正式人物生成与 Upgrade Runtime：自动生成 pelvis/thigh 双支承结构、连续蒙皮和 `DA_GluteStructure`。调试面板新增 **Glute Structure - G0**。模型、工程边界见 [GLUTE_STRUCTURE_G0.md](docs/runtime/GLUTE_STRUCTURE_G0.md)，G0 阶段的资产路径、测试证据和 Empty Level 操作见 [G0 完成报告](Evidence/GluteStructureG0/implementation-report.md)。G0 只计算姿态相关结构，不运行臀部 Jiggle。
 
 重新编译并启动 UE 后，从 **窗口 → VaM 人物调试** 或资源浏览器顶部的 **人物调试** 打开。选中场景中的 `VamCharacterActor` 后点击“使用选中人物 / 刷新”；也可点击“加载最新导入人物”，在当前场景生成临时预览实例。加载完成后，所有骨骼控制点直接叠加显示在人物身上。点击青色点，再用视口移动或旋转工具调整骨骼；黄色点表示当前骨骼。面板还提供骨骼名称筛选、局部位移/旋转数值编辑、逐骨骼与全姿态重置，以及所有可编辑 Morph 参数滑块。
 
-骨骼姿态调整只保存在该人物实例的临时动画状态，不写入导入的骨架、网格或 Definition。Morph 调整使用现有预览参数接口，可用“恢复导入形状”复原。Stage06 另提供可放置人物、PBIK、刚体局部响应/布娃娃、Physics Handle 抓取、连续运动输入、主动呼吸和惯性见证区域；预览关卡与运行方法见 [STAGE06.md](STAGE06.md)。惯性见证不是肌肉或软体求解器；布料、头发和全身软组织仍待后续阶段。后续诊断工具与数据显示可继续加入该停靠面板。
+骨骼姿态调整只保存在该人物实例的临时动画状态，不写入导入的骨架、网格或 Definition。Morph 调整使用现有预览参数接口，可用“恢复导入形状”复原。Stage06 阶段建立了可放置人物、PBIK、刚体局部响应/布娃娃、Physics Handle 抓取、连续运动输入、主动呼吸和惯性见证区域；当时的预览关卡与运行方法见 [Stage06 历史记录](docs/archive/STAGE06.md)。惯性见证不是肌肉或软体求解器；布料、头发和全身软组织仍待后续阶段。后续诊断工具与数据显示可继续加入该停靠面板。

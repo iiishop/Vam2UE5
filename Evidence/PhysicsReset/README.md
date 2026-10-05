@@ -1,6 +1,6 @@
 # Native skeletal reset engineering evidence
 
-2026-09-27, based on master `1b639e3`, UE 5.8.3. See `summary.json` for exact source/DLL hashes and `../../PHYSICS_RESET.md` for migration and limitations. No visual acceptance, new Jiggle, or new Contact Flesh is claimed.
+2026-09-27, based on master `1b639e3`, UE 5.8.3. See `summary.json` for exact source/DLL hashes and [PHYSICS_RESET](../../docs/runtime/PHYSICS_RESET.md) for migration and limitations. No visual acceptance, new Jiggle, or new Contact Flesh is claimed.
 
 - `runtime0.json`, `runtime1.json`, `upgrade-runtime.json`: committed three-process build/reload/verify receipts. The first two use independently persisted native characters (60 and 6 parameters); they are not interchangeable evidence. The upgrade preserves the old b41 recipe and has no authored base clip.
 - `dependencies.json`, `installed-dependencies.json`: loaded BP component lists and recursive hard/soft dependency closures. The installed bundle is `R_8d3611b11cc1575cab011ec1`; native source files were hash-checked before publishing only its new directory (`published.json`). Existing user assets were not overwritten.

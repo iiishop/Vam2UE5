@@ -1,6 +1,6 @@
 # G0.6.1 — Glute Corrective Fidelity / Attenuation Audit
 
-基线为 `feature/jiggle/hip` 的 `6c52542bfb2634d36e157510b4fa8c6319724016`。保留 G0/G0.5、HipPoseState、pose targets、Native Morph/GPU skinning 和 Breast V3。本轮工程记录见 `Evidence/GluteCorrectiveG061/`；最终数字见[完整实施报告](Evidence/GluteCorrectiveG061/implementation-report.md)。
+基线为 `feature/jiggle/hip` 的 `6c52542bfb2634d36e157510b4fa8c6319724016`。保留 G0/G0.5、HipPoseState、pose targets、Native Morph/GPU skinning 和 Breast V3。本轮工程记录见 `Evidence/GluteCorrectiveG061/`；最终数字见[完整实施报告](../../Evidence/GluteCorrectiveG061/implementation-report.md)。
 
 ## 旧管线实测根因
 

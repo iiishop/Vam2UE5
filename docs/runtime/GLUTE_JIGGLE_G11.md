@@ -122,5 +122,5 @@ Current outputs:
 
 Each contains `BP_VamCharacter`, `RC_Runtime`, `DA_GluteJiggle`.
 Full numerical results, limitations and manual steps:
-[verified Chinese report](Evidence/GluteJiggleG11/REPORT_ZH.md).
-Machine-readable evidence: [summary](Evidence/GluteJiggleG11/summary.json).
+[verified Chinese report](../../Evidence/GluteJiggleG11/REPORT_ZH.md).
+Machine-readable evidence: [summary](../../Evidence/GluteJiggleG11/summary.json).

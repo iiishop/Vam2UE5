@@ -6,7 +6,7 @@
 
 开始及结束 HEAD：`1c07fd5cb30f785dc231fccdfcebd37891246504`。远端同名分支也核对为此提交。本轮修改保存在工作区，未自动 commit/push。新版 Editor DLL 已安装到当前 SmartNPC 项目的插件目录。
 
-旧版工程证据仍位于 `Evidence/BreastJiggle`；本轮证据位于 `Evidence/BreastCalibrationV2`。研究、参考来源与近似模型理由见 [BREAST_CALIBRATION_RESEARCH.md](BREAST_CALIBRATION_RESEARCH.md)。本文只报告工程事实。
+旧版工程证据仍位于 `Evidence/BreastJiggle`；本轮证据位于 `Evidence/BreastCalibrationV2`。研究、参考来源与近似模型理由见 [BREAST_CALIBRATION_RESEARCH.md](../../docs/research/BREAST_CALIBRATION_RESEARCH.md)。本文只报告工程事实。
 
 ## 2. 修改模块
 

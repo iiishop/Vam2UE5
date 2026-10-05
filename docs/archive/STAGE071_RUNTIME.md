@@ -1,6 +1,6 @@
 # LEGACY / SUPERSEDED — 2026-09-27
 
-本页全部内容是旧实现和旧构建的历史记录，不是当前能力或验收入口。旧 Flesh/SoftTissue 已退役，本文中的类、脚本、地图和 Cooked 包不得用于验证当前源码。当前人物链、迁移和自测见 [PHYSICS_RESET.md](PHYSICS_RESET.md)。
+本页全部内容是旧实现和旧构建的历史记录，不是当前能力或验收入口。旧 Flesh/SoftTissue 已退役，本文中的类、脚本、地图和 Cooked 包不得用于验证当前源码。当前人物链、迁移和自测见 [PHYSICS_RESET.md](../runtime/PHYSICS_RESET.md)。
 
 ---
 
@@ -77,7 +77,7 @@ Cooked 人工图仅供观察自动加载和表面，编辑器的形状/IK/软组
 
 同一 Cooked 包在 30/60/120 **帧率上限**下均运行真实图形生命周期测试并正常退出；这不是实际帧率或性能达标证据。每个运行均保留 `visual_acceptance_passed:false`。新增代码另通过旧 07.0 组合场景的 60 FPS 上限 NullRHI 回归，包含最终 IK、足接触、抓取/形状事务与停稳。
 
-可审阅证据位于 [Evidence/Stage071/CharacterRuntime](Evidence/Stage071/CharacterRuntime/summary.json)，包括构建闭包、DLL/包指纹、地图依赖方向、隔离编辑器/安装后的原项目及三档 Cooked 生命周期报告。首次运行的抽象类分配崩溃保留在 `Saved/Stage071/Build01/audit1.log`，新版本使用具体的碰撞标识类修复；没有删除失败或将其计为通过。
+可审阅证据位于 [Evidence/Stage071/CharacterRuntime](../../Evidence/Stage071/CharacterRuntime/summary.json)，包括构建闭包、DLL/包指纹、地图依赖方向、隔离编辑器/安装后的原项目及三档 Cooked 生命周期报告。首次运行的抽象类分配崩溃保留在 `Saved/Stage071/Build01/audit1.log`，新版本使用具体的碰撞标识类修复；没有删除失败或将其计为通过。
 
 还不能宣称完成：全身区域覆盖、近景挤压质量、重力平衡校准、附加人体网格软组织接缝、三角网格/地形碰撞、Cloth/Hair 的实际消费者以及长期 GPU/CPU 内存压力测试。当前三轮 GC 检查证明所测组件可回收，不能推导出长时间运行绝无资源泄漏。无需用户替开发者补做编译/Cook/生命周期测试；人工需要评价的是形状、接触观感、接缝与可接受的响应幅度。
 
