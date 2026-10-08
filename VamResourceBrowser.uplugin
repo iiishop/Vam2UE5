@@ -13,6 +13,14 @@
   ],
   "Plugins": [
     {
+      "Name": "ChaosFlesh",
+      "Enabled": true
+    },
+    {
+      "Name": "DeformerGraph",
+      "Enabled": true
+    },
+    {
       "Name": "PythonScriptPlugin",
       "Enabled": true,
       "TargetAllowList": [

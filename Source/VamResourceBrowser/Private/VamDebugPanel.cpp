@@ -11,6 +11,7 @@
 #include "Widgets/Input/SCheckBox.h"
 #include "Widgets/Layout/SWrapBox.h"
 #include "Widgets/Layout/SExpandableArea.h"
+#include "VamBreastContactComponent.h"
 #include "VamInteractionComponent.h"
 #include "VamActivePoseComponent.h"
 #include "VamRuntimeConfiguration.h"
@@ -45,6 +46,7 @@
 #include "Widgets/Input/SNumericEntryBox.h"
 #include "Widgets/Input/SSearchBox.h"
 #include "Widgets/Layout/SScrollBox.h"
+#include "Widgets/Layout/SBox.h"
 #include "Widgets/SBoxPanel.h"
 #include "Widgets/Text/STextBlock.h"
 #include "UnrealEdGlobals.h"
@@ -104,10 +106,11 @@ void MoveRootTo(AVamCharacterActor* Actor,const FVector& Location)
 
 AVamCharacterActor* CurrentActor()
 {
-    if (DebugActor.IsValid()) return DebugActor.Get();
-    if (GEditor)
-        if (auto* Actor=GEditor->GetSelectedActors()->GetTop<AVamCharacterActor>()) return Actor;
-    return nullptr;
+    AVamCharacterActor* Actor=DebugActor.Get();
+    if(!Actor && GEditor) Actor=GEditor->GetSelectedActors()->GetTop<AVamCharacterActor>();
+    if(Actor && GEditor && GEditor->PlayWorld && !Actor->GetWorld()->IsGameWorld())
+        return Cast<AVamCharacterActor>(EditorUtilities::GetSimWorldCounterpartActor(Actor));
+    return Actor;
 }
 
 struct HVamBoneProxy : HComponentVisProxy
@@ -464,7 +467,7 @@ TSharedRef<SWidget> GluteControls()
     Box->AddSlot().AutoHeight()[Inspect];
     Box->AddSlot().AutoHeight()[SNew(STextBlock).Text(FText::FromString(TEXT("设置人物姿态（以下按钮会摆动选中侧髋关节）")))];
     Box->AddSlot().AutoHeight()[Buttons];
-    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->GluteDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)];
+    Box->AddSlot().AutoHeight()[SNew(SBox).MaxDesiredHeight(180)[SNew(SScrollBox).ScrollBarAlwaysVisible(true)+SScrollBox::Slot()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->GluteDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)]]];
     return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Glute Structural Debug - G0.5 / G0.6.2")))].BodyContent()[Box];
 }
 
@@ -508,7 +511,28 @@ TSharedRef<SWidget> BreastControls()
         Buttons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->BreastMotionCommand(Command);return FReply::Handled();})];
     }
     Box->AddSlot().AutoHeight()[Buttons];
-    Box->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->BreastDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)];
+    Box->AddSlot().AutoHeight()[SNew(SBox).MaxDesiredHeight(180)[SNew(SScrollBox).ScrollBarAlwaysVisible(true)+SScrollBox::Slot()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->BreastDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)]]];
+    auto Contact=[]()->UVamBreastContactComponent* { auto* A=CurrentActor();return A?A->FindComponentByClass<UVamBreastContactComponent>():nullptr; };
+    auto ContactBox=SNew(SVerticalBox);
+    const TCHAR* ContactNames[]={TEXT("Enabled · 接触层"),TEXT("Show cage · 体积网格"),TEXT("Show press spheres · 按压球"),TEXT("World collision · 场景简单碰撞")};
+    for(int32 I=0;I<4;++I)
+        ContactBox->AddSlot().AutoHeight()[SNew(SCheckBox)
+            .IsChecked_Lambda([Contact,I](){auto* C=Contact();return C && (I==0?C->bEnabled:I==1?C->bShowCage:I==2?C->bShowContacts:C->bWorldCollision)?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
+            .OnCheckStateChanged_Lambda([Contact,I](ECheckBoxState S){if(auto* C=Contact()){bool& V=I==0?C->bEnabled:I==1?C->bShowCage:I==2?C->bShowContacts:C->bWorldCollision;V=S==ECheckBoxState::Checked;}})
+            [SNew(STextBlock).Text(FText::FromString(ContactNames[I]))]];
+    auto PressButtons=SNew(SWrapBox).UseAllottedSize(true);
+    const TCHAR* PressNames[]={TEXT("按压左侧 20%"),TEXT("按压右侧 20%"),TEXT("释放按压"),TEXT("重置接触")};
+    for(int32 I=0;I<4;++I) PressButtons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(PressNames[I]))
+        .OnClicked_Lambda([Contact,I](){if(auto* C=Contact()){if(I<2) C->SetDebugPress(I,.2f);else if(I==2) C->SetDebugPress(INDEX_NONE,0);else C->ResetContact();}return FReply::Handled();})];
+    ContactBox->AddSlot().AutoHeight()[PressButtons];
+    auto ProbeButtons=SNew(SWrapBox).UseAllottedSize(true);
+    const TCHAR* ProbeNames[]={TEXT("Flat platen - sharp edge"),TEXT("Sphere - central"),TEXT("Sphere - upper offset")};
+    for(int32 I=0;I<3;++I)ProbeButtons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(ProbeNames[I]))
+        .OnClicked_Lambda([Contact,I](){if(auto* C=Contact()){C->bDebugPlaten=I==0;C->DebugPressOffset=I==2?FVector2D(0,.45):FVector2D::ZeroVector;C->ResetContact();C->SetDebugPress(0,.2f);}return FReply::Handled();})];
+    ContactBox->AddSlot().AutoHeight()[ProbeButtons];
+    ContactBox->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Contact](){auto* C=Contact();return FText::FromString(C && C->bDebugPlaten?TEXT("Probe: sharp flat platen (edge imprint diagnostic)"):TEXT("Probe: sphere (local indentation and tissue displacement)"));}).AutoWrapText(true)];
+    ContactBox->AddSlot().AutoHeight()[SNew(SBox).MaxDesiredHeight(180)[SNew(SScrollBox).ScrollBarAlwaysVisible(true)+SScrollBox::Slot()[SNew(STextBlock).Text_Lambda([Contact](){auto* C=Contact();return FText::FromString(C?C->Diagnostics():TEXT("Contact component absent"));}).AutoWrapText(true)]]];
+    Box->AddSlot().AutoHeight()[SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Breast Chaos Contact · 按压与体积")))].BodyContent()[ContactBox]];
     return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Breast Jiggle · Runtime")))].BodyContent()[Box];
 }
 
@@ -518,7 +542,8 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
     UE_LOG(LogTemp,Display,TEXT("VAM_DEBUG_PANEL_OPENED"));
     TSharedRef<FPanelRows> State=MakeShared<FPanelRows>();
     TSharedRef<SDockTab> Tab=SNew(SDockTab).TabRole(ETabRole::NomadTab)
-    [SNew(SVerticalBox)
+    [SNew(SScrollBox).ScrollBarAlwaysVisible(true)
+        +SScrollBox::Slot()[SNew(SVerticalBox)
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("人物调试 · 场景控制点")))]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text_Lambda([](){
             auto* Actor=CurrentActor();return FText::FromString(Actor?TEXT("当前人物：")+Actor->GetActorLabel():TEXT("当前人物：未选择"));})]
@@ -632,7 +657,7 @@ TSharedRef<SDockTab> SpawnPanel(const FSpawnTabArgs&)
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(STextBlock).Text(FText::FromString(TEXT("橙色 root 点仅平移整个人物；青色点仅旋转四肢、躯干、头部与手指关节，姿态角度由 Rig 限位。悬停时控制点放大并显示白色中心，按住/拖动时变为黄色中心和红色或紫色光环。PIE / Simulate 中 root 移动注入速度和惯性，普通编辑器移动不产生模拟物理。黄色见证区域不代表全身软体。P/O/R 只暂停、单步、重置见证；Chaos 和动画继续运行。拖动 root 会切到局部物理响应；青色摆姿点不是物理抓取点。"))).AutoWrapText(true)]
         +SVerticalBox::Slot().AutoHeight().Padding(8)[SNew(SSearchBox).HintText(FText::FromString(TEXT("筛选骨骼或 Morph 名称"))).OnTextChanged_Lambda([State](const FText& Text){
             State->Filter=Text.ToString();if (State->Box.IsValid()){State->Box->ClearChildren();AddControls(State->Box.ToSharedRef(),CurrentActor(),State->Filter);}})]
-        +SVerticalBox::Slot().FillHeight(1)[SNew(SScrollBox)+SScrollBox::Slot()[SAssignNew(State->Box,SVerticalBox)]]];
+        +SVerticalBox::Slot().AutoHeight()[SAssignNew(State->Box,SVerticalBox)]]];
     AddControls(State->Box.ToSharedRef(),CurrentActor());
     Tab->SetOnTabClosed(SDockTab::FOnTabClosedCallback::CreateLambda([](TSharedRef<SDockTab>){bPanelOpen=false;DebugActor.Reset();SelectedBone=INDEX_NONE;}));
     return Tab;

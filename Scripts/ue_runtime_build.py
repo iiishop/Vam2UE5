@@ -132,6 +132,13 @@ def build(recipe_path,report_path):
     require(definition is not None,str(error))
     error=u.VamGluteJiggleBuilder.build_surface_guard(definition,glute_jiggle)
     require(not error,'Glute surface guard: '+str(error))
+    contact=create('DA_BreastContact',root,u.VamBreastContactProfile)
+    error=u.VamBreastContactBuilder.build(definition,jiggle,contact,json.dumps(family))
+    require(not error,'Breast contact cage: '+str(error))
+    definition,error=u.VamBreastContactBuilder.refine_render_surface(root+'/ContactSurface',definition,jiggle,contact,glute,leg_jiggle)
+    require(definition is not None,'Breast render refinement: '+str(error))
+    error=u.VamBreastContactBuilder.build_deformer(contact,root+'/DG_BreastContact')
+    require(not error,'Breast contact GPU graph: '+str(error))
     # Every derived mesh, bind, morph and helper is saved before downstream assets fingerprint it.
     for path in u.EditorAssetLibrary.list_assets(root,True,False):save(load(str(path)))
     mesh=definition.get_editor_property('body');skeleton=definition.get_editor_property('skeleton')
@@ -165,6 +172,7 @@ def build(recipe_path,report_path):
     require(u.VamStage06AssetEditor.set_runtime_configuration_identity(config,definition,identity,''),'Could not initialize runtime identity')
     for key,value in [('definition',definition),('breast_jiggle',jiggle),('glute_structure',glute),('glute_corrective',corrective),('glute_jiggle',glute_jiggle),('leg_jiggle',leg_jiggle),('rig',rig),('physics',physics),('physics_shape',physics_shape),('animation_class',animation.generated_class()),('materials',materials)]:config.set_editor_property(key,value)
     if base_animation:config.set_editor_property('base_animation',base_animation)
+    config.set_editor_property('breast_contact',contact)
     factory=u.BlueprintFactory();factory.set_editor_property('parent_class',u.VamCharacterActor)
     host=create('BP_VamCharacter',root,u.Blueprint,factory)
     defaults=u.get_default_object(host.generated_class());character=defaults.get_editor_property('character')
@@ -186,6 +194,7 @@ def build(recipe_path,report_path):
         'body_slots':len(mesh.get_editor_property('materials')),'part_slots':[len(p.get_editor_property('materials')) for p in definition.get_editor_property('parts')],
         'body_shading_models':[str(m.get_editor_property('shading_model')) if isinstance(m,u.Material) else None for m in materials.get_editor_property('body_materials')],
         'output_files':{p:fingerprint(p) for p in assets}}
+    receipt['breast_contact']=asset_path(contact)
     require(u.VamStage06AssetEditor.set_runtime_configuration_identity(config,definition,identity,json.dumps(receipt,ensure_ascii=False,separators=(',',':'))),'Could not persist runtime receipt');save(config)
     write_json(report_path,{'writer_pid':os.getpid(),'status':'saved_pending_reload','identity':identity,'configuration':config_path,'reused':False})
 
@@ -209,6 +218,11 @@ def reload_and_publish(recipe_path,report_path):
     require(config.get_editor_property('breast_jiggle')==jiggle,'Breast profile reference mismatch')
     error=u.VamBreastJiggleBuilder.validate(definition,jiggle)
     require(not error,'Reloaded Breast Jiggle validation failed: '+str(error))
+    if receipt.get('breast_contact'):
+        contact=load(receipt['breast_contact'],u.VamBreastContactProfile)
+        require(config.get_editor_property('breast_contact')==contact,'Contact profile reference mismatch')
+        require(not contact.validate_data(),'Contact cage reload validation failed')
+        require(contact.get_editor_property('surface_deformer') is not None,'Contact GPU graph missing after reload')
     glute=load(receipt['glute_structure'],u.VamGluteStructureProfile)
     require(config.get_editor_property('glute_structure')==glute,'Glute profile reference mismatch')
     error=u.VamGluteStructureBuilder.validate(definition,glute)

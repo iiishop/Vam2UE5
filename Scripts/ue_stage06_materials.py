@@ -60,20 +60,25 @@ def build_material_profile(definition, root, part_category='reference',skin_shad
     regions=definition.get_editor_property('shape').get_editor_property('geometry').get_editor_property('regions')
     region_slots={str(r.get_editor_property('id')):r for r in regions}
     materials=[];part_materials=[];cache={};semantic_counts={}
-    def clone(source,kind):
-        if not source or kind=='reference':return source
-        key=(source.get_path_name(),kind)
+    def clone(source,kind,contact_surface=False):
+        if not source or (kind=='reference' and not contact_surface):return source
+        key=(source.get_path_name(),kind+('_contact' if contact_surface else ''))
         if key in cache:return cache[key]
-        name='M_'+kind+'_'+hashlib.sha256((key[0]+'|'+kind).encode()).hexdigest()[:12]
+        name='M_'+kind+'_'+hashlib.sha256((key[0]+'|'+key[1]).encode()).hexdigest()[:12]
         path=root+'/Materials/'+name
         result=u.load_asset(path)
         if not result:
             result=u.EditorAssetLibrary.duplicate_asset(source.get_path_name(),path)
             assert result,path
-            parameters(result,kind,skin_shading)
+            if kind!='reference':parameters(result,kind,skin_shading)
         if kind=='skin' and skin_shading=='source':
             assert result.get_editor_property('shading_model')==source.get_editor_property('shading_model'), 'Source skin shading was not preserved'
-        tint_parameter(result)
+        if contact_surface:
+            u.MaterialEditingLibrary.set_material_usage(result,u.MaterialUsage.MATUSAGE_MESH_DEFORMER)
+            u.MaterialEditingLibrary.set_material_usage(result,u.MaterialUsage.MATUSAGE_SKELETAL_MESH)
+            u.MaterialEditingLibrary.set_material_usage(result,u.MaterialUsage.MATUSAGE_MORPH_TARGETS)
+            u.MaterialEditingLibrary.recompile_material(result)
+        if kind!='reference':tint_parameter(result)
         assert u.EditorAssetLibrary.save_loaded_asset(result)
         cache[key]=result
         semantic_counts[kind]=semantic_counts.get(kind,0)+1
@@ -83,7 +88,7 @@ def build_material_profile(definition, root, part_category='reference',skin_shad
         region=region_slots.get('source_material_'+str(index))
         assert region is not None, 'Body material slot has no persisted source region: '+str(index)
         kind=category(str(region.get_editor_property('source_evidence')),str(region.get_editor_property('anatomical_semantic')))
-        materials.append(clone(source,kind))
+        materials.append(clone(source,kind,contact_surface=True))
     for mesh in parts:
         row=u.VamPartMaterialSet()
         row.set_editor_property('materials',[clone(slot.get_editor_property('material_interface'),part_category) for slot in mesh.get_editor_property('materials')])

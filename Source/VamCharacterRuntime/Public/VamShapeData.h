@@ -86,6 +86,11 @@ public:
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) TArray<int32> InputToSource;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) TArray<int32> InputTriangles;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) TArray<FVamSurfaceRegion> Regions;
+    // Append-only render refinement. An appended input vertex has source INDEX_NONE;
+    // its two earlier input parents record the exact midpoint provenance (UV/weights).
+    // Curved rest position and Morph deltas live in the native MeshDescription.
+    UPROPERTY(Category="VaM", VisibleAnywhere) int32 RenderRefinementVersion = 0;
+    UPROPERTY(Category="VaM", VisibleAnywhere) TArray<FIntPoint> RenderRefinementParents;
     // Lossless native strings, no external paths or runtime VAR decoder dependency.
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) FString ClothGeometryDataJson;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) FString HairSourceDataJson;
