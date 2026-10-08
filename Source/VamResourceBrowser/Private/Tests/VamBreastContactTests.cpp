@@ -1,3 +1,5 @@
+#include "ProfilingDebugging/MiscTrace.h"
+#include "HAL/IConsoleManager.h"
 #if WITH_DEV_AUTOMATION_TESTS
 #include "Misc/AutomationTest.h"
 #include "Containers/Ticker.h"
@@ -161,7 +163,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
   if(!A->BreastContact->VolumeState.IsEmpty())TestTrue(TEXT("No extreme surface stretch"),A->BreastContact->VolumeState[Side].MaximumSurfaceStretch<1.6);
   CheckMaterials();
  };
- auto Phase=[&](const TCHAR* Name){double Start=FPlatformTime::Seconds();for(int32 I=0;I<90;++I)Tick();AddInfo(FString::Printf(TEXT("CONTACT_PHASE %s frame_ms=%.3f %s"),Name,(FPlatformTime::Seconds()-Start)*1000/90,*A->BreastContact->Diagnostics()));};
+ auto Phase=[&](const TCHAR* Name){const FString Region=FString(TEXT("Contact_"))+Name;TRACE_BEGIN_REGION(*Region);double Start=FPlatformTime::Seconds();for(int32 I=0;I<90;++I)Tick();TRACE_END_REGION(*Region);AddInfo(FString::Printf(TEXT("CONTACT_PHASE %s frame_ms=%.3f %s"),Name,(FPlatformTime::Seconds()-Start)*1000/90,*A->BreastContact->Diagnostics()));};
  if(FParse::Param(FCommandLine::Get(),TEXT("VamContactDisabledBenchmark")))
  {
   auto* Breast=CastChecked<UVamBreastSkeletalMeshComponent>(A->Character->Body);Breast->bJiggleEnabled=true;
@@ -261,14 +263,50 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
   Center.X=Front+Radius+Gap;Probe->SetWorldLocation(Frame.TransformPosition(Center));
   A->BreastContact->bWorldCollision=true;A->BreastContact->PressSpheres.Reset();
   FAssetCompilingManager::Get().FinishAllCompilation();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
-  for(int32 I=0;I<360;++I){double T=I<60?0:I<150?(I-60)/90.:I<240?1:I<330?1-(I-240)/90.:0;T=T*T*(3-2*T);
-   Center.X=Front+Radius+Gap-T*(Gap+Stroke);Probe->SetWorldLocation(Frame.TransformPosition(Center));Tick();
+  TArray<double> MovingContactMs,HeldContactMs;
+  for(int32 I=0;I<360;++I){
+   if(I==60)TRACE_BEGIN_REGION(TEXT("Contact_world_moving"));
+   if(I==150){TRACE_END_REGION(TEXT("Contact_world_moving"));TRACE_BEGIN_REGION(TEXT("Contact_world_held"));}
+   if(I==240){TRACE_END_REGION(TEXT("Contact_world_held"));TRACE_BEGIN_REGION(TEXT("Contact_world_release"));}
+   if(I==330)TRACE_END_REGION(TEXT("Contact_world_release"));
+   double T=I<60?0:I<150?(I-60)/90.:I<240?1:I<330?1-(I-240)/90.:0;T=T*T*(3-2*T);
+   Center.X=Front+Radius+Gap-T*(Gap+Stroke);Probe->SetWorldLocation(Frame.TransformPosition(Center));
+   const double StepStart=FPlatformTime::Seconds();Tick();const double StepMs=(FPlatformTime::Seconds()-StepStart)*1000;
+   if((I>=60 && I<150) || (I>=240 && I<330))MovingContactMs.Add(StepMs);else if(I>=150 && I<240)HeldContactMs.Add(StepMs);
    if(I==30)SaveImage(TEXT("glass-normal"));if(I==220){SaveImage(TEXT("glass-pressed"));CheckPress(0);AddInfo(TEXT("WORLD_GLASS_CONTACT: kinematic StaticMesh sphere, no debug press sources"));
     AddInfo(A->BreastContact->Diagnostics());const auto GPU=ReadGPU();double Penetration=0;
     for(int32 V=0;V<GPU.Num();++V)if(CP->SurfaceMask.IsValidIndex(V) && CP->SurfaceMask[V]>.9){const FVector WP=Breast->GetComponentTransform().TransformPosition(FVector(GPU[V]));Penetration=FMath::Max(Penetration,Radius-FVector::Distance(WP,Probe->GetComponentLocation()));}
     AddInfo(FString::Printf(TEXT("WORLD_GLASS_GPU max_vertex_penetration_cm=%.6f"),Penetration));
     TestTrue(TEXT("World sphere render penetration bounded to 2 mm"),Penetration<.2);}
    if(I==359)SaveImage(TEXT("glass-released"));if(I%2==0)SaveImage(FString::Printf(TEXT("frame-%04d"),I/2));}
+  auto ReportContactTiming=[&](const TCHAR* Name,TArray<double>& Samples){double Sum=0;for(double V:Samples)Sum+=V;Samples.Sort();AddInfo(FString::Printf(TEXT("CONTACT_TRAJECTORY %s count=%d mean_ms=%.3f p95_ms=%.3f max_ms=%.3f"),Name,Samples.Num(),Sum/Samples.Num(),Samples[FMath::Min(Samples.Num()-1,FMath::FloorToInt(Samples.Num()*.95))],Samples.Last()));};
+  ReportContactTiming(TEXT("moving"),MovingContactMs);ReportContactTiming(TEXT("held"),HeldContactMs);
+  if(FParse::Param(FCommandLine::Get(),TEXT("VamContactPerformanceAB")))
+  {
+   auto* Bounds=IConsoleManager::Get().FindConsoleVariable(TEXT("vam.Contact.Broadphase"));
+   auto* Dirty=IConsoleManager::Get().FindConsoleVariable(TEXT("vam.Contact.DirtyConstraints"));
+   auto* Cache=IConsoleManager::Get().FindConsoleVariable(TEXT("vam.Contact.ExactQueryCache"));
+   const int OldBounds=Bounds->GetInt(),OldDirty=Dirty->GetInt(),OldCache=Cache->GetInt();
+   for(int Run=0;Run<4;++Run)
+   {
+    const int Optimized=Run==1 || Run==2;
+    Bounds->Set(Optimized,ECVF_SetByCode);Dirty->Set(Optimized,ECVF_SetByCode);Cache->Set(0,ECVF_SetByCode);
+    A->BreastContact->ResetContact();Center.X=Front+Radius+Gap;Probe->SetWorldLocation(Frame.TransformPosition(Center));
+    for(int I=0;I<60;++I)Tick();
+    TArray<double> Moving,Held;
+    for(int I=0;I<180;++I)
+    {
+     double T=I<60?I/59.:I<120?1.:1-(I-120)/59.;T=T*T*(3-2*T);
+     Center.X=Front+Radius+Gap-T*(Gap+Stroke);Probe->SetWorldLocation(Frame.TransformPosition(Center));
+     const double Begin=FPlatformTime::Seconds();Tick();const double Ms=(FPlatformTime::Seconds()-Begin)*1000;
+     (I>=60 && I<120?Held:Moving).Add(Ms);
+     if(I==119){CheckPress(0);ReadGPU();}
+    }
+    ReportContactTiming(*FString::Printf(TEXT("AB%d_%s_moving"),Run,Optimized?TEXT("optimized"):TEXT("baseline")),Moving);
+    ReportContactTiming(*FString::Printf(TEXT("AB%d_%s_held"),Run,Optimized?TEXT("optimized"):TEXT("baseline")),Held);
+   }
+   Bounds->Set(OldBounds,ECVF_SetByCode);Dirty->Set(OldDirty,ECVF_SetByCode);Cache->Set(OldCache,ECVF_SetByCode);
+  }
   Probe->SetCollisionEnabled(ECollisionEnabled::NoCollision);ProbeActor->Destroy();A->BreastContact->bWorldCollision=false;Phase(TEXT("world_probe_removed"));CheckIdle();
  }
  A->BreastContact->bEnabled=false;Tick();
