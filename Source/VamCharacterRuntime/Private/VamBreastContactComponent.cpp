@@ -123,6 +123,23 @@ bool UVamBreastContactComponent::Initialize()
             const double Preserve=FMath::Clamp(Profile->NippleShapePreservation*NippleShapePreservationScale*FMath::Min(Profile->Particles[A].NippleSupport,Profile->Particles[B].NippleSupport),0.,1.);
             Topology.SurfaceEdges.Add(FIntPoint(A,B));Topology.EdgeLimits.Add(FVector2f(FMath::Lerp(Profile->SurfaceMinimumStretch,1-Profile->NippleAllowedStrain,Preserve),FMath::Lerp(Profile->SurfaceMaximumStretch,1+Profile->NippleAllowedStrain,Preserve)));
         }
+        // Nonlocal feature distances retain a three-dimensional protrusion while
+        // permitting rigid movement. Source semantic support defines membership.
+        for(int Side=0;Side<2;++Side){TArray<int> Nodes;
+            for(int I=0;I<N;++I)if(Profile->Particles[I].Side==Side && Profile->Particles[I].NippleSupport>.25 && !Profile->Particles[I].bKinematic)Nodes.Add(I);
+            Nodes.Sort([&](int A,int B){return Profile->Particles[A].NippleSupport==Profile->Particles[B].NippleSupport?A<B:Profile->Particles[A].NippleSupport>Profile->Particles[B].NippleSupport;});
+            if(Nodes.Num()>32)Nodes.SetNum(32);
+            for(int I=0;I<Nodes.Num();++I)for(int J=I+1;J<Nodes.Num();++J){int A=FMath::Min(Nodes[I],Nodes[J]),B=FMath::Max(Nodes[I],Nodes[J]);uint64 Key=(uint64(A)<<32)|uint32(B);if(SeenEdges.Contains(Key))continue;SeenEdges.Add(Key);
+                const double W=FMath::Clamp(Profile->NippleShapePreservation*NippleShapePreservationScale*FMath::Min(Profile->Particles[A].NippleSupport,Profile->Particles[B].NippleSupport),0.,1.);
+                Topology.SurfaceEdges.Add(FIntPoint(A,B));Topology.EdgeLimits.Add(FVector2f(FMath::Lerp(Profile->SurfaceMinimumStretch,1-Profile->NippleAllowedStrain,W),FMath::Lerp(Profile->SurfaceMaximumStretch,1+Profile->NippleAllowedStrain,W)));}}
+        for(const auto& F:Profile->BoundaryTriangles)Topology.SkinFaces.Add(FIntVector4(F.X,F.Y,F.Z,F.Z));
+        TMap<uint64,int> HingeOpposites;
+        for(const auto& F:Profile->BoundaryTriangles)for(int J=0;J<3;++J){int A=FMath::Min(F[J],F[(J+1)%3]),B=FMath::Max(F[J],F[(J+1)%3]),C=F[(J+2)%3];uint64 K=(uint64(A)<<32)|uint32(B);
+            if(const int* D=HingeOpposites.Find(K))Topology.SkinHinges.Add(FIntVector4(A,B,*D,C));else HingeOpposites.Add(K,C);}
+        const double Mu=Profile->YoungModulusPa*.01/(2*(1+Profile->PoissonRatio));
+        const double Lambda=Profile->YoungModulusPa*.01*Profile->PoissonRatio/((1+Profile->PoissonRatio)*(1-2*Profile->PoissonRatio));
+        for(const auto& P:Profile->Particles){const double F=FMath::Clamp((double(P.RootSupport)-.65)/.35,0.,1.);
+            Topology.Material.Add(FVector4f(Mu,Lambda,Profile->AttachmentStiffness*(Profile->SchemaVersion>=3?F*F*(3-2*F):(.05+.95*P.RootSupport*P.RootSupport)),FMath::Clamp(Profile->GPUSkinBendingRelaxation,0.,1.)));}
         GPUHandle=VamGPURegister(Body,MoveTemp(Topology));
         GPUInverseMass.Init(0,N);for(const auto& T:Profile->Tetrahedra){const float M=Profile->SignedTetVolume(ShapedRest,T)*Profile->DensityKgPerCm3/4;for(int J=0;J<4;++J)GPUInverseMass[T[J]]+=M;}
         for(int I=0;I<N;++I)GPUInverseMass[I]=Profile->Particles[I].bKinematic?0:1/FMath::Max(GPUInverseMass[I],float(Profile->MinimumMovableMassKg));

@@ -1,7 +1,14 @@
 #include "/Engine/Public/Platform.ush"
 RWStructuredBuffer<float4> Positions;
 StructuredBuffer<float4> Rest;
+StructuredBuffer<float4> PreviousPositions;
+StructuredBuffer<float4> PreviousRest;
+uint PreviousOffset;
 StructuredBuffer<uint4> Tets;
+StructuredBuffer<uint4> SkinHinges;
+StructuredBuffer<uint4> SkinFaces;
+StructuredBuffer<uint> VertexOrder;
+StructuredBuffer<float4> Material;
 StructuredBuffer<uint2> SurfaceEdges;
 StructuredBuffer<float2> EdgeLimits;
 StructuredBuffer<uint> Instance;
@@ -33,10 +40,35 @@ float3 ContactGradient(float3 p,uint instance,float3 g,float direction)
   if(s.w>0&&l<s.w+0.01&&l>1e-7){float3 n=d/l;float inward=dot(g,n);if(inward*direction<0)g-=n*inward;}}
  return g;
 }
+float HingeAngle(float3 a,float3 b,float3 c,float3 d)
+{
+ float3 n1=normalize(cross(a-c,b-c)),n2=normalize(cross(b-d,a-d)),e=normalize(b-a);
+ return atan2(dot(cross(n2,n1),e),clamp(dot(n1,n2),-1.,1.));
+}
+// Closest-point barycentrics, including edges and vertices; no render projection.
+float3 TriangleWeights(float3 p,float3 a,float3 b,float3 c)
+{
+ float3 ab=b-a,ac=c-a,ap=p-a;float d1=dot(ab,ap),d2=dot(ac,ap);if(d1<=0&&d2<=0)return float3(1,0,0);
+ float3 bp=p-b;float d3=dot(ab,bp),d4=dot(ac,bp);if(d3>=0&&d4<=d3)return float3(0,1,0);
+ float vc=d1*d4-d3*d2;if(vc<=0&&d1>=0&&d3<=0){float v=d1/(d1-d3);return float3(1-v,v,0);}
+ float3 cp=p-c;float d5=dot(ab,cp),d6=dot(ac,cp);if(d6>=0&&d5<=d6)return float3(0,0,1);
+ float vb=d5*d2-d1*d6;if(vb<=0&&d2>=0&&d6<=0){float v=d2/(d2-d6);return float3(1-v,0,v);}
+ float va=d3*d6-d5*d4;if(va<=0&&(d4-d3)>=0&&(d5-d6)>=0){float v=(d4-d3)/((d4-d3)+(d5-d6));return float3(0,1-v,v);}
+ float inv=rcp(max(va+vb+vc,1e-18));return float3(1-(vb+vc)*inv,vb*inv,vc*inv);
+}
+float TetVolume(float3 a,float3 b,float3 c,float3 d){return dot(b-a,cross(c-a,d-a))/6;}
 [numthreads(64,1,1)]
 void MainCS(uint3 Thread:SV_DispatchThreadID)
 {
  uint k=Thread.x;
+ if(PassKind==21)
+ {
+  uint lane=k%64,zone=k/64;float alpha=1;
+  for(uint t=lane;t<TotalTets;t+=64)if(Regions[Tets[t].x]==zone)alpha=min(alpha,Corrections[t].x);
+  ZoneSums[lane]=alpha;GroupMemoryBarrierWithGroupSync();
+  for(uint step=32;step>0;step/=2){if(lane<step)ZoneSums[lane]=min(ZoneSums[lane],ZoneSums[lane+step]);GroupMemoryBarrierWithGroupSync();}
+  if(lane==0)ZoneState[zone]=float4(ZoneSums[0].x,0,0,0);return;
+ }
  if(PassKind==10)
  {
   uint lane=k%64,zone=k/64,nt=TotalTets,np=TotalParticles;float3 sums=0;
@@ -50,6 +82,69 @@ void MainCS(uint3 Thread:SV_DispatchThreadID)
   if(lane==0){float3 v=ZoneSums[0];ZoneState[zone]=float4((v.y-v.x)/max(v.z,1e-12),v.x,v.y,0);}return;
  }
  if(k>=Count)return;
+ if(PassKind==24){uint i=Offset+k;float4 r=Rest[i];if(r.w>0)r.xyz+=PreviousPositions[PreviousOffset+k].xyz-PreviousRest[PreviousOffset+k].xyz;Positions[i]=r;return;}
+ if(PassKind==23)
+ {
+  uint i=VertexOrder[Offset+k];float4 x=Positions[i],mat=Material[i];float3 grad=(x.xyz-Rest[i].xyz)*mat.z;
+  float3 h0=float3(mat.z+1e-6,0,0),h1=float3(0,mat.z+1e-6,0),h2=float3(0,0,mat.z+1e-6);
+  uint2 range=IncidentRanges[i];float maxStep=.2;
+  for(uint slot=0;slot<range.y;++slot){uint index=IncidentSlots[range.x+slot];uint4 ids=Tets[index/4];uint local=index%4;
+   float3 r1=Rest[ids.y].xyz-Rest[ids.x].xyz,r2=Rest[ids.z].xyz-Rest[ids.x].xyz,r3=Rest[ids.w].xyz-Rest[ids.x].xyz;float det=dot(r1,cross(r2,r3));if(abs(det)<1e-10)continue;
+   float3 q1=cross(r2,r3)/det,q2=cross(r3,r1)/det,q3=cross(r1,r2)/det,q=local==0?-q1-q2-q3:local==1?q1:local==2?q2:q3;
+   float3 e1=Positions[ids.y].xyz-Positions[ids.x].xyz,e2=Positions[ids.z].xyz-Positions[ids.x].xyz,e3=Positions[ids.w].xyz-Positions[ids.x].xyz;
+   float3 f0=e1*q1.x+e2*q2.x+e3*q3.x,f1=e1*q1.y+e2*q2.y+e3*q3.y,f2=e1*q1.z+e2*q2.z+e3*q3.z;
+   float J=dot(f0,cross(f1,f2));float3 c0=cross(f1,f2),c1=cross(f2,f0),c2=cross(f0,f1);
+   float3 a=f0,b=f1,c=f2;
+   [unroll]for(uint it=0;it<8;++it){float d=dot(a,cross(b,c));if(d<=1e-8)break;float3 na=.5*(a+cross(b,c)/d),nb=.5*(b+cross(c,a)/d),nc=.5*(c+cross(a,b)/d);a=na;b=nb;c=nc;}
+   float3 L=c0*q.x+c1*q.y+c2*q.z;float vol=abs(det)/6;
+   grad+=vol*(2*mat.x*((f0-a)*q.x+(f1-b)*q.y+(f2-c)*q.z)+mat.y*(J-1)*L);
+   float diag=vol*2*mat.x*dot(q,q);h0+=float3(diag,0,0)+vol*mat.y*L.x*L;h1+=float3(0,diag,0)+vol*mat.y*L.y*L;h2+=float3(0,0,diag)+vol*mat.y*L.z*L;
+   maxStep=min(maxStep,pow(vol,1./3.)*.25);
+  }
+  float determinant=dot(h0,cross(h1,h2));float3 delta=-(cross(h1,h2)*grad.x+cross(h2,h0)*grad.y+cross(h0,h1)*grad.z)/max(determinant,1e-12);
+  delta*=min(1.,maxStep/max(length(delta),1e-12));delta=ContactGradient(x.xyz,Instance[i],delta,1);
+  if(all(isfinite(delta)))x.xyz+=delta;Positions[i]=x;return;
+ }
+ if(PassKind==18)
+ {
+  uint4 ids=SkinFaces[k];float3 a=Positions[ids.x].xyz,b=Positions[ids.y].xyz,c=Positions[ids.z].xyz;float3 delta[3];delta[0]=delta[1]=delta[2]=0;float active=0;
+  if(length(cross(b-a,c-a))>1e-8){uint2 sr=SphereRanges[Instance[ids.x]];
+   for(uint si=0;si<sr.y;++si){float4 s=Spheres[sr.x+si];s.xyz=lerp(SphereStarts[sr.x+si].xyz,s.xyz,ContactProgress);
+    float3 w=TriangleWeights(s.xyz,a,b,c);float3 q=a*w.x+b*w.y+c*w.z,d=q-s.xyz;float l=length(d);
+    if(s.w>0&&l<s.w&&l>1e-7){float den=0;[unroll]for(uint j=0;j<3;++j)den+=Positions[ids[j]].w*w[j]*w[j];
+     if(den>1e-12){float dl=(s.w-l)/den,move=0;[unroll]for(uint j=0;j<3;++j)move=max(move,dl*Positions[ids[j]].w*w[j]);
+      dl*=min(1.,.1*min(length(b-a),min(length(c-a),length(c-b)))/max(move,1e-12));
+      [unroll]for(uint j=0;j<3;++j)delta[j]+=d/l*(dl*Positions[ids[j]].w*w[j]);active=1;}}}}
+  [unroll]for(uint j=0;j<3;++j)Corrections[k*4+j]=float4(delta[j],active);return;
+ }
+ if(PassKind==17||PassKind==19)
+ {
+  uint2 range=IncidentRanges[k];float3 delta=0;float n=0;for(uint j=0;j<range.y;++j){float4 c=Corrections[IncidentSlots[range.x+j]];delta+=c.xyz;n+=c.w;}
+  VolumeGradients[k]=float4(Positions[k].w>0?delta/max(n,1.):float3(0,0,0),0);return;
+ }
+ if(PassKind==20)
+ {
+  uint4 ids=Tets[k];float3 p[4],d[4];[unroll]for(uint j=0;j<4;++j){p[j]=Positions[ids[j]].xyz;d[j]=VolumeGradients[ids[j]].xyz;}
+  float before=TetVolume(p[0],p[1],p[2],p[3]);float rest=TetVolume(Rest[ids.x].xyz,Rest[ids.y].xyz,Rest[ids.z].xyz,Rest[ids.w].xyz);float floor=min(before*.5,rest*.2),alpha=1;bool safe=false;
+  for(uint attempt=0;attempt<10;++attempt){float v=TetVolume(p[0]+alpha*d[0],p[1]+alpha*d[1],p[2]+alpha*d[2],p[3]+alpha*d[3]);if(isfinite(v)&&v>=floor){safe=true;break;}alpha*=.5;}
+  Corrections[k]=float4(safe?alpha:0,0,0,0);return;
+ }
+ if(PassKind==22){float4 p=Positions[k];p.xyz+=VolumeGradients[k].xyz*ZoneState[Regions[k]].x;Positions[k]=p;return;}
+ if(PassKind==16)
+ {
+  uint4 ids=SkinHinges[k];float3 p[4],r[4],g[4];float w[4];
+  [unroll]for(uint j=0;j<4;++j){p[j]=Positions[ids[j]].xyz;r[j]=Rest[ids[j]].xyz;w[j]=Positions[ids[j]].w;g[j]=0;}
+  float3 a=cross(p[0]-p[2],p[1]-p[2]),b=cross(p[1]-p[3],p[0]-p[3]);float l1=length(a),l2=length(b);bool valid=l1>1e-6&&l2>1e-6&&length(p[1]-p[0])>1e-6&&length(cross(r[0]-r[2],r[1]-r[2]))>1e-6&&length(cross(r[1]-r[3],r[0]-r[3]))>1e-6;
+  float dl=0;
+  if(valid){float3 n1=a/l1,n2=b/l2,e=normalize(p[1]-p[0]);float co=clamp(dot(n1,n2),-1.,1.),si=dot(cross(n2,n1),e);
+   float C=atan2(si,co)-HingeAngle(r[0],r[1],r[2],r[3]);C=atan2(sin(C),cos(C));
+   float3 u=(co*cross(e,n2)-si*n2)/l1,v=(co*cross(n1,e)-si*n1)/l2;
+   float3 ac=cross(p[1]-p[2],u),bc=cross(u,p[0]-p[2]),bd=cross(p[0]-p[3],v),ad=cross(v,p[1]-p[3]);
+   g[0]=ac+ad;g[1]=bc+bd;g[2]=-ac-bc;g[3]=-ad-bd;
+   float den=0;[unroll]for(uint j=0;j<4;++j){g[j]=ContactGradient(p[j],Instance[ids[j]],g[j],-sign(C));den+=w[j]*dot(g[j],g[j]);}
+   dl=-clamp(C*Material[ids.x].w,-.25,.25)/max(den,1e-12);float m=0;[unroll]for(uint j=0;j<4;++j)m=max(m,abs(dl)*w[j]*length(g[j]));dl*=min(1.,.05/max(m,1e-12));}
+  [unroll]for(uint j=0;j<4;++j)Corrections[k*4+j]=float4(w[j]*dl*g[j],valid?1:0);return;
+ }
  if(PassKind==8)
  {
   uint4 ids=Tets[k];float3 a=Positions[ids.x].xyz,b=Positions[ids.y].xyz,c=Positions[ids.z].xyz,d=Positions[ids.w].xyz;

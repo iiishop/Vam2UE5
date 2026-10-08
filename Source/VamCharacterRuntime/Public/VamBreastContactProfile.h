@@ -91,6 +91,8 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Contact|Bulk",meta=(ClampMin="0",ClampMax="1")) double LocalCompressionResistance=0;
     /** Dimensionless PBD skin curvature retention, separate from bulk stiffness. */
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Contact|Bulk",meta=(ClampMin="0",ClampMax="1")) double SurfaceBending=0;
+    /** GPU Jacobi hinge relaxation, not the CPU PBD authored stiffness or a tissue modulus. */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Contact|GPU",meta=(ClampMin="0",ClampMax="1")) double GPUSkinBendingRelaxation=.2;
     /** Volume increment before relaxation, in the same units as RestVolume. */
     double CompressionCorrection(double RestVolume,double CurrentVolume) const;
     double ProbeFront(const TArray<FVector>& Positions,const FTransform& Frame,const FVector& Center,double Radius,bool bPlaten,bool bBodyOnly,int32 Side) const;

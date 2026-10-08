@@ -80,7 +80,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  World->InitializeActorsForPlay(FURL());World->GetWorldSettings()->NotifyBeginPlay();
  auto* A=World->SpawnActor<AVamCharacterActor>();A->BreastContact->bEnabled=false;A->Character->RuntimeConfiguration=Config;A->LoadCharacter();
  const bool GPUVideo=FParse::Param(FCommandLine::Get(),TEXT("VamResidentGPUVideo"));
- if(GPUVideo){A->BreastContact->bUseGPU=true;A->BreastContact->bEnabled=true;}
+ if(GPUVideo){A->BreastContact->bUseGPU=!FParse::Param(FCommandLine::Get(),TEXT("VamSkinCPU"));A->BreastContact->bEnabled=true;}
  FString EvidenceDir;FParse::Value(FCommandLine::Get(),TEXT("VamContactEvidence="),EvidenceDir);
  if(!EvidenceDir.IsEmpty())IFileManager::Get().MakeDirectory(*EvidenceDir,true);
  USceneCaptureComponent2D* Capture=nullptr;
@@ -278,7 +278,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
    Center.X=Front+Radius+Gap-T*(Gap+Stroke);Probe->SetWorldLocation(Frame.TransformPosition(Center));
    const double StepStart=FPlatformTime::Seconds();Tick();const double StepMs=(FPlatformTime::Seconds()-StepStart)*1000;
    if((I>=60 && I<150) || (I>=240 && I<330))MovingContactMs.Add(StepMs);else if(I>=150 && I<240)HeldContactMs.Add(StepMs);
-   if(I==30)SaveImage(TEXT("glass-normal"));if(I==220){SaveImage(TEXT("glass-pressed"));if(!GPUVideo)CheckPress(0);else TestTrue(TEXT("Resident GPU video backend active"),A->BreastContact->Status.Contains(TEXT("GPU resident")));AddInfo(TEXT("WORLD_GLASS_CONTACT: kinematic StaticMesh sphere, no debug press sources"));
+   if(I==30)SaveImage(TEXT("glass-normal"));if(I==220){SaveImage(TEXT("glass-pressed"));if(!GPUVideo)CheckPress(0);else if(!FParse::Param(FCommandLine::Get(),TEXT("VamSkinCPU"))) TestTrue(TEXT("Resident GPU video backend active"),A->BreastContact->Status.Contains(TEXT("GPU resident")));AddInfo(TEXT("WORLD_GLASS_CONTACT: kinematic StaticMesh sphere, no debug press sources"));
     AddInfo(A->BreastContact->Diagnostics());const auto GPU=ReadGPU();double Penetration=0;
     for(int32 V=0;V<GPU.Num();++V)if(CP->SurfaceMask.IsValidIndex(V) && CP->SurfaceMask[V]>.9){const FVector WP=Breast->GetComponentTransform().TransformPosition(FVector(GPU[V]));Penetration=FMath::Max(Penetration,Radius-FVector::Distance(WP,Probe->GetComponentLocation()));}
     AddInfo(FString::Printf(TEXT("WORLD_GLASS_GPU max_vertex_penetration_cm=%.6f"),Penetration));

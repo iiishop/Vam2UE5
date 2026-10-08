@@ -80,6 +80,8 @@ FString UVamBreastContactProfile::ValidateData() const
         return TEXT("Invalid C2 calibration");
     if(!FMath::IsFinite(LocalCompressionResistance) || LocalCompressionResistance<0 || LocalCompressionResistance>1 || !FMath::IsFinite(SurfaceBending) || SurfaceBending<0 || SurfaceBending>1)
         return TEXT("Invalid local compression resistance");
+    if(!FMath::IsFinite(GPUSkinBendingRelaxation) || GPUSkinBendingRelaxation<0 || GPUSkinBendingRelaxation>1)
+        return TEXT("Invalid GPU skin bending relaxation");
     TArray<FVector> Rest;
     for(const auto& P:Particles)
     {

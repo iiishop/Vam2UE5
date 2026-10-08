@@ -11,6 +11,7 @@ struct FVamGPUContactHandle
  // Render thread only. Mesh providers retain the handle, never a mutable UObject.
  TRefCountPtr<FRDGPooledBuffer> Positions,Rest,Parents,Weights,Mask;
  uint32 Offset=0;
+ TArray<FVector4f> PreviousSpheres; // render-thread warm-start contact trajectory
  FCriticalSection DiagnosticsMutex;
  TArray<FVector4f> DiagnosticPositions,DiagnosticRest;
  uint32 BatchParticles=0,BatchInstances=0;

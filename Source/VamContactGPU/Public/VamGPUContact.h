@@ -23,14 +23,15 @@ struct FVamGPUContactResult
 // Blocking DEVELOPMENT validation only. No per-iteration readbacks.
 VAMCONTACTGPU_API bool VamRunGPUContactExperiment(const FVamGPUContactInput& Input,FVamGPUContactResult& Output);
 
-// Resident runtime path. Handles own data; render-thread work captures shared ownership.
+// Resident runtime: corotated vertex-color material, skin and persistent per-instance state.
+// The blocking legacy kernel above remains a volume/edge benchmark only.
 struct VAMCONTACTGPU_API FVamGPUContactTopology
 {
- TArray<FIntVector4> Tets, Parents;
+ TArray<FIntVector4> Tets, Parents, SkinHinges, SkinFaces;
  TArray<uint32> Regions;
  TArray<FIntPoint> SurfaceEdges;
  TArray<FVector2f> EdgeLimits;
- TArray<FVector4f> Weights;
+ TArray<FVector4f> Weights, Material; // mu, lambda, foundation stiffness, bending
  TArray<float> Mask;
 };
 struct FVamGPUContactHandle;
