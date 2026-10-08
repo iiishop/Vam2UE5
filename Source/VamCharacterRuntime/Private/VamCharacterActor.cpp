@@ -20,3 +20,6 @@ AVamCharacterActor::AVamCharacterActor()
     BreastContact = CreateDefaultSubobject<UVamBreastContactComponent>(TEXT("BreastContact"));
 }
 void AVamCharacterActor::LoadCharacter() { Character->LoadCharacter(); }
+
+void AVamCharacterActor::SetBreastContactEnabled(bool bEnabled) { if(BreastContact) BreastContact->SetContactEnabled(bEnabled); }
+bool AVamCharacterActor::IsBreastContactEnabled() const { return BreastContact && BreastContact->IsContactEnabled(); }

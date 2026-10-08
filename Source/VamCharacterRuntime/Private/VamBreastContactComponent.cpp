@@ -19,7 +19,16 @@
 #include "Engine/OverlapResult.h"
 #include "UObject/UnrealType.h"
 #include "Misc/ScopeExit.h"
+#include "HAL/IConsoleManager.h"
 #include "ProfilingDebugging/CpuProfilerTrace.h"
+
+namespace
+{
+TAutoConsoleVariable<int32> CVarContactNeoHookean(TEXT("vam.Contact.NativeNeoHookean"),0,TEXT("Experimental native GS material comparison; applies when contact initializes."));
+TAutoConsoleVariable<int32> CVarContactIterations(TEXT("vam.Contact.NativeIterations"),0,TEXT("Experimental native iteration override; zero uses Profile."));
+TAutoConsoleVariable<int32> CVarContactBoundaryVolume(TEXT("vam.Contact.BoundaryVolume"),1,TEXT("Evaluate zonal volume and gradient through the oriented closed boundary."));
+TAutoConsoleVariable<int32> CVarContactCacheStatic(TEXT("vam.Contact.CacheStaticData"),0,TEXT("Cache contact topology and per-iteration rest edge lengths."));
+}
 
 UVamBreastContactComponent::UVamBreastContactComponent()
 {
@@ -40,7 +49,13 @@ void UVamBreastContactComponent::Release()
     for(auto S:Solvers) if(S) { S->ResetSimulationProxy();S->DestroyComponent(); }
     Flesh.Reset();Solvers.Reset();InstanceAssets.Reset();Accumulator=0;CompletedSteps=0;bConstraintsAdded=false;
 }
-void UVamBreastContactComponent::ResetContact() { Release();AppliedDebugDepth=0;ShapeRevision=INDEX_NONE;bEnabled=true;Status=TEXT("Contact reset requested"); }
+void UVamBreastContactComponent::SetContactEnabled(bool bNewEnabled)
+{
+    bEnabled=bNewEnabled;
+    if(!bEnabled) { Release();AppliedDebugDepth=0;Status=TEXT("Contact disabled"); }
+    else { Status=TEXT("Contact enabled; initializes on demand"); }
+}
+void UVamBreastContactComponent::ResetContact() { Release();AppliedDebugDepth=0;ShapeRevision=INDEX_NONE;Status=bEnabled?TEXT("Contact reset requested"):TEXT("Contact disabled"); }
 void UVamBreastContactComponent::EndPlay(const EEndPlayReason::Type Reason) { Release();Super::EndPlay(Reason); }
 void UVamBreastContactComponent::SetDebugPress(int32 Side,float DepthFraction)
 {
@@ -125,8 +140,9 @@ bool UVamBreastContactComponent::Initialize()
         auto* Asset=NewObject<UFleshAsset>(this,NAME_None,RF_Transient);Asset->SetFleshCollection(MoveTemp(C));InstanceAssets.Add(Asset);
         auto* Solver=NewObject<UDeformableSolverComponent>(GetOwner(),NAME_None,RF_Transient);
         Solver->SetupAttachment(Body);Solver->SolverTiming.bDoThreadedAdvance=false;Solver->SolverTiming.NumSubSteps=1;
-        Solver->SolverTiming.NumSolverIterations=Profile->SolverIterations;Solver->SolverEvolution.SolverQuasistatics.bDoQuasistatics=true;
+        Solver->SolverTiming.NumSolverIterations=CVarContactIterations.GetValueOnGameThread()>0?FMath::Clamp(CVarContactIterations.GetValueOnGameThread(),1,64):Profile->SolverIterations;Solver->SolverEvolution.SolverQuasistatics.bDoQuasistatics=true;
         Solver->SolverConstraints.GaussSeidelConstraints.bUseGaussSeidelConstraints=true;
+        Solver->SolverConstraints.GaussSeidelConstraints.bUseGSNeohookean=CVarContactNeoHookean.GetValueOnGameThread()!=0;
         Solver->SolverForces.bEnableGravity=false;Solver->SolverCollisions.bUseFloor=false;
         Solver->RegisterComponent();Solver->SetComponentTickEnabled(false);Solvers.Add(Solver);
         auto* F=NewObject<UVamBreastContactFlesh>(GetOwner(),NAME_None,RF_Transient);F->SetupAttachment(Body);
@@ -137,6 +153,19 @@ bool UVamBreastContactComponent::Initialize()
     Collisions->RegisterComponent();Collisions->SetComponentTickEnabled(false);Collisions->EnableSimulation(Solvers[0]);
     WorldCollisions=NewObject<UDeformableCollisionsComponent>(GetOwner(),NAME_None,RF_Transient);WorldCollisions->SetupAttachment(Body);
     WorldCollisions->RegisterComponent();WorldCollisions->SetComponentTickEnabled(false);WorldCollisions->EnableSimulation(Solvers[0]);
+    // Chaos creates its particle/constraint ranges on the first advance. Warm up
+    // without collision sources so even an initially overlapping world collider
+    // sees the coupled volume constraints on its first contact step.
+    if(Profile->BuildAlgorithmVersion.Contains(TEXT("ftetwild")))
+    {
+        for(int32 I=0;I<Solvers.Num();++I)
+        {
+            auto* S=Solvers[I].Get();S->WriteToSimulation(Profile->FixedStepSeconds,false);
+            S->Simulate(Profile->FixedStepSeconds);S->ReadFromSimulation(Profile->FixedStepSeconds,false);
+            AddVolumeConstraint(S,Flesh[I]);
+        }
+        bConstraintsAdded=true;
+    }
     TArray<FVector> Base;for(const auto& P:Profile->Particles) Base.Add(P.Rest);
     TUniquePtr<FFleshCollection> Render(FFleshCollection::NewFleshCollection(Base,Profile->Tetrahedra,false));
     GeometryCollection::Facades::FTetrahedralBindings Bindings(*Render);Bindings.DefineSchema();
@@ -165,6 +194,10 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
     // touch the SAME particles as native GS and must be chained within its range.
     // Do not globally disable parallelism for unrelated characters/cloth solvers.
     if(E->ConstraintRules().Num()!=1){Status=TEXT("ERROR: Unsupported native contact constraint layout");bEnabled=false;return;}
+    // A 1 mm contact envelope covers the render/cage interpolation discrepancy.
+    // This is geometric collision thickness, not allowed volume loss.
+    if(Profile->BuildAlgorithmVersion.Contains(TEXT("ftetwild")))
+        E->SetCollisionThickness(.1,E->ParticleGroupIds()[Start]);
     const int32 Rule=0;
     auto NativeRule=MoveTemp(E->ConstraintRules()[Rule]);
     // Zonal volume conservation is a constraint INSIDE every Chaos iteration, before
@@ -199,14 +232,21 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
             TConstArrayView<float>(),TConstArrayView<float>(),TConstArrayView<float>(),TConstArrayView<float>(),
             FSolverVec2(Profile->SurfaceBending),FSolverVec2(0),FSolverVec2(Profile->SurfaceBending),FSolverVec2(0),
             FPBDBendingConstraintsBase::ERestAngleConstructionType::Use3DRestAngles,true);
-        SkinBending->ApplyProperties(Profile->FixedStepSeconds,Profile->SolverIterations);SkinBending->Init(E->Particles());
+        SkinBending->ApplyProperties(Profile->FixedStepSeconds,Solver->SolverTiming.NumSolverIterations);SkinBending->Init(E->Particles());
     }
     TArray<TArray<int32>> IncidentTets;IncidentTets.SetNum(N);
     for(int32 K=0;K<Profile->Tetrahedra.Num();++K)for(int32 J=0;J<4;++J)IncidentTets[Profile->Tetrahedra[K][J]].Add(K);
+    const bool CacheStatic=CVarContactCacheStatic.GetValueOnGameThread()!=0;
+    TArray<TArray<int32>> FaceIncident;FaceIncident.SetNum(Profile->BoundaryTriangles.Num());
+    if(CacheStatic)for(int32 F=0;F<FaceIncident.Num();++F)for(int32 J=0;J<3;++J)
+        for(int32 K:IncidentTets[Profile->BoundaryTriangles[F][J]])FaceIncident[F].AddUnique(K);
+    const bool BoundaryVolume=CVarContactBoundaryVolume.GetValueOnGameThread()!=0 && Profile->BuildAlgorithmVersion.Contains(TEXT("ftetwild"));
     TArray<FVector> Scratch;Scratch.Init(FVector::ZeroVector,N);
-    E->ConstraintRules()[Rule]=[this,Start,N,Volumes,TetRest,Scratch=MoveTemp(Scratch),NativeRule=MoveTemp(NativeRule)](Chaos::Softs::FSolverParticles& X,const Chaos::Softs::FSolverReal Dt) mutable
+    E->ConstraintRules()[Rule]=[this,Start,N,Volumes,TetRest,BoundaryVolume,Scratch=MoveTemp(Scratch),NativeRule=MoveTemp(NativeRule)](Chaos::Softs::FSolverParticles& X,const Chaos::Softs::FSolverReal Dt) mutable
     {
-        NativeRule(X,Dt);
+        { TRACE_CPUPROFILER_EVENT_SCOPE(VamContactNativeMaterial);const double T=FPlatformTime::Seconds();NativeRule(X,Dt);NativeMaterialMs+=(FPlatformTime::Seconds()-T)*1000; }
+        TRACE_CPUPROFILER_EVENT_SCOPE(VamContactVolumeConstraints);
+        const double VolumeStart=FPlatformTime::Seconds();ON_SCOPE_EXIT { VolumeConstraintMs+=(FPlatformTime::Seconds()-VolumeStart)*1000; };
         const FVector ComponentScale=Body->GetComponentScale();
         const double VolumeScale=FMath::Abs(ComponentScale.X*ComponentScale.Y*ComponentScale.Z);
         if(Profile->SchemaVersion>=2)
@@ -233,6 +273,20 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
         for(int32 Side=0;Side<2;++Side)
         {
             auto& G=Scratch;for(auto& V:G)V=FVector::ZeroVector;double Volume=0,RestVolume=Volumes[Side];
+            if(BoundaryVolume)
+            {
+                // Internal faces cancel exactly in a conforming closed tetrahedral mesh.
+                // Retain cell-wise safety below; this only changes the zonal sum.
+                const FVector Origin(X.P(Start));
+                for(const auto& F:Profile->BoundaryTriangles)if(Profile->Particles[F.X].Side==Side)
+                {
+                    const FVector A=FVector(X.P(Start+F.X))-Origin,B=FVector(X.P(Start+F.Y))-Origin,C=FVector(X.P(Start+F.Z))-Origin;
+                    const FVector GA=FVector::CrossProduct(B,C)/6,GB=FVector::CrossProduct(C,A)/6,GC=FVector::CrossProduct(A,B)/6;
+                    Volume+=FVector::DotProduct(A,GA);G[F.X]+=GA;G[F.Y]+=GB;G[F.Z]+=GC;
+                }
+            }
+            else
+            {
             for(const auto& T:Profile->Tetrahedra) if(Profile->Particles[T[0]].Side==Side)
             {
                 FVector P[4];for(int32 J=0;J<4;++J) P[J]=FVector(X.P(Start+T[J]));
@@ -240,6 +294,7 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
                 const FVector G1=FVector::CrossProduct(B,C)/6,G2=FVector::CrossProduct(C,A)/6,G3=FVector::CrossProduct(A,B)/6;
                 G[T[1]]+=G1;G[T[2]]+=G2;G[T[3]]+=G3;G[T[0]]-=G1+G2+G3;
                 Volume+=FVector::DotProduct(A,FVector::CrossProduct(B,C))/6;
+            }
             }
             // Chaos's default simulation space is world; authored rest volumes are
             // component-space cm^3. Translation/rotation do not change volume.
@@ -268,10 +323,12 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
     if(Profile->SchemaVersion>=2)
     {
         const int32 Post=E->AddPostCollisionConstraintRuleRange(1,true);
-        E->PostCollisionConstraintRules()[Post]=[this,Start,Edges,E,TetRest,SkinBending,IncidentTets](Chaos::Softs::FSolverParticles& X,const Chaos::Softs::FSolverReal Dt)
+        E->PostCollisionConstraintRules()[Post]=[this,Start,Edges,E,TetRest,SkinBending,IncidentTets,FaceIncident=MoveTemp(FaceIncident),CacheStatic](Chaos::Softs::FSolverParticles& X,const Chaos::Softs::FSolverReal Dt)
         {
             // Couple membrane strain to the ACTUAL active Chaos rigid geometry.
             // This remains inside each solver iteration, not a render-mesh correction.
+            TRACE_CPUPROFILER_EVENT_SCOPE(VamContactPostCollision);
+            const double PostStart=FPlatformTime::Seconds();ON_SCOPE_EXIT { PostContactMs+=(FPlatformTime::Seconds()-PostStart)*1000; };
             TArray<int32> Active;
             E->CollisionParticlesActiveView().RangeFor([&](Chaos::Softs::FSolverCollisionParticles& C,int32 Offset,int32 End){for(int32 I=Offset;I<End;++I)if(C.GetGeometry(I))Active.Add(I);},true);
             auto Contact=[&](int32 Particle,int32 Collider,FVector& Normal)->double
@@ -314,10 +371,13 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
             // barycentric surface contact, with no new physical degrees of freedom.
             // Closest-to-center sampling is exact for spheres on a planar triangle;
             // it supplements (does not replace) native vertex contacts for other shapes.
+            TArray<double> RestEdgeLengths;
+            if(CacheStatic){RestEdgeLengths.Reserve(Edges.Num());for(const auto& Edge:Edges)RestEdgeLengths.Add(((ShapedRest[Edge.X]-ShapedRest[Edge.Y])*Scale).Size());}
             auto ProjectFaces=[&]()
             {
-                for(const auto& Face:Profile->BoundaryTriangles)
+                for(int32 FaceIndex=0;FaceIndex<Profile->BoundaryTriangles.Num();++FaceIndex)
                 {
+                    const auto& Face=Profile->BoundaryTriangles[FaceIndex];
                     const int32 Id[3]={Start+Face.X,Start+Face.Y,Start+Face.Z};
                     if(X.InvM(Id[0])+X.InvM(Id[1])+X.InvM(Id[2])<=0)continue;
                     for(int32 Collider:Active)
@@ -341,7 +401,8 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
                         const double Limit=.1*FMath::Min3((P[1]-P[0]).Size(),(P[2]-P[0]).Size(),(P[2]-P[1]).Size());
                         double Relax=MaxMove>Limit?Limit/MaxMove:1.;
                         TArray<int32,TInlineAllocator<64>> Affected;
-                        for(int32 J=0;J<3;++J)for(int32 K:IncidentTets[Face[J]])Affected.AddUnique(K);
+                        if(CacheStatic)Affected.Append(FaceIncident[FaceIndex]);
+                        else for(int32 J=0;J<3;++J)for(int32 K:IncidentTets[Face[J]])Affected.AddUnique(K);
                         bool Safe=false;
                         for(int32 Attempt=0;Attempt<9;++Attempt)
                         {
@@ -350,7 +411,8 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
                                 for(int32 J=0;J<4;++J){Before[J]=After[J]=FVector(X.P(Start+T[J]));for(int32 Node=0;Node<3;++Node)if(T[J]==Face[Node])After[J]+=Normal*(Lambda*Relax*X.InvM(Id[Node])*W[Node]);}
                                 const double BV=FVector::DotProduct(Before[1]-Before[0],FVector::CrossProduct(Before[2]-Before[0],Before[3]-Before[0]))/6;
                                 const double AV=FVector::DotProduct(After[1]-After[0],FVector::CrossProduct(After[2]-After[0],After[3]-After[0]))/6;
-                                const double Floor=BV>0?FMath::Min(BV*.5,TetRest[K]*FMath::Abs(Scale.X*Scale.Y*Scale.Z)*.1):BV;
+                                const bool Refined=Profile->BuildAlgorithmVersion.Contains(TEXT("ftetwild"));
+                                const double Floor=BV>0?FMath::Min(BV*(Refined?1.:.5),TetRest[K]*FMath::Abs(Scale.X*Scale.Y*Scale.Z)*(Refined?.2:.1)):BV;
                                 if(!FMath::IsFinite(AV) || AV<Floor){Safe=false;break;}}
                             if(Safe)break;Relax*=.5;
                         }
@@ -359,14 +421,15 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
                     }
                 }
             };
-            for(int32 Sweep=0;Sweep<4;++Sweep)
+            const int32 ContactSweeps=Profile->BuildAlgorithmVersion.Contains(TEXT("ftetwild"))?24:4;
+            for(int32 Sweep=0;Sweep<ContactSweeps;++Sweep)
             {
                 if(Profile->SchemaVersion>=4 && Sweep==0)ProjectFaces();
                 for(int32 Index=0;Index<Edges.Num();++Index)
                 {
                     const auto& Edge=Edges[Sweep%2==0?Index:Edges.Num()-1-Index];const int32 A=Start+Edge.X,B=Start+Edge.Y;
                     const FVector D=FVector(X.P(A)-X.P(B));const double L=D.Size();if(L<1.e-8)continue;
-                    const double Rest=((ShapedRest[Edge.X]-ShapedRest[Edge.Y])*Scale).Size();
+                    const double Rest=CacheStatic?RestEdgeLengths[Sweep%2==0?Index:Edges.Num()-1-Index]:((ShapedRest[Edge.X]-ShapedRest[Edge.Y])*Scale).Size();
                     const double Support=FMath::Min(Profile->Particles[Edge.X].NippleSupport,Profile->Particles[Edge.Y].NippleSupport);
                     const double Preserve=FMath::Clamp(Profile->NippleShapePreservation*NippleShapePreservationScale*Support,0.,1.);
                     const double Lower=FMath::Lerp(Profile->SurfaceMinimumStretch,1-Profile->NippleAllowedStrain,Preserve);
@@ -391,7 +454,7 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
                     const double V=FVector::DotProduct(A,FVector::CrossProduct(B,C))/6;
                     const double RestVolume=TetRest[K]*FMath::Abs(Scale.X*Scale.Y*Scale.Z);
                     const double Barrier=FMath::Max(0.,RestVolume*Profile->CompressionBarrierRatio-V);
-                    const double Correction=Sweep==3?FMath::Max(Barrier,Profile->CompressionCorrection(RestVolume,V)*.25):Barrier;
+                    const double Correction=Sweep==ContactSweeps-1?FMath::Max(Barrier,Profile->CompressionCorrection(RestVolume,V)*.25):Barrier;
                     // Ignore sub-tolerance bulk corrections (0.01% cell volume);
                     // do not run contact queries for essentially undeformed cells.
                     if(Correction<=FMath::Max(1.e-10,RestVolume*1.e-4))continue;
@@ -404,11 +467,22 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
                     const double Limit=FMath::Pow(TetRest[K]*FMath::Abs(Scale.X*Scale.Y*Scale.Z),1./3.)*.25;if(MaxMove>Limit)Lambda*=Limit/MaxMove;
                     for(int32 J=0;J<4;++J){X.P(Start+T[J])+=Chaos::Softs::FSolverVec3(G[J]*(Lambda*X.InvM(Start+T[J])));Project(Start+T[J]);}
                 }
+                // Stop local refinement once the cell barrier has converged;
+                // difficult contacts retain the bounded iteration budget.
+                if(ContactSweeps>4 && Sweep>=3)
+                {
+                    bool Supported=true;
+                    for(int32 K=0;K<Profile->Tetrahedra.Num();++K){const auto& T=Profile->Tetrahedra[K];const FVector A(X.P(Start+T[0]));
+                        const double V=FVector::DotProduct(FVector(X.P(Start+T[1]))-A,FVector::CrossProduct(FVector(X.P(Start+T[2]))-A,FVector(X.P(Start+T[3]))-A))/6;
+                        if(!FMath::IsFinite(V) || V<TetRest[K]*FMath::Abs(Scale.X*Scale.Y*Scale.Z)*.25){Supported=false;break;}}
+                    if(Supported)break;
+                }
             }
             // End the coupled iteration with surface contact as well: volume and
             // edge constraints can move a triangle into a sphere without any
             // individual vertex penetrating it.
             if(Profile->SchemaVersion>=4)ProjectFaces();
+
         };
     }
 
@@ -417,7 +491,7 @@ void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent*
 void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FActorComponentTickFunction* TickFunction)
 {
     TRACE_CPUPROFILER_EVENT_SCOPE(VamBreastContact);
-    const double TickStart=FPlatformTime::Seconds();SolveMs=PublishMs=InitMs=0;
+    const double TickStart=FPlatformTime::Seconds();SolveMs=PublishMs=InitMs=NativeMaterialMs=VolumeConstraintMs=PostContactMs=0;
     ON_SCOPE_EXIT { TickMs=(FPlatformTime::Seconds()-TickStart)*1000; };
     Super::TickComponent(Dt,TickType,TickFunction);
     if(!GetWorld() || !GetWorld()->IsGameWorld()) return;
@@ -510,7 +584,7 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
             // This is an indenter stroke, not a claim of uniform tissue strain.
             const double Progress=FMath::Clamp(double(AppliedDebugDepth)/.05,0.,1.);
             const double Stroke=AppliedDebugDepth*Side.EffectiveDepthCm+Progress*(S.bPlaten?FMath::Max(0.,Front-BodyFront):0.);
-            Target.X=Front+(S.bPlaten?S.HalfExtentCm.X:S.RadiusCm)-Stroke;
+            Target.X=Front+(S.bPlaten?S.HalfExtentCm.X:S.RadiusCm)-Stroke+(Profile->BuildAlgorithmVersion.Contains(TEXT("ftetwild"))?.1:0.);
             const FTransform WorldFrame=Anchor*Body->GetComponentTransform();
             S.WorldCenter=WorldFrame.TransformPosition(Target);S.WorldRotation=WorldFrame.GetRotation();Collisions->Spheres.Add(S);
         }
@@ -596,6 +670,7 @@ FString UVamBreastContactComponent::Diagnostics() const
     Text+=FString::Printf(TEXT("\nBound surface prediction L %.4f R %.4f cm (CPU binding check)"),BoundSurfaceResidualCm.X,BoundSurfaceResidualCm.Y);
     for(int32 I=0;I<VolumeState.Num();++I) { const auto& V=VolumeState[I];Text+=FString::Printf(TEXT("\nSide %d cage V %.2f / %.2f cm3 error %.2f%% min J %.4f inverted %d"),I,V.CurrentVolumeCm3,V.RestVolumeCm3,V.RelativeVolumeError*100,V.MinimumTetRatio,V.InvertedTetrahedra);Text+=FString::Printf(TEXT(" max J %.3f surface stretch %.3f..%.3f"),V.MaximumTetRatio,V.MinimumSurfaceStretch,V.MaximumSurfaceStretch);Text+=FString::Printf(TEXT(" worst edge rest %.6f cm extension max %.4f cm"),V.WorstStretchRestLengthCm,V.MaximumEdgeExtensionCm);Text+=FString::Printf(TEXT(" nipple RMS strain %.5f pairs %d"),V.NippleShapeRmsStrain,V.NippleShapePairCount); }
     Text+=FString::Printf(TEXT("\nCPU ms total %.3f init %.3f solve %.3f publish %.3f | movable %d inside %d -> %d penetration %.3f -> %.3f cm"),TickMs,InitMs,SolveMs,PublishMs,MovableParticles,InsideBefore,InsideAfter,PenetrationBefore,PenetrationAfter);
+    Text+=FString::Printf(TEXT("\nSolver detail ms native %.3f volume %.3f post-contact %.3f"),NativeMaterialMs,VolumeConstraintMs,PostContactMs);
     return Text;
 }
 

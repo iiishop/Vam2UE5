@@ -231,5 +231,6 @@ FString UVamBreastContactBuilder::Build(UVamCharacterDefinition* Definition,UVam
         for(int32 J=0;J<4;++J)Bound+=P->Particles[P->SurfaceParents[I][J]].Rest*P->SurfaceWeights[I][J];
         if(FVector::Distance(Bound,Input.Vertices[RenderMap[I]])>.001)return TEXT("Refined zero-offset skin binding mismatch");}
     P->RegionProvenance+=TEXT("; C2 conforming layered interior volume; root-only foundation; conforming surface-edge refinement; interpolated skin/Morph; local compression barrier and surface strain limits; nipple material: family front-reference bone skin and family-selected real Morph delta support, side-normalized, interpolated; free-moving local shape constraints");
+    Error=RemeshFTetWild(P);if(!Error.IsEmpty())return Error;
     Error=P->ValidateData();if(Error.IsEmpty()) P->MarkPackageDirty();return Error;
 }

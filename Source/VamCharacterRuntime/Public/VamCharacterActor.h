@@ -24,5 +24,7 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<UVamActivePoseComponent> ActivePose;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<class UVamPhysicsOutputComponent> PhysicsOutput;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<class UVamBreastContactComponent> BreastContact;
+    UFUNCTION(BlueprintCallable, Category="VaM|Breast Contact") void SetBreastContactEnabled(bool bEnabled);
+    UFUNCTION(BlueprintPure, Category="VaM|Breast Contact") bool IsBreastContactEnabled() const;
     UFUNCTION(CallInEditor, BlueprintCallable, Category="VaM") void LoadCharacter();
 };

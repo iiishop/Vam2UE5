@@ -128,6 +128,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
    const FVector Eye=EvidenceCenter+EvidenceFront*(EvidenceSize*2)+EvidenceSide*(EvidenceSize*5);
    Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((EvidenceCenter-Eye).GetSafeNormal(),EvidenceUp).Rotator());Export(TEXT("-side"));Capture->SetWorldTransform(Original);}
  };
+ int32 SnapshotIndex=0;
  auto ReadGPU=[&]() -> TArray<FVector3f> {
   if(!Capture)return {};
   struct FResult { std::atomic<bool> Ready{false};TArray<FVector3f> Positions; };
@@ -136,6 +137,13 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
   TestTrue(TEXT("GPU readback request accepted"),A->Character->Body->RequestReadbackRenderGeometry(MoveTemp(Request)));
   for(int32 I=0;I<60 && !Result->Ready.load();++I)Tick();
   TestTrue(TEXT("GPU readback returned vertices"),Result->Ready.load() && !Result->Positions.IsEmpty());
+  FString SnapshotDir;
+  if(Result->Ready.load() && FParse::Value(FCommandLine::Get(),TEXT("VamContactSnapshots="),SnapshotDir))
+  {
+   IFileManager::Get().MakeDirectory(*SnapshotDir,true);
+   const auto Bytes=MakeArrayView(reinterpret_cast<const uint8*>(Result->Positions.GetData()),Result->Positions.Num()*sizeof(FVector3f));
+   TestTrue(TEXT("Save GPU comparison positions"),FFileHelper::SaveArrayToFile(Bytes,*FPaths::Combine(SnapshotDir,FString::Printf(TEXT("gpu-%02d.bin"),SnapshotIndex++))));
+  }
   return Result->Ready.load()?Result->Positions:TArray<FVector3f>();
  };
  const auto Materials=A->Character->Body->GetMaterials();
@@ -154,6 +162,22 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
   CheckMaterials();
  };
  auto Phase=[&](const TCHAR* Name){double Start=FPlatformTime::Seconds();for(int32 I=0;I<90;++I)Tick();AddInfo(FString::Printf(TEXT("CONTACT_PHASE %s frame_ms=%.3f %s"),Name,(FPlatformTime::Seconds()-Start)*1000/90,*A->BreastContact->Diagnostics()));};
+ if(FParse::Param(FCommandLine::Get(),TEXT("VamContactDisabledBenchmark")))
+ {
+  auto* Breast=CastChecked<UVamBreastSkeletalMeshComponent>(A->Character->Body);Breast->bJiggleEnabled=true;
+  A->SetBreastContactEnabled(true);A->BreastContact->SetDebugPress(0,.2f);
+  for(int I=0;I<30;++I)Tick();
+  TestTrue(TEXT("Toggle on creates solver"),A->BreastContact->GetActiveSolverCount()>0);
+  A->SetBreastContactEnabled(false);CheckIdle();
+  A->BreastContact->ResetContact();TestFalse(TEXT("Reset preserves disabled"),A->IsBreastContactEnabled());
+  TestTrue(TEXT("Toggle preserves breast Jiggle"),Breast->bJiggleEnabled);
+  for(int I=0;I<120;++I)Tick();
+  TArray<double> Samples;
+  for(int I=0;I<600;++I){const double Start=FPlatformTime::Seconds();Tick();Samples.Add((FPlatformTime::Seconds()-Start)*1000);}
+  double Sum=0;for(double V:Samples)Sum+=V;Samples.Sort();
+  AddInfo(FString::Printf(TEXT("CONTACT_DISABLED_BENCH samples=600 mean_ms=%.3f p50_ms=%.3f p95_ms=%.3f p99_ms=%.3f max_ms=%.3f Jiggle=on solvers=%d"),Sum/600,Samples[300],Samples[570],Samples[594],Samples.Last(),A->BreastContact->GetActiveSolverCount()));
+  CheckIdle();World->EndPlay(EEndPlayReason::Quit);A->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return true;
+ }
  A->BreastContact->bDebugPlaten=true; // Retain the sharp-platen regression.
  Phase(TEXT("disabled_initial"));A->BreastContact->bWorldCollision=false;A->BreastContact->bEnabled=true;Phase(TEXT("idle"));CheckIdle();SaveImage(TEXT("normal"));
  TArray<FVector3f> GPUBase;
@@ -198,7 +222,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  A->BreastContact->SetDebugPress(1,.2f);Phase(TEXT("press_right"));CheckPress(1);SaveImage(TEXT("pressed-right"));
  A->BreastContact->SetDebugPress(INDEX_NONE,0);Phase(TEXT("release"));CheckIdle();SaveImage(TEXT("released"));
  A->BreastContact->bEnabled=false;Phase(TEXT("disabled_after"));CheckIdle();
- A->BreastContact->ResetContact();A->SetActorLocation(FVector(150,220,100));A->BreastContact->SetDebugPress(0,.2f);Phase(TEXT("translated_press"));CheckPress(0);
+ A->BreastContact->ResetContact();A->SetBreastContactEnabled(true);A->SetActorLocation(FVector(150,220,100));A->BreastContact->SetDebugPress(0,.2f);Phase(TEXT("translated_press"));CheckPress(0);
  A->BreastContact->ResetContact();A->FindComponentByClass<UVamMotionComponent>()->TeleportTo(FTransform(FRotator(0,90,0),A->GetActorLocation()),World->GetTimeSeconds());Phase(TEXT("rotated_press"));CheckPress(0);
  if(Capture)
  {

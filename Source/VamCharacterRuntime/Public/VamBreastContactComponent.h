@@ -12,7 +12,10 @@ class VAMCHARACTERRUNTIME_API UVamBreastContactComponent : public UActorComponen
     GENERATED_BODY()
 public:
     UVamBreastContactComponent();
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bEnabled=true;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, BlueprintSetter=SetContactEnabled, Category="VaM|Breast Contact") bool bEnabled=true;
+    /** Disabling immediately releases contact simulation; Jiggle is unaffected. */
+    UFUNCTION(BlueprintSetter, Category="VaM|Breast Contact") void SetContactEnabled(bool bNewEnabled);
+    UFUNCTION(BlueprintPure, Category="VaM|Breast Contact") bool IsContactEnabled() const { return bEnabled; }
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bShowCage=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bShowContacts=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bWorldCollision=true;
@@ -54,6 +57,7 @@ private:
     FVector2D BoundSurfaceResidualCm=FVector2D::ZeroVector;
     int32 ActivePressSphereCount=0;
     double TickMs=0,SolveMs=0,PublishMs=0,InitMs=0;
+    double NativeMaterialMs=0,VolumeConstraintMs=0,PostContactMs=0;
     int32 InsideBefore=0,InsideAfter=0,MovableParticles=0;
     double PenetrationBefore=0,PenetrationAfter=0;
     double Accumulator=0;

@@ -8,6 +8,8 @@ class VAMRESOURCEBROWSER_API UVamBreastContactBuilder : public UBlueprintFunctio
 {
     GENERATED_BODY()
 public:
+    /** Editor-only remeshing with attachment, Morph and render-binding transfer. */
+    static FString RemeshFTetWild(class UVamBreastContactProfile* Profile);
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static FString Build(class UVamCharacterDefinition* Definition,class UVamBreastJiggleProfile* Breast,class UVamBreastContactProfile* Profile,const FString& FamilyJson);
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")

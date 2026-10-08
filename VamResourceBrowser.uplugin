@@ -13,6 +13,11 @@
   ],
   "Plugins": [
     {
+      "Name": "TetMeshing",
+      "Enabled": true,
+      "TargetAllowList": ["Editor"]
+    },
+    {
       "Name": "ChaosFlesh",
       "Enabled": true
     },

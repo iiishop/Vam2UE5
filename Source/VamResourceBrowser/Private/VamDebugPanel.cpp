@@ -518,7 +518,7 @@ TSharedRef<SWidget> BreastControls()
     for(int32 I=0;I<4;++I)
         ContactBox->AddSlot().AutoHeight()[SNew(SCheckBox)
             .IsChecked_Lambda([Contact,I](){auto* C=Contact();return C && (I==0?C->bEnabled:I==1?C->bShowCage:I==2?C->bShowContacts:C->bWorldCollision)?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
-            .OnCheckStateChanged_Lambda([Contact,I](ECheckBoxState S){if(auto* C=Contact()){bool& V=I==0?C->bEnabled:I==1?C->bShowCage:I==2?C->bShowContacts:C->bWorldCollision;V=S==ECheckBoxState::Checked;}})
+            .OnCheckStateChanged_Lambda([Contact,I](ECheckBoxState S){if(auto* C=Contact()){if(I==0) C->SetContactEnabled(S==ECheckBoxState::Checked);else {bool& V=I==1?C->bShowCage:I==2?C->bShowContacts:C->bWorldCollision;V=S==ECheckBoxState::Checked;}}})
             [SNew(STextBlock).Text(FText::FromString(ContactNames[I]))]];
     auto PressButtons=SNew(SWrapBox).UseAllottedSize(true);
     const TCHAR* PressNames[]={TEXT("按压左侧 20%"),TEXT("按压右侧 20%"),TEXT("释放按压"),TEXT("重置接触")};
