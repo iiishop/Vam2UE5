@@ -1,3 +1,7 @@
+# Resident GPU update — 2026-10-09
+
+Two-character held/moving pressure: 9.17–9.30 ms (107.6–109.1 FPS), versus native CPU 73.16–74.68 ms in the same fixture. Experimental projection material is not Chaos-material-equivalent. See BREAST_CONTACT_GPU.md and Saved/ContactGPURuntime/compare.html for quality differences, scope and raw evidence.
+
 # Breast contact performance experiments — 2026-10-08
 
 ## Scope
@@ -507,3 +511,7 @@ replicate the first held gain. Cache default was therefore restored to 0; no
 production DLL replacement. The profile script explicitly selects mode 2 for
 cache-final so the preserved experiment remains reproducible. More controlled
 ABBA repetitions are needed before claiming stable end-to-end gains.
+
+
+## GPU batch experiment (2026-10-09)
+See [BREAST_CONTACT_GPU.md](BREAST_CONTACT_GPU.md). Jacobi two-instance prototype measured 1.93-2.50ms at 48 iterations; changed material model, synchronous validation readback, no production runtime replacement or full FPS claim.

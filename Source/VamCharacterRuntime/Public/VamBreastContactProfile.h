@@ -59,6 +59,7 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Identity") FString RegionProvenance;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TSoftObjectPtr<class USkeletalMesh> Body;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TObjectPtr<class UMeshDeformer> SurfaceDeformer;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TObjectPtr<class UMeshDeformer> GPUSurfaceDeformer;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TArray<FVamBreastContactParticle> Particles;
     UPROPERTY() TArray<FIntVector4> Tetrahedra;
     UPROPERTY() TArray<FIntVector> BoundaryTriangles;

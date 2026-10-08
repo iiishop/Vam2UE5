@@ -520,6 +520,10 @@ TSharedRef<SWidget> BreastControls()
             .IsChecked_Lambda([Contact,I](){auto* C=Contact();return C && (I==0?C->bEnabled:I==1?C->bShowCage:I==2?C->bShowContacts:C->bWorldCollision)?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
             .OnCheckStateChanged_Lambda([Contact,I](ECheckBoxState S){if(auto* C=Contact()){if(I==0) C->SetContactEnabled(S==ECheckBoxState::Checked);else {bool& V=I==1?C->bShowCage:I==2?C->bShowContacts:C->bWorldCollision;V=S==ECheckBoxState::Checked;}}})
             [SNew(STextBlock).Text(FText::FromString(ContactNames[I]))]];
+    ContactBox->AddSlot().AutoHeight()[SNew(SCheckBox)
+        .IsChecked_Lambda([Contact](){auto* C=Contact();return C&&C->bUseGPU?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
+        .OnCheckStateChanged_Lambda([Contact](ECheckBoxState S){if(auto* C=Contact()){C->bUseGPU=S==ECheckBoxState::Checked;C->ResetContact();}})
+        [SNew(STextBlock).Text(FText::FromString(TEXT("GPU Contact · 实验求解（需 GPU Profile；不支持的碰撞回退 CPU）")))]];
     auto PressButtons=SNew(SWrapBox).UseAllottedSize(true);
     const TCHAR* PressNames[]={TEXT("按压左侧 20%"),TEXT("按压右侧 20%"),TEXT("释放按压"),TEXT("重置接触")};
     for(int32 I=0;I<4;++I) PressButtons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(PressNames[I]))

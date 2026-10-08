@@ -3,6 +3,7 @@
 #include "Components/ActorComponent.h"
 #include "VamBreastContactProfile.h"
 #include "VamBreastContactBackend.h"
+#include "VamGPUContact.h"
 #include "VamBreastContactComponent.generated.h"
 
 /** Per-character contact solver. Final pose is sampled after native bone publication. */
@@ -12,6 +13,8 @@ class VAMCHARACTERRUNTIME_API UVamBreastContactComponent : public UActorComponen
     GENERATED_BODY()
 public:
     UVamBreastContactComponent();
+    /** Opt-in resident GPU contact; unsupported geometry falls back to CPU. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bUseGPU=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, BlueprintSetter=SetContactEnabled, Category="VaM|Breast Contact") bool bEnabled=true;
     /** Disabling immediately releases contact simulation; Jiggle is unaffected. */
     UFUNCTION(BlueprintSetter, Category="VaM|Breast Contact") void SetContactEnabled(bool bNewEnabled);
@@ -32,10 +35,15 @@ public:
     UFUNCTION(BlueprintPure, Category="VaM|Breast Contact") FString Diagnostics() const;
     virtual void TickComponent(float DeltaTime,ELevelTick TickType,FActorComponentTickFunction* TickFunction) override;
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
-    int32 GetActiveSolverCount() const { return Solvers.Num(); }
+    int32 GetActiveSolverCount() const { return GPUHandle.IsValid()?1:Solvers.Num(); }
     double GetMaxContactResidualCm() const { return MaxContactResidualCm; }
     FVector2D GetBoundSurfaceResidualCm() const { return BoundSurfaceResidualCm; }
 private:
+    FVamGPUContactHandlePtr GPUHandle;
+    TArray<float> GPUInverseMass;
+    bool bGPUActive=false;
+    bool bGPURejected=false;
+    uint64 GPUDiagnosticFrame=0;
     bool Initialize();
     void Release();
     void AddVolumeConstraint(class UDeformableSolverComponent* Solver,UVamBreastContactFlesh* Flesh);

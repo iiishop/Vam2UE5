@@ -16,6 +16,11 @@
 #include "Engine/StaticMesh.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
+#include "ShaderCompiler.h"
+#include "Animation/MeshDeformerGeometryReadback.h"
+#include "ComputeFramework/ComputeFramework.h"
 #include "VamCharacterActor.h"
 #include "VamCharacterComponent.h"
 #include "VamRuntimeConfiguration.h"
@@ -35,12 +40,21 @@ struct FContactFrameProbe : TSharedFromThis<FContactFrameProbe>
  {
   auto* W=World.Get();if(!W)return false;
   const double Now=FPlatformTime::Seconds();const double Ms=(Now-Last)*1000;Last=Now;
+  ComputeFramework::TickCompilation(0);
+  if(GShaderCompilingManager&&GShaderCompilingManager->IsCompiling()){Frame=0;return true;}
   const int Warmup=Phase==0?180:120;
   if(Motion&&Phase==3)for(int I=0;I<Probes.Num();++I)Probes[I]->SetWorldLocation(HeldPositions[I]+Directions[I]*FMath::Sin((Now-PhaseStart)*PI));
   if(Frame==Warmup-40)
   {
    IFileManager::Get().MakeDirectory(*Directory,true);
    FScreenshotRequest::RequestScreenshot(Directory/FString::Printf(TEXT("phase-%d.png"),Phase),false,false);
+   for(int I=0;I<Actors.Num();++I)if(auto* A=Actors[I].Get())
+   {
+    auto Request=MakeUnique<FMeshDeformerGeometryReadbackRequest>();const FString File=Directory/FString::Printf(TEXT("surface-%d-%d.bin"),Phase,I);
+    Request->VertexDataArraysCallback_AnyThread=[File](const FMeshDeformerGeometryReadbackVertexDataArrays& Data){TArray<uint8> Bytes;Bytes.Append(reinterpret_cast<const uint8*>(Data.Positions.GetData()),Data.Positions.Num()*sizeof(FVector3f));FFileHelper::SaveArrayToFile(Bytes,*File);};
+    A->Character->Body->RequestReadbackRenderGeometry(MoveTemp(Request));
+   }
+
    const auto Size=GEngine->GameViewport->Viewport->GetSizeXY();
    UE_LOG(LogTemp,Display,TEXT("CONTACT_FRAME_PROBE viewport %dx%d"),Size.X,Size.Y);
   }
@@ -48,6 +62,7 @@ struct FContactFrameProbe : TSharedFromThis<FContactFrameProbe>
   {
    int Solvers=0;double Residual=0;
    for(auto A:Actors)if(A.IsValid()){Solvers+=A->BreastContact->GetActiveSolverCount();Residual=FMath::Max(Residual,A->BreastContact->GetMaxContactResidualCm());}
+   if(Frame==Warmup){FString Info;for(auto A:Actors)if(A.IsValid())Info+=A->BreastContact->Diagnostics()+TEXT("\n");FFileHelper::SaveStringToFile(Info,*(Directory/FString::Printf(TEXT("diagnostics-%d.txt"),Phase)));}
    const TCHAR* Label=Phase==0?TEXT("off_before"):Phase==1?TEXT("on_idle"):Phase==2?TEXT("on_pressed"):Motion&&Phase==3?TEXT("on_moving"):Motion&&Phase==4?TEXT("released"):TEXT("off_after");
    CSV+=FString::Printf(TEXT("%s,%d,%.6f,%d,%.6f\n"),Label,Frame-Warmup,Ms,Solvers,Residual);
   }
@@ -93,7 +108,8 @@ FAutoConsoleCommandWithWorldAndArgs ContactFrameCommand(TEXT("vam.ContactBenchma
   if(!W||!W->IsGameWorld()||!GEngine->GameViewport){UE_LOG(LogTemp,Error,TEXT("CONTACT_FRAME_PROBE requires -game viewport"));return;}
   auto Probe=MakeShared<FContactFrameProbe>();Probe->World=W;Probe->Motion=Args.Num()>1&&Args[1]==TEXT("motion");
   Probe->Directory=Args.Num()?Args[0]:FPaths::ProjectSavedDir()/TEXT("ContactTwoCharacters");
-  auto* Config=LoadObject<UVamRuntimeConfiguration>(nullptr,TEXT("/Game/VamRuntime/R_619448199d803edf1ab83af9/RC_Runtime.RC_Runtime"));
+  FString ConfigPath=TEXT("/Game/VamRuntime/R_619448199d803edf1ab83af9/RC_Runtime.RC_Runtime");FParse::Value(FCommandLine::Get(),TEXT("VamBreastTestConfig="),ConfigPath);
+  auto* Config=LoadObject<UVamRuntimeConfiguration>(nullptr,*ConfigPath);
   UClass* Class=LoadClass<AVamCharacterActor>(nullptr,TEXT("/Game/VamRuntime/R_619448199d803edf1ab83af9/BP_VamCharacter.BP_VamCharacter_C"));
   if(!Config||!Class){UE_LOG(LogTemp,Error,TEXT("CONTACT_FRAME_PROBE missing assets"));GEngine->Exec(W,TEXT("quit"));return;}
   // Read-only actual profile export for the separate matrix preflight.

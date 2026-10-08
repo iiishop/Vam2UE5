@@ -13,6 +13,8 @@ public:
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static FString Build(class UVamCharacterDefinition* Definition,class UVamBreastJiggleProfile* Breast,class UVamBreastContactProfile* Profile,const FString& FamilyJson);
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
+    static FString BuildGPUDeformer(class UVamBreastContactProfile* Profile,const FString& AssetPath);
+    UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static FString BuildDeformer(class UVamBreastContactProfile* Profile,const FString& AssetPath);
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static class UVamCharacterDefinition* RefineRenderSurface(const FString& Root, class UVamCharacterDefinition* Definition, class UVamBreastJiggleProfile* Breast, class UVamBreastContactProfile* Profile, class UVamGluteStructureProfile* Glute, class UVamLegJiggleProfile* Leg, FString& Error);

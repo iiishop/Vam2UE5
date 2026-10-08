@@ -15,7 +15,9 @@
     {
       "Name": "TetMeshing",
       "Enabled": true,
-      "TargetAllowList": ["Editor"]
+      "TargetAllowList": [
+        "Editor"
+      ]
     },
     {
       "Name": "ChaosFlesh",
@@ -49,6 +51,11 @@
     }
   ],
   "Modules": [
+    {
+      "Name": "VamContactGPU",
+      "Type": "Runtime",
+      "LoadingPhase": "PostConfigInit"
+    },
     {
       "Name": "VamCharacterRuntime",
       "Type": "Runtime",

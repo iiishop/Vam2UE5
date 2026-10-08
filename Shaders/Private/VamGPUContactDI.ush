@@ -1,0 +1,19 @@
+uint DI_NAME_NumVertices;
+uint DI_NAME_ParticleOffset;
+StructuredBuffer<float4> DI_NAME_Positions;
+StructuredBuffer<float4> DI_NAME_Rest;
+StructuredBuffer<int4> DI_NAME_Parents;
+StructuredBuffer<float4> DI_NAME_Weights;
+StructuredBuffer<float> DI_NAME_Mask;
+uint ReadNumVertices_DI_NAME(){return DI_NAME_NumVertices;}
+float ReadMask_DI_NAME(uint I){return I<DI_NAME_NumVertices?DI_NAME_Mask[I]:0;}
+int4 ReadParents_DI_NAME(uint I){return DI_NAME_Parents[I];}
+float4 ReadWeights_DI_NAME(uint I){return DI_NAME_Weights[I];}
+float3 ReadOffset_DI_NAME(uint I){return 0;}
+float3 GetEmbeddedPos_DI_NAME(uint I)
+{
+ if(I>=DI_NAME_NumVertices||DI_NAME_Mask[I]<=0)return 0;
+ int4 P=DI_NAME_Parents[I];float4 W=DI_NAME_Weights[I];float3 D=0;
+ [unroll]for(uint J=0;J<4;++J)if(P[J]>=0){uint K=uint(P[J])+DI_NAME_ParticleOffset;D+=(DI_NAME_Positions[K].xyz-DI_NAME_Rest[K].xyz)*W[J];}
+ return D;
+}

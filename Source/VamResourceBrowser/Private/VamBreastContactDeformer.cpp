@@ -1,5 +1,6 @@
 #include "VamBreastContactBuilder.h"
 #include "VamBreastContactProfile.h"
+#include "VamGPUContactDataInterface.h"
 #include "OptimusDeformer.h"
 #include "OptimusNodeGraph.h"
 #include "OptimusNode.h"
@@ -163,7 +164,7 @@ KERNEL
     }
     if(Patched!=1 || NormalKernels!=1 || !Deformer->Compile()) return TEXT("Contact GPU graph compilation failed");
     Deformer->SetFlags(RF_Public|RF_Standalone);FAssetRegistryModule::AssetCreated(Deformer);Deformer->MarkPackageDirty();
-    Profile->SurfaceDeformer=Deformer;Profile->MarkPackageDirty();return FString();
+    Profile->SurfaceDeformer=Deformer;Profile->MarkPackageDirty();return BuildGPUDeformer(Profile,AssetPath+TEXT("_GPU"));
 }
 
 FString UVamBreastContactBuilder::InspectDeformer(UVamBreastContactProfile* Profile)
@@ -177,4 +178,29 @@ FString UVamBreastContactBuilder::InspectDeformer(UVamBreastContactProfile* Prof
             for(auto* Peer:Pin->GetConnectedPins())Out+=TEXT("  LINK ")+Peer->GetPinPath()+TEXT("\n");}
     }
     return Out;
+}
+
+FString UVamBreastContactBuilder::BuildGPUDeformer(UVamBreastContactProfile* Profile,const FString& Path)
+{
+ if(!Profile||!Profile->bResidualOnlySurface)return TEXT("GPU contact requires residual-only profile");
+ if(FPackageName::DoesPackageExist(Path)||FindPackage(nullptr,*Path))return TEXT("GPU deformer destination must be new");
+ auto* Source=Cast<UOptimusDeformer>(Profile->SurfaceDeformer);if(!Source)return TEXT("CPU deformer absent");
+ auto* D=DuplicateObject<UOptimusDeformer>(Source,CreatePackage(*Path),*FPackageName::GetLongPackageAssetName(Path));int Replaced=0;
+ for(auto* G:D->GetGraphs())for(auto* Node:TArray<UOptimusNode*>(G->GetAllNodes()))
+ {
+  auto* Embedded=Node->FindPin(TEXT("EmbeddedPos"));if(!Embedded || Embedded->GetDirection()!=EOptimusNodePinDirection::Output)continue;
+  auto* New=G->AddDataInterfaceNode(UVamGPUContactDataInterface::StaticClass(),FVector2D(-700,600));if(!New)return TEXT("GPU data interface creation failed");
+  struct FLink{UOptimusNodePin* A;UOptimusNodePin* B;};TArray<FLink> Links;
+  for(auto* Pin:Node->GetPins())for(auto* Peer:Pin->GetConnectedPins())
+  {
+   UOptimusNodePin* Replacement=New->FindPin(Pin->GetPinNamePath().Last().ToString());
+   if(!Replacement && Pin->GetDirection()==EOptimusNodePinDirection::Input)for(auto* Candidate:New->GetPins())if(Candidate->GetDirection()==EOptimusNodePinDirection::Input){Replacement=Candidate;break;}
+   if(!Replacement)return TEXT("GPU deformer pin mismatch");
+   Links.Add(Pin->GetDirection()==EOptimusNodePinDirection::Input?FLink{Peer,Replacement}:FLink{Replacement,Peer});
+  }
+  if(!G->RemoveNode(Node))return TEXT("GPU old data interface removal failed");
+  for(auto L:Links)if(!G->AddLink(L.A,L.B))return TEXT("GPU binding reconnect failed");++Replaced;
+ }
+ if(Replaced!=1||!D->Compile())return TEXT("GPU deformer compilation failed");
+ D->SetFlags(RF_Public|RF_Standalone);FAssetRegistryModule::AssetCreated(D);D->MarkPackageDirty();Profile->GPUSurfaceDeformer=D;Profile->MarkPackageDirty();return FString();
 }

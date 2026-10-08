@@ -18,6 +18,7 @@
 #include "DrawDebugHelpers.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/OverlapResult.h"
+#include "PhysicsEngine/BodySetup.h"
 #include "UObject/UnrealType.h"
 #include "Misc/ScopeExit.h"
 #include "HAL/IConsoleManager.h"
@@ -25,6 +26,7 @@
 
 namespace
 {
+TAutoConsoleVariable<int32> CVarContactGPU(TEXT("vam.Contact.GPU"),0,TEXT("1 opts into resident GPU contact for profiles with GPU deformer; unsupported collisions use CPU"));
 TAutoConsoleVariable<int32> CVarContactRestMetrics(TEXT("vam.Contact.RestMetrics"),0,TEXT("Cache immutable per-cell displacement limits by component volume scale. Reset to apply."));
 TAutoConsoleVariable<int32> CVarContactGSBatch(TEXT("vam.Contact.NativeGSBatch"),1,TEXT("Private fTetWild contact native GS batch; 0 uses original engine owner, 5 original batch. Reset to apply."));
 TAutoConsoleVariable<int32> CVarContactNativeXPBD(TEXT("vam.Contact.NativeXPBD"),0,TEXT("Experimental UE XPBD corotated solver comparison; changes convergence, reset to apply."));
@@ -43,7 +45,8 @@ UVamBreastContactComponent::UVamBreastContactComponent()
 }
 void UVamBreastContactComponent::Release()
 {
-    if(Body && SurfaceProducer) { if(bPreviousDeformerOverride) Body->SetMeshDeformer(PreviousDeformer);else Body->UnsetMeshDeformer(); }
+    if(Body && (SurfaceProducer || GPUHandle)) { if(bPreviousDeformerOverride) Body->SetMeshDeformer(PreviousDeformer);else Body->UnsetMeshDeformer(); }
+    if(GPUHandle){VamGPUUnregister(Body);GPUHandle.Reset();}bGPUActive=false;GPUInverseMass.Reset();GPUDiagnosticFrame=0;
     PreviousDeformer=nullptr;MaxContactResidualCm=0;ActivePressSphereCount=0;
     BoundSurfaceResidualCm=FVector2D::ZeroVector;VolumeState.Reset();
     InsideBefore=InsideAfter=MovableParticles=0;PenetrationBefore=PenetrationAfter=0;
@@ -62,7 +65,7 @@ void UVamBreastContactComponent::SetContactEnabled(bool bNewEnabled)
     if(!bEnabled) { Release();AppliedDebugDepth=0;Status=TEXT("Contact disabled"); }
     else { Status=TEXT("Contact enabled; initializes on demand"); }
 }
-void UVamBreastContactComponent::ResetContact() { Release();AppliedDebugDepth=0;ShapeRevision=INDEX_NONE;Status=bEnabled?TEXT("Contact reset requested"):TEXT("Contact disabled"); }
+void UVamBreastContactComponent::ResetContact() { bGPURejected=false;Release();AppliedDebugDepth=0;ShapeRevision=INDEX_NONE;Status=bEnabled?TEXT("Contact reset requested"):TEXT("Contact disabled"); }
 void UVamBreastContactComponent::EndPlay(const EEndPlayReason::Type Reason) { Release();Super::EndPlay(Reason); }
 void UVamBreastContactComponent::SetDebugPress(int32 Side,float DepthFraction)
 {
@@ -109,6 +112,26 @@ bool UVamBreastContactComponent::Initialize()
             X+=CurrentPose[B].TransformPosition(ReferenceCS[B].InverseTransformPosition(ShapedRest[I]))*P.Weights[J];}ShapedRest[I]=X;}
     ReferenceCS=CurrentPose;
     if(!Profile->MeasureVolume(ShapedRest,ShapedRest,RestCheck)){Status=TEXT("Current pose invalidates contact rest volume");return false;}
+    if(bGPUActive)
+    {
+        FVamGPUContactTopology Topology;Topology.Tets=Profile->Tetrahedra;Topology.Parents=Profile->SurfaceParents;Topology.Weights=Profile->SurfaceWeights;Topology.Mask=Profile->SurfaceMask;
+        for(const auto& P:Profile->Particles)Topology.Regions.Add(P.Side);
+        TSet<uint64> SeenEdges;
+        for(const auto& Face:Profile->BoundaryTriangles)for(int J=0;J<3;++J)
+        {
+            const int A=FMath::Min(Face[J],Face[(J+1)%3]),B=FMath::Max(Face[J],Face[(J+1)%3]);const uint64 Key=(uint64(A)<<32)|uint32(B);if(SeenEdges.Contains(Key))continue;SeenEdges.Add(Key);
+            const double Preserve=FMath::Clamp(Profile->NippleShapePreservation*NippleShapePreservationScale*FMath::Min(Profile->Particles[A].NippleSupport,Profile->Particles[B].NippleSupport),0.,1.);
+            Topology.SurfaceEdges.Add(FIntPoint(A,B));Topology.EdgeLimits.Add(FVector2f(FMath::Lerp(Profile->SurfaceMinimumStretch,1-Profile->NippleAllowedStrain,Preserve),FMath::Lerp(Profile->SurfaceMaximumStretch,1+Profile->NippleAllowedStrain,Preserve)));
+        }
+        GPUHandle=VamGPURegister(Body,MoveTemp(Topology));
+        GPUInverseMass.Init(0,N);for(const auto& T:Profile->Tetrahedra){const float M=Profile->SignedTetVolume(ShapedRest,T)*Profile->DensityKgPerCm3/4;for(int J=0;J<4;++J)GPUInverseMass[T[J]]+=M;}
+        for(int I=0;I<N;++I)GPUInverseMass[I]=Profile->Particles[I].bKinematic?0:1/FMath::Max(GPUInverseMass[I],float(Profile->MinimumMovableMassKg));
+        Collisions=NewObject<UVamBreastContactCollisions>(this,NAME_None,RF_Transient);
+        PreviousDeformer=Body->GetComponentMeshDeformer();const auto* OverrideProperty=FindFProperty<FBoolProperty>(USkinnedMeshComponent::StaticClass(),TEXT("bSetMeshDeformer"));
+        bPreviousDeformerOverride=OverrideProperty&&OverrideProperty->GetPropertyValue_InContainer(Body);
+        Body->SetMeshDeformer(Profile->GPUSurfaceDeformer);AddTickPrerequisiteComponent(Body);
+        ShapeRevision=Character->GetShapeState().Revision;Generation=Character->GetLoadGeneration();Status=TEXT("GPU contact initialized");return true;
+    }
     TArray<FVector> Points=ShapedRest;Points.Append(ShapedRest); // weak targets are kinematic ghost particles
     for(int32 Pass=0;Pass<1;++Pass)
     {
@@ -599,10 +622,21 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
         NearbyWorld=!Sources.IsEmpty();
     }
     if(DebugSide==INDEX_NONE && PressSpheres.IsEmpty() && !NearbyWorld)
-    { if(!Solvers.IsEmpty()) Release();Status=TEXT("Contact idle: no sources; native skinning; zero solver steps");return; }
+    { if(!Solvers.IsEmpty() || GPUHandle) Release();Status=TEXT("Contact idle: no sources; native skinning; zero solver steps");return; }
     AppliedDebugDepth=FMath::FInterpConstantTo(AppliedDebugDepth,DebugDepth,Dt,.4f);
     if(bReleasingDebug && AppliedDebugDepth<=KINDA_SMALL_NUMBER){DebugSide=INDEX_NONE;bReleasingDebug=false;}
-    if(Solvers.IsEmpty()) { const double T=FPlatformTime::Seconds();const bool Ready=Initialize();InitMs=(FPlatformTime::Seconds()-T)*1000;if(!Ready)return; }
+    bool SupportedGPU=Profile && Profile->GPUSurfaceDeformer && Profile->bResidualOnlySurface && !bDebugPlaten;
+    for(const auto& S:PressSpheres)SupportedGPU&=!S.bPlaten;
+    for(const auto& Source:Sources)if(Source.IsValid())
+    {
+        const auto* Setup=Source->GetBodySetup();const FVector Scale=Source->GetComponentScale().GetAbs();
+        SupportedGPU&=Setup && Setup->AggGeom.SphereElems.Num()>0 && Setup->AggGeom.GetElementCount()==Setup->AggGeom.SphereElems.Num() && Scale.GetMax()-Scale.GetMin()<.001;
+    }
+    const FVector GPUScale=Body->GetComponentScale();
+    SupportedGPU &= GPUScale.GetMin()>0 && GPUScale.GetMax()-GPUScale.GetMin()<.001;
+    const bool WantGPU=!bGPURejected && (bUseGPU || CVarContactGPU.GetValueOnGameThread()!=0)&&SupportedGPU;
+    if((GPUHandle || !Solvers.IsEmpty()) && WantGPU!=bGPUActive)Release();
+    if(Solvers.IsEmpty() && !GPUHandle) { bGPUActive=WantGPU;const double T=FPlatformTime::Seconds();const bool Ready=Initialize();InitMs=(FPlatformTime::Seconds()-T)*1000;if(!Ready)return; }
     const int32 N=Profile->Particles.Num();
     for(auto F:Flesh) F->InputPose=Body->GetComponentSpaceTransforms();
     TArray<FVector> AnimatedRest;AnimatedRest.SetNum(N);
@@ -618,8 +652,8 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
         AnimatedRest[I]=P;
     }
     Collisions->Spheres=PressSpheres;
-    for(const auto& Old:WorldSources) if(Old.IsValid() && !Sources.Contains(Old)) WorldCollisions->RemoveStaticMeshComponent(Old.Get());
-    for(const auto& Source:Sources) if(!WorldSources.Contains(Source)) WorldCollisions->AddStaticMeshComponent(Source.Get());
+    if(WorldCollisions)for(const auto& Old:WorldSources) if(Old.IsValid() && !Sources.Contains(Old)) WorldCollisions->RemoveStaticMeshComponent(Old.Get());
+    if(WorldCollisions)for(const auto& Source:Sources) if(!WorldSources.Contains(Source)) WorldCollisions->AddStaticMeshComponent(Source.Get());
     WorldSources=MoveTemp(Sources);
     if(auto* Breast=Cast<UVamBreastSkeletalMeshComponent>(Body)) if(Breast->RestSides.IsValidIndex(DebugSide))
     {
@@ -663,6 +697,38 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
     }
     ActivePressSphereCount=Collisions->Spheres.Num();
     if(bShowContacts)for(const auto& S:Collisions->Spheres){if(S.bPlaten)DrawDebugBox(GetWorld(),S.WorldCenter,S.HalfExtentCm,S.WorldRotation,FColor::Orange,false,0);else DrawDebugSphere(GetWorld(),S.WorldCenter,S.RadiusCm,20,FColor::Orange,false,0);}
+    if(bGPUActive && GPUHandle)
+    {
+        TArray<FVector4f> Rest,Spheres;Rest.Reserve(N);
+        for(int I=0;I<N;++I)Rest.Add(FVector4f(FVector3f(AnimatedRest[I]),GPUInverseMass[I]));
+        const auto BodyWorld=Body->GetComponentTransform();
+        for(const auto& S:Collisions->Spheres)Spheres.Add(FVector4f(FVector3f(BodyWorld.InverseTransformPosition(S.WorldCenter)),S.RadiusCm/BodyWorld.GetScale3D().GetAbsMax()));
+        for(const auto& Source:WorldSources)if(Source.IsValid())for(const auto& S:Source->GetBodySetup()->AggGeom.SphereElems)
+        {
+            const FVector Center=Source->GetComponentTransform().TransformPosition(S.Center);
+            const float Radius=S.Radius*Source->GetComponentScale().GetAbsMax()/BodyWorld.GetScale3D().GetAbsMax();
+            Spheres.Add(FVector4f(FVector3f(BodyWorld.InverseTransformPosition(Center)),Radius));
+        }
+        TArray<FVector4f> Starts;
+        for(auto S:Spheres)
+        {
+            FVector COM=FVector::ZeroVector;double Best=DBL_MAX;
+            if(auto* Breast=Cast<UVamBreastSkeletalMeshComponent>(Body))for(const auto& Side:Breast->RestSides)if(FinalPose.IsValidIndex(Side.AnchorBone)){
+                const FVector C=FinalPose[Side.AnchorBone].TransformPosition(Side.COM);const double D=(FVector(FVector3f(S))-C).SizeSquared();if(D<Best){Best=D;COM=C;}}
+            const FVector Direction=(FVector(FVector3f(S))-COM).GetSafeNormal();
+            Starts.Add(FVector4f(FVector3f(FVector(FVector3f(S))+Direction*S.W*4),S.W));
+        }
+        ActivePressSphereCount=Spheres.Num();VamGPUUpdate(GPUHandle,MoveTemp(Rest),MoveTemp(Spheres),MoveTemp(Starts));++CompletedSteps;
+        Status=VamGPUDiagnostics(GPUHandle,MaxContactResidualCm);
+        TArray<FVector> DiagnosticRest,DiagnosticCurrent;const uint64 Frame=VamGPUReadDiagnostic(GPUHandle,DiagnosticRest,DiagnosticCurrent);
+        if(Frame>GPUDiagnosticFrame && DiagnosticRest.Num()==N && DiagnosticCurrent.Num()==N){GPUDiagnosticFrame=Frame;
+            bool Safe=Profile->MeasureVolume(DiagnosticRest,DiagnosticCurrent,VolumeState);
+            for(const FVector& P:DiagnosticCurrent)Safe &= !P.ContainsNaN();
+            for(const auto& V:VolumeState)Safe &= V.InvertedTetrahedra==0;
+            if(!Safe){for(const auto& V:VolumeState)UE_LOG(LogTemp,Warning,TEXT("GPU_SAFETY frame=%llu volume=%g rest=%g minJ=%g inversions=%d"),Frame,V.CurrentVolumeCm3,V.RestVolumeCm3,V.MinimumTetRatio,V.InvertedTetrahedra);bGPURejected=true;Release();Status=TEXT("GPU numerical safety rejected output; CPU fallback on next tick; Reset to retry");return;}}
+        if(bShowCage&&DiagnosticCurrent.Num()==N)for(const auto& T:Profile->BoundaryTriangles)for(int J=0;J<3;++J)DrawDebugLine(GetWorld(),BodyWorld.TransformPosition(DiagnosticCurrent[T[J]]),BodyWorld.TransformPosition(DiagnosticCurrent[T[(J+1)%3]]),FColor::Cyan,false,0,0,.3f);
+        return;
+    }
     auto MeasurePress=[&](bool After)
     {
         int32& Count=After?InsideAfter:InsideBefore;double& Depth=After?PenetrationAfter:PenetrationBefore;
@@ -729,6 +795,7 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
     SurfaceProducer->UpdateFromSimulation(&RenderBuffer);Status=TEXT("Chaos contact active (one-way world simple collision + press spheres)");
     for(const auto& V:VolumeState) if(FMath::Abs(V.RelativeVolumeError)>Profile->VolumeErrorTolerance || V.MinimumTetRatio<Profile->MinimumSupportedTetRatio)
         Status=TEXT("Contact active: volume/compression tolerance exceeded; reduce penetration");
+    if((bUseGPU || CVarContactGPU.GetValueOnGameThread()!=0)&&!bGPUActive)Status+=TEXT(" | GPU fallback: missing profile, unsupported geometry, or numerical safety latch");
     PublishMs=(FPlatformTime::Seconds()-PublishStart)*1000;
     if(bShowCage) for(const auto& T:Profile->BoundaryTriangles) for(int32 J=0;J<3;++J)
         DrawDebugLine(GetWorld(),Body->GetComponentTransform().TransformPosition(Current[T[J]]),Body->GetComponentTransform().TransformPosition(Current[T[(J+1)%3]]),FColor::Cyan,false,0,0,.3f);
@@ -739,9 +806,10 @@ FString UVamBreastContactComponent::Diagnostics() const
     FString Text=GetOwner()->GetPathName()+FString::Printf(TEXT(" | world %s | solvers %d | deformer %d\n"),*GetWorld()->GetName(),Solvers.Num(),Body && Body->HasMeshDeformer()?1:0)+Status+FString::Printf(TEXT("\nSteps %d | residual from final animated skin | no additional gravity"),CompletedSteps);
     if(Profile)Text+=FString::Printf(TEXT("\nContact schema %d particles %d tetrahedra %d"),Profile->SchemaVersion,Profile->Particles.Num(),Profile->Tetrahedra.Num());
     Text+=FString::Printf(TEXT("\nPress spheres %d | selected side %d | max contact residual %.4f cm"),ActivePressSphereCount,DebugSide,MaxContactResidualCm);
-    Text+=FString::Printf(TEXT("\nBound surface prediction L %.4f R %.4f cm (CPU binding check)"),BoundSurfaceResidualCm.X,BoundSurfaceResidualCm.Y);
+    if(!bGPUActive)Text+=FString::Printf(TEXT("\nBound surface prediction L %.4f R %.4f cm (CPU binding check)"),BoundSurfaceResidualCm.X,BoundSurfaceResidualCm.Y);
     for(int32 I=0;I<VolumeState.Num();++I) { const auto& V=VolumeState[I];Text+=FString::Printf(TEXT("\nSide %d cage V %.2f / %.2f cm3 error %.2f%% min J %.4f inverted %d"),I,V.CurrentVolumeCm3,V.RestVolumeCm3,V.RelativeVolumeError*100,V.MinimumTetRatio,V.InvertedTetrahedra);Text+=FString::Printf(TEXT(" max J %.3f surface stretch %.3f..%.3f"),V.MaximumTetRatio,V.MinimumSurfaceStretch,V.MaximumSurfaceStretch);Text+=FString::Printf(TEXT(" worst edge rest %.6f cm extension max %.4f cm"),V.WorstStretchRestLengthCm,V.MaximumEdgeExtensionCm);Text+=FString::Printf(TEXT(" nipple RMS strain %.5f pairs %d"),V.NippleShapeRmsStrain,V.NippleShapePairCount); }
-    Text+=FString::Printf(TEXT("\nCPU ms total %.3f init %.3f solve %.3f publish %.3f | movable %d inside %d -> %d penetration %.3f -> %.3f cm"),TickMs,InitMs,SolveMs,PublishMs,MovableParticles,InsideBefore,InsideAfter,PenetrationBefore,PenetrationAfter);
+    if(bGPUActive)Text+=FString::Printf(TEXT("\nGPU async cage diagnostics; surface penetration not measured | component CPU %.3f ms"),TickMs);
+    else Text+=FString::Printf(TEXT("\nCPU ms total %.3f init %.3f solve %.3f publish %.3f | movable %d inside %d -> %d penetration %.3f -> %.3f cm"),TickMs,InitMs,SolveMs,PublishMs,MovableParticles,InsideBefore,InsideAfter,PenetrationBefore,PenetrationAfter);
     Text+=FString::Printf(TEXT("\nSolver detail ms native %.3f volume %.3f post-contact %.3f"),NativeMaterialMs,VolumeConstraintMs,PostContactMs);
     return Text;
 }

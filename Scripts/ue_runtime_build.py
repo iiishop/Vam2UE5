@@ -75,9 +75,9 @@ def inputs(recipe_path):
     require(u.VamShapeAnimInstance.supports_base_animation(mesh,base),'Base animation must use exact skeleton and be an in-place non-additive clip')
     files=source_closure([definition,mapping,base])
     algorithms={}
-    for base in ('Source/VamCharacterRuntime','Source/VamResourceBrowser'):
+    for base in ('Source/VamCharacterRuntime','Source/VamResourceBrowser','Source/VamContactGPU','Shaders'):
         for file in sorted((SCRIPTS.parent/base).rglob('*')):
-            if file.is_file() and file.suffix in ('.h','.cpp','.cs'):
+            if file.is_file() and file.suffix in ('.h','.cpp','.cs','.usf','.ush'):
                 algorithms[str(file.relative_to(SCRIPTS.parent))]=hashlib.sha256(file.read_bytes()).hexdigest()
     for name in ('vam_runtime_recipe.py','ue_runtime_build.py','ue_stage06_materials.py','vam_glute_corrective_source.py'):
         algorithms['Scripts/'+name]=hashlib.sha256((SCRIPTS/name).read_bytes()).hexdigest()
@@ -222,7 +222,8 @@ def reload_and_publish(recipe_path,report_path):
         contact=load(receipt['breast_contact'],u.VamBreastContactProfile)
         require(config.get_editor_property('breast_contact')==contact,'Contact profile reference mismatch')
         require(not contact.validate_data(),'Contact cage reload validation failed')
-        require(contact.get_editor_property('surface_deformer') is not None,'Contact GPU graph missing after reload')
+        require(contact.get_editor_property('surface_deformer') is not None,'Contact surface graph missing after reload')
+        require(contact.get_editor_property('gpu_surface_deformer') is not None,'Resident GPU contact graph missing after reload')
     glute=load(receipt['glute_structure'],u.VamGluteStructureProfile)
     require(config.get_editor_property('glute_structure')==glute,'Glute profile reference mismatch')
     error=u.VamGluteStructureBuilder.validate(definition,glute)

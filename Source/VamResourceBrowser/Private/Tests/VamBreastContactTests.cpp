@@ -37,6 +37,7 @@
 #include "Materials/MaterialExpressionConstant3Vector.h"
 #include "Materials/MaterialExpressionFresnel.h"
 #include "AssetCompilingManager.h"
+#include "ComputeFramework/ComputeFramework.h"
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamContactBulkTest,"Vam.Breast.ContactBulk",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FVamContactBulkTest::RunTest(const FString&)
 {
@@ -78,6 +79,8 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(World);
  World->InitializeActorsForPlay(FURL());World->GetWorldSettings()->NotifyBeginPlay();
  auto* A=World->SpawnActor<AVamCharacterActor>();A->BreastContact->bEnabled=false;A->Character->RuntimeConfiguration=Config;A->LoadCharacter();
+ const bool GPUVideo=FParse::Param(FCommandLine::Get(),TEXT("VamResidentGPUVideo"));
+ if(GPUVideo){A->BreastContact->bUseGPU=true;A->BreastContact->bEnabled=true;}
  FString EvidenceDir;FParse::Value(FCommandLine::Get(),TEXT("VamContactEvidence="),EvidenceDir);
  if(!EvidenceDir.IsEmpty())IFileManager::Get().MakeDirectory(*EvidenceDir,true);
  USceneCaptureComponent2D* Capture=nullptr;
@@ -90,7 +93,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
   Capture=NewObject<USceneCaptureComponent2D>(A);Capture->TextureTarget=Target;Capture->CaptureSource=SCS_FinalColorLDR;Capture->PostProcessSettings.bOverride_AutoExposureMethod=true;Capture->PostProcessSettings.AutoExposureMethod=AEM_Manual;Capture->PostProcessSettings.bOverride_AutoExposureBias=true;Capture->PostProcessSettings.AutoExposureBias=0;Capture->bCaptureEveryFrame=false;Capture->bCaptureOnMovement=false;Capture->RegisterComponent();
   Capture->SetWorldLocationAndRotation(FVector(300,0,100),FRotator(0,180,0));
  }
- auto Tick=[&](){++GFrameCounter;FTSTicker::GetCoreTicker().Tick(1.f/60);FTickableGameObject::TickObjects(nullptr,LEVELTICK_All,false,1.f/60);World->Tick(LEVELTICK_All,1.f/60);if(Capture){World->SendAllEndOfFrameUpdates();Capture->CaptureScene();FlushRenderingCommands();}};
+ auto Tick=[&](){ComputeFramework::TickCompilation(0);++GFrameCounter;FTSTicker::GetCoreTicker().Tick(1.f/60);FTickableGameObject::TickObjects(nullptr,LEVELTICK_All,false,1.f/60);World->Tick(LEVELTICK_All,1.f/60);if(Capture){World->SendAllEndOfFrameUpdates();Capture->CaptureScene();FlushRenderingCommands();}};
  for(int32 I=0;I<15;++I){FlushAsyncLoading();Tick();}
  FVector EvidenceCenter,EvidenceFront,EvidenceUp,EvidenceSide;double EvidenceSize=0;
  if(Capture)
@@ -180,6 +183,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
   AddInfo(FString::Printf(TEXT("CONTACT_DISABLED_BENCH samples=600 mean_ms=%.3f p50_ms=%.3f p95_ms=%.3f p99_ms=%.3f max_ms=%.3f Jiggle=on solvers=%d"),Sum/600,Samples[300],Samples[570],Samples[594],Samples.Last(),A->BreastContact->GetActiveSolverCount()));
   CheckIdle();World->EndPlay(EEndPlayReason::Quit);A->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return true;
  }
+ if(!GPUVideo){
  A->BreastContact->bDebugPlaten=true; // Retain the sharp-platen regression.
  Phase(TEXT("disabled_initial"));A->BreastContact->bWorldCollision=false;A->BreastContact->bEnabled=true;Phase(TEXT("idle"));CheckIdle();SaveImage(TEXT("normal"));
  TArray<FVector3f> GPUBase;
@@ -226,6 +230,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  A->BreastContact->bEnabled=false;Phase(TEXT("disabled_after"));CheckIdle();
  A->BreastContact->ResetContact();A->SetBreastContactEnabled(true);A->SetActorLocation(FVector(150,220,100));A->BreastContact->SetDebugPress(0,.2f);Phase(TEXT("translated_press"));CheckPress(0);
  A->BreastContact->ResetContact();A->FindComponentByClass<UVamMotionComponent>()->TeleportTo(FTransform(FRotator(0,90,0),A->GetActorLocation()),World->GetTimeSeconds());Phase(TEXT("rotated_press"));CheckPress(0);
+ }
  if(Capture)
  {
   A->FindComponentByClass<UVamMotionComponent>()->TeleportTo(FTransform::Identity,World->GetTimeSeconds());
@@ -273,7 +278,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
    Center.X=Front+Radius+Gap-T*(Gap+Stroke);Probe->SetWorldLocation(Frame.TransformPosition(Center));
    const double StepStart=FPlatformTime::Seconds();Tick();const double StepMs=(FPlatformTime::Seconds()-StepStart)*1000;
    if((I>=60 && I<150) || (I>=240 && I<330))MovingContactMs.Add(StepMs);else if(I>=150 && I<240)HeldContactMs.Add(StepMs);
-   if(I==30)SaveImage(TEXT("glass-normal"));if(I==220){SaveImage(TEXT("glass-pressed"));CheckPress(0);AddInfo(TEXT("WORLD_GLASS_CONTACT: kinematic StaticMesh sphere, no debug press sources"));
+   if(I==30)SaveImage(TEXT("glass-normal"));if(I==220){SaveImage(TEXT("glass-pressed"));if(!GPUVideo)CheckPress(0);else TestTrue(TEXT("Resident GPU video backend active"),A->BreastContact->Status.Contains(TEXT("GPU resident")));AddInfo(TEXT("WORLD_GLASS_CONTACT: kinematic StaticMesh sphere, no debug press sources"));
     AddInfo(A->BreastContact->Diagnostics());const auto GPU=ReadGPU();double Penetration=0;
     for(int32 V=0;V<GPU.Num();++V)if(CP->SurfaceMask.IsValidIndex(V) && CP->SurfaceMask[V]>.9){const FVector WP=Breast->GetComponentTransform().TransformPosition(FVector(GPU[V]));Penetration=FMath::Max(Penetration,Radius-FVector::Distance(WP,Probe->GetComponentLocation()));}
     AddInfo(FString::Printf(TEXT("WORLD_GLASS_GPU max_vertex_penetration_cm=%.6f"),Penetration));
