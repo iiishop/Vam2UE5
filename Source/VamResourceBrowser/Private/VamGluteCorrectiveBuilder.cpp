@@ -2,6 +2,7 @@
 #include "VamGluteCorrectiveAudit.h"
 #include "VamGluteCorrectiveGeometry.h"
 #include "VamGluteSkinningResidual.h"
+#include "VamGluteCorrectiveDetail.h"
 #include "Misc/SecureHash.h"
 #include <cmath>
 
@@ -61,7 +62,7 @@ void AddMorph(FVamNativeMeshInput& I,UVamGluteCorrectiveProfile& P,const FVamGlu
 }
 }
 
-bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBuildInfluence>& OriginalInfluences,const TArray<int32>& Ids,const UVamGluteStructureProfile& G,UVamGluteCorrectiveProfile& P,const FString& FamilyJson,FString& Error)
+bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBuildInfluence>& OriginalInfluences,const TArray<int32>& Ids,const UVamGluteStructureProfile& G,UVamGluteCorrectiveProfile& P,const FString& FamilyJson,FString& Error,FVamGluteCorrectiveDetail* Detail)
 {
     using namespace VamGluteGeometry;auto Fail=[&](const FString& Why){Error=Why;return false;};TSharedPtr<FJsonObject> Family;
     if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(FamilyJson),Family)) return Fail(TEXT("Invalid corrective family JSON"));
@@ -101,6 +102,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     {
         const auto& S=G.Sides[Side];const auto& SS=Surface[Side];const FTransform Anchor=S.AnchorLocal*Bind[S.PelvisBone];P.BuildDimensions.Add(S.Dimensions);
         auto RefSide=MakeShared<FJsonObject>();RefSide->SetArrayField(TEXT("dimensions"),JsonVec(S.Dimensions));RefSide->SetNumberField(TEXT("volume"),S.EffectiveVolumeCm3);RefSide->SetNumberField(TEXT("support_area"),S.SupportAreaCm2);TArray<TSharedPtr<FJsonValue>> RefTargets;
+        if(Detail)Detail->Begin(Side,0,P.Targets.Num());
         SourceNative[Side].SetNum(P.Targets.Num());ProcNative[Side].SetNum(P.Targets.Num());TargetSkin[Side].SetNum(P.Targets.Num());Stage[Side].SetNum(P.Targets.Num());RawFields[Side].SetNum(P.Targets.Num());AdaptFields[Side].SetNum(P.Targets.Num());ReferenceFields[Side].SetNum(P.Targets.Num());
         FVector Mean0=FVector::ZeroVector,Mean1=FVector::ZeroVector,V0=FVector::ZeroVector,V1=FVector::ZeroVector;double Total=0;
         for(int32 V=0;V<Ids.Num();++V) if(SourcePositions.IsValidIndex(Ids[V])) { const double W=SS.RegionWeights[V];Mean0+=Anchor.InverseTransformPosition(SourcePositions[Ids[V]])*W;Mean1+=S.RegionPoints[V]*W;Total+=W; }
@@ -120,6 +122,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
                 if(const auto* D=RawMap.Find(Ids[V])) Raw[V]=Anchor.InverseTransformVectorNoScale(*D)*Driver;
                 if(const auto* D=SourceMap.Find(Ids[V])) Adapt[V]=Anchor.InverseTransformVectorNoScale(*D)*Scale*Driver;
             }
+            if(Detail){Detail->Field(Detail->Key(Side,Target,TEXT("raw_source_local")),Raw,TEXT("anchor_local_delta_cm"));Detail->Field(Detail->Key(Side,Target,TEXT("adapted_source_local")),Adapt,TEXT("anchor_local_delta_cm"));}
             Capture(TEXT("01_raw_source"),Raw);Capture(TEXT("02_mapped_adapted_source"),Adapt);RawFields[Side][Target]=Raw;AdaptFields[Side][Target]=Adapt;
             const auto RefPosed=Apply(RefSkin,[&](){auto F=Adapt;for(auto& V:F) V=Anchor.TransformVectorNoScale(V);return F;}());ReferenceFields[Side][Target]=RefPosed;
             Capture(TEXT("reference_source_posed"),Local(RefPosed,Anchor));
@@ -182,9 +185,10 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             }
             Weld(NS,Aliases);Weld(NP,Aliases);
             Capture(TEXT("07_source_preskin_before_safety"),NS);
+            if(Detail){Detail->Project(Side,Target,TEXT("source_before"),NS,Skin,Anchor);Detail->Project(Side,Target,TEXT("procedural_before"),NP,Skin,Anchor);Detail->SourceSafety[Side][Target].Init(1,Ids.Num());}
             auto Combined=NS;for(int32 V=0;V<Ids.Num();++V) Combined[V]+=NP[V];TArray<double> Safety;
             if(!Condition(I,Skin,Combined,Aliases,Safety)) return Fail(TEXT("Target local safety did not converge"));
-            for(int32 V=0;V<Ids.Num();++V) { NS[V]*=Safety[V];NP[V]*=Safety[V]; }
+            for(int32 V=0;V<Ids.Num();++V) { NS[V]*=Safety[V];NP[V]*=Safety[V];if(Detail)Detail->SourceSafety[Side][Target][V]*=Safety[V]; }
         }
         RefSide->SetArrayField(TEXT("targets"),RefTargets);ReferenceSides.Add(MakeShared<FJsonValueObject>(RefSide));
     }
@@ -214,18 +218,19 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
                 {
                     const double Contribution=(SourceNative[S][T][V]+ProcNative[S][T][V]).Size()*W[T];
                     if(Contribution<Max*.05) continue;
-                    const double Factor=FMath::Pow(Safety[V],Contribution/Max);SourceNative[S][T][V]*=Factor;ProcNative[S][T][V]*=Factor;
+                    const double Factor=FMath::Pow(Safety[V],Contribution/Max);SourceNative[S][T][V]*=Factor;ProcNative[S][T][V]*=Factor;if(Detail)Detail->SourceSafety[S][T][V]*=Factor;
                 }
             }
         }
         Audit->SetNumberField(TEXT("blend_safety_iterations"),Iteration+1);if(!Changed) break;if(Iteration==63) return Fail(TEXT("Target-aware blended safety failed convergence"));
     }
     FTargetFields SkinningResidual;
-    if(!BuildSkinningResidual(I,G,P,Bind,Aliases,SourceNative,ProcNative,SkinningResidual,*Audit)) return Fail(TEXT("Skinning residual safety failed; output not published"));
+    if(!BuildSkinningResidual(I,G,P,Bind,Aliases,SourceNative,ProcNative,SkinningResidual,*Audit,Detail)) return Fail(TEXT("Skinning residual safety failed; output not published"));
     P.Provenance+=TEXT(" Local rotation-blend minus LBS residual; fixed source contribution; baked GPU Morphs.");
     for(int32 Side=0;Side<2;++Side) for(int32 Target=1;Target<P.Targets.Num();++Target)
     {
         const auto& S=G.Sides[Side];const auto& SS=Surface[Side];const FTransform Anchor=S.AnchorLocal*Bind[S.PelvisBone];auto& St=Stage[Side][Target];const auto& Skin=TargetSkin[Side][Target];auto Native=SourceNative[Side][Target];for(int32 V=0;V<Ids.Num();++V) Native[V]+=ProcNative[Side][Target][V]+SkinningResidual[Side][Target][V];
+        if(Detail){Detail->Project(Side,Target,TEXT("source"),SourceNative[Side][Target],Skin,Anchor);Detail->Project(Side,Target,TEXT("procedural"),ProcNative[Side][Target],Skin,Anchor);Detail->Project(Side,Target,TEXT("residual"),SkinningResidual[Side][Target],Skin,Anchor);Detail->Project(Side,Target,TEXT("final"),Native,Skin,Anchor);Detail->Scalar(Detail->Key(Side,Target,TEXT("source_procedural_safety")),Detail->SourceSafety[Side][Target]);Detail->Scalar(Detail->Key(Side,Target,TEXT("residual_safety")),Detail->ResidualSafety[Side][Target]);}
         const auto Residual=Local(Apply(Skin,SkinningResidual[Side][Target]),Anchor);
         St->SetObjectField(TEXT("12_skinning_residual"),VamGluteAudit::Regions(Residual,SS,Ids));
         const auto SF=Local(Apply(Skin,SourceNative[Side][Target]),Anchor),PF=Local(Apply(Skin,ProcNative[Side][Target]),Anchor),Final=Local(Apply(Skin,Native),Anchor);

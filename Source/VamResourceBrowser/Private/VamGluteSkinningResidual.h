@@ -3,6 +3,7 @@
 #include "VamGluteCorrectiveProfile.h"
 #include "VamGluteCorrectiveAudit.h"
 #include <cmath>
+#include "VamGluteCorrectiveDetail.h"
 
 namespace VamGluteGeometry
 {
@@ -15,7 +16,7 @@ inline FVector SafetyProbe(const UVamGluteCorrectiveProfile& P,int32 Step)
 }
 // Separate from source Morph fidelity. Safety can reduce this residual, never
 // the already validated source/procedural fields supplied as Fixed.
-inline bool BuildSkinningResidual(const FVamNativeMeshInput& I,const UVamGluteStructureProfile& G,const UVamGluteCorrectiveProfile& P,const TArray<FTransform>& Bind,const TMap<int32,TArray<int32>>& Aliases,const FTargetFields& Source,const FTargetFields& Procedural,FTargetFields& Residual,FJsonObject& Audit)
+inline bool BuildSkinningResidual(const FVamNativeMeshInput& I,const UVamGluteStructureProfile& G,const UVamGluteCorrectiveProfile& P,const TArray<FTransform>& Bind,const TMap<int32,TArray<int32>>& Aliases,const FTargetFields& Source,const FTargetFields& Procedural,FTargetFields& Residual,FJsonObject& Audit,FVamGluteCorrectiveDetail* Detail=nullptr)
 {
     Residual.SetNum(2);double MaxRegion=0;for(int32 V=0;V<I.Vertices.Num();++V) MaxRegion=FMath::Max(MaxRegion,double(G.Sides[0].RegionWeights[V]+G.Sides[1].RegionWeights[V]));
     for(int32 S=0;S<2;++S)
@@ -37,6 +38,7 @@ inline bool BuildSkinningResidual(const FVamNativeMeshInput& I,const UVamGluteSt
                 if(L>1.e-12) R[V]*=Remaining>1.e-12?Remaining*std::tanh(L/Remaining)/L:0;
             }
             Weld(R,Aliases);
+            if(Detail){Detail->ResidualSafety[S][T].Init(1,R.Num());Detail->Project(S,T,TEXT("residual_before"),R,M,G.Sides[S].AnchorLocal*Bind[G.Sides[S].PelvisBone]);}
         }
     }
     for(int32 Iteration=0;Iteration<64;++Iteration)
@@ -67,7 +69,7 @@ inline bool BuildSkinningResidual(const FVamNativeMeshInput& I,const UVamGluteSt
                 }
             }
             for(const auto& Pair:Aliases) { double F=1;for(int32 V:Pair.Value) F=FMath::Min(F,Factors[V]);for(int32 V:Pair.Value) Factors[V]=F; }
-            for(int32 V=0;V<Factors.Num();++V) Residual[S][T][V]*=Factors[V];
+            for(int32 V=0;V<Factors.Num();++V) {Residual[S][T][V]*=Factors[V];if(Detail)Detail->ResidualSafety[S][T][V]*=Factors[V];}
         }
         for(int32 Side=0;Side<3;++Side) for(int32 Step=0;Step<72;++Step)
         {
@@ -80,7 +82,7 @@ inline bool BuildSkinningResidual(const FVamNativeMeshInput& I,const UVamGluteSt
             {
                 double Maximum=0;for(int32 S=0;S<2;++S) if(Side==2 || S==Side) for(int32 T=1;T<W.Num();++T) Maximum=FMath::Max(Maximum,Residual[S][T][V].Size()*W[T]);
                 if(Maximum<1.e-16) continue;Changed=true;
-                for(int32 S=0;S<2;++S) if(Side==2 || S==Side) for(int32 T=1;T<W.Num();++T) { const double C=Residual[S][T][V].Size()*W[T];if(C>=Maximum*.05) Residual[S][T][V]*=FMath::Pow(Safety[V],C/Maximum); }
+                for(int32 S=0;S<2;++S) if(Side==2 || S==Side) for(int32 T=1;T<W.Num();++T) { const double C=Residual[S][T][V].Size()*W[T];if(C>=Maximum*.05){const double F=FMath::Pow(Safety[V],C/Maximum);Residual[S][T][V]*=F;if(Detail)Detail->ResidualSafety[S][T][V]*=F;} }
             }
         }
         Audit.SetNumberField(TEXT("skinning_residual_safety_iterations"),Iteration+1);

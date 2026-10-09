@@ -18,6 +18,8 @@ public:
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static FString Validate(class UVamCharacterDefinition* Definition,class UVamGluteStructureProfile* Profile);
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
+    static FString ExportCorrectiveDiagnostics(class UVamCharacterDefinition* Definition,class UVamGluteStructureProfile* Glute,class UVamLegJiggleProfile* Leg,class UVamBreastJiggleProfile* Breast,class UVamGluteCorrectiveProfile* Corrective,const FString& Directory);
+    UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static FString SpatialAudit(class UVamCharacterDefinition* Definition,class UVamGluteStructureProfile* Profile);
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static FString SurfaceTransferAudit(class UVamCharacterDefinition* Definition,class UVamGluteStructureProfile* Glute,class UVamBreastJiggleProfile* Breast);

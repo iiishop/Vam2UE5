@@ -51,3 +51,25 @@ The opt-in `Vam.Glute.FinalCorrective` automation test takes `-VamFinalCorrectiv
 
 - Recaptured 18 states / 288 PNGs with the new BP. All A2/B1 cameras and local bone matrices match exactly; suspended-seat shape parameters match. Seated contact remains blocked (`Current pose invalidates contact rest volume`); lower glute/thigh folding remains visible.
 - B1 binaries installed after acceptance, hashes matched to isolated build; previous binaries retained in `Saved/LowerBodyContact/BeforeB1Install`.
+
+## B2: corrective attribution
+
+`VamGluteStructureBuilder.ExportCorrectiveDiagnostics` (editor/Python/Blueprint) validates the final-data seal, prepares the same actual weights and original influences as B1, and reruns the existing G062 builder into a transient profile. It refuses to publish diagnostic metadata if this decomposition differs from the sealed authored targets by more than 0.001 cm. It never saves or replaces the source mesh/profile.
+
+Use `Scripts/run_corrective_diagnostics.py --project <uproject> --configuration <RC path> --blueprint <BP generated-class path> --output <new directory>`. This exports the bake fields, runs the actual BP pose suite, and generates a report. For an already captured suite, `Scripts/report_corrective_diagnostics.py <output> --suite <suite directory>` replays without UE. Requires numpy, matplotlib, scipy and Pillow.
+
+- `fields/detail.json` identifies the actual definition/profile/data seal, authored interpolation targets, and all 72 safety probes. Synthetic probes (including 130-degree combinations) are explicitly NOT VaM captured shape targets. Verified Bend Fix/thigh-X source provenance does not turn every interpolated target into an independent VaM reference.
+- `.f32` fields are little-endian float32 in full input-vertex order. Raw/adapted source uses anchor-local cm; projected source/procedural/rotation residual/final fields use pre-skin cm with separate axis bases. Before fields are after their respective masks/limits/smoothing, before safety. Safety scalars accumulate the actual factors from target, blended-pose and residual conditioning, rather than estimating safety from a final RMS ratio.
+- The existing instance `Export Deformation Audit` now includes `corrective_runtime`: enabled state, actual swing-twist degrees, all native G062 target weights, and requested basis weights. Captured `active_morphs` is authoritative for reconstructing the actual output. No RBF or swing-twist implementation is duplicated in Python.
+- `components.npz` per pose contains separate posed source/procedural/residual/final displacement arrays, before-safety arrays, the actual final morph delta, baseline/final surfaces, render mapping/triangles and ROI masks. `targets.csv` contains every target, including inactive targets, raw-source magnitude, actual axis weights and per-region exact safety factors. `regions.csv` includes local extrema/worst vertices, coverage and cancellation.
+- Inspection ROIs cover anterior hip, lateral glute and glute-thigh transition independently of the corrective mask, so uncovered tissue stays visible. These are engineering Gaussian ROIs, not anatomical truth. Definition/widths are recorded in detail.json. Numerical statistics deduplicate source aliases and include zero-displacement vertices.
+- Plots are explicitly diagnostic projections. Actual UE captures are separate. `regional-contours.json` measures rasterized triangle-union boundary changes in each captured camera/ROI bounding box; occluded regions can have zero visible silhouette change despite vertex displacement. Resolution is the captured 768 pixels, not a subpixel claim.
+- Heatmap magnitude-loss proxies include cancellation and must not be read as exact safety factors. Exact per-target factors are in the table/CSV and `.f32` arrays.
+
+### B2 measured results (2026-10-09)
+
+Evidence: `Saved/LowerBodyContact/B2/compare.html`. Same sealed B1 asset, no anatomy/physics parameter changes. All 18 poses / 288 native images recaptured. Recomputed targets differ from sealed targets by at most `1.5856872636705748e-14 cm`; decomposition vs actual captured final morph differs by at most `0.00012228045660803334 cm`.
+
+In suspended-seat, actual left/right Flex90 target weights are `0.9999837982 / 0.9999852658`. Anterior hip engineering ROI mean masks are about 0.0192/0.0193, with weighted mask>0.001 coverage 17.8%/19.5%. In the lateral ROI source contribution is zero; procedural maxima are 0.335/0.402 cm, residual maxima 2.877/3.066 cm. This distinguishes missing source coverage from failure to activate a target. Safety attenuation exists, particularly in the residual; it is not the sole explanation. Seated contact remains blocked by invalid posed rest volume.
+
+B2 diagnostics binaries compiled and installed; all 7 installed DLL/PDB/module hashes match the isolated build. Previous binaries are in `Saved/LowerBodyContact/BeforeB2Install`. Regional contour report contains 216 camera/ROI measurements; suspended-seat anterior-hip side contour changes 0 pixels while the glute/thigh contour changes visibly.

@@ -1,6 +1,8 @@
 #include "VamGluteStructureBuilder.h"
 #include "VamGluteCorrectiveBuilder.h"
 #include "VamGluteCorrectiveAudit.h"
+#include "VamGluteCorrectiveDetail.h"
+#include "VamGluteSkinningResidual.h"
 #include "VamGluteCorrectiveGeometry.h"
 #include "VamBreastJiggleBuilder.h"
 #include "VamLegJiggleProfile.h"
@@ -31,6 +33,22 @@ bool ActualWeights(USkeletalMesh* M,FVamNativeMeshInput& I,const TArray<int32>& 
     const auto Old=I.Influences;I.Influences.Reset();for(const auto& F:Old)if(!Seen.Contains(F.Vertex))I.Influences.Add(F);
     for(int V:Seen){TArray<int32> Keys;Rows[V].GetKeys(Keys);Keys.Sort();for(int B:Keys){FVamBuildInfluence F;F.Vertex=V;F.Bone=B;F.Weight=Rows[V][B]/65535.f;I.Influences.Add(F);}}return true;
 }
+bool PrepareFinal(UVamCharacterDefinition* D,UVamCharacterDefinition* Original,UVamGluteStructureProfile* G,FVamNativeMeshInput& I,TArray<FVamBuildInfluence>& OriginalWeights,TArray<int32>& Ids,FString& Error)
+{
+    auto Fail=[&](const FString& Why){Error=Why;return false;};
+    auto* Shape=D->Shape.LoadSynchronous();auto* Geometry=Shape?Shape->Geometry.LoadSynchronous():nullptr;FVamNativeMeshInput Source;
+    if(!Geometry||!UVamBreastJiggleBuilder::ExtractNative(D->Body.LoadSynchronous(),I,Error)||!UVamBreastJiggleBuilder::ExtractNative(Original->Body.LoadSynchronous(),Source,Error))return false;
+    if(Source.Bones.Num()!=G->SourceBoneCount)return Fail(TEXT("Original influence asset must precede Glute/Leg helper insertion"));
+    if(!ActualWeights(D->Body.LoadSynchronous(),I,Geometry->RenderToInput,Error))return false;
+    I.Morphs.RemoveAll([](const auto& M){return M.Name.ToString().StartsWith(TEXT("G06_"));});
+    TArray<TMap<int32,double>> OriginalRows;OriginalRows.SetNum(Source.Vertices.Num());for(const auto& W:Source.Influences)OriginalRows[W.Vertex].Add(W.Bone,W.Weight);
+    if(Source.Vertices.Num()>I.Vertices.Num())return Fail(TEXT("Original influence topology exceeds final mesh"));
+    for(int V=Source.Vertices.Num();V<I.Vertices.Num();++V){if(!Geometry->RenderRefinementParents.IsValidIndex(V))return Fail(TEXT("Missing deterministic refinement ancestry for original influences"));const auto E=Geometry->RenderRefinementParents[V];if(E.X<0||E.Y<0||E.X>=V||E.Y>=V)return Fail(TEXT("Invalid refinement ancestry"));TMap<int32,double> Row;for(const auto& W:OriginalRows[E.X])Row.FindOrAdd(W.Key)+=W.Value*.5;for(const auto& W:OriginalRows[E.Y])Row.FindOrAdd(W.Key)+=W.Value*.5;OriginalRows.Add(MoveTemp(Row));}
+    OriginalWeights.Reset();for(int V=0;V<OriginalRows.Num();++V)for(const auto& W:OriginalRows[V]){FVamBuildInfluence F;F.Vertex=V;F.Bone=W.Key;F.Weight=W.Value;OriginalWeights.Add(F);}
+    // Generated refinement vertices have no source id: never weld every -1 together.
+    Ids=Geometry->InputToSource;for(int V=0;V<Ids.Num();++V)if(Ids[V]<0)Ids[V]=-2-V;
+    return true;
+}
 FString ReplayFinal(UVamCharacterDefinition* D,UVamGluteStructureProfile* G,UVamGluteCorrectiveProfile* P)
 {
     using namespace VamGluteGeometry;
@@ -59,17 +77,8 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::BuildCorrective(const FStrin
 {
     Error.Reset();auto Fail=[&](const FString& Why)->UVamCharacterDefinition*{Error=Why;return nullptr;};
     if(!D||!Original||!G||!P||!Contact||D==Original)return Fail(TEXT("Final corrective requires retained, distinct original influence asset"));
-    auto* Shape=D->Shape.LoadSynchronous();auto* Geometry=Shape?Shape->Geometry.LoadSynchronous():nullptr;FVamNativeMeshInput I,Source;
-    if(!Geometry||!UVamBreastJiggleBuilder::ExtractNative(D->Body.LoadSynchronous(),I,Error)||!UVamBreastJiggleBuilder::ExtractNative(Original->Body.LoadSynchronous(),Source,Error))return nullptr;
-    if(Source.Bones.Num()!=G->SourceBoneCount)return Fail(TEXT("Original influence asset must precede Glute/Leg helper insertion"));
-    if(!ActualWeights(D->Body.LoadSynchronous(),I,Geometry->RenderToInput,Error))return nullptr;
-    I.Morphs.RemoveAll([](const auto& M){return M.Name.ToString().StartsWith(TEXT("G06_"));});
-    TArray<TMap<int32,double>> OriginalRows;OriginalRows.SetNum(Source.Vertices.Num());for(const auto& W:Source.Influences)OriginalRows[W.Vertex].Add(W.Bone,W.Weight);
-    if(Source.Vertices.Num()>I.Vertices.Num())return Fail(TEXT("Original influence topology exceeds final mesh"));
-    for(int V=Source.Vertices.Num();V<I.Vertices.Num();++V){if(!Geometry->RenderRefinementParents.IsValidIndex(V))return Fail(TEXT("Missing deterministic refinement ancestry for original influences"));const auto E=Geometry->RenderRefinementParents[V];if(E.X<0||E.Y<0||E.X>=V||E.Y>=V)return Fail(TEXT("Invalid refinement ancestry"));TMap<int32,double> Row;for(const auto& W:OriginalRows[E.X])Row.FindOrAdd(W.Key)+=W.Value*.5;for(const auto& W:OriginalRows[E.Y])Row.FindOrAdd(W.Key)+=W.Value*.5;OriginalRows.Add(MoveTemp(Row));}
-    TArray<FVamBuildInfluence> OriginalWeights;for(int V=0;V<OriginalRows.Num();++V)for(const auto& W:OriginalRows[V]){FVamBuildInfluence F;F.Vertex=V;F.Bone=W.Key;F.Weight=W.Value;OriginalWeights.Add(F);}
-    // Generated refinement vertices have no source id: never weld every -1 together.
-    auto Ids=Geometry->InputToSource;for(int V=0;V<Ids.Num();++V)if(Ids[V]<0)Ids[V]=-2-V;
+    auto* Shape=D->Shape.LoadSynchronous();auto* Geometry=Shape?Shape->Geometry.LoadSynchronous():nullptr;FVamNativeMeshInput I;TArray<FVamBuildInfluence> OriginalWeights;TArray<int32> Ids;
+    if(!PrepareFinal(D,Original,G,I,OriginalWeights,Ids,Error))return nullptr;
     P->OriginalInfluenceDefinition=Original;P->SourceFamilyJson=FamilyJson;
     if(!VamGluteCorrectiveBuilder::Build(I,OriginalWeights,Ids,*G,*P,FamilyJson,Error))return nullptr;
     auto* Mesh=UVamNativeBuilder::BuildMesh(Root+TEXT("/SK_Body"),I,Error);if(!Mesh)return nullptr;
@@ -102,4 +111,31 @@ FString UVamGluteStructureBuilder::SealCorrective(UVamCharacterDefinition* D,UVa
 FString UVamGluteStructureBuilder::ValidateCorrective(UVamCharacterDefinition* D,UVamGluteStructureProfile* G,UVamLegJiggleProfile* L,UVamBreastJiggleProfile* B,UVamGluteCorrectiveProfile* P)
 {
     if(!P)return TEXT("Missing corrective");const FString Error=P->ValidateFinalData(D,G,L,B);return Error.IsEmpty()?ReplayFinal(D,G,P):Error;
+}
+
+FString UVamGluteStructureBuilder::ExportCorrectiveDiagnostics(UVamCharacterDefinition* D,UVamGluteStructureProfile* G,UVamLegJiggleProfile* L,UVamBreastJiggleProfile* B,UVamGluteCorrectiveProfile* P,const FString& Directory)
+{
+    if(!D||!P||!G||Directory.IsEmpty())return TEXT("Missing B2 diagnostic input");
+    FString Error=P->ValidateFinalData(D,G,L,B);if(!Error.IsEmpty())return Error;
+    FVamNativeMeshInput I;TArray<FVamBuildInfluence> OriginalWeights;TArray<int32> Ids;
+    if(!PrepareFinal(D,P->OriginalInfluenceDefinition.LoadSynchronous(),G,I,OriginalWeights,Ids,Error))return Error;
+    auto* Scratch=DuplicateObject<UVamGluteCorrectiveProfile>(P,GetTransientPackage());FVamGluteCorrectiveDetail Detail(Directory);
+    if(!VamGluteCorrectiveBuilder::Build(I,OriginalWeights,Ids,*G,*Scratch,P->SourceFamilyJson,Error,&Detail))return Error;
+    double ReplayError=0;if(Scratch->AuthoredReplay.Num()!=P->AuthoredReplay.Num())return TEXT("B2 target count differs from baked asset");
+    for(int T=0;T<P->AuthoredReplay.Num();++T){const auto& A=P->AuthoredReplay[T];const auto& C=Scratch->AuthoredReplay[T];if(A.PosedDelta.Num()!=C.PosedDelta.Num())return TEXT("B2 topology differs");for(int V=0;V<A.PosedDelta.Num();++V)ReplayError=FMath::Max(ReplayError,(A.PosedDelta[V]-C.PosedDelta[V]).Size());}
+    if(ReplayError>.001)return FString::Printf(TEXT("B2 decomposition no longer matches sealed bake: %.9g cm"),ReplayError);
+    Detail.Meta->SetNumberField(TEXT("rebake_max_error_cm"),ReplayError);Detail.Meta->SetStringField(TEXT("definition"),D->GetPathName());Detail.Meta->SetStringField(TEXT("profile"),P->GetPathName());Detail.Meta->SetStringField(TEXT("provenance"),P->Provenance);
+    Detail.Meta->SetStringField(TEXT("scope"),TEXT("Reused G062 bake, swing-twist/RBF runtime weights. Raw source is verified Bend Fix mapping / thigh-X reference, NOT independently measured VaM shapes for every target. 130-degree combinations below are safety probes only. Safety scalars are exact accumulated multiplicative factors; before fields are after masking/limits/smoothing and before safety."));
+    auto Seal=MakeShared<FJsonObject>();for(const auto& K:P->FinalDataDigests)Seal->SetStringField(K.Key,K.Value);Detail.Meta->SetObjectField(TEXT("final_data_seal"),Seal);
+    Detail.Field(TEXT("rest_positions"),I.Vertices,TEXT("input_bind_position_cm"));TArray<TSharedPtr<FJsonValue>> Targets,Bases,Probes,Sides;
+    for(int T=0;T<P->Targets.Num();++T){auto O=MakeShared<FJsonObject>();O->SetNumberField(TEXT("index"),T);O->SetStringField(TEXT("name"),P->Targets[T].Name.ToString());O->SetStringField(TEXT("kind"),TEXT("authored_interpolation_target_not_independent_VaM_capture"));O->SetArrayField(TEXT("degrees"),{MakeShared<FJsonValueNumber>(P->Targets[T].Degrees.X),MakeShared<FJsonValueNumber>(P->Targets[T].Degrees.Y),MakeShared<FJsonValueNumber>(P->Targets[T].Degrees.Z)});Targets.Add(MakeShared<FJsonValueObject>(O));}
+    for(const auto& Basis:P->Bases){auto O=MakeShared<FJsonObject>();O->SetStringField(TEXT("morph"),Basis.Morph.ToString());O->SetNumberField(TEXT("side"),Basis.Side);O->SetNumberField(TEXT("target"),Basis.Target);O->SetNumberField(TEXT("axis"),Basis.Axis);Bases.Add(MakeShared<FJsonValueObject>(O));}
+    for(int Step=0;Step<72;++Step){const auto V=VamGluteGeometry::SafetyProbe(*P,Step);auto O=MakeShared<FJsonObject>();O->SetNumberField(TEXT("step"),Step);O->SetStringField(TEXT("kind"),Step<P->Targets.Num()?TEXT("authored_target_also_checked_for_safety"):TEXT("synthetic_safety_probe_NOT_VaM_target"));O->SetArrayField(TEXT("degrees"),{MakeShared<FJsonValueNumber>(V.X),MakeShared<FJsonValueNumber>(V.Y),MakeShared<FJsonValueNumber>(V.Z)});Probes.Add(MakeShared<FJsonValueObject>(O));}
+    for(int S=0;S<2;++S){const auto& Side=G->Sides[S];TArray<double> Region,Front,Lateral,Transition;const FVector D=Side.Dimensions,Thigh=Side.RestThighInAnchor.GetLocation();
+        for(int V=0;V<I.Vertices.Num();++V){Region.Add(Side.RegionWeights[V]);auto Gaussian=[&](const FVector& Center,const FVector& Width){const FVector Q=(Side.RegionPoints[V]-Center)/(D*Width);return FMath::Exp(-Q.SizeSquared()*2);};
+            Front.Add(Gaussian(Thigh+FVector(-D.X*.28,0,-D.Z*.05),FVector(.55,.4,.45)));Lateral.Add(Gaussian(Side.Regions[4].Rest,FVector(.6,.4,.6)));Transition.Add(Gaussian(Side.FoldSemanticMap.MiddleTransition,FVector(.55,.55,.3)));}
+        const FString Prefix=FString::Printf(TEXT("s%d_"),S);Detail.Scalar(Prefix+TEXT("region_mask"),Region);Detail.Scalar(Prefix+TEXT("roi_anterior_hip"),Front);Detail.Scalar(Prefix+TEXT("roi_lateral_glute"),Lateral);Detail.Scalar(Prefix+TEXT("roi_glute_thigh"),Transition);
+    }
+    Detail.Meta->SetStringField(TEXT("roi_scope"),TEXT("Engineering inspection ROIs in posterior/transverse/superior anchor coordinates, not anatomical ground truth; independent of corrective region mask so missing coverage remains visible. anterior: thigh head + (-.28*AP,0,-.05*SI), widths (.55,.4,.45); lateral: Lateral region, widths (.6,.4,.6); transition: MiddleTransition, widths (.55,.55,.3); gaussian exp(-2*distance_squared)."));
+    Detail.Meta->SetArrayField(TEXT("targets"),Targets);Detail.Meta->SetArrayField(TEXT("bases"),Bases);Detail.Meta->SetArrayField(TEXT("safety_probes"),Probes);return Detail.Save()?FString():TEXT("Could not save B2 diagnostic fields");
 }
