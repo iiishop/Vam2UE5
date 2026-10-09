@@ -59,9 +59,9 @@ double UVamBreastContactProfile::ProbeFront(const TArray<FVector>& Positions,con
 
 FString UVamBreastContactProfile::ValidateData() const
 {
-    if((SchemaVersion<1 || SchemaVersion>4) || SourceTopologyIdentity.IsEmpty() || BindSignature.IsEmpty() || SkeletonFamily.IsEmpty())
+    if((SchemaVersion<1 || SchemaVersion>5) || SourceTopologyIdentity.IsEmpty() || BindSignature.IsEmpty() || SkeletonFamily.IsEmpty())
         return TEXT("Contact profile identity missing or unsupported");
-    if(Particles.IsEmpty() || Tetrahedra.IsEmpty() || EffectiveVolumeCm3.Num()!=2)
+    if(Particles.IsEmpty() || Tetrahedra.IsEmpty() || EffectiveVolumeCm3.Num()<2)
         return TEXT("Contact cage is incomplete");
     if(!FMath::IsFinite(YoungModulusPa) || YoungModulusPa<=0 || !FMath::IsFinite(PoissonRatio) || PoissonRatio<0 || PoissonRatio>=.5 ||
        !FMath::IsFinite(DensityKgPerCm3) || DensityKgPerCm3<=0 || !FMath::IsFinite(AttachmentStiffness) || AttachmentStiffness<0 ||
@@ -85,7 +85,7 @@ FString UVamBreastContactProfile::ValidateData() const
     TArray<FVector> Rest;
     for(const auto& P:Particles)
     {
-        if(P.Rest.ContainsNaN() || P.Side<0 || P.Side>1 || P.Bones.IsEmpty() || P.Bones.Num()!=P.Weights.Num() ||
+        if(P.Rest.ContainsNaN() || P.Side<0 || P.Side>=EffectiveVolumeCm3.Num() || P.Bones.IsEmpty() || P.Bones.Num()!=P.Weights.Num() ||
            !FMath::IsFinite(P.RootSupport) || P.RootSupport<0 || P.RootSupport>1 ||
            !FMath::IsFinite(P.NippleSupport) || P.NippleSupport<0 || P.NippleSupport>1) return TEXT("Invalid contact particle");
         double Sum=0;
@@ -103,6 +103,8 @@ FString UVamBreastContactProfile::ValidateData() const
         for(int32 J=1;J<4;++J) if(Particles[T[J]].Side!=Particles[T[0]].Side) return TEXT("Contact tetrahedron bridges independent sides");
         if(SignedTetVolume(Rest,T)<=1.e-8) return TEXT("Contact tetrahedron inverted or degenerate at rest");
     }
+    if(!RegionNames.IsEmpty() && RegionNames.Num()!=EffectiveVolumeCm3.Num())return TEXT("Contact region names/count mismatch");
+    for(double V:EffectiveVolumeCm3)if(!FMath::IsFinite(V)||V<=0)return TEXT("Contact effective volume invalid");
     if(SurfaceParents.IsEmpty() || SurfaceParents.Num()!=SurfaceWeights.Num() || SurfaceParents.Num()!=SurfaceMask.Num() || SurfaceParents.Num()!=SurfaceOffsets.Num())
         return TEXT("Contact render bindings incomplete");
     for(int32 V=0;V<SurfaceMask.Num();++V)
@@ -132,7 +134,7 @@ bool UVamBreastContactProfile::MeasureVolume(const TArray<FVector>& Rest,const T
     if(Rest.Num()!=Particles.Num() || Current.Num()!=Particles.Num()) return false;
     for(const auto& P:Rest) if(P.ContainsNaN()) return false;
     for(const auto& P:Current) if(P.ContainsNaN()) return false;
-    Out.SetNum(2);
+    Out.SetNum(EffectiveVolumeCm3.Num());
     for(const auto& T:Tetrahedra)
     {
         for(int32 J=0;J<4;++J) if(!Particles.IsValidIndex(T[J])) return false;

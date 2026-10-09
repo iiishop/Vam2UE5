@@ -15,6 +15,7 @@
 #include "RHICommandList.h"
 #include "VamRuntimeConfiguration.h"
 #include "VamBreastSkeletalMeshComponent.h"
+#include "VamLegSkeletalMeshComponent.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
 #include "GameFramework/WorldSettings.h"
@@ -32,6 +33,7 @@
 #include "Misc/Paths.h"
 #include "Serialization/BufferArchive.h"
 #include "Components/PointLightComponent.h"
+#include "Components/DirectionalLightComponent.h"
 #include "ContentStreaming.h"
 #include "ShaderCompiler.h"
 #include "Engine/StaticMesh.h"
@@ -84,7 +86,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  World->InitializeActorsForPlay(FURL());World->GetWorldSettings()->NotifyBeginPlay();
  auto* A=World->SpawnActor<AVamCharacterActor>();A->BreastContact->bEnabled=false;A->Character->RuntimeConfiguration=Config;A->LoadCharacter();
  const bool GPUVideo=FParse::Param(FCommandLine::Get(),TEXT("VamResidentGPUVideo"));
- if(GPUVideo){A->BreastContact->bUseGPU=!FParse::Param(FCommandLine::Get(),TEXT("VamSkinCPU"));A->BreastContact->bEnabled=true;}
+ if(GPUVideo){A->BreastContact->bUseGPU=!FParse::Param(FCommandLine::Get(),TEXT("VamSkinCPU"));A->BreastContact->bEnabled=!FParse::Param(FCommandLine::Get(),TEXT("VamLowerSeatVideo"));}
  FString EvidenceDir;FParse::Value(FCommandLine::Get(),TEXT("VamContactEvidence="),EvidenceDir);
  if(!EvidenceDir.IsEmpty())IFileManager::Get().MakeDirectory(*EvidenceDir,true);
  USceneCaptureComponent2D* Capture=nullptr;
@@ -137,6 +139,38 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
    const FVector Eye=EvidenceCenter+EvidenceFront*(EvidenceSize*2)+EvidenceSide*(EvidenceSize*5);
    Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((EvidenceCenter-Eye).GetSafeNormal(),EvidenceUp).Rotator());Export(TEXT("-side"));Capture->SetWorldTransform(Original);}
  };
+
+ if(FParse::Param(FCommandLine::Get(),TEXT("VamLowerSeatVideo")))
+ {
+  auto* Leg=CastChecked<UVamLegSkeletalMeshComponent>(A->Character->Body);
+  A->BreastContact->SetContactEnabled(false);Leg->bGluteJiggleEnabled=false;Leg->bLegJiggleEnabled=false;
+  Leg->LegPoseCommand(TEXT("Seated"));for(int I=0;I<60;++I)Tick();
+  const auto& Pose=Leg->GetComponentSpaceTransforms();FBox Region(ForceInit);
+  for(const auto& Seg:Leg->LegProfile->Segments)if(!Seg.bCalf)UE_LOG(LogTemp,Display,TEXT("SEATED_GEOMETRY side=%d up=%s thigh=%s shin=%s"),Seg.Side,*Seg.BodyUp.ToString(),*(Pose[Seg.Shin].GetLocation()-Pose[Seg.Thigh].GetLocation()).GetSafeNormal().ToString(),*(Pose[Seg.Foot].GetLocation()-Pose[Seg.Shin].GetLocation()).GetSafeNormal().ToString());
+  for(const auto& S:Leg->GluteRest){const FTransform X=Pose[S.AnchorBone]*Leg->GetComponentTransform();for(int V=0;V<S.RegionPoints.Num();++V)if(S.RegionWeights.IsValidIndex(V)&&S.RegionWeights[V]>.35)Region+=X.TransformPosition(S.RegionPoints[V]);}
+  const FVector Center=Region.GetCenter(),Up(0,0,1);const double Size=Region.GetSize().GetMax();
+  const auto& S=Leg->GluteRest[0];const FTransform Frame=Pose[S.AnchorBone]*Leg->GetComponentTransform();
+  const FVector Eye=Center+Frame.GetUnitAxis(EAxis::X)*Size*4+Frame.GetUnitAxis(EAxis::Y)*Size*5+Up*Size*.8;
+  Capture->FOVAngle=42;Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((Center-Eye).GetSafeNormal(),Up).Rotator());
+  auto* Light=NewObject<UPointLightComponent>(A);Light->Intensity=9000;Light->AttenuationRadius=1000;Light->SourceRadius=30;Light->RegisterComponent();Light->SetWorldLocation(Eye+Up*70);
+  auto* Sun=NewObject<UDirectionalLightComponent>(A);Sun->Intensity=4;Sun->RegisterComponent();Sun->SetWorldRotation((Center-Eye).Rotation());
+  if(FParse::Param(FCommandLine::Get(),TEXT("VamSeatIsolation"))){
+   auto Snap=[&](const TCHAR* Name){for(int I=0;I<25;++I)Tick();SaveImage(Name);UE_LOG(LogTemp,Display,TEXT("SEAT_ISOLATION %s corrective=%d structural=%d %s"),Name,Leg->bCorrectiveEnabled,Leg->bGluteEnabled,*Leg->GluteDiagnostics());};
+   Snap(TEXT("frame-0-all-structural"));Leg->bCorrectiveEnabled=false;Snap(TEXT("frame-1-no-corrective"));Leg->bGluteEnabled=false;Snap(TEXT("frame-2-no-structural"));Leg->bCorrectiveEnabled=true;Snap(TEXT("frame-3-corrective-only"));
+   World->EndPlay(EEndPlayReason::Quit);A->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return true;
+  }
+  auto* SeatActor=World->SpawnActor<AActor>();auto* Seat=NewObject<UStaticMeshComponent>(SeatActor);SeatActor->SetRootComponent(Seat);Seat->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube")));Seat->SetMobility(EComponentMobility::Movable);Seat->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);Seat->SetCollisionResponseToAllChannels(ECR_Block);Seat->RegisterComponent();
+  const FVector Extent(Size*.7,Size*.7,5);Seat->SetWorldScale3D(Extent/50.);
+  const FVector Start(Center.X,Center.Y,Region.Min.Z-Extent.Z-2);Seat->SetWorldLocation(Start);
+  A->BreastContact->bForceFeedback=false;A->BreastContact->SetContactEnabled(true);
+  FString Log=TEXT("frame,stroke_cm,solvers,status\n");
+  for(int I=0;I<420;++I){double W=I<60?0:I<180?(I-60)/120.:I<240?1:I<360?1-(I-240)/120.:0;W=W*W*(3-2*W);Seat->SetWorldLocation(Start+Up*(2+Region.GetSize().Z*.2)*W);Tick();
+   if(I%2==0)SaveImage(FString::Printf(TEXT("frame-%04d"),I/2));
+   if(I%30==0){const FString D=A->BreastContact->Diagnostics().Replace(TEXT("\n"),TEXT(" | "));Log+=FString::Printf(TEXT("%d,%.5f,%d,\"%s\"\n"),I,(2+Region.GetSize().Z*.2)*W,A->BreastContact->GetActiveSolverCount(),*D);UE_LOG(LogTemp,Display,TEXT("LOWER_SEAT frame=%d %s"),I,*D);}
+  }
+  FFileHelper::SaveStringToFile(Log,*(EvidenceDir/TEXT("diagnostics.csv")));
+  World->EndPlay(EEndPlayReason::Quit);A->Destroy();SeatActor->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return true;
+ }
  int32 SnapshotIndex=0;
  auto ReadGPU=[&]() -> TArray<FVector3f> {
   if(!Capture)return {};

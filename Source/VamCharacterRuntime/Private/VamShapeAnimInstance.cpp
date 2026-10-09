@@ -26,6 +26,7 @@ public:
     {
         FAnimInstanceProxy::PreUpdate(Instance,DeltaSeconds);
         Offsets=static_cast<UVamShapeAnimInstance*>(Instance)->GetDebugBoneOffsets();
+        GeometricDebugBones=static_cast<UVamShapeAnimInstance*>(Instance)->GeometricDebugBones;
         ActiveOffsets=static_cast<UVamShapeAnimInstance*>(Instance)->GetActiveBoneOffsets();
         PoseRotations=static_cast<UVamShapeAnimInstance*>(Instance)->GetPoseControlRotations();
         auto* Anim=static_cast<UVamShapeAnimInstance*>(Instance);
@@ -137,7 +138,7 @@ private:
         {
             if (!VamPoseControl::IsEligible(Joint) || Joint.Semantic==SolverRoot) continue;
             const int32 SkeletonIndex=Bones.GetReferenceSkeleton().FindBoneIndex(Joint.Bone);
-            if (SkeletonIndex==INDEX_NONE) continue;
+            if (SkeletonIndex==INDEX_NONE || GeometricDebugBones.Contains(SkeletonIndex)) continue;
             const FCompactPoseBoneIndex Compact=Bones.GetCompactPoseIndexFromSkeletonPoseIndex(FSkeletonPoseBoneIndex(SkeletonIndex));
             if (!ReferenceRotations.IsValidIndex(Compact.GetInt())) continue;
             FTransform& Bone=Output.Pose[Compact];
@@ -247,6 +248,7 @@ private:
     float FrameDelta=0;
     double GroundHeight=0;
     double BaseTime=0;
+    TSet<int32> GeometricDebugBones;
     TMap<int32,FTransform> Offsets;
     TMap<int32,FTransform> ActiveOffsets;
     TMap<int32,FRotator> PoseRotations;
@@ -268,7 +270,7 @@ void UVamShapeAnimInstance::SetDebugBoneOffset(int32 BoneIndex, const FTransform
     if (Offset.Equals(FTransform::Identity)) DebugBoneOffsets.Remove(BoneIndex);
     else DebugBoneOffsets.Add(BoneIndex,Offset);
 }
-void UVamShapeAnimInstance::ClearDebugBoneOffsets() { DebugBoneOffsets.Reset(); }
+void UVamShapeAnimInstance::ClearDebugBoneOffsets() { DebugBoneOffsets.Reset();GeometricDebugBones.Reset(); }
 void UVamShapeAnimInstance::SetActiveBoneOffset(int32 BoneIndex, const FTransform& Offset)
 {
     if (Offset.Equals(FTransform::Identity)) ActiveBoneOffsets.Remove(BoneIndex);

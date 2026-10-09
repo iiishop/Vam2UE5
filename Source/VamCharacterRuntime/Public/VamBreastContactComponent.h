@@ -21,6 +21,8 @@ public:
     /** Disabling immediately releases contact simulation; Jiggle is unaffected. */
     UFUNCTION(BlueprintSetter, Category="VaM|Breast Contact") void SetContactEnabled(bool bNewEnabled);
     UFUNCTION(BlueprintPure, Category="VaM|Breast Contact") bool IsContactEnabled() const { return bEnabled; }
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, BlueprintSetter=SetLowerBodyContactEnabled, Category="VaM|Lower Body Contact") bool bLowerBodyContactEnabled=true;
+    UFUNCTION(BlueprintSetter, Category="VaM|Lower Body Contact") void SetLowerBodyContactEnabled(bool bValue);
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bShowCage=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bShowContacts=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bWorldCollision=true;
@@ -46,6 +48,9 @@ public:
     double GetMaxContactResidualCm() const { return MaxContactResidualCm; }
     FVector2D GetBoundSurfaceResidualCm() const { return BoundSurfaceResidualCm; }
 private:
+    TMap<int32,FBox> LowerWakeBoneBounds;
+    int32 LowerWakeRevision=INDEX_NONE;
+    uint64 LowerWakeGeneration=MAX_uint64;
     FVamGPUContactHandlePtr GPUHandle;
     TArray<float> GPUInverseMass;
     bool bGPUActive=false;

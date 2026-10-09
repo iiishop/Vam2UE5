@@ -27,7 +27,7 @@ void VamGatherRigidSources(UPrimitiveComponent* Source,UVamBreastSkeletalMeshCom
   if(Soft && Soft->bEnabled && Soft->bUseGPU)if(auto* Character=Source->GetOwner()->FindComponentByClass<UVamCharacterComponent>())if(auto* Config=Character->RuntimeConfiguration.Get())if(auto* Profile=Config->BreastContact.Get()){
    TSet<int> Articulated;
    if(auto* Anim=Cast<UVamShapeAnimInstance>(Mesh->GetAnimInstance()))for(const auto& Joint:Anim->GetRigJoints())Articulated.Add(Mesh->GetBoneIndex(Joint.Bone));
-   for(const auto& Particle:Profile->Particles)if(!Particle.bKinematic)for(int J=0;J<Particle.Bones.Num();++J)if(Particle.Weights.IsValidIndex(J)&&Particle.Weights[J]>0&&!Articulated.Contains(Particle.Bones[J]))Excluded.Add(Particle.Bones[J]);
+   for(const auto& Particle:Profile->Particles)if(!Particle.bKinematic && (Particle.Side<2 || Soft->bLowerBodyContactEnabled))for(int J=0;J<Particle.Bones.Num();++J)if(Particle.Weights.IsValidIndex(J)&&Particle.Weights[J]>0&&(!Articulated.Contains(Particle.Bones[J]) || Particle.Side>=2))Excluded.Add(Particle.Bones[J]);
   }
   for(int I=0;I<Asset->SkeletalBodySetups.Num();++I){auto* Setup=Asset->SkeletalBodySetups[I].Get();if(!Setup)continue;const auto* BI=Mesh->GetBodyInstance(Setup->BoneName);if(!BI || BI->GetCollisionEnabled()==ECollisionEnabled::NoCollision)continue;int Bone=Mesh->GetBoneIndex(Setup->BoneName);if(Bone<0||Excluded.Contains(Bone))continue;
    if(Mesh==OwnBody){bool Allowed=false;int Parent=Bone;while(Parent>=0){if(OwnDistalRoots.Contains(Parent)){Allowed=true;break;}Parent=Mesh->GetBoneIndex(Mesh->GetParentBone(Mesh->GetBoneName(Parent)));}if(!Allowed)continue;}
@@ -37,7 +37,8 @@ void VamGatherRigidSources(UPrimitiveComponent* Source,UVamBreastSkeletalMeshCom
 bool VamSupportsGPURigid(const FVamContactRigidSource& S)
 {
  if(!S.Setup || S.Component->IsA<UInstancedStaticMeshComponent>())return false;
- const FVector Scale=S.World.GetScale3D();if(Scale.GetMin()<=0 || Scale.GetMax()-Scale.GetMin()>.001)return false;
+ const FVector Scale=S.World.GetScale3D();if(Scale.GetMin()<=0)return false;
+ if(Scale.GetMax()-Scale.GetMin()>.001){const auto& G=S.Setup->AggGeom;if(G.BoxElems.IsEmpty()||G.GetElementCount()!=G.BoxElems.Num())return false;for(const auto& B:G.BoxElems)if(!B.Rotation.IsNearlyZero())return false;}
  const auto& G=S.Setup->AggGeom;
  if(G.GetElementCount()==0 || G.GetElementCount()!=G.SphereElems.Num()+G.BoxElems.Num()+G.SphylElems.Num()+G.ConvexElems.Num())return false;
  for(const auto& C:G.ConvexElems){if(C.GetTransform().GetScale3D().GetMin()<=0)return false;TArray<FPlane> Planes;C.GetPlanes(Planes);if(Planes.Num()<4)return false;for(const auto& P:Planes)if(P.ContainsNaN() || !FMath::IsFinite(P.W) || FVector(P.X,P.Y,P.Z).SizeSquared()<1e-16)return false;}

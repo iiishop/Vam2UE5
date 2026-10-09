@@ -515,6 +515,10 @@ TSharedRef<SWidget> BreastControls()
     Box->AddSlot().AutoHeight()[SNew(SBox).MaxDesiredHeight(180)[SNew(SScrollBox).ScrollBarAlwaysVisible(true)+SScrollBox::Slot()[SNew(STextBlock).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->BreastDiagnostics():TEXT("Select a runtime character"));}).AutoWrapText(true)]]];
     auto Contact=[]()->UVamBreastContactComponent* { auto* A=CurrentActor();return A?A->FindComponentByClass<UVamBreastContactComponent>():nullptr; };
     auto ContactBox=SNew(SVerticalBox);
+    ContactBox->AddSlot().AutoHeight()[SNew(SCheckBox)
+        .IsChecked_Lambda([Contact](){auto* C=Contact();return C&&C->bLowerBodyContactEnabled?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
+        .OnCheckStateChanged_Lambda([Contact](ECheckBoxState S){if(auto* C=Contact())C->SetLowerBodyContactEnabled(S==ECheckBoxState::Checked);})
+        [SNew(STextBlock).Text(FText::FromString(TEXT("Lower body volume · 臀部 / 大腿 / 小腿承压（需新生成人物）")))]];
     const TCHAR* ContactNames[]={TEXT("Enabled · 接触层"),TEXT("Show cage · 体积网格"),TEXT("Show press spheres · 按压球"),TEXT("World collision · 场景简单碰撞")};
     for(int32 I=0;I<4;++I)
         ContactBox->AddSlot().AutoHeight()[SNew(SCheckBox)
@@ -547,7 +551,7 @@ TSharedRef<SWidget> BreastControls()
     ContactBox->AddSlot().AutoHeight()[ProbeButtons];
     ContactBox->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Contact](){auto* C=Contact();return FText::FromString(C && C->bDebugPlaten?TEXT("Probe: sharp flat platen (edge imprint diagnostic)"):TEXT("Probe: sphere (local indentation and tissue displacement)"));}).AutoWrapText(true)];
     ContactBox->AddSlot().AutoHeight()[SNew(SBox).MaxDesiredHeight(180)[SNew(SScrollBox).ScrollBarAlwaysVisible(true)+SScrollBox::Slot()[SNew(STextBlock).Text_Lambda([Contact](){auto* C=Contact();return FText::FromString(C?C->Diagnostics():TEXT("Contact component absent"));}).AutoWrapText(true)]]];
-    Box->AddSlot().AutoHeight()[SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Breast Chaos Contact · 按压与体积")))].BodyContent()[ContactBox]];
+    Box->AddSlot().AutoHeight()[SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Body Volume Contact · 胸部 / 臀腿按压与体积")))].BodyContent()[ContactBox]];
     return SNew(SExpandableArea).InitiallyCollapsed(true).HeaderContent()[SNew(STextBlock).Text(FText::FromString(TEXT("Breast Jiggle · Runtime")))].BodyContent()[Box];
 }
 

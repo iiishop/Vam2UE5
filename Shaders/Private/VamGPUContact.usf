@@ -8,7 +8,7 @@ StructuredBuffer<uint> Instance;
 RWStructuredBuffer<uint4> ContactPairs;
 StructuredBuffer<uint4> ContactTree;
 StructuredBuffer<uint4> ContactFaces;
-StructuredBuffer<uint2> ContactScenes;
+StructuredBuffer<uint4> ContactScenes;
 StructuredBuffer<uint> SurfaceMask;
 RWStructuredBuffer<float4> ContactBounds;
 RWStructuredBuffer<uint> PairHeads;
@@ -155,14 +155,14 @@ void MainCS(uint3 Thread:SV_DispatchThreadID)
   ContactDispatch[6]=active*TotalZones;ContactDispatch[7]=1;ContactDispatch[8]=1;return;}
  // Current GPU pose, no readback, stack or fixed-capacity hash buckets.
  if(PassKind==28){uint best=0xffffffff;float distance=9.;float bestGap=1e30;
-  uint2 scene=ContactScenes[Instance[k]];if(SurfaceMask[k]==0 || Positions[k].w<=0 || scene.y==0)return;
+  uint4 scene=ContactScenes[Instance[k]];if(SurfaceMask[k]==0 || Positions[k].w<=0 || scene.y==0)return;
   float3 p=WorldPoint(k,Positions[k].xyz);uint node=0;
-  [loop]while(node<ContactNodeCount){uint4 tree=ContactTree[node];uint rootVertex=ContactFaces[tree.x].x;uint2 treeScene=ContactScenes[Instance[rootVertex]];
+  [loop]while(node<ContactNodeCount){uint4 tree=ContactTree[node];uint rootVertex=ContactFaces[tree.x].x;uint4 treeScene=ContactScenes[Instance[rootVertex]];
    if(treeScene.x!=scene.x || treeScene.y==0 || Regions[rootVertex]==Regions[k]){node=tree.z;continue;}
    float3 outside=max(max(ContactBounds[node*2].xyz-p,p-ContactBounds[node*2+1].xyz),0);
    if(dot(outside,outside)>distance){node=tree.z;continue;}
    if(tree.w!=0){++node;continue;}
-   [loop]for(uint f=tree.x;f<tree.x+tree.y;++f){uint4 v=ContactFaces[f];uint2 other=ContactScenes[Instance[v.x]];
+   [loop]for(uint f=tree.x;f<tree.x+tree.y;++f){uint4 v=ContactFaces[f];uint4 other=ContactScenes[Instance[v.x]];
     if(other.y==0 || other.x!=scene.x || Regions[v.x]==Regions[k])continue;
     float3 a=WorldPoint(v.x,Positions[v.x].xyz),b=WorldPoint(v.y,Positions[v.y].xyz),c=WorldPoint(v.z,Positions[v.z].xyz);
     float3 normal=cross(b-a,c-a);float n2=dot(normal,normal);if(n2<1e-12)continue;
@@ -192,12 +192,13 @@ void MainCS(uint3 Thread:SV_DispatchThreadID)
  // stalls a single GPU lane for the entire surface and soft candidate list.
  if(PassKind==29){uint load=k/TotalParticles,i=k%TotalParticles;float3 force=0,torque=0;
   float3 origin=float3(WorldRows[LoadInstance*3].w,WorldRows[LoadInstance*3+1].w,WorldRows[LoadInstance*3+2].w);
+  if(Regions[i]-ContactScenes[Instance[i]].z>=ContactScenes[Instance[i]].w){uint base=(LoadOffset/2+load)*TotalParticles*2+i*2;LoadContributions[base]=0;LoadContributions[base+1]=0;return;}
   if(load<SphereCount && Instance[i]==LoadInstance && Positions[i].w>0){float4 sphere=Spheres[SphereOffset+load];float3 n;float phi=RigidContactDistance(SphereOffset+load,i,n);
    if(abs(phi)<=.15 && sphere.w>0){bool nearest=true;
     [loop]for(uint j=0;j<SphereCount;++j)if(j!=load){float3 tn;float e=abs(RigidContactDistance(SphereOffset+j,i,tn));if(Spheres[SphereOffset+j].w>0&&(e<abs(phi)||(e==abs(phi)&&j<load)))nearest=false;}
     if(nearest){force=WorldVector(i,n*max(0.,dot(ElasticGradient[i].xyz,n)))*.01;torque=cross((WorldPoint(i,Positions[i].xyz)-origin)*.01,force);}}}
   else if(load==SphereCount && PairCount>0 && SelectedPair[i]!=0xffffffff){uint4 v=ContactPairs[SelectedPair[i]];
-   if(Instance[v.x]==LoadInstance || Instance[v.y]==LoadInstance){
+   if(Regions[v.y]-ContactScenes[Instance[v.y]].z<ContactScenes[Instance[v.y]].w && (Instance[v.x]==LoadInstance || Instance[v.y]==LoadInstance)){
     float3 p=WorldPoint(v.x,Positions[v.x].xyz),a=WorldPoint(v.y,Positions[v.y].xyz),b=WorldPoint(v.z,Positions[v.z].xyz),c=WorldPoint(v.w,Positions[v.w].xyz),cn=cross(b-a,c-a);
     if(length(cn)>1e-7){float3 n=normalize(cn),w=TriangleWeights(p,a,b,c),q=a*w.x+b*w.y+c*w.z;float gap=dot(p-q,n);
      if(gap<=.15 && gap>=-3 && length(p-q)<=3){float3 gp=WorldVector(v.x,ElasticGradient[v.x].xyz),gq=WorldVector(v.y,ElasticGradient[v.y].xyz*w.x+ElasticGradient[v.z].xyz*w.y+ElasticGradient[v.w].xyz*w.z);

@@ -137,8 +137,10 @@ def build(recipe_path,report_path):
     require(not error,'Breast contact cage: '+str(error))
     definition,error=u.VamBreastContactBuilder.refine_render_surface(root+'/ContactSurface',definition,jiggle,contact,glute,leg_jiggle)
     require(definition is not None,'Breast render refinement: '+str(error))
+    error=u.VamLowerBodyContactBuilder.append(definition,glute,leg_jiggle,contact)
+    require(not error,'Lower-body volume contact: '+str(error))
     error=u.VamBreastContactBuilder.build_deformer(contact,root+'/DG_BreastContact')
-    require(not error,'Breast contact GPU graph: '+str(error))
+    require(not error,'Body contact graph: '+str(error))
     # Every derived mesh, bind, morph and helper is saved before downstream assets fingerprint it.
     for path in u.EditorAssetLibrary.list_assets(root,True,False):save(load(str(path)))
     mesh=definition.get_editor_property('body');skeleton=definition.get_editor_property('skeleton')

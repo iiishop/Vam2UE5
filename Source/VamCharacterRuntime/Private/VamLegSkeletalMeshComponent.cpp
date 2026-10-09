@@ -1,5 +1,6 @@
 #include "VamLegSkeletalMeshComponent.h"
 #include "VamCharacterComponent.h"
+#include "VamShapeAnimInstance.h"
 #include "VamMotionComponent.h"
 #include "Engine/SkeletalMesh.h"
 #include "Engine/World.h"
@@ -113,9 +114,33 @@ void UVamLegSkeletalMeshComponent::LegPoseCommand(FName Command)
     const auto& Ref=GetSkeletalMeshAsset()->GetRefSkeleton();
     auto Local=Character->GetShapeReferencePose();if(Local.Num()!=Ref.GetRawBoneNum()) Local=Ref.GetRefBonePose();
     auto Neutral=Local;for(int32 B=0;B<Neutral.Num();++B) if(Ref.GetParentIndex(B)>=0) Neutral[B]=Neutral[B]*Neutral[Ref.GetParentIndex(B)];
-    const bool Crouch=Command==TEXT("Crouch");
+    const bool Seated=Command==TEXT("Seated");
+    const bool Crouch=Command==TEXT("Crouch") || Seated;
     for(const auto& S:LegProfile->Segments) if(!S.bCalf)
     {
+        if(Seated && GluteRest.IsValidIndex(S.Side))
+        {
+            // Solve geometric directions in the family support frame. Do not
+            // assume imported thigh/knee local Euler axes or foot landmark signs.
+            auto* Anim=Cast<UVamShapeAnimInstance>(GetAnimInstance());
+            const auto* Head=Anim?Anim->GetRigJoints().FindByPredicate([](const FVamRigJoint& J){return J.Semantic==TEXT("head");}):nullptr;
+            const int HeadBone=Head?Ref.FindBoneIndex(Head->Bone):INDEX_NONE;
+            if(!Neutral.IsValidIndex(HeadBone) || RestSides.IsEmpty())return;
+            FVector Feet=FVector::ZeroVector;int Count=0;for(const auto& Segment:LegProfile->Segments)if(!Segment.bCalf){Feet+=Neutral[Segment.Foot].GetLocation();++Count;}
+            const FVector Up=(Neutral[HeadBone].GetLocation()-Feet/FMath::Max(1,Count)).GetSafeNormal();
+            FVector Front=Neutral[RestSides[0].AnchorBone].GetUnitAxis(EAxis::X);
+            Front=(Front-Up*FVector::DotProduct(Front,Up)).GetSafeNormal();
+            const int Bones[]={S.Thigh,S.Shin,S.Foot};
+            if(Anim)for(int B:Bones)Anim->GeometricDebugBones.Add(B);
+            for(int J=0;J<3;++J){auto CS=Local;for(int B=0;B<CS.Num();++B)if(Ref.GetParentIndex(B)>=0)CS[B]*=CS[Ref.GetParentIndex(B)];
+                const int Bone=Bones[J],Parent=Ref.GetParentIndex(Bone);
+                FQuat Desired=Neutral[Bone].GetRotation();
+                if(J<2){const FVector Direction=(CS[Bones[J+1]].GetLocation()-CS[Bone].GetLocation()).GetSafeNormal();Desired=FQuat::FindBetweenNormals(Direction,J==0?Front:-Up)*CS[Bone].GetRotation();}
+                const FQuat Relative=(Parent>=0?CS[Parent].GetRotation().Inverse()*Desired:Desired).GetNormalized();
+                Character->SetDebugBoneOffset(Bone,FTransform((Relative*Local[Bone].GetRotation().Inverse()).GetNormalized()));Local[Bone].SetRotation(Relative);
+            }
+            continue;
+        }
         double Hip=0,Knee=0,Ankle=0;
         // Single-joint probes use the left leg; the right leg remains the support leg.
         if(S.Side==0)
@@ -126,7 +151,7 @@ void UVamLegSkeletalMeshComponent::LegPoseCommand(FName Command)
             if(Command==TEXT("Plantarflexion")) {Hip=20;Ankle=-20;}
         }
         // Equal hip/knee angles keep the shins vertical and the feet level.
-        if(Crouch){Hip=45;Knee=45;Ankle=0;}
+        if(Crouch){Hip=Seated?90:45;Knee=Hip;Ankle=0;}
         const int32 Bones[]={S.Thigh,S.Shin,S.Foot};const double Angles[]={-Hip,Knee,-Ankle};
         for(int32 J=0;J<3;++J)
         {

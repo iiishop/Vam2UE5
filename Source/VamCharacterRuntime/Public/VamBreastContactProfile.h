@@ -61,6 +61,8 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TObjectPtr<class UMeshDeformer> SurfaceDeformer;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TObjectPtr<class UMeshDeformer> GPUSurfaceDeformer;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TArray<FVamBreastContactParticle> Particles;
+    /** Empty on legacy bilateral assets. Regions 0/1 retain breast semantics. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TArray<FName> RegionNames;
     UPROPERTY() TArray<FIntVector4> Tetrahedra;
     UPROPERTY() TArray<FIntVector> BoundaryTriangles;
     UPROPERTY() TArray<FVamBreastContactMorph> Morphs;

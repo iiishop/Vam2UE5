@@ -27,5 +27,6 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<class UVamBodyContactResponseComponent> BodyContactResponse;
     UFUNCTION(BlueprintCallable, Category="VaM|Breast Contact") void SetBreastContactEnabled(bool bEnabled);
     UFUNCTION(BlueprintPure, Category="VaM|Breast Contact") bool IsBreastContactEnabled() const;
+    UFUNCTION(BlueprintCallable, Category="VaM|Lower Body Contact") void SetLowerBodyContactEnabled(bool bEnabled);
     UFUNCTION(CallInEditor, BlueprintCallable, Category="VaM") void LoadCharacter();
 };
