@@ -6,6 +6,8 @@
 #include "VamGPUContact.h"
 #include "VamBreastContactComponent.generated.h"
 
+class UPrimitiveComponent;
+
 /** Per-character contact solver. Final pose is sampled after native bone publication. */
 UCLASS(ClassGroup=(VaM),meta=(BlueprintSpawnableComponent))
 class VAMCHARACTERRUNTIME_API UVamBreastContactComponent : public UActorComponent
@@ -13,8 +15,8 @@ class VAMCHARACTERRUNTIME_API UVamBreastContactComponent : public UActorComponen
     GENERATED_BODY()
 public:
     UVamBreastContactComponent();
-    /** Opt-in resident GPU contact; unsupported geometry falls back to CPU. */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bUseGPU=false;
+    /** Prefer resident GPU contact when the profile supports it; unsupported geometry falls back to CPU. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bUseGPU=true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, BlueprintSetter=SetContactEnabled, Category="VaM|Breast Contact") bool bEnabled=true;
     /** Disabling immediately releases contact simulation; Jiggle is unaffected. */
     UFUNCTION(BlueprintSetter, Category="VaM|Breast Contact") void SetContactEnabled(bool bNewEnabled);
@@ -22,6 +24,9 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bShowCage=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bShowContacts=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") bool bWorldCollision=true;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="VaM|Breast Contact") bool bSoftCollision=true;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="VaM|Breast Contact") bool bForceFeedback=true;
+    UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="VaM|Breast Contact") FVector ContactForceNewtons=FVector::ZeroVector;
     /** Per-instance material override: 0 uniform tissue, 1 profile nipple preservation. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact",meta=(ClampMin="0",ClampMax="1")) float NippleShapePreservationScale=1;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Contact") TArray<FVamBreastPressSphere> PressSpheres;
@@ -36,6 +41,8 @@ public:
     virtual void TickComponent(float DeltaTime,ELevelTick TickType,FActorComponentTickFunction* TickFunction) override;
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     int32 GetActiveSolverCount() const { return GPUHandle.IsValid()?1:Solvers.Num(); }
+    uint64 GetCageSnapshot(TArray<FVector>& Rest,TArray<FVector>& Current) const { return VamGPUReadDiagnostic(GPUHandle,Rest,Current); }
+    bool SuppliesContactForceFor(UPrimitiveComponent* Component) const;
     double GetMaxContactResidualCm() const { return MaxContactResidualCm; }
     FVector2D GetBoundSurfaceResidualCm() const { return BoundSurfaceResidualCm; }
 private:
@@ -43,7 +50,9 @@ private:
     TArray<float> GPUInverseMass;
     bool bGPUActive=false;
     bool bGPURejected=false;
-    uint64 GPUDiagnosticFrame=0;
+    uint64 GPUDiagnosticFrame=0,GPULoadFrame=0;
+    TMap<uint64,TWeakObjectPtr<class UPrimitiveComponent>> ReactionTargets;
+    TMap<uint64,FName> ReactionBones;
     bool Initialize();
     void Release();
     void AddVolumeConstraint(class UDeformableSolverComponent* Solver,UVamBreastContactFlesh* Flesh);
@@ -54,7 +63,7 @@ private:
     UPROPERTY(Transient) TArray<TObjectPtr<UVamBreastContactFlesh>> Flesh;
     UPROPERTY(Transient) TObjectPtr<UVamBreastContactCollisions> Collisions;
     UPROPERTY(Transient) TObjectPtr<UDeformableCollisionsComponent> WorldCollisions;
-    TArray<TWeakObjectPtr<class UStaticMeshComponent>> WorldSources;
+    TArray<TWeakObjectPtr<class UPrimitiveComponent>> WorldSources;
     UPROPERTY(Transient) TObjectPtr<UFleshComponent> SurfaceProducer;
     UPROPERTY(Transient) TArray<TObjectPtr<class UFleshAsset>> InstanceAssets;
     TArray<FVector> ShapedRest;

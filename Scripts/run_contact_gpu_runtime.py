@@ -14,6 +14,7 @@ if mode=='assets':
 else:
  gpu=mode.startswith('gpu');n=int(mode[3:]) if gpu else 32
  args+=['/Engine/Maps/Entry','-game','-ForceRes','-ResX=1920','-ResY=1080','-windowed','-NoVSync','-VamBreastTestConfig='+asset_root+'/RC_Runtime','-ExecCmds='+','.join('sg.'+x+'Quality 2' for x in ['ViewDistance','AntiAliasing','Shadow','GlobalIllumination','Reflection','PostProcess','Texture','Effects','Foliage','Shading'])+',r.ScreenPercentage 100,t.MaxFPS 0,vam.Contact.GPU '+('1' if gpu else '0')+',vam.Contact.GPUIterations '+str(n)+',vam.Contact.GPUBarriers '+(sys.argv[3] if len(sys.argv)>3 else '128')+',vam.ContactBenchmark '+out.as_posix()+' motion']
+args+=sys.argv[5:]
 args+=['-unattended','-nosplash','-RenderOffscreen','-dx12','-abslog='+str(out/'runtime.log')]
 (out/'command.json').write_text(json.dumps(args,indent=2))
 shader=root/'Shaders/Private/VamGPUContact.usf'

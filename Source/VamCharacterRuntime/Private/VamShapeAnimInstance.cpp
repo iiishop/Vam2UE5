@@ -1,4 +1,6 @@
 #include "VamShapeAnimInstance.h"
+#include "VamBodyContactResponseComponent.h"
+#include "GameFramework/Actor.h"
 #include "Animation/AnimInstanceProxy.h"
 #include "Animation/AnimNodeBase.h"
 #include "BonePose.h"
@@ -27,6 +29,7 @@ public:
         ActiveOffsets=static_cast<UVamShapeAnimInstance*>(Instance)->GetActiveBoneOffsets();
         PoseRotations=static_cast<UVamShapeAnimInstance*>(Instance)->GetPoseControlRotations();
         auto* Anim=static_cast<UVamShapeAnimInstance*>(Instance);
+        ContactOffsets.Reset();if(auto* Owner=Anim->GetOwningActor())if(auto* Response=Owner->FindComponentByClass<UVamBodyContactResponseComponent>())ContactOffsets=Response->GetOffsets();
         Anim->AdvanceBaseAnimation(DeltaSeconds);
         Joints=Anim->GetRigJoints(); Effectors=Anim->GetEffectors(); SolverRoot=Anim->GetSolverRoot();
         Iterations=Anim->GetSolverIterations(); Goals.Reset();
@@ -94,12 +97,14 @@ public:
             Bone.AddToTranslation(Pair.Value.GetTranslation());
             Bone.SetRotation((Pair.Value.GetRotation()*Bone.GetRotation()).GetNormalized());
         }
+        for(const auto& Pair:ContactOffsets){const auto Compact=Bones.GetCompactPoseIndexFromSkeletonPoseIndex(FSkeletonPoseBoneIndex(Pair.Key));if(Compact.GetInt()<0)continue;auto& Bone=Output.Pose[Compact];Bone.AddToTranslation(Pair.Value.GetTranslation());Bone.SetRotation((Pair.Value.GetRotation()*Bone.GetRotation()).GetNormalized());}
         AdaptGroundHeight(Output);
         if (!Goals.IsEmpty() && !Joints.IsEmpty()) SolveIK(Output,ReferenceTransforms);
         ClampJointRotations(Output,ReferenceRotations);
         return true;
     }
 private:
+    TMap<int32,FTransform> ContactOffsets;
     void AdaptGroundHeight(FPoseContext& Output)
     {
         const auto& Bones=Output.Pose.GetBoneContainer();

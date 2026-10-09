@@ -1,4 +1,9 @@
 #include "VamBreastContactComponent.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
+#include "VamBodyContactResponseComponent.h"
+#include "VamContactRigidSources.h"
+#include "UObject/UObjectIterator.h"
 #include "VamContactNativeExperiment.h"
 #include "VamCharacterComponent.h"
 #include "VamRuntimeConfiguration.h"
@@ -26,6 +31,21 @@
 
 namespace
 {
+// Wake-up bounds must follow final helper motion; otherwise two breasts can
+// touch through Jiggle while the standing-pose boxes keep contact asleep.
+FBox ContactRegionBounds(UVamBreastSkeletalMeshComponent* Mesh,const FVamBreastSideProfile& Side,double Fraction)
+{
+    const auto& Pose=Mesh->GetComponentSpaceTransforms();if(!Pose.IsValidIndex(Side.AnchorBone))return FBox(ForceInit);
+    const FTransform Anchor=Pose[Side.AnchorBone];const FBox Base(Side.COM-Side.SizeCm*Fraction,Side.COM+Side.SizeCm*Fraction);
+    FBox Bounds=Base;double RotationMargin=0;
+    for(const auto& Node:Side.Nodes)if(Pose.IsValidIndex(Node.BoneIndex)){
+        const FTransform Local=Pose[Node.BoneIndex].GetRelativeTransform(Anchor);
+        Bounds+=Base.ShiftBy(Local.GetLocation()-Node.Rest);
+        const double Angle=2*FMath::Acos(FMath::Clamp(FMath::Abs(Local.GetRotation().W),0.,1.));
+        RotationMargin=FMath::Max(RotationMargin,Side.SizeCm.Size()*FMath::Sin(Angle*.5));
+    }
+    return Bounds.ExpandBy(RotationMargin).TransformBy(Anchor*Mesh->GetComponentTransform());
+}
 TAutoConsoleVariable<int32> CVarContactGPU(TEXT("vam.Contact.GPU"),0,TEXT("1 opts into resident GPU contact for profiles with GPU deformer; unsupported collisions use CPU"));
 TAutoConsoleVariable<int32> CVarContactRestMetrics(TEXT("vam.Contact.RestMetrics"),0,TEXT("Cache immutable per-cell displacement limits by component volume scale. Reset to apply."));
 TAutoConsoleVariable<int32> CVarContactGSBatch(TEXT("vam.Contact.NativeGSBatch"),1,TEXT("Private fTetWild contact native GS batch; 0 uses original engine owner, 5 original batch. Reset to apply."));
@@ -46,7 +66,7 @@ UVamBreastContactComponent::UVamBreastContactComponent()
 void UVamBreastContactComponent::Release()
 {
     if(Body && (SurfaceProducer || GPUHandle)) { if(bPreviousDeformerOverride) Body->SetMeshDeformer(PreviousDeformer);else Body->UnsetMeshDeformer(); }
-    if(GPUHandle){VamGPUUnregister(Body);GPUHandle.Reset();}bGPUActive=false;GPUInverseMass.Reset();GPUDiagnosticFrame=0;
+    if(GPUHandle){VamGPUUnregister(Body);GPUHandle.Reset();}bGPUActive=false;GPUInverseMass.Reset();GPUDiagnosticFrame=0;GPULoadFrame=0;ReactionTargets.Reset();ReactionBones.Reset();ContactForceNewtons=FVector::ZeroVector;
     PreviousDeformer=nullptr;MaxContactResidualCm=0;ActivePressSphereCount=0;
     BoundSurfaceResidualCm=FVector2D::ZeroVector;VolumeState.Reset();
     InsideBefore=InsideAfter=MovableParticles=0;PenetrationBefore=PenetrationAfter=0;
@@ -621,34 +641,39 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
     if(Teleport!=TeleportRevision || ShapeRevision!=Character->GetShapeState().Revision) { Release();TeleportRevision=Teleport; }
     // Do not allocate/step contact solvers when there is no contact source nearby.
     bool NearbyWorld=false;
-    TArray<TWeakObjectPtr<UStaticMeshComponent>> Sources;
+    TArray<TWeakObjectPtr<UPrimitiveComponent>> Sources;
     FBox ContactBounds(ForceInit);
     if(auto* B=Cast<UVamBreastSkeletalMeshComponent>(Body))
         for(const auto& R:B->RestSides) if(Body->GetComponentSpaceTransforms().IsValidIndex(R.AnchorBone))
         {
-            const FTransform W=Body->GetComponentSpaceTransforms()[R.AnchorBone]*Body->GetComponentTransform();
-            ContactBounds+=FBox(R.COM-R.SizeCm*.6,R.COM+R.SizeCm*.6).TransformBy(W);
+            ContactBounds+=ContactRegionBounds(B,R,.6);
         }
     if(bWorldCollision && ContactBounds.IsValid)
     {
         TArray<FOverlapResult> Hits;FCollisionObjectQueryParams Objects;Objects.AddObjectTypesToQuery(ECC_WorldStatic);Objects.AddObjectTypesToQuery(ECC_WorldDynamic);Objects.AddObjectTypesToQuery(ECC_PhysicsBody);
         FCollisionQueryParams Query(SCENE_QUERY_STAT(VamContactWake),false,GetOwner());
         GetWorld()->OverlapMultiByObjectType(Hits,ContactBounds.GetCenter(),FQuat::Identity,Objects,FCollisionShape::MakeBox(ContactBounds.GetExtent()),Query);
-        for(const auto& H:Hits) if(auto* Mesh=Cast<UStaticMeshComponent>(H.GetComponent()))
-            if(Mesh->IsCollisionEnabled()) Sources.AddUnique(Mesh);
-        NearbyWorld=!Sources.IsEmpty();
+        for(const auto& H:Hits) if(auto* Mesh=H.GetComponent())
+            if(Mesh->IsCollisionEnabled() && Mesh->GetCollisionResponseToChannel(Body->GetCollisionObjectType())==ECR_Block) Sources.AddUnique(Mesh);
+        Sources.AddUnique(Body);Sources.Sort([](const auto& A,const auto& B){return A->GetUniqueID()<B->GetUniqueID();});
     }
-    if(DebugSide==INDEX_NONE && PressSpheres.IsEmpty() && !NearbyWorld)
+    TArray<FVamContactRigidSource> RigidSources;
+    if(bWorldCollision)for(const auto& S:Sources)if(S.IsValid())VamGatherRigidSources(S.Get(),Cast<UVamBreastSkeletalMeshComponent>(Body),ContactBounds,RigidSources);
+    NearbyWorld=!RigidSources.IsEmpty();
+    if(CompletedSteps<2 && FParse::Param(FCommandLine::Get(),TEXT("VamContactTraceRigid")))for(const auto& Source:RigidSources)UE_LOG(LogTemp,Display,TEXT("CONTACT_RIGID owner=%s target=%s bone=%s"),*GetOwner()->GetName(),*Source.Component->GetOwner()->GetName(),*Source.Bone.ToString());
+    bool NearbySoft=false;
+    auto SoftBounds=[](UVamBreastSkeletalMeshComponent* Mesh,TArray<FBox>& Sides){if(!Mesh)return;for(const auto& R:Mesh->RestSides)if(Mesh->GetComponentSpaceTransforms().IsValidIndex(R.AnchorBone)){
+        Sides.Add(ContactRegionBounds(Mesh,R,.55));}};
+    if(bSoftCollision){TArray<FBox> Own;SoftBounds(Cast<UVamBreastSkeletalMeshComponent>(Body),Own);NearbySoft=Own.Num()==2&&Own[0].Intersect(Own[1]);
+        for(TObjectIterator<UVamBreastContactComponent> It;It&&!NearbySoft;++It){if(*It==this || It->GetWorld()!=GetWorld() || !It->IsRegistered() || !It->bEnabled || !It->bSoftCollision)continue;
+            auto* Other=It->GetOwner()->FindComponentByClass<UVamCharacterComponent>();TArray<FBox> Their;SoftBounds(Other?Cast<UVamBreastSkeletalMeshComponent>(Other->Body):nullptr,Their);for(const auto& A:Own)for(const auto& B:Their)NearbySoft|=A.ExpandBy(3).Intersect(B);}}
+    if(DebugSide==INDEX_NONE && PressSpheres.IsEmpty() && !NearbyWorld && !NearbySoft)
     { if(!Solvers.IsEmpty() || GPUHandle) Release();Status=TEXT("Contact idle: no sources; native skinning; zero solver steps");return; }
     AppliedDebugDepth=FMath::FInterpConstantTo(AppliedDebugDepth,DebugDepth,Dt,.4f);
     if(bReleasingDebug && AppliedDebugDepth<=KINDA_SMALL_NUMBER){DebugSide=INDEX_NONE;bReleasingDebug=false;}
     bool SupportedGPU=Profile && Profile->GPUSurfaceDeformer && Profile->bResidualOnlySurface && !bDebugPlaten;
     for(const auto& S:PressSpheres)SupportedGPU&=!S.bPlaten;
-    for(const auto& Source:Sources)if(Source.IsValid())
-    {
-        const auto* Setup=Source->GetBodySetup();const FVector Scale=Source->GetComponentScale().GetAbs();
-        SupportedGPU&=Setup && Setup->AggGeom.SphereElems.Num()>0 && Setup->AggGeom.GetElementCount()==Setup->AggGeom.SphereElems.Num() && Scale.GetMax()-Scale.GetMin()<.001;
-    }
+    for(const auto& Source:RigidSources)SupportedGPU&=VamSupportsGPURigid(Source);
     const FVector GPUScale=Body->GetComponentScale();
     SupportedGPU &= GPUScale.GetMin()>0 && GPUScale.GetMax()-GPUScale.GetMin()<.001;
     const bool WantGPU=!bGPURejected && (bUseGPU || CVarContactGPU.GetValueOnGameThread()!=0)&&SupportedGPU;
@@ -669,8 +694,8 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
         AnimatedRest[I]=P;
     }
     Collisions->Spheres=PressSpheres;
-    if(WorldCollisions)for(const auto& Old:WorldSources) if(Old.IsValid() && !Sources.Contains(Old)) WorldCollisions->RemoveStaticMeshComponent(Old.Get());
-    if(WorldCollisions)for(const auto& Source:Sources) if(!WorldSources.Contains(Source)) WorldCollisions->AddStaticMeshComponent(Source.Get());
+    if(WorldCollisions)for(const auto& Old:WorldSources) if(Old.IsValid() && !Sources.Contains(Old)) if(auto* Mesh=Cast<UStaticMeshComponent>(Old.Get()))WorldCollisions->RemoveStaticMeshComponent(Mesh);
+    if(WorldCollisions)for(const auto& Source:Sources) if(!WorldSources.Contains(Source)) if(auto* Mesh=Cast<UStaticMeshComponent>(Source.Get()))WorldCollisions->AddStaticMeshComponent(Mesh);
     WorldSources=MoveTemp(Sources);
     if(auto* Breast=Cast<UVamBreastSkeletalMeshComponent>(Body)) if(Breast->RestSides.IsValidIndex(DebugSide))
     {
@@ -716,15 +741,38 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
     if(bShowContacts)for(const auto& S:Collisions->Spheres){if(S.bPlaten)DrawDebugBox(GetWorld(),S.WorldCenter,S.HalfExtentCm,S.WorldRotation,FColor::Orange,false,0);else DrawDebugSphere(GetWorld(),S.WorldCenter,S.RadiusCm,20,FColor::Orange,false,0);}
     if(bGPUActive && GPUHandle)
     {
-        TArray<FVector4f> Rest,Spheres;Rest.Reserve(N);
+        TArray<FVamGPUContactLoad> Loads;double Submitted=0;const uint64 Packet=VamGPUReadLoads(GPUHandle,Loads,Submitted);
+        if(Packet>0){GPULoadFrame=Packet;ContactForceNewtons=FVector::ZeroVector;
+            if(bForceFeedback && FPlatformTime::Seconds()-Submitted<.1){auto* Response=GetOwner()->FindComponentByClass<UVamBodyContactResponseComponent>();
+                for(const auto& L:Loads){if(FVector::DistSquared(L.Origin,Body->GetComponentLocation())>2500)continue;
+                    // A vanished collider invalidates its delayed packet.
+                    UPrimitiveComponent* Target=L.ColliderId?ReactionTargets.FindRef(L.ColliderId).Get():nullptr;if(L.ColliderId&&(!Target||!Target->IsCollisionEnabled()))continue;
+                    const double Cap=1000,Scale=FMath::Min(1.,Cap/FMath::Max(L.ForceNewtons.Size(),1e-9));const FVector F=L.ForceNewtons*Scale,T=L.TorqueNewtonMeters*Scale;
+                    if(!Target || Target->GetOwner()!=GetOwner() || Target->IsSimulatingPhysics(ReactionBones.FindRef(L.ColliderId))){ContactForceNewtons+=F;if(Response)Response->AddContactWrench(F,T,L.Origin);}
+                    const FName TargetBone=ReactionBones.FindRef(L.ColliderId);
+                    if(Target&&Target->IsSimulatingPhysics(TargetBone)){Target->AddForce(-F*100,TargetBone);const FVector TorqueAtCOM=-T+FVector::CrossProduct((L.Origin-Target->GetCenterOfMass(TargetBone))*.01,-F);Target->AddTorqueInRadians(TorqueAtCOM*10000,TargetBone);}
+                    else if(Target&&Target->GetOwner()!=GetOwner())if(auto* Other=Target->GetOwner()->FindComponentByClass<UVamBodyContactResponseComponent>())Other->AddContactWrench(-F,-T,L.Origin);
+                }}}
+        FVamGPUContactScene Scene;Scene.WorldId=GetWorld()->GetUniqueID();Scene.BodyToWorld=Body->GetComponentTransform();Scene.bSoftCollision=bSoftCollision;
+        if(auto* Breast=Cast<UVamBreastSkeletalMeshComponent>(Body))if(!Breast->RestSides.IsEmpty() && FinalPose.IsValidIndex(Breast->RestSides[0].ChestBone))Scene.PairFrameToWorld=FinalPose[Breast->RestSides[0].ChestBone]*Body->GetComponentTransform();
+        ReactionTargets.Reset();ReactionBones.Reset();TArray<FVector4f> Rest,Spheres;Rest.Reserve(N);
         for(int I=0;I<N;++I)Rest.Add(FVector4f(FVector3f(AnimatedRest[I]),GPUInverseMass[I]));
         const auto BodyWorld=Body->GetComponentTransform();
-        for(const auto& S:Collisions->Spheres)Spheres.Add(FVector4f(FVector3f(BodyWorld.InverseTransformPosition(S.WorldCenter)),S.RadiusCm/BodyWorld.GetScale3D().GetAbsMax()));
-        for(const auto& Source:WorldSources)if(Source.IsValid())for(const auto& S:Source->GetBodySetup()->AggGeom.SphereElems)
-        {
-            const FVector Center=Source->GetComponentTransform().TransformPosition(S.Center);
-            const float Radius=S.Radius*Source->GetComponentScale().GetAbsMax()/BodyWorld.GetScale3D().GetAbsMax();
-            Spheres.Add(FVector4f(FVector3f(BodyWorld.InverseTransformPosition(Center)),Radius));
+        for(const auto& S:Collisions->Spheres){Spheres.Add(FVector4f(FVector3f(BodyWorld.InverseTransformPosition(S.WorldCenter)),S.RadiusCm/BodyWorld.GetScale3D().GetAbsMax()));Scene.ColliderIds.Add(0);}
+        Scene.ShapeRotations.Init(FVector4f(0,0,0,1),Spheres.Num());Scene.ShapeExtents.Init(FVector4f(0,0,0,0),Spheres.Num());
+        for(const auto& Source:RigidSources){
+            uint32 Ordinal=1;const double Scale=Source.World.GetScale3D().GetAbsMax()/BodyWorld.GetScale3D().GetAbsMax();
+            auto AddShape=[&](FVector Center,FQuat Rotation,FVector Extent,float Radius,float Kind){const FVector C=BodyWorld.InverseTransformPosition(Source.World.TransformPosition(Center));
+                const FQuat Q=BodyWorld.GetRotation().Inverse()*Source.World.GetRotation()*Rotation;Spheres.Add(FVector4f(FVector3f(C),Radius*Scale));Scene.ShapeRotations.Add(FVector4f(Q.X,Q.Y,Q.Z,Q.W));Scene.ShapeExtents.Add(FVector4f(FVector3f(Extent*Scale),Kind));
+                const uint64 Id=(uint64(Source.Component->GetUniqueID())<<32)|(Source.BodyTag<<16)|Ordinal++;Scene.ColliderIds.Add(Id);ReactionTargets.Add(Id,Source.Component);ReactionBones.Add(Id,Source.Bone);};
+            for(const auto& Sphere:Source.Setup->AggGeom.SphereElems)AddShape(Sphere.Center,FQuat::Identity,FVector::ZeroVector,Sphere.Radius,0);
+            for(const auto& Box:Source.Setup->AggGeom.BoxElems)AddShape(Box.Center,Box.Rotation.Quaternion(),FVector(Box.X,Box.Y,Box.Z)*.5f,FMath::Max3(Box.X,Box.Y,Box.Z)*.5f,1);
+            for(const auto& Capsule:Source.Setup->AggGeom.SphylElems)AddShape(Capsule.Center,Capsule.Rotation.Quaternion(),FVector(0,0,Capsule.Length*.5f),Capsule.Radius,2);
+            for(const auto& Convex:Source.Setup->AggGeom.ConvexElems){TArray<FPlane> Planes;Convex.GetPlanes(Planes);const auto Local=Convex.GetTransform();const FVector LocalScale=Local.GetScale3D();
+                const int Begin=Scene.ShapePlanes.Num();for(const auto& Plane:Planes){const FVector PlaneNormal=FVector(Plane.X,Plane.Y,Plane.Z)/LocalScale;const double Length=PlaneNormal.Size();if(Length>1e-8)Scene.ShapePlanes.Add(FVector4f(FVector3f(PlaneNormal/Length),Plane.W/Length*Scale));}
+                AddShape(Local.GetTranslation(),Local.GetRotation(),FVector::ZeroVector,FMath::Max(.1,Convex.ElemBox.GetExtent().Size()*LocalScale.GetAbsMax()),3);
+                Scene.ShapeExtents.Last()=FVector4f(Begin,Scene.ShapePlanes.Num()-Begin,0,3);
+            }
         }
         TArray<FVector4f> Starts;
         for(auto S:Spheres)
@@ -735,7 +783,7 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
             const FVector Direction=(FVector(FVector3f(S))-COM).GetSafeNormal();
             Starts.Add(FVector4f(FVector3f(FVector(FVector3f(S))+Direction*S.W*4),S.W));
         }
-        ActivePressSphereCount=Spheres.Num();VamGPUUpdate(GPUHandle,MoveTemp(Rest),MoveTemp(Spheres),MoveTemp(Starts));++CompletedSteps;
+        ActivePressSphereCount=Spheres.Num();VamGPUSetScene(GPUHandle,MoveTemp(Scene));VamGPUUpdate(GPUHandle,MoveTemp(Rest),MoveTemp(Spheres),MoveTemp(Starts));++CompletedSteps;
         Status=VamGPUDiagnostics(GPUHandle,MaxContactResidualCm);
         TArray<FVector> DiagnosticRest,DiagnosticCurrent;const uint64 Frame=VamGPUReadDiagnostic(GPUHandle,DiagnosticRest,DiagnosticCurrent);
         if(Frame>GPUDiagnosticFrame && DiagnosticRest.Num()==N && DiagnosticCurrent.Num()==N){GPUDiagnosticFrame=Frame;
@@ -831,3 +879,18 @@ FString UVamBreastContactComponent::Diagnostics() const
     return Text;
 }
 
+
+bool UVamBreastContactComponent::SuppliesContactForceFor(UPrimitiveComponent* Component) const
+{
+    if(!bEnabled || !bWorldCollision || !bForceFeedback || bGPURejected || !Component)return false;
+    for(const auto& Pair:ReactionTargets)if(Pair.Value.Get()==Component)return true;
+    // Reserve an imminent GPU contact before its first PostUpdateWork tick.
+    // Otherwise the PrePhysics proxy can inject a one-frame duplicate impact.
+    if(!(bUseGPU || CVarContactGPU.GetValueOnGameThread()!=0) || !Profile || !Profile->GPUSurfaceDeformer)return false;
+    auto* Breast=Cast<UVamBreastSkeletalMeshComponent>(Body);if(!Breast)return false;
+    FBox Bounds(ForceInit);for(const auto& R:Breast->RestSides)if(Body->GetComponentSpaceTransforms().IsValidIndex(R.AnchorBone)){
+        Bounds+=ContactRegionBounds(Breast,R,.6);}
+    if(Bounds.IsValid && Bounds.Intersect(Component->Bounds.GetBox())){TArray<FVamContactRigidSource> Sources;VamGatherRigidSources(Component,Breast,Bounds,Sources);
+        if(!Sources.IsEmpty()){for(const auto& Source:Sources)if(!VamSupportsGPURigid(Source))return false;return true;}}
+    return false;
+}

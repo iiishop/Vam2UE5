@@ -43,3 +43,27 @@ VAMCONTACTGPU_API void VamGPUFlushBatch();
 VAMCONTACTGPU_API FString VamGPUDiagnostics(FVamGPUContactHandlePtr Handle,double& Residual);
 VAMCONTACTGPU_API uint64 VamGPUReadDiagnostic(FVamGPUContactHandlePtr Handle,TArray<FVector>& Rest,TArray<FVector>& Current);
 VAMCONTACTGPU_API void VamGPUShutdown();
+
+/** Scene inputs are copied on the game thread. No UObject is accessed by the GPU. */
+struct VAMCONTACTGPU_API FVamGPUContactScene
+{
+ FTransform BodyToWorld=FTransform::Identity;
+ FTransform PairFrameToWorld=FTransform::Identity; // rigid chest frame, CPU broadphase cache only
+ uint32 WorldId=0;
+ bool bSoftCollision=false;
+ TArray<FVector4f> ShapePlanes; // convex local planes n.xyz dot x <= w
+ TArray<FVector4f> ShapeRotations,ShapeExtents; // quaternion; xyz box half extents or capsule half segment in z; w type sphere/box/capsule/convex 0/1/2/3
+ TArray<uint64> ColliderIds; // one stable id per sphere; zero denotes a prescribed probe
+};
+struct VAMCONTACTGPU_API FVamGPUContactLoad
+{
+ uint64 ColliderId=0;
+ FVector ForceNewtons=FVector::ZeroVector;
+ FVector TorqueNewtonMeters=FVector::ZeroVector; // about BodyToWorld origin
+ FVector Origin=FVector::ZeroVector;
+ bool bSoftPair=false;
+};
+VAMCONTACTGPU_API void VamGPUSetScene(FVamGPUContactHandlePtr Handle,FVamGPUContactScene&& Scene);
+// Latest completed asynchronous force sample; caller may hold it until next sample,
+// but must expire stale data. These are forces, not impulses.
+VAMCONTACTGPU_API uint64 VamGPUReadLoads(FVamGPUContactHandlePtr Handle,TArray<FVamGPUContactLoad>& Loads,double& SubmittedSeconds);
