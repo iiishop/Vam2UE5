@@ -9,6 +9,10 @@
 #include "VamMotionComponent.h"
 #include "VamCharacterComponent.h"
 #include "VamBreastContactComponent.h"
+#include "VamBodyContactResponseComponent.h"
+#include "VamPhysicsOutputComponent.h"
+#include "VamShapeAnimInstance.h"
+#include "RHICommandList.h"
 #include "VamRuntimeConfiguration.h"
 #include "VamBreastSkeletalMeshComponent.h"
 #include "Engine/Engine.h"
@@ -317,5 +321,69 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  A->BreastContact->bEnabled=false;Tick();
  World->EndPlay(EEndPlayReason::Quit);A->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);
  return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamContactInteractionTest,"Vam.Breast.ContactInteraction",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FVamContactInteractionTest::RunTest(const FString&)
+{
+ auto* Config=LoadObject<UVamRuntimeConfiguration>(nullptr,TEXT("/Game/VamRuntime/GPUContact_20261009_v2/RC_Runtime"));if(!TestNotNull(TEXT("GPU configuration"),Config))return false;
+ const auto IVS=UWorld::InitializationValues().AllowAudioPlayback(false).CreatePhysicsScene(true).RequiresHitProxies(false).CreateNavigation(false).CreateAISystem(false).ShouldSimulatePhysics(true).SetTransactional(false);
+ auto* World=UWorld::CreateWorld(EWorldType::Game,false,NAME_None,nullptr,true,ERHIFeatureLevel::Num,&IVS);GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(World);World->InitializeActorsForPlay(FURL());World->GetWorldSettings()->NotifyBeginPlay();
+ auto* A=World->SpawnActor<AVamCharacterActor>();auto* B=World->SpawnActor<AVamCharacterActor>();B->SetActorLocation(FVector(500,0,0));B->SetActorRotation(FRotator(0,180,0));
+ for(auto* Actor:{A,B}){Actor->BreastContact->bEnabled=false;Actor->BodyContactResponse->bEnabled=false;Actor->Character->RuntimeConfiguration=Config;Actor->LoadCharacter();Actor->ActivePose->bBreathing=false;Actor->ActivePose->bIdle=false;Actor->ActivePose->bBlink=false;Actor->BreastContact->bUseGPU=true;}
+ auto Tick=[&](){++GFrameCounter;FTSTicker::GetCoreTicker().Tick(1.f/60);FTickableGameObject::TickObjects(nullptr,LEVELTICK_All,false,1.f/60);ComputeFramework::TickCompilation(0);World->Tick(LEVELTICK_All,1.f/60);World->SendAllEndOfFrameUpdates();VamGPUFlushBatch();ENQUEUE_RENDER_COMMAND(VamContactInteractionFence)([](FRHICommandListImmediate& Cmd){Cmd.SubmitAndBlockUntilGPUIdle();});FlushRenderingCommands();};
+ for(int I=0;I<25;++I){FlushAsyncLoading();Tick();}FAssetCompilingManager::Get().FinishAllCompilation();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
+ auto* BodyA=Cast<UVamBreastSkeletalMeshComponent>(A->Character->Body);auto* BodyB=Cast<UVamBreastSkeletalMeshComponent>(B->Character->Body);
+ if(!TestNotNull(TEXT("First body"),BodyA)||!TestNotNull(TEXT("Second body"),BodyB)){World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return false;}
+ for(auto* Body:{BodyA,BodyB}){Body->bJiggleEnabled=false;Body->VisibilityBasedAnimTickOption=EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones;}
+ auto* Profile=Config->BreastContact.LoadSynchronous();const auto& Side=BodyA->RestSides[0];const FTransform Anchor=BodyA->GetComponentSpaceTransforms()[Side.AnchorBone];const FTransform Frame=Anchor*BodyA->GetComponentTransform();const FVector Front=Frame.GetUnitAxis(EAxis::X);
+ FVector CenterA=FVector::ZeroVector,CenterB=FVector::ZeroVector;
+ for(const auto& R:BodyA->RestSides)CenterA+=(BodyA->GetComponentSpaceTransforms()[R.AnchorBone]*BodyA->GetComponentTransform()).TransformPosition(R.COM)/BodyA->RestSides.Num();
+ for(const auto& R:BodyB->RestSides)CenterB+=(BodyB->GetComponentSpaceTransforms()[R.AnchorBone]*BodyB->GetComponentTransform()).TransformPosition(R.COM)/BodyB->RestSides.Num();
+ B->AddActorWorldOffset(CenterA-CenterB);
+ double MaxA=-DBL_MAX,MinB=DBL_MAX;for(const auto& P:Profile->Particles)if(!P.bKinematic){MaxA=FMath::Max(MaxA,FVector::DotProduct(BodyA->GetComponentTransform().TransformPosition(P.Rest),Front));MinB=FMath::Min(MinB,FVector::DotProduct(BodyB->GetComponentTransform().TransformPosition(P.Rest),Front));}
+ B->AddActorWorldOffset(Front*(MaxA-MinB+.5));for(auto* Actor:{A,B})Actor->BreastContact->SetContactEnabled(true);
+ for(int I=0;I<61;++I)Tick();TArray<FVector> CalRestA,CalA,CalRestB,CalB;A->BreastContact->GetCageSnapshot(CalRestA,CalA);B->BreastContact->GetCageSnapshot(CalRestB,CalB);
+ AddInfo(FString::Printf(TEXT("STAGE3 placement front=%s source bounds=%g/%g actors=%s/%s cages=%d/%d"),*Front.ToString(),MaxA,MinB,*A->GetActorLocation().ToString(),*B->GetActorLocation().ToString(),CalA.Num(),CalB.Num()));
+ if(CalA.Num()==Profile->Particles.Num()&&CalB.Num()==CalA.Num()){MaxA=-DBL_MAX;MinB=DBL_MAX;for(int I=0;I<CalA.Num();++I)if(!Profile->Particles[I].bKinematic){MaxA=FMath::Max(MaxA,FVector::DotProduct(BodyA->GetComponentTransform().TransformPosition(CalRestA[I]),Front));MinB=FMath::Min(MinB,FVector::DotProduct(BodyB->GetComponentTransform().TransformPosition(CalRestB[I]),Front));}B->AddActorWorldOffset(Front*(MaxA-MinB+.3));}
+ FString EvidenceDir;FParse::Value(FCommandLine::Get(),TEXT("VamContactEvidence="),EvidenceDir);
+ USceneCaptureComponent2D* Capture=nullptr;
+ if(!EvidenceDir.IsEmpty()){
+  IFileManager::Get().MakeDirectory(*EvidenceDir,true);auto* Target=NewObject<UTextureRenderTarget2D>(A);Target->ClearColor=FLinearColor(.03,.04,.05,1);Target->InitAutoFormat(960,720);
+  Capture=NewObject<USceneCaptureComponent2D>(A);Capture->TextureTarget=Target;Capture->CaptureSource=SCS_FinalColorLDR;Capture->PostProcessSettings.bOverride_AutoExposureMethod=true;Capture->PostProcessSettings.AutoExposureMethod=AEM_Manual;Capture->bCaptureEveryFrame=false;Capture->bCaptureOnMovement=false;Capture->FOVAngle=38;Capture->RegisterComponent();
+  const FVector TargetCenter=CenterA+Front*8,Eye=TargetCenter+Frame.GetUnitAxis(EAxis::Y)*105+Front*5-Frame.GetUnitAxis(EAxis::Z)*15;
+  Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((TargetCenter-Eye).GetSafeNormal(),Frame.GetUnitAxis(EAxis::Z)).Rotator());
+  for(int I=0;I<2;++I){auto* Light=NewObject<UPointLightComponent>(A);Light->Intensity=I?3000:7000;Light->AttenuationRadius=1000;Light->SourceRadius=20;Light->RegisterComponent();Light->SetWorldLocation(TargetCenter+Frame.GetUnitAxis(EAxis::Y)*80+FVector(I?80:-80,0,80));}
+ }
+ auto Save=[&](const FString& Name){if(!Capture)return;World->SendAllEndOfFrameUpdates();Capture->CaptureScene();FlushRenderingCommands();FBufferArchive PNG;TestTrue(TEXT("Stage 3 real render export"),FImageUtils::ExportRenderTarget2DAsPNG(Capture->TextureTarget,PNG));TestTrue(TEXT("Stage 3 evidence saved"),FFileHelper::SaveArrayToFile(PNG,*(EvidenceDir/(Name+TEXT(".png")))));};
+ if(Capture){for(auto* Actor:{A,B}){TArray<USkeletalMeshComponent*> Parts;Actor->GetComponents(Parts);for(auto* Part:Parts)if(Part!=Actor->Character->Body)Part->SetVisibility(false);}
+  World->SendAllEndOfFrameUpdates();Capture->CaptureScene();FlushRenderingCommands();FAssetCompilingManager::Get().FinishAllCompilation();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();IStreamingManager::Get().StreamAllResources(10.f);}
+ Save(TEXT("pair-normal"));
+ double PeakA=0,PeakB=0,PeakForce=0,PairBalance=0;
+ for(int I=0;I<150;++I){if(I<90)B->AddActorWorldOffset(-Front*(2.0/90));Tick();PeakA=FMath::Max(PeakA,A->BreastContact->GetMaxContactResidualCm());PeakB=FMath::Max(PeakB,B->BreastContact->GetMaxContactResidualCm());
+  const FVector FA=A->BreastContact->ContactForceNewtons,FB=B->BreastContact->ContactForceNewtons;PeakForce=FMath::Max(PeakForce,FA.Size());if(I>120)PairBalance=FMath::Max(PairBalance,(FA+FB).Size());if(I%5==0)Save(FString::Printf(TEXT("pair-%03d"),I/5));}
+ Save(TEXT("pair-pressed"));
+ TestTrue(TEXT("Real pair force balance"),PairBalance<.001);
+ TestTrue(TEXT("Both real characters use GPU"),A->BreastContact->Status.Contains(TEXT("GPU resident"))&&B->BreastContact->Status.Contains(TEXT("GPU resident")));
+ TestTrue(TEXT("Both real character cages deform"),PeakA>.01&&PeakB>.01);TestTrue(TEXT("Real soft contact produces body load"),PeakForce>.0001);
+ for(auto* Actor:{A,B})for(const auto& V:Actor->BreastContact->VolumeState)TestEqual(TEXT("Soft pair no inverted tets"),V.InvertedTetrahedra,0);
+ AddInfo(FString::Printf(TEXT("STAGE3 soft residual=%g/%g force=%g balance=%g status=%s / %s"),PeakA,PeakB,PeakForce,PairBalance,*A->BreastContact->Status,*B->BreastContact->Status));
+ B->BreastContact->SetContactEnabled(false);B->SetActorLocation(FVector(500,0,0));A->BreastContact->ResetContact();A->BodyContactResponse->bEnabled=true;
+ auto* ProbeActor=World->SpawnActor<AActor>();auto* Probe=NewObject<UStaticMeshComponent>(ProbeActor);ProbeActor->SetRootComponent(Probe);Probe->SetMobility(EComponentMobility::Movable);Probe->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Sphere.Sphere")));Probe->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);Probe->SetCollisionObjectType(ECC_PhysicsBody);Probe->SetCollisionResponseToAllChannels(ECR_Block);Probe->RegisterComponent();
+ const double Radius=Side.EffectiveRadiusCm*.55;Probe->SetWorldScale3D(FVector(Radius/50));TArray<FVector> Rest;for(auto P:Profile->Particles)Rest.Add(P.Rest);FVector Local=Side.COM;Local.X=Profile->ProbeFront(Rest,Anchor,Local,Radius,false,true,0)+Radius-Side.EffectiveDepthCm*.2;
+ const FVector Pressed=Frame.TransformPosition(Local);Probe->SetWorldLocation(Pressed);double RigidForce=0,BodyOffset=0;
+ for(int I=0;I<100;++I){Tick();RigidForce=FMath::Max(RigidForce,A->BreastContact->ContactForceNewtons.Size());for(const auto& O:A->BodyContactResponse->GetOffsets())BodyOffset=FMath::Max(BodyOffset,O.Value.GetTranslation().Size());}
+ TestTrue(TEXT("Rigid press delivers force"),RigidForce>.0001);TestTrue(TEXT("Force is added to animated skeleton"),BodyOffset>.00001);
+ Save(TEXT("rigid-held"));
+ Probe->SetEnableGravity(false);Probe->SetSimulatePhysics(true);Probe->SetMassOverrideInKg(NAME_None,1,true);double OutwardSpeed=0;
+ for(int I=0;I<60;++I){Tick();OutwardSpeed=FMath::Max(OutwardSpeed,FVector::DotProduct(Probe->GetPhysicsLinearVelocity(),Front));}
+ Save(TEXT("rigid-released"));
+ TestTrue(TEXT("Dynamic rigid receives outward reaction"),OutwardSpeed>.001);
+ AddInfo(FString::Printf(TEXT("STAGE3 rigid force=%g body_offset=%g speed=%g response=%s"),RigidForce,BodyOffset,OutwardSpeed,*A->BodyContactResponse->Status));
+ Probe->SetSimulatePhysics(false);A->BreastContact->SetContactEnabled(false);A->BodyContactResponse->ResetResponse();for(int I=0;I<10;++I)Tick();
+ const auto Collision=A->PhysicsOutput->GetCollisionOutput();auto* Anim=Cast<UVamShapeAnimInstance>(BodyA->GetAnimInstance());const auto* Joint=Anim->GetRigJoints().FindByPredicate([](const FVamRigJoint& J){return J.Semantic==TEXT("chest");});
+ const auto* Chest=Joint?Collision.Capsules.FindByPredicate([&](const FVamCollisionCapsule& C){return C.Bone==Joint->Bone;}):nullptr;
+ if(TestNotNull(TEXT("Chest proxy exists"),Chest)){Probe->SetWorldLocation(Chest->WorldTransform.GetLocation()+Front*(Chest->Radius+Radius*.5));double ProxyForce=0;for(int I=0;I<40;++I){Tick();ProxyForce=FMath::Max(ProxyForce,A->BodyContactResponse->AppliedForceNewtons.Size());}TestTrue(TEXT("Soft disabled retains body collision response"),ProxyForce>.001);AddInfo(FString::Printf(TEXT("STAGE3 soft_off proxy_force=%g valid=%d response=%s"),ProxyForce,int(Collision.bValid),*A->BodyContactResponse->Status));}
+ A->BreastContact->SetContactEnabled(false);World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return true;
 }
 #endif

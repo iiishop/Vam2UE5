@@ -9,7 +9,9 @@
 #include "VamBreastContactProfile.h"
 #include "VamBreastJiggleProfile.h"
 #include "Engine/SkeletalMesh.h"
+#include "Engine/StaticMesh.h"
 #include "RenderingThread.h"
+#include "RHICommandList.h"
 #include "VamBreastContactBuilder.h"
 #include "UObject/SavePackage.h"
 #include "Misc/PackageName.h"
@@ -98,5 +100,60 @@ bool FVamGPUContactAssetsTest::RunTest(const FString&)
   TestTrue(TEXT("Save GPU candidate asset"),UPackage::SavePackage(Package,Asset,*FPackageName::LongPackageNameToFilename(Package->GetName(),FPackageName::GetAssetPackageExtension()),Args));
  }
  AddInfo(TEXT("New GPU RC ")+RCPath);return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamGPUCouplingTest,"Vam.Breast.GPUCoupling",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FVamGPUCouplingTest::RunTest(const FString&)
+{
+ auto Build=[](){FVamGPUContactTopology T;T.Tets={FIntVector4(0,4,1,3),FIntVector4(1,4,2,3),FIntVector4(2,4,0,3)};T.Regions.Init(0,5);T.Material.Init(FVector4f(10,40,1,.2f),5);
+  T.SkinFaces={FIntVector4(0,1,4,4),FIntVector4(1,2,4,4),FIntVector4(2,0,4,4),FIntVector4(0,3,1,1),FIntVector4(1,3,2,2),FIntVector4(2,3,0,0)};
+  T.SkinHinges={FIntVector4(0,1,2,3),FIntVector4(1,2,0,3),FIntVector4(2,0,1,3)};
+  for(int A=0;A<5;++A)for(int B=A+1;B<5;++B){T.SurfaceEdges.Add(FIntPoint(A,B));T.EdgeLimits.Add(FVector2f(.5f,2.f));}
+  T.Parents.Add(FIntVector4(0,1,2,3));T.Weights.Add(FVector4f(.25f,.25f,.25f,.25f));T.Mask.Add(1);return T;};
+ auto* A=NewObject<UStaticMesh>();auto* B=NewObject<UStaticMesh>();A->AddToRoot();B->AddToRoot();
+ auto H0=VamGPURegister(A,Build()),H1=VamGPURegister(B,Build());
+ const TArray<FVector4f> Points={FVector4f(0,-1,-1,100),FVector4f(0,1,-1,100),FVector4f(0,0,1,100),FVector4f(-2,0,0,0),FVector4f(0,0,-1.f/3,100)};
+ auto Step=[&](double Separation,bool Soft,uint32 WorldB){
+  for(int I=0;I<2;++I){FVamGPUContactScene Scene;Scene.WorldId=I?WorldB:1;Scene.bSoftCollision=Soft;Scene.BodyToWorld=I?FTransform(FRotator(0,180,0),FVector(Separation,0,0)):FTransform::Identity;
+   auto H=I?H1:H0;VamGPUSetScene(H,MoveTemp(Scene));TArray<FVector4f> Rest=Points,Spheres,Starts;VamGPUUpdate(H,MoveTemp(Rest),MoveTemp(Spheres),MoveTemp(Starts));}
+  VamGPUFlushBatch();ENQUEUE_RENDER_COMMAND(VamCouplingTestFence)([](FRHICommandListImmediate& Cmd){Cmd.SubmitAndBlockUntilGPUIdle();});FlushRenderingCommands();};
+ for(int I=0;I<61;++I)Step(.5,true,1);
+ TArray<FVector> R0,X0,R1,X1;TestTrue(TEXT("Resident neutral diagnostics"),VamGPUReadDiagnostic(H0,R0,X0)>0);
+ double Neutral=0;for(int I=0;I<X0.Num();++I)Neutral=FMath::Max(Neutral,(X0[I]-R0[I]).Size());TestTrue(TEXT("Separated soft bodies remain neutral"),Neutral<.01);
+ for(int I=0;I<90;++I)Step(.5-.7*FMath::Min(1.,I/30.),true,1);
+ VamGPUReadDiagnostic(H0,R0,X0);VamGPUReadDiagnostic(H1,R1,X1);
+ if(TestEqual(TEXT("Both resident cages readable"),X0.Num(),5)&&TestEqual(TEXT("Second cage readable"),X1.Num(),5)){
+  TestTrue(TEXT("Both bodies deform away from contact"),X0[4].X<-.02 && X1[4].X<-.02);
+  TestTrue(TEXT("Mirrored response"),FMath::Abs(X0[4].X-X1[4].X)<.03);
+  TestTrue(TEXT("Anchors unchanged"),X0[3].Equals(R0[3],1e-5)&&X1[3].Equals(R1[3],1e-5));
+  for(auto X:X0)TestFalse(TEXT("Finite soft output"),X.ContainsNaN());}
+ TArray<FVamGPUContactLoad> L0,L1;double Time;TestTrue(TEXT("Async reaction packet"),VamGPUReadLoads(H0,L0,Time)>0);VamGPUReadLoads(H1,L1,Time);
+ FVector F0=FVector::ZeroVector,F1=FVector::ZeroVector;for(auto L:L0)F0+=L.ForceNewtons;for(auto L:L1)F1+=L.ForceNewtons;
+ TestTrue(TEXT("Equal and opposite soft reactions"),(F0+F1).Size()<1e-4);TestTrue(TEXT("Nonzero soft reaction"),F0.Size()>.0001);
+ AddInfo(FString::Printf(TEXT("COUPLING neutral=%g displacement=%s / %s force=%s / %s"),Neutral,X0.Num()?*X0[4].ToString():TEXT("absent"),X1.Num()?*X1[4].ToString():TEXT("absent"),*F0.ToString(),*F1.ToString()));
+ for(int I=0;I<90;++I)Step(-.2,true,2);
+ VamGPUReadDiagnostic(H0,R0,X0);double Isolated=0;for(int I=0;I<X0.Num();++I)Isolated=FMath::Max(Isolated,(X0[I]-R0[I]).Size());TestTrue(TEXT("Different worlds do not collide"),Isolated<.01);
+
+ for(int Kind=0;Kind<4;++Kind){
+  for(int I=0;I<100;++I){FVamGPUContactScene Scene;Scene.WorldId=1;Scene.ColliderIds.Add(123);Scene.ShapeRotations.Add(FVector4f(0,0,0,1));Scene.ShapeExtents.Add(Kind==1?FVector4f(.8f,1,1,1):Kind==2?FVector4f(0,0,1,2):FVector4f(0,0,0,0));
+   if(Kind==3){Scene.ShapePlanes={FVector4f(1,0,0,.8f),FVector4f(-1,0,0,.8f),FVector4f(0,1,0,1),FVector4f(0,-1,0,1),FVector4f(0,0,1,1),FVector4f(0,0,-1,1)};Scene.ShapeExtents[0]=FVector4f(0,6,0,3);}
+   VamGPUSetScene(H0,MoveTemp(Scene));TArray<FVector4f> R=Points,Spheres={FVector4f(.5f,0,0,.8f)},Starts=Spheres;VamGPUUpdate(H0,MoveTemp(R),MoveTemp(Spheres),MoveTemp(Starts));VamGPUFlushBatch();ENQUEUE_RENDER_COMMAND(VamRigidTestFence)([](FRHICommandListImmediate& Cmd){Cmd.SubmitAndBlockUntilGPUIdle();});FlushRenderingCommands();}
+  VamGPUReadDiagnostic(H0,R0,X0);VamGPUReadLoads(H0,L0,Time);FVector F=FVector::ZeroVector;for(const auto& L:L0)F+=L.ForceNewtons;
+  TestTrue(FString::Printf(TEXT("Rigid shape %d displaces tissue"),Kind),X0.Num()==5&&X0[4].X<-.02);TestTrue(FString::Printf(TEXT("Rigid shape %d force points into tissue"),Kind),F.X<-.0001);
+  AddInfo(FString::Printf(TEXT("COUPLING rigid kind=%d displacement=%s force=%s"),Kind,X0.Num()?*X0[4].ToString():TEXT("absent"),*F.ToString()));
+ }
+
+ // Two regions in one handle exercise self contact independently of actor count.
+ VamGPUUnregister(A);VamGPUUnregister(B);auto SelfTopology=Build();const auto OtherTopology=Build();
+ for(auto T:OtherTopology.Tets){for(int J=0;J<4;++J)T[J]+=5;SelfTopology.Tets.Add(T);}for(auto T:OtherTopology.SkinFaces){for(int J=0;J<4;++J)T[J]+=5;SelfTopology.SkinFaces.Add(T);}for(auto T:OtherTopology.SkinHinges){for(int J=0;J<4;++J)T[J]+=5;SelfTopology.SkinHinges.Add(T);}
+ for(auto E:OtherTopology.SurfaceEdges)SelfTopology.SurfaceEdges.Add(FIntPoint(E.X+5,E.Y+5));SelfTopology.EdgeLimits.Append(OtherTopology.EdgeLimits);SelfTopology.Material.Append(OtherTopology.Material);for(int I=0;I<5;++I)SelfTopology.Regions.Add(1);
+ auto Self=VamGPURegister(A,MoveTemp(SelfTopology));
+ for(int I=0;I<151;++I){TArray<FVector4f> R=Points;const FTransform X(FRotator(0,180,0),FVector(.5-.7*FMath::Min(1.,I/60.),0,0));for(auto P:Points)R.Add(FVector4f(FVector3f(X.TransformPosition(FVector(FVector3f(P)))),P.W));
+  FVamGPUContactScene Scene;Scene.WorldId=1;Scene.bSoftCollision=true;VamGPUSetScene(Self,MoveTemp(Scene));TArray<FVector4f> Empty,Starts;VamGPUUpdate(Self,MoveTemp(R),MoveTemp(Empty),MoveTemp(Starts));VamGPUFlushBatch();ENQUEUE_RENDER_COMMAND(VamSelfTestFence)([](FRHICommandListImmediate& Cmd){Cmd.SubmitAndBlockUntilGPUIdle();});FlushRenderingCommands();}
+ VamGPUReadDiagnostic(Self,R0,X0);VamGPUReadLoads(Self,L0,Time);FVector SelfForce=FVector::ZeroVector,SelfTorque=FVector::ZeroVector;for(const auto& L:L0){SelfForce+=L.ForceNewtons;SelfTorque+=L.TorqueNewtonMeters;}
+ TestTrue(TEXT("Self contact deforms both regions"),X0.Num()==10&&X0[4].X<-.02&&X0[9].X>-.18);TestTrue(TEXT("Self contact has zero external wrench"),SelfForce.Size()<1e-5&&SelfTorque.Size()<1e-5);
+ AddInfo(FString::Printf(TEXT("COUPLING self regions=%d force=%s torque=%s"),X0.Num(),*SelfForce.ToString(),*SelfTorque.ToString()));VamGPUUnregister(A);Self.Reset();
+ H0.Reset();H1.Reset();FlushRenderingCommands();A->RemoveFromRoot();B->RemoveFromRoot();return true;
+
 }
 #endif

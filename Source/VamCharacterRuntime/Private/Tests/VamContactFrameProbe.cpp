@@ -1,5 +1,6 @@
 // Opt-in development benchmark. Does not modify or save project assets.
-#if !UE_BUILD_SHIPPING
+#include "CoreMinimal.h"
+#if WITH_EDITOR && !UE_BUILD_SHIPPING
 #include "CoreMinimal.h"
 #include "HAL/IConsoleManager.h"
 #include "HAL/PlatformTime.h"
@@ -22,6 +23,7 @@
 #include "Animation/MeshDeformerGeometryReadback.h"
 #include "ComputeFramework/ComputeFramework.h"
 #include "VamCharacterActor.h"
+#include "VamBodyContactResponseComponent.h"
 #include "VamCharacterComponent.h"
 #include "VamRuntimeConfiguration.h"
 #include "VamBreastContactComponent.h"
@@ -125,7 +127,7 @@ FAutoConsoleCommandWithWorldAndArgs ContactFrameCommand(TEXT("vam.ContactBenchma
   for(int I=0;I<2;++I)
   {
    auto* A=W->SpawnActorDeferred<AVamCharacterActor>(Class,FTransform(FVector(0,I==0?-75:75,0)));
-   A->Character->RuntimeConfiguration=Config;A->BreastContact->bEnabled=false;A->FinishSpawning(FTransform(FVector(0,I==0?-75:75,0)));Probe->Actors.Add(A);
+   A->Character->RuntimeConfiguration=Config;A->BreastContact->bEnabled=false;A->FinishSpawning(FTransform(FVector(0,I==0?-75:75,0)));Probe->Actors.Add(A);if(FParse::Param(FCommandLine::Get(),TEXT("VamDisableBodyResponse")))A->BodyContactResponse->bEnabled=false;
    auto* PActor=W->SpawnActor<AActor>();auto* P=NewObject<UStaticMeshComponent>(PActor);PActor->SetRootComponent(P);
    P->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Sphere.Sphere")));P->SetMobility(EComponentMobility::Movable);
    P->SetCollisionObjectType(ECC_WorldDynamic);P->SetCollisionResponseToAllChannels(ECR_Block);P->SetCollisionEnabled(ECollisionEnabled::NoCollision);

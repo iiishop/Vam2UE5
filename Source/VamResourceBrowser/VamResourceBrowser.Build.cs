@@ -10,7 +10,7 @@ public class VamResourceBrowser : ModuleRules
             "ToolMenus", "Projects", "WebBrowser", "Json", "DesktopPlatform", "PythonScriptPlugin", "ContentBrowser",
             "VamCharacterRuntime", "AssetRegistry", "MeshDescription", "StaticMeshDescription",
             "SkeletalMeshDescription", "ModelingComponentsEditorOnly", "AnimationCore", "GeometryCore", "PhysicsUtilities", "InputCore",
-            "VamContactGPU", "Chaos", "RenderCore", "OptimusCore", "ComputeFramework", "GeometryAlgorithms", "TetMeshing"
+            "VamContactGPU", "Chaos", "RHI", "RenderCore", "OptimusCore", "ComputeFramework", "GeometryAlgorithms", "TetMeshing"
         });
     }
 }

@@ -7,6 +7,7 @@
 #include "VamActivePoseComponent.h"
 #include "VamPhysicsOutputComponent.h"
 #include "VamBreastContactComponent.h"
+#include "VamBodyContactResponseComponent.h"
 AVamCharacterActor::AVamCharacterActor()
 {
     Character = CreateDefaultSubobject<UVamCharacterComponent>(TEXT("Character"));
@@ -17,6 +18,7 @@ AVamCharacterActor::AVamCharacterActor()
     PhysicalAnimation = CreateDefaultSubobject<UPhysicalAnimationComponent>(TEXT("PhysicalAnimation"));
     ActivePose = CreateDefaultSubobject<UVamActivePoseComponent>(TEXT("ActivePose"));
     PhysicsOutput = CreateDefaultSubobject<UVamPhysicsOutputComponent>(TEXT("PhysicsOutput"));
+    BodyContactResponse = CreateDefaultSubobject<UVamBodyContactResponseComponent>(TEXT("BodyContactResponse"));
     BreastContact = CreateDefaultSubobject<UVamBreastContactComponent>(TEXT("BreastContact"));
 }
 void AVamCharacterActor::LoadCharacter() { Character->LoadCharacter(); }

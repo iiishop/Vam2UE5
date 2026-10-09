@@ -12,6 +12,7 @@
 #include "Widgets/Layout/SWrapBox.h"
 #include "Widgets/Layout/SExpandableArea.h"
 #include "VamBreastContactComponent.h"
+#include "VamBodyContactResponseComponent.h"
 #include "VamInteractionComponent.h"
 #include "VamActivePoseComponent.h"
 #include "VamRuntimeConfiguration.h"
@@ -524,6 +525,16 @@ TSharedRef<SWidget> BreastControls()
         .IsChecked_Lambda([Contact](){auto* C=Contact();return C&&C->bUseGPU?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
         .OnCheckStateChanged_Lambda([Contact](ECheckBoxState S){if(auto* C=Contact()){C->bUseGPU=S==ECheckBoxState::Checked;C->ResetContact();}})
         [SNew(STextBlock).Text(FText::FromString(TEXT("GPU Contact · 实验求解（需 GPU Profile；不支持的碰撞回退 CPU）")))]];
+    for(int I=0;I<2;++I)ContactBox->AddSlot().AutoHeight()[SNew(SCheckBox)
+        .IsChecked_Lambda([Contact,I](){auto* C=Contact();return C&&(I==0?C->bSoftCollision:C->bForceFeedback)?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
+        .OnCheckStateChanged_Lambda([Contact,I](ECheckBoxState State){if(auto* C=Contact()){(I==0?C->bSoftCollision:C->bForceFeedback)=State==ECheckBoxState::Checked;}})
+        [SNew(STextBlock).Text(FText::FromString(I==0?TEXT("Soft pairs · 双向软体接触（GPU）"):TEXT("Force feedback · 接触反作用力")))]];
+    auto Response=[]()->UVamBodyContactResponseComponent*{auto* A=CurrentActor();return A?A->FindComponentByClass<UVamBodyContactResponseComponent>():nullptr;};
+    ContactBox->AddSlot().AutoHeight()[SNew(SCheckBox)
+        .IsChecked_Lambda([Response](){auto* C=Response();return C&&C->bEnabled?ECheckBoxState::Checked:ECheckBoxState::Unchecked;})
+        .OnCheckStateChanged_Lambda([Response](ECheckBoxState State){if(auto* C=Response()){C->bEnabled=State==ECheckBoxState::Checked;C->ResetResponse();}})
+        [SNew(STextBlock).Text(FText::FromString(TEXT("Body response · 身体受力动画（独立于软体开关）")))]];
+    ContactBox->AddSlot().AutoHeight()[SNew(STextBlock).Text_Lambda([Contact,Response](){auto* C=Contact();auto* R=Response();return FText::FromString((C?FString::Printf(TEXT("Contact force %s N\n"),*C->ContactForceNewtons.ToString()):FString())+(R?R->Status:TEXT("Body response component absent")));}).AutoWrapText(true)];
     auto PressButtons=SNew(SWrapBox).UseAllottedSize(true);
     const TCHAR* PressNames[]={TEXT("按压左侧 20%"),TEXT("按压右侧 20%"),TEXT("释放按压"),TEXT("重置接触")};
     for(int32 I=0;I<4;++I) PressButtons->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromString(PressNames[I]))
