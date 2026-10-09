@@ -9,11 +9,13 @@ struct FVamGPUContactHandle
  TArray<FVector4f> InputRest,InputSpheres,InputStarts; // game thread only
  FVamGPUContactScene InputScene;
  TArray<FVamGPUContactLoad> Loads;uint64 LoadFrame=0;double LoadSubmittedSeconds=0;
+ uint64 InputGameFrame=0;
  bool bDirty=false;
  uint64 Id=0;
  // Render thread only. Mesh providers retain the handle, never a mutable UObject.
  TRefCountPtr<FRDGPooledBuffer> Positions,Rest,Parents,Weights,Mask;
  uint32 Offset=0;
+ uint64 PublishedGameFrame=0;
  TArray<uint64> PreviousColliderIds;
  TArray<FVector4f> PreviousSpheres; // render-thread warm-start contact trajectory
  FCriticalSection DiagnosticsMutex;

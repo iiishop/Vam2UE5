@@ -143,7 +143,7 @@ uint64 NextGPUId=1;
 TAutoConsoleVariable<int32> GPUBarriers(TEXT("vam.Contact.GPUBarriers"),128,TEXT("Final active-set volume barrier iterations"));
 TAutoConsoleVariable<int32> GPUIterations(TEXT("vam.Contact.GPUIterations"),8,TEXT("GPU corotated vertex-color material sweeps per active frame"));
 TAutoConsoleVariable<int32> GPUDiagnostics(TEXT("vam.Contact.GPUDiagnostics"),1,TEXT("Asynchronous cage diagnostics every 30 batches; never blocks GPU"));
-struct FGPUFrame {FVamGPUContactHandlePtr H;TArray<FVector4f> Rest,Spheres,Starts;FVamGPUContactScene Scene;};
+struct FGPUFrame {FVamGPUContactHandlePtr H;TArray<FVector4f> Rest,Spheres,Starts;FVamGPUContactScene Scene;uint64 GameFrame=0;};
 struct FGPUBatchCache
 {
  TArray<uint64> Ids;TArray<FIntPoint> Colors,VertexColors;
@@ -168,7 +168,7 @@ FVamGPUContactHandlePtr VamGPURegister(UObject* Mesh,FVamGPUContactTopology&& To
 FVamGPUContactHandlePtr VamGPUFind(UObject* Mesh){check(IsInGameThread());return GPUHandles.FindRef(Mesh);}
 void VamGPUUnregister(UObject* Mesh){check(IsInGameThread());GPUHandles.Remove(Mesh);}
 void VamGPUUpdate(FVamGPUContactHandlePtr H,TArray<FVector4f>&& Rest,TArray<FVector4f>&& Spheres,TArray<FVector4f>&& Starts)
-{check(IsInGameThread());if(H){H->InputRest=MoveTemp(Rest);H->InputSpheres=MoveTemp(Spheres);H->InputStarts=MoveTemp(Starts);H->bDirty=true;}}
+{check(IsInGameThread());if(H){H->InputRest=MoveTemp(Rest);H->InputSpheres=MoveTemp(Spheres);H->InputStarts=MoveTemp(Starts);H->InputGameFrame=GFrameCounter;H->bDirty=true;}}
 FString VamGPUDiagnostics(FVamGPUContactHandlePtr H,double& Residual)
 {
  if(!H)return TEXT("GPU inactive");FScopeLock Lock(&H->DiagnosticsMutex);Residual=0;
@@ -178,7 +178,7 @@ FString VamGPUDiagnostics(FVamGPUContactHandlePtr H,double& Residual)
 void VamGPUFlushBatch()
 {
  check(IsInGameThread());TArray<FGPUFrame> Frames;
- for(auto& Pair:GPUHandles)if(Pair.Value->bDirty){auto H=Pair.Value;H->bDirty=false;Frames.Add({H,MoveTemp(H->InputRest),MoveTemp(H->InputSpheres),MoveTemp(H->InputStarts),H->InputScene});}
+ for(auto& Pair:GPUHandles)if(Pair.Value->bDirty){auto H=Pair.Value;H->bDirty=false;Frames.Add({H,MoveTemp(H->InputRest),MoveTemp(H->InputSpheres),MoveTemp(H->InputStarts),H->InputScene,H->InputGameFrame});}
  if(Frames.IsEmpty())return;
  Frames.Sort([](const FGPUFrame& A,const FGPUFrame& B){return A.H->Id<B.H->Id;});
  const int Iterations=FMath::Clamp(GPUIterations.GetValueOnGameThread(),1,256);const bool Diagnostics=GPUDiagnostics.GetValueOnGameThread()!=0;const int Barriers=FMath::Clamp(GPUBarriers.GetValueOnGameThread(),0,512);
@@ -327,7 +327,7 @@ void VamGPUFlushBatch()
   {
    auto H=F.H;H->PreviousSpheres=F.Spheres;H->PreviousColliderIds=F.Scene.ColliderIds;
    if(!H->Parents){auto* P=CreateStructuredBuffer(G,TEXT("ContactBatch.Parents"),H->Topology.Parents);auto* W=CreateStructuredBuffer(G,TEXT("ContactBatch.Weights"),H->Topology.Weights);auto* M=CreateStructuredBuffer(G,TEXT("ContactBatch.Mask"),H->Topology.Mask);G.QueueBufferExtraction(P,&H->Parents);G.QueueBufferExtraction(W,&H->Weights);G.QueueBufferExtraction(M,&H->Mask);}
-   G.QueueBufferExtraction(Positions,&H->Positions);G.QueueBufferExtraction(RestBuffer,&H->Rest);
+   G.QueueBufferExtraction(Positions,&H->Positions);G.QueueBufferExtraction(RestBuffer,&H->Rest);H->PublishedGameFrame=F.GameFrame;
    FScopeLock Lock(&H->DiagnosticsMutex);H->BatchParticles=Rest.Num();H->BatchInstances=Frames.Num();H->BatchPairs=NumPairs;H->PairBuildMs=PairMs;
   }
   if(Diagnostics&&!Cache.bReadPending&&Cache.Frame%30==0){if(!Cache.Readback)Cache.Readback=MakeUnique<FRHIGPUBufferReadback>(TEXT("ContactAsyncDiagnostics"));AddEnqueueCopyPass(G,Cache.Readback.Get(),Positions,Rest.Num()*sizeof(FVector4f));if(!Cache.ContactReadback)Cache.ContactReadback=MakeUnique<FRHIGPUBufferReadback>(TEXT("ContactAsyncWork"));AddEnqueueCopyPass(G,Cache.ContactReadback.Get(),Active,4*sizeof(uint32));Cache.ReadFrames=Frames;Cache.bReadPending=true;}
@@ -347,3 +347,20 @@ void VamGPUShutdown()
 
 void VamGPUSetScene(FVamGPUContactHandlePtr H,FVamGPUContactScene&& Scene){check(IsInGameThread());if(H)H->InputScene=MoveTemp(Scene);}
 uint64 VamGPUReadLoads(FVamGPUContactHandlePtr H,TArray<FVamGPUContactLoad>& Loads,double& Seconds){if(!H)return 0;FScopeLock Lock(&H->DiagnosticsMutex);Loads=H->Loads;Seconds=H->LoadSubmittedSeconds;return H->LoadFrame;}
+
+bool VamGPUReadSnapshot(FVamGPUContactHandlePtr H,TArray<FVector>& Rest,TArray<FVector>& Current,uint64& Frame)
+{
+ check(IsInGameThread());Rest.Reset();Current.Reset();Frame=0;if(!H)return false;
+ ENQUEUE_RENDER_COMMAND(VamAuditCage)([H,&Rest,&Current,&Frame](FRHICommandListImmediate& Cmd){
+  if(!H->Positions||!H->Rest)return;
+  const uint32 Count=H->Topology.Regions.Num(),Bytes=(H->Offset+Count)*sizeof(FVector4f);
+  FRHIGPUBufferReadback A(TEXT("VamAuditTarget")),B(TEXT("VamAuditCurrent"));FRDGBuilder G(Cmd);
+  AddEnqueueCopyPass(G,&A,G.RegisterExternalBuffer(H->Rest),Bytes);
+  AddEnqueueCopyPass(G,&B,G.RegisterExternalBuffer(H->Positions),Bytes);G.Execute();
+  Cmd.ImmediateFlush(EImmediateFlushType::FlushRHIThread);Cmd.SubmitAndBlockUntilGPUIdle();
+  if(!A.IsReady()||!B.IsReady())return;
+  const auto* X=static_cast<const FVector4f*>(A.Lock(Bytes));const auto* Y=static_cast<const FVector4f*>(B.Lock(Bytes));
+  for(uint32 I=0;I<Count;++I){Rest.Add(FVector(FVector3f(X[H->Offset+I])));Current.Add(FVector(FVector3f(Y[H->Offset+I])));}
+  A.Unlock();B.Unlock();Frame=H->PublishedGameFrame;
+ });FlushRenderingCommands();return !Current.IsEmpty();
+}

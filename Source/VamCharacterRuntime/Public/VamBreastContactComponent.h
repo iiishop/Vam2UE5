@@ -44,6 +44,9 @@ public:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     int32 GetActiveSolverCount() const { return GPUHandle.IsValid()?1:Solvers.Num(); }
     uint64 GetCageSnapshot(TArray<FVector>& Rest,TArray<FVector>& Current) const { return VamGPUReadDiagnostic(GPUHandle,Rest,Current); }
+    bool HasDiagnosticGPUHandle() const { return GPUHandle.IsValid(); }
+    bool ReadAuditCage(TArray<FVector>& Target,TArray<FVector>& Current,uint64& Frame) const { return VamGPUReadSnapshot(GPUHandle,Target,Current,Frame); }
+    const TArray<FVector>& GetAuditShapedRest() const { return ShapedRest; }
     bool SuppliesContactForceFor(UPrimitiveComponent* Component) const;
     double GetMaxContactResidualCm() const { return MaxContactResidualCm; }
     FVector2D GetBoundSurfaceResidualCm() const { return BoundSurfaceResidualCm; }

@@ -29,6 +29,7 @@ inline TArray<FMatrix> Skin(const FVamNativeMeshInput& I,const TArray<FVamBuildI
 {
     TArray<FMatrix> B;for(int32 N=0;N<Bind.Num();++N) B.Add(Bind[N].ToInverseMatrixWithScale()*P[N].ToMatrixWithScale());
     TArray<FMatrix> M;M.SetNum(I.Vertices.Num());for(auto& X:M) for(int32 A=0;A<4;++A) for(int32 C=0;C<4;++C) X.M[A][C]=0;
+    if(I.bInfluencesAreFinalRenderWeights && &Influences==&I.Influences){for(const auto& W:Influences)M[W.Vertex]+=B[W.Bone]*double(W.Weight);return M;}
     // Match NativeBuilder's FBoneWeight quantization and normalization before
     // conditioning. Small weight errors are material on compressed triangles.
     TArray<TArray<UE::AnimationCore::FBoneWeight>> Quantized;Quantized.SetNum(I.Vertices.Num());for(const auto& W:Influences) Quantized[W.Vertex].Add(UE::AnimationCore::FBoneWeight(W.Bone,W.Weight));

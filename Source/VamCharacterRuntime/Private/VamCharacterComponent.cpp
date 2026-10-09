@@ -159,6 +159,11 @@ void UVamCharacterComponent::Assemble(uint64 Ticket)
         if(!LoadedRuntimeConfiguration->GluteJiggle.IsNull() && (!Glute->GluteJiggleProfile || !Glute->GluteJiggleProfile->IsValidProfile() || !Glute->GluteProfile || Glute->GluteJiggleProfile->SourceTopologyIdentity!=Glute->GluteProfile->SourceTopologyIdentity)) { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteJiggleProfile"));return; }
         if(!LoadedRuntimeConfiguration->GluteCorrective.IsNull() && (!Glute->CorrectiveProfile || !Glute->CorrectiveProfile->IsValidProfile() || !Glute->GluteProfile || Glute->CorrectiveProfile->SourceTopologyIdentity!=Glute->GluteProfile->SourceTopologyIdentity))
         { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteCorrectiveProfile"));return; }
+        if(Glute->CorrectiveProfile)
+        {
+            const FString IdentityError=Glute->CorrectiveProfile->ValidateFinalData(LoadedDefinition,Glute->GluteProfile,Leg->LegProfile,Jiggle->BreastProfile);
+            if(!IdentityError.IsEmpty()){Body=nullptr;UE_LOG(LogTemp,Error,TEXT("%s"),*IdentityError);OnLoaded.Broadcast(false,IdentityError);return;}
+        }
         if(!LoadedRuntimeConfiguration->GluteStructure.IsNull() && (!Glute->GluteProfile || !Glute->GluteProfile->IsValidProfile()))
         { Body=nullptr;OnLoaded.Broadcast(false,TEXT("Invalid GluteStructureProfile"));return; }
         if(!LoadedRuntimeConfiguration->BreastJiggle.IsNull() && (!Jiggle->BreastProfile || !Jiggle->BreastProfile->IsValidProfile()))

@@ -213,6 +213,15 @@ bool UVamStage06AssetEditor::SetRuntimeConfigurationIdentity(UVamRuntimeConfigur
     if(!Configuration || !Definition || Identity.Len()!=64) return false;
     const UVamShapeDefinition* Shape=Definition->Shape.LoadSynchronous();
     if(!Shape || Shape->MorphSetLockDigest.Len()!=64) return false;
+    TSharedPtr<FJsonObject> Receipt;
+    if(!ReceiptJson.IsEmpty()&&(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(ReceiptJson),Receipt)||!Receipt))return false;
+    FString SourcePath;
+    if(Receipt&&Receipt->TryGetStringField(TEXT("source_definition"),SourcePath))
+    {
+        auto* Source=LoadObject<UVamCharacterDefinition>(nullptr,*SourcePath);
+        if(!Source||Source->SourceDigest!=Definition->SourceDigest)return false;
+        Configuration->DiagnosticSourceDefinition=Source;
+    }
     Configuration->SchemaVersion=3;
     Configuration->bIndependentReloadVerified=false;
     Configuration->BuildIdentity=Identity;

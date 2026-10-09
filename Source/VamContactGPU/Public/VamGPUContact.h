@@ -69,3 +69,6 @@ VAMCONTACTGPU_API void VamGPUSetScene(FVamGPUContactHandlePtr Handle,FVamGPUCont
 // Latest completed asynchronous force sample; caller may hold it until next sample,
 // but must expire stale data. These are forces, not impulses.
 VAMCONTACTGPU_API uint64 VamGPUReadLoads(FVamGPUContactHandlePtr Handle,TArray<FVamGPUContactLoad>& Loads,double& SubmittedSeconds);
+
+/** Explicit diagnostic only: fence and read the currently published resident buffers. */
+VAMCONTACTGPU_API bool VamGPUReadSnapshot(FVamGPUContactHandlePtr Handle,TArray<FVector>& Rest,TArray<FVector>& Current,uint64& SubmittedGameFrame);

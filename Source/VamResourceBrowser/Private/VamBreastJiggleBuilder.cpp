@@ -34,6 +34,7 @@ bool Extract(USkeletalMesh* Mesh,FVamNativeMeshInput& I,FString& Error)
 {
     const FMeshDescription* D=Mesh ? Mesh->GetMeshDescription(0) : nullptr;
     if(!D) { Error=TEXT("Source has no retained native MeshDescription; reimport required");return false; }
+    I.bUseHighPrecisionSkinWeights=Mesh->GetLODInfo(0)->BuildSettings.bUseHighPrecisionSkinWeights;
     FSkeletalMeshConstAttributes A(*D);
     const int32 Count=D->Vertices().Num();
     I.Vertices.SetNum(Count);I.Normals.Init(FVector::UpVector,Count);I.UV.Init(FVector2D::ZeroVector,Count);I.SourceVertices.SetNum(Count);

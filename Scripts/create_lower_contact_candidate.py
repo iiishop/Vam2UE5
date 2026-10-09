@@ -20,6 +20,10 @@ if phase=='build':
         assert not error,error
     error=u.VamBreastContactBuilder.build_deformer(profile,root+'/DG_BodyContact');assert not error,error
     rc.set_editor_property('breast_contact',profile)
+    diagnostic_source=source.get_editor_property('diagnostic_source_definition')
+    if not diagnostic_source:
+        prior=json.loads(source.get_editor_property('receipt_json') or '{}')
+        if prior.get('source_definition'): diagnostic_source=u.load_asset(prior['source_definition'])
     identity=hashlib.sha256((source.get_editor_property('build_identity')+root+'lower-connected-ftetwild-v1').encode()).hexdigest()
     receipt={'schema':'lower-contact-candidate/1','source_configuration':source.get_path_name(),'profile':profile.get_path_name(),'identity':identity,'regions':list(map(str,profile.get_editor_property('region_names')))}
     assert u.VamStage06AssetEditor.set_runtime_configuration_identity(rc,source.get_editor_property('definition'),identity,json.dumps(receipt))

@@ -44,6 +44,7 @@
 #include "Materials/MaterialExpressionFresnel.h"
 #include "AssetCompilingManager.h"
 #include "ComputeFramework/ComputeFramework.h"
+#include "VamPoseSuite.h"
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamContactBulkTest,"Vam.Breast.ContactBulk",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FVamContactBulkTest::RunTest(const FString&)
 {
@@ -84,7 +85,10 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  auto* World=UWorld::CreateWorld(EWorldType::Game,false,NAME_None,nullptr,true,ERHIFeatureLevel::Num,&IVS);
  GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(World);
  World->InitializeActorsForPlay(FURL());World->GetWorldSettings()->NotifyBeginPlay();
- auto* A=World->SpawnActor<AVamCharacterActor>();A->BreastContact->bEnabled=false;A->Character->RuntimeConfiguration=Config;A->LoadCharacter();
+ // A1 acceptance must use the requested generated Blueprint class.
+ FString AuditBP;FParse::Value(FCommandLine::Get(),TEXT("VamAuditBP="),AuditBP);UClass* AuditClass=AuditBP.IsEmpty()?AVamCharacterActor::StaticClass():LoadClass<AVamCharacterActor>(nullptr,*AuditBP);
+ if(!TestNotNull(TEXT("Requested actor class"),AuditClass))return false;
+ auto* A=World->SpawnActor<AVamCharacterActor>(AuditClass);A->BreastContact->bEnabled=false;A->Character->RuntimeConfiguration=Config;A->LoadCharacter();
  const bool GPUVideo=FParse::Param(FCommandLine::Get(),TEXT("VamResidentGPUVideo"));
  if(GPUVideo){A->BreastContact->bUseGPU=!FParse::Param(FCommandLine::Get(),TEXT("VamSkinCPU"));A->BreastContact->bEnabled=!FParse::Param(FCommandLine::Get(),TEXT("VamLowerSeatVideo"));}
  FString EvidenceDir;FParse::Value(FCommandLine::Get(),TEXT("VamContactEvidence="),EvidenceDir);
@@ -140,6 +144,15 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
    Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((EvidenceCenter-Eye).GetSafeNormal(),EvidenceUp).Rotator());Export(TEXT("-side"));Capture->SetWorldTransform(Original);}
  };
 
+ if(FParse::Value(FCommandLine::Get(),TEXT("VamPoseSuite="),Path)){
+  const bool Result=VamRunPoseSuite(*this,A,World,Capture,EvidenceDir,Tick);World->EndPlay(EEndPlayReason::Quit);A->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return Result;
+ }
+ if(FParse::Param(FCommandLine::Get(),TEXT("VamAuditGPU"))){
+  A->BreastContact->SetDebugPress(0,.2f);for(int I=0;I<90;++I)Tick();
+  A->ExportDeformationAudit();UE_LOG(LogTemp,Display,TEXT("AUDIT_SMOKE %s"),*A->DeformationAuditStatus);
+  for(int I=0;I<60;++I)Tick();
+  World->EndPlay(EEndPlayReason::Quit);A->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return true;
+ }
  if(FParse::Param(FCommandLine::Get(),TEXT("VamLowerSeatVideo")))
  {
   auto* Leg=CastChecked<UVamLegSkeletalMeshComponent>(A->Character->Body);
@@ -154,6 +167,11 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
   Capture->FOVAngle=42;Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((Center-Eye).GetSafeNormal(),Up).Rotator());
   auto* Light=NewObject<UPointLightComponent>(A);Light->Intensity=9000;Light->AttenuationRadius=1000;Light->SourceRadius=30;Light->RegisterComponent();Light->SetWorldLocation(Eye+Up*70);
   auto* Sun=NewObject<UDirectionalLightComponent>(A);Sun->Intensity=4;Sun->RegisterComponent();Sun->SetWorldRotation((Center-Eye).Rotation());
+  if(FParse::Param(FCommandLine::Get(),TEXT("VamAuditSmoke"))){
+   A->ExportDeformationAudit();UE_LOG(LogTemp,Display,TEXT("AUDIT_SMOKE %s"),*A->DeformationAuditStatus);
+   for(int I=0;I<60;++I){Tick();Capture->CaptureScene();FlushRenderingCommands();}
+   World->EndPlay(EEndPlayReason::Quit);A->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return true;
+  }
   if(FParse::Param(FCommandLine::Get(),TEXT("VamSeatIsolation"))){
    auto Snap=[&](const TCHAR* Name){for(int I=0;I<25;++I)Tick();SaveImage(Name);UE_LOG(LogTemp,Display,TEXT("SEAT_ISOLATION %s corrective=%d structural=%d %s"),Name,Leg->bCorrectiveEnabled,Leg->bGluteEnabled,*Leg->GluteDiagnostics());};
    Snap(TEXT("frame-0-all-structural"));Leg->bCorrectiveEnabled=false;Snap(TEXT("frame-1-no-corrective"));Leg->bGluteEnabled=false;Snap(TEXT("frame-2-no-structural"));Leg->bCorrectiveEnabled=true;Snap(TEXT("frame-3-corrective-only"));

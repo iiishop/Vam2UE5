@@ -35,6 +35,8 @@ USTRUCT(BlueprintType)
 struct FVamNativeMeshInput
 {
     GENERATED_BODY()
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") bool bUseHighPrecisionSkinWeights=false;
+    bool bInfluencesAreFinalRenderWeights=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") TArray<FVector> Vertices;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") TArray<FVector> Normals;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM") TArray<FVector2D> UV;

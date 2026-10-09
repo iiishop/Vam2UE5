@@ -106,7 +106,7 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
     TSharedPtr<FJsonObject> Family;const TSharedPtr<FJsonObject>* Map=nullptr;
     if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(FamilyJson),Family) || !Family || !Family->TryGetObjectField(TEXT("glute_structure"),Map)) return Fail(TEXT("Glute Structure unsupported family: missing semantic mapping"));
     FVamNativeMeshInput I;if(!UVamBreastJiggleBuilder::ExtractNative(Source->Body.LoadSynchronous(),I,Error)) return nullptr;
-    const auto OriginalInfluences=I.Influences;
+    // Corrective baking is a separate final-topology pass.
     auto* Shape=Source->Shape.LoadSynchronous();auto* Geometry=Shape?Shape->Geometry.LoadSynchronous():nullptr;
     if(!Geometry || Geometry->InputToSource.Num()!=I.Vertices.Num()) return Fail(TEXT("Glute source topology correspondence unavailable"));
     const TSharedPtr<FJsonObject>* SkinPolicy=nullptr;
@@ -249,7 +249,7 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
     P->RegionProvenance+=TEXT(" Skin participation uses family smooth confidence mapping; donor maximum and full confidence serialized in profile; original donor support retained.");
     P->RegionProvenance+=FString::Printf(TEXT(" Superior transition: extent %.3f sigma, fade %.3f sigma, evidence %.3f sigma; measured source-weight spread, posterior/pelvis donor gates retained."),SuperiorExtent,SuperiorFade,SuperiorEvidence);
     P->SkinWeightIdentity=FMD5::HashAnsiString(*(P->Algorithm+P->SourceTopologyIdentity+Source->SourceDigest+FMD5::HashAnsiString(*FamilyJson)+FString::Printf(TEXT("|%.17g|%.17g"),P->SkinTransferMaximum,P->SkinTransferFullConfidence)));
-    if(!Corrective || !VamGluteCorrectiveBuilder::Build(I,OriginalInfluences,Geometry->InputToSource,*P,*Corrective,FamilyJson,Error)) return nullptr;
+    if(Corrective) { Corrective->OriginalInfluenceDefinition=Source;Corrective->SourceFamilyJson=FamilyJson;Corrective->MarkPackageDirty(); }
     auto* Body=UVamNativeBuilder::BuildMesh(Root+TEXT("/SK_Body"),I,Error);if(!Body) return nullptr;
     auto* Result=Copy(Source,Root+TEXT("/CD_Character"));auto* NewShape=Copy(Shape,Root+TEXT("/SD_Shape"));auto* NewGeometry=Copy(Geometry,Root+TEXT("/GD_Bindings"));
     if(!Result || !NewShape || !NewGeometry) return Fail(TEXT("Glute immutable destination conflict"));

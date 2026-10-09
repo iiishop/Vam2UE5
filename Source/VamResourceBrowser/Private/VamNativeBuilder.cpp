@@ -127,6 +127,7 @@ USkeletalMesh* UVamNativeBuilder::BuildMesh(const FString& Path, const FVamNativ
     // UE's default 0.015 cm Morph threshold discards valid small clothing deltas.
     // Rebuild from the retained MeshDescription with our recorded precision policy.
     Result.SkeletalMesh->GetLODInfo(0)->BuildSettings.MorphThresholdPosition=1.e-6f;
+    Result.SkeletalMesh->GetLODInfo(0)->BuildSettings.bUseHighPrecisionSkinWeights=I.bUseHighPrecisionSkinWeights;
     Result.SkeletalMesh->CreateMeshDescription(0,MoveTemp(Description));
     Result.SkeletalMesh->CommitMeshDescription(0);
     Result.SkeletalMesh->Build();

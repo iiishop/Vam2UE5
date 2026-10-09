@@ -112,6 +112,8 @@ UVamCharacterDefinition* UVamBreastContactBuilder::RefineRenderSurface(const FSt
         I.Triangles=MoveTemp(Triangles);I.TriangleMaterials=MoveTemp(Materials);
     }
     I.Influences.Reset();for(int32 V=0;V<Skin.Num();++V){TArray<int32> Bones;Skin[V].GetKeys(Bones);Bones.Sort();for(int32 B:Bones){FVamBuildInfluence W;W.Vertex=V;W.Bone=B;W.Weight=Skin[V][B];I.Influences.Add(W);}}
+    // Final render skinning uses the same 16-bit quantization as corrective conditioning.
+    I.bUseHighPrecisionSkinWeights=true;
     auto* Mesh=UVamNativeBuilder::BuildMesh(Root+TEXT("/SK_Body"),I,Error);if(!Mesh)return nullptr;
     auto* D=CopyRefinementAsset(Source,Root+TEXT("/CD_Character"));auto* S=CopyRefinementAsset(Shape,Root+TEXT("/SD_Shape"));auto* G=CopyRefinementAsset(Geometry,Root+TEXT("/GD_Bindings"));
     if(!D || !S || !G)return Fail(TEXT("Immutable refinement destination already exists"));

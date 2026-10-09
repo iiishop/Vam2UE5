@@ -66,7 +66,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     using namespace VamGluteGeometry;auto Fail=[&](const FString& Why){Error=Why;return false;};TSharedPtr<FJsonObject> Family;
     if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(FamilyJson),Family)) return Fail(TEXT("Invalid corrective family JSON"));
     const TSharedPtr<FJsonObject>* Policy=nullptr;if(!Family->TryGetObjectField(TEXT("glute_corrective"),Policy)) return Fail(TEXT("Unsupported family: corrective policy missing"));
-    P.SchemaVersion=3;P.Algorithm=TEXT("glute-corrective-g062-v1");P.SkeletonFamily=G.SkeletonFamily;P.SourceTopologyIdentity=G.SourceTopologyIdentity;P.Targets.Reset();P.Bases.Reset();P.BuildDimensions.Reset();P.Diagnostics.Reset();P.ReusedSourceVertexCount=0;
+    P.SchemaVersion=4;P.Algorithm=TEXT("glute-corrective-final-weights-v1");P.SkeletonFamily=G.SkeletonFamily;P.SourceTopologyIdentity=G.SourceTopologyIdentity;P.Targets.Reset();P.Bases.Reset();P.BuildDimensions.Reset();P.Diagnostics.Reset();P.ReusedSourceVertexCount=0;P.AuthoredReplay.Reset();P.FinalDataDigests.Reset();
     P.FamilyPolicyIdentity=FMD5::HashAnsiString(*VamGluteAudit::Json(*Policy));P.MetricDegrees=Vec((*Policy)->GetArrayField(TEXT("metric_degrees")));P.BlendWidth=(*Policy)->GetNumberField(TEXT("blend_width"));P.MaximumDimensionFraction=(*Policy)->GetNumberField(TEXT("maximum_dimension_fraction"));
     for(const auto& V:(*Policy)->GetArrayField(TEXT("targets"))) { const auto O=V->AsObject();FVamGlutePoseTarget T;T.Name=FName(*O->GetStringField(TEXT("name")));T.Degrees=Vec(O->GetArrayField(TEXT("degrees")));P.Targets.Add(T); }
     const TSharedPtr<FJsonObject>* Source=nullptr;Family->TryGetObjectField(TEXT("glute_corrective_source"),Source);const bool Verified=Source && !(*Source)->GetArrayField(TEXT("deltas")).IsEmpty();
@@ -235,6 +235,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
         const double Ref=Stats(TEXT("reference_source_posed"))->GetNumberField(TEXT("rms")),Pre=Stats(TEXT("03_side_localized_source"))->GetNumberField(TEXT("rms"));DD.AttenuationRatio=Ref>1.e-12?DD.SourceRms/Ref:0;DD.SafetyLoss=Pre>1.e-12?1-DD.SourceRms/Pre:0;DD.SkinningResidualRms=Stats(TEXT("12_skinning_residual"))->GetNumberField(TEXT("rms"));
         const double SmoothBefore=Stats(TEXT("05_procedural_masked"))->GetNumberField(TEXT("rms"));DD.SmoothingLoss=SmoothBefore>1.e-12?1-Stats(TEXT("06_procedural_smoothed"))->GetNumberField(TEXT("rms"))/SmoothBefore:0;
         TSet<int32> Seen;for(int32 V=0;V<Ids.Num();++V) if(Used.Contains(V) && SS.RegionWeights[V]>.001 && !Seen.Contains(Ids[V])) { Seen.Add(Ids[V]);if(Seen.Num()%4==0) { DD.Positions.Add(S.RegionPoints[V]);DD.Raw.Add(RawFields[Side][Target][V]);DD.Adapted.Add(AdaptFields[Side][Target][V]);DD.Procedural.Add(PF[V]);DD.SkinningResidual.Add(Residual[V]);DD.Final.Add(Final[V]); }if(Verified && Target==1 && SourceMap.Contains(Ids[V])) ++P.ReusedSourceVertexCount; }
+        FVamGluteCorrectiveReplay Replay;Replay.Side=Side;Replay.Target=Target;Replay.PosedDelta=Apply(Skin,Native);P.AuthoredReplay.Add(MoveTemp(Replay));
         P.Diagnostics.Add(MoveTemp(DD));AddMorph(I,P,S,Side,Target,Native,Skin,Anchor);
     }
     TArray<TSharedPtr<FJsonValue>> Bilateral;

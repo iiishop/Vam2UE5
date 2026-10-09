@@ -59,6 +59,7 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
     TSharedPtr<FJsonObject> Family;const TSharedPtr<FJsonObject>* Mapping=nullptr;
     if(!Source || !P || !Glute || !FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(FamilyJson),Family) || !Family->TryGetObjectField(TEXT("leg_jiggle"),Mapping)) return Fail(TEXT("Leg Jiggle unsupported family: missing semantic mapping"));
     const auto Map=*Mapping;FVamNativeMeshInput Input;if(!UVamBreastJiggleBuilder::ExtractNative(Source->Body.LoadSynchronous(),Input,Error)) return nullptr;
+    if(Input.Morphs.ContainsByPredicate([](const auto& M){return M.Name.ToString().StartsWith(TEXT("G06_"));})) return Fail(TEXT("Leg weights must be finalized before corrective baking; rebuild from the retained source"));
     auto* Shape=Source->Shape.LoadSynchronous();auto* Geometry=Shape?Shape->Geometry.LoadSynchronous():nullptr;
     if(!Geometry || Geometry->InputToSource.Num()!=Input.Vertices.Num()) return Fail(TEXT("Leg topology correspondence missing"));
     auto Bone=[&](const TCHAR* Key)->int32{FString Name;if(!Map->TryGetStringField(Key,Name)) return INDEX_NONE;return Input.Bones.IndexOfByPredicate([&](const FVamBuildBone& B){return B.Name==FName(*Name);});};
