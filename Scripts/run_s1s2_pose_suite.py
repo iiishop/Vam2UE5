@@ -1,0 +1,9 @@
+"""Run existing UE pose-suite harness against a published runtime, preserving commands and logs."""
+import argparse,json,subprocess
+from pathlib import Path
+p=argparse.ArgumentParser();p.add_argument('bundle',type=Path);p.add_argument('out',type=Path);p.add_argument('--world',choices=['Editor','PIE'],default='Editor');p.add_argument('--recipe',type=Path,default=Path('Config/LowerBodyPoseSuite.json'));p.add_argument('--case');p.add_argument('--streaming-probe');a=p.parse_args();bundle=json.loads(a.bundle.read_text());assert bundle['status']=='committed' and bundle['independent_reload_verified'];a.out.mkdir(parents=True,exist_ok=False);recipe=a.out/'pose-recipe.json';recipe.write_bytes(a.recipe.read_bytes());cmd=['I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe','I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject','-VamPoseSuite='+str(recipe.resolve()),'-VamSeamAudit','-VamPoseStreaming','-VamPoseWorld='+a.world,'-ExecCmds=Automation RunTests Vam.Breast.ContactRuntime','-TestExit=Automation Test Queue Empty','-unattended','-nosplash','-RenderOffscreen','-dx12','-VamBreastTestConfig='+bundle['configuration'],'-VamAuditBP='+bundle['blueprint']+'_C','-VamContactEvidence='+str(a.out.resolve()),'-abslog='+str((a.out/'runtime.log').resolve())];
+if a.case:cmd.append('-VamPoseCase='+a.case)
+if a.streaming_probe:cmd.append('-VamStreamingProbe='+a.streaming_probe)
+(a.out/'command.json').write_text(json.dumps(cmd,indent=2));(a.out/'asset-identity.json').write_text(json.dumps({k:bundle[k] for k in ['identity','configuration','blueprint']},indent=2))
+with (a.out/'stdout.log').open('w') as f:r=subprocess.run(cmd,stdout=f,stderr=subprocess.STDOUT)
+(a.out/'process.json').write_text(json.dumps(dict(exit_code=r.returncode)));raise SystemExit(r.returncode)

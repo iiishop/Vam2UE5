@@ -12,6 +12,10 @@ class VAMRESOURCEBROWSER_API UVamStage06AssetEditor : public UBlueprintFunctionL
     GENERATED_BODY()
 public:
     UFUNCTION(BlueprintCallable, Category="VaM|RuntimeBuild|Editor")
+    static FString DescribeMaterialStreaming(class UMaterialInterface* Material);
+    UFUNCTION(BlueprintCallable, Category="VaM|RuntimeBuild|Editor")
+    static FString BuildAffineMaterialStreaming(class UMaterial* Material);
+    UFUNCTION(BlueprintCallable, Category="VaM|RuntimeBuild|Editor")
     static bool PublishRuntimeConfiguration(class UVamRuntimeConfiguration* Configuration);
     UFUNCTION(BlueprintCallable, Category="VaM|RuntimeBuild|Editor")
     static bool BuildPhysicsShapeProfile(class UVamPhysicsShapeProfile* Profile, class UVamCharacterDefinition* Definition, UPhysicsAsset* Physics, FString& Error);

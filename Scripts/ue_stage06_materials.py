@@ -79,6 +79,8 @@ def build_material_profile(definition, root, part_category='reference',skin_shad
             u.MaterialEditingLibrary.set_material_usage(result,u.MaterialUsage.MATUSAGE_MORPH_TARGETS)
             u.MaterialEditingLibrary.recompile_material(result)
         if kind!='reference':tint_parameter(result)
+        error=u.VamStage06AssetEditor.build_affine_material_streaming(result)
+        assert not error, 'Generated material streaming data: '+str(error)
         assert u.EditorAssetLibrary.save_loaded_asset(result)
         cache[key]=result
         semantic_counts[kind]=semantic_counts.get(kind,0)+1

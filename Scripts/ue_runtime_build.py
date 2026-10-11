@@ -272,6 +272,10 @@ def reload_and_publish(recipe_path,report_path):
     require(config.get_editor_property('materials')==materials,'Material profile reference mismatch')
     require(len(materials.get_editor_property('body_materials'))==receipt['body_slots'],'Material body slot mismatch')
     require([str(m.get_editor_property('shading_model')) if isinstance(m,u.Material) else None for m in materials.get_editor_property('body_materials')]==receipt['body_shading_models'],'Material shading did not persist')
+    for material in materials.get_editor_property('body_materials'):
+        if isinstance(material,u.Material):
+            streaming=json.loads(u.VamStage06AssetEditor.describe_material_streaming(material))
+            require(not streaming['graph_texture_references'] or streaming['streaming_entries'],'Generated texture sampling metadata missing after reload: '+material.get_path_name())
     require([len(p.get_editor_property('materials')) for p in materials.get_editor_property('part_materials')]==receipt['part_slots'],'Part material slot mismatch')
     host=load(receipt['blueprint'],u.Blueprint);defaults=u.get_default_object(host.generated_class())
     require(defaults.get_editor_property('character').get_editor_property('runtime_configuration')==config,'Host runtime configuration reference missing')

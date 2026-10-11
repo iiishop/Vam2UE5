@@ -35,6 +35,9 @@
 #include "Components/PointLightComponent.h"
 #include "Components/DirectionalLightComponent.h"
 #include "ContentStreaming.h"
+#include "Editor.h"
+#include "PlayInEditorDataTypes.h"
+#include "Tests/AutomationEditorCommon.h"
 #include "ShaderCompiler.h"
 #include "Engine/StaticMesh.h"
 #include "Components/StaticMeshComponent.h"
@@ -82,9 +85,24 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  }
 
  const auto IVS=UWorld::InitializationValues().AllowAudioPlayback(false).CreatePhysicsScene(true).RequiresHitProxies(false).CreateNavigation(false).CreateAISystem(false).ShouldSimulatePhysics(true).SetTransactional(false);
- auto* World=UWorld::CreateWorld(EWorldType::Game,false,NAME_None,nullptr,true,ERHIFeatureLevel::Num,&IVS);
- GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(World);
- World->InitializeActorsForPlay(FURL());World->GetWorldSettings()->NotifyBeginPlay();
+ FString PoseWorld;FParse::Value(FCommandLine::Get(),TEXT("VamPoseWorld="),PoseWorld);
+ const bool RealEditor=PoseWorld==TEXT("Editor"),RealPIE=PoseWorld==TEXT("PIE");
+ if((RealEditor||RealPIE)&&!FParse::Value(FCommandLine::Get(),TEXT("VamPoseSuite="),Path)){AddError(TEXT("Editor/PIE audit requires a pose suite"));return false;}
+ UWorld* World=nullptr;
+ if(RealEditor||RealPIE)
+ {
+  if(!GEditor||GEditor->PlayWorld){AddError(TEXT("Audit requires an isolated editor without an existing play session"));return false;}
+  World=FAutomationEditorCommonUtils::CreateNewMap();
+  if(RealPIE){FRequestPlaySessionParams Params;Params.bAllowOnlineSubsystem=false;GEditor->RequestPlaySession(Params);GEditor->StartQueuedPlaySessionRequest();World=GEditor->PlayWorld;}
+  if(!TestNotNull(TEXT("Actual editor/PIE world"),World))return false;
+  TestEqual(TEXT("Actual world type"),int32(World->WorldType),int32(RealPIE?EWorldType::PIE:EWorldType::Editor));
+ }
+ else
+ {
+  World=UWorld::CreateWorld(EWorldType::Game,false,NAME_None,nullptr,true,ERHIFeatureLevel::Num,&IVS);
+  GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(World);
+  World->InitializeActorsForPlay(FURL());World->GetWorldSettings()->NotifyBeginPlay();
+ }
  // A1 acceptance must use the requested generated Blueprint class.
  FString AuditBP;FParse::Value(FCommandLine::Get(),TEXT("VamAuditBP="),AuditBP);UClass* AuditClass=AuditBP.IsEmpty()?AVamCharacterActor::StaticClass():LoadClass<AVamCharacterActor>(nullptr,*AuditBP);
  if(!TestNotNull(TEXT("Requested actor class"),AuditClass))return false;
@@ -108,7 +126,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  FVector EvidenceCenter,EvidenceFront,EvidenceUp,EvidenceSide;double EvidenceSize=0;
  if(Capture)
  {
-  auto* Breast=CastChecked<UVamBreastSkeletalMeshComponent>(A->Character->Body);Breast->bJiggleEnabled=false;
+  auto* Breast=Cast<UVamBreastSkeletalMeshComponent>(A->Character->Body);if(!TestNotNull(TEXT("Published configuration must create the production body"),Breast)){AddError(A->Character->LastShapeError);return false;}Breast->bJiggleEnabled=false;
   if(!TestEqual(TEXT("Bilateral capture frames"),Breast->RestSides.Num(),2))return false;
   const auto& L=Breast->RestSides[0];const auto& R=Breast->RestSides[1];
   const auto& Pose=Breast->GetComponentSpaceTransforms();const FTransform Frame=Pose[L.AnchorBone]*Breast->GetComponentTransform();
@@ -145,7 +163,7 @@ bool FVamContactRuntimeTest::RunTest(const FString&)
  };
 
  if(FParse::Value(FCommandLine::Get(),TEXT("VamPoseSuite="),Path)){
-  const bool Result=VamRunPoseSuite(*this,A,World,Capture,EvidenceDir,Tick);World->EndPlay(EEndPlayReason::Quit);A->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);return Result;
+  const bool Result=VamRunPoseSuite(*this,A,World,Capture,EvidenceDir,Tick);if(RealPIE){GEditor->EndPlayMap();}else if(RealEditor){A->Destroy();}else{World->EndPlay(EEndPlayReason::Quit);A->Destroy();World->DestroyWorld(false);GEngine->DestroyWorldContext(World);}return Result;
  }
  if(FParse::Param(FCommandLine::Get(),TEXT("VamAuditGPU"))){
   A->BreastContact->SetDebugPress(0,.2f);for(int I=0;I<90;++I)Tick();
