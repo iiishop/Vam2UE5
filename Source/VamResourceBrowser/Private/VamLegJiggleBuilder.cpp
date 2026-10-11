@@ -35,20 +35,17 @@ FVector Vector(const TSharedPtr<FJsonObject>& Row,const TCHAR* Name)
 void BlendLegWeights(TMap<int32,double>& W,int32 Primary,const TSet<int32>& HipBones,TArray<TPair<int32,double>> Leg,double Fraction)
 {
     const double Moved=W.FindRef(Primary)*FMath::Clamp(Fraction,0.,.85);if(Moved<1.e-8) return;
-    TArray<TPair<int32,double>> Hip;double HipMass=0;
-    for(const auto& Pair:W) if(HipBones.Contains(Pair.Key) && Pair.Value>0){Hip.Add(Pair);HipMass+=Pair.Value;}
-    const int32 Slots=8-(W.Num()-Hip.Num());if(Slots<(Hip.IsEmpty()?1:2)) return;
-    auto Sort=[](auto& Group){Group.Sort([](const auto& A,const auto& B){return A.Value==B.Value?A.Key<B.Key:A.Value>B.Value;});};
-    Sort(Hip);Sort(Leg);int32 H=Hip.IsEmpty()?0:1,L=1;
-    while(H+L<Slots && (H<Hip.Num() || L<Leg.Num()))
-    {
-        const double HV=H<Hip.Num()?Hip[H].Value:-1,LV=L<Leg.Num()?Leg[L].Value*Moved:-1;
-        if(HV>LV) ++H;else ++L;
-    }
-    for(const auto& Pair:Hip) W.Remove(Pair.Key);
+    // Static glute helpers have distinct transforms. Replacing a small helper by
+    // another helper preserves total hip mass but changes the posed surface.
+    // Spend only genuinely unused slots on leg dynamics; never evict authored support.
+    const int32 Slots=8-W.Num();if(Slots<=0)return;
+    Leg.RemoveAll([](const auto& Pair){return Pair.Value<=0;});
+    Leg.Sort([](const auto& A,const auto& B){return A.Value==B.Value?A.Key<B.Key:A.Value>B.Value;});
+    const int32 Count=FMath::Min(Slots,Leg.Num());double Sum=0;
+    for(int32 K=0;K<Count;++K)Sum+=Leg[K].Value;
+    if(Sum<=0)return;
     W.FindChecked(Primary)-=Moved;
-    auto Write=[&](const auto& Group,int32 Count,double Mass){double Sum=0;for(int32 K=0;K<Count;++K) Sum+=Group[K].Value;if(Sum>0) for(int32 K=0;K<Count;++K) W.Add(Group[K].Key,Mass*Group[K].Value/Sum);};
-    Write(Hip,H,HipMass);Write(Leg,L,Moved);
+    for(int32 K=0;K<Count;++K)W.Add(Leg[K].Key,Moved*Leg[K].Value/Sum);
 }
 double Kernel(const FVector& Point,const FVector& Center,double Radius,double Length)
 {
@@ -111,6 +108,7 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
     };
     WeldWeights();
     TSet<int32> HipBones;for(const auto& Side:Glute->Sides) for(const auto& Region:Side.Regions) HipBones.Add(Region.BoneIndex);
+    const auto AuthoredHipWeights=Weights;
     const double Transfer=Map->GetNumberField(TEXT("skin_transfer"));if(Transfer<=0 || Transfer>.85) return Fail(TEXT("Invalid leg donor participation"));
     for(int32 Side=0;Side<2;++Side) for(int32 Part=0;Part<2;++Part)
     {
@@ -177,6 +175,9 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
         P->Segments.Add(MoveTemp(S));
     }
     WeldWeights();
+    for(int32 V=0;V<Weights.Num();++V)for(int32 B:HipBones)
+        if(FMath::Abs(Weights[V].FindRef(B)-AuthoredHipWeights[V].FindRef(B))>1.e-8)
+            return Fail(TEXT("Leg influence allocation changed authored static glute support"));
     AuditWeights(TEXT("01-leg-transfer"));
     // A surface-distance extension provides transition width OUTSIDE the old mask.
     // Diffusing only inside that mask cannot remove its narrow fixed boundary.
@@ -312,3 +313,22 @@ FString UVamLegJiggleBuilder::Validate(UVamCharacterDefinition* D,UVamLegJiggleP
     for(const auto& Section:Mesh->GetImportedModel()->LODModels[0].Sections) for(const auto& V:Section.SoftVertices){int32 Count=0;uint32 Sum=0;FVector Position=FVector::ZeroVector;for(int32 K=0;K<MAX_TOTAL_INFLUENCES;++K) if(V.InfluenceWeights[K]){++Count;Sum+=V.InfluenceWeights[K];const int32 B=Section.BoneMap[V.InfluenceBones[K]];Position+=CS[B].TransformPosition(FVector(Mesh->GetRefBasesInvMatrix()[B].TransformPosition(V.Position)))*double(V.InfluenceWeights[K]);}if(Count>8 || !Sum || FMath::Abs(int32(Sum)-65535)>8 || !(Position/Sum).Equals(FVector(V.Position),.001)) return TEXT("Leg weights/bind reconstruction invalid");}
     if(D->Shape.LoadSynchronous()->NeutralLocalBind.Num()!=Ref.GetRawBoneNum()) return TEXT("Leg Shape identity mismatch");return FString();
 }
+
+#if WITH_DEV_AUTOMATION_TESTS
+#include "Misc/AutomationTest.h"
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamLegSupportSlotsTest,"Vam.Leg.PreserveSupportSlots",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FVamLegSupportSlotsTest::RunTest(const FString&)
+{
+    TMap<int32,double> Weights={{0,.2},{1,.3},{2,.1},{3,.1},{4,.1},{5,.1},{6,.1}};
+    const auto Before=Weights;TSet<int32> Hip={2,3,4,5,6};TArray<TPair<int32,double>> Leg={{7,.4},{8,.3},{9,.2},{10,.1}};
+    BlendLegWeights(Weights,1,Hip,Leg,.5);
+    TestEqual(TEXT("Eight slots respected"),Weights.Num(),8);double Total=0;
+    for(const auto& W:Weights)Total+=W.Value;
+    TestTrue(TEXT("Normalized total"),FMath::IsNearlyEqual(Total,1.,1.e-12));
+    for(int32 B:Hip)TestEqual(TEXT("Every static helper retained exactly"),Weights.FindRef(B),Before.FindRef(B));
+    TestTrue(TEXT("Leg dynamics still receives donor mass"),FMath::IsNearlyEqual(Weights.FindRef(7),.15,1.e-12));
+    const auto Full=Weights;BlendLegWeights(Weights,1,Hip,Leg,.5);
+    for(const auto& W:Full)TestEqual(TEXT("Full support budget is not destructively repacked"),Weights.FindRef(W.Key),W.Value);
+    return !HasAnyErrors();
+}
+#endif
