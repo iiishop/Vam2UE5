@@ -231,13 +231,16 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
             // original mass and its semantic proportions when no addition is needed.
             const double Desired=FMath::Max(Original[V],FMath::Min(Field,Capacity[V]*.85));
             if(Desired<=Original[V]+1.e-8){Final[V]=Original[V];continue;}
-            TArray<TPair<int32,double>> Helpers;
-            for(const auto& Pair:W) if(Bones.Contains(Pair.Key) && Pair.Value>0) Helpers.Add(Pair);
-            for(int32 HelperIndex:Bones) W.Remove(HelperIndex);
-            for(auto& Pair:W) if(Pair.Key==Pelvis || Pair.Key==Side.ThighBone) Pair.Value+=Original[V]*Pair.Value/Donor;
+            // Keep a dense continuous candidate through moment fitting. A helper
+            // absent from an earlier eight-slot mesh must not be a structural zero:
+            // the nonlinear fit can amplify tiny retained kernels by two orders.
+            const double Added=Desired-Original[V];
+            for(auto& Pair:W) if(Pair.Key==Pelvis || Pair.Key==Side.ThighBone) Pair.Value*=1-Added/Donor;
             const FVector Point=Anchor.InverseTransformPosition(Input.Vertices[V]);
-            if(Helpers.IsEmpty()) for(const auto& R:Side.Regions) Helpers.Emplace(R.BoneIndex,FMath::Exp(-((Point-R.Rest)/Side.Dimensions).SizeSquared()*16));
-            VamBreastWeights::Redistribute(W,{Pelvis,Side.ThighBone},Helpers,Desired/FMath::Max(1.e-8,Capacity[V]));
+            double Kernels[5],KernelSum=0;
+            for(int32 N=0;N<5;++N){Kernels[N]=FMath::Exp(-((Point-Side.Regions[N].Rest)/Side.Dimensions).SizeSquared()*16);KernelSum+=Kernels[N];}
+            if(KernelSum<=1.e-30)return Fail(TEXT("Empty hip extension kernel"));
+            for(int32 N=0;N<5;++N)W.FindOrAdd(Side.Regions[N].BoneIndex)+=Added*Kernels[N]/KernelSum;
             for(const auto& Pair:W) if(Bones.Contains(Pair.Key)) Final[V]+=Pair.Value;
             if(Original[V]<1.e-5 && Final[V]>1.e-4) ++Expanded;
             if(FMath::Abs(Final[V]-Original[V])>1.e-5) ++Changed;
@@ -285,6 +288,11 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
         }
         UE_LOG(LogTemp,Display,TEXT("HIP_GEODESIC side=%s width=%.3f expanded=%d changed=%d core retention=%.4f max edge gradient %.4f -> %.4f"),*Side.Side.ToString(),Width,Expanded,Changed,CoreAfter/FMath::Max(1.e-8,CoreBefore),Before,After);
     }
+    // Sparsity is a final export operation, never an input constraint for fitting.
+    // This avoids zero-support islands being magnified into folds on activation.
+    double MaximumDiscarded=0;for(auto& W:Weights)MaximumDiscarded=FMath::Max(MaximumDiscarded,VamBreastWeights::FinalizeBudget(W));
+    UE_LOG(LogTemp,Display,TEXT("HIP_FINAL_BUDGET max discarded candidate mass %.9f"),MaximumDiscarded);
+    AuditWeights(TEXT("04-final-budget"));
     WeldWeights();
     int32 SharedVertices=0;
     for(const auto& VertexWeights:Weights)

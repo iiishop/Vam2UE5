@@ -29,4 +29,32 @@ inline int32 Redistribute(TMap<int32,double>& Weights,const TSet<int32>& Donors,
     for(const auto& H:Helpers) if(H.Value>0) Weights.Add(H.Key,Moved*H.Value/Sum);
     return Compressed;
 }
+/** Apply the native eight-influence budget only after all continuous weight fitting. */
+inline double FinalizeBudget(TMap<int32,double>& Weights)
+{
+    TArray<TPair<int32,double>> Ranked;for(const auto& W:Weights)if(W.Value>0)Ranked.Add(W);
+    Ranked.Sort([](const auto& A,const auto& B){return A.Value==B.Value?A.Key<B.Key:A.Value>B.Value;});
+    double Kept=0,Discarded=0;for(int32 N=0;N<Ranked.Num();++N)(N<8?Kept:Discarded)+=Ranked[N].Value;
+    if(Kept<=1.e-12)return 0;
+    Weights.Reset();for(int32 N=0;N<FMath::Min(8,Ranked.Num());++N)Weights.Add(Ranked[N].Key,Ranked[N].Value/Kept);
+    return Discarded;
+}
+/** Glute scaffolds have different static transforms. Allocate the finite influence
+ * budget from the COMPLETE final candidate, rather than reserving a slot for an
+ * arbitrarily tiny old influence and deleting a substantial helper instead.
+ * Existing breast transfer keeps its explicit non-donor preservation contract.
+ * Returns discarded candidate mass (before normalization).
+ */
+inline double RedistributeFinalBudget(TMap<int32,double>& Weights,const TSet<int32>& Donors,const TArray<TPair<int32,double>>& Helpers,double Transfer)
+{
+    if(Transfer<=1.e-8 || Helpers.IsEmpty()) return 0;
+    double KernelSum=0,DonorSum=0;for(const auto& H:Helpers)KernelSum+=FMath::Max(0.,H.Value);
+    for(const auto& W:Weights)if(Donors.Contains(W.Key))DonorSum+=W.Value;
+    if(KernelSum<=1.e-30 || DonorSum<=1.e-10)return 0;
+    const double Fraction=FMath::Clamp(Transfer,0.,.95),Moved=DonorSum*Fraction;
+    auto Candidate=Weights;for(auto& W:Candidate)if(Donors.Contains(W.Key))W.Value*=1-Fraction;
+    for(const auto& H:Helpers)if(H.Value>0)Candidate.FindOrAdd(H.Key)+=Moved*H.Value/KernelSum;
+    Weights=MoveTemp(Candidate);return FinalizeBudget(Weights);
+}
+
 }

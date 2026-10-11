@@ -121,7 +121,7 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
             || SuperiorExtent<2.5 || SuperiorExtent>4 || SuperiorFade<1 || SuperiorFade>2 || SuperiorEvidence<2 || SuperiorEvidence>3)
             return Fail(TEXT("Invalid superior glute transition family policy"));
     }
-    P->SchemaVersion=2;P->RefinementVersion=1;P->Algorithm=TEXT("glute-structure-g05-surface-v4-upper");
+    P->SchemaVersion=2;P->RefinementVersion=1;P->Algorithm=TEXT("glute-structure-g05-surface-v5-final-budget");
     P->SourceTopologyIdentity=Geometry->TopologyDigest;P->SkeletonFamily=Family->GetStringField(TEXT("family"));P->SourceBoneCount=I.Bones.Num();P->Sides.Reset();
     auto Bone=[&](const TCHAR* Key)->int32 { FString Name;if(!(*Map)->TryGetStringField(Key,Name)) return INDEX_NONE;return I.Bones.IndexOfByPredicate([&](const FVamBuildBone& B){return B.Name==FName(*Name);}); };
     const int32 Pelvis=Bone(TEXT("pelvis")),Superior=Bone(TEXT("superior"));
@@ -239,7 +239,7 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
             // a zero-slope fade at the boundary and original root support.
             const double Participation=Smooth(S.RegionWeights[V]/P->SkinTransferFullConfidence);
             const double Transfer=P->SkinTransferMaximum*Participation*Smooth(S.RegionPoints[V].X/FMath::Max(.1,S.Dimensions.X*.5));
-            VamBreastWeights::Redistribute(W[V],Donors,Helpers,Transfer);
+            VamBreastWeights::RedistributeFinalBudget(W[V],Donors,Helpers,Transfer);
         }
         double Total=0;for(const auto& F:W[V]) Total+=F.Value;for(auto& F:W[V]) F.Value/=Total;
     }
