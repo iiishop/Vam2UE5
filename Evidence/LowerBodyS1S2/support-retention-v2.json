@@ -1,0 +1,12 @@
+{
+  "vertices": 24928,
+  "worst_retained_semantic_change": 0,
+  "violations": [],
+  "status": "PASS",
+  "stage": "builder before final quantization; native final asset checked separately",
+  "configuration": "/Game/VamS1S2/Runtime/R_63575ad4efa6acab135e26a5/RC_Runtime",
+  "identity": "63575ad4efa6acab135e26a521fa8f37b83c792ae7a96b3196a6da47497e7107",
+  "publication": "committed",
+  "b1_log": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2\\s1-retain-v2\\b1.log",
+  "visual_acceptance": "pending"
+}
