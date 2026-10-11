@@ -240,13 +240,12 @@ UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVam
             const auto* Morph=I.Morphs.FindByPredicate([&](const FVamBuildMorph& M){return M.Name==Parameter.Target;});
             TArray<FVector> Changed=I.Vertices;double Evidence=0;
             if(Morph) for(int32 V=0;V<Changed.Num();++V) { Changed[V]+=Morph->Deltas[V];Evidence+=Morph->Deltas[V].SizeSquared()*R.RegionWeights[V]; }
+            TMap<FName,float> ProbeValues; ProbeValues.Add(Parameter.Target,Parameter.DefaultValue+1.f);
+            TArray<FTransform> ProbeLocal; FString ProbeError;
+            if(!Source->EvaluateShapeReference(ProbeValues,ProbeLocal,ProbeError)) return Fail(ProbeError);
             TArray<FTransform> NextCS;
             for(int32 B=0;B<P->SourceBoneCount;++B)
-            {
-                FTransform Local=I.Bones[B].LocalBind;
-                for(const auto& Delta:Parameter.BoneCenters) if(Delta.BoneIndex==B) Local.AddToTranslation(Delta.LocalTranslation);
-                NextCS.Add(I.Bones[B].Parent<0 ? Local : Local*NextCS[I.Bones[B].Parent]);
-            }
+                NextCS.Add(I.Bones[B].Parent<0?ProbeLocal[B]:ProbeLocal[B]*NextCS[I.Bones[B].Parent]);
             const FTransform NextAnchor(Frame,NextCS[Pec].GetLocation());
             const FVector AnchorDelta=NextAnchor.GetRelativeTransform(NextCS[Chest]).GetLocation()-R.AnchorLocal.GetLocation();
             if(Evidence<1.e-10 && AnchorDelta.IsNearlyZero()) continue;

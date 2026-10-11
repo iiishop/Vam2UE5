@@ -3,7 +3,7 @@ import copy,hashlib,json,os,zipfile
 from pathlib import Path
 from vam_plan import Planner,canonical,strict_json
 from vam_decode import require,decode_vmb,MAX_BYTES
-from vam_unity import Bundle
+from vam_unity import Bundle,morph_bank_geometry
 from vam_zip_compat import find_member
 
 
@@ -31,6 +31,7 @@ def extend(ir,plan,data,selection_path):
         require(morph['morphName']==loc['morph_name'],'morph_set_identity',pick['name'])
         decoded={'layout':'DAZMorphBank','parameters':{k:v for k,v in morph.items() if k!='deltas'},
                  'deltas':[[v['vertex'],*[v['delta'][a] for a in 'xyz']] for v in morph['deltas']]}
+        decoded['source_geometry_id']=morph_bank_geometry(bundle,obj)
         records.append({'kind':'morph','id':identity,'source':'builtin','path':pick['name'],'data':decoded,'editable_metadata':pick})
         items.append(item)
     if custom:
@@ -62,7 +63,8 @@ def extend(ir,plan,data,selection_path):
     for r in records:
         if r['id'] in existing:continue
         require(len(r['data']['deltas'])>0 or r['data']['parameters'].get('formulas'),'empty_morph',r['path'])
-        offset=merged['parameters']['startGraftVertIndex'] if any(x in r['path'].lower() for x in ('female_genitalia','male_genitalia')) else 0
+        graft=next(x for x in ir['records'] if x.get('object')==str(merged['parameters']['graftMesh']['m_PathID']))
+        offset=merged['parameters']['startGraftVertIndex'] if r['data'].get('source_geometry_id')==graft['mesh']['names']['geometryId'] or any(x in r['path'].lower() for x in ('female_genitalia','male_genitalia')) else 0
         applications.append({'id':r['id'],'value':0.,'vertex_offset':offset,'editable_supplement':True})
         result['records'].append(r)
         existing.add(r['id'])

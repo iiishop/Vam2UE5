@@ -30,6 +30,8 @@ public:
     UFUNCTION(BlueprintCallable, Category="VaM|Lower Body Contact") void SetLowerBodyContactEnabled(bool bEnabled);
     /** Writes a unique fixed-pose diagnostic bundle under Saved/VamDeformationAudit. */
     UFUNCTION(CallInEditor, BlueprintCallable, Category="VaM|Diagnostics") void ExportDeformationAudit();
+    /** Isolated offline geometry replay only; never modifies the production rig. */
+    UPROPERTY(Transient, EditAnywhere, BlueprintReadWrite, Category="VaM|Diagnostics") FString AuditPoseOverrideJson;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient, Category="VaM|Diagnostics") FString DeformationAuditStatus;
     /** Explicit reset for OFF/ON experiments. Clears contact and all jiggle histories. */
     UFUNCTION(CallInEditor, BlueprintCallable, Category="VaM|Diagnostics") void ResetDeformationAuditState();

@@ -20,6 +20,7 @@ struct VAMCHARACTERRUNTIME_API FVamMorphParameter
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") FName Group = TEXT("Shape");
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") FString Unit = TEXT("source coefficient");
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TArray<FVamBoneCenterDelta> BoneCenters;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TArray<FVamBoneOrientationDelta> BoneOrientations;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TArray<FName> AffectedRegions;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") FString FormulaDiagnosticsJson;
 };
@@ -30,6 +31,7 @@ class VAMCHARACTERRUNTIME_API UVamCharacterDefinition : public UPrimaryDataAsset
 {
     GENERATED_BODY()
 public:
+    bool EvaluateShapeReference(const TMap<FName,float>& Values, TArray<FTransform>& Out, FString& Error) const;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Character") TSoftObjectPtr<USkeletalMesh> Body;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Character") TSoftObjectPtr<USkeleton> Skeleton;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Character") TArray<TSoftObjectPtr<USkeletalMesh>> Parts;

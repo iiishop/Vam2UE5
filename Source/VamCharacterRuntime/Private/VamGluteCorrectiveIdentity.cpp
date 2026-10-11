@@ -63,7 +63,7 @@ TMap<FString,FString> UVamGluteCorrectiveProfile::ComputeFinalData(UVamCharacter
     if(!MeshData(D->Body.LoadSynchronous(),Out,TEXT("final_"),Error))return {};
     auto* Source=OriginalInfluenceDefinition.LoadSynchronous();if(!Source||!MeshData(Source->Body.LoadSynchronous(),Out,TEXT("source_"),Error)){Error=TEXT("retained original influence asset unavailable: ")+Error;return {};}
     FDigest Helpers;Helpers.Object(G);Helpers.Object(L);Helpers.Object(B);Out.Add(TEXT("helper_definitions"),Helpers.End());
-    FDigest Shape;auto* S=D->Shape.LoadSynchronous();Shape.Object(S);if(S)Shape.Object(S->Geometry.LoadSynchronous());Out.Add(TEXT("shape_reference_and_mapping"),Shape.End());
+    FDigest Shape;auto* S=D->Shape.LoadSynchronous();Shape.Object(S);if(S)Shape.Object(S->Geometry.LoadSynchronous());if(S && S->SchemaVersion>=2){const TSet<FName> FormulaFields={TEXT("Parameters")};Shape.Object(D,&FormulaFields);}Out.Add(TEXT("shape_reference_and_mapping"),Shape.End());
     FDigest SourceData;SourceData.Text(SourceFamilyJson);auto* SS=Source->Shape.LoadSynchronous();SourceData.Object(SS);if(SS)SourceData.Object(SS->Geometry.LoadSynchronous());Out.Add(TEXT("source_corrective_data"),SourceData.End());
     const TSet<FName> PolicyFields={TEXT("Targets"),TEXT("MetricDegrees"),TEXT("BlendWidth"),TEXT("MaximumDimensionFraction"),TEXT("BuildDimensions"),TEXT("Bases"),TEXT("AuthoredReplay")};
     FDigest Policy;Policy.Object(const_cast<UVamGluteCorrectiveProfile*>(this),&PolicyFields);Out.Add(TEXT("corrective_policy_and_targets"),Policy.End());

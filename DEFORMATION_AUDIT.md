@@ -73,3 +73,98 @@ Evidence: `Saved/LowerBodyContact/B2/compare.html`. Same sealed B1 asset, no ana
 In suspended-seat, actual left/right Flex90 target weights are `0.9999837982 / 0.9999852658`. Anterior hip engineering ROI mean masks are about 0.0192/0.0193, with weighted mask>0.001 coverage 17.8%/19.5%. In the lateral ROI source contribution is zero; procedural maxima are 0.335/0.402 cm, residual maxima 2.877/3.066 cm. This distinguishes missing source coverage from failure to activate a target. Safety attenuation exists, particularly in the residual; it is not the sole explanation. Seated contact remains blocked by invalid posed rest volume.
 
 B2 diagnostics binaries compiled and installed; all 7 installed DLL/PDB/module hashes match the isolated build. Previous binaries are in `Saved/LowerBodyContact/BeforeB2Install`. Regional contour report contains 216 camera/ROI measurements; suspended-seat anterior-hip side contour changes 0 pixels while the glute/thigh contour changes visibly.
+
+## C1 — actual original VaM source validation (2026-10-09)
+
+User-specified environment: `F:\Virt A Mate`, original default create scene
+`Saves/scene/MeshedVR/default.json`, appearance `Preset_QiMeng-b.vap`, no extra
+deformation plugins. Runtime scene/session plugins were cleared before reloading
+appearance; BepInEx third-party plugin directory was temporarily isolated, then
+restored with matching hashes. The only injected component was the diagnostic
+pose/readout harness. No source scene, appearance, engine asset or fitted weight
+was changed.
+
+Actual exported configuration: `/Game/VamRuntime/R_251e666f091799716ce873fe/RC_Runtime`.
+Contract identity: `ee94428a41fc3a8313224aacee001b97d7c6fca9dde5c602c2835a89615ba83b`.
+Confirmed fallback fit: training ±15/±30°, validation ±22°; the asset still labels
+this mathematical-reference fit as pending runtime calibration.
+
+### Evidence and acceptance
+
+`Saved/LowerBodyContact/C1/compare.html` links all measurements. The reproducible
+scripts are `audit_c1_source.py`, `VamC1Capture.cs`, `run_c1_source_capture.ps1`,
+`report_c1_runtime.py`, and `report_c1_page.py` under `Scripts/`.
+
+- All 58 explicitly requested appearance morph values match the actual VaM runtime.
+- Captured 12 poses × core-driver off/on × repeat, plus the initial appearance
+  inventory: 49 JSON snapshots and associated raw/smoothed surface buffers.
+- Hip flexion 0/30/60/90/110°, knee flexion 0/30/60/90/120°, seated,
+  deep combined flexion, and asymmetric pose; actual matrices are authoritative.
+- All 12 pairs have identical lower-body current bone matrices. Maximum repeated
+  lower-body surface difference across both modes is 0.0000311 cm.
+- Body physics and recorded `SetDAZMorph` drivers are separately controlled.
+  Shape MCM remains enabled to preserve the imported appearance. Facial automatic
+  motion remains recorded and is explicitly excluded from lower-body stability
+  acceptance. This is not a claim that every facial automation is disabled.
+- Full morph catalog is captured initially; subsequent snapshots contain every
+  active, driven, or nonzero current/applied morph, including hidden morphs.
+  Omitted entries are explicitly inactive, undriven and zero. Driver type/path,
+  axis, input angles, flags and output are retained.
+- The appearance includes its custom morph/anatomy assets. Their driven output
+  is identified by UID and is not described as an extra plugin's experiment.
+
+### Measured findings
+
+1. At seated 90° hip / 90° knee, original automatic morphs change the surface by
+   up to 1.993646 cm with unchanged lower-body matrices. `Glute Bend Fix` is 0.9
+   when enabled and 0 when disabled. Other hidden driven morphs are listed
+   separately in `runtime-audit.json`; this is not an isolated Bend Fix ablation.
+2. Replaying **the existing source contract LBS influences**, with actual VaM
+   pre-skin vertices and actual runtime bind/current matrices, yields lower-body
+   maximum errors of 5.564092 cm seated and 6.946488 cm at 110° hip flexion.
+   Standing maximum is 0.00004694 cm. This isolates a large-angle source LBS/TriAx
+   discrepancy; it is not final UE helper-weight mesh validation. Both nipples
+   have disabled/singular runtime binds, but zero fitted influences, so no
+   measured source vertices are excluded for this reason.
+3. `a07 - Body` actually changes the thigh bind orientation by about 0.95° and
+   shin orientation by about 1.11°. The source contract retains those orientation
+   formulas without evaluating them. Runtime dictionaries prove active
+   contributions; matching nonzero entries enter the repair list. Rotation and
+   scale entries are traced but are not automatically promoted without proof.
+4. Actual pre-skin shape vs contract X(p0) has global RMS 0.137865 cm and maximum
+   1.706404 cm (source vertex 22127). Remaining hidden/conditional morph and
+   anatomy differences must be reconciled before calling the full source shape
+   equivalent. Do not attribute this complete difference to a single formula.
+5. Axis conversion is Unity metres `(x,y,z)` to UE cm `(100z,100x,100y)` (det +1).
+   Reference-orientation composition and each bone's pose rotation order remain
+   distinct. Bind/inverse product error is 1.14e-13 in the exported contract.
+
+### Rejected evidence / harness safeguards
+
+- `Atom.LoadAppearancePreset` reads legacy atoms JSON, not modern `.vap`.
+  The accepted capture uses the actual `MeshVR.PresetManager.LoadPresetFromJSON`.
+  The initial default-character run was rejected by appearance identity.
+- Asynchronous captures could pair fixed end-frame matrices with a different
+  skin frame. Accepted sampling uses synchronous `DAZCharacterRun` scheduling,
+  frozen control transforms and repeated-frame checks, with the native algorithms.
+- `DAZMesh.morphedUVVertices` and the legacy merged-mesh field can remain stale in
+  the fast character pipeline. Accepted pre-skin snapshots come from native
+  `DAZCharacterRun.doSnap` / `snappedMorphedUVVertices`, before skinning.
+  The earlier apparent 3 cm body mismatch from stale buffers is rejected.
+- The 360 extra all-axis large-angle mathematical probes do not refit anything.
+  Extreme twist probes are stress diagnostics, not anatomical or authored targets.
+
+No corrective, source weights, physics iterations or imported mesh was changed
+in C1. Next repairs should address proven bind orientation omissions and the
+large-angle source skinning discrepancy before retuning soft-body stiffness.
+
+
+## C1.5 — frozen baseline, source orientation and layer attribution
+
+Report: `Saved/LowerBodyContact/C1.5/run-20261009-224219/report.html`.
+New contract: `8dc812aa2ab4cfdefb293e47b9b6160d47364968ab440497c7cf40a7628cbc55`.
+New runtime: `c8a07713af49af03e3b8affd27d3141d8b10b86aa1bb91c69a993e63a9334c9b`.
+
+Reuses A1 replay and B2 region/field exports. Proven source orientation formulas execute with source semantics; unproven rotation/scale remain inactive. Built-in morph bank geometry ownership corrects graft routing. Historical IR missing source geometry metadata fails closed and requires a fresh decode. Existing historical evidence and assets are archived and read-only. New bind/weights/morph/operator data must yield a new validation identity.
+
+24 actual-source-matrix isolated UE asset exports; no production limit changes and no live-render/dynamics claim. 12 poses, six comparisons, 14 regions (including four directional knee masks per side), 1008 local metric rows, normals, contours and cross-sections. C2 must use `c2-psd-region-masks.npz`, which excludes 29 residual source IDs. Lower-body static RMS 0.00014911 cm; head/mouth remains out of scope. G062 versus VaM still has centimeter-scale local errors. Authored-target algebra validation is not anatomical fidelity acceptance. True single Bend Fix ablation changes only that morph, max 1.866855 cm; the old composite 1.99 cm is not its isolated contribution.

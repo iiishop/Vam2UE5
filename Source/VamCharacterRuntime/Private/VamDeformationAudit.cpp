@@ -110,7 +110,31 @@ void AVamCharacterActor::ExportDeformationAudit()
 #endif
  auto* Definition=Character->GetLoadedDefinition();Root->SetObjectField(TEXT("definition"),Properties(Definition));Mapping(Dir/TEXT("mapping.json"),Definition);
  const auto* Inverse=B->GetRefPoseOverride()?&B->GetRefPoseOverride()->RefBasesInvMatrix:nullptr;
- const auto Final=B->GetComponentSpaceTransforms();auto Base=Final;const auto& Ref=B->GetSkeletalMeshAsset()->GetRefSkeleton();auto Local=Character->GetShapeReferencePose();
+ auto Final=B->GetComponentSpaceTransforms();const auto& Ref=B->GetSkeletalMeshAsset()->GetRefSkeleton();auto Local=Character->GetShapeReferencePose();
+ const bool Offline=!AuditPoseOverrideJson.IsEmpty();
+ if(Offline)
+ {
+  J Request;if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(AuditPoseOverrideJson),Request)||!Request->HasTypedField<EJson::Object>(TEXT("bones"))){Finish();DeformationAuditStatus=TEXT("Invalid isolated audit pose");return;}
+  const auto Bones=Request->GetObjectField(TEXT("bones"));
+  for(const auto& Pair:Bones->Values)
+  {
+   int Index=Ref.FindBoneIndex(FName(*Pair.Key));const auto& Values=Pair.Value->AsArray();
+   if(!Final.IsValidIndex(Index)||Values.Num()!=16){Finish();DeformationAuditStatus=TEXT("Audit pose bone/matrix mismatch: ")+FString(*Pair.Key);return;}
+   FMatrix M;for(int R=0;R<4;++R)for(int C=0;C<4;++C)M.M[R][C]=Values[R*4+C]->AsNumber();
+   FTransform T(M);if(T.ContainsNaN()||!T.GetScale3D().Equals(FVector::OneVector,.001)){Finish();DeformationAuditStatus=TEXT("Nonrigid audit pose rejected: ")+FString(*Pair.Key);return;}Final[Index]=T;
+  }
+  Root->SetObjectField(TEXT("isolated_pose_request"),Request);
+  Root->SetStringField(TEXT("pose_scope"),TEXT("offline geometry audit on actual loaded assets; production joint limits unchanged; no dynamics or rendered readback claim"));
+  if(B->GluteProfile && B->CorrectiveProfile && B->GluteRest.Num()==2)
+  {
+   const auto Hip=VamGluteStructure::CaptureHipPose(*B->GluteProfile,B->GluteRest,Final[B->GluteRest[0].PelvisBone],Final[B->GluteRest[0].ThighBone],Final[B->GluteRest[1].ThighBone],B->GluteShapeRevision);
+   A Sides;TArray<TArray<double>> Weights;
+   for(int Side=0;Side<2;++Side){Weights.Add(VamGluteCorrective::Weights(*B->CorrectiveProfile,Hip.Sides[Side]));auto O=Obj();A W;for(double V:Weights.Last())W.Add(Num(V));O->SetArrayField(TEXT("target_weights"),W);O->SetNumberField(TEXT("side"),Side);Sides.Add(MakeShared<FJsonValueObject>(O));}
+   for(const auto& Basis:B->CorrectiveProfile->Bases){const auto Scale=VamGluteCorrective::ShapeScale(B->CorrectiveProfile->BuildDimensions[Basis.Side],B->GluteRest[Basis.Side].Dimensions);AllMorphs.Add(Basis.Morph,B->bCorrectiveEnabled?Weights[Basis.Side][Basis.Target]*Scale[Basis.Axis]:0);}
+   Corrective->SetArrayField(TEXT("sides"),Sides);Corrective->SetStringField(TEXT("evaluation"),TEXT("native G062 evaluated at supplied matrices; not live actor pose"));Root->SetObjectField(TEXT("active_morphs"),MorphJson(AllMorphs));
+  }
+ }
+ auto Base=Final;
  // Restore appended helper bones from the shape reference hierarchy only. Primary
  // bone component transforms are the exact captured runtime pose.
  auto ResetBone=[&](int Bone){if(Base.IsValidIndex(Bone)&&Local.IsValidIndex(Bone)){int Parent=Ref.GetParentIndex(Bone);Base[Bone]=Parent>=0?Local[Bone]*Base[Parent]:Local[Bone];}};
@@ -124,7 +148,7 @@ void AVamCharacterActor::ExportDeformationAudit()
  if(B->GluteProfile)for(const auto& S:B->GluteRest){const auto Anchor=S.AnchorLocal*Static[S.PelvisBone];auto State=VamGluteStructure::Evaluate(*B->GluteProfile,S,B->bGluteEnabled?Static[S.ThighBone].GetRelativeTransform(Anchor):S.RestThighInAnchor);Static[S.AnchorBone]=Anchor;for(int I=0;I<S.Regions.Num();++I)Static[S.Regions[I].BoneIndex]=State.Regions[I].Transform*Anchor;}
  Surface(Dir/TEXT("02-static-helpers"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Static,NonCorrective,Meta,Inverse);Stages->SetObjectField(TEXT("02-static-helpers"),Meta);
  Surface(Dir/TEXT("03-corrective"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Static,AllMorphs,Meta,Inverse);Stages->SetObjectField(TEXT("03-corrective"),Meta);
- Surface(Dir/TEXT("04-jiggle"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Final,AllMorphs,Meta,Inverse);Stages->SetObjectField(TEXT("04-jiggle"),Meta);
+ if(!Offline) Surface(Dir/TEXT("04-jiggle"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Final,AllMorphs,Meta,Inverse);if(!Offline) Stages->SetObjectField(TEXT("04-jiggle"),Meta);
  UVamCharacterDefinition* Source=Config?Config->DiagnosticSourceDefinition.LoadSynchronous():nullptr;
 #if WITH_EDITORONLY_DATA
  if(!Source&&Config){auto* C=Config;TSet<FString> Seen;while(C&&!Source&&!Seen.Contains(C->GetPathName())){Seen.Add(C->GetPathName());TSharedPtr<FJsonObject> Receipt;FString Path;if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(C->ReceiptJson),Receipt))break;if(Receipt->TryGetStringField(TEXT("source_definition"),Path)){Source=LoadObject<UVamCharacterDefinition>(nullptr,*Path);break;}if(!Receipt->TryGetStringField(TEXT("source_configuration"),Path))break;C=LoadObject<UVamRuntimeConfiguration>(nullptr,*Path);}}
@@ -133,6 +157,7 @@ void AVamCharacterActor::ExportDeformationAudit()
  if(Source){auto* Mesh=Source->Body.LoadSynchronous();if(Mesh){TArray<FTransform> Pose;TArray<FMatrix44f> SourceInverse;bool Valid=true;for(int I=0;I<Mesh->GetRefSkeleton().GetNum();++I){int Index=Ref.FindBoneIndex(Mesh->GetRefSkeleton().GetBoneName(I));if(!Final.IsValidIndex(Index)){Valid=false;break;}Pose.Add(Final[Index]);if(Inverse)SourceInverse.Add((*Inverse)[Index]);}if(Valid){Surface(Dir/TEXT("00-source-lbs"),Mesh,nullptr,Pose,NonCorrective,SourceMeta,Inverse?&SourceInverse:nullptr);Mapping(Dir/TEXT("source-mapping.json"),Source);}}}
  SourceMeta->SetStringField(TEXT("definition"),GetPathNameSafe(Source));if(!SourceMeta->HasField(TEXT("status")))SourceMeta->SetStringField(TEXT("error"),TEXT("source asset/provenance unavailable; no substitute baseline generated"));Stages->SetObjectField(TEXT("00-source-lbs"),SourceMeta);
  Root->SetObjectField(TEXT("stages"),Stages);Root->SetStringField(TEXT("stage_semantics"),TEXT("fixed-pose decompositions, not six independent time simulations. Stage 04 preserves captured dynamic offsets. Disabled features remain disabled. Inputs permit offline replay without residual solver history."));
+ if(Offline){Root->SetStringField(TEXT("gpu_surface_status"),TEXT("not evaluated in isolated pose audit"));Root->SetStringField(TEXT("stage_semantics"),TEXT("source LBS / final weights / static helpers / native G062 at supplied component matrices; no dynamic stages"));Save(Dir/TEXT("manifest.json"),Root);Finish();DeformationAuditStatus=Dir;return;}
  VamGPUFlushBatch();TArray<FVector> Target,Current;uint64 GPUFrame=0;bool Cage=BreastContact&&BreastContact->ReadAuditCage(Target,Current,GPUFrame);Root->SetBoolField(TEXT("gpu_handle_valid"),BreastContact&&BreastContact->HasDiagnosticGPUHandle());Root->SetBoolField(TEXT("cage_readback_valid"),Cage);Root->SetStringField(TEXT("gpu_input_game_frame"),LexToString(GPUFrame));Root->SetBoolField(TEXT("cage_matches_capture_frame"),Cage&&GPUFrame==GFrameCounter);
  if(ContactProfile){TArray<FVector> Canonical;A Particles,Tets,Parents,Weights,Mask;
  for(const auto& P:ContactProfile->Particles){Canonical.Add(P.Rest);auto X=Obj();X->SetNumberField(TEXT("region"),P.Side);X->SetBoolField(TEXT("kinematic"),P.bKinematic);A BW;for(int I=0;I<P.Bones.Num();++I)BW.Add(MakeShared<FJsonValueArray>(A{Num(P.Bones[I]),Num(P.Weights[I])}));X->SetArrayField(TEXT("influences"),BW);Particles.Add(MakeShared<FJsonValueObject>(X));}

@@ -212,14 +212,13 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
             const auto* M=I.Morphs.FindByPredicate([&](const FVamBuildMorph& Morph){return Morph.Name==Param.Target;});
             double Evidence=0;TArray<FVector> Changed=I.Vertices;
             for(int32 V=0;V<Changed.Num();++V) { if(M) { Changed[V]+=M->Deltas[V];Evidence+=M->Deltas[V].SizeSquared()*S.RegionWeights[V]; } }
-            if(Evidence<1.e-10 && Param.BoneCenters.IsEmpty()) continue;
+            if(Evidence<1.e-10 && Param.BoneCenters.IsEmpty() && Param.BoneOrientations.IsEmpty()) continue;
+            TMap<FName,float> ProbeValues; ProbeValues.Add(Param.Target,Param.DefaultValue+1.f);
+            TArray<FTransform> ProbeLocal; FString ProbeError;
+            if(!Source->EvaluateShapeReference(ProbeValues,ProbeLocal,ProbeError)) return Fail(ProbeError);
             TArray<FTransform> NextCS;
             for(int32 B=0;B<P->SourceBoneCount;++B)
-            {
-                FTransform Local=I.Bones[B].LocalBind;
-                for(const auto& Delta:Param.BoneCenters) if(Delta.BoneIndex==B) Local.AddToTranslation(Delta.LocalTranslation);
-                NextCS.Add(I.Bones[B].Parent<0?Local:Local*NextCS[I.Bones[B].Parent]);
-            }
+                NextCS.Add(I.Bones[B].Parent<0?ProbeLocal[B]:ProbeLocal[B]*NextCS[I.Bones[B].Parent]);
             const FTransform NextAnchor=S.AnchorLocal*NextCS[Pelvis];
             auto Next=S;Next.RestThighInAnchor=NextCS[S.ThighBone].GetRelativeTransform(NextAnchor);
             Measure(Next,I,Changed,NextAnchor,W,NextAnchor.InverseTransformPosition(NextCS[Shins[Side]].GetLocation()),P->DensityCandidateKgPerCm3,P->EffectiveModulusPa);

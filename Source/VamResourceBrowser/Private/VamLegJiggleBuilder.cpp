@@ -160,8 +160,11 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
         const int32 Graph[][2]={{0,1},{0,2},{0,3},{0,4},{1,2},{2,3},{3,4},{1,4}};for(const auto& E:Graph){FVamGluteDynamicEdge Edge;Edge.A=E[0];Edge.B=E[1];Edge.Stiffness=(S.Dynamics.Nodes[E[0]].Support+S.Dynamics.Nodes[E[1]].Support)*.025;S.Dynamics.Couplings.Add(Edge);}
         for(const auto& Param:Source->Parameters)
         {
-            if(Param.Group==TEXT("Expression")) continue;const auto* Morph=Input.Morphs.FindByPredicate([&](const FVamBuildMorph& M){return M.Name==Param.Target;});if(!Morph && Param.BoneCenters.IsEmpty()) continue;
-            auto NextCS=CS;for(int32 B=0;B<P->SourceBoneCount;++B){auto Local=Input.Bones[B].LocalBind;for(const auto& Delta:Param.BoneCenters) if(Delta.BoneIndex==B) Local.AddToTranslation(Delta.LocalTranslation);NextCS[B]=Input.Bones[B].Parent<0?Local:Local*NextCS[Input.Bones[B].Parent];}
+            if(Param.Group==TEXT("Expression")) continue;const auto* Morph=Input.Morphs.FindByPredicate([&](const FVamBuildMorph& M){return M.Name==Param.Target;});if(!Morph && Param.BoneCenters.IsEmpty() && Param.BoneOrientations.IsEmpty()) continue;
+            TMap<FName,float> ProbeValues; ProbeValues.Add(Param.Target,Param.DefaultValue+1.f);
+            TArray<FTransform> ProbeLocal; FString ProbeError;
+            if(!Source->EvaluateShapeReference(ProbeValues,ProbeLocal,ProbeError)) return Fail(ProbeError);
+            auto NextCS=CS;for(int32 B=0;B<P->SourceBoneCount;++B) NextCS[B]=Input.Bones[B].Parent<0?ProbeLocal[B]:ProbeLocal[B]*NextCS[Input.Bones[B].Parent];
             const FTransform NextAnchor=S.AnchorLocal*NextCS[Primary];FVamLegShapeResponse Response;Response.Parameter=Param.Target;Response.DefaultValue=Param.DefaultValue;double Volume=0,Evidence=0;
             for(int32 N=0;N<5;++N){FVector Mean=FVector::ZeroVector;double Total=0;for(int32 V=0;V<Area.Num();++V){const double W=Area[V]*S.RegionWeights[V]*Share[V][N];const FVector Point=NextAnchor.InverseTransformPosition(Input.Vertices[V]+(Morph?Morph->Deltas[V]:FVector::ZeroVector));Mean+=Point*W;Total+=W;Volume+=W*FVector(Point.X,Point.Y,0).Size()*.5;}const FVector Delta=Mean/FMath::Max(1.e-12,Total)-S.Dynamics.Nodes[N].Rest;Response.RestDeltas.Add(Delta);Evidence+=Delta.SizeSquared();}
             Response.LogVolume=FMath::Loge(FMath::Max(1.e-6,Volume/S.EffectiveVolumeCm3));if(Evidence>1.e-12 || FMath::Abs(Response.LogVolume)>1.e-8) S.ShapeResponses.Add(Response);

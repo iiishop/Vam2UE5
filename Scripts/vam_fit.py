@@ -86,6 +86,38 @@ def finalize_bone_centers(bones):
         b['position']=[a+c for a,c in zip(b['position'],offset)]
 
 
+def evaluate_morph_orientations(bones, applications):
+    """Source DAZBone orientation semantics; explicit opt-in, source degrees.
+
+    Applications are (morph identity, decoded morph, coefficient). Each morph
+    replaces its own axis entries; parentForMorphOffsets contributes only its
+    own dictionary, not recursively inherited offsets. Rotation/scale formulas
+    are deliberately not executed. Repeated evaluation is idempotent.
+    """
+    names={b['name']:b for b in bones}; objects={str(b['source_object']):b for b in bones}
+    offsets={name:{} for name in names}; trace=[]
+    for identity,decoded,value in applications:
+        finite(value); per_morph={}
+        for formula in decoded['parameters'].get('formulas',[]):
+            kind=formula.get('targetType')
+            if kind in (4,5,6,'4','5','6'):kind=('OrientationX','OrientationY','OrientationZ')[int(kind)-4]
+            if kind not in ('OrientationX','OrientationY','OrientationZ'):continue
+            target=formula.get('target'); multiplier=float(formula['multiplier']);finite(multiplier)
+            if target not in names:raise ValueError('orientation target missing: '+str(target))
+            per_morph.setdefault(target,[0.,0.,0.])['XYZ'.index(kind[-1])]=multiplier*value
+        for target,offset in per_morph.items():offsets[target][identity]=offset
+    own={name:[sum(v[k] for v in values.values()) for k in range(3)] for name,values in offsets.items()}
+    for b in bones:
+        neutral=b.setdefault('base_orientation_degrees',list(b['orientation_degrees']))
+        parent=str(b.get('parameters',{}).get('parentForMorphOffsets',{}).get('m_PathID',0))
+        inherited=own[objects[parent]['name']] if parent in objects else [0.,0.,0.]
+        total=[a+c for a,c in zip(own[b['name']],inherited)]
+        b['orientation_degrees']=[a+c for a,c in zip(neutral,total)]
+        trace.append({'bone':b['name'],'own_offsets':offsets[b['name']],
+                      'inherited_offset':inherited,'orientation_degrees':b['orientation_degrees']})
+    return trace
+
+
 def triangles(mesh):
     out=[]
     # Unity Mesh.triangles concatenates material submeshes in slot order.

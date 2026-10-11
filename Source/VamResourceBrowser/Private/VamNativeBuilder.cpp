@@ -241,7 +241,7 @@ UVamCharacterDefinition* UVamNativeBuilder::CreateDefinition(const FString& Path
     TSet<FName> Names;
     for (const auto& P : Parameters)
     {
-        if (Names.Contains(P.Target) || (!Body->FindMorphTarget(P.Target) && P.BoneCenters.IsEmpty()) ||
+        if (Names.Contains(P.Target) || (!Body->FindMorphTarget(P.Target) && P.BoneCenters.IsEmpty() && P.BoneOrientations.IsEmpty()) ||
             !FMath::IsFinite(P.Minimum) || !FMath::IsFinite(P.Maximum) || !FMath::IsFinite(P.DefaultValue) ||
             P.Minimum>P.DefaultValue || P.DefaultValue>P.Maximum) return nullptr;
         Names.Add(P.Target);

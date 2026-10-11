@@ -143,6 +143,8 @@ def decode_plan(plan, catalog, progress=None):
                 require(len(deltas)==d['numDeltas'],'delta_count_mismatch',item['path'])
                 for i,*delta in deltas: require(i>=0,'vertex_index',str(i))
                 result={'layout':'DAZMorphBank','parameters':{k:v for k,v in d.items() if k!='deltas'},'deltas':deltas}
+                from vam_unity import morph_bank_geometry
+                result['source_geometry_id']=morph_bank_geometry(b,obj)
                 decoded_morphs[item['id']]=result
                 raw_records.append({'kind':'morph','id':item['id'],'source':'builtin','path':item['path'],'data':result})
             elif item['resource_kind']=='vab':
@@ -184,7 +186,11 @@ def decode_plan(plan, catalog, progress=None):
                         source_item=items[target]
                         segments=source_item['path'].replace('\\','/').casefold().split('/')
                         offset=0;base_count=morph_base_count;uv_count=morph_uv_count
-                        if 'female_genitalia' in segments or 'male_genitalia' in segments:
+                        source_geometry=decoded.get('source_geometry_id')
+                        graft_mesh=meshes_by_id[body_data['graftMesh']['m_PathID']]
+                        if source_geometry is not None:
+                            require(source_geometry in (morph_mesh['names']['geometryId'],graft_mesh['names']['geometryId']),'morph_bank_domain',source_geometry)
+                        if source_geometry==graft_mesh['names']['geometryId'] or 'female_genitalia' in segments or 'male_genitalia' in segments:
                             graft_ref=body_data['graftMesh']
                             require(graft_ref['m_FileID']==0 and graft_ref['m_PathID'] in meshes_by_id,'morph_domain','Missing graft mesh')
                             graft=meshes_by_id[graft_ref['m_PathID']]

@@ -321,19 +321,20 @@ bool UVamCharacterComponent::ApplyShape(const TArray<FName>& Changed, bool bComm
     auto* Shape=LoadedDefinition->Shape.Get();
     const auto& Ref=Body->GetSkeletalMeshAsset()->GetRefSkeleton();
     const TArray<FTransform> PreviousReference=ShapeReferencePose.IsEmpty() ? Ref.GetRefBonePose() : ShapeReferencePose;
-    TArray<FTransform> NextReference=Shape ? Shape->NeutralLocalBind : TArray<FTransform>();
+    TArray<FTransform> NextReference;
+    if(!LoadedDefinition->EvaluateShapeReference(PreviewState.Values,NextReference,LastShapeError)) return false;
     FVamShapeChange Event;
     Event.Parameters=Changed; Event.bCommitted=bCommitted;
     for (const auto& P : LoadedDefinition->Parameters)
     {
         const float* Found=PreviewState.Values.Find(P.Target);
         const float Absolute=Found ? *Found : P.DefaultValue;
-        for (const auto& Offset : P.BoneCenters)
-            if (NextReference.IsValidIndex(Offset.BoneIndex))
-                NextReference[Offset.BoneIndex].AddToTranslation(Offset.LocalTranslation*Absolute);
+
         if (Changed.Contains(P.Target))
         {
             for (FName Region : P.AffectedRegions) Event.Regions.AddUnique(Region);
+            for (const auto& Offset : P.BoneOrientations)
+                if (Ref.IsValidIndex(Offset.BoneIndex)) Event.Bones.AddUnique(Ref.GetBoneName(Offset.BoneIndex));
             for (const auto& Offset : P.BoneCenters)
                 if (Body->GetSkeletalMeshAsset()->GetRefSkeleton().IsValidIndex(Offset.BoneIndex))
                     Event.Bones.AddUnique(Body->GetSkeletalMeshAsset()->GetRefSkeleton().GetBoneName(Offset.BoneIndex));
@@ -463,7 +464,7 @@ bool UVamCharacterComponent::SetExpressionWeights(const TMap<FName,float>& Value
         const FVamMorphParameter* P=LoadedDefinition->Parameters.FindByPredicate(
             [&Pair](const FVamMorphParameter& Item){return Item.Target==Pair.Key;});
         // Bone-driven expressions need a separate pose layer, not a vertex-only override.
-        if (!P || P->Group!=TEXT("Expression") || !P->BoneCenters.IsEmpty() || !FMath::IsFinite(Pair.Value)) return false;
+        if (!P || P->Group!=TEXT("Expression") || (!P->BoneCenters.IsEmpty() || !P->BoneOrientations.IsEmpty()) || !FMath::IsFinite(Pair.Value)) return false;
         Next.Add(Pair.Key,FMath::Clamp(Pair.Value,P->Minimum,P->Maximum));
     }
     ExpressionWeights=MoveTemp(Next);
