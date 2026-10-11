@@ -23,6 +23,12 @@ bool FVamFinalCorrectiveTest::RunTest(const FString&)
     auto* M=D->Body.LoadSynchronous();auto& W=M->GetResourceForRendering()->LODRenderData[0].SkinWeightVertexBuffer;const uint16 Before=W.GetBoneWeight(0,0);W.SetBoneWeight(0,0,Before==65535?Before-1:Before+1);
     const FString WeightFailure=P->ValidateFinalData(D,G,L,B);W.SetBoneWeight(0,0,Before);TestTrue(TEXT("One quantized weight unit invalidates old corrective"),WeightFailure.Contains(TEXT("final_weights")));
     const double Density=G->DensityCandidateKgPerCm3;G->DensityCandidateKgPerCm3*=1.01;const FString HelperFailure=P->ValidateFinalData(D,G,L,B);G->DensityCandidateKgPerCm3=Density;TestTrue(TEXT("Helper data mutation invalidates corrective"),HelperFailure.Contains(TEXT("helper_definitions")));
+    auto& Sections=M->GetResourceForRendering()->LODRenderData[0].RenderSections;
+    int32 Recomputed=0;for(const auto& S:Sections)if(S.bRecomputeTangent)++Recomputed;
+    TestTrue(TEXT("Generated normal body enables native lower-body surface normals"),Recomputed>0 && M->GetLODInfo(0)->SkinCacheUsage==ESkinCacheUsage::Enabled);
+    const bool NormalBefore=Sections[0].bRecomputeTangent;Sections[0].bRecomputeTangent=!NormalBefore;
+    const FString NormalFailure=P->ValidateFinalData(D,G,L,B);Sections[0].bRecomputeTangent=NormalBefore;
+    TestTrue(TEXT("Changing final normal operator invalidates corrective identity"),NormalFailure.Contains(TEXT("final_topology")));
     TestTrue(TEXT("Restored data matches"),P->ValidateFinalData(D,G,L,B).IsEmpty());
     FString Report;if(FParse::Value(FCommandLine::Get(),TEXT("VamFinalCorrectiveReport="),Report))FFileHelper::SaveStringToFile(P->FinalReplayJson,*Report);
     AddInfo(WeightFailure);AddInfo(HelperFailure);return !HasAnyErrors();

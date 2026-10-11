@@ -11,6 +11,8 @@
 #include "Engine/SkeletalMesh.h"
 #include "Animation/MorphTarget.h"
 #include "Rendering/SkeletalMeshRenderData.h"
+#include "Rendering/SkeletalMeshModel.h"
+#include "Rendering/SkeletalMeshLODModel.h"
 #include "Rendering/SkinWeightVertexBuffer.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "Misc/PackageName.h"
@@ -83,6 +85,25 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::BuildCorrective(const FStrin
     if(!VamGluteCorrectiveBuilder::Build(I,OriginalWeights,Ids,*G,*P,FamilyJson,Error))return nullptr;
     auto* Mesh=UVamNativeBuilder::BuildMesh(Root+TEXT("/SK_Body"),I,Error);if(!Mesh)return nullptr;
     if(!UVamNativeBuilder::ShareCompatibleSkeleton(Mesh,D->Body.LoadSynchronous()))return Fail(TEXT("Final corrective changed skeleton"));
+    // Skinning normals alone omit spatial derivatives of the weight field, and
+    // summing independently baked morph normal deltas is not the final surface
+    // normal. Use UE Skin Cache's post-deformation reconstruction for sections
+    // actually influenced by Glute/Leg helpers. No project-wide forced override.
+    auto& LOD=Mesh->GetImportedModel()->LODModels[0];int32 RecomputeSections=0;
+    for(const auto& Section:LOD.Sections)
+    {
+        bool Affected=false;
+        for(const auto& V:Section.SoftVertices)for(int32 K=0;K<MAX_TOTAL_INFLUENCES;++K)
+            if(V.InfluenceWeights[K] && Section.BoneMap[V.InfluenceBones[K]]>=G->SourceBoneCount)Affected=true;
+        if(!Affected)continue;
+        auto& Settings=LOD.UserSectionsData.FindOrAdd(Section.OriginalDataSectionIndex);
+        Settings.bRecomputeTangent=true;Settings.RecomputeTangentsVertexMaskChannel=ESkinVertexColorChannel::None;
+        ++RecomputeSections;
+    }
+    if(!RecomputeSections)return Fail(TEXT("No lower-body section for final surface normals"));
+    Mesh->GetLODInfo(0)->SkinCacheUsage=ESkinCacheUsage::Enabled;
+    Mesh->PostEditChange();
+    UE_LOG(LogTemp,Display,TEXT("LOWER_SURFACE_NORMALS native Skin Cache sections=%d"),RecomputeSections);
     const auto Map=UVamNativeBuilder::GetRenderToInputMap(Mesh);const auto OldMap=Geometry->RenderToInput;
     if(OldMap.Num()!=Contact->SurfaceParents.Num())return Fail(TEXT("Original contact render correspondence missing"));
     TArray<int32> FirstOld,FirstNew;FirstOld.Init(INDEX_NONE,I.Vertices.Num());FirstNew=FirstOld;

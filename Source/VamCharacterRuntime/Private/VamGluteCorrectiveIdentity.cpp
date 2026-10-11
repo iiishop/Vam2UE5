@@ -48,9 +48,11 @@ bool MeshData(USkeletalMesh* Mesh,TMap<FString,FString>& Out,const FString& Pref
         if(!W.GetDataVertexBuffer()->GetWeightData()){Error=TEXT("actual CPU weight data unavailable; rebuild with CPU access");return false;}
         Weights.Add(W.GetNumVertices());Weights.Add(W.GetMaxBoneInfluences());
         for(const auto& Section:L.RenderSections){Weights.Add(Section.BaseVertexIndex);Weights.Add(Section.NumVertices);for(uint32 V=Section.BaseVertexIndex;V<Section.BaseVertexIndex+Section.NumVertices;++V)for(uint32 K=0;K<W.GetMaxBoneInfluences();++K){const auto Raw=W.GetBoneWeight(V,K);Weights.Add(Raw);const int Bone=Raw?Section.BoneMap[W.GetBoneIndex(V,K)]:INDEX_NONE;Weights.Add(Bone);}}
+        for(const auto& Section:L.RenderSections){Topology.Add(bool(Section.bRecomputeTangent));Topology.Add(uint8(Section.RecomputeTangentsVertexMaskChannel));}
         const auto& P=L.StaticVertexBuffers.PositionVertexBuffer;Topology.Add(P.GetNumVertices());for(uint32 V=0;V<P.GetNumVertices();++V)Topology.Vector(FVector(P.VertexPosition(V)));
         const auto* Indices=L.MultiSizeIndexContainer.GetIndexBuffer();Topology.Add(Indices->Num());for(int I=0;I<Indices->Num();++I)Topology.Add(Indices->Get(I));
     }
+    for(int32 LOD=0;LOD<Mesh->GetLODNum();++LOD)Topology.Add(uint8(Mesh->GetLODInfo(LOD)->SkinCacheUsage));
     TArray<UMorphTarget*> Targets=Mesh->GetMorphTargets();Targets.Sort([](const UMorphTarget& A,const UMorphTarget& B){return A.GetName()<B.GetName();});
     for(auto* M:Targets){Morphs.Text(M->GetName());for(const auto& L:M->GetMorphLODModels()){Morphs.Add(L.Vertices.Num());for(const auto& V:L.Vertices){Morphs.Add(V.SourceIdx);Morphs.Vector(FVector(V.PositionDelta));Morphs.Vector(FVector(V.TangentZDelta));}}}
     Out.Add(Prefix+TEXT("weights"),Weights.End());Out.Add(Prefix+TEXT("bind"),Bind.End());Out.Add(Prefix+TEXT("topology"),Topology.End());Out.Add(Prefix+TEXT("morphs"),Morphs.End());return true;
