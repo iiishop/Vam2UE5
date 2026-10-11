@@ -1,0 +1,145 @@
+{
+	"operator": "Final LOD0 render buffer quantized actual weights and baked morph deltas; authored posed targets, not neutral bind",
+	"poses": [
+		{
+			"side": 0,
+			"target": "Flex30",
+			"maximum_delta_error_cm": 0.00014090874689657505,
+			"worst_render_vertex": 15387,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 0,
+			"target": "Flex60",
+			"maximum_delta_error_cm": 0.00010912415698274354,
+			"worst_render_vertex": 15401,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 0,
+			"target": "Flex90",
+			"maximum_delta_error_cm": 0.00010758063764031885,
+			"worst_render_vertex": 16075,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 0,
+			"target": "Extension",
+			"maximum_delta_error_cm": 0.00014278447814435047,
+			"worst_render_vertex": 33155,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 0,
+			"target": "Abduction",
+			"maximum_delta_error_cm": 0.00014022602258573373,
+			"worst_render_vertex": 33332,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 0,
+			"target": "Adduction",
+			"maximum_delta_error_cm": 0.00013982202872050634,
+			"worst_render_vertex": 33719,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 0,
+			"target": "External",
+			"maximum_delta_error_cm": 0.00013784854823001636,
+			"worst_render_vertex": 14087,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 0,
+			"target": "Internal",
+			"maximum_delta_error_cm": 0.00013715961251851107,
+			"worst_render_vertex": 14079,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 0,
+			"target": "FlexAbduction",
+			"maximum_delta_error_cm": 0.00011120238490633762,
+			"worst_render_vertex": 33383,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 0,
+			"target": "FlexExternal",
+			"maximum_delta_error_cm": 0.00011598959931845503,
+			"worst_render_vertex": 15368,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "Flex30",
+			"maximum_delta_error_cm": 0.00014187882631415302,
+			"worst_render_vertex": 14854,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "Flex60",
+			"maximum_delta_error_cm": 0.0001126584443131305,
+			"worst_render_vertex": 14720,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "Flex90",
+			"maximum_delta_error_cm": 0.00011078353037596588,
+			"worst_render_vertex": 32675,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "Extension",
+			"maximum_delta_error_cm": 0.00013828072886515799,
+			"worst_render_vertex": 14877,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "Abduction",
+			"maximum_delta_error_cm": 0.00014299199075247992,
+			"worst_render_vertex": 32811,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "Adduction",
+			"maximum_delta_error_cm": 0.0001395657611637745,
+			"worst_render_vertex": 33632,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "External",
+			"maximum_delta_error_cm": 0.00015455221447538379,
+			"worst_render_vertex": 32976,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "Internal",
+			"maximum_delta_error_cm": 0.00013764653910897147,
+			"worst_render_vertex": 33460,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "FlexAbduction",
+			"maximum_delta_error_cm": 0.00019250304836087846,
+			"worst_render_vertex": 1067,
+			"unsafe_triangles": 0
+		},
+		{
+			"side": 1,
+			"target": "FlexExternal",
+			"maximum_delta_error_cm": 0.00015415364532447918,
+			"worst_render_vertex": 1067,
+			"unsafe_triangles": 0
+		}
+	]
+}

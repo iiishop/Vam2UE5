@@ -1,0 +1,2123 @@
+{
+  "scope": "Source-ID matched extra deformation asymmetry; not forced preset symmetry. Boundary edges from shared source IDs and actual section material IDs.",
+  "mirror": [
+    {
+      "pose": "abducted",
+      "stage": "01-final-weights",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 1.2765973231482388,
+        "p95": 3.580988740876022,
+        "max": 5.638622942126262
+      },
+      "worst_pair": [
+        341,
+        11269
+      ]
+    },
+    {
+      "pose": "abducted",
+      "stage": "02-static-helpers",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 0.8965969054042443,
+        "p95": 2.490363052827047,
+        "max": 4.557427485707022
+      },
+      "worst_pair": [
+        342,
+        11270
+      ]
+    },
+    {
+      "pose": "abducted",
+      "stage": "03-corrective",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 1.003588014267479,
+        "p95": 2.7600244844499917,
+        "max": 4.612252401421547
+      },
+      "worst_pair": [
+        7181,
+        17888
+      ]
+    },
+    {
+      "pose": "abducted",
+      "stage": "04-jiggle",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 1.003588014267479,
+        "p95": 2.7600244844499917,
+        "max": 4.612252401421547
+      },
+      "worst_pair": [
+        7181,
+        17888
+      ]
+    },
+    {
+      "pose": "knee-120",
+      "stage": "01-final-weights",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 0.036441778286208544,
+        "p95": 0.10766922247059935,
+        "max": 0.17069942134194802
+      },
+      "worst_pair": [
+        342,
+        11270
+      ]
+    },
+    {
+      "pose": "knee-120",
+      "stage": "02-static-helpers",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 0.03842598969605073,
+        "p95": 0.09539860911390625,
+        "max": 0.1487106812742492
+      },
+      "worst_pair": [
+        8190,
+        18861
+      ]
+    },
+    {
+      "pose": "knee-120",
+      "stage": "03-corrective",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 0.03841756907060167,
+        "p95": 0.09540336020821817,
+        "max": 0.14871140346337833
+      },
+      "worst_pair": [
+        8190,
+        18861
+      ]
+    },
+    {
+      "pose": "knee-120",
+      "stage": "04-jiggle",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 0.03841756907060167,
+        "p95": 0.09540336020821817,
+        "max": 0.14871140346337833
+      },
+      "worst_pair": [
+        8190,
+        18861
+      ]
+    },
+    {
+      "pose": "standing",
+      "stage": "01-final-weights",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 0.03649395574210675,
+        "p95": 0.10696304254927956,
+        "max": 0.1720666139295095
+      },
+      "worst_pair": [
+        342,
+        11270
+      ]
+    },
+    {
+      "pose": "standing",
+      "stage": "02-static-helpers",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 0.03845141460119846,
+        "p95": 0.09538149538193728,
+        "max": 0.1487106812742492
+      },
+      "worst_pair": [
+        8190,
+        18861
+      ]
+    },
+    {
+      "pose": "standing",
+      "stage": "03-corrective",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 0.0384429492279196,
+        "p95": 0.09536685074679474,
+        "max": 0.14871140346337833
+      },
+      "worst_pair": [
+        8190,
+        18861
+      ]
+    },
+    {
+      "pose": "standing",
+      "stage": "04-jiggle",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 0.0384429492279196,
+        "p95": 0.09536685074679474,
+        "max": 0.14871140346337833
+      },
+      "worst_pair": [
+        8190,
+        18861
+      ]
+    },
+    {
+      "pose": "suspended-seat",
+      "stage": "01-final-weights",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 1.7590444014922404,
+        "p95": 4.898151289238279,
+        "max": 7.932668630369281
+      },
+      "worst_pair": [
+        341,
+        11269
+      ]
+    },
+    {
+      "pose": "suspended-seat",
+      "stage": "02-static-helpers",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 1.3991833448048034,
+        "p95": 4.066103581329053,
+        "max": 6.500761805206971
+      },
+      "worst_pair": [
+        342,
+        11270
+      ]
+    },
+    {
+      "pose": "suspended-seat",
+      "stage": "03-corrective",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 1.4537511398510077,
+        "p95": 4.006079088283308,
+        "max": 6.228630929607219
+      },
+      "worst_pair": [
+        7181,
+        17888
+      ]
+    },
+    {
+      "pose": "suspended-seat",
+      "stage": "04-jiggle",
+      "extra_mirror_cm": {
+        "count": 478,
+        "rms": 1.4537511398510077,
+        "p95": 4.006079088283308,
+        "max": 6.228630929607219
+      },
+      "worst_pair": [
+        7181,
+        17888
+      ]
+    }
+  ],
+  "boundary": [
+    {
+      "pose": "abducted",
+      "dihedral": {
+        "count": 66,
+        "rms": 4.944821197471021,
+        "p95": 10.343740287405925,
+        "max": 11.242875016109666
+      },
+      "edges": [
+        {
+          "source_edge": [
+            6075,
+            6076
+          ],
+          "dihedral_deg": 9.445130559408359
+        },
+        {
+          "source_edge": [
+            6076,
+            6089
+          ],
+          "dihedral_deg": 10.95850067154508
+        },
+        {
+          "source_edge": [
+            6077,
+            6089
+          ],
+          "dihedral_deg": 10.643276863405115
+        },
+        {
+          "source_edge": [
+            6077,
+            6151
+          ],
+          "dihedral_deg": 7.39100492564734
+        },
+        {
+          "source_edge": [
+            6151,
+            6152
+          ],
+          "dihedral_deg": 1.9394065896083252
+        },
+        {
+          "source_edge": [
+            6078,
+            6152
+          ],
+          "dihedral_deg": 2.24229210653411
+        },
+        {
+          "source_edge": [
+            6078,
+            8788
+          ],
+          "dihedral_deg": 4.309697523680016
+        },
+        {
+          "source_edge": [
+            8700,
+            8788
+          ],
+          "dihedral_deg": 3.833863221647491
+        },
+        {
+          "source_edge": [
+            6090,
+            8700
+          ],
+          "dihedral_deg": 2.5954278623316878
+        },
+        {
+          "source_edge": [
+            6088,
+            6090
+          ],
+          "dihedral_deg": 2.487324007793032
+        },
+        {
+          "source_edge": [
+            6088,
+            6696
+          ],
+          "dihedral_deg": 2.96780651050396
+        },
+        {
+          "source_edge": [
+            6681,
+            6696
+          ],
+          "dihedral_deg": 4.051958763615485
+        },
+        {
+          "source_edge": [
+            6681,
+            6683
+          ],
+          "dihedral_deg": 4.950048369169351
+        },
+        {
+          "source_edge": [
+            6683,
+            6689
+          ],
+          "dihedral_deg": 5.034557081344904
+        },
+        {
+          "source_edge": [
+            6672,
+            6689
+          ],
+          "dihedral_deg": 6.011687233209365
+        },
+        {
+          "source_edge": [
+            6665,
+            6672
+          ],
+          "dihedral_deg": 5.187750933695285
+        },
+        {
+          "source_edge": [
+            6665,
+            6704
+          ],
+          "dihedral_deg": 6.488441373375298
+        },
+        {
+          "source_edge": [
+            6083,
+            6704
+          ],
+          "dihedral_deg": 3.2606321229589548
+        },
+        {
+          "source_edge": [
+            6083,
+            6087
+          ],
+          "dihedral_deg": 4.175879928737921
+        },
+        {
+          "source_edge": [
+            6086,
+            6087
+          ],
+          "dihedral_deg": 3.764254473729346
+        },
+        {
+          "source_edge": [
+            6084,
+            6086
+          ],
+          "dihedral_deg": 1.876095526636949
+        },
+        {
+          "source_edge": [
+            6084,
+            6085
+          ],
+          "dihedral_deg": 1.1230714550616676
+        },
+        {
+          "source_edge": [
+            6085,
+            6092
+          ],
+          "dihedral_deg": 1.5301174500605899
+        },
+        {
+          "source_edge": [
+            6091,
+            6092
+          ],
+          "dihedral_deg": 1.5543324113830028
+        },
+        {
+          "source_edge": [
+            6080,
+            6081
+          ],
+          "dihedral_deg": 4.728785462478261
+        },
+        {
+          "source_edge": [
+            6079,
+            6081
+          ],
+          "dihedral_deg": 4.672674800812268
+        },
+        {
+          "source_edge": [
+            6080,
+            6082
+          ],
+          "dihedral_deg": 5.7002636111459575
+        },
+        {
+          "source_edge": [
+            6074,
+            6079
+          ],
+          "dihedral_deg": 5.197388748649866
+        },
+        {
+          "source_edge": [
+            6074,
+            6075
+          ],
+          "dihedral_deg": 6.008123911637616
+        },
+        {
+          "source_edge": [
+            6082,
+            6094
+          ],
+          "dihedral_deg": 5.541185284490036
+        },
+        {
+          "source_edge": [
+            6093,
+            6094
+          ],
+          "dihedral_deg": 5.491577444538374
+        },
+        {
+          "source_edge": [
+            6093,
+            8762
+          ],
+          "dihedral_deg": 5.012277392205958
+        },
+        {
+          "source_edge": [
+            6091,
+            8762
+          ],
+          "dihedral_deg": 2.2084746044425785
+        },
+        {
+          "source_edge": [
+            16797,
+            16798
+          ],
+          "dihedral_deg": 8.002224358319348
+        },
+        {
+          "source_edge": [
+            16798,
+            16811
+          ],
+          "dihedral_deg": 10.711819493164501
+        },
+        {
+          "source_edge": [
+            16799,
+            16811
+          ],
+          "dihedral_deg": 11.242875016109666
+        },
+        {
+          "source_edge": [
+            16799,
+            16871
+          ],
+          "dihedral_deg": 7.584235963074788
+        },
+        {
+          "source_edge": [
+            16871,
+            16872
+          ],
+          "dihedral_deg": 2.058088807497942
+        },
+        {
+          "source_edge": [
+            16800,
+            16872
+          ],
+          "dihedral_deg": 2.314867405494471
+        },
+        {
+          "source_edge": [
+            16800,
+            19459
+          ],
+          "dihedral_deg": 4.20867547042828
+        },
+        {
+          "source_edge": [
+            19371,
+            19459
+          ],
+          "dihedral_deg": 3.8211052259196054
+        },
+        {
+          "source_edge": [
+            16812,
+            19371
+          ],
+          "dihedral_deg": 2.584978792700423
+        },
+        {
+          "source_edge": [
+            16810,
+            16812
+          ],
+          "dihedral_deg": 2.500987543709387
+        },
+        {
+          "source_edge": [
+            16810,
+            17406
+          ],
+          "dihedral_deg": 2.96460423126456
+        },
+        {
+          "source_edge": [
+            17391,
+            17406
+          ],
+          "dihedral_deg": 4.046347801447514
+        },
+        {
+          "source_edge": [
+            17391,
+            17393
+          ],
+          "dihedral_deg": 4.957441402274278
+        },
+        {
+          "source_edge": [
+            17393,
+            17399
+          ],
+          "dihedral_deg": 5.036604869240534
+        },
+        {
+          "source_edge": [
+            17382,
+            17399
+          ],
+          "dihedral_deg": 5.999677004467912
+        },
+        {
+          "source_edge": [
+            17375,
+            17382
+          ],
+          "dihedral_deg": 5.2009589564832295
+        },
+        {
+          "source_edge": [
+            17375,
+            17414
+          ],
+          "dihedral_deg": 6.461190273945299
+        },
+        {
+          "source_edge": [
+            16805,
+            17414
+          ],
+          "dihedral_deg": 3.2793056982972795
+        },
+        {
+          "source_edge": [
+            16805,
+            16809
+          ],
+          "dihedral_deg": 4.132312001290511
+        },
+        {
+          "source_edge": [
+            16808,
+            16809
+          ],
+          "dihedral_deg": 3.7720393050877883
+        },
+        {
+          "source_edge": [
+            16806,
+            16808
+          ],
+          "dihedral_deg": 1.8822905807278685
+        },
+        {
+          "source_edge": [
+            16806,
+            16807
+          ],
+          "dihedral_deg": 1.0793401030749863
+        },
+        {
+          "source_edge": [
+            16807,
+            16814
+          ],
+          "dihedral_deg": 1.5191137193785063
+        },
+        {
+          "source_edge": [
+            16813,
+            16814
+          ],
+          "dihedral_deg": 1.7721469007875368
+        },
+        {
+          "source_edge": [
+            16813,
+            19433
+          ],
+          "dihedral_deg": 2.6590061783111065
+        },
+        {
+          "source_edge": [
+            16815,
+            19433
+          ],
+          "dihedral_deg": 4.375730226608346
+        },
+        {
+          "source_edge": [
+            16815,
+            16816
+          ],
+          "dihedral_deg": 4.387361985088995
+        },
+        {
+          "source_edge": [
+            16804,
+            16816
+          ],
+          "dihedral_deg": 3.291632554254403
+        },
+        {
+          "source_edge": [
+            16802,
+            16804
+          ],
+          "dihedral_deg": 2.5803760992016502
+        },
+        {
+          "source_edge": [
+            16802,
+            16803
+          ],
+          "dihedral_deg": 0.8659892236404978
+        },
+        {
+          "source_edge": [
+            16801,
+            16803
+          ],
+          "dihedral_deg": 0.26564391931927056
+        },
+        {
+          "source_edge": [
+            16796,
+            16801
+          ],
+          "dihedral_deg": 0.9394946971732988
+        },
+        {
+          "source_edge": [
+            16796,
+            16797
+          ],
+          "dihedral_deg": 2.1455398275383257
+        }
+      ]
+    },
+    {
+      "pose": "knee-120",
+      "dihedral": {
+        "count": 66,
+        "rms": 2.1343004377730033,
+        "p95": 3.8343077728224264,
+        "max": 4.424952601244089
+      },
+      "edges": [
+        {
+          "source_edge": [
+            6075,
+            6076
+          ],
+          "dihedral_deg": 1.5928470695431747
+        },
+        {
+          "source_edge": [
+            6076,
+            6089
+          ],
+          "dihedral_deg": 0.6680365229211198
+        },
+        {
+          "source_edge": [
+            6077,
+            6089
+          ],
+          "dihedral_deg": 1.3541458440950385
+        },
+        {
+          "source_edge": [
+            6077,
+            6151
+          ],
+          "dihedral_deg": 3.4098750935251774
+        },
+        {
+          "source_edge": [
+            6151,
+            6152
+          ],
+          "dihedral_deg": 0.023912157262067267
+        },
+        {
+          "source_edge": [
+            6078,
+            6152
+          ],
+          "dihedral_deg": 3.9194403538634095
+        },
+        {
+          "source_edge": [
+            6078,
+            8788
+          ],
+          "dihedral_deg": 3.550031227043415
+        },
+        {
+          "source_edge": [
+            8700,
+            8788
+          ],
+          "dihedral_deg": 3.4697648436585786
+        },
+        {
+          "source_edge": [
+            6090,
+            8700
+          ],
+          "dihedral_deg": 1.2165487449987322
+        },
+        {
+          "source_edge": [
+            6088,
+            6090
+          ],
+          "dihedral_deg": 0.813131042848885
+        },
+        {
+          "source_edge": [
+            6088,
+            6696
+          ],
+          "dihedral_deg": 1.4534078631045118
+        },
+        {
+          "source_edge": [
+            6681,
+            6696
+          ],
+          "dihedral_deg": 1.8301661300583072
+        },
+        {
+          "source_edge": [
+            6681,
+            6683
+          ],
+          "dihedral_deg": 2.7174714426187085
+        },
+        {
+          "source_edge": [
+            6683,
+            6689
+          ],
+          "dihedral_deg": 3.0185262373078117
+        },
+        {
+          "source_edge": [
+            6672,
+            6689
+          ],
+          "dihedral_deg": 3.506928220464968
+        },
+        {
+          "source_edge": [
+            6665,
+            6672
+          ],
+          "dihedral_deg": 2.988136260240555
+        },
+        {
+          "source_edge": [
+            6665,
+            6704
+          ],
+          "dihedral_deg": 4.424952601244089
+        },
+        {
+          "source_edge": [
+            6083,
+            6704
+          ],
+          "dihedral_deg": 0.2678653814369917
+        },
+        {
+          "source_edge": [
+            6083,
+            6087
+          ],
+          "dihedral_deg": 1.2715077868532303
+        },
+        {
+          "source_edge": [
+            6086,
+            6087
+          ],
+          "dihedral_deg": 1.09506184276486
+        },
+        {
+          "source_edge": [
+            6084,
+            6086
+          ],
+          "dihedral_deg": 0.38388143021709376
+        },
+        {
+          "source_edge": [
+            6084,
+            6085
+          ],
+          "dihedral_deg": 0.6596674477461186
+        },
+        {
+          "source_edge": [
+            6085,
+            6092
+          ],
+          "dihedral_deg": 0.6763691571719054
+        },
+        {
+          "source_edge": [
+            6091,
+            6092
+          ],
+          "dihedral_deg": 0.14047369545536292
+        },
+        {
+          "source_edge": [
+            6080,
+            6081
+          ],
+          "dihedral_deg": 1.899997476487877
+        },
+        {
+          "source_edge": [
+            6079,
+            6081
+          ],
+          "dihedral_deg": 1.2807055675167591
+        },
+        {
+          "source_edge": [
+            6080,
+            6082
+          ],
+          "dihedral_deg": 0.4723603451138912
+        },
+        {
+          "source_edge": [
+            6074,
+            6079
+          ],
+          "dihedral_deg": 2.696542565969634
+        },
+        {
+          "source_edge": [
+            6074,
+            6075
+          ],
+          "dihedral_deg": 1.5505204447580754
+        },
+        {
+          "source_edge": [
+            6082,
+            6094
+          ],
+          "dihedral_deg": 1.3095430234923313
+        },
+        {
+          "source_edge": [
+            6093,
+            6094
+          ],
+          "dihedral_deg": 1.9044691409394003
+        },
+        {
+          "source_edge": [
+            6093,
+            8762
+          ],
+          "dihedral_deg": 1.4778496285969878
+        },
+        {
+          "source_edge": [
+            6091,
+            8762
+          ],
+          "dihedral_deg": 0.13772110673893315
+        },
+        {
+          "source_edge": [
+            16797,
+            16798
+          ],
+          "dihedral_deg": 1.7697914039929672
+        },
+        {
+          "source_edge": [
+            16798,
+            16811
+          ],
+          "dihedral_deg": 0.29000146811605265
+        },
+        {
+          "source_edge": [
+            16799,
+            16811
+          ],
+          "dihedral_deg": 1.2539688609443178
+        },
+        {
+          "source_edge": [
+            16799,
+            16871
+          ],
+          "dihedral_deg": 3.2906444149155742
+        },
+        {
+          "source_edge": [
+            16871,
+            16872
+          ],
+          "dihedral_deg": 0.10926653306350101
+        },
+        {
+          "source_edge": [
+            16800,
+            16872
+          ],
+          "dihedral_deg": 3.9966228124874412
+        },
+        {
+          "source_edge": [
+            16800,
+            19459
+          ],
+          "dihedral_deg": 3.5459818396469314
+        },
+        {
+          "source_edge": [
+            19371,
+            19459
+          ],
+          "dihedral_deg": 3.4723974255686323
+        },
+        {
+          "source_edge": [
+            16812,
+            19371
+          ],
+          "dihedral_deg": 1.2221770990588434
+        },
+        {
+          "source_edge": [
+            16810,
+            16812
+          ],
+          "dihedral_deg": 0.8104549413398825
+        },
+        {
+          "source_edge": [
+            16810,
+            17406
+          ],
+          "dihedral_deg": 1.4514725939597446
+        },
+        {
+          "source_edge": [
+            17391,
+            17406
+          ],
+          "dihedral_deg": 1.8247649015915042
+        },
+        {
+          "source_edge": [
+            17391,
+            17393
+          ],
+          "dihedral_deg": 2.7292593181995857
+        },
+        {
+          "source_edge": [
+            17393,
+            17399
+          ],
+          "dihedral_deg": 3.0180623375308757
+        },
+        {
+          "source_edge": [
+            17382,
+            17399
+          ],
+          "dihedral_deg": 3.507955129535658
+        },
+        {
+          "source_edge": [
+            17375,
+            17382
+          ],
+          "dihedral_deg": 2.989024545101151
+        },
+        {
+          "source_edge": [
+            17375,
+            17414
+          ],
+          "dihedral_deg": 4.421318054567782
+        },
+        {
+          "source_edge": [
+            16805,
+            17414
+          ],
+          "dihedral_deg": 0.27457985769484733
+        },
+        {
+          "source_edge": [
+            16805,
+            16809
+          ],
+          "dihedral_deg": 1.2436955010729804
+        },
+        {
+          "source_edge": [
+            16808,
+            16809
+          ],
+          "dihedral_deg": 1.072195397467538
+        },
+        {
+          "source_edge": [
+            16806,
+            16808
+          ],
+          "dihedral_deg": 0.36161487593810243
+        },
+        {
+          "source_edge": [
+            16806,
+            16807
+          ],
+          "dihedral_deg": 0.6334954387827015
+        },
+        {
+          "source_edge": [
+            16807,
+            16814
+          ],
+          "dihedral_deg": 0.605113197661691
+        },
+        {
+          "source_edge": [
+            16813,
+            16814
+          ],
+          "dihedral_deg": 0.18029585110818633
+        },
+        {
+          "source_edge": [
+            16813,
+            19433
+          ],
+          "dihedral_deg": 0.1306748031177635
+        },
+        {
+          "source_edge": [
+            16815,
+            19433
+          ],
+          "dihedral_deg": 0.6804730903638763
+        },
+        {
+          "source_edge": [
+            16815,
+            16816
+          ],
+          "dihedral_deg": 1.1540200952517925
+        },
+        {
+          "source_edge": [
+            16804,
+            16816
+          ],
+          "dihedral_deg": 0.6409493724655951
+        },
+        {
+          "source_edge": [
+            16802,
+            16804
+          ],
+          "dihedral_deg": 0.8004373265128114
+        },
+        {
+          "source_edge": [
+            16802,
+            16803
+          ],
+          "dihedral_deg": 2.1832084415736706
+        },
+        {
+          "source_edge": [
+            16801,
+            16803
+          ],
+          "dihedral_deg": 1.8567328978023967
+        },
+        {
+          "source_edge": [
+            16796,
+            16801
+          ],
+          "dihedral_deg": 3.578910029699477
+        },
+        {
+          "source_edge": [
+            16796,
+            16797
+          ],
+          "dihedral_deg": 1.9733617532543073
+        }
+      ]
+    },
+    {
+      "pose": "standing",
+      "dihedral": {
+        "count": 66,
+        "rms": 2.1057762758998892,
+        "p95": 3.9690900326711676,
+        "max": 4.279801310499589
+      },
+      "edges": [
+        {
+          "source_edge": [
+            6075,
+            6076
+          ],
+          "dihedral_deg": 1.272516085484319
+        },
+        {
+          "source_edge": [
+            6076,
+            6089
+          ],
+          "dihedral_deg": 0.7832591764235556
+        },
+        {
+          "source_edge": [
+            6077,
+            6089
+          ],
+          "dihedral_deg": 1.4593800293509398
+        },
+        {
+          "source_edge": [
+            6077,
+            6151
+          ],
+          "dihedral_deg": 3.370120218097035
+        },
+        {
+          "source_edge": [
+            6151,
+            6152
+          ],
+          "dihedral_deg": 0.0029549543761063684
+        },
+        {
+          "source_edge": [
+            6078,
+            6152
+          ],
+          "dihedral_deg": 3.6888887474144787
+        },
+        {
+          "source_edge": [
+            6078,
+            8788
+          ],
+          "dihedral_deg": 4.2787426300457385
+        },
+        {
+          "source_edge": [
+            8700,
+            8788
+          ],
+          "dihedral_deg": 3.674476333665387
+        },
+        {
+          "source_edge": [
+            6090,
+            8700
+          ],
+          "dihedral_deg": 1.1115413673745302
+        },
+        {
+          "source_edge": [
+            6088,
+            6090
+          ],
+          "dihedral_deg": 0.9528300900447602
+        },
+        {
+          "source_edge": [
+            6088,
+            6696
+          ],
+          "dihedral_deg": 1.202592011856592
+        },
+        {
+          "source_edge": [
+            6681,
+            6696
+          ],
+          "dihedral_deg": 1.4925877516886359
+        },
+        {
+          "source_edge": [
+            6681,
+            6683
+          ],
+          "dihedral_deg": 2.2518285474937985
+        },
+        {
+          "source_edge": [
+            6683,
+            6689
+          ],
+          "dihedral_deg": 2.4171235020897006
+        },
+        {
+          "source_edge": [
+            6672,
+            6689
+          ],
+          "dihedral_deg": 2.862725947035148
+        },
+        {
+          "source_edge": [
+            6665,
+            6672
+          ],
+          "dihedral_deg": 2.3773404013884587
+        },
+        {
+          "source_edge": [
+            6665,
+            6704
+          ],
+          "dihedral_deg": 4.041348210106957
+        },
+        {
+          "source_edge": [
+            6083,
+            6704
+          ],
+          "dihedral_deg": 0.5059440519290086
+        },
+        {
+          "source_edge": [
+            6083,
+            6087
+          ],
+          "dihedral_deg": 2.1819462849404556
+        },
+        {
+          "source_edge": [
+            6086,
+            6087
+          ],
+          "dihedral_deg": 1.5479811299099453
+        },
+        {
+          "source_edge": [
+            6084,
+            6086
+          ],
+          "dihedral_deg": 0.38388143021709376
+        },
+        {
+          "source_edge": [
+            6084,
+            6085
+          ],
+          "dihedral_deg": 0.7582446745035074
+        },
+        {
+          "source_edge": [
+            6085,
+            6092
+          ],
+          "dihedral_deg": 0.6904666958139231
+        },
+        {
+          "source_edge": [
+            6091,
+            6092
+          ],
+          "dihedral_deg": 0.26421141430924244
+        },
+        {
+          "source_edge": [
+            6080,
+            6081
+          ],
+          "dihedral_deg": 2.0657817157722165
+        },
+        {
+          "source_edge": [
+            6079,
+            6081
+          ],
+          "dihedral_deg": 2.025380301409128
+        },
+        {
+          "source_edge": [
+            6080,
+            6082
+          ],
+          "dihedral_deg": 0.9204484247073312
+        },
+        {
+          "source_edge": [
+            6074,
+            6079
+          ],
+          "dihedral_deg": 3.1185590861062384
+        },
+        {
+          "source_edge": [
+            6074,
+            6075
+          ],
+          "dihedral_deg": 1.3660745200366389
+        },
+        {
+          "source_edge": [
+            6082,
+            6094
+          ],
+          "dihedral_deg": 1.044590474856379
+        },
+        {
+          "source_edge": [
+            6093,
+            6094
+          ],
+          "dihedral_deg": 1.944792296552646
+        },
+        {
+          "source_edge": [
+            6093,
+            8762
+          ],
+          "dihedral_deg": 1.7991550765442093
+        },
+        {
+          "source_edge": [
+            6091,
+            8762
+          ],
+          "dihedral_deg": 0.6895516379463699
+        },
+        {
+          "source_edge": [
+            16797,
+            16798
+          ],
+          "dihedral_deg": 1.3274731943485674
+        },
+        {
+          "source_edge": [
+            16798,
+            16811
+          ],
+          "dihedral_deg": 0.40829384038509575
+        },
+        {
+          "source_edge": [
+            16799,
+            16811
+          ],
+          "dihedral_deg": 1.3594720528635416
+        },
+        {
+          "source_edge": [
+            16799,
+            16871
+          ],
+          "dihedral_deg": 3.2487504638886233
+        },
+        {
+          "source_edge": [
+            16871,
+            16872
+          ],
+          "dihedral_deg": 0.08328939945863517
+        },
+        {
+          "source_edge": [
+            16800,
+            16872
+          ],
+          "dihedral_deg": 3.7649543791213094
+        },
+        {
+          "source_edge": [
+            16800,
+            19459
+          ],
+          "dihedral_deg": 4.279801310499589
+        },
+        {
+          "source_edge": [
+            19371,
+            19459
+          ],
+          "dihedral_deg": 3.6775525189832545
+        },
+        {
+          "source_edge": [
+            16812,
+            19371
+          ],
+          "dihedral_deg": 1.1142139263065345
+        },
+        {
+          "source_edge": [
+            16810,
+            16812
+          ],
+          "dihedral_deg": 0.9518113056496628
+        },
+        {
+          "source_edge": [
+            16810,
+            17406
+          ],
+          "dihedral_deg": 1.200707026590073
+        },
+        {
+          "source_edge": [
+            17391,
+            17406
+          ],
+          "dihedral_deg": 1.4818996574785956
+        },
+        {
+          "source_edge": [
+            17391,
+            17393
+          ],
+          "dihedral_deg": 2.2541553328959076
+        },
+        {
+          "source_edge": [
+            17393,
+            17399
+          ],
+          "dihedral_deg": 2.410486792769834
+        },
+        {
+          "source_edge": [
+            17382,
+            17399
+          ],
+          "dihedral_deg": 2.869635796986549
+        },
+        {
+          "source_edge": [
+            17375,
+            17382
+          ],
+          "dihedral_deg": 2.378001924572851
+        },
+        {
+          "source_edge": [
+            17375,
+            17414
+          ],
+          "dihedral_deg": 4.03713525052112
+        },
+        {
+          "source_edge": [
+            16805,
+            17414
+          ],
+          "dihedral_deg": 0.515300525037278
+        },
+        {
+          "source_edge": [
+            16805,
+            16809
+          ],
+          "dihedral_deg": 2.1569306902408503
+        },
+        {
+          "source_edge": [
+            16808,
+            16809
+          ],
+          "dihedral_deg": 1.5251899472563084
+        },
+        {
+          "source_edge": [
+            16806,
+            16808
+          ],
+          "dihedral_deg": 0.36161487593810243
+        },
+        {
+          "source_edge": [
+            16806,
+            16807
+          ],
+          "dihedral_deg": 0.7335363968870403
+        },
+        {
+          "source_edge": [
+            16807,
+            16814
+          ],
+          "dihedral_deg": 0.6178542192090971
+        },
+        {
+          "source_edge": [
+            16813,
+            16814
+          ],
+          "dihedral_deg": 0.2227617194706606
+        },
+        {
+          "source_edge": [
+            16813,
+            19433
+          ],
+          "dihedral_deg": 0.6760527093855714
+        },
+        {
+          "source_edge": [
+            16815,
+            19433
+          ],
+          "dihedral_deg": 1.0236894060729496
+        },
+        {
+          "source_edge": [
+            16815,
+            16816
+          ],
+          "dihedral_deg": 1.2712972382660102
+        },
+        {
+          "source_edge": [
+            16804,
+            16816
+          ],
+          "dihedral_deg": 0.5191274571283933
+        },
+        {
+          "source_edge": [
+            16802,
+            16804
+          ],
+          "dihedral_deg": 1.0120680320252489
+        },
+        {
+          "source_edge": [
+            16802,
+            16803
+          ],
+          "dihedral_deg": 2.119850937596811
+        },
+        {
+          "source_edge": [
+            16801,
+            16803
+          ],
+          "dihedral_deg": 2.312662974659834
+        },
+        {
+          "source_edge": [
+            16796,
+            16801
+          ],
+          "dihedral_deg": 3.754473873653702
+        },
+        {
+          "source_edge": [
+            16796,
+            16797
+          ],
+          "dihedral_deg": 1.6194526335096946
+        }
+      ]
+    },
+    {
+      "pose": "suspended-seat",
+      "dihedral": {
+        "count": 66,
+        "rms": 8.038893200338254,
+        "p95": 14.919844195705263,
+        "max": 17.66437361266568
+      },
+      "edges": [
+        {
+          "source_edge": [
+            6075,
+            6076
+          ],
+          "dihedral_deg": 17.66437361266568
+        },
+        {
+          "source_edge": [
+            6076,
+            6089
+          ],
+          "dihedral_deg": 14.474014570315623
+        },
+        {
+          "source_edge": [
+            6077,
+            6089
+          ],
+          "dihedral_deg": 15.06942592328744
+        },
+        {
+          "source_edge": [
+            6077,
+            6151
+          ],
+          "dihedral_deg": 6.238977488012079
+        },
+        {
+          "source_edge": [
+            6151,
+            6152
+          ],
+          "dihedral_deg": 7.371133585321468
+        },
+        {
+          "source_edge": [
+            6078,
+            6152
+          ],
+          "dihedral_deg": 12.847372200437075
+        },
+        {
+          "source_edge": [
+            6078,
+            8788
+          ],
+          "dihedral_deg": 8.376006560843072
+        },
+        {
+          "source_edge": [
+            8700,
+            8788
+          ],
+          "dihedral_deg": 4.547356842746432
+        },
+        {
+          "source_edge": [
+            6090,
+            8700
+          ],
+          "dihedral_deg": 3.8625678200296165
+        },
+        {
+          "source_edge": [
+            6088,
+            6090
+          ],
+          "dihedral_deg": 3.838374007435124
+        },
+        {
+          "source_edge": [
+            6088,
+            6696
+          ],
+          "dihedral_deg": 3.790711675963192
+        },
+        {
+          "source_edge": [
+            6681,
+            6696
+          ],
+          "dihedral_deg": 4.978458108255616
+        },
+        {
+          "source_edge": [
+            6681,
+            6683
+          ],
+          "dihedral_deg": 5.67704013546961
+        },
+        {
+          "source_edge": [
+            6683,
+            6689
+          ],
+          "dihedral_deg": 5.682231985752788
+        },
+        {
+          "source_edge": [
+            6672,
+            6689
+          ],
+          "dihedral_deg": 6.641808210721294
+        },
+        {
+          "source_edge": [
+            6665,
+            6672
+          ],
+          "dihedral_deg": 5.732125177710209
+        },
+        {
+          "source_edge": [
+            6665,
+            6704
+          ],
+          "dihedral_deg": 7.173036477528101
+        },
+        {
+          "source_edge": [
+            6083,
+            6704
+          ],
+          "dihedral_deg": 4.071118814043346
+        },
+        {
+          "source_edge": [
+            6083,
+            6087
+          ],
+          "dihedral_deg": 4.698057314964846
+        },
+        {
+          "source_edge": [
+            6086,
+            6087
+          ],
+          "dihedral_deg": 4.143024105213275
+        },
+        {
+          "source_edge": [
+            6084,
+            6086
+          ],
+          "dihedral_deg": 1.584324833946148
+        },
+        {
+          "source_edge": [
+            6084,
+            6085
+          ],
+          "dihedral_deg": 0.014606136153514951
+        },
+        {
+          "source_edge": [
+            6085,
+            6092
+          ],
+          "dihedral_deg": 4.128455339978225
+        },
+        {
+          "source_edge": [
+            6091,
+            6092
+          ],
+          "dihedral_deg": 4.5425514618753935
+        },
+        {
+          "source_edge": [
+            6080,
+            6081
+          ],
+          "dihedral_deg": 11.156082678229806
+        },
+        {
+          "source_edge": [
+            6079,
+            6081
+          ],
+          "dihedral_deg": 12.481480291737792
+        },
+        {
+          "source_edge": [
+            6080,
+            6082
+          ],
+          "dihedral_deg": 11.76887081849401
+        },
+        {
+          "source_edge": [
+            6074,
+            6079
+          ],
+          "dihedral_deg": 12.571410296901249
+        },
+        {
+          "source_edge": [
+            6074,
+            6075
+          ],
+          "dihedral_deg": 14.866599728432503
+        },
+        {
+          "source_edge": [
+            6082,
+            6094
+          ],
+          "dihedral_deg": 10.463152917497602
+        },
+        {
+          "source_edge": [
+            6093,
+            6094
+          ],
+          "dihedral_deg": 9.43222764662566
+        },
+        {
+          "source_edge": [
+            6093,
+            8762
+          ],
+          "dihedral_deg": 8.893907059048944
+        },
+        {
+          "source_edge": [
+            6091,
+            8762
+          ],
+          "dihedral_deg": 5.161964901883639
+        },
+        {
+          "source_edge": [
+            16797,
+            16798
+          ],
+          "dihedral_deg": 14.159623593100749
+        },
+        {
+          "source_edge": [
+            16798,
+            16811
+          ],
+          "dihedral_deg": 14.937592351462849
+        },
+        {
+          "source_edge": [
+            16799,
+            16811
+          ],
+          "dihedral_deg": 16.103907318003017
+        },
+        {
+          "source_edge": [
+            16799,
+            16871
+          ],
+          "dihedral_deg": 6.296638452031553
+        },
+        {
+          "source_edge": [
+            16871,
+            16872
+          ],
+          "dihedral_deg": 7.673508451230539
+        },
+        {
+          "source_edge": [
+            16800,
+            16872
+          ],
+          "dihedral_deg": 13.63396985834554
+        },
+        {
+          "source_edge": [
+            16800,
+            19459
+          ],
+          "dihedral_deg": 7.72373993994291
+        },
+        {
+          "source_edge": [
+            19371,
+            19459
+          ],
+          "dihedral_deg": 4.464256139979827
+        },
+        {
+          "source_edge": [
+            16812,
+            19371
+          ],
+          "dihedral_deg": 3.7762296748738073
+        },
+        {
+          "source_edge": [
+            16810,
+            16812
+          ],
+          "dihedral_deg": 3.7710894676117652
+        },
+        {
+          "source_edge": [
+            16810,
+            17406
+          ],
+          "dihedral_deg": 3.7510073208031796
+        },
+        {
+          "source_edge": [
+            17391,
+            17406
+          ],
+          "dihedral_deg": 4.942030099734282
+        },
+        {
+          "source_edge": [
+            17391,
+            17393
+          ],
+          "dihedral_deg": 5.6673386157677115
+        },
+        {
+          "source_edge": [
+            17393,
+            17399
+          ],
+          "dihedral_deg": 5.670596939433763
+        },
+        {
+          "source_edge": [
+            17382,
+            17399
+          ],
+          "dihedral_deg": 6.615965639192139
+        },
+        {
+          "source_edge": [
+            17375,
+            17382
+          ],
+          "dihedral_deg": 5.601966758971595
+        },
+        {
+          "source_edge": [
+            17375,
+            17414
+          ],
+          "dihedral_deg": 6.785990194395702
+        },
+        {
+          "source_edge": [
+            16805,
+            17414
+          ],
+          "dihedral_deg": 3.803626177805579
+        },
+        {
+          "source_edge": [
+            16805,
+            16809
+          ],
+          "dihedral_deg": 4.560538166362754
+        },
+        {
+          "source_edge": [
+            16808,
+            16809
+          ],
+          "dihedral_deg": 4.1017802731917445
+        },
+        {
+          "source_edge": [
+            16806,
+            16808
+          ],
+          "dihedral_deg": 1.5916422023628873
+        },
+        {
+          "source_edge": [
+            16806,
+            16807
+          ],
+          "dihedral_deg": 0.060929779951244295
+        },
+        {
+          "source_edge": [
+            16807,
+            16814
+          ],
+          "dihedral_deg": 4.251197243342347
+        },
+        {
+          "source_edge": [
+            16813,
+            16814
+          ],
+          "dihedral_deg": 5.220923002499753
+        },
+        {
+          "source_edge": [
+            16813,
+            19433
+          ],
+          "dihedral_deg": 6.341732411265302
+        },
+        {
+          "source_edge": [
+            16815,
+            19433
+          ],
+          "dihedral_deg": 8.431157652224417
+        },
+        {
+          "source_edge": [
+            16815,
+            16816
+          ],
+          "dihedral_deg": 7.792688256249193
+        },
+        {
+          "source_edge": [
+            16804,
+            16816
+          ],
+          "dihedral_deg": 6.182823212983366
+        },
+        {
+          "source_edge": [
+            16802,
+            16804
+          ],
+          "dihedral_deg": 5.566694835949219
+        },
+        {
+          "source_edge": [
+            16802,
+            16803
+          ],
+          "dihedral_deg": 3.5635128981965023
+        },
+        {
+          "source_edge": [
+            16801,
+            16803
+          ],
+          "dihedral_deg": 3.1977832465715714
+        },
+        {
+          "source_edge": [
+            16796,
+            16801
+          ],
+          "dihedral_deg": 1.4221795067643916
+        },
+        {
+          "source_edge": [
+            16796,
+            16797
+          ],
+          "dihedral_deg": 6.488143136319295
+        }
+      ]
+    }
+  ]
+}
