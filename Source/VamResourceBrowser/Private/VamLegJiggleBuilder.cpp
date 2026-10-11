@@ -193,7 +193,7 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
         TSet<int32> Bones;for(const auto& R:Side.Regions) Bones.Add(R.BoneIndex);
         const auto RetainedWeights=Weights; // Immutable semantic support before extension.
         TArray<double> Original,Capacity,Distance,Gate;Original.Init(0,Weights.Num());Capacity.Init(0,Weights.Num());Distance.Init(1.e30,Weights.Num());Gate.Init(0,Weights.Num());
-        double Peak=0,PeakRegion=0;for(float W:Side.RegionWeights) PeakRegion=FMath::Max(PeakRegion,double(W));
+        double PeakRegion=0;for(float W:Side.RegionWeights) PeakRegion=FMath::Max(PeakRegion,double(W));
         const FTransform Anchor=Side.AnchorLocal*Glute->RestPelvisComponent;
         const double Width=FMath::Max(.1,Side.Dimensions.Z*WidthFraction);
         using Entry=std::pair<double,int32>;
@@ -204,7 +204,6 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
             Capacity[V]=Original[V]+Weights[V].FindRef(Pelvis)+Weights[V].FindRef(Side.ThighBone);
             const FVector Local=Anchor.InverseTransformPosition(Input.Vertices[V]);
             Gate[V]=Quintic(Local.X/FMath::Max(.1,Side.Dimensions.X*.35))*Quintic(Side.SideSign*Local.Y/FMath::Max(.1,Side.Dimensions.Y*.22));
-            Peak=FMath::Max(Peak,Original[V]);
             if(Area[V]>0 && Side.RegionWeights[V]>=PeakRegion*CoreFraction && Original[V]>1.e-5) {Distance[V]=0;Queue.emplace(0,V);}
         }
         if(Queue.empty()) return Fail(TEXT("Missing hip transition core"));
@@ -219,13 +218,42 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
                 if(Next<Distance[N] && Next<Width) {Distance[N]=Next;Queue.emplace(Next,N);}
             }
         }
+        // Obstacle-harmonic extension: original support is an immutable lower
+        // bound, and the measured core / outer boundary are Dirichlet values.
+        // Propagating a global peak instead flattens every core to the strongest
+        // vertex and creates a steep pelvis-held band on the upper thigh.
+        TArray<double> Extension=Original;
+        double ExtensionChange=0;
+        int32 ExtensionPass=0;
+        for(;ExtensionPass<2048;++ExtensionPass)
+        {
+            auto Next=Extension;ExtensionChange=0;
+            for(int32 V=0;V<Weights.Num();++V)
+            {
+                if(Distance[V]<=0 || Distance[V]>=Width || Gate[V]<=0 || Capacity[V]<=Original[V])continue;
+                double Sum=0,Total=0;
+                for(int32 N:Adj[V])
+                {
+                    const double Length=(Input.Vertices[N]-Input.Vertices[V]).Size();
+                    if(Length<=1.e-6)continue;
+                    Sum+=Extension[N]/Length;Total+=1/Length;
+                }
+                if(Total<=0)continue;
+                Next[V]=FMath::Max(Original[V],FMath::Min(Sum/Total,Capacity[V]*.85*Gate[V]));
+                ExtensionChange=FMath::Max(ExtensionChange,FMath::Abs(Next[V]-Extension[V]));
+            }
+            Extension=MoveTemp(Next);
+            if(ExtensionChange<1.e-7)break;
+        }
+        if(ExtensionChange>=1.e-7)return Fail(TEXT("Hip support extension did not converge"));
+        UE_LOG(LogTemp,Display,TEXT("HIP_HARMONIC side=%s passes=%d residual=%.9g"),*Side.Side.ToString(),ExtensionPass,ExtensionChange);
         int32 Expanded=0,Changed=0;double CoreBefore=0,CoreAfter=0;
         TArray<double> Final;Final.Init(0,Weights.Num());
         for(int32 V=0;V<Weights.Num();++V)
         {
             auto& W=Weights[V];const double Donor=Capacity[V]-Original[V];
             if(Donor<=1.e-8 || (Distance[V]>=Width && Original[V]<=1.e-8)) {Final[V]=Original[V];continue;}
-            const double Field=Peak*(1-Quintic(Distance[V]/Width))*Gate[V];
+            const double Field=Extension[V];
             // An extension may add support, but must not erase support authored by
             // Glute Structure outside its geodesic seed band. Preserve both the
             // original mass and its semantic proportions when no addition is needed.
@@ -244,8 +272,8 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
             for(const auto& Pair:W) if(Bones.Contains(Pair.Key)) Final[V]+=Pair.Value;
             if(Original[V]<1.e-5 && Final[V]>1.e-4) ++Expanded;
             if(FMath::Abs(Final[V]-Original[V])>1.e-5) ++Changed;
-            if(Distance[V]==0){CoreBefore+=Area[V]*Original[V];CoreAfter+=Area[V]*Final[V];}
         }
+        for(int32 V=0;V<Weights.Num();++V)if(Distance[V]==0){CoreBefore+=Area[V]*Original[V];CoreAfter+=Area[V]*Final[V];}
         AuditWeights(Side.Side.ToString()+TEXT("-02-transition"));
         // Fit only the added support. Existing semantic ownership belongs to Glute
         // Structure and must not be repurposed by an extension (e.g. Lower -> Lateral).

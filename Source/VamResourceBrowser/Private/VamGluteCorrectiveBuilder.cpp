@@ -3,6 +3,7 @@
 #include "VamGluteCorrectiveGeometry.h"
 #include "VamGluteSkinningResidual.h"
 #include "VamGluteCorrectiveDetail.h"
+#include "VamMorphNormalUtils.h"
 #include "Misc/SecureHash.h"
 #include <cmath>
 
@@ -51,13 +52,7 @@ void AddMorph(FVamNativeMeshInput& I,UVamGluteCorrectiveProfile& P,const FVamGlu
         }
         if(B.MaximumCm<1.e-6) continue;
         for(int32 N=0;N<5;++N) B.RegionalRmsCm[N]=FMath::Sqrt(B.RegionalRmsCm[N]/FMath::Max(.001,RW[N]));
-        FDeltaField Before,After;Before.SetNumZeroed(I.Vertices.Num());After.SetNumZeroed(I.Vertices.Num());
-        for(int32 T=0;T<I.Triangles.Num();T+=3)
-        {
-            const int32 A=I.Triangles[T],C=I.Triangles[T+1],D=I.Triangles[T+2];const FVector N0=FVector::CrossProduct(I.Vertices[C]-I.Vertices[A],I.Vertices[D]-I.Vertices[A]);const FVector N1=FVector::CrossProduct(I.Vertices[C]+M.Deltas[C]-I.Vertices[A]-M.Deltas[A],I.Vertices[D]+M.Deltas[D]-I.Vertices[A]-M.Deltas[A]);
-            for(int32 V:{A,C,D}) { Before[V]+=N0;After[V]+=N1; }
-        }
-        M.NormalDeltas.SetNum(I.Vertices.Num());for(int32 V=0;V<I.Vertices.Num();++V) M.NormalDeltas[V]=After[V].GetSafeNormal()-Before[V].GetSafeNormal();P.Bases.Add(MoveTemp(B));I.Morphs.Add(MoveTemp(M));
+        M.NormalDeltas=VamMorphNormals::Deltas(I.Vertices,I.Normals,I.Triangles,M.Deltas);P.Bases.Add(MoveTemp(B));I.Morphs.Add(MoveTemp(M));
     }
 }
 }
