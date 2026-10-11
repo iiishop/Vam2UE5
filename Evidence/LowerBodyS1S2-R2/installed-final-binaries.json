@@ -1,0 +1,22 @@
+[
+  {
+    "file": "UnrealEditor-VamResourceBrowser.dll",
+    "installed_sha256": "82a3a4aed0f35d3d67922ba35400cd53015ca8be4b639a035b96924ec6292fc6",
+    "matches_built": true
+  },
+  {
+    "file": "UnrealEditor-VamCharacterRuntime.dll",
+    "installed_sha256": "a9aaba804935efba1933579846af7357a43d37fe1e59d14435ba967f0a01be9b",
+    "matches_built": true
+  },
+  {
+    "file": "UnrealEditor-VamContactGPU.dll",
+    "installed_sha256": "0428f5869d9e0796483b5fcbb8143b01a6666bd76bc57e951650e36402bf8f2f",
+    "matches_built": true
+  },
+  {
+    "file": "UnrealEditor.modules",
+    "installed_sha256": "95cff1f95b93f156bd38a0438132586f70bc292902228a235957510c25596ff6",
+    "matches_built": true
+  }
+]

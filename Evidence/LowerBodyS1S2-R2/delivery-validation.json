@@ -1,0 +1,8 @@
+{
+  "html_images_verified": 30,
+  "local_links_verified": 45,
+  "source_image_hashes_verified": 30,
+  "report_sha256": "db7a91e0f572d149057ada687ab555c24e553041ebce7f8ac4266c2a9dbc1d5f",
+  "layout_browser_review": "not performed: previously rejected file protocol, no workaround attempted",
+  "ue_visuals_reviewed": "real Editor/PIE outputs, World Normal, material, alternate lighting, 21-pose overview"
+}

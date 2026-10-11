@@ -1,0 +1,312 @@
+[
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2\\main-editor\\abducted\\rear-material.png",
+    "sha256": "1ec12eb0b4ceaa2999ebba073a6e1a630ef02e31f736f91cdb577c8e4c4a9445",
+    "label": "修复前 v5 · abducted · rear",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\abducted\\rear-material.png",
+    "sha256": "93ba58d778992b79964e4de25e57ea0a9f95c665f6520bef3c48d39ca921a33f",
+    "label": "R2 正常 BP / Editor · abducted · rear",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2\\main-editor\\standing\\rear-material.png",
+    "sha256": "562a260e8b09f7ad844a43118a0795298b4f7f19fd333ecdd746cbbe3ee3f4af",
+    "label": "修复前 v5 · standing · rear",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\standing\\rear-material.png",
+    "sha256": "0ccfb1caeee6aa5d0a1b5415c02394f1c5fa6cfaf612acb14bfd6d9f652671fc",
+    "label": "R2 正常 BP / Editor · standing · rear",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2\\main-editor\\suspended-seat\\side-material.png",
+    "sha256": "eacec8e70b35dd3e3a8554a752d4a071155b9e6ee481fcba9103786e44060b8c",
+    "label": "修复前 v5 · suspended-seat · side",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\suspended-seat\\side-material.png",
+    "sha256": "075ea8baf47c4fc6cf94a46ade0944bc92e80a8b70a0039098483e580825b8db",
+    "label": "R2 正常 BP / Editor · suspended-seat · side",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2\\main-editor\\suspended-seat\\rear-material.png",
+    "sha256": "65bf97e88927116065f98bf1ae53c5812963b1627c666b39c12006f15c80397e",
+    "label": "修复前 v5 · suspended-seat · rear",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\suspended-seat\\rear-material.png",
+    "sha256": "c3fca09ffca78c030e891353673ddf587b8fc8ce6b83cfaa0897c71af0f0f4a8",
+    "label": "R2 正常 BP / Editor · suspended-seat · rear",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2\\main-editor\\abducted\\rear-material.png",
+    "sha256": "1ec12eb0b4ceaa2999ebba073a6e1a630ef02e31f736f91cdb577c8e4c4a9445",
+    "label": "修复前：右臀原像素裁切",
+    "crop": [
+      355,
+      210,
+      480,
+      370
+    ],
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\abducted\\rear-material.png",
+    "sha256": "93ba58d778992b79964e4de25e57ea0a9f95c665f6520bef3c48d39ca921a33f",
+    "label": "R2：同相机、同源骨骼矩阵裁切",
+    "crop": [
+      355,
+      210,
+      480,
+      370
+    ],
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\candidate-4-main-standard\\complete\\rear-gray.png",
+    "sha256": "10fb464e22e0fc740db293c555cfe857e39e886dc16f5f76395b19cbeb4c6a2e",
+    "label": "独立消融：同一资产，原法线传递",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\candidate-4-main-recompute\\complete\\rear-gray.png",
+    "sha256": "e8b5b72d95be711489cf84e7e526f6fc2b4b349bdbc326234849b3d9a4eaf988",
+    "label": "独立消融：同一资产，UE 原生重算；顶点位置差 0",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2\\baseline-editor\\knee-120\\side-material.png",
+    "sha256": "2d4c081cedae6e09b36e13223db476e156d6d39a18af31e25478f5001e31538f",
+    "label": "历史 S2：无有效 streaming view 的环状线",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2\\baseline-valid-editor\\knee-120\\side-material.png",
+    "sha256": "0c69b751e1bb933960e936b1b1f368b10fb7699558cfec89a8f56eb903478213",
+    "label": "同一旧资产：正确 streaming view 后环状线消失",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\knee-120\\side-material.png",
+    "sha256": "0884711f8b19863a0724540657718a072d67cd4c2694da2d07323d0fc8b00301",
+    "label": "R2 Knee120 · Editor",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\pie\\knee-120\\side-world-normal.png",
+    "sha256": "9ee57f1f9330472bb7d5ef0bab1a1ffb523cead71ea122dae15b622472e08bc4",
+    "label": "R2 Knee120 · PIE · World Normal",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\pie\\knee-120\\side-wireframe.png",
+    "sha256": "47491f08fdac30512c795f33751edd1099b7c30d209ca84960befde912994dc5",
+    "label": "R2 Knee120 · PIE · Wireframe",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\pie\\knee-120\\side-section-boundary.png",
+    "sha256": "057eca22da910789eb22f11ace131f216a505e8dda423131247346761a4d75a3",
+    "label": "R2 Knee120 · PIE · Section 边界",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\pie\\knee-120\\side-base-color.png",
+    "sha256": "628d3812484dc888e816bcb059a709dc958daba6eca9da97973124b907b4a73e",
+    "label": "R2 Knee120 · PIE · Base Color",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\pie\\knee-120\\side-unlit.png",
+    "sha256": "3d1602b280e242e800e8a9de6fd055728ed7512363760a8eaf119d8695902545",
+    "label": "R2 Knee120 · PIE · Unlit",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\standing\\side-material.png",
+    "sha256": "194a905c6c37144e0be1229731c34b26375f0c7b53693cb92b46d3b990e36aa1",
+    "label": "R2 Standing · 侧视",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\lighting\\knee-120\\side-material.png",
+    "sha256": "e9a1cd7c594c788daf739e7db52d27bbe39427f41aebf753dbd41cec5e46cd32",
+    "label": "R2 Knee120 · 不同光照 +65°",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\pie\\abducted\\rear-material.png",
+    "sha256": "589b17f804c6384073668d145de18e01b7cce4255bc6a7e9d442ff22dc27994a",
+    "label": "正常 BP · PIE · Abducted",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\heldout-45-75\\side-material.png",
+    "sha256": "8f63ed0456d363cc8e736a98c044dcb69187ec78448e2bea16b3436926d2aef1",
+    "label": "独立验证姿态：45°髋 / 75°膝请求；实际矩阵见 state",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\pie\\jiggle-motion\\rear-material.png",
+    "sha256": "c421c48d5f20e649d22c8a9ac22d079f672f16c0b071790333a0ed7b33c8d242",
+    "label": "PIE：Jiggle 运行",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\right-lighting\\abducted\\rear-material.png",
+    "sha256": "ace7a0471d323d1bcf2f450a7187bd04a8d7e93071166da09ff41680a7863999",
+    "label": "右侧照明 -65°",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\abducted-lighting\\abducted\\rear-material.png",
+    "sha256": "e744070af52e0c447d9991f461872b232aa804521e73a979c1c138ac61395cb2",
+    "label": "相反照明 +65°",
+    "crop": null,
+    "original_size": [
+      768,
+      768
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\review-all-editor.png",
+    "sha256": "363265c20fdf702b425d9594419778a8fe73151a92b7da1f559cc16da263c150",
+    "label": "21 组实际 Editor 后视截图缩略汇总；原图保留",
+    "crop": null,
+    "original_size": [
+      1536,
+      1120
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\figures\\mirror-heatmap.png",
+    "sha256": "e7b166aa5894da2070689e72ad27cdbc3df23916db0ccb848782e53246200224",
+    "label": "数值诊断图：相对源 LBS 的额外镜像差异，不是 UE 截图",
+    "crop": null,
+    "original_size": [
+      1800,
+      900
+    ]
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\figures\\local-sections.png",
+    "sha256": "0f123294fd78df049c68d1635b909bd1a56282b8a97f753036f8d51aed706134",
+    "label": "数值诊断图：同一 source-ID 高度带局部截面，不是 UE 截图",
+    "crop": null,
+    "original_size": [
+      1800,
+      750
+    ]
+  }
+]

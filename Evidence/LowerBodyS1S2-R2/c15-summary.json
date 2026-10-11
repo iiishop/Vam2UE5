@@ -1,0 +1,212 @@
+[
+  {
+    "region": "0_anterior_hip",
+    "before": {
+      "pose_rms_mean_cm": 1.2428253741992399,
+      "worst_max_cm": 11.658422726976516,
+      "worst_pose": "deep",
+      "worst_source": 327
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.202904967754831,
+      "worst_max_cm": 9.092521060278633,
+      "worst_pose": "deep",
+      "worst_source": 6110
+    }
+  },
+  {
+    "region": "0_glute_thigh",
+    "before": {
+      "pose_rms_mean_cm": 1.3868024085448452,
+      "worst_max_cm": 10.122756440720421,
+      "worst_pose": "deep",
+      "worst_source": 6108
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.4528131723062028,
+      "worst_max_cm": 10.205092389001067,
+      "worst_pose": "deep",
+      "worst_source": 6108
+    }
+  },
+  {
+    "region": "0_knee_anterior",
+    "before": {
+      "pose_rms_mean_cm": 0.7536245408291014,
+      "worst_max_cm": 3.2793292467419386,
+      "worst_pose": "deep",
+      "worst_source": 8514
+    },
+    "after": {
+      "pose_rms_mean_cm": 0.7536245317492073,
+      "worst_max_cm": 3.2793292467419386,
+      "worst_pose": "deep",
+      "worst_source": 8514
+    }
+  },
+  {
+    "region": "0_knee_lateral",
+    "before": {
+      "pose_rms_mean_cm": 1.2282422330830258,
+      "worst_max_cm": 5.955671022416082,
+      "worst_pose": "deep",
+      "worst_source": 4102
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.228242247904667,
+      "worst_max_cm": 5.955671022416082,
+      "worst_pose": "deep",
+      "worst_source": 4102
+    }
+  },
+  {
+    "region": "0_knee_medial",
+    "before": {
+      "pose_rms_mean_cm": 1.2636758234136432,
+      "worst_max_cm": 5.955671022416082,
+      "worst_pose": "deep",
+      "worst_source": 4102
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.263675849345036,
+      "worst_max_cm": 5.955671022416082,
+      "worst_pose": "deep",
+      "worst_source": 4102
+    }
+  },
+  {
+    "region": "0_knee_posterior",
+    "before": {
+      "pose_rms_mean_cm": 1.3336460198752282,
+      "worst_max_cm": 5.955671022416082,
+      "worst_pose": "deep",
+      "worst_source": 4102
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.3336460577011764,
+      "worst_max_cm": 5.955671022416082,
+      "worst_pose": "deep",
+      "worst_source": 4102
+    }
+  },
+  {
+    "region": "0_lateral_glute",
+    "before": {
+      "pose_rms_mean_cm": 1.621779432964554,
+      "worst_max_cm": 8.955470215826715,
+      "worst_pose": "hip110",
+      "worst_source": 8221
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.6033161059686831,
+      "worst_max_cm": 6.844327653137563,
+      "worst_pose": "deep",
+      "worst_source": 8251
+    }
+  },
+  {
+    "region": "1_anterior_hip",
+    "before": {
+      "pose_rms_mean_cm": 1.0835870907266003,
+      "worst_max_cm": 12.06716141934208,
+      "worst_pose": "deep",
+      "worst_source": 11255
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.0289213529107681,
+      "worst_max_cm": 9.67640106378335,
+      "worst_pose": "deep",
+      "worst_source": 16832
+    }
+  },
+  {
+    "region": "1_glute_thigh",
+    "before": {
+      "pose_rms_mean_cm": 1.3817938123865625,
+      "worst_max_cm": 12.39831883421252,
+      "worst_pose": "deep",
+      "worst_source": 16831
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.3957739407925904,
+      "worst_max_cm": 10.765945446247542,
+      "worst_pose": "hip110",
+      "worst_source": 16830
+    }
+  },
+  {
+    "region": "1_knee_anterior",
+    "before": {
+      "pose_rms_mean_cm": 0.7076452469007912,
+      "worst_max_cm": 3.2645205866104887,
+      "worst_pose": "deep",
+      "worst_source": 19185
+    },
+    "after": {
+      "pose_rms_mean_cm": 0.7076452416763949,
+      "worst_max_cm": 3.2645205866104887,
+      "worst_pose": "deep",
+      "worst_source": 19185
+    }
+  },
+  {
+    "region": "1_knee_lateral",
+    "before": {
+      "pose_rms_mean_cm": 1.16263968695636,
+      "worst_max_cm": 5.999787924062512,
+      "worst_pose": "deep",
+      "worst_source": 14878
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.1626396973841129,
+      "worst_max_cm": 5.999787924062512,
+      "worst_pose": "deep",
+      "worst_source": 14878
+    }
+  },
+  {
+    "region": "1_knee_medial",
+    "before": {
+      "pose_rms_mean_cm": 1.1958752856065358,
+      "worst_max_cm": 5.999787924062512,
+      "worst_pose": "deep",
+      "worst_source": 14878
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.1958752983876828,
+      "worst_max_cm": 5.999787924062512,
+      "worst_pose": "deep",
+      "worst_source": 14878
+    }
+  },
+  {
+    "region": "1_knee_posterior",
+    "before": {
+      "pose_rms_mean_cm": 1.2651035840801559,
+      "worst_max_cm": 5.999787924062512,
+      "worst_pose": "deep",
+      "worst_source": 14878
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.2651036011730732,
+      "worst_max_cm": 5.999787924062512,
+      "worst_pose": "deep",
+      "worst_source": 14878
+    }
+  },
+  {
+    "region": "1_lateral_glute",
+    "before": {
+      "pose_rms_mean_cm": 1.7156042897795256,
+      "worst_max_cm": 10.999749184654917,
+      "worst_pose": "hip110",
+      "worst_source": 21013
+    },
+    "after": {
+      "pose_rms_mean_cm": 1.6785338920473867,
+      "worst_max_cm": 9.038591919496499,
+      "worst_pose": "hip110",
+      "worst_source": 21013
+    }
+  }
+]
