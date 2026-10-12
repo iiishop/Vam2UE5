@@ -2,10 +2,38 @@
 #include "VamNativeBuilder.h"
 #include "VamGluteStructure.h"
 #include "BoneWeights.h"
+#include <queue>
 
 namespace VamGluteGeometry
 {
 using FDeltaField=TArray<FVector>;
+// Largest attenuation field below the safety solution with a bounded spatial
+// derivative. Only follow mesh edges and proven source aliases, never proximity.
+// The attenuation gradient may contribute at most 1/4 of a bind edge length
+// to the correction gradient. Existing geometric safety is rechecked afterwards.
+inline void ContinuousAttenuation(const FVamNativeMeshInput& I,const FDeltaField& Source,const FDeltaField& Proc,const TMap<int32,TArray<int32>>& Aliases,TArray<double>& A)
+{
+    struct FArc { int32 Vertex; double Cost; };
+    TArray<TArray<FArc>> Graph;Graph.SetNum(A.Num());
+    for(int32 T=0;T<I.Triangles.Num();T+=3)for(int32 K=0;K<3;++K)
+    {
+        const int32 U=I.Triangles[T+K],V=I.Triangles[T+(K+1)%3];
+        const double Amplitude=FMath::Max(Source[U].Size()+Proc[U].Size(),Source[V].Size()+Proc[V].Size());
+        const double Cost=(I.Vertices[U]-I.Vertices[V]).Size()/(4*FMath::Max(1.e-8,Amplitude));
+        Graph[U].Add({V,Cost});Graph[V].Add({U,Cost});
+    }
+    for(const auto& Pair:Aliases)for(int32 V:Pair.Value)if(V!=Pair.Value[0])
+    { Graph[V].Add({Pair.Value[0],0});Graph[Pair.Value[0]].Add({V,0}); }
+    using FEntry=std::pair<double,int32>;
+    std::priority_queue<FEntry,std::vector<FEntry>,std::greater<FEntry>> Queue;
+    for(int32 V=0;V<A.Num();++V)Queue.push({A[V],V});
+    while(!Queue.empty())
+    {
+        const auto [Value,U]=Queue.top();Queue.pop();if(Value>A[U]+1.e-12)continue;
+        for(const auto& Edge:Graph[U])if(A[Edge.Vertex]>Value+Edge.Cost+1.e-12)
+        { A[Edge.Vertex]=Value+Edge.Cost;Queue.push({A[Edge.Vertex],Edge.Vertex}); }
+    }
+}
 inline FQuat Rotation(const FVamGluteSide& S,const FVector& D)
 {
     const FVector R=D*(PI/180.),A=S.FemurAxisInAnchor;FVector V(S.SideSign*R.Y,R.X,0);V.Z=-(V.X*A.X+V.Y*A.Y)/A.Z;

@@ -1,0 +1,114 @@
+[
+  {
+    "pose": "standing",
+    "stage": "00-source-lbs",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "standing",
+    "stage": "01-final-weights",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "standing",
+    "stage": "02-static-helpers",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "standing",
+    "stage": "03-corrective",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "seated",
+    "stage": "00-source-lbs",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "seated",
+    "stage": "01-final-weights",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "seated",
+    "stage": "02-static-helpers",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "seated",
+    "stage": "03-corrective",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "knee-120",
+    "stage": "00-source-lbs",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "knee-120",
+    "stage": "01-final-weights",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "knee-120",
+    "stage": "02-static-helpers",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "knee-120",
+    "stage": "03-corrective",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "abducted",
+    "stage": "00-source-lbs",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "abducted",
+    "stage": "01-final-weights",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "abducted",
+    "stage": "02-static-helpers",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  },
+  {
+    "pose": "abducted",
+    "stage": "03-corrective",
+    "maximum_cm": 0.0,
+    "rms_cm": 0.0,
+    "matrix_max": 1.0408340855860843e-17
+  }
+]

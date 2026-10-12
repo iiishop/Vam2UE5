@@ -68,6 +68,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     for(const auto& V:(*Policy)->GetArrayField(TEXT("targets"))) { const auto O=V->AsObject();FVamGlutePoseTarget T;T.Name=FName(*O->GetStringField(TEXT("name")));T.Degrees=Vec(O->GetArrayField(TEXT("degrees")));P.Targets.Add(T); }
     const TSharedPtr<FJsonObject>* Source=nullptr;Family->TryGetObjectField(TEXT("glute_corrective_source"),Source);const bool Verified=Source && !(*Source)->GetArrayField(TEXT("deltas")).IsEmpty();
     if(Verified && (*Source)->GetIntegerField(TEXT("version"))!=2) return Fail(TEXT("Corrective requires verified merged topology mapping v2"));
+    bool ContinuousSafety=false;(*Policy)->TryGetBoolField(TEXT("continuous_safety"),ContinuousSafety);
     bool SourceFieldOperator=false;(*Policy)->TryGetBoolField(TEXT("source_operator_in_source_field"),SourceFieldOperator);
     if(SourceFieldOperator && (!Verified || !(*Source)->HasField(TEXT("bulge_preparation")))) return Fail(TEXT("Source field operator requires initialized source bulge weights"));
     const TSharedPtr<FJsonObject>* Calibration=nullptr;(*Policy)->TryGetObjectField(TEXT("family_reference"),Calibration);
@@ -94,6 +95,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     // calibration/statistics below use triangle-referenced surface vertices.
     TArray<FVamGluteSide> Surface=G.Sides;for(auto& S:Surface) for(int32 V=0;V<Ids.Num();++V) if(!Used.Contains(V)) S.RegionWeights[V]=0;
     TArray<FVector> SourceScales;SourceScales.Init(FVector::OneVector,2);TArray<TSharedPtr<FJsonValue>> Entries,ReferenceSides;TArray<TArray<FDeltaField>> SourceNative,ProcNative;SourceNative.SetNum(2);ProcNative.SetNum(2);
+    FTargetFields UnattenuatedSource,UnattenuatedProc;UnattenuatedSource.SetNum(2);UnattenuatedProc.SetNum(2);
     TArray<TArray<TArray<FMatrix>>> TargetSkin;TargetSkin.SetNum(2);TArray<TArray<TSharedPtr<FJsonObject>>> Stage;Stage.SetNum(2);
     TArray<TArray<FDeltaField>> RawFields,AdaptFields,ReferenceFields;RawFields.SetNum(2);AdaptFields.SetNum(2);ReferenceFields.SetNum(2);
     for(int32 Side=0;Side<2;++Side)
@@ -101,7 +103,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
         const auto& S=G.Sides[Side];const auto& SS=Surface[Side];const FTransform Anchor=S.AnchorLocal*Bind[S.PelvisBone];P.BuildDimensions.Add(S.Dimensions);
         auto RefSide=MakeShared<FJsonObject>();RefSide->SetArrayField(TEXT("dimensions"),JsonVec(S.Dimensions));RefSide->SetNumberField(TEXT("volume"),S.EffectiveVolumeCm3);RefSide->SetNumberField(TEXT("support_area"),S.SupportAreaCm2);TArray<TSharedPtr<FJsonValue>> RefTargets;
         if(Detail)Detail->Begin(Side,0,P.Targets.Num());
-        SourceNative[Side].SetNum(P.Targets.Num());ProcNative[Side].SetNum(P.Targets.Num());TargetSkin[Side].SetNum(P.Targets.Num());Stage[Side].SetNum(P.Targets.Num());RawFields[Side].SetNum(P.Targets.Num());AdaptFields[Side].SetNum(P.Targets.Num());ReferenceFields[Side].SetNum(P.Targets.Num());
+        UnattenuatedSource[Side].SetNum(P.Targets.Num());UnattenuatedProc[Side].SetNum(P.Targets.Num());SourceNative[Side].SetNum(P.Targets.Num());ProcNative[Side].SetNum(P.Targets.Num());TargetSkin[Side].SetNum(P.Targets.Num());Stage[Side].SetNum(P.Targets.Num());RawFields[Side].SetNum(P.Targets.Num());AdaptFields[Side].SetNum(P.Targets.Num());ReferenceFields[Side].SetNum(P.Targets.Num());
         FVector Mean0=FVector::ZeroVector,Mean1=FVector::ZeroVector,V0=FVector::ZeroVector,V1=FVector::ZeroVector;double Total=0;
         for(int32 V=0;V<Ids.Num();++V) if(SourcePositions.IsValidIndex(Ids[V])) { const double W=SS.RegionWeights[V];Mean0+=Anchor.InverseTransformPosition(SourcePositions[Ids[V]])*W;Mean1+=S.RegionPoints[V]*W;Total+=W; }
         if(Total>0) { Mean0/=Total;Mean1/=Total; }for(int32 V=0;V<Ids.Num();++V) if(SourcePositions.IsValidIndex(Ids[V])) { const FVector A=Anchor.InverseTransformPosition(SourcePositions[Ids[V]])-Mean0,B=S.RegionPoints[V]-Mean1;V0+=A*A*SS.RegionWeights[V];V1+=B*B*SS.RegionWeights[V]; }
@@ -196,6 +198,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             Weld(NS,Aliases);Weld(NP,Aliases);
             Capture(TEXT("07_source_preskin_before_safety"),NS);
             if(Detail){Detail->Project(Side,Target,TEXT("source_before"),NS,Skin,Anchor);Detail->Project(Side,Target,TEXT("procedural_before"),NP,Skin,Anchor);Detail->SourceSafety[Side][Target].Init(1,Ids.Num());}
+            UnattenuatedSource[Side][Target]=NS;UnattenuatedProc[Side][Target]=NP;
             auto Combined=NS;for(int32 V=0;V<Ids.Num();++V) Combined[V]+=NP[V];TArray<double> Safety;
             if(!Condition(I,Skin,Combined,Aliases,Safety)) return Fail(TEXT("Target local safety did not converge"));
             for(int32 V=0;V<Ids.Num();++V) { NS[V]*=Safety[V];NP[V]*=Safety[V];if(Detail)Detail->SourceSafety[Side][Target][V]*=Safety[V]; }
@@ -206,7 +209,23 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     // targets at failing surface vertices. No global per-vertex worst-case mask.
     for(int32 Iteration=0;Iteration<64;++Iteration)
     {
-        bool Changed=false;
+        bool Changed=false;double ContinuityReduction=0;
+        if(ContinuousSafety)for(int32 S=0;S<2;++S)for(int32 T=1;T<P.Targets.Num();++T)
+        {
+            const auto& Original=UnattenuatedSource[S][T];const auto& OriginalProc=UnattenuatedProc[S][T];
+            auto& A=SourceNative[S][T];auto& B=ProcNative[S][T];TArray<double> Factors;Factors.Init(1,A.Num());
+            for(int32 V=0;V<A.Num();++V)
+            {
+                const double Den=Original[V].SizeSquared()+OriginalProc[V].SizeSquared();
+                if(Den>1.e-20)Factors[V]=FMath::Clamp((FVector::DotProduct(A[V],Original[V])+FVector::DotProduct(B[V],OriginalProc[V]))/Den,0.,1.);
+            }
+            const auto Before=Factors;ContinuousAttenuation(I,Original,OriginalProc,Aliases,Factors);
+            for(int32 V=0;V<A.Num();++V)if(Factors[V]<Before[V]-1.e-6 && Original[V].SizeSquared()+OriginalProc[V].SizeSquared()>1.e-20)
+            {
+                ContinuityReduction=FMath::Max(ContinuityReduction,Before[V]-Factors[V]);Changed=true;A[V]=Original[V]*Factors[V];B[V]=OriginalProc[V]*Factors[V];
+                if(Detail)Detail->SourceSafety[S][T][V]=Factors[V];
+            }
+        }
     // Source operators can be much larger than a source Morph increment.
     // Condition every independently exported AP/ML/SI basis before treating
     // these fields as fixed input to the residual stage. Keep the same native
@@ -262,6 +281,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
                 }
             }
         }
+        if(ContinuousSafety)UE_LOG(LogTemp,Display,TEXT("GLUTE_CONTINUITY iteration=%d maximum_attenuation_change=%.9g"),Iteration+1,ContinuityReduction);
         Audit->SetNumberField(TEXT("blend_safety_iterations"),Iteration+1);if(!Changed) break;if(Iteration==63) return Fail(TEXT("Target-aware blended safety failed convergence"));
     }
     FTargetFields SkinningResidual;
