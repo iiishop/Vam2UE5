@@ -65,6 +65,8 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     const TSharedPtr<FJsonObject>* Policy=nullptr;if(!Family->TryGetObjectField(TEXT("glute_corrective"),Policy)) return Fail(TEXT("Unsupported family: corrective policy missing"));
     bool GrowSafety=false;(*Policy)->TryGetBoolField(TEXT("feasible_safety_growth"),GrowSafety);
     TGuardValue<bool> GrowthScope(FeasibleSafetyGrowth,GrowSafety);
+    bool JointSafety=false;(*Policy)->TryGetBoolField(TEXT("joint_family_safety"),JointSafety);
+    TGuardValue<bool> JointScope(JointFamilySafety,JointSafety);
     P.SchemaVersion=4;P.Algorithm=TEXT("glute-corrective-final-weights-v1");P.SkeletonFamily=G.SkeletonFamily;P.SourceTopologyIdentity=G.SourceTopologyIdentity;P.Targets.Reset();P.Bases.Reset();P.BuildDimensions.Reset();P.Diagnostics.Reset();P.ReusedSourceVertexCount=0;P.AuthoredReplay.Reset();P.FinalDataDigests.Reset();
     P.FamilyPolicyIdentity=FMD5::HashAnsiString(*VamGluteAudit::Json(*Policy));P.MetricDegrees=Vec((*Policy)->GetArrayField(TEXT("metric_degrees")));P.BlendWidth=(*Policy)->GetNumberField(TEXT("blend_width"));P.MaximumDimensionFraction=(*Policy)->GetNumberField(TEXT("maximum_dimension_fraction"));
     for(const auto& V:(*Policy)->GetArrayField(TEXT("targets"))) { const auto O=V->AsObject();FVamGlutePoseTarget T;T.Name=FName(*O->GetStringField(TEXT("name")));T.Degrees=Vec(O->GetArrayField(TEXT("degrees")));P.Targets.Add(T); }
@@ -212,6 +214,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             Capture(TEXT("07_source_preskin_before_safety"),NS);
             if(Detail){Detail->Project(Side,Target,TEXT("source_before"),NS,Skin,Anchor);Detail->Project(Side,Target,TEXT("procedural_before"),NP,Skin,Anchor);Detail->SourceSafety[Side][Target].Init(1,Ids.Num());}
             UnattenuatedSource[Side][Target]=NS;UnattenuatedProc[Side][Target]=NP;
+            if(JointSafety)continue;
             auto Combined=NS;for(int32 V=0;V<Ids.Num();++V) Combined[V]+=NP[V];TArray<double> Safety;
             SafetyTraceContext=FString::Printf(TEXT("target side=%d target=%d"),Side,Target);
             if(!Condition(I,Skin,Combined,Aliases,Safety)) return Fail(TEXT("Target local safety did not converge"));
@@ -221,6 +224,15 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     }
     // Validate blends in their own pose, and only alter substantially active
     // targets at failing surface vertices. No global per-vertex worst-case mask.
+    if(JointSafety)
+    {
+        auto Goal=SourceNative;for(int S=0;S<2;++S)for(int T=1;T<P.Targets.Num();++T)for(int V=0;V<I.Vertices.Num();++V)Goal[S][T][V]+=ProcNative[S][T][V];
+        TArray<TArray<TArray<double>>> Factors;
+        if(!ConditionTargetFamily(I,G,P,Bind,Aliases,Goal,nullptr,Factors,[&](int Step){return SafetyProbe(P,Step);}))return Fail(TEXT("Joint source family safety failed"));
+        for(int S=0;S<2;++S)for(int T=1;T<P.Targets.Num();++T)for(int V=0;V<I.Vertices.Num();++V){SourceNative[S][T][V]*=Factors[S][T][V];ProcNative[S][T][V]*=Factors[S][T][V];if(Detail)Detail->SourceSafety[S][T][V]=Factors[S][T][V];}
+        Audit->SetStringField(TEXT("source_safety_solver"),TEXT("joint feasible pose family"));P.Provenance+=TEXT(" Joint multi-pose safety and coherent topology recovery.");
+    }
+    else
     for(int32 Iteration=0;Iteration<64;++Iteration)
     {
         if(GrowSafety)UE_LOG(LogTemp,Display,TEXT("GLUTE_GROWTH_ITERATION %d"),Iteration);

@@ -1,5 +1,6 @@
 #pragma once
 #include "VamGluteRotationBlend.h"
+#include "VamGluteFamilySafety.h"
 #include "VamGluteCorrectiveProfile.h"
 #include "VamGluteCorrectiveAudit.h"
 #include <cmath>
@@ -40,6 +41,14 @@ inline bool BuildSkinningResidual(const FVamNativeMeshInput& I,const UVamGluteSt
             Weld(R,Aliases);
             if(Detail){Detail->ResidualSafety[S][T].Init(1,R.Num());Detail->Project(S,T,TEXT("residual_before"),R,M,G.Sides[S].AnchorLocal*Bind[G.Sides[S].PelvisBone]);}
         }
+    }
+    if(JointFamilySafety)
+    {
+        auto Fixed=Source;for(int S=0;S<2;++S)for(int T=1;T<P.Targets.Num();++T)for(int V=0;V<I.Vertices.Num();++V)Fixed[S][T][V]+=Procedural[S][T][V];
+        TArray<TArray<TArray<double>>> Factors;
+        if(!ConditionTargetFamily(I,G,P,Bind,Aliases,Residual,&Fixed,Factors,[&](int Step){return SafetyProbe(P,Step);}))return false;
+        for(int S=0;S<2;++S)for(int T=1;T<P.Targets.Num();++T)for(int V=0;V<I.Vertices.Num();++V){Residual[S][T][V]*=Factors[S][T][V];if(Detail)Detail->ResidualSafety[S][T][V]=Factors[S][T][V];}
+        Audit.SetStringField(TEXT("residual_safety_solver"),TEXT("joint feasible pose family"));return true;
     }
     for(int32 Iteration=0;Iteration<64;++Iteration)
     {
@@ -86,6 +95,7 @@ inline bool BuildSkinningResidual(const FVamNativeMeshInput& I,const UVamGluteSt
                 for(int32 S=0;S<2;++S) if(Side==2 || S==Side) for(int32 T=1;T<W.Num();++T) { const double C=Residual[S][T][V].Size()*W[T];if(C>=Maximum*.05){const double F=FMath::Pow(Safety[V],C/Maximum);Residual[S][T][V]*=F;if(Detail)Detail->ResidualSafety[S][T][V]*=F;} }
             }
         }
+        if(FeasibleSafetyGrowth)UE_LOG(LogTemp,Display,TEXT("GLUTE_RESIDUAL_PROGRESS iteration=%d changed=%d"),Iteration,Changed);
         Audit.SetNumberField(TEXT("skinning_residual_safety_iterations"),Iteration+1);
         if(!Changed) return true;
     }

@@ -24,3 +24,26 @@ bool FVamFeasibleGluteSafetyTest::RunTest(const FString&)
  FDeltaField Zero;Zero.Init(FVector::ZeroVector,4);TestFalse(TEXT("Unsafe fixed field is rejected, never bypassed"),GrowSafeField(I,M,Zero,Aliases,B,&D));
  return true;
 }
+
+#include "Misc/AutomationTest.h"
+#include "VamGluteFamilySafety.h"
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamJointFamilySafetyTest,"Vam.Glute.JointFamilySafety",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FVamJointFamilySafetyTest::RunTest(const FString&)
+{
+ using namespace VamGluteGeometry;
+ FVamNativeMeshInput I;I.Vertices={FVector(0,0,0),FVector(1,0,0),FVector(0,1,0),FVector(1,1,0)};I.Triangles={0,1,2,2,1,3};
+ TMap<int32,TArray<int32>> Aliases;for(int V=0;V<4;++V)Aliases.Add(V,{V});
+ FDeltaField Zero;Zero.Init(FVector::ZeroVector,4);
+ auto MakePose=[&](const FVamNativeMeshInput& Mesh){auto P=MakeShared<FGluteJointSafety::FPose>();P->Skin.Init(FMatrix::Identity,Mesh.Vertices.Num());P->Base=Mesh.Vertices;for(int T=0;T<Mesh.Triangles.Num();T+=3)P->Normals.Add(FVector::CrossProduct(P->Base[Mesh.Triangles[T+1]]-P->Base[Mesh.Triangles[T]],P->Base[Mesh.Triangles[T+2]]-P->Base[Mesh.Triangles[T]]).GetSafeNormal());return P;};
+ TArray<FDeltaField> Goals;Goals.SetNum(2);Goals[0].Init(FVector(2,0,1),4);Goals[1]=Zero;Goals[1][1]=FVector(-3,0,0);Goals[1][3]=FVector(-1,.3,.2);
+ FGluteJointSafety S(I,Goals,Aliases);auto P=MakePose(I);S.AddScene(P,{1,0},Zero,false,true);S.AddScene(P,{0,1},Zero,false,true);S.AddScene(P,{.5,.5},Zero,false,true);
+ TestTrue(TEXT("All poses jointly solve"),S.Solve());TestTrue(TEXT("All original predicates hold after exact reconstruction"),S.AllValid(false));
+ for(double A:S.Alpha[0])TestEqual(TEXT("Safe rigid field is not erased by another target"),A,1.);
+ TestTrue(TEXT("Unsafe local target remains constrained"),S.Alpha[1][1]<1.);
+ auto Mirror=I;auto MirrorGoals=Goals;for(auto& V:Mirror.Vertices)V.Y=-V.Y;for(auto& F:MirrorGoals)for(auto& V:F)V.Y=-V.Y;
+ FGluteJointSafety M(Mirror,MirrorGoals,Aliases);auto MP=MakePose(Mirror);M.AddScene(MP,{1,0},Zero,false,true);M.AddScene(MP,{0,1},Zero,false,true);M.AddScene(MP,{.5,.5},Zero,false,true);TestTrue(TEXT("Mirrored geometry solves"),M.Solve());
+ for(int K=0;K<Goals.Num();++K)for(int V=0;V<4;++V)TestTrue(TEXT("Mirror keeps equivalent safety"),FMath::Abs(M.Alpha[K][V]-S.Alpha[K][V])<1.e-8);
+ FGluteJointSafety Bad(I,Goals,Aliases);Bad.AddScene(P,{0,0},Goals[1],true,true);AddExpectedError(TEXT("GLUTE_JOINT_FIXED_UNSAFE"),EAutomationExpectedErrorFlags::Contains,1);TestFalse(TEXT("Unsafe fixed input rejected"),Bad.Solve());
+ return true;
+}

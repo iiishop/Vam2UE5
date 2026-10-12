@@ -173,11 +173,14 @@ inline bool GrowSafeField(const FVamNativeMeshInput& I,const TArray<FMatrix>& Sk
         }
         // Triangle orientation alone permits a severe crease. Check the actual
         // adjoining surface on proven source topology, preserving existing folds.
+        // Axis bases are not displayed independently. Keep their original
+        // inversion/area/edge checks; bound creases on the composed surface only.
+        if(FI!=0)return true;
         const FVector N=Normal(T,FI);
         for(int Other:FaceNeighbors[T/3])
         {
             const double BaseDot=FVector::DotProduct(BaseNormals[T/3],BaseNormals[Other/3]);
-            const double Limit=FMath::Min(BaseDot,FMath::Cos(FMath::DegreesToRadians((Fixed||Verification)?45.:44.5)));
+            const double Limit=FMath::Min(BaseDot,FMath::Cos(FMath::DegreesToRadians((Fixed||Verification)?30.:29.5)));
             if(FVector::DotProduct(N,Normal(Other,FI))<Limit-((Fixed||Verification)?1.e-6:1.e-8))return false;
         }
         return true;
@@ -208,6 +211,42 @@ inline bool GrowSafeField(const FVamNativeMeshInput& I,const TArray<FMatrix>& Sk
         }
         if(Gain<1.e-7)break;
     }
+    // A single vertex can be blocked by curvature while its whole neighborhood
+    // can safely recover. Raise proven topology groups together, rechecking every
+    // affected constraint before accepting a block (including all shared bases).
+    TArray<TArray<int>> Neighbors;Neighbors.SetNum(Count);
+    for(int T=0;T<I.Triangles.Num();T+=3)for(int K=0;K<3;++K){int U=Rep[I.Triangles[T+K]],V=Rep[I.Triangles[T+(K+1)%3]];if(U!=V){Neighbors[U].AddUnique(V);Neighbors[V].AddUnique(U);}}
+    auto Movable=[&](int R){if(Members[R].IsEmpty()||Safety[R]>.999999999)return false;bool Nonzero=false;for(int V:Members[R])if(!Native[V].IsNearlyZero(1.e-8)){Nonzero=true;if(FMath::Abs(Skin[V].Determinant())<.01)return false;}return Nonzero;};
+    auto RaiseBlock=[&](const TArray<int>& Block)
+    {
+        TArray<int> Affected;TArray<double> Before;for(int R:Block){Before.Add(Safety[R]);for(int T:Faces[R])Affected.AddUnique(T);}
+        auto Set=[&](double Amount){for(int J=0;J<Block.Num();++J)for(int V:Members[Block[J]])Safety[V]=Before[J]+(1-Before[J])*Amount;};
+        auto Valid=[&](){for(int T:Affected)if(!SafeFace(T))return false;return true;};
+        Set(1);double Lo=1;
+        if(!Valid()){Lo=0;double Hi=1;for(int Step=0;Step<24;++Step){double Mid=(Lo+Hi)*.5;Set(Mid);if(Valid())Lo=Mid;else Hi=Mid;}Set(Lo);}
+        double Gain=0;for(int J=0;J<Block.Num();++J)Gain=FMath::Max(Gain,Safety[Block[J]]-Before[J]);return Gain;
+    };
+    TSet<int> Visited;
+    for(int R=0;R<Count;++R)if(Movable(R)&&!Visited.Contains(R))
+    {
+        TArray<int> Component{R};Visited.Add(R);
+        for(int J=0;J<Component.Num();++J)for(int N:Neighbors[Component[J]])if(Movable(N)&&!Visited.Contains(N)){Visited.Add(N);Component.Add(N);}
+        RaiseBlock(Component);
+    }
+    double BlockGain=0;
+    for(int Pass=0;Pass<4;++Pass)
+    {
+        double Gain=0;
+        for(int Index=0;Index<Count;++Index)
+        {
+            const int R=Pass%2?Count-1-Index:Index;if(!Movable(R))continue;
+            TArray<int> Block{R};for(int N:Neighbors[R])if(Movable(N))Block.AddUnique(N);
+            const int FirstRing=Block.Num();for(int J=1;J<FirstRing;++J)for(int N:Neighbors[Block[J]])if(Movable(N))Block.AddUnique(N);
+            Gain=FMath::Max(Gain,RaiseBlock(Block));
+        }
+        BlockGain=FMath::Max(BlockGain,Gain);if(Gain<1.e-7)break;
+    }
+    if(BlockGain>.01)UE_LOG(LogTemp,Display,TEXT("GLUTE_BLOCK_RECOVERY %s maximum_gain=%.9g"),*SafetyTraceContext,BlockGain);
     for(int T=0;T<I.Triangles.Num();T+=3)if(!SafeFace(T)){UE_LOG(LogTemp,Error,TEXT("GLUTE_GROWTH_FINAL_UNSAFE %s triangle=%d,%d,%d"),*SafetyTraceContext,I.Triangles[T],I.Triangles[T+1],I.Triangles[T+2]);return false;}return true;
 }
 inline bool Condition(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,const FDeltaField& Native,const TMap<int32,TArray<int32>>& Aliases,TArray<double>& Safety,const FDeltaField* Fixed=nullptr)
