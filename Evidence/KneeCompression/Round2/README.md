@@ -22,3 +22,11 @@ Full report, logs and captures: Saved/LowerBodyContact/KneeCompression/round-2/r
 Next unresolved structural work: a valid material reference distinct from invalid animated targets, with anatomically consistent internal attachments. Do not increase iterations, relax inversion safety, or move surface targets away merely to manufacture a passing result.
 
 Research reference: https://www.tinymonkey.org/projects/pixar/walle/fem/fem/ — author's account of soft constraints, rest-state retargeting and surface-to-volume diffusion; not evidence that the current project implements that method.
+
+## Additional structural probes (not adopted)
+
+2202 traceable near-boundary samples compare cage target to barycentrically sampled actual skinned source triangles. Deep-knee maximum discrepancy 0.322 cm, seated 0.351 cm. The neutral preskin plane tolerance is 0.01 cm; this sampling does not claim complete boundary coverage. Approximate attachment covariance compensation changes deep-knee invalid cells 399 -> 403, seated 1738 -> 1725, knee60 1 -> 1. It is not the main inversion remedy.
+
+Independent canonical Stable Neo-Hookean material + current animated attachments was tested OFFLINE only. Articulated core pins were restricted to high-dominance shaft neighborhoods (2722 -> 1858 pins), with unchanged remaining attachment targets. Direct 500-iteration solve leaves 22 inverted cells and maximum target displacement 6.62 cm. Twenty incremental pose steps, 150 L-BFGS iterations each, leave 24 inverted cells, minimum J -0.572, volume ratio 0.99528, maximum displacement 5.34 cm. Neither solve converged or passed. No soft self-collision or rendered acceptance is included in these probes. They were not installed or represented as GPU results.
+
+The initial continuation process was interrupted after step 5 because of host BLAS oversubscription; the saved complete result is a fresh run with OPENBLAS_NUM_THREADS=1 and OMP_NUM_THREADS=1. Its elapsed time is offline CPU time, not a game performance measure. Further work requires consistent joint attachment/volume geometry; these experiments do not prove a finished alternative architecture.
