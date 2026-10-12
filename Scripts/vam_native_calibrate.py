@@ -136,7 +136,11 @@ def calibrate(data):
         import numpy as np
         appearance=np.asarray(contract['body']['vertices'])
         for morph in contract['morphs']:appearance+=morph['default']*np.asarray(morph['deltas'])
-        contract['influences'],contract['skin']['fit']=fit(skin['parameters'],appearance,contract['bones'])
+        from vam_skin_runtime import runtime_skin_nodes
+        runtime_skin=copy.deepcopy(skin['parameters'])
+        runtime_skin['nodes']=runtime_skin_nodes(ir,skin['parameters'])
+        contract['influences'],contract['skin']['fit']=fit(runtime_skin,appearance,contract['bones'])
+        contract['skin']['fit']['bulge_preparation']='InitMesh inverse initial distance in metres v1'
         contract['skin']['calibration']='mathematical_reference_fit_pending_runtime'
         contract['skin']['calibration_shape']='X(p0); Morph geometry remains X0 plus absolute parameters'
     contract['hierarchy_provenance']=hierarchy

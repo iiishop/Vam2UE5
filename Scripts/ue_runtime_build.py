@@ -81,7 +81,7 @@ def inputs(recipe_path):
         for file in sorted((SCRIPTS.parent/base).rglob('*')):
             if file.is_file() and file.suffix in ('.h','.cpp','.cs','.usf','.ush'):
                 algorithms[str(file.relative_to(SCRIPTS.parent))]=hashlib.sha256(file.read_bytes()).hexdigest()
-    for name in ('vam_runtime_recipe.py','ue_runtime_build.py','ue_stage06_materials.py','vam_glute_corrective_source.py','vam_knee_source.py'):
+    for name in ('vam_runtime_recipe.py','ue_runtime_build.py','ue_stage06_materials.py','vam_glute_corrective_source.py','vam_knee_source.py','vam_skin_runtime.py'):
         algorithms['Scripts/'+name]=hashlib.sha256((SCRIPTS/name).read_bytes()).hexdigest()
     identity=build_identity(recipe,family,files,algorithms,u.SystemLibrary.get_engine_version())
     return recipe,family,definition,contract,files,identity,algorithms

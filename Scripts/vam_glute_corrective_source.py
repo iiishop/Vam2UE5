@@ -2,6 +2,7 @@
 No VaM code executes. Missing source is explicit procedural fallback, never a guessed driver.
 """
 import copy, hashlib, json, sys
+from vam_skin_runtime import runtime_skin_nodes
 from pathlib import Path
 
 def recover(ir, settings_file, family):
@@ -92,13 +93,14 @@ def map_to_merged(ir, source, family):
     if skin['_useGeneralWeights']:raise ValueError('Bilateral reference currently requires verified TriAx source')
     names={family['glute_structure']['left_thigh'],family['glute_structure']['right_thigh']}
     # Preserve source node order, including disjoint graft domains of the same bone.
-    nodes=[copy.deepcopy(n) for n in skin['nodes'] if n['name'] in names]
+    nodes=[n for n in runtime_skin_nodes(ir,skin) if n['name'] in names]
     result=dict(source,version=2,raw_deltas=raw,deltas=deltas,
         neutral_vertices_cm=[[v[2]*100,v[0]*100,v[1]*100] for v in base['vertices']],
         topology_mapping=dict(replay='source Boundary graft replay',target=target['object'],graft=graft['object'],
             raw_count=len(raw),mapped_count=len(deltas),raw_visible_count=sum(v in visible for v,*_ in raw),
             mapped_visible_count=sum(v in visible for v,*_ in deltas),**evidence),
         source_skin_nodes=nodes,source_bulge_scale=skin['bulgeScale'],
+        bulge_preparation='InitMesh inverse initial distance in metres v1',
         reference_scope='DAZSkinV2 CPU bilateral isolated thigh-X equation replay before post-skin smoothing/physics; not captured VaM render truth')
     return result
 

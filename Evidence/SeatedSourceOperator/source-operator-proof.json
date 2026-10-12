@@ -1,0 +1,646 @@
+{
+  "scope": "Isolated bilateral hip-X mathematical replay against actual VaM GPU raw buffers; not UE visual acceptance",
+  "runtime_bulge_max_error": 5.2481870564946576e-06,
+  "rows": [
+    {
+      "pose": "hip30",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 0.28119205246527434,
+      "p95_cm": 0.6114689594597664,
+      "max_cm": 0.7647574484591624,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip30",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 0.2706702844353709,
+      "p95_cm": 0.6060758936067446,
+      "max_cm": 0.7429353129532809,
+      "worst_source": 18555
+    },
+    {
+      "pose": "hip30",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 0.13557399750351068,
+      "p95_cm": 0.3280310057929113,
+      "max_cm": 0.7647574484591624,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip30",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 0.10201468485774677,
+      "p95_cm": 0.23038937418536037,
+      "max_cm": 0.6893393251944626,
+      "worst_source": 18532
+    },
+    {
+      "pose": "hip30",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 4.6281183176595296e-06,
+      "p95_cm": 8.213372919974143e-06,
+      "max_cm": 1.1622391822650783e-05,
+      "worst_source": 58
+    },
+    {
+      "pose": "hip30",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 9.092160813924049e-06,
+      "p95_cm": 1.5389343445370245e-05,
+      "max_cm": 1.8648130782850703e-05,
+      "worst_source": 21011
+    },
+    {
+      "pose": "hip30",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 5.784629078982068e-06,
+      "p95_cm": 1.0274918364752192e-05,
+      "max_cm": 1.3339019831194228e-05,
+      "worst_source": 22102
+    },
+    {
+      "pose": "hip30",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 7.272309375467925e-06,
+      "p95_cm": 1.1615204832542215e-05,
+      "max_cm": 1.8648130782850703e-05,
+      "worst_source": 21011
+    },
+    {
+      "pose": "hip30",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 0.2796288981282247,
+      "p95_cm": 0.6070863896005149,
+      "max_cm": 0.752869540514441,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip30",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 0.26891213718189577,
+      "p95_cm": 0.599162649165915,
+      "max_cm": 0.7309297823745893,
+      "worst_source": 18555
+    },
+    {
+      "pose": "hip30",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 0.134712772855507,
+      "p95_cm": 0.3243101317789181,
+      "max_cm": 0.752869540514441,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip30",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 0.10136610108999973,
+      "p95_cm": 0.22906961440601048,
+      "max_cm": 0.67758935669956,
+      "worst_source": 18532
+    },
+    {
+      "pose": "hip30",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 4.570037102567637e-06,
+      "p95_cm": 7.939516733896953e-06,
+      "max_cm": 1.2249189729629686e-05,
+      "worst_source": 290
+    },
+    {
+      "pose": "hip30",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 9.277006177174596e-06,
+      "p95_cm": 1.4848788514056985e-05,
+      "max_cm": 2.5031735683209195e-05,
+      "worst_source": 18472
+    },
+    {
+      "pose": "hip30",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 5.7876786463565885e-06,
+      "p95_cm": 1.0391505966104455e-05,
+      "max_cm": 1.3566581060554864e-05,
+      "worst_source": 22086
+    },
+    {
+      "pose": "hip30",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 7.299330679610587e-06,
+      "p95_cm": 1.183367592564252e-05,
+      "max_cm": 1.665537979565564e-05,
+      "worst_source": 13592
+    },
+    {
+      "pose": "hip60",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 0.5624692034471388,
+      "p95_cm": 1.2229354030414676,
+      "max_cm": 1.529513285615908,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip60",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 0.5414328226921558,
+      "p95_cm": 1.2121515530991227,
+      "max_cm": 1.4858703685496277,
+      "worst_source": 18555
+    },
+    {
+      "pose": "hip60",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 0.2712225642629965,
+      "p95_cm": 0.6562452431161877,
+      "max_cm": 1.529513285615908,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip60",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 0.2040806669607773,
+      "p95_cm": 0.46078022489542486,
+      "max_cm": 1.3786804569953846,
+      "worst_source": 18532
+    },
+    {
+      "pose": "hip60",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 5.156830219597221e-06,
+      "p95_cm": 9.250313765408386e-06,
+      "max_cm": 1.296433365088609e-05,
+      "worst_source": 103
+    },
+    {
+      "pose": "hip60",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 9.7725308032638e-06,
+      "p95_cm": 1.5114753545875353e-05,
+      "max_cm": 2.0256812939651265e-05,
+      "worst_source": 13134
+    },
+    {
+      "pose": "hip60",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 5.822426308055604e-06,
+      "p95_cm": 1.0431024218017147e-05,
+      "max_cm": 1.3823866245249437e-05,
+      "worst_source": 22078
+    },
+    {
+      "pose": "hip60",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 7.259528482470247e-06,
+      "p95_cm": 1.1589323008565521e-05,
+      "max_cm": 1.588152207278204e-05,
+      "worst_source": 11263
+    },
+    {
+      "pose": "hip60",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 0.5572316952874037,
+      "p95_cm": 1.2088471583026243,
+      "max_cm": 1.4887558814766402,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip60",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 0.5355047621269845,
+      "p95_cm": 1.186477073461729,
+      "max_cm": 1.4446147807260852,
+      "worst_source": 18555
+    },
+    {
+      "pose": "hip60",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 0.26817456662036854,
+      "p95_cm": 0.6453086803221961,
+      "max_cm": 1.4887558814766402,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip60",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 0.2017359487431918,
+      "p95_cm": 0.45589900984258275,
+      "max_cm": 1.3374985910851667,
+      "worst_source": 18532
+    },
+    {
+      "pose": "hip60",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 5.215942922563256e-06,
+      "p95_cm": 9.139840082492076e-06,
+      "max_cm": 1.3536032845394387e-05,
+      "worst_source": 102
+    },
+    {
+      "pose": "hip60",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 9.978489379294784e-06,
+      "p95_cm": 1.626934537783897e-05,
+      "max_cm": 2.2426356553557643e-05,
+      "worst_source": 18472
+    },
+    {
+      "pose": "hip60",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 5.855953235632689e-06,
+      "p95_cm": 1.0735804819558452e-05,
+      "max_cm": 1.3475507373173659e-05,
+      "worst_source": 22295
+    },
+    {
+      "pose": "hip60",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 7.186583248093235e-06,
+      "p95_cm": 1.1829523232130003e-05,
+      "max_cm": 1.7159123608453503e-05,
+      "worst_source": 14800
+    },
+    {
+      "pose": "hip90",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 0.8438364347710154,
+      "p95_cm": 1.8344026872323442,
+      "max_cm": 2.2942702744344032,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip90",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 0.8122930861919264,
+      "p95_cm": 1.818229628445582,
+      "max_cm": 2.22880613516078,
+      "worst_source": 18555
+    },
+    {
+      "pose": "hip90",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 0.4069487689986541,
+      "p95_cm": 0.9846352993307657,
+      "max_cm": 2.2942702744344032,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip90",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 0.30619962745285634,
+      "p95_cm": 0.6911720924630996,
+      "max_cm": 2.068023111465649,
+      "worst_source": 18532
+    },
+    {
+      "pose": "hip90",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 6.3179616525308005e-06,
+      "p95_cm": 1.0547475747062861e-05,
+      "max_cm": 1.3065127650730026e-05,
+      "worst_source": 6664
+    },
+    {
+      "pose": "hip90",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 1.1247890839251254e-05,
+      "p95_cm": 1.8510015751623947e-05,
+      "max_cm": 2.223804074407357e-05,
+      "worst_source": 11279
+    },
+    {
+      "pose": "hip90",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 6.18693218849903e-06,
+      "p95_cm": 1.0702708408949059e-05,
+      "max_cm": 1.3873949608282718e-05,
+      "worst_source": 21898
+    },
+    {
+      "pose": "hip90",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 7.803311311446138e-06,
+      "p95_cm": 1.1989483130265645e-05,
+      "max_cm": 2.2896083785089634e-05,
+      "worst_source": 11274
+    },
+    {
+      "pose": "hip90",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 0.8328334207520302,
+      "p95_cm": 1.8012684210510348,
+      "max_cm": 2.2076662919806167,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip90",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 0.7998055138080518,
+      "p95_cm": 1.758207650498391,
+      "max_cm": 2.141055488729925,
+      "worst_source": 18555
+    },
+    {
+      "pose": "hip90",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 0.40039956569117996,
+      "p95_cm": 0.9692859591954426,
+      "max_cm": 2.2076662919806167,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip90",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 0.3011256954176848,
+      "p95_cm": 0.6802974070164628,
+      "max_cm": 1.9797279065874056,
+      "worst_source": 18532
+    },
+    {
+      "pose": "hip90",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 6.504437682033002e-06,
+      "p95_cm": 1.0792076176540015e-05,
+      "max_cm": 1.5164971398102333e-05,
+      "worst_source": 8239
+    },
+    {
+      "pose": "hip90",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 1.133505791919332e-05,
+      "p95_cm": 1.8344488216462045e-05,
+      "max_cm": 2.0943212151907518e-05,
+      "worst_source": 11279
+    },
+    {
+      "pose": "hip90",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 6.2313504640126725e-06,
+      "p95_cm": 1.0687962649512605e-05,
+      "max_cm": 1.4723409909167271e-05,
+      "worst_source": 8201
+    },
+    {
+      "pose": "hip90",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 7.755070957698563e-06,
+      "p95_cm": 1.1949668829665891e-05,
+      "max_cm": 2.0943212151907518e-05,
+      "worst_source": 11279
+    },
+    {
+      "pose": "hip110",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 1.0314666831644441,
+      "p95_cm": 2.242047450825462,
+      "max_cm": 2.8041057115974937,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip110",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 0.9929228514747277,
+      "p95_cm": 2.2222826707486463,
+      "max_cm": 2.724096542480539,
+      "worst_source": 18555
+    },
+    {
+      "pose": "hip110",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 0.4974772970014267,
+      "p95_cm": 1.2036704399917448,
+      "max_cm": 2.8041057115974937,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip110",
+      "mode": "off",
+      "preparation": "serialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 0.3743093160717908,
+      "p95_cm": 0.8447660627738911,
+      "max_cm": 2.527581308793168,
+      "worst_source": 18532
+    },
+    {
+      "pose": "hip110",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 7.5381350661482645e-06,
+      "p95_cm": 1.2057363784695425e-05,
+      "max_cm": 1.5697797061659763e-05,
+      "worst_source": 8244
+    },
+    {
+      "pose": "hip110",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 1.020945513764149e-05,
+      "p95_cm": 1.65288677675866e-05,
+      "max_cm": 2.0382348264888884e-05,
+      "worst_source": 14803
+    },
+    {
+      "pose": "hip110",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 6.406178290763677e-06,
+      "p95_cm": 1.098016827703461e-05,
+      "max_cm": 1.5697797061659763e-05,
+      "worst_source": 8244
+    },
+    {
+      "pose": "hip110",
+      "mode": "off",
+      "preparation": "initialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 7.451848874062455e-06,
+      "p95_cm": 1.181213787515193e-05,
+      "max_cm": 2.0382348264888884e-05,
+      "worst_source": 14803
+    },
+    {
+      "pose": "hip110",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 1.0167436118815167,
+      "p95_cm": 2.1966617716491577,
+      "max_cm": 2.687885069450917,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip110",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 0.976201857534879,
+      "p95_cm": 2.1401637276780408,
+      "max_cm": 2.606306594650808,
+      "worst_source": 18555
+    },
+    {
+      "pose": "hip110",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 0.48867731670817227,
+      "p95_cm": 1.1859438009077927,
+      "max_cm": 2.687885069450917,
+      "worst_source": 7875
+    },
+    {
+      "pose": "hip110",
+      "mode": "on",
+      "preparation": "serialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 0.3674839446749943,
+      "p95_cm": 0.8300219073398356,
+      "max_cm": 2.4088673556073177,
+      "worst_source": 18532
+    },
+    {
+      "pose": "hip110",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "0_lateral_glute",
+      "rms_cm": 8.02216230277762e-06,
+      "p95_cm": 1.2885075101593079e-05,
+      "max_cm": 1.793711715948873e-05,
+      "worst_source": 8201
+    },
+    {
+      "pose": "hip110",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "1_lateral_glute",
+      "rms_cm": 1.0214347608583091e-05,
+      "p95_cm": 1.602313323047482e-05,
+      "max_cm": 2.0327410832924267e-05,
+      "worst_source": 14803
+    },
+    {
+      "pose": "hip110",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "0_glute_thigh",
+      "rms_cm": 6.407921271675939e-06,
+      "p95_cm": 1.0719644689848576e-05,
+      "max_cm": 1.793711715948873e-05,
+      "worst_source": 8201
+    },
+    {
+      "pose": "hip110",
+      "mode": "on",
+      "preparation": "initialized-bulge",
+      "region": "1_glute_thigh",
+      "rms_cm": 7.409575911622801e-06,
+      "p95_cm": 1.1908478690612351e-05,
+      "max_cm": 2.0327410832924267e-05,
+      "worst_source": 14803
+    }
+  ]
+}
