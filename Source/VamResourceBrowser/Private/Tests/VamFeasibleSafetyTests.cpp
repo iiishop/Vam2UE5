@@ -45,5 +45,14 @@ bool FVamJointFamilySafetyTest::RunTest(const FString&)
  FGluteJointSafety M(Mirror,MirrorGoals,Aliases);auto MP=MakePose(Mirror);M.AddScene(MP,{1,0},Zero,false,true);M.AddScene(MP,{0,1},Zero,false,true);M.AddScene(MP,{.5,.5},Zero,false,true);TestTrue(TEXT("Mirrored geometry solves"),M.Solve());
  for(int K=0;K<Goals.Num();++K)for(int V=0;V<4;++V)TestTrue(TEXT("Mirror keeps equivalent safety"),FMath::Abs(M.Alpha[K][V]-S.Alpha[K][V])<1.e-8);
  FGluteJointSafety Bad(I,Goals,Aliases);Bad.AddScene(P,{0,0},Goals[1],true,true);AddExpectedError(TEXT("GLUTE_JOINT_FIXED_UNSAFE"),EAutomationExpectedErrorFlags::Contains,1);TestFalse(TEXT("Unsafe fixed input rejected"),Bad.Solve());
+ // Every one-ring contains a locked centre, but the outer vertices are safe
+ // independent degrees of freedom. Block-only recovery must not freeze them.
+ FVamNativeMeshInput Fan;Fan.Vertices={FVector(0,0,0),FVector(1,0,0),FVector(0,1,0),FVector(-1,0,0),FVector(0,-1,0)};Fan.Triangles={0,1,2,0,2,3,0,3,4,0,4,1};
+ TMap<int32,TArray<int32>> FanAliases;for(int V=0;V<5;++V)FanAliases.Add(V,{V});
+ TArray<FDeltaField> FanGoal;FanGoal.SetNum(1);FanGoal[0].Init(FVector(0,0,.01),5);FanGoal[0][0]=FVector(-5,0,0);FDeltaField FanZero;FanZero.Init(FVector::ZeroVector,5);
+ auto FP=MakePose(Fan);FP->Skin[0].M[0][0]=.001;
+ FGluteJointSafety FS(Fan,FanGoal,FanAliases);FS.AddScene(FP,{1},FanZero,false,true);TestTrue(TEXT("Locked centre remains protected"),FS.Solve());
+ for(int V=1;V<5;++V)TestTrue(TEXT("Safe outer vertex is not frozen by its locked neighbour"),FS.Alpha[0][V]>.99999);
+ TestTrue(TEXT("Full original checks still pass for fan"),FS.AllValid(false));
  return true;
 }

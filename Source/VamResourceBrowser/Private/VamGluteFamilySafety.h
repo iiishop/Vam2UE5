@@ -147,7 +147,10 @@ struct FGluteJointSafety
         for(int Pass=0;Pass<16;++Pass)
         {
             double Gain=0;int Updates=0;
-            for(int Depth : {12,6,3,1})
+            // Block moves help coherent surface motion, but every independent
+            // degree of freedom must also be visited. Otherwise one locked
+            // neighbour can freeze every overlapping block indefinitely.
+            for(int Depth : {12,6,3,1,0})
             for(int K=INDEX_NONE;K<Goals.Num();++K)
             {
                 TSet<int> Visited;
@@ -157,6 +160,7 @@ struct FGluteJointSafety
                     bool Active=false;for(int J=0;J<Goals.Num();++J)if((K<0||J==K)&&Movable(J,R)){Active=true;break;}if(!Active)continue;
                     TArray<int> Patch{R};TSet<int> Seen{R};int Begin=0;for(int Ring=0;Ring<Depth;++Ring){const int End=Patch.Num();for(int J=Begin;J<End;++J)for(int N:Neighbors[Patch[J]])if(!Seen.Contains(N)){Seen.Add(N);Patch.Add(N);}Begin=End;}for(int N:Patch)Visited.Add(N);
                     const double G=Raise(Patch,K);if(G<0)return false;Gain=FMath::Max(Gain,G);if(G>1.e-7)++Updates;
+                    if(Depth==0 && Pass<2 && SafetyTraceVertices.Contains(R) && G>1.e-7)UE_LOG(LogTemp,Display,TEXT("GLUTE_SINGLETON_RECOVERY pass=%d target=%d input=%d gain=%.9g"),Pass,K,R,G);
                 }
             }
             UE_LOG(LogTemp,Display,TEXT("GLUTE_JOINT_RECOVERY pass=%d updates=%d maximum_gain=%.9g scenes=%d"),Pass,Updates,Gain,Scenes.Num());if(Gain<1.e-6)break;
