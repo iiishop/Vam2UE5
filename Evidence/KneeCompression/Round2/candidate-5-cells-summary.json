@@ -1,0 +1,266 @@
+[
+  {
+    "pose": "knee-120-soft",
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-093317-0E9676E14452F5E800DC7582E3BC9BEC",
+    "layers": {
+      "canonical": {
+        "2": {
+          "invalid": 0,
+          "min_cm3": 0.0001067074041301165
+        },
+        "3": {
+          "invalid": 0,
+          "min_cm3": 7.139002258704616e-05
+        }
+      },
+      "01-final-weights-bones-only": {
+        "2": {
+          "invalid": 238,
+          "min_cm3": -1.1220494970291874
+        },
+        "3": {
+          "invalid": 264,
+          "min_cm3": -1.6427419904628309
+        }
+      },
+      "02-static-helpers-bones-only": {
+        "2": {
+          "invalid": 238,
+          "min_cm3": -1.1220494970291874
+        },
+        "3": {
+          "invalid": 264,
+          "min_cm3": -1.6427419904628309
+        }
+      },
+      "03-corrective-bones-only": {
+        "2": {
+          "invalid": 238,
+          "min_cm3": -1.1220494970291874
+        },
+        "3": {
+          "invalid": 264,
+          "min_cm3": -1.6427419904628309
+        }
+      },
+      "04-jiggle-bones-only": {
+        "2": {
+          "invalid": 238,
+          "min_cm3": -1.1220494970291874
+        },
+        "3": {
+          "invalid": 264,
+          "min_cm3": -1.6427419904628309
+        }
+      },
+      "runtime-with-morph": {
+        "2": {
+          "invalid": 188,
+          "min_cm3": -2.2337460507220137
+        },
+        "3": {
+          "invalid": 215,
+          "min_cm3": -3.203614071840331
+        }
+      }
+    }
+  },
+  {
+    "pose": "knee-60-soft",
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-093300-E646C72B45BAF53592875DAAEC2C8C4B",
+    "layers": {
+      "canonical": {
+        "2": {
+          "invalid": 0,
+          "min_cm3": 0.0001067074041301165
+        },
+        "3": {
+          "invalid": 0,
+          "min_cm3": 7.139002258704616e-05
+        }
+      },
+      "01-final-weights-bones-only": {
+        "2": {
+          "invalid": 10,
+          "min_cm3": -0.019490656396902308
+        },
+        "3": {
+          "invalid": 10,
+          "min_cm3": -0.0368941395852137
+        }
+      },
+      "02-static-helpers-bones-only": {
+        "2": {
+          "invalid": 10,
+          "min_cm3": -0.019490656396902308
+        },
+        "3": {
+          "invalid": 10,
+          "min_cm3": -0.0368941395852137
+        }
+      },
+      "03-corrective-bones-only": {
+        "2": {
+          "invalid": 10,
+          "min_cm3": -0.019490656396902308
+        },
+        "3": {
+          "invalid": 10,
+          "min_cm3": -0.0368941395852137
+        }
+      },
+      "04-jiggle-bones-only": {
+        "2": {
+          "invalid": 10,
+          "min_cm3": -0.019490656396902308
+        },
+        "3": {
+          "invalid": 10,
+          "min_cm3": -0.0368941395852137
+        }
+      },
+      "runtime-with-morph": {
+        "2": {
+          "invalid": 2,
+          "min_cm3": -0.013347919035174264
+        },
+        "3": {
+          "invalid": 3,
+          "min_cm3": -0.036894128099608174
+        }
+      }
+    }
+  },
+  {
+    "pose": "standing-soft",
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-093243-89460EBF47C2544900F4A484A3521982",
+    "layers": {
+      "canonical": {
+        "2": {
+          "invalid": 0,
+          "min_cm3": 0.0001067074041301165
+        },
+        "3": {
+          "invalid": 0,
+          "min_cm3": 7.139002258704616e-05
+        }
+      },
+      "01-final-weights-bones-only": {
+        "2": {
+          "invalid": 0,
+          "min_cm3": 0.00011021445810989157
+        },
+        "3": {
+          "invalid": 0,
+          "min_cm3": 7.087761420539369e-05
+        }
+      },
+      "02-static-helpers-bones-only": {
+        "2": {
+          "invalid": 0,
+          "min_cm3": 0.00011018730320987867
+        },
+        "3": {
+          "invalid": 0,
+          "min_cm3": 7.134116894642953e-05
+        }
+      },
+      "03-corrective-bones-only": {
+        "2": {
+          "invalid": 0,
+          "min_cm3": 0.00011018730320987867
+        },
+        "3": {
+          "invalid": 0,
+          "min_cm3": 7.134116894642953e-05
+        }
+      },
+      "04-jiggle-bones-only": {
+        "2": {
+          "invalid": 0,
+          "min_cm3": 0.00011018730320987867
+        },
+        "3": {
+          "invalid": 0,
+          "min_cm3": 7.134116894642953e-05
+        }
+      },
+      "runtime-with-morph": {
+        "2": {
+          "invalid": 0,
+          "min_cm3": 0.00011018935802793491
+        },
+        "3": {
+          "invalid": 0,
+          "min_cm3": 7.134159953664974e-05
+        }
+      }
+    }
+  },
+  {
+    "pose": "suspended-seat-soft",
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-093334-1A7AF2A44C5955FAEFD1B4B0CBB722CC",
+    "layers": {
+      "canonical": {
+        "2": {
+          "invalid": 0,
+          "min_cm3": 0.0001067074041301165
+        },
+        "3": {
+          "invalid": 0,
+          "min_cm3": 7.139002258704616e-05
+        }
+      },
+      "01-final-weights-bones-only": {
+        "2": {
+          "invalid": 922,
+          "min_cm3": -2.8661942009084274
+        },
+        "3": {
+          "invalid": 1045,
+          "min_cm3": -3.314769074949884
+        }
+      },
+      "02-static-helpers-bones-only": {
+        "2": {
+          "invalid": 918,
+          "min_cm3": -2.865605203271866
+        },
+        "3": {
+          "invalid": 1061,
+          "min_cm3": -4.174250845651007
+        }
+      },
+      "03-corrective-bones-only": {
+        "2": {
+          "invalid": 918,
+          "min_cm3": -2.865605203271866
+        },
+        "3": {
+          "invalid": 1061,
+          "min_cm3": -4.174250845651007
+        }
+      },
+      "04-jiggle-bones-only": {
+        "2": {
+          "invalid": 918,
+          "min_cm3": -2.865605203271866
+        },
+        "3": {
+          "invalid": 1061,
+          "min_cm3": -4.174250845651007
+        }
+      },
+      "runtime-with-morph": {
+        "2": {
+          "invalid": 807,
+          "min_cm3": -3.0643747640302688
+        },
+        "3": {
+          "invalid": 931,
+          "min_cm3": -3.8054113710458526
+        }
+      }
+    }
+  }
+]

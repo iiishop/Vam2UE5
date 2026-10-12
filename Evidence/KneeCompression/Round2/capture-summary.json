@@ -1,0 +1,110 @@
+[
+  {
+    "candidate": "candidate-4",
+    "pose": "knee-120-soft",
+    "active": false,
+    "acceptance": "blocked_contact_solver_inactive",
+    "max_residual_cm": 0.0,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 12.301 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-082242-D5BDA666474E94BB7A7164A704CCEACC"
+  },
+  {
+    "candidate": "candidate-4",
+    "pose": "knee-60-soft",
+    "active": false,
+    "acceptance": "blocked_contact_solver_inactive",
+    "max_residual_cm": 0.0,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 12.976 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-082225-54F338B24163FFFB8F07D2A85E090879"
+  },
+  {
+    "candidate": "candidate-4",
+    "pose": "standing-soft",
+    "active": true,
+    "acceptance": "captured",
+    "max_residual_cm": 0.6364,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 1\nGPU resident corotated + skin | batch 1 instances / 8774 particles / 8774 GPU pair slots | scene upload prep 0.002 ms | soft rounds 12 active / 12 searched, peak 211 contacts | async diagnostic batch 65 | no synchronous readback\nSteps 90 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.6364 cm\nLeftBreast cage V 3426.20 / 3426.20 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.000 surface stretch 1.000..1.000 worst edge rest 0.200961 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 136\nRightBreast cage V 3420.09 / 3420.09 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.001 surface stretch 1.000..1.000 worst edge rest 0.443196 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 153\nLeftLowerBody cage V 7617.07 / 7617.23 cm3 error -0.00% min J 0.3500 inverted 0 max J 1.427 surface stretch 0.624..1.257 worst edge rest 0.908367 cm extension max 0.2331 cm nipple RMS strain 0.00000 pairs 0\nRightLowerBody cage V 7608.07 / 7608.26 cm3 error -0.00% min J 0.4627 inverted 0 max J 1.294 surface stretch 0.551..1.437 worst edge rest 0.086929 cm extension max 0.1569 cm nipple RMS strain 0.00000 pairs 0\nGPU async cage diagnostics; surface penetration not measured | component CPU 2.246 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-082208-C610614A4E631551D232FFA176D50F4F"
+  },
+  {
+    "candidate": "candidate-4",
+    "pose": "suspended-seat-soft",
+    "active": false,
+    "acceptance": "blocked_contact_solver_inactive",
+    "max_residual_cm": 0.0,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 12.600 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-082259-D766D4684BF22EDE38C31BB7B95D6229"
+  },
+  {
+    "candidate": "candidate-5",
+    "pose": "knee-120-soft",
+    "active": false,
+    "acceptance": "blocked_contact_solver_inactive",
+    "max_residual_cm": 0.0,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 12.639 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-093317-0E9676E14452F5E800DC7582E3BC9BEC"
+  },
+  {
+    "candidate": "candidate-5",
+    "pose": "knee-60-soft",
+    "active": false,
+    "acceptance": "blocked_contact_solver_inactive",
+    "max_residual_cm": 0.0,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 12.358 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-093300-E646C72B45BAF53592875DAAEC2C8C4B"
+  },
+  {
+    "candidate": "candidate-5",
+    "pose": "standing-soft",
+    "active": true,
+    "acceptance": "captured",
+    "max_residual_cm": 0.6356,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 1\nGPU resident corotated + skin | batch 1 instances / 8774 particles / 8774 GPU pair slots | scene upload prep 0.002 ms | soft rounds 12 active / 12 searched, peak 97 contacts | async diagnostic batch 64 | no synchronous readback\nSteps 90 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.6356 cm\nLeftBreast cage V 3426.20 / 3426.20 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.000 surface stretch 1.000..1.000 worst edge rest 0.200961 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 136\nRightBreast cage V 3420.09 / 3420.09 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.001 surface stretch 1.000..1.000 worst edge rest 0.443196 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 153\nLeftLowerBody cage V 7617.38 / 7617.47 cm3 error -0.00% min J 0.3857 inverted 0 max J 1.405 surface stretch 0.650..1.283 worst edge rest 0.466548 cm extension max 0.1321 cm nipple RMS strain 0.00000 pairs 0\nRightLowerBody cage V 7608.45 / 7608.49 cm3 error -0.00% min J 0.4266 inverted 0 max J 1.235 surface stretch 0.592..1.304 worst edge rest 0.276187 cm extension max 0.1351 cm nipple RMS strain 0.00000 pairs 0\nGPU async cage diagnostics; surface penetration not measured | component CPU 2.391 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-093243-89460EBF47C2544900F4A484A3521982"
+  },
+  {
+    "candidate": "candidate-5",
+    "pose": "suspended-seat-soft",
+    "active": false,
+    "acceptance": "blocked_contact_solver_inactive",
+    "max_residual_cm": 0.0,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 13.062 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-093334-1A7AF2A44C5955FAEFD1B4B0CBB722CC"
+  },
+  {
+    "candidate": "candidate-6",
+    "pose": "knee-120-soft",
+    "active": false,
+    "acceptance": "blocked_contact_solver_inactive",
+    "max_residual_cm": 0.0,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 20.408 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-094512-3A2ED67C45AE348D3B21759D6CA3A340"
+  },
+  {
+    "candidate": "candidate-6",
+    "pose": "knee-60-soft",
+    "active": false,
+    "acceptance": "blocked_contact_solver_inactive",
+    "max_residual_cm": 0.0,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 12.648 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-094455-83AF2517433F8A8D1903FC8336067388"
+  },
+  {
+    "candidate": "candidate-6",
+    "pose": "standing-soft",
+    "active": true,
+    "acceptance": "captured",
+    "max_residual_cm": 0.6524,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 1\nGPU resident corotated + skin | batch 1 instances / 8774 particles / 8774 GPU pair slots | scene upload prep 0.002 ms | soft rounds 12 active / 12 searched, peak 90 contacts | async diagnostic batch 66 | no synchronous readback\nSteps 90 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.6524 cm\nLeftBreast cage V 3426.20 / 3426.20 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.000 surface stretch 1.000..1.000 worst edge rest 0.200961 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 136\nRightBreast cage V 3420.09 / 3420.09 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.001 surface stretch 1.000..1.000 worst edge rest 0.443196 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 153\nLeftLowerBody cage V 7617.14 / 7617.23 cm3 error -0.00% min J 0.3500 inverted 0 max J 1.296 surface stretch 0.650..1.248 worst edge rest 0.271671 cm extension max 0.1000 cm nipple RMS strain 0.00000 pairs 0\nRightLowerBody cage V 7608.15 / 7608.26 cm3 error -0.00% min J 0.3500 inverted 0 max J 1.230 surface stretch 0.617..1.372 worst edge rest 0.086929 cm extension max 0.2120 cm nipple RMS strain 0.00000 pairs 0\nGPU async cage diagnostics; surface penetration not measured | component CPU 3.139 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-094438-ADCD09194A83929C6E3B69A36FE5DDEB"
+  },
+  {
+    "candidate": "candidate-6",
+    "pose": "suspended-seat-soft",
+    "active": false,
+    "acceptance": "blocked_contact_solver_inactive",
+    "max_residual_cm": 0.0,
+    "status": "/Temp/UEDPIE_0_Untitled_2.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 12.293 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+    "audit": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Saved/VamDeformationAudit/20261012-094529-E103C0A04882D2ECABE12EAFCE7A9EC7"
+  }
+]

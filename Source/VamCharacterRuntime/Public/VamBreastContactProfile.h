@@ -12,6 +12,8 @@ struct VAMCHARACTERRUNTIME_API FVamBreastContactParticle
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") int32 Side=INDEX_NONE;
     /** Collision exclusion only; never used as a volume/material region. Legacy assets use Side. */
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") int32 CollisionGroup=INDEX_NONE;
+    /** Native input triangle provenance; INDEX_NONE for legacy/breast particles. */
+    UPROPERTY() FIntVector SurfaceSourceVertices=FIntVector(INDEX_NONE);
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TArray<int32> Bones;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TArray<float> Weights;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") float RootSupport=0;

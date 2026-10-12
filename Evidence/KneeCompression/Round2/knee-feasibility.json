@@ -1,0 +1,82 @@
+[
+  {
+    "mode": "fixed-inner",
+    "iteration": 1,
+    "inverted": 347,
+    "min_j": -2.518055782140379,
+    "max_displacement_cm": 0.84818640008423,
+    "p95_displacement_cm": 0.017188736832919452,
+    "inner_max_cm": 7.404966693993979e-09,
+    "seconds": 0.07603049278259277
+  },
+  {
+    "mode": "fixed-inner",
+    "iteration": 10,
+    "inverted": 219,
+    "min_j": -1.7966754317862927,
+    "max_displacement_cm": 2.554822396225969,
+    "p95_displacement_cm": 0.04511957894778855,
+    "inner_max_cm": 4.922750060109606e-09,
+    "seconds": 0.7589459419250488
+  },
+  {
+    "mode": "fixed-inner",
+    "iteration": 50,
+    "inverted": 134,
+    "min_j": -1.6001281706079096,
+    "max_displacement_cm": 3.3765534553909027,
+    "p95_displacement_cm": 0.03311021715441393,
+    "inner_max_cm": 4.078987125783598e-09,
+    "seconds": 3.81306529045105
+  },
+  {
+    "mode": "fixed-inner",
+    "iteration": 100,
+    "inverted": 96,
+    "min_j": -1.2362248879639541,
+    "max_displacement_cm": 3.7841375430666337,
+    "p95_displacement_cm": 0.02698601349719098,
+    "inner_max_cm": 3.953150607589107e-09,
+    "seconds": 7.609741687774658
+  },
+  {
+    "mode": "soft-inner",
+    "iteration": 1,
+    "inverted": 336,
+    "min_j": -2.473482771015911,
+    "max_displacement_cm": 0.8290162238417296,
+    "p95_displacement_cm": 0.038064774511973085,
+    "inner_max_cm": 0.15140313460927196,
+    "seconds": 0.0731348991394043
+  },
+  {
+    "mode": "soft-inner",
+    "iteration": 10,
+    "inverted": 188,
+    "min_j": -1.7513991044917332,
+    "max_displacement_cm": 2.4509478681264847,
+    "p95_displacement_cm": 0.05956982767205533,
+    "inner_max_cm": 0.34098252032490256,
+    "seconds": 0.7592792510986328
+  },
+  {
+    "mode": "soft-inner",
+    "iteration": 50,
+    "inverted": 124,
+    "min_j": -1.808646846404241,
+    "max_displacement_cm": 3.1469611374616417,
+    "p95_displacement_cm": 0.04889469168092353,
+    "inner_max_cm": 0.29778922948691994,
+    "seconds": 3.7182416915893555
+  },
+  {
+    "mode": "soft-inner",
+    "iteration": 100,
+    "inverted": 93,
+    "min_j": -1.5726620139136587,
+    "max_displacement_cm": 3.474258492462447,
+    "p95_displacement_cm": 0.03547580383788858,
+    "inner_max_cm": 0.24806262089184394,
+    "seconds": 7.364641427993774
+  }
+]

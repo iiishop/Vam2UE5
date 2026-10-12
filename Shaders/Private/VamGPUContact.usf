@@ -45,6 +45,7 @@ StructuredBuffer<float2> EdgeLimits;
 
 StructuredBuffer<uint> Regions;
 StructuredBuffer<uint> CollisionGroups;
+StructuredBuffer<uint4> SourceTriangles;
 RWStructuredBuffer<float4> VolumeGradients;
 RWStructuredBuffer<float4> ZoneState;
 groupshared float3 ZoneSums[64];
@@ -158,6 +159,11 @@ void MainCS(uint3 Thread:SV_DispatchThreadID)
  if(PassKind==28){uint best=0xffffffff;float distance=9.;float bestGap=1e30;
   uint4 scene=ContactScenes[Instance[k]];if(SurfaceMask[k]==0 || Positions[k].w<=0 || scene.y==0)return;
   float3 p=WorldPoint(k,Positions[k].xyz);uint node=0;
+  // A continuous skin patch must not collide with its own adjacent triangles
+  // merely because its material was assigned two collision labels.
+  uint2 incident=IncidentRanges[k];float3 queryNormal=0;
+  [loop]for(uint j=0;j<incident.y;++j){uint4 face=SkinFaces[IncidentSlots[incident.x+j]/4];
+   float3 a=WorldPoint(face.x,Positions[face.x].xyz),b=WorldPoint(face.y,Positions[face.y].xyz),c=WorldPoint(face.z,Positions[face.z].xyz);queryNormal+=cross(b-a,c-a);}
   [loop]while(node<ContactNodeCount){uint4 tree=ContactTree[node];uint rootVertex=ContactFaces[tree.x].x;uint4 treeScene=ContactScenes[Instance[rootVertex]];
    if(treeScene.x!=scene.x || treeScene.y==0 || CollisionGroups[rootVertex]==CollisionGroups[k]){node=tree.z;continue;}
    float3 outside=max(max(ContactBounds[node*2].xyz-p,p-ContactBounds[node*2+1].xyz),0);
@@ -165,8 +171,19 @@ void MainCS(uint3 Thread:SV_DispatchThreadID)
    if(tree.w!=0){++node;continue;}
    [loop]for(uint f=tree.x;f<tree.x+tree.y;++f){uint4 v=ContactFaces[f];uint4 other=ContactScenes[Instance[v.x]];
     if(other.y==0 || other.x!=scene.x || CollisionGroups[v.x]==CollisionGroups[k] || CollisionGroups[v.y]==CollisionGroups[k] || CollisionGroups[v.z]==CollisionGroups[k])continue;
+    if(Instance[v.x]==Instance[k]){
+     uint4 source=SourceTriangles[k];bool sharedSource=false;
+     [unroll]for(uint j=0;j<3;++j){uint4 otherSource=SourceTriangles[v[j]];
+      [unroll]for(uint a0=0;a0<3;++a0)[unroll]for(uint b0=0;b0<3;++b0)if(source[a0]!=0xffffffff && source[a0]==otherSource[b0])sharedSource=true;}
+     if(sharedSource)continue;
+    }
     float3 a=WorldPoint(v.x,Positions[v.x].xyz),b=WorldPoint(v.y,Positions[v.y].xyz),c=WorldPoint(v.z,Positions[v.z].xyz);
     float3 normal=cross(b-a,c-a);float n2=dot(normal,normal);if(n2<1e-12)continue;
+    if(Instance[v.x]==Instance[k] && Regions[v.x]==Regions[k]){
+     bool adjacent=false;[loop]for(uint j=0;j<incident.y;++j){uint4 face=SkinFaces[IncidentSlots[incident.x+j]/4];
+      [unroll]for(uint u=0;u<3;++u)[unroll]for(uint t=0;t<3;++t)if(face[u]==v[t])adjacent=true;}
+     if(adjacent || dot(queryNormal,normal)>0)continue;
+    }
     float3 w=TriangleWeights(p,a,b,c),d=p-a*w.x-b*w.y-c*w.z;float d2=dot(d,d);
     if(d2<distance || (d2==distance && f<best)){distance=d2;best=f;bestGap=dot(d,normal)*rsqrt(n2);}}
    node=tree.z;}

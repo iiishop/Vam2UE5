@@ -142,7 +142,7 @@ bool UVamBreastContactComponent::Initialize()
     {
         FVamGPUContactTopology Topology;Topology.Tets=Profile->Tetrahedra;Topology.Parents=Profile->SurfaceParents;Topology.Weights=Profile->SurfaceWeights;Topology.Mask=Profile->SurfaceMask;
         Topology.RegionCount=Profile->EffectiveVolumeCm3.Num();Topology.ReactionRegionCount=2;
-        for(const auto& P:Profile->Particles){Topology.Regions.Add(P.Side);Topology.CollisionGroups.Add(P.CollisionGroup>=0?P.CollisionGroup:P.Side);}
+        for(const auto& P:Profile->Particles){Topology.SourceTriangles.Add(FIntVector4(P.SurfaceSourceVertices.X,P.SurfaceSourceVertices.Y,P.SurfaceSourceVertices.Z,INDEX_NONE));Topology.Regions.Add(P.Side);Topology.CollisionGroups.Add(P.CollisionGroup>=0?P.CollisionGroup:P.Side);}
         if(!bLowerBodyContactEnabled)for(int V=0;V<Topology.Mask.Num();++V)if(Topology.Mask[V]>0 && Profile->Particles[Topology.Parents[V].X].Side>=2)Topology.Mask[V]=0;
         TSet<uint64> SeenEdges;
         for(const auto& Face:Profile->BoundaryTriangles)for(int J=0;J<3;++J)

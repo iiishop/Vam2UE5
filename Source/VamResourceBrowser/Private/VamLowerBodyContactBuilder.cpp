@@ -92,7 +92,7 @@ FString UVamLowerBodyContactBuilder::Append(UVamCharacterDefinition* Definition,
             if(FaceId<0)return TEXT("Lower contact attachment projection failed");
             const auto F=SourceFaces[FaceId];for(int J=0;J<3;++J)Bary[J]=FMath::Max(0.,Bary[J]);Bary/=Bary.X+Bary.Y+Bary.Z;
             const double Depth=FMath::Sqrt(DOuter)/(FMath::Sqrt(DOuter)+FMath::Sqrt(DInner)+1e-9);
-            FVamBreastContactParticle Particle;Particle.Rest=X;Particle.Side=Side+2;Particle.RootSupport=Depth;Particle.bKinematic=Depth>.98;
+            FVamBreastContactParticle Particle;Particle.Rest=X;Particle.Side=Side+2;Particle.SurfaceSourceVertices=F;Particle.RootSupport=Depth;Particle.bKinematic=Depth>.98;
             double Calf=0;for(int J=0;J<3;++J)if(CollisionGroup[Map[F[J]]]==Side+4)Calf+=Bary[J];Particle.CollisionGroup=Side+(Calf>.5?4:2);
             TMap<int,double> W;for(int J=0;J<3;++J){for(auto Pair:Skin[F[J]])W.FindOrAdd(Pair.Key)+=Pair.Value*Bary[J]*(1-Depth);for(auto Pair:Support[Map[F[J]]])W.FindOrAdd(Pair.Key)+=Pair.Value*Bary[J]*Depth;}
             TArray<int> Keys;W.GetKeys(Keys);Keys.Sort();double Sum=0;for(int K:Keys)Sum+=W[K];if(Sum<=0)return TEXT("Lower contact lost attachment support");
@@ -116,7 +116,7 @@ FString UVamLowerBodyContactBuilder::Append(UVamCharacterDefinition* Definition,
             for(int I=0;I<Points.Num();++I){const auto F=SourceFaces[ClosestFaces[I]];const auto W=Coordinates[I];M->ParticleDeltas[Base+I]=(Morph.Deltas[F.X]*W.X+Morph.Deltas[F.Y]*W.Y+Morph.Deltas[F.Z]*W.Z)*(M->bPoseCorrective?1-P->Particles[Base+I].RootSupport:1);}}
         UE_LOG(LogTemp,Display,TEXT("LOWER_CONTACT side=%d particles=%d tets=%d volume_cm3=%g source_faces=%d"),Side,Points.Num(),Cells.Num(),Volume,SourceFaces.Num());
     }
-    P->bResidualOnlySurface=true;P->BuildAlgorithmVersion+=TEXT("-lower-connected-ftetwild-v4-pose-target-support");
+    P->bResidualOnlySurface=true;P->BuildAlgorithmVersion+=TEXT("-lower-connected-ftetwild-v6-source-contact-adjacency");
     P->RegionProvenance+=TEXT("; lower body: Glute/Leg continuous source support union; source surface shell closed onto skeleton-supported inner envelope; inner radial fraction .45 is an engineering proxy, not segmented anatomy; UE fTetWild edge=.10 eps=.0005");
     Error=P->ValidateData();if(!Error.IsEmpty())return Error;
     Profile->SchemaVersion=P->SchemaVersion;Profile->RegionNames=P->RegionNames;Profile->Particles=MoveTemp(P->Particles);Profile->Tetrahedra=MoveTemp(P->Tetrahedra);Profile->BoundaryTriangles=MoveTemp(P->BoundaryTriangles);Profile->Morphs=MoveTemp(P->Morphs);Profile->EffectiveVolumeCm3=P->EffectiveVolumeCm3;

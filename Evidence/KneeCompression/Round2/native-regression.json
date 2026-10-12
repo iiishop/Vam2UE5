@@ -1,0 +1,122 @@
+[
+  {
+    "pose": "knee-120-soft",
+    "stages": {
+      "00-source-lbs": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "01-final-weights": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "02-static-helpers": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "03-corrective": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "04-jiggle": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      }
+    }
+  },
+  {
+    "pose": "knee-60-soft",
+    "stages": {
+      "00-source-lbs": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "01-final-weights": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "02-static-helpers": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "03-corrective": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "04-jiggle": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      }
+    }
+  },
+  {
+    "pose": "standing-soft",
+    "stages": {
+      "00-source-lbs": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "01-final-weights": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "02-static-helpers": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "03-corrective": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "04-jiggle": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      }
+    }
+  },
+  {
+    "pose": "suspended-seat-soft",
+    "stages": {
+      "00-source-lbs": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "01-final-weights": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "02-static-helpers": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "03-corrective": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "04-jiggle": {
+        "matrix_max": 0.0,
+        "rms_cm": 0.0,
+        "max_cm": 0.0
+      }
+    }
+  }
+]

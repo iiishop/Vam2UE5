@@ -1,0 +1,546 @@
+[
+  {
+    "cell": 22125,
+    "region": 3,
+    "particles": [
+      6077,
+      6248,
+      5887,
+      7783
+    ],
+    "canonical_center": [
+      0.25783760861483107,
+      9.041515912767892,
+      10.834955191353743
+    ],
+    "kinematic_count": 1,
+    "collision_groups": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.11365163606496981,
+    "01-final-weights-bones-only": -0.03907995991006873,
+    "02-static-helpers-bones-only": -0.03907995991006873,
+    "03-corrective-bones-only": -0.03907995991006873,
+    "04-jiggle-bones-only": -0.03907995991006873,
+    "runtime-with-morph": -0.03908005615153281
+  },
+  {
+    "cell": 20102,
+    "region": 3,
+    "particles": [
+      7042,
+      7145,
+      5402,
+      5569
+    ],
+    "canonical_center": [
+      -2.210638686609029,
+      5.517753679273481,
+      54.63862544605144
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.2256932618410464,
+    "01-final-weights-bones-only": -0.01959168945923755,
+    "02-static-helpers-bones-only": -0.01959168945923755,
+    "03-corrective-bones-only": -0.01959168945923755,
+    "04-jiggle-bones-only": -0.01959168945923755,
+    "runtime-with-morph": 0.00949293080684313
+  },
+  {
+    "cell": 16742,
+    "region": 3,
+    "particles": [
+      5564,
+      5584,
+      5550,
+      7298
+    ],
+    "canonical_center": [
+      -2.674721312230941,
+      9.224820571347617,
+      54.97773170718441
+    ],
+    "kinematic_count": 3,
+    "collision_groups": [
+      5,
+      3,
+      5,
+      5
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.10586513116659929,
+    "01-final-weights-bones-only": -0.013803283630737219,
+    "02-static-helpers-bones-only": -0.013803283630737219,
+    "03-corrective-bones-only": -0.013803283630737219,
+    "04-jiggle-bones-only": -0.013803283630737219,
+    "runtime-with-morph": 0.023457928729602073
+  },
+  {
+    "cell": 17873,
+    "region": 3,
+    "particles": [
+      5564,
+      5593,
+      5584,
+      7298
+    ],
+    "canonical_center": [
+      -2.5932864512975398,
+      9.111503710637425,
+      55.6322474432056
+    ],
+    "kinematic_count": 3,
+    "collision_groups": [
+      5,
+      3,
+      3,
+      5
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.20343837843761992,
+    "01-final-weights-bones-only": -0.01185209913162442,
+    "02-static-helpers-bones-only": -0.01185209913162442,
+    "03-corrective-bones-only": -0.01185209913162442,
+    "04-jiggle-bones-only": -0.01185209913162442,
+    "runtime-with-morph": 0.027960178629917776
+  },
+  {
+    "cell": 6952,
+    "region": 2,
+    "particles": [
+      1179,
+      1204,
+      3043,
+      1178
+    ],
+    "canonical_center": [
+      -5.128285521241604,
+      -8.186081913515192,
+      53.24371160505713
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.23089925199528402,
+    "01-final-weights-bones-only": -0.019490656396902308,
+    "02-static-helpers-bones-only": -0.019490656396902308,
+    "03-corrective-bones-only": -0.019490656396902308,
+    "04-jiggle-bones-only": -0.019490656396902308,
+    "runtime-with-morph": 0.07806738757137564
+  },
+  {
+    "cell": 7728,
+    "region": 2,
+    "particles": [
+      1204,
+      1241,
+      3043,
+      1178
+    ],
+    "canonical_center": [
+      -4.962325571796149,
+      -7.803438931124158,
+      53.02367700082681
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.2624775164136354,
+    "01-final-weights-bones-only": -0.016342807629491436,
+    "02-static-helpers-bones-only": -0.016342807629491436,
+    "03-corrective-bones-only": -0.016342807629491436,
+    "04-jiggle-bones-only": -0.016342807629491436,
+    "runtime-with-morph": 0.09124996988354879
+  },
+  {
+    "cell": 15185,
+    "region": 2,
+    "particles": [
+      3076,
+      1134,
+      1106,
+      1151
+    ],
+    "canonical_center": [
+      -5.764022891255261,
+      -10.438651160364763,
+      52.09505081191852
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.3014558791507997,
+    "01-final-weights-bones-only": -0.0020136756871393,
+    "02-static-helpers-bones-only": -0.0020136756871393,
+    "03-corrective-bones-only": -0.0020136756871393,
+    "04-jiggle-bones-only": -0.0020136756871393,
+    "runtime-with-morph": 0.10950556741656436
+  },
+  {
+    "cell": 8240,
+    "region": 2,
+    "particles": [
+      1241,
+      3043,
+      1261,
+      1204
+    ],
+    "canonical_center": [
+      -4.728499022662218,
+      -7.655080657017057,
+      53.50450262400332
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.2946281832171786,
+    "01-final-weights-bones-only": -0.00635385555808816,
+    "02-static-helpers-bones-only": -0.00635385555808816,
+    "03-corrective-bones-only": -0.00635385555808816,
+    "04-jiggle-bones-only": -0.00635385555808816,
+    "runtime-with-morph": 0.11294793649240363
+  },
+  {
+    "cell": 20062,
+    "region": 3,
+    "particles": [
+      5062,
+      7298,
+      5090,
+      5038
+    ],
+    "canonical_center": [
+      -4.85900965832003,
+      7.849795754607042,
+      53.40946516216025
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.3001232498677018,
+    "01-final-weights-bones-only": -0.003770470949729691,
+    "02-static-helpers-bones-only": -0.003770470949729691,
+    "03-corrective-bones-only": -0.003770470949729691,
+    "04-jiggle-bones-only": -0.003770470949729691,
+    "runtime-with-morph": 0.13379058268939847
+  },
+  {
+    "cell": 4833,
+    "region": 2,
+    "particles": [
+      3076,
+      1134,
+      1118,
+      1106
+    ],
+    "canonical_center": [
+      -5.944519343918297,
+      -10.096718209818595,
+      51.72327775524481
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.3783370950878863,
+    "01-final-weights-bones-only": -0.0031821794101902176,
+    "02-static-helpers-bones-only": -0.0031821794101902176,
+    "03-corrective-bones-only": -0.0031821794101902176,
+    "04-jiggle-bones-only": -0.0031821794101902176,
+    "runtime-with-morph": 0.14018594531066944
+  },
+  {
+    "cell": 19311,
+    "region": 3,
+    "particles": [
+      5027,
+      7298,
+      5039,
+      5005
+    ],
+    "canonical_center": [
+      -5.251118719012826,
+      8.781685508906627,
+      53.53640604253717
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.3216127451617033,
+    "01-final-weights-bones-only": -0.00375057816463087,
+    "02-static-helpers-bones-only": -0.00375057816463087,
+    "03-corrective-bones-only": -0.00375057816463087,
+    "04-jiggle-bones-only": -0.00375057816463087,
+    "runtime-with-morph": 0.15178271449889505
+  },
+  {
+    "cell": 18663,
+    "region": 3,
+    "particles": [
+      5039,
+      7298,
+      5038,
+      5005
+    ],
+    "canonical_center": [
+      -5.200335360952429,
+      8.40384126494318,
+      53.258631094339535
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.4015540971440317,
+    "01-final-weights-bones-only": -0.0222938905976531,
+    "02-static-helpers-bones-only": -0.0222938905976531,
+    "03-corrective-bones-only": -0.0222938905976531,
+    "04-jiggle-bones-only": -0.0222938905976531,
+    "runtime-with-morph": 0.1731852528723663
+  },
+  {
+    "cell": 19189,
+    "region": 3,
+    "particles": [
+      5038,
+      5062,
+      7298,
+      5039
+    ],
+    "canonical_center": [
+      -4.98361586126282,
+      8.231956264195482,
+      53.72065985983811
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.4372784493826156,
+    "01-final-weights-bones-only": -0.014305672129741378,
+    "02-static-helpers-bones-only": -0.014305672129741378,
+    "03-corrective-bones-only": -0.014305672129741378,
+    "04-jiggle-bones-only": -0.014305672129741378,
+    "runtime-with-morph": 0.19380254313346076
+  },
+  {
+    "cell": 7487,
+    "region": 2,
+    "particles": [
+      1165,
+      3043,
+      1166,
+      3076
+    ],
+    "canonical_center": [
+      -5.044954530131773,
+      -9.489971436873446,
+      53.19186031936061
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.533460427276217,
+    "01-final-weights-bones-only": -0.0011895733198315891,
+    "02-static-helpers-bones-only": -0.0011895733198315891,
+    "03-corrective-bones-only": -0.0011895733198315891,
+    "04-jiggle-bones-only": -0.0011895733198315891,
+    "runtime-with-morph": 0.21771522127817397
+  },
+  {
+    "cell": 6951,
+    "region": 2,
+    "particles": [
+      1178,
+      3043,
+      1179,
+      3076
+    ],
+    "canonical_center": [
+      -4.989502044903838,
+      -8.660979247155955,
+      52.79267755111566
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 0.7977785518553006,
+    "01-final-weights-bones-only": -0.006188992965997041,
+    "02-static-helpers-bones-only": -0.006188992965997041,
+    "03-corrective-bones-only": -0.006188992965997041,
+    "04-jiggle-bones-only": -0.006188992965997041,
+    "runtime-with-morph": 0.35003245521054854
+  },
+  {
+    "cell": 11704,
+    "region": 2,
+    "particles": [
+      1372,
+      3692,
+      2972,
+      3076
+    ],
+    "canonical_center": [
+      -4.079770614169529,
+      -11.66462941722304,
+      51.727862784849684
+    ],
+    "kinematic_count": 0,
+    "collision_groups": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "root_support": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "canonical": 1.4687949116637629,
+    "01-final-weights-bones-only": -0.0031144238360739282,
+    "02-static-helpers-bones-only": -0.0031144238360739282,
+    "03-corrective-bones-only": -0.0031144238360739282,
+    "04-jiggle-bones-only": -0.0031144238360739282,
+    "runtime-with-morph": 0.6487775230537071
+  }
+]

@@ -1,0 +1,1598 @@
+[
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\baseline-cells\\knee-120-soft-cells.json",
+    "sha256": "64909ddc90f96f6bd1958395c300d0f6cbbfddf412d88982f3dfad3ddbebe7cd",
+    "cells": 577
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\baseline-cells\\knee-60-soft-cells.json",
+    "sha256": "1e8bbf4077555dcb27e302a8f90a92f460dd3f915b6149d3be761156cb790b25",
+    "cells": 16
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\baseline-cells\\standing-soft-cells.json",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "cells": 0
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\baseline-cells\\suspended-seat-soft-cells.json",
+    "sha256": "61a6a566b036d7699b9f3e2ef011ed9e79d5e79ca2abbcbaa47f19570c6cacd6",
+    "cells": 2131
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\candidate-5-cells\\knee-120-soft-cells.json",
+    "sha256": "66e535d5543c4339f06458a5bb3b77f42cc32b5f41446f523a95457dcd2ef080",
+    "cells": 581
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\candidate-5-cells\\knee-60-soft-cells.json",
+    "sha256": "97723560020552e81df1536ff51e5c5847e2ddf97697b4bd551247e472e0ddf0",
+    "cells": 20
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\candidate-5-cells\\standing-soft-cells.json",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "cells": 0
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\candidate-5-cells\\suspended-seat-soft-cells.json",
+    "sha256": "7ec70ee45d04fe7fa03e26b8b1194846d52c031a1d8159d331a0e803039d4c59",
+    "cells": 2131
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\candidate-6-cells\\knee-120-soft-cells.json",
+    "sha256": "9b78c29c0becd03aa27928b92012f25d43f54845b02371854ed328ee3d188985",
+    "cells": 577
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\candidate-6-cells\\knee-60-soft-cells.json",
+    "sha256": "6454c5cce87f86eedae47810c4f67a0f09f5837ca7e0a1a049d470123f5250bf",
+    "cells": 16
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\candidate-6-cells\\standing-soft-cells.json",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "cells": 0
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\round-2\\candidate-6-cells\\suspended-seat-soft-cells.json",
+    "sha256": "7ec70ee45d04fe7fa03e26b8b1194846d52c031a1d8159d331a0e803039d4c59",
+    "cells": 2131
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\front-base-color.png",
+    "sha256": "c7ec27bae8e9e6e96c36d503e0d2f88812ac490c54fc4c586760076b9fcd731a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\front-gray.png",
+    "sha256": "ea324ddff78cb5c87fbbb38146794afaf34bd15edfe7cdde34578e7285900ff4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\front-material.png",
+    "sha256": "2a72fe9954cab5521777fc8cface07968c120f2082008b2fd8247cf01d26c75c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\front-section-boundary.png",
+    "sha256": "796979a07aebab8ba4936dc3b8c313e13cc9530e91516a9c20320968ae084024"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\front-silhouette.png",
+    "sha256": "49006da407d66b7c55df1030efeb2fff93f82ac3571f3a4bb4790ff27a1170e8"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\front-unlit.png",
+    "sha256": "97858ae568097a734c086eb2f7bb4c6313cabe84f82b0b58e828d3e3382a0029"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\front-wireframe.png",
+    "sha256": "90fe4cad2d4c8b96f3d38fa1a18b2d5c62e59a238717156ac46655fdd0487f9b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\front-world-normal.png",
+    "sha256": "8ee79092dd3dcd76e1732d9a2a7b93f65f7d3cf76d6ab0ead49ddb7ef7a09588"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\oblique-base-color.png",
+    "sha256": "41d088de9e981b6b5af595dff1c6851691ee37be9e7f081755ed70b599eb1d1d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\oblique-gray.png",
+    "sha256": "d5d608e66e2ae814f94d816a7e7eaf9a850f15817b7785b46c98e3d25470f32f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\oblique-material.png",
+    "sha256": "0d2cecc4248e010354b427adf9769da726f462035259f56c9af36337240f641d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\oblique-section-boundary.png",
+    "sha256": "e50d450aad482564dc1355c7ca3953380cc754440db731119c814366167fdf2d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\oblique-silhouette.png",
+    "sha256": "1eacd7c68588b31897a26b68197a6272d9d390412a55e0207b45271318ff938c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\oblique-unlit.png",
+    "sha256": "0e532b8ad94c85c9cb91e9a8361a9a0868bc5352ec11a982e3672d7668a50fd4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\oblique-wireframe.png",
+    "sha256": "7251916f76606d31410baaae2439ce6b93257964f15b255dd621f7ab2671040f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\oblique-world-normal.png",
+    "sha256": "2c3218a3332f7efa30979b114afdb45d3c8bea69082fec78975d599db7c3a4ec"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\rear-base-color.png",
+    "sha256": "4c7de0b17f29182acb4e420d87fa758a3eedbec64295596e955cbfe8d7e1858a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\rear-gray.png",
+    "sha256": "f26b8ed610af60052602d7ba9b0d3c8ef0b35f0290f824a96bf70c2feb42d2e4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\rear-material.png",
+    "sha256": "2c74eff7abf4e587a15362748645bec1e50e7e045db94ecf50c3bd61a190c365"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\rear-section-boundary.png",
+    "sha256": "cf74e9e733278bdf630aa64baf3428ab9e27cb0d06648452f9cf2a8692939347"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\rear-silhouette.png",
+    "sha256": "9c9f1f1cfa96aa2282776cd1cd0cf761f384db4f3c6dd44f1be67b10b3685411"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\rear-unlit.png",
+    "sha256": "3ac5da1bafea42704c0e721082ff9b5cb43ef76a64a5f16a563414bd25130443"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\rear-wireframe.png",
+    "sha256": "26590befcede6bd6331ea01aed447c149316f2fd8a2454933a9528d5e6e40618"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\rear-world-normal.png",
+    "sha256": "464524c02cd1c4d580cfdf58a970184545aee379afcc7062c865669d5b6a507f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\side-base-color.png",
+    "sha256": "6c3c2f279f71050326766ae6a75a4b7955726b8ee99c4981f7dd59cc583644fc"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\side-gray.png",
+    "sha256": "ebbb91d3eeb5fca04aed94b6cc21c9162dff6963d64a5eecde90b4b3f5a2e822"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\side-material.png",
+    "sha256": "c1adafe972869b10a05a85c71876764f53d8015b063e7eb6829655fe3bf9bc82"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\side-section-boundary.png",
+    "sha256": "d8a4f17388051aa60fa2cafc47e5e7dbed3f7dee35ff80672b7f318618576000"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\side-silhouette.png",
+    "sha256": "689a1f562ff224292be0c1e7e4fbec51d001b244553f2111db24df30acc59e13"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\side-unlit.png",
+    "sha256": "07bdbde664be169cb27ae36a3136f6be7cadeb553d8501992b160ee16d2fc56e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\side-wireframe.png",
+    "sha256": "e731469b6273c0da4e5210e328404af2850a0f8a39f12a487a6e80f560406fae"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-120-soft\\side-world-normal.png",
+    "sha256": "ef18222eef3909e9ee0836d4cf9d24bcfa0977710ce41cd457cd2a87395d8126"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\front-base-color.png",
+    "sha256": "358213cde99ff9a2ccbcc27145e82d419414008a7bb9a3cf723d6a325ba1e3cd"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\front-gray.png",
+    "sha256": "8b55860923b272d9a026c56968bf99ca409d47ea28b4dbd420038c17bbc40815"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\front-material.png",
+    "sha256": "2196e048d03f6d2f3a3f5fc9fcc7ddff3f5824fb17cd9acee6f13d9f78d2d170"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\front-section-boundary.png",
+    "sha256": "f9e650ff1a433779672ee526072e197b150f8ca970e659d269e1f9ce0218828d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\front-silhouette.png",
+    "sha256": "7037df69eb829aa68a756218e1b0e9dbfa6b4397b20a5023b93f0007f1688166"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\front-unlit.png",
+    "sha256": "535787fe48f4327865c102a7fb18c70c0099a30a09d46d771e8d8ff235f33d6c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\front-wireframe.png",
+    "sha256": "df4db418b903cb37051d43c7bcca9ba0609b67ecc6d2892b6c1849791e82b106"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\front-world-normal.png",
+    "sha256": "be9d90d903931114f700549950e0affff92a1e94c55c1b064561cb285fcfcf9e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\oblique-base-color.png",
+    "sha256": "41f8dc3324522fba1a28edf1c16f849bf3e7b3ee88a3e1d052e0e74bc9def5d1"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\oblique-gray.png",
+    "sha256": "6546a752f88b3914ed63ba5e9130e87f7126fbff9ce0cce27f5ff758241b7611"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\oblique-material.png",
+    "sha256": "7afaa3577b146e4251dc231817a8a155ad61a49d19f2ca3a263cec76b54b43c4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\oblique-section-boundary.png",
+    "sha256": "a14bf052540345f6e8db5276e248c790aef60d4ed4b5cb7f8626472be76da2cc"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\oblique-silhouette.png",
+    "sha256": "54b11e7049854bcaca299cc47e6df2c4eba9023ab31c8a0cd14672438deed173"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\oblique-unlit.png",
+    "sha256": "23dfb47d5b3da173a8ee112dde52b0af55da3d276cfe8d9c0a53c856b4aed2db"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\oblique-wireframe.png",
+    "sha256": "c7d926ebb8fa09700497c4452d00883de38f2cb337e9a4a63a56a62c2f56f576"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\oblique-world-normal.png",
+    "sha256": "a9ac77f2d5b1978740216990de0ec7cfd6f55864474f7bc25a97da7258968968"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\rear-base-color.png",
+    "sha256": "27103411a6dc8363564ce289eab676c9983de6d78492a7caa1bb483ef99367f9"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\rear-gray.png",
+    "sha256": "2627fc02681cfb75d8fbf3485ac8bd0a08d4794fca3674a0ea670f9889fc4987"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\rear-material.png",
+    "sha256": "594d1b79e807a1a738e0f41eca22154d7fdb9e04d1ca1c4888b2b31cc94794b5"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\rear-section-boundary.png",
+    "sha256": "20b8e5ad81c9eb59d720a9705f230d31e9fc6bfcd9666db54f6bd93ad7166c2f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\rear-silhouette.png",
+    "sha256": "a305a52958e4d2db8dd9d894017a057f2c988a9d76d09e891473be1f4f1b01f6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\rear-unlit.png",
+    "sha256": "3003ae4e6618c27eadb59a521843ca8fbc336564fac1a19878747c673e29259f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\rear-wireframe.png",
+    "sha256": "84862223327b400b565f7bcbcf6c5160bfa761738d12bcc8f794eb6df86748c8"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\rear-world-normal.png",
+    "sha256": "a9f1ae104c9bcb29bdb6a300c0a578fd0df9509aebf59fdb4933af369faa465a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\side-base-color.png",
+    "sha256": "77f4fdf8b65b1b80ddd840fd51682e643fef454528395447a70d9fd631af4dd4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\side-gray.png",
+    "sha256": "86133606f5607a000c5d0960a14a1d3b7ddb47627801ebbcaf43ab35930999e0"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\side-material.png",
+    "sha256": "91be4a28d342da59f7c6b325086cf0be3e8f6e4e8ee76d724dd1091bb2bd3a6b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\side-section-boundary.png",
+    "sha256": "f10290880ca9e828a5875c954e4a5501fe21eb23200d82232820885a94760bd5"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\side-silhouette.png",
+    "sha256": "9fb81aebae07a1241a88303b48a107f0371255cc1a6dc2d23266b025460dd85b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\side-unlit.png",
+    "sha256": "92196d53b16eba28e0209f69534b7be555162b541f8f562eca4230df4ed2a71a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\side-wireframe.png",
+    "sha256": "6aaf60c4ba6b9bef1544d855cc95ed6558727b5ba31b13c70550fd09a1018e6a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\knee-60-soft\\side-world-normal.png",
+    "sha256": "9581a793bf44ced7959615cf5764b5629cc47539493d43416c3ae75be88ffe3a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\front-base-color.png",
+    "sha256": "35dd6b984465225dac7fb08e40619a74fc0cbac2bdf1bf0ec0ed42a07e5ca412"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\front-gray.png",
+    "sha256": "1b8390c29ab7f47b1bc25025df6c5d8da6c3e494d02f5002707aa7d4ebc1a2ed"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\front-material.png",
+    "sha256": "6dd4803408974ec14aaab9f32f7434435ea678b5c052117e346fe62a6a8af4a1"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\front-section-boundary.png",
+    "sha256": "13498e677b8a2a35584d78c01c167e098b124e6986df9d0dda77efb5b65b8053"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\front-silhouette.png",
+    "sha256": "d47e9843b6940f6dab9304dc9521d1971706f07ba8aaab29d6aada53c761d40f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\front-unlit.png",
+    "sha256": "12aeae1235bdc70368a4335e21ec48c97180d47b7a1c2bd311fac0e4a8e65009"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\front-wireframe.png",
+    "sha256": "4642171a2ec9838f178140d45002765c19342ccff63e1326e4fd9de078a857b6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\front-world-normal.png",
+    "sha256": "6e61f77146eaf66102fed0fe388a6fb912e9e7f58c818736cd00b4c08a3d146f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\oblique-base-color.png",
+    "sha256": "d103e82d2cf657ce6a460312183d57a8cfd602dfbec62b389754ef0d2e8d0f6f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\oblique-gray.png",
+    "sha256": "ee4b6e4f2a297ed65541fdb9005acbe25161048d88c0cfe660418fd521099f4c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\oblique-material.png",
+    "sha256": "9a8ae98eed8d3e34a25ce036af559524595eff9854733b1efd1ac311e23e3dd4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\oblique-section-boundary.png",
+    "sha256": "9e0aa82d34171587895aa8594687f25aaef0f9953f72a5742ae0097c1f17c587"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\oblique-silhouette.png",
+    "sha256": "99ada1b3fd44f444004c10324ae293c2fb7ab240a9e6a74601257243e8e57c9c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\oblique-unlit.png",
+    "sha256": "5f227f0df947df171efac117316600df175dca6707b1c7669e50e3b644e12d5a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\oblique-wireframe.png",
+    "sha256": "7eb2c6e3bf616681a89770a83eacf357d942922e94ec40f2d16dbd2deddd2762"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\oblique-world-normal.png",
+    "sha256": "cc4bd1a92c787002e96fd9bc041cf0fdb738c3ec5af66d2167f004d481167896"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\rear-base-color.png",
+    "sha256": "e65a8401f731f49338dc52ed8118e058153808fd4f838c8d8947eb0dbc45b287"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\rear-gray.png",
+    "sha256": "52df672bd6c8bf8d08a55b94217205b7fbfad8f445085a3e8bc17c75fc92b4bc"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\rear-material.png",
+    "sha256": "7c58a790c00191f0477c85d716f667a2321220ae4c4736846d6ca827bd40a56d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\rear-section-boundary.png",
+    "sha256": "a6393fe0281f52372d38779bc24868e084667d1304106c7197747b6fccc68dbf"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\rear-silhouette.png",
+    "sha256": "90919b2675ee7e1cf07bc1fd21a35d29026479aae8d624849d5fec5936b59b1f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\rear-unlit.png",
+    "sha256": "65255eaedd2eb9cfc2b79cbfe2b2c4825c0f3ee9d60f7d919b3f0c5f9444a78e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\rear-wireframe.png",
+    "sha256": "1a7ee03117578a3f4f891c643880c18208aaae6a209910bb5590ad41dc5222ef"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\rear-world-normal.png",
+    "sha256": "02a425741227883281eb1832d54afb66959b80fd1d1d8e7c9c7e34491ba8eeee"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\side-base-color.png",
+    "sha256": "89a411357a8fc16c3afb140596ca686df041ac50e8c9443e7c1aed58b1bac74b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\side-gray.png",
+    "sha256": "831ca95488f8174a92f0e194a60f372428f226baaddbfa429275d9b12d8f7266"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\side-material.png",
+    "sha256": "e6b7aa50eda66f4906fc8076194a76120557b9c001547f5ec1f17251e7d27096"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\side-section-boundary.png",
+    "sha256": "b7d2e61a33925210b67381afd219ab714b291488ad5a310699d4d9e2506f5314"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\side-silhouette.png",
+    "sha256": "7ba9845ad61c85c367ba023fb34234fc899146802c9a0257b2958cec509c6e4b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\side-unlit.png",
+    "sha256": "17adf8fc703cd172097b54347eda5d9811eabd251e7c821a150d987cab244131"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\side-wireframe.png",
+    "sha256": "d9b35969e1a7b3508644a9a561c5c81fa67c9b7876981c6e873c52d8510fd00e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\standing-soft\\side-world-normal.png",
+    "sha256": "a76e93de7db6477b89a112d9164933dd515ceea701391a843c8c864e9f1083a7"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\front-base-color.png",
+    "sha256": "83d3fc6d3ac17875df51cfdfbf7dfe0684e6b1783fa7bb0ba4184bcf30ef758b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\front-gray.png",
+    "sha256": "01556b7038399ea13b17babe7165630f68e48625d4a189b5095216dbbbcf6759"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\front-material.png",
+    "sha256": "79ff0b952fca56dcc400fee319fa1c87ef078da2a17bb1abbb00f93b507a1be9"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\front-section-boundary.png",
+    "sha256": "ad81ec9d17f0be72c0a11c93a10aff81e7d4df53303217f71c0228b3787aad2d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\front-silhouette.png",
+    "sha256": "65728f43fc7e370b005805e7de8cec56aaed9bcea695fbf784ac295ef00e807f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\front-unlit.png",
+    "sha256": "768c665907968ea54352e56153f3386c306a1dfcb7319fa17c99fc611e6f100f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\front-wireframe.png",
+    "sha256": "3416d333be4b930056275f593dfe9c6cfcfe057b1a82ffc6cf3b41afb28d1e95"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\front-world-normal.png",
+    "sha256": "e2a13e17a25f1ad05346bb4442764337b40be7ee0bc4422e7d65cd91bff0e08c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\oblique-base-color.png",
+    "sha256": "e17096dfd38521323e7256d49256e3e14c99188e143f22612827192ebcf91540"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\oblique-gray.png",
+    "sha256": "bf0924e39c9ac564fccfd6ef041adee8f2523cbcfeaa6ef49fbfd00837776670"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\oblique-material.png",
+    "sha256": "efc2db3af19c8c73a25b2b6e486a4176181ba4bcd9a43d109548afd38534b2a6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\oblique-section-boundary.png",
+    "sha256": "6ba905086b0ea3eefed43ef566e3d1837fa3df21ed5434e5d3c51f4e5e6c2399"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\oblique-silhouette.png",
+    "sha256": "c1216939f5cfe3f40203455ac18b1ecd23003e4b710db0380628fe4a75dc550f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\oblique-unlit.png",
+    "sha256": "77465b04514c07b54557c5f82ea94b01affcb441e96f5eae369396926adba22c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\oblique-wireframe.png",
+    "sha256": "128afe6b6be6d8ac56339661fd671f8109b0722c445290e2ab7be30aa8a1c3d2"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\oblique-world-normal.png",
+    "sha256": "d387c7284b6f66e5c6db8d0735f5144bfa26571f11184b9a0e3bcf10fa10b477"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\rear-base-color.png",
+    "sha256": "561be859f77dfc275cd938e41039c9a3c9cd74d6af444467a9228e43ba1a406d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\rear-gray.png",
+    "sha256": "f1bd0e95571260c0ebee7015977d0077055f04ff062f49cb22194c9374a20a34"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\rear-material.png",
+    "sha256": "340a159baa6d6853a8bc2935694e44e6026fb0a51c26e6f386a35db1d5038f8a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\rear-section-boundary.png",
+    "sha256": "a8d028f14392e6e9138d62b306963b012b9d574598db021dd9efd99a755238fe"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\rear-silhouette.png",
+    "sha256": "b26596c1af0f1ae5f526b968a73ea721fac6ec30e19c6512c9303d1295b76c05"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\rear-unlit.png",
+    "sha256": "605ef37d8e10b531ebdef9f9ce40bacc680296d179204ffcff2643db24197905"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\rear-wireframe.png",
+    "sha256": "f5340e2b1c0b1f92770941a3283423542b04663e38c9400e86bec3d3297fa34c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\rear-world-normal.png",
+    "sha256": "d39810fece86696c249224136a011a1d6afa1b9acd852c4f64b3ef24f86b08a8"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\side-base-color.png",
+    "sha256": "79e6d1c09685d3159427dc40855c0597e75d83cb4fb793a742ab7ab5ecbd6986"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\side-gray.png",
+    "sha256": "ab63303c74b9dff4f50e61d9c3f6d0609e4b9efeda98e51ecf7708d6b56fb0eb"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\side-material.png",
+    "sha256": "d37e6b06ee1c5c845307d81de57686fb157c94ba580909beaf12b7c1b225c737"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\side-section-boundary.png",
+    "sha256": "65e4feb7020723b8f88b73231e1b7a19aec70a1c5237f618f722048846a5a4f4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\side-silhouette.png",
+    "sha256": "59a5be77df9e5884918cbd5f4720a97d64b9f5ac6f3356446c3428287aee1851"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\side-unlit.png",
+    "sha256": "50cfa1d22c61549cff8a4ab2c005352d6ca49e1a684bce588c0ac5e8606e2470"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\side-wireframe.png",
+    "sha256": "81c49e29b78e396de260e3f5a7df0537235e4073b757e7e60a162ecb1ee71fa8"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-5\\pie-soft\\suspended-seat-soft\\side-world-normal.png",
+    "sha256": "eb2899a18bdb4b1aaddb525e3a75f6f7e76479a1c5f7b5b289ba8c25e2d1d623"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\front-base-color.png",
+    "sha256": "086e27db53716e9eb77c6301b0da051e4f9604a0e90950306f42c1d256a42802"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\front-gray.png",
+    "sha256": "e4a7f34486065a750392408c8baf57e59d4728dc6c5def2a89bd1a6e8556167a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\front-material.png",
+    "sha256": "96fd5762412e06358600500ecea1c3768b656828222b40c9c52f70d4b71a12cf"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\front-section-boundary.png",
+    "sha256": "b8a1a1da40eb005934e401b9adf350381b8bdef3cdb50be95248f5967d21a5ff"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\front-silhouette.png",
+    "sha256": "94645796fe77d11674ce5a3ff7eed581dc8a01006be332abbd4e4080ae997f82"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\front-unlit.png",
+    "sha256": "4d488427b3eb8948ba7883f1f291c53e85b1afe65da7c34d2530bb7c38491bf7"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\front-wireframe.png",
+    "sha256": "70276e8d0c083a0db805bfae85c3f4671568fc9158865b529694a6a8d224cb9b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\front-world-normal.png",
+    "sha256": "e0be16b2bf40c07f7671a9ac1882e786cdab0a697b55fcd01a53ecc3396f55aa"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\oblique-base-color.png",
+    "sha256": "524d40dccfaea8c2189b80f056b38808c91a3b8e774f97cee1eb35d0fb4c64e6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\oblique-gray.png",
+    "sha256": "b289443157f6a009cd59913b70cd5f78dfab6e5212ad8c23d4a0e1f70651a099"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\oblique-material.png",
+    "sha256": "23bc578177f09cbb09218750259ab3984ca6836891e9d480db284771452853bb"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\oblique-section-boundary.png",
+    "sha256": "94302e6a4333fbf15a1789c755e581c2db371218723c48effeb59cad42f370f0"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\oblique-silhouette.png",
+    "sha256": "1c14bc46b7c4a8c49b2392a408664d65c9855295739fa5095bfcf94faa2444f5"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\oblique-unlit.png",
+    "sha256": "df2d665efb37717e74c39232c5e10b2ba6f826337b54186d462e067111aec82c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\oblique-wireframe.png",
+    "sha256": "b53fee2158fafd9708b3de215d5fa352249dfb634becf8e9b85ae85aa55d3385"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\oblique-world-normal.png",
+    "sha256": "4e91b14313adf1a74c42fa152c93a01f2a0031f5e4352895a4eea34020d0033f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\rear-base-color.png",
+    "sha256": "26c0abed6bfbc5e1220d16708e4e7b94af1dd1f2d529c732775f9486203706d3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\rear-gray.png",
+    "sha256": "02db0c0ec4d5f2a07ccff0ba194e8e91305576dba44e01f4496f3fa5f79db1ec"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\rear-material.png",
+    "sha256": "27b7dd6f95d2766b8b1b0a290fed0f68388b3ebef1d3acc5e56560d59f1119c6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\rear-section-boundary.png",
+    "sha256": "efd09cf06afe0a21d3d2eb9c8011c16099c29135a8202260e33649e4ab4f5a04"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\rear-silhouette.png",
+    "sha256": "4d005c06a2921954592bd53a1d4b791d20967dd006227f8ccd099c7196349323"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\rear-unlit.png",
+    "sha256": "c8bcc8c6e4b849e6e3743f4c9b60f034216c92b682f774ce3971838567b90829"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\rear-wireframe.png",
+    "sha256": "99d6ad53b169766bb34875c71de59a391a25129852153913d71d33ba65fe858e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\rear-world-normal.png",
+    "sha256": "3822fe59e7e21afe32b3feb58388f2c04170bc8baf4dd51d4bb5e2128ea40fc8"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\side-base-color.png",
+    "sha256": "ea5284ce63507d569f91470b7d01e9f79898716abd11f7b5d33093ff948073ce"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\side-gray.png",
+    "sha256": "04ee300dffe6cacc419d3a3455c918af7b38a9c41218cd2e816c10c85ccefdf7"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\side-material.png",
+    "sha256": "12cb7fd0df99cffdd8b404ee459a7f576e05636ec61464fec6458a6283d538fd"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\side-section-boundary.png",
+    "sha256": "e329170c2cf27ee8916d9581041c3c4771b106070278eafe9b718954c4a8bf06"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\side-silhouette.png",
+    "sha256": "5b7487d1c7c223306195e00586dc6423d3604bac4382dca297c32549fbf98752"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\side-unlit.png",
+    "sha256": "f7cb66766d1b3fd95c179d0de276b19f93635960717c3d71cf74f84f7f6980bf"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\side-wireframe.png",
+    "sha256": "95fa5fd7e9390136d8afd9d04d594b55cfa6b1de4221a366672d60dc213e0c23"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-120-soft\\side-world-normal.png",
+    "sha256": "e6dcfb41ff35daf933c7576c9fb590f9d359748e0b3ba17c333c59e77292e05e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\front-base-color.png",
+    "sha256": "1aac40ded114cf568aff8b3b23388b182b4e4e2353cccdae373145655728a048"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\front-gray.png",
+    "sha256": "e29c9c7b17e939b9f5a74a23cabd762b116e234adca9efb1db397fd45ad73874"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\front-material.png",
+    "sha256": "94f40beebebf18171e711c7aa8f5139628d7e2f9a2b8493b5ba0e072b40d3199"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\front-section-boundary.png",
+    "sha256": "fc615e533cf7b68c0a255cff458491f48b9be4afa107aa579a32c40ac9bc8197"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\front-silhouette.png",
+    "sha256": "9801679697443743fd38be173564ab0c3bccab370a16e73ae34d726b0b3614db"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\front-unlit.png",
+    "sha256": "1733802e2db6bb0070a508342edf7529cd926580a896e3ba53cce1924f9cf9e3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\front-wireframe.png",
+    "sha256": "041de7d0220d043a502bd0915d79cc3e939096f1b172ec3d07e6fd0a59f50b95"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\front-world-normal.png",
+    "sha256": "c10ece97ebce37a82531f0d102f5118753711348ed4bd03bb4ae02b29531699b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\oblique-base-color.png",
+    "sha256": "1727c74c3e36352c20b81620e9350e2f1eddad9d00e2dd0ceae7a35f752a186e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\oblique-gray.png",
+    "sha256": "b612afc218b47c82fe69497923c7ef05762636c28720f2f1b85a231c39ce8e17"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\oblique-material.png",
+    "sha256": "cc0c9cd91d2b762fa055363ef07985ca07cf5a167f497949c343d95f5fe62658"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\oblique-section-boundary.png",
+    "sha256": "741c817951edddcab4fb6c6a92cb717abcd3d04a8664307a6c8e7178367db283"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\oblique-silhouette.png",
+    "sha256": "43100fba8d480386d49259179b3a098d988fd5d6db0f910f1233936a00bcfcef"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\oblique-unlit.png",
+    "sha256": "997af83fa5a4bf7d6bce597fe629350d15baaa26fac62cd882dfbe6e48b7f33d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\oblique-wireframe.png",
+    "sha256": "1cddf1c29b4e988ea6570dd174f695c23af6305eeb86503948d66f8fded451a5"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\oblique-world-normal.png",
+    "sha256": "413415de666bff208014cc1aa3f9ac22f63c878674bed620ccb92df37672f4c4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\rear-base-color.png",
+    "sha256": "5b6d84eaa1458ad3429314982102a07984685a47ee5c79adfdbf98e6a7e40c23"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\rear-gray.png",
+    "sha256": "4115ecf695ee1ba2071e87753672a5caf9850005db6d5e1403b2277361f12737"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\rear-material.png",
+    "sha256": "9bc948898190c4bed2e447d9ea7666336170f4be95d2bc6d4259eedb6dcd5e15"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\rear-section-boundary.png",
+    "sha256": "edec2119f3a00635faee23c483d55669f7cfae586dff3713e7c7107be1eecef9"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\rear-silhouette.png",
+    "sha256": "120d7a4c59ec9e28df3ef514af5d6c938e6dbcd99f8d44e28da057e063d2c247"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\rear-unlit.png",
+    "sha256": "9c3ef8f1ccff919400837d5c8b5baab5be8b1b428d8ba5e50b9547a77d3a9f4e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\rear-wireframe.png",
+    "sha256": "7ced2568190562cc91c066ee22f5a3a9587e577b008c9dea33ddbde44d06edbd"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\rear-world-normal.png",
+    "sha256": "938b95b1afbecb1548d9cc7431e2fdad50dcb5628e583df3b6939b3a32e7be75"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\side-base-color.png",
+    "sha256": "f8711ea2a66cc616589f6fe67608e51fe963ddceac2bc2ea74102f064a38e015"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\side-gray.png",
+    "sha256": "e754c7cc2f3593e422f1dfc12098ee9665b2dbe96fc782e78792dc3b298a6e34"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\side-material.png",
+    "sha256": "2da5ac4feb4ee90e1888075697b207fd352cef17fbf86900e5bd610bac12207e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\side-section-boundary.png",
+    "sha256": "a73d85f60de2963906cdf68bf8acd9bbfac8631dfb89617f55b3409a5ef18bd1"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\side-silhouette.png",
+    "sha256": "fb12ad60866de2351b9d58b76ef1859a9b2315358cca8eac4d5eea072fd6a550"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\side-unlit.png",
+    "sha256": "ad5a49e7756a65c0bc06bb6c7c9d0deb308db0b0d56cde183a9a9a72e14d001c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\side-wireframe.png",
+    "sha256": "c3abdfbd13864740422c4179eb4dde44af3d22e397dd3ba102eb2be44d69e7e1"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\knee-60-soft\\side-world-normal.png",
+    "sha256": "20018d0725cf0b0d22c250173e179d0041193d6fb2fc91924edce7028452aa7f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\front-base-color.png",
+    "sha256": "b0286e86d3d3682df2faa1082829d4df8de2d8f15973bc6147edc8e8263a760a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\front-gray.png",
+    "sha256": "184a68a942d8f7e395e7854a1b75917bcde4c2e2bcd9a881abbd96f66f868212"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\front-material.png",
+    "sha256": "d2f8998c6e5b9318539230451b6c12a3e7cd5277148d9f28c7f7a92c7fbbcfc1"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\front-section-boundary.png",
+    "sha256": "f5f9fc6eb3243adc871734c14c73c260b0c4c1e3e3638b3a5c8bbba24bbe0100"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\front-silhouette.png",
+    "sha256": "b6f787437208abd92b6d60d4149429c05a509b8daedd3f65bc352153c8ffaed3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\front-unlit.png",
+    "sha256": "e194398cf9dc8208b782042e57ebd4be83e077aa404bdc71cf1be002850e6cee"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\front-wireframe.png",
+    "sha256": "7bfdd1381188be4729a823016a1d32ce4e30e4fcbb8da51d92dcf2edb441268e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\front-world-normal.png",
+    "sha256": "f182184470f43ecbb1846576c14c467abd6bf29c8793fe6cec48e8a329ba1b1f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\oblique-base-color.png",
+    "sha256": "9e9b264c2cfa14f474d4d4fc70ab19efbfb85db403ee7bfe059d3c1d650e66e8"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\oblique-gray.png",
+    "sha256": "8fd8584937ef0ce4b59097a0388789be2e697df4a9f21e2f9d23f90ac7625c63"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\oblique-material.png",
+    "sha256": "73cb55316c0f069d66c3c066c0a3db74d15ccb82c6d43cbe4b15ea3b126d473a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\oblique-section-boundary.png",
+    "sha256": "e5c14606b69fc942164105291cdb7f846b3a00386e3b2d054a50f8203c2af555"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\oblique-silhouette.png",
+    "sha256": "666aba9c4e41e52b6c6c7c95d8c47257b5037de30b33068d8bc7225042e0e7b7"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\oblique-unlit.png",
+    "sha256": "dd6283ac32a9a405c16421cfc6ee90dc7c903e02897a3d30833ffabe54bc610b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\oblique-wireframe.png",
+    "sha256": "ce0ec879c358acc12f32611a5d72be0be2aadb9dcec3e4757154495f2dcb4c75"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\oblique-world-normal.png",
+    "sha256": "06291af2de5dcea74d4efa4a3485b0436dbb72f1b9533ad2a338df0d877c3f86"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\rear-base-color.png",
+    "sha256": "26650348cd889bd15cc95012d7762957942e7f5cdec48375076c2ddf8e662e72"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\rear-gray.png",
+    "sha256": "141bfef7a9bf2c32ede90b6ca95484ec099839b5be7086e6bf1ae3c1b08004d7"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\rear-material.png",
+    "sha256": "100d12976d6fbdec85cce4041fc3d0f050072aaa1af186a17b6bc4ba83d9e6c1"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\rear-section-boundary.png",
+    "sha256": "526fcae7c7de91324f24aae2baea9b7cca1e122dfb2db82a52449bc318f7e38c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\rear-silhouette.png",
+    "sha256": "b8194f37f663079f6f2157e140fcf289d48427d0d8469215eb5bd19234281262"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\rear-unlit.png",
+    "sha256": "829f275584427cdfe4e6f5430dcf3d7010cfa23f7c6467def6f44984c9cb22ac"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\rear-wireframe.png",
+    "sha256": "d25c4620fe5d7900721f9623bb263d334736f041539dbc2a35504475fc3a4680"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\rear-world-normal.png",
+    "sha256": "6868d1706a3820869fe43aaf547606fdcacf89105d7d3d7106fb0317a846ec57"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\side-base-color.png",
+    "sha256": "dd6cd76371f49dbd881575192d6cf8b9daa83574b3c351376445fffa515de595"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\side-gray.png",
+    "sha256": "43dd636796f6bffdee5a4805e187afa4ac54abea478814fb2768506b4f797dc1"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\side-material.png",
+    "sha256": "7396b2c9511d4add7d452fd105a55b95341ef854e4e3914ee799e85219359dec"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\side-section-boundary.png",
+    "sha256": "4ee312d8c08f3d5a246ce3cc3ee9ca06de925804c107b8e898aba12774f960fe"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\side-silhouette.png",
+    "sha256": "5299abce649829d7708ade32ec35db8e8bc064bf8f802ffdbaf5d4d77de3f205"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\side-unlit.png",
+    "sha256": "0b3b131f4c0f72285b41db542427d720e6eb9e2b8bda5a8d59d124aceae3fde4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\side-wireframe.png",
+    "sha256": "aa686f8a2835bfd5b2f369a9e4b8d1f412fa085b407eddcd97b277489f0e6485"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\standing-soft\\side-world-normal.png",
+    "sha256": "427b2c5292fefe0e19142a863615097bf5190389293d2bfd01558e4550e5b7fc"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\front-base-color.png",
+    "sha256": "0bd32d445f6d503f4bdf98167c45ce51a9f83b2af2e2c530668c1ad40e3ca5db"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\front-gray.png",
+    "sha256": "90780ed5513ec7ac7d47700af025efd660b7a61aa68048bd4f3f6027087a20a3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\front-material.png",
+    "sha256": "84c671492bd2b6043259805c57e37fcb5529e2100dc8d8d302d70de7c273a839"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\front-section-boundary.png",
+    "sha256": "1ba1c7b1915ec932806d95fc65b1459b055fa5979ce67445b7b2eb8b6424c016"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\front-silhouette.png",
+    "sha256": "b16b4ba1b17491b68731ef17b340a31524e3907d48fa85d936cc4d93744ce0a9"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\front-unlit.png",
+    "sha256": "68ec868345962dae247de3c64a17db393c5fcb04edc104d9df6a0c07bae937ae"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\front-wireframe.png",
+    "sha256": "9f56a59fdfd3b4bfd1b7776e0ec82b8dbc729d78ddc89fdbe1e877376d1d2abb"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\front-world-normal.png",
+    "sha256": "c09a2e9501843e9c8cadda9cc42c0a30999ca8f2a42cced88c4339757438a16d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\oblique-base-color.png",
+    "sha256": "cb6a24eca26f7b71bea91120595f830d608fd12461be2cabd62d7028e88371d6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\oblique-gray.png",
+    "sha256": "23b89c8dccdc52c9cbe8b4fbad1b8ad2d626524483aef5c8cb196373b4329ca3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\oblique-material.png",
+    "sha256": "0ea245a4cd0a3772aa990e7ad0739a58751da9328490cb763375add65e6202f3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\oblique-section-boundary.png",
+    "sha256": "9823c7da4506921275278a18f76898c305394f24cb8806563f4ab82eeefc8d17"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\oblique-silhouette.png",
+    "sha256": "3d66bd5347703f81230b7f2217763fe859620bdeea83dbc56d53b2e61418f2e7"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\oblique-unlit.png",
+    "sha256": "d59253f51087ea747fc09bedb7f3f5b26ce00a27426bce365d40497cdd373358"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\oblique-wireframe.png",
+    "sha256": "901f86b612a0327966bd78f9c2da24ed42b573584c7011fa0f912bec4e626246"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\oblique-world-normal.png",
+    "sha256": "ff6bf0fcaf8e9d7eb753c5a3a1e17103abf56d4b341918775676e952d855a74f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\rear-base-color.png",
+    "sha256": "13075f4ff1c822af75f4b1af60b23bf6ff364f8e06cb8ef8dcb5992487dd4a12"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\rear-gray.png",
+    "sha256": "859002e9002e94b5db16d1f8fba284bbcba5819f4fb4f2e3ae742da35a1a3bd9"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\rear-material.png",
+    "sha256": "a01a4f7b1c0e14c4628ff13e5a02951744e0fdad718359e5982c3e4af773d4a1"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\rear-section-boundary.png",
+    "sha256": "7d56a88253e59159f14045a2595d4ddf186cd1555761320a984675a068de6e33"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\rear-silhouette.png",
+    "sha256": "b77b8b6b3b532bde7eee054556b60aa2313756f289773d464ee4e9dd53e85f6a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\rear-unlit.png",
+    "sha256": "0ecb5a5c271a019ac4030de977380a623270cc17a49e37fe1bd7ed5cae69d66b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\rear-wireframe.png",
+    "sha256": "0c49a8c2bd72954fa36e4b411bd2ae1b6fed4a196361d98dc28df82f91cff8fb"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\rear-world-normal.png",
+    "sha256": "b81170ad4502fc2134abfd574a21c995735d723304f351d536bda4de92677e16"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\side-base-color.png",
+    "sha256": "4feacc2ea0e3b5575228ff61339bd48e06ac7914c60ba9ab274be44fd5d049ee"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\side-gray.png",
+    "sha256": "c823e8581c0a98983881471018a05c8186e8d069cc06c9a6f1180738e4f543de"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\side-material.png",
+    "sha256": "f25d3d22875038f47e5735138517c2000eafd274e731fc1d066988a375cec43e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\side-section-boundary.png",
+    "sha256": "790a5f6c09124b8094e00d5166c6175c572ed9e944b254185ac39f5dd6fa8c02"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\side-silhouette.png",
+    "sha256": "9516718b95b82db29ebd606500b2ac9720b396000b8b17a5225b5f27f3929332"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\side-unlit.png",
+    "sha256": "3ba0dc13a0315800c046fd7722e022359933298d1ffd4b0fdde690f0f0faa860"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\side-wireframe.png",
+    "sha256": "7ebc78140b488b5046915aa5f5f678975187884d8b037868ff2e9b78a7ed66a7"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\editor-soft\\suspended-seat-soft\\side-world-normal.png",
+    "sha256": "76b37edf1b7578718842f31dc922fe8a2fb13fb09d439285dfdc683bcc391e0f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\front-base-color.png",
+    "sha256": "379b4b650e4f6bc59a0d9dab5385b03496dbf1a1d1468181f3bc77fbcdb9b580"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\front-gray.png",
+    "sha256": "526d7178c045d850c2438efb26428a2698b8f7b448200ceca0641fe3dd60ac2d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\front-material.png",
+    "sha256": "f8838fd358837175b6bf5cff120a557be0953aa0678876a5e34b9cfd21305bdb"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\front-section-boundary.png",
+    "sha256": "796979a07aebab8ba4936dc3b8c313e13cc9530e91516a9c20320968ae084024"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\front-silhouette.png",
+    "sha256": "49006da407d66b7c55df1030efeb2fff93f82ac3571f3a4bb4790ff27a1170e8"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\front-unlit.png",
+    "sha256": "d52c89e01ddca8322b1aa4844cd1b76c545bb31ab2f4215bd4e5de8f6d60b6ce"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\front-wireframe.png",
+    "sha256": "387f841a872bc4d2d858a0a99384c9e0c5fc9fb9c1ad4e15a0262e2613c5bca2"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\front-world-normal.png",
+    "sha256": "5718135092ca78bc60ca458cbce8e8a1bc1d584d59abc3086ff27b7cc86c29f1"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\oblique-base-color.png",
+    "sha256": "3baeb3c25b7549b88a813c7e8fa2ad6205c59661ff387b3213be048f88d9993a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\oblique-gray.png",
+    "sha256": "6175accbf72cb136b40ff8abf450150e348f9cefc319d58b7908fa59346dc459"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\oblique-material.png",
+    "sha256": "eac6a677172a5324ba87056a87585ef672ddbf30c8be3900a2c6ac6cb3969282"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\oblique-section-boundary.png",
+    "sha256": "056dbbd9cc12b8da25f6408c6d1df35fa2e452916cb54df2e36d119f62cb004f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\oblique-silhouette.png",
+    "sha256": "ff904bc51aef61848cca1a376a9b49e88ee2ba8d09d943cd697e3430b4893a3e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\oblique-unlit.png",
+    "sha256": "8610ac10c764251193e34a1caedd8a4e5fa2e16ef48d3acb87e321a9f7a3882b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\oblique-wireframe.png",
+    "sha256": "18e90e5eaa4a59cc3ef8916feeaf11ae7c9910687e9f9284ea564db56a154f45"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\oblique-world-normal.png",
+    "sha256": "53a2bfa49adec65f7de726e050dc915dbbad08beaa3a09bbc3f9714b679fa763"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\rear-base-color.png",
+    "sha256": "df2058d3ab025c940167305c83a0c6a1a3fd80f20a8c2cac80f85fc7e3d3405d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\rear-gray.png",
+    "sha256": "51ba4e0fe141322a1d925e3a87799895fd3ff8433da27411751e4b045e018cb4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\rear-material.png",
+    "sha256": "ca0c9ce26899583d851b0846b3a8a9492377fa858a93b10fee4446a6a5439a46"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\rear-section-boundary.png",
+    "sha256": "5e5abe0b309a298759ebae817c258b3c7d924446f6883bced50ef8c715c94483"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\rear-silhouette.png",
+    "sha256": "9c9f1f1cfa96aa2282776cd1cd0cf761f384db4f3c6dd44f1be67b10b3685411"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\rear-unlit.png",
+    "sha256": "3017e98d592f6b3ba9633a29377bf828e95eb0b9e30b27dfc64af34ee4b32417"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\rear-wireframe.png",
+    "sha256": "26590befcede6bd6331ea01aed447c149316f2fd8a2454933a9528d5e6e40618"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\rear-world-normal.png",
+    "sha256": "9157ae40e5bb58da435284b47c3587d289d303188e19876e57c69d98fff7bb99"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\side-base-color.png",
+    "sha256": "7bed370332ae6cb290e2c37886b4bc88776ef2ea5a10ca23293f0049137cd9f8"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\side-gray.png",
+    "sha256": "ebbb91d3eeb5fca04aed94b6cc21c9162dff6963d64a5eecde90b4b3f5a2e822"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\side-material.png",
+    "sha256": "250109c932c13452b6445885f0d0d513da00e87a9025727e821efd3f4e90dcbd"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\side-section-boundary.png",
+    "sha256": "d8a4f17388051aa60fa2cafc47e5e7dbed3f7dee35ff80672b7f318618576000"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\side-silhouette.png",
+    "sha256": "80fba59c38b39d5233c639c6a4a31316cb4f39e2d5a426083cdecba7bf87893c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\side-unlit.png",
+    "sha256": "07bdbde664be169cb27ae36a3136f6be7cadeb553d8501992b160ee16d2fc56e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\side-wireframe.png",
+    "sha256": "cdd05d06374ccc1738eb97c6fc44e4b1d48a6d926e0b846618e6eeb24b3f8539"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-120-soft\\side-world-normal.png",
+    "sha256": "0f1b4582487ab7206a752d81eaff46985ea12c7cde1101ae1a10932ece90bf8b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\front-base-color.png",
+    "sha256": "7f8f70310634013926d8c359bcbe8ea4a25d49495d5f36f38178ff0b6a00e7e3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\front-gray.png",
+    "sha256": "cd43d62de546b80648c060f627d18ec5b6b1b3d0296957e28abee78a6d9814a9"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\front-material.png",
+    "sha256": "cf0858ec958e4cda92ca973bb1ca65dd88bc7addfab58e8872b02b9b66c05fb3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\front-section-boundary.png",
+    "sha256": "78a058fd955d635faa9f316858a239d147804781c4158194ef0f1c78eb5cc7f6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\front-silhouette.png",
+    "sha256": "7037df69eb829aa68a756218e1b0e9dbfa6b4397b20a5023b93f0007f1688166"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\front-unlit.png",
+    "sha256": "6e7193be6c72d25fa4e6eb5365abcb8666fd3941986929d5aab7201afdf0bc43"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\front-wireframe.png",
+    "sha256": "df4db418b903cb37051d43c7bcca9ba0609b67ecc6d2892b6c1849791e82b106"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\front-world-normal.png",
+    "sha256": "9f0deaecb768876f4a545a19a39fdfdcef826af63f22ea68dc0bcd830b1a5a52"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\oblique-base-color.png",
+    "sha256": "3ae17a725dee7b984667340297e6fdf440070a419118bd5290d0fa0fec77f6cd"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\oblique-gray.png",
+    "sha256": "a60351d4a16f8e65507dbd87ab11dda982123581f92207603bb5bfa025864116"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\oblique-material.png",
+    "sha256": "5d821aaf833528a48785b4ffd178536823258d8da7f5e573902e9cad3b83a733"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\oblique-section-boundary.png",
+    "sha256": "6d9b572d5873189e66caa90930df7a0c875e6316223a8f1375cb75ef5ce9d7e6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\oblique-silhouette.png",
+    "sha256": "477046cf0377ef7f4a7df2fab3bede1ac61f929e1bd7a4d2c4347307940a2b1c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\oblique-unlit.png",
+    "sha256": "c305aa78f39f5b4d985b6e01e6b6a649a13f9d82b8ef8f080f1944b5b6330484"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\oblique-wireframe.png",
+    "sha256": "064803d6c73b72ecf142ad83013cc8ea11b11385f71a551e40dfb3d8ef9185a5"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\oblique-world-normal.png",
+    "sha256": "0fe4639623b3b621206ca33af71d08620644d8d17bc0c8f310e3605ca3b74e9c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\rear-base-color.png",
+    "sha256": "7a085a099da7166bd6e574d38e65105d6d5eedf0891ab7053aace34fd6523db4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\rear-gray.png",
+    "sha256": "68c13eb5f2721099679305be49a17f4f01e139829f6bf7e9bb151f1437305548"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\rear-material.png",
+    "sha256": "993155e21a7711ae7cb7dcf8d43f2b5e371897b76ebbd7abdb371749b19ce26b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\rear-section-boundary.png",
+    "sha256": "e8b8c5a84803fc0ae1e451764d5ba06492e071df0b9fc09dc66f334b9535123b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\rear-silhouette.png",
+    "sha256": "a305a52958e4d2db8dd9d894017a057f2c988a9d76d09e891473be1f4f1b01f6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\rear-unlit.png",
+    "sha256": "88d8c18aa63a17cf1c71511eff377d66e77c60e2ebb00b945d35a9dd7050f4a6"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\rear-wireframe.png",
+    "sha256": "4ee1ff6dad5de50d496a0f387e8b2f27505ef49b4db6d15205799efee278ec6a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\rear-world-normal.png",
+    "sha256": "6a8d3d6ffa0dae78d0dfc8f93f3db452141d63ac80a0da4f1733c3495fac9527"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\side-base-color.png",
+    "sha256": "dc7a66fccf0585076987a61ddd44fed34ac0ff0df19ed6fcbb3bbaf3a88ec8db"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\side-gray.png",
+    "sha256": "fee011a1246ef2812528f9627b43e7124dee6bdaaf11cdd1feaeff618b8543b3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\side-material.png",
+    "sha256": "ae9b7fe97bcec488d8d17bd57e3f94601b20785f911aa5ab21af0a5228aadc60"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\side-section-boundary.png",
+    "sha256": "f10290880ca9e828a5875c954e4a5501fe21eb23200d82232820885a94760bd5"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\side-silhouette.png",
+    "sha256": "9fb81aebae07a1241a88303b48a107f0371255cc1a6dc2d23266b025460dd85b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\side-unlit.png",
+    "sha256": "2b06781c55a208b3b92b0aa58fb7d0c3f82ec9b9b1a73609a505ca95e281af15"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\side-wireframe.png",
+    "sha256": "40ac83119b3fde4726396011098202cad01bf9cc60dd0e20417c8baf49e04948"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\knee-60-soft\\side-world-normal.png",
+    "sha256": "6c9989bee2f4441da7b0769ad267619df66e6d532a598e57dcfeac4bd94e13a2"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\front-base-color.png",
+    "sha256": "be2df30ee3717d918e557a396d6ae9e990f7a630e73b9a645ad557f5016bf1e0"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\front-gray.png",
+    "sha256": "d4d95167a3f5e25dd2aa63540e808d78a5963bb8249e6f3970cb6d8c2e339c66"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\front-material.png",
+    "sha256": "4b36bc26c54a839c99e6393f4f4aac3703f9766b406587d56a7ccf552109e17a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\front-section-boundary.png",
+    "sha256": "5496e2685e21758b3210591499a7a92aeba0ad74ef0f3be399a967430a448d82"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\front-silhouette.png",
+    "sha256": "775dfb10295a3caecfdd4dc462649bad664c0feb7b7dc6a77266dbf927351f72"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\front-unlit.png",
+    "sha256": "8357e1eac648101f095a228f91a5a274cc5b3a176fa585517abe81f43e32bc90"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\front-wireframe.png",
+    "sha256": "8567e6593e72beedeb5a7ac0996a2c3dbc138b33b0b5e00646184e8cf9420b1b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\front-world-normal.png",
+    "sha256": "04d4f15839dd9e679dea8b963c69851aa77ce0ea856bc47925bed11f6d700d00"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\oblique-base-color.png",
+    "sha256": "61ce157ec64c62a41a34161d9f08c3789bbc0bcd53340a5297fa96bd5c874a53"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\oblique-gray.png",
+    "sha256": "f7f67247f7c39b2340c96ce296c6947d942eb2f7cc1829db5fa557dcd2d15e46"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\oblique-material.png",
+    "sha256": "57314d9fe5b57f5aeaf062b4c468e415cc26ddb2f4db9337094ee438f29f9bea"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\oblique-section-boundary.png",
+    "sha256": "1969919e62c48ae98194053ec7982c7a7e26ed72aceeb1447337b68745358b2b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\oblique-silhouette.png",
+    "sha256": "e1702e6607be5d9a33e5f0718b6690c28a8bd9c22d6a34d65ec10e99f8bd9e10"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\oblique-unlit.png",
+    "sha256": "8f8e657c0c2691d001742183697bf65ed6263dcf0aab52dfcd463c9a45a7116b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\oblique-wireframe.png",
+    "sha256": "25fcb3bd7def2f1ec26d2d45c5e45913e46fcf178e45847be944d28d2eb3e61d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\oblique-world-normal.png",
+    "sha256": "ab84abac354ae2eed2b292386a711e205362feb65645cc33c0d3fa592dde240a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\rear-base-color.png",
+    "sha256": "d4e2ead0ce5bf5cb6a29eb4e2ef3889fd259861fc68fbad2b13ee28e0bc308c3"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\rear-gray.png",
+    "sha256": "563ba1590eafa1d5020fe0c50b482ab6956dab2e776ef1a603384fe7e75d929f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\rear-material.png",
+    "sha256": "bbded633b211955f2ca7a439d9d7edd5a57590721382d4be5865d8c10d0e5d21"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\rear-section-boundary.png",
+    "sha256": "d3d3ba6df462b5846f2a1070d0879d28549b05353ee89e9b0397d467fd7d136a"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\rear-silhouette.png",
+    "sha256": "551cc41d2b8d33e6d3bc160b09c7437439b7a68172c7c081623051828bcb2341"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\rear-unlit.png",
+    "sha256": "e948bdc5e1effe8fa8b4b7ee4d221673edeb729ec8d9e684d32b4dc807026591"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\rear-wireframe.png",
+    "sha256": "7c66b844bfa6d4bdba8425c4640f99515a5be674f2e26a8a4ee0c74d7599d3fb"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\rear-world-normal.png",
+    "sha256": "89ec178afa0def5fb997b1900232a1999ffe7c67ea17c027440bfde0c44439b0"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\side-base-color.png",
+    "sha256": "59e7508aa875e8bc52d4f7090745668f4e8d4a6d039c539f9a554ed376df4375"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\side-gray.png",
+    "sha256": "ce1958afbcb00792c843e0df4eaae3c42a982965fab0efc65d439ea81b327548"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\side-material.png",
+    "sha256": "3ae7d9ef2d35dfcf397264cf0a627489549cdc86ebd6439a069b10bb4b8ce4ee"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\side-section-boundary.png",
+    "sha256": "e1022612778cdef4ab3a62ee6dfec9fbc82f4520a4ce04d5beec3921c101aee9"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\side-silhouette.png",
+    "sha256": "654ce29686ee7a20a63d1c82fbeffb3acb38f507891a7f5d3dff66911375a76f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\side-unlit.png",
+    "sha256": "142bd71dbb185e097e34cae9594c7aa9e4c36cb6c8939c0323bec0d28a586200"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\side-wireframe.png",
+    "sha256": "18942dfba702252f89930bb9e5ca04655ae599e48a0d57640497f91bc16d20ff"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\standing-soft\\side-world-normal.png",
+    "sha256": "ce0f00427a763dde364c97f832e75325066d8db7bc4707852b13f02776c26ffa"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\front-base-color.png",
+    "sha256": "7bbc5efa5224c0862c7b8c821531e4ee785f43c7012472b70035273f18e6c59b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\front-gray.png",
+    "sha256": "27c3013dbf869d023e552fb79ac7370d9de64bd46cebd05ef1030bbb93790822"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\front-material.png",
+    "sha256": "370d12525391216dd9e88b1cfe5fa606e21982616c8f4305b7806681f3936306"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\front-section-boundary.png",
+    "sha256": "57efa24b2580f3b2ea2bda947cebdb143c7c9020ada3a2ec146961c8f23b4501"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\front-silhouette.png",
+    "sha256": "65728f43fc7e370b005805e7de8cec56aaed9bcea695fbf784ac295ef00e807f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\front-unlit.png",
+    "sha256": "cbab287fb3c27153547a8b20f4d12464e09572e5cfa8a0bb3d504fdf8eacb3a8"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\front-wireframe.png",
+    "sha256": "3416d333be4b930056275f593dfe9c6cfcfe057b1a82ffc6cf3b41afb28d1e95"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\front-world-normal.png",
+    "sha256": "d39d5bfe219b80ed06e9f95056f5e46deadd51ce9b7e84911af77cc06ed4cba5"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\oblique-base-color.png",
+    "sha256": "b6594a5058ef67a1d0a29fa1bd547b2d99bec3b00caccdabfc852eded5eefc38"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\oblique-gray.png",
+    "sha256": "069d1a125240a3bf3992599125ef5885097182feb4209bb7979261a042bd5faf"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\oblique-material.png",
+    "sha256": "340ca33da4e6b5b644a6fa7b198bcddcfb9037518c4fab88c243686fc2b6675b"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\oblique-section-boundary.png",
+    "sha256": "0e130eda4e6884745fb05d1c552da19f9b3edbd614f2ce8c5edff9dd4bbe7630"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\oblique-silhouette.png",
+    "sha256": "0830e57ad601e4fa9a713c059ded894d6d6e94d43065b09055aada60836f2586"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\oblique-unlit.png",
+    "sha256": "e914f77f8913a855e33d31d83468524f3bb544f5fad00170f7248b211f7fb5a2"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\oblique-wireframe.png",
+    "sha256": "2e356ddc4de9625450f149f6ad9b2e94a937583e42b6390a1b676691bea25fa4"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\oblique-world-normal.png",
+    "sha256": "a2888cbb3302a2961a121ba0b704814655f9102c4bd7041f4e67fb9362a3a959"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\rear-base-color.png",
+    "sha256": "361d85b0d5a159929dfca2ebdf109b46ba1ae3fd7be60d6afd26cf4e81d5d57e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\rear-gray.png",
+    "sha256": "b7c1071d37da8ceacea00c1b41dc0afdfc5c9054cb26eba2beff271a8814a70d"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\rear-material.png",
+    "sha256": "966a6d259aa0faa898d70324d2b420c386851cbfe193cc81a295fc286493346e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\rear-section-boundary.png",
+    "sha256": "b9f317abfb0d6567bb76e4a993dd1c1aa3ea93d2cc569bc07b7f4e20f716e897"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\rear-silhouette.png",
+    "sha256": "b26596c1af0f1ae5f526b968a73ea721fac6ec30e19c6512c9303d1295b76c05"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\rear-unlit.png",
+    "sha256": "50d3c9f73fcbfd6267cc3544e222e93c3698066b917b025dc85dd0a36d5f0530"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\rear-wireframe.png",
+    "sha256": "dea0dd8292741880ffc99f221b393c26e970aab5adb5959ef8108eba6391f33e"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\rear-world-normal.png",
+    "sha256": "61825b9c12f257f34c6834f89f1c398f111f53a6e838843c23ec4895e3c8171c"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\side-base-color.png",
+    "sha256": "e812268f56c14e4ea09161ce8712fd3690efcddb4bd0a27eea5d636f456851ac"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\side-gray.png",
+    "sha256": "ab63303c74b9dff4f50e61d9c3f6d0609e4b9efeda98e51ecf7708d6b56fb0eb"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\side-material.png",
+    "sha256": "1c4fce8d4a0e12cc408c34e3027923d3ff3c55b61d6ad5caece6995f1838de58"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\side-section-boundary.png",
+    "sha256": "9ca2b05e59ae6098e509a7cf1c93df1c2ce08521599f960934974fa9b8004f1f"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\side-silhouette.png",
+    "sha256": "f79988bcd726a3d8a062214a8c3027aea29518c44e424d587e827f56d171fcfb"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\side-unlit.png",
+    "sha256": "7f80f9faf6c525a6f16a374ec50451a260b5fcfa6859c27172221e86fa504e79"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\side-wireframe.png",
+    "sha256": "2c831a592c486ce8ecf6c469f88fc225b19ab050c7850d7c1cb5bfd7ef7bacae"
+  },
+  {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\KneeCompression\\candidate-6\\pie-soft\\suspended-seat-soft\\side-world-normal.png",
+    "sha256": "c58568b1aedecadfdcbf352941fe428a2d56d11ecc0544c810b12ff1db81a601"
+  }
+]
