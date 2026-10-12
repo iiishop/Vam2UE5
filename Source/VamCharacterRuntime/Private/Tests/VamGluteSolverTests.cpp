@@ -29,6 +29,24 @@ FVamGluteMotion LinearMotion(double Position,double Velocity)
     FVamGluteMotion M;M.Pelvis=M.Thigh=FTransform(FVector(Position,0,0));M.PelvisVelocity=M.ThighVelocity=FVector(Velocity,0,0);M.bKnownTwist=true;return M;
 }
 }
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamGlutePreloadTransportTest,"Vam.Glute.G1.PreloadTransport",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FVamGlutePreloadTransportTest::RunTest(const FString& Parameters)
+{
+    auto* P=NewObject<UVamGluteJiggleProfile>();P->SchemaVersion=2;P->bNormalizedAttachmentDamping=true;
+    auto R=MechanicsFixture();R.ReferenceGravityLocal=FVector(0,0,-980);R.bTransportedGravity=true;
+    FVamGluteTuning T;FVamGluteMotion M;M.bKnownTwist=true;
+    for(auto& N:R.Nodes)N.TransportedGravityLocal=R.ReferenceGravityLocal;
+    FVamGluteSolver Neutral;
+    for(int I=0;I<1200;++I)Neutral.Advance(*P,R,M,P->FixedStep,R.ReferenceGravityLocal,T);
+    TestTrue(TEXT("Imported neutral is not given a second static gravity sag"),Neutral.Nodes[0].Displacement.Size()<1.e-6);
+    for(auto& N:R.Nodes)N.TransportedGravityLocal=R.ReferenceGravityLocal*N.PelvisAttachment+FQuat(FVector::YAxisVector,PI/2).RotateVector(R.ReferenceGravityLocal)*N.ThighAttachment;
+    FVamGluteSolver Bent;
+    for(int I=0;I<1200;++I)Bent.Advance(*P,R,M,P->FixedStep,R.ReferenceGravityLocal,T);
+    TestTrue(TEXT("Bent attachment releases a downward static residual"),Bent.Nodes[0].Displacement.Z<-.01);
+    TestTrue(TEXT("Recorded preload equals regional force balance"),(Bent.GravityForce+Bent.GravityPreload-M.Pelvis.TransformVectorNoScale(Bent.GravityResidualLocal)*R.MassKg).Size()<1.e-6);
+    TestEqual(TEXT("No emergency limits in settled gravity response"),Bent.LimitCorrections,0);
+    return true;
+}
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamGluteDynamicsTest,"Vam.Glute.G1.Mechanics",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FVamGluteDynamicsTest::RunTest(const FString& Parameters)
 {

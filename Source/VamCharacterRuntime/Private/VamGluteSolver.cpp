@@ -68,7 +68,7 @@ void FVamGluteSolver::Advance(const UVamGluteJiggleProfile& P,const FVamGluteDyn
         Interpolate(Previous.Pelvis,M.Pelvis,Previous.PelvisVelocity,M.PelvisVelocity,Dt,U,S.Pelvis,S.PelvisVelocity);
         Interpolate(Previous.Thigh,M.Thigh,Previous.ThighVelocity,M.ThighVelocity,Dt,U,S.Thigh,S.ThighVelocity);
         S.PelvisOmega=FMath::Lerp(Previous.PelvisOmega,M.PelvisOmega,U);S.ThighOmega=FMath::Lerp(Previous.ThighOmega,M.ThighOmega,U);
-        for(int32 I=0;I<5;++I) { Rest.Nodes[I].Rest=FMath::Lerp(PreviousRest.Nodes[I].Rest,R.Nodes[I].Rest,U);S.RestVelocity[I]=(R.Nodes[I].Rest-PreviousRest.Nodes[I].Rest)/Dt; }
+        for(int32 I=0;I<5;++I) { Rest.Nodes[I].Rest=FMath::Lerp(PreviousRest.Nodes[I].Rest,R.Nodes[I].Rest,U);Rest.Nodes[I].TransportedGravityLocal=FMath::Lerp(PreviousRest.Nodes[I].TransportedGravityLocal,R.Nodes[I].TransportedGravityLocal,U);S.RestVelocity[I]=(R.Nodes[I].Rest-PreviousRest.Nodes[I].Rest)/Dt; }
         Step(P,Rest,S,P.FixedStep,G,T);Accumulator-=P.FixedStep;++LastSteps;
     }
     Previous=M;PreviousRest=R;PreviousDt=Dt;Samples=2;LastCostMicroseconds=(FPlatformTime::Seconds()-Start)*1.e6;
@@ -83,9 +83,13 @@ void FVamGluteSolver::Step(const UVamGluteJiggleProfile& P,const FVamGluteDynami
     // Schema 1 deliberately keeps the legacy cancellation. Never reinterpret old assets.
     GravityResidualLocal=P.SchemaVersion>=2?VamSecondaryGravity::ResidualLocal(G,Q,ReferenceGravityLocal):FVector::ZeroVector;
     GravityPreload=P.SchemaVersion>=2?VamSecondaryGravity::PreloadWorld(Q,ReferenceGravityLocal)*(R.MassKg*MassScale):-GravityForce;
+    if(R.bTransportedGravity) { GravityPreload=FVector::ZeroVector;GravityResidualLocal=FVector::ZeroVector; }
     for(int32 I=0;I<5;++I)
     {
-        const auto& D=R.Nodes[I];auto& N=Nodes[I];LocalX[I]=Q.UnrotateVector(N.PositionWorld-Origin);Rest[I]=D.Rest;const FVector Offset=LocalX[I]-Rest[I];
+        const auto& D=R.Nodes[I];
+        const FVector NodeGravity=P.SchemaVersion>=2 && R.bTransportedGravity?CurrentGravityLocal-D.TransportedGravityLocal:GravityResidualLocal;
+        if(R.bTransportedGravity) { GravityPreload-=Q.RotateVector(D.TransportedGravityLocal)*(D.MassKg*MassScale);GravityResidualLocal+=NodeGravity*(D.MassKg/R.MassKg); }
+        auto& N=Nodes[I];LocalX[I]=Q.UnrotateVector(N.PositionWorld-Origin);Rest[I]=D.Rest;const FVector Offset=LocalX[I]-Rest[I];
         const FVector PelvisPoint=M.Pelvis.TransformPosition(D.PelvisPoint),ThighPoint=M.Thigh.TransformPosition(D.ThighPointLocal);
         const FVector VP=M.PelvisVelocity+FVector::CrossProduct(M.PelvisOmega,PelvisPoint-Origin)+FVector::CrossProduct(M.PelvisOmega,N.PositionWorld-PelvisPoint);
         const FVector VT=M.ThighVelocity+FVector::CrossProduct(M.ThighOmega,ThighPoint-M.Thigh.GetLocation())+FVector::CrossProduct(M.ThighOmega,N.PositionWorld-ThighPoint);N.ThighTargetVelocity=VT;
@@ -114,7 +118,7 @@ void FVamGluteSolver::Step(const UVamGluteJiggleProfile& P,const FVamGluteDynami
             const FVector PLocal=Q.UnrotateVector(PelvisPoint-Origin),TLocal=Q.UnrotateVector(ThighPoint-Origin);
             const double EP=(LocalX[I][J]-PLocal[J])-(Rest[I][J]-PLocal[J]),ET=(LocalX[I][J]-TLocal[J])-(Rest[I][J]-TLocal[J]);
             const double Elastic=-K[I][J]*(D.PelvisAttachment*EP+D.ThighAttachment*ET);
-            B[Ndx]=Mass[I]*V[J]+H*(Elastic+CP*PV[J]+CT*TV[J]+Mass[I]*GravityResidualLocal[J]);
+            B[Ndx]=Mass[I]*V[J]+H*(Elastic+CP*PV[J]+CT*TV[J]+Mass[I]*NodeGravity[J]);
             N.Travel[J]=Limit;
         }
         N.Support=D.Support*Support;N.Damping=C[I];N.NonlinearTravel=0;

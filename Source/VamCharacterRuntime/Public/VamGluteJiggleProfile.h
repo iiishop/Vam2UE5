@@ -9,6 +9,8 @@ struct VAMCHARACTERRUNTIME_API FVamGluteDynamicNode
 {
     GENERATED_BODY()
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FName Semantic;
+    // Runtime calibration only; do not alter serialized helper identities.
+    FVector TransportedGravityLocal=FVector::ZeroVector;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") int32 BoneIndex=INDEX_NONE;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") double MassKg=0;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FVector Rest=FVector::ZeroVector;
@@ -37,6 +39,7 @@ struct VAMCHARACTERRUNTIME_API FVamGluteDynamicSide
     GENERATED_BODY()
     /** Authored gravity in the same anatomical anchor axes as Rest; immutable across pose/Shape. */
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FVector ReferenceGravityLocal=FVector::ZeroVector;
+    bool bTransportedGravity=false;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FName Side;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") double MassKg=0;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") FVector COM=FVector::ZeroVector;
@@ -61,6 +64,8 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") int32 SurfaceGuardVersion=0;
     /** Shared dimensionless material calibration; geometry, pose and states remain independent. */
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") bool bBilateralMaterialCalibration=false;
+    /** Transport imported loaded-rest preload through the regional tissue rotation derived from the attachments. */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="G1") bool bPoseTransportedGravity=false;
     UPROPERTY() TArray<FVamGluteSurfaceGradient> SurfaceGradients;
     // Bounds regional residual only; common motion is retained.
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="G1") double SurfaceGradientBudget=.2;
