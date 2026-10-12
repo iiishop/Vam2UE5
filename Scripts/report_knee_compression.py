@@ -8,7 +8,7 @@ for name,label in [('cage-isolation.json','原基线'),('candidate-1/cage-isolat
  for s in json.loads((r/name).read_text()):
   if not s['pose'].startswith('knee-60'):continue
   vals=[s['regions'][str(v)] for v in [2,3]];key='runtime_initial_invalid' if label=='同步姿态修形' else 'posed_invalid';rows.append(f"| {label} | {vals[0][key]} | {vals[1][key]} |")
-checks=json.loads((r/'regression-results.json').read_text());limit=(r/'limit-tests.log').read_text(errors='replace');passed='Result={Success} Name={EquivalentEulerLimits}' in limit
+checks=json.loads((r/'regression-results.json').read_text());limit=(r/('limit-tests-discovered.log' if (r/'limit-tests-discovered.log').exists() else 'limit-tests.log')).read_text(errors='replace');passed='Result={Success} Name={EquivalentEulerLimits}' in limit
 bundles=[]
 for p in sorted(r.glob('candidate-*/bundle.json')):
  b=json.loads(p.read_text());bundles.append(f"- {p.parent.name}: `{b['identity']}` · {b['status']}")
@@ -40,15 +40,17 @@ lang: zh
 ## D 关节表示错误
 生产限位数值没有扩大。四元数转为欧拉角时，超过 90° 的 Pitch 可折回，并伴随 Yaw/Roll 增加 180°。旧逻辑逐分量截断这一等价表示，导致部分合法屈膝被拒绝。新逻辑比较两种等价欧拉表示，再按同一限位截断。
 
-等价表示回归：'''+('PASS' if passed else '未确认')+'''. 新资产的实际角度仍以各次 `state.json` 骨骼矩阵为准，历史 Knee120（约92°）截图不能直接冒充新的同姿态对照。
+初次专项调用因 UBT 缓存未发现新文件，没有执行测试；强制重新发现并编译后重跑。等价表示回归：'''+('PASS' if passed else '未确认')+'''. 最终候选的 Knee120 实际骨骼夹角为左 118.6446° / 右 118.6181°，Editor 和 PIE 一致；仍未越过原关节限位。实际角度以各次 `state.json` 骨骼矩阵为准，历史 Knee120（约92°）截图不能直接冒充新的同姿态对照。
 
 ## E 回归与限制
 - 候选 3 的 B1、臀腿、胸部及 GPU 碰撞联合回归：'''+str(sum(v[0]=='Success' for v in checks))+''' / '''+str(len(checks))+''' 通过。
 - GPU 测试覆盖同一体积区域内独立碰撞分组，双方形变及净外力/力矩抵消。
 - 候选 1 接触关闭：四个姿态 × 五层表面，与上一版最大顶点差为 0 cm。
-- 已运行正常生成 BP 的 Editor 与 PIE。接触未启动的姿态标为失败，不能作为挤压验收。
+- 已运行正常生成 BP 的 Editor 与 PIE，共 24 份姿态捕获。Editor 捕获未运行接触后端；PIE 的屈膝/坐姿接触未通过。接触未启动的姿态标为失败，不能作为挤压验收。
 - 站立纯软体候选仍出现约 0.68 cm 最大残差，需要排查关节附近/分组边界的接触误报；不能当作想要的组织压缩。
 - 未改变 Jiggle 开关/强度/材料参数，也未取消翻转安全检查。当前主工程 DLL 保留上一版。
+- 候选 4 的 15 项既有回归通过；新限位专项在强制发现后另行实际通过。启动阶段有 Condition failed 日志，原日志保留，未仅凭进程退出码判定测试成功。
+- 候选 4 在更深的 118.6° 姿态仍有左右 186 / 213 个非正体积单元；这与旧约92°捕获不是同姿态对照。
 
 ## F 下一项必须解决的结构问题
 使大角度下的接触体积网格保持有效，区分关节形态修形与真实相向接触。接触对必须来自真实皮肤相向表面，不能来自相邻连续表面或内部封口。之后才能验证双方压扁、向侧方摊开、体积误差及 Jiggle 叠加效果。
