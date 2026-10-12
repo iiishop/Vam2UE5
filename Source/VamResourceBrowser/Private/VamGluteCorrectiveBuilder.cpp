@@ -69,6 +69,8 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     const TSharedPtr<FJsonObject>* Source=nullptr;Family->TryGetObjectField(TEXT("glute_corrective_source"),Source);const bool Verified=Source && !(*Source)->GetArrayField(TEXT("deltas")).IsEmpty();
     if(Verified && (*Source)->GetIntegerField(TEXT("version"))!=2) return Fail(TEXT("Corrective requires verified merged topology mapping v2"));
     bool ContinuousSafety=false;(*Policy)->TryGetBoolField(TEXT("continuous_safety"),ContinuousSafety);
+    double ContinuityEdgeBudget=.25;(*Policy)->TryGetNumberField(TEXT("continuity_edge_budget"),ContinuityEdgeBudget);
+    if(!FMath::IsFinite(ContinuityEdgeBudget) || ContinuityEdgeBudget<=0 || ContinuityEdgeBudget>.5) { Error=TEXT("continuity_edge_budget must be in (0, 0.5]");return false; }
     bool SourceFieldOperator=false;(*Policy)->TryGetBoolField(TEXT("source_operator_in_source_field"),SourceFieldOperator);
     if(SourceFieldOperator && (!Verified || !(*Source)->HasField(TEXT("bulge_preparation")))) return Fail(TEXT("Source field operator requires initialized source bulge weights"));
     const TSharedPtr<FJsonObject>* Calibration=nullptr;(*Policy)->TryGetObjectField(TEXT("family_reference"),Calibration);
@@ -219,7 +221,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
                 const double Den=Original[V].SizeSquared()+OriginalProc[V].SizeSquared();
                 if(Den>1.e-20)Factors[V]=FMath::Clamp((FVector::DotProduct(A[V],Original[V])+FVector::DotProduct(B[V],OriginalProc[V]))/Den,0.,1.);
             }
-            const auto Before=Factors;ContinuousAttenuation(I,Original,OriginalProc,Aliases,Factors);
+            const auto Before=Factors;ContinuousAttenuation(I,Original,OriginalProc,Aliases,Factors,ContinuityEdgeBudget);
             for(int32 V=0;V<A.Num();++V)if(Factors[V]<Before[V]-1.e-6 && Original[V].SizeSquared()+OriginalProc[V].SizeSquared()>1.e-20)
             {
                 ContinuityReduction=FMath::Max(ContinuityReduction,Before[V]-Factors[V]);Changed=true;A[V]=Original[V]*Factors[V];B[V]=OriginalProc[V]*Factors[V];

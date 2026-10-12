@@ -9,9 +9,9 @@ namespace VamGluteGeometry
 using FDeltaField=TArray<FVector>;
 // Largest attenuation field below the safety solution with a bounded spatial
 // derivative. Only follow mesh edges and proven source aliases, never proximity.
-// The attenuation gradient may contribute at most 1/4 of a bind edge length
+// The attenuation gradient has an explicit bind-edge displacement budget
 // to the correction gradient. Existing geometric safety is rechecked afterwards.
-inline void ContinuousAttenuation(const FVamNativeMeshInput& I,const FDeltaField& Source,const FDeltaField& Proc,const TMap<int32,TArray<int32>>& Aliases,TArray<double>& A)
+inline void ContinuousAttenuation(const FVamNativeMeshInput& I,const FDeltaField& Source,const FDeltaField& Proc,const TMap<int32,TArray<int32>>& Aliases,TArray<double>& A,double EdgeBudget=.25)
 {
     struct FArc { int32 Vertex; double Cost; };
     TArray<TArray<FArc>> Graph;Graph.SetNum(A.Num());
@@ -19,7 +19,7 @@ inline void ContinuousAttenuation(const FVamNativeMeshInput& I,const FDeltaField
     {
         const int32 U=I.Triangles[T+K],V=I.Triangles[T+(K+1)%3];
         const double Amplitude=FMath::Max(Source[U].Size()+Proc[U].Size(),Source[V].Size()+Proc[V].Size());
-        const double Cost=(I.Vertices[U]-I.Vertices[V]).Size()/(4*FMath::Max(1.e-8,Amplitude));
+        const double Cost=(I.Vertices[U]-I.Vertices[V]).Size()*EdgeBudget/FMath::Max(1.e-8,Amplitude);
         Graph[U].Add({V,Cost});Graph[V].Add({U,Cost});
     }
     for(const auto& Pair:Aliases)for(int32 V:Pair.Value)if(V!=Pair.Value[0])

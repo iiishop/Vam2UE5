@@ -1,0 +1,9 @@
+{
+  "schema": "vam-runtime-recipe/1",
+  "revision": "seated-shape-preserving-continuity-v1",
+  "definition": "/Game/VamC15/S_8dc812aa2ab4cfdefb293e47/CD_Character.CD_Character",
+  "source_mapping": "/Game/VamC15/S_8dc812aa2ab4cfdefb293e47/DA_SourceMapping.DA_SourceMapping",
+  "destination_root": "/Game/VamGluteShapeRecoveryV1/Runtime",
+  "family": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteShapeRecovery\\candidate-15\\family.json",
+  "skin_shading": "source"
+}

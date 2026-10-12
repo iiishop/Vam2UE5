@@ -1,0 +1,125 @@
+{
+  "max_cm": 5.684341886080802e-14,
+  "rows": [
+    {
+      "pose": "abducted",
+      "stage": "00-source-lbs",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "abducted",
+      "stage": "01-final-weights",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "abducted",
+      "stage": "02-static-helpers",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "abducted",
+      "stage": "03-corrective",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "abducted",
+      "stage": "04-jiggle",
+      "max_cm": 5.684341886080802e-14
+    },
+    {
+      "pose": "knee-120",
+      "stage": "00-source-lbs",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "knee-120",
+      "stage": "01-final-weights",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "knee-120",
+      "stage": "02-static-helpers",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "knee-120",
+      "stage": "03-corrective",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "knee-120",
+      "stage": "04-jiggle",
+      "max_cm": 5.684341886080802e-14
+    },
+    {
+      "pose": "seated",
+      "stage": "00-source-lbs",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "seated",
+      "stage": "01-final-weights",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "seated",
+      "stage": "02-static-helpers",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "seated",
+      "stage": "03-corrective",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "seated",
+      "stage": "04-jiggle",
+      "max_cm": 5.684341886080802e-14
+    },
+    {
+      "pose": "standing",
+      "stage": "00-source-lbs",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "standing",
+      "stage": "01-final-weights",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "standing",
+      "stage": "02-static-helpers",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "standing",
+      "stage": "03-corrective",
+      "max_cm": 0.0
+    },
+    {
+      "pose": "standing",
+      "stage": "04-jiggle",
+      "max_cm": 5.684341886080802e-14
+    }
+  ],
+  "bones": [
+    {
+      "pose": "abducted",
+      "max_matrix_error": 2.220446049250313e-16
+    },
+    {
+      "pose": "knee-120",
+      "max_matrix_error": 2.220446049250313e-16
+    },
+    {
+      "pose": "seated",
+      "max_matrix_error": 2.220446049250313e-16
+    },
+    {
+      "pose": "standing",
+      "max_matrix_error": 2.220446049250313e-16
+    }
+  ],
+  "matrix_tolerance": 1e-09,
+  "initial_exact_equality": "Failed on floating point breast helper roundoff; inspected and recorded before using explicit numeric tolerance"
+}
