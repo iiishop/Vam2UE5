@@ -1,0 +1,20 @@
+[
+  "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+  "I:/Document/UE5/SmartNPC/SmartNPC.uproject",
+  "-VamPoseSuite=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\Standing-Knee-Audit\\standing-light65-retry\\pose-recipe.json",
+  "-VamSeamAudit",
+  "-VamPoseStreaming",
+  "-VamPoseWorld=Editor",
+  "-ExecCmds=Automation RunTests Vam.Breast.ContactRuntime",
+  "-TestExit=Automation Test Queue Empty",
+  "-unattended",
+  "-nosplash",
+  "-RenderOffscreen",
+  "-dx12",
+  "-VamBreastTestConfig=/Game/VamS1S2R2/Runtime/R_2c25b9406af35637a4998f66/RC_Runtime",
+  "-VamAuditBP=/Game/VamS1S2R2/Runtime/R_2c25b9406af35637a4998f66/BP_VamCharacter.BP_VamCharacter_C",
+  "-VamContactEvidence=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\Standing-Knee-Audit\\standing-light65-retry",
+  "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\Standing-Knee-Audit\\standing-light65-retry\\runtime.log",
+  "-VamPoseLightYaw=65.0",
+  "-VamPoseCase=standing"
+]
