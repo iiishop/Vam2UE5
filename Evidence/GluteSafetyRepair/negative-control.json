@@ -1,0 +1,31 @@
+{
+  "scope": "Transient source+procedural before safety; independent residual retained; morph normals recalculated using production utility",
+  "proof": {
+    "posterior_max_expected_error_cm": 7.4950952885230914e-06,
+    "max_change_from_old_cm": 6.787322610221575,
+    "mesh": "transient actual UE morph rendering"
+  },
+  "normal_rebuild": [
+    {
+      "pose": "seated",
+      "max_position_change_cm": 0.0,
+      "camera_identical": true
+    },
+    {
+      "pose": "standing",
+      "max_position_change_cm": 0.0,
+      "camera_identical": true
+    },
+    {
+      "pose": "knee-120",
+      "max_position_change_cm": 0.0,
+      "camera_identical": true
+    },
+    {
+      "pose": "abducted",
+      "max_position_change_cm": 0.0,
+      "camera_identical": true
+    }
+  ],
+  "actual_capture": "Saved/LowerBodyContact/GluteSafetyRepair/unattenuated-preview-v4"
+}
