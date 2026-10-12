@@ -1,0 +1,30 @@
+{
+  "identity": "645060862ddee7d2a4a6c45894480d29028411daadf3a6eca6ccbb8b594ffbd7",
+  "implementation_commit": "49f60e4",
+  "asset_status": "committed",
+  "independent_reload_verified": true,
+  "core_captures": 42,
+  "extra_captures": 8,
+  "static_editor_pie_pairs": 20,
+  "seam_max_cm": 0.0,
+  "editor_pie_max_cm": 0.0,
+  "tests": [
+    "Vam.Breast.Dynamics",
+    "Vam.Breast.WeightCompression",
+    "Vam.Glute.G1.AttachmentDamping",
+    "Vam.Glute.G1.CharacterCalibration",
+    "Vam.Glute.G1.FrameRateStability",
+    "Vam.Glute.G1.Mechanics",
+    "Vam.Glute.FinalCorrective",
+    "Vam.Glute.FinalInfluenceBudget",
+    "Vam.Glute.MorphNormalOrientation",
+    "Vam.Glute.PoseFunction",
+    "Vam.Glute.PoseRefinement",
+    "Vam.Glute.RotationBlendReference",
+    "Vam.Leg.PreserveSupportSlots",
+    "Vam.Material.AffineStreaming",
+    "Vam.Knee.SourceOperatorDriver"
+  ],
+  "report_sha256": "ff93dab30d14bfda7da252981a97c4e3ee606b3167558db5bb7e692656c7d5c4",
+  "scope": "Implemented source knee operator reconstruction; anatomical deep posterior knee residual remains; Contact excluded"
+}

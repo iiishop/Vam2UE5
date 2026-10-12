@@ -1,0 +1,149 @@
+{
+  "gates": [
+    {
+      "pose": "asymmetric",
+      "mode": "off",
+      "request_id": "c9665726975c0234f376c7f8b2c6e29cc296c5211a9f26e24cc569d7e9557768",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "asymmetric",
+      "mode": "on",
+      "request_id": "fedd7710ebc416069789183b4485169cefd5ed6a553c2908549b6eed5f2d414c",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "deep",
+      "mode": "off",
+      "request_id": "45b3b6bad0a44d4177bbd0f8e9fc53788f2de8373358836c718d291b1dd5f74b",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "deep",
+      "mode": "on",
+      "request_id": "89dd3a7129ade3195bbd5dccdf7b79e1f9d7e25a45d297ef668de27bcbd19b67",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "hip110",
+      "mode": "off",
+      "request_id": "b9ba9f40fc9dfe435fba9beb853813e12d974be3eac243de229334fdd80b1608",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "hip110",
+      "mode": "on",
+      "request_id": "62d9056b74c677e6ff529ac78cd34670820f5a9493d41eeb4044a86ff213e10d",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "hip30",
+      "mode": "off",
+      "request_id": "bde772cb706825f5fa2e49ed04a33d384ef10dae0cdfcc4547d4487f90be9c58",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "hip30",
+      "mode": "on",
+      "request_id": "1561c60aac8b1567cc8fbedffdc67bbb6a20a5f9ce92e03b78fe7b143fceaef4",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "hip60",
+      "mode": "off",
+      "request_id": "426abc9fa4729181df5c721fb97056b39908c61219291e83a7c11824cb85292a",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "hip60",
+      "mode": "on",
+      "request_id": "b48253a1a79ff2a539501daa52bae27ec65a6d65fea3daf04d04e78a502fece8",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "hip90",
+      "mode": "off",
+      "request_id": "be8eeb268a2262b60c2846d37de491ea19aa0b119029c32b9309de20864c10b9",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "hip90",
+      "mode": "on",
+      "request_id": "ad0240bd9e94cdbf73b576aabed72be02b0182f6047874477bc24295ec38e45f",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "knee120",
+      "mode": "off",
+      "request_id": "2c8d21c16ecda64e6d2a99ec18b2cb3c561eb3d78a0694b04d1a824a2154bb93",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "knee120",
+      "mode": "on",
+      "request_id": "08891f33f3e1f50ee4943bb8233d27cfa5cf8df58abe103db9b66c6cd2814ec7",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "knee30",
+      "mode": "off",
+      "request_id": "f597875f18882ccf295fb30ce86e957aa9bc256c1386fa173f22351afb01d8de",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "knee30",
+      "mode": "on",
+      "request_id": "285620ca4ed987015d0d03c5bd9689a0a298d5591ddad503a6fee05770475cfb",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "knee60",
+      "mode": "off",
+      "request_id": "54dc54e960259e28d83a1f4a1b8c148a5f8ae6532130139be0dc3342aef921a7",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "knee60",
+      "mode": "on",
+      "request_id": "a50846593ace7b3419d3702af6543723df1d7502cc7aeab0df955efb606f95f9",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "knee90",
+      "mode": "off",
+      "request_id": "d2bd7907f356d8e1f0a4479da10df693938e943636b5d0ea4718053015bf1404",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "knee90",
+      "mode": "on",
+      "request_id": "76451d8fe4f40d416f9396a45de77c3748cb1775845f6e126f044a36be822992",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "seated",
+      "mode": "off",
+      "request_id": "eea0a445cd89263b7cb9f801b7dc962f21853502ef6011f14d3ee6afb285e72e",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "seated",
+      "mode": "on",
+      "request_id": "9f3b08d657f39cdeaf70ee08177b615fc9cb2c41de98837eaa4b5ddf5ecaadfe",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "standing",
+      "mode": "off",
+      "request_id": "1bb375f486fe334819b35f6b58baf0b07fc9a94c8717fb01e1e9c4bd48ee33f4",
+      "matrix_max": 0.0
+    },
+    {
+      "pose": "standing",
+      "mode": "on",
+      "request_id": "94ed3568a27305df1ecb0aa7e4e46db4c72982bf52140e4a6bb443a0e7433e4e",
+      "matrix_max": 0.0
+    }
+  ],
+  "scope": "Actual VaM matrices, original core on/off states kept separate. Source ID mapping only; raw VaM output is not an anatomical ground truth."
+}

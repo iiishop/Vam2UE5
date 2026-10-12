@@ -1,0 +1,1972 @@
+[
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "abducted",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_45": 0.3497835695743561,
+      "Knee_lShin_60": 0.6502164006233215,
+      "Knee_rShin_45": 0.34779295325279236,
+      "Knee_rShin_60": 0.6522070169448853
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061654-1660B9E04BF70D018BF7549CFD4DE21D"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "asymmetric",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24698780477046967,
+      "Knee_lShin_90": 0.7530121803283691,
+      "Knee_rShin_15": 0.24494512379169464,
+      "Knee_rShin_30": 0.7550548911094666
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061639-394831B8422CCD96A06744B97666D8C0"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "deep-flexion",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.013475628569722176,
+      "Knee_lShin_90": 0.9865243434906006,
+      "Knee_rShin_75": 0.013789000920951366,
+      "Knee_rShin_90": 0.9862110018730164
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061609-524310D24B689DFD4E1466949FAFCBEB"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "heldout-45-75",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_60": 0.28033247590065,
+      "Knee_lShin_75": 0.7196675539016724,
+      "Knee_rShin_60": 0.27839523553848267,
+      "Knee_rShin_75": 0.7216047644615173
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061754-937F790E4E20A30CF5A52BACFF014A5C"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "hip-110",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 1,
+      "Knee_rShin_-15": 1
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061423-6585A0D5466366F2E75E61BBCA0CC3AC"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "hip-30",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061339-E00E068247DA61DD911F7DB6F40105EF"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "hip-60",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061354-77B424A94622A7E8D2B85DA34F343322"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "hip-90",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061409-8866538F4CDF1C8E5492FBA7162C7CE4"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "jiggle-motion",
+    "jiggle": true,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061840-6376404B4F1FBBAF4C2391895F8CA9CA"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "knee-120",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.1145789846777916,
+      "Knee_lShin_90": 0.8854210376739502,
+      "Knee_rShin_75": 0.11364620923995972,
+      "Knee_rShin_90": 0.8863537907600403
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061538-F73B9ABA4C44A713A9B23EA02C740DA8"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "knee-30",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_15": 0.24809283018112183,
+      "Knee_lShin_30": 0.7519071698188782,
+      "Knee_rShin_15": 0.24621647596359253,
+      "Knee_rShin_30": 0.7537835240364075
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061438-675C4D6848967A8D56304F83A21B4F4F"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "knee-60",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_45": 0.25141483545303345,
+      "Knee_lShin_60": 0.7485851645469666,
+      "Knee_rShin_45": 0.24951551854610443,
+      "Knee_rShin_60": 0.7504844665527344
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061500-4F05BE8840C655132EF1B08DFD4CDEC9"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "knee-90",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.25137001276016235,
+      "Knee_lShin_90": 0.7486299872398376,
+      "Knee_rShin_75": 0.2494775354862213,
+      "Knee_rShin_90": 0.7505224347114563
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061523-D8885604480EF81B7DFD76AAC2E0E0C0"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "mirror-left",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.6259545087814331,
+      "Knee_lShin_90": 0.3740454912185669,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061810-86CE54CA443E9E90F3E3F2AF1D6F4E12"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "mirror-right",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_75": 0.6250181794166565,
+      "Knee_rShin_90": 0.3749818503856659
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061825-137A97C545208488FC112AB17468B28B"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "rotation-pair",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_45": 0.24724912643432617,
+      "Knee_lShin_60": 0.7527508735656738,
+      "Knee_rShin_45": 0.24538646638393402,
+      "Knee_rShin_60": 0.7546135187149048
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061709-D7A13F1B4A02F9DB683087BE7A711AA1"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "seat-prone",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_75": 0.24284648895263672,
+      "Knee_rShin_90": 0.7571535110473633
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061739-31691A1C43BAF1D58BA06C82FFA6DC6E"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "seat-sideways",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_75": 0.24284648895263672,
+      "Knee_rShin_90": 0.7571535110473633
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061724-6A32E2BA4217AE14A2830CB7B4AEB5A5"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "single-leg",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061624-0D1BDD5B4D7CBDB62896879D76AE88DD"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "standing",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061323-0FFCC61741F730211C5C26BA38922572"
+  },
+  {
+    "suite": "regression",
+    "world": "editor",
+    "pose": "suspended-seat",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_75": 0.24284648895263672,
+      "Knee_rShin_90": 0.7571535110473633
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061554-A8012C7F49BBD8811858DD85AFFB77B5"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "abducted",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_45": 0.3497835695743561,
+      "Knee_lShin_60": 0.6502164006233215,
+      "Knee_rShin_45": 0.34779295325279236,
+      "Knee_rShin_60": 0.6522070169448853
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062250-FD14ACA24C9F30B748345385CF12B8B6"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "asymmetric",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24698780477046967,
+      "Knee_lShin_90": 0.7530121803283691,
+      "Knee_rShin_15": 0.24494512379169464,
+      "Knee_rShin_30": 0.7550548911094666
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062234-D45073DF491A931178F3228EC62A016D"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "deep-flexion",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.013475628569722176,
+      "Knee_lShin_90": 0.9865243434906006,
+      "Knee_rShin_75": 0.013789000920951366,
+      "Knee_rShin_90": 0.9862110018730164
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062203-69B1505C4AB277326CA0A590CAC418E9"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "heldout-45-75",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_60": 0.28033247590065,
+      "Knee_lShin_75": 0.7196675539016724,
+      "Knee_rShin_60": 0.27839523553848267,
+      "Knee_rShin_75": 0.7216047644615173
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062353-0324BEAF4E2C66B715B52AA140E9F5E3"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "hip-110",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 1,
+      "Knee_rShin_-15": 1
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062030-D6CA517243059CFF7FCD45935B084185"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "hip-30",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061943-34F34908463F7311723486A67C785F6A"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "hip-60",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061959-E0E5552346870D00FCCD1195D94F19B2"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "hip-90",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062014-4624F43540B45BC9859C37AC3F4C0BEA"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "jiggle-motion",
+    "jiggle": true,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.19634652557647886,
+        "p95_cm": 0.5043945335482032,
+        "max_cm": 0.7592771321471691
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.11639862810644117,
+        "p95_cm": 0.14922868665529954,
+        "max_cm": 0.15022931877369164
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.21340367926444154,
+        "p95_cm": 0.4977230346472887,
+        "max_cm": 0.8731086044862598
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.11594535532340025,
+        "p95_cm": 0.14866707282311303,
+        "max_cm": 0.14964994578223448
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062440-C0D35902416D282C2DDAA59599744898"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "knee-120",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.1145789846777916,
+      "Knee_lShin_90": 0.8854210376739502,
+      "Knee_rShin_75": 0.11364620923995972,
+      "Knee_rShin_90": 0.8863537907600403
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062132-26456204407C093EEE930B8FBFF16FD6"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "knee-30",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_15": 0.24809283018112183,
+      "Knee_lShin_30": 0.7519071698188782,
+      "Knee_rShin_15": 0.24621647596359253,
+      "Knee_rShin_30": 0.7537835240364075
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062045-8B60926B4C3C38348B3043BF4EBD629F"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "knee-60",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_45": 0.25141483545303345,
+      "Knee_lShin_60": 0.7485851645469666,
+      "Knee_rShin_45": 0.24951551854610443,
+      "Knee_rShin_60": 0.7504844665527344
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062101-28EC07AE469C5C5FF6E5AB8B8849BD8F"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "knee-90",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.25137001276016235,
+      "Knee_lShin_90": 0.7486299872398376,
+      "Knee_rShin_75": 0.2494775354862213,
+      "Knee_rShin_90": 0.7505224347114563
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062117-0E1C448F4BEA9134D421AA98C4B40253"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "mirror-left",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.6259545087814331,
+      "Knee_lShin_90": 0.3740454912185669,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062409-47D0A4934D12B2BBE08DEBB3D201D9FB"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "mirror-right",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_75": 0.6250181794166565,
+      "Knee_rShin_90": 0.3749818503856659
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062424-59C3FE7446132DE4BFBD1591184764A8"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "rotation-pair",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_45": 0.24724912643432617,
+      "Knee_lShin_60": 0.7527508735656738,
+      "Knee_rShin_45": 0.24538646638393402,
+      "Knee_rShin_60": 0.7546135187149048
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062306-2EEEB88845A9961FDC4BC1ACAD22104C"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "seat-prone",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_75": 0.24284648895263672,
+      "Knee_rShin_90": 0.7571535110473633
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062337-95918A124FCD41F691C6AEAC1DD34536"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "seat-sideways",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_75": 0.24284648895263672,
+      "Knee_rShin_90": 0.7571535110473633
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062321-EF99584B483C37410EA0449129D4E993"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "single-leg",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062219-2856B0284B762A36B9894393B4A6CF19"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "standing",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_-15": 0.24223700165748596,
+      "Knee_rShin_-15": 0.24040821194648743
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-061927-EFE95C0F433B7F67238C25AE863C849B"
+  },
+  {
+    "suite": "regression",
+    "world": "pie",
+    "pose": "suspended-seat",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_75": 0.24284648895263672,
+      "Knee_rShin_90": 0.7571535110473633
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-062148-3CC0D1154FB0AE36742C5CA12256AAEE"
+  },
+  {
+    "suite": "main-extra",
+    "world": "editor",
+    "pose": "knee-45-heldout",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_30": 0.2501426935195923,
+      "Knee_lShin_45": 0.7498573064804077,
+      "Knee_rShin_30": 0.248251274228096,
+      "Knee_rShin_45": 0.7517487406730652
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261012-062648-B9C7FD814338660F44649CB09B25A3A3"
+  },
+  {
+    "suite": "main-extra",
+    "world": "editor",
+    "pose": "knee-60-jiggle",
+    "jiggle": true,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_45": 0.25141483545303345,
+      "Knee_lShin_60": 0.7485851645469666,
+      "Knee_rShin_45": 0.24951551854610443,
+      "Knee_rShin_60": 0.7504844665527344
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261012-062722-6E0991DA4129E5F7996A02985D701B2D"
+  },
+  {
+    "suite": "main-extra",
+    "world": "editor",
+    "pose": "knee-75-heldout",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_60": 0.2518300414085388,
+      "Knee_lShin_75": 0.7481699585914612,
+      "Knee_rShin_60": 0.24993041157722473,
+      "Knee_rShin_75": 0.7500695586204529
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261012-062706-2A1A6F6A41736267012B699DB379625B"
+  },
+  {
+    "suite": "main-extra",
+    "world": "editor",
+    "pose": "seated-jiggle",
+    "jiggle": true,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_75": 0.24284648895263672,
+      "Knee_rShin_90": 0.7571535110473633
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261012-062737-777DD25E4760AA5934C93185358DE7D0"
+  },
+  {
+    "suite": "main-extra",
+    "world": "pie",
+    "pose": "knee-45-heldout",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_30": 0.2501426935195923,
+      "Knee_lShin_45": 0.7498573064804077,
+      "Knee_rShin_30": 0.248251274228096,
+      "Knee_rShin_45": 0.7517487406730652
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261012-062831-D973D08B48CAFCDA784507A0F48AF435"
+  },
+  {
+    "suite": "main-extra",
+    "world": "pie",
+    "pose": "knee-60-jiggle",
+    "jiggle": true,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.18966539084122777,
+        "p95_cm": 0.5010672985829866,
+        "max_cm": 0.7591949549475496
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.6370727660376694,
+        "p95_cm": 0.7624904671287048,
+        "max_cm": 0.7672986509801656
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.20843566870509356,
+        "p95_cm": 0.49752573914467313,
+        "max_cm": 0.8648800002288474
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.6369762338294522,
+        "p95_cm": 0.7622830797563669,
+        "max_cm": 0.7671286441828807
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_45": 0.25141483545303345,
+      "Knee_lShin_60": 0.7485851645469666,
+      "Knee_rShin_45": 0.24951551854610443,
+      "Knee_rShin_60": 0.7504844665527344
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261012-062903-321B5EA1434DB50611683A86419493C3"
+  },
+  {
+    "suite": "main-extra",
+    "world": "pie",
+    "pose": "knee-75-heldout",
+    "jiggle": false,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.0,
+        "p95_cm": 0.0,
+        "max_cm": 0.0
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_60": 0.2518300414085388,
+      "Knee_lShin_75": 0.7481699585914612,
+      "Knee_rShin_60": 0.24993041157722473,
+      "Knee_rShin_75": 0.7500695586204529
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261012-062848-0F20A094426C53CE0025BC908C0FD444"
+  },
+  {
+    "suite": "main-extra",
+    "world": "pie",
+    "pose": "seated-jiggle",
+    "jiggle": true,
+    "dynamic": {
+      "L_Thigh": {
+        "count": 336,
+        "rms_cm": 0.8948596614416419,
+        "p95_cm": 1.0290816072448374,
+        "max_cm": 1.0373115995086721
+      },
+      "L_Calf": {
+        "count": 369,
+        "rms_cm": 0.07547211965616983,
+        "p95_cm": 0.10271200501054481,
+        "max_cm": 0.10638617523103994
+      },
+      "R_Thigh": {
+        "count": 317,
+        "rms_cm": 0.8894209693544397,
+        "p95_cm": 1.0213785143941854,
+        "max_cm": 1.0311271158113782
+      },
+      "R_Calf": {
+        "count": 369,
+        "rms_cm": 0.07518547226764595,
+        "p95_cm": 0.10233062629844301,
+        "max_cm": 0.10595586770159318
+      }
+    },
+    "relative_normal_reversals": 0,
+    "active_knee_morphs": {
+      "Knee_lShin_75": 0.24468480050563812,
+      "Knee_lShin_90": 0.7553151845932007,
+      "Knee_rShin_75": 0.24284648895263672,
+      "Knee_rShin_90": 0.7571535110473633
+    },
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261012-062919-CF078A3741A17B396ECC6692399903C4"
+  }
+]
