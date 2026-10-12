@@ -11,6 +11,7 @@ using FDeltaField=TArray<FVector>;
 // the caller. This records the predicate that first constrains a probe point.
 inline FString SafetyTraceContext;
 inline TSet<int32> SafetyTraceVertices;
+inline bool FeasibleSafetyGrowth=false;
 // Largest attenuation field below the safety solution with a bounded spatial
 // derivative. Only follow mesh edges and proven source aliases, never proximity.
 // The attenuation gradient has an explicit bind-edge displacement budget
@@ -37,6 +38,46 @@ inline void ContinuousAttenuation(const FVamNativeMeshInput& I,const FDeltaField
         for(const auto& Edge:Graph[U])if(A[Edge.Vertex]>Value+Edge.Cost+1.e-12)
         { A[Edge.Vertex]=Value+Edge.Cost;Queue.push({A[Edge.Vertex],Edge.Vertex}); }
     }
+}
+// Fair only deformation-induced sharp edges. Smooth the displacement differential,
+// not the body surface, preserving the rest anatomy and untouched target regions.
+inline bool RelaxIntroducedFolds(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,const FDeltaField& Source,FDeltaField& Proc,const TMap<int32,TArray<int32>>& Aliases,double CurvatureRadius)
+{
+    const int32 Count=I.Vertices.Num();TArray<int32> Rep;Rep.SetNumUninitialized(Count);for(int V=0;V<Count;++V)Rep[V]=V;
+    for(const auto& Pair:Aliases)for(int V:Pair.Value)Rep[V]=Pair.Value[0];
+    TArray<TSet<int32>> Adj;Adj.SetNum(Count);TMap<uint64,TArray<int32>> Edges;
+    TArray<FIntVector> Faces;for(int T=0;T<I.Triangles.Num();T+=3)
+    {
+        FIntVector F(Rep[I.Triangles[T]],Rep[I.Triangles[T+1]],Rep[I.Triangles[T+2]]);if(F.X==F.Y||F.Y==F.Z||F.Z==F.X)continue;
+        const int Face=Faces.Add(F);for(int K=0;K<3;++K){int U=F[K],V=F[(K+1)%3];Adj[U].Add(V);Adj[V].Add(U);const uint64 Key=(uint64(FMath::Min(U,V))<<32)|uint32(FMath::Max(U,V));Edges.FindOrAdd(Key).Add(Face);}
+    }
+    FDeltaField Base,D;Base.SetNum(Count);D.SetNum(Count);for(int V=0;V<Count;++V){Base[V]=FVector(Skin[V].TransformPosition(I.Vertices[V]));D[V]=FVector(Skin[V].TransformVector(Source[V]+Proc[V]));}
+    TArray<FVector> RestNormals;for(const auto& F:Faces)RestNormals.Add(FVector::CrossProduct(Base[F.Y]-Base[F.X],Base[F.Z]-Base[F.X]).GetSafeNormal());
+    bool Changed=false;
+    for(int Pass=0;Pass<64;++Pass)
+    {
+        TArray<FVector> Normals;for(const auto& F:Faces)Normals.Add(FVector::CrossProduct(Base[F.Y]+D[F.Y]-Base[F.X]-D[F.X],Base[F.Z]+D[F.Z]-Base[F.X]-D[F.X]).GetSafeNormal());
+        TSet<int32> Active;
+        for(const auto& Pair:Edges)if(Pair.Value.Num()==2)
+        {
+            const int A=Pair.Value[0],B=Pair.Value[1];const double RestAngle=FMath::Acos(FMath::Clamp(FVector::DotProduct(RestNormals[A],RestNormals[B]),-1.,1.));
+            const auto& FA=Faces[A];const auto& FB=Faces[B];
+            const double DualLength=((Base[FA.X]+Base[FA.Y]+Base[FA.Z]-Base[FB.X]-Base[FB.Y]-Base[FB.Z])/3.).Size();
+            const double Extra=FMath::Min(5.*PI/180.,DualLength/FMath::Max(.1,CurvatureRadius));
+            const double Limit=FMath::Min(PI,FMath::Max(5.*PI/180.,RestAngle+Extra));
+            if(FVector::DotProduct(Normals[A],Normals[B])<FMath::Cos(Limit)-1.e-6)for(int F:{A,B})for(int K=0;K<3;++K)Active.Add(Faces[F][K]);
+        }
+        if(Active.IsEmpty())break;
+        auto Next=D;double Maximum=0;
+        for(int V:Active)if(!Adj[V].IsEmpty())
+        {
+            FVector Mean=FVector::ZeroVector;double Total=0;for(int N:Adj[V]){const double W=1/FMath::Max(.01,(Base[V]-Base[N]).Size());Mean+=D[N]*W;Total+=W;}
+            Next[V]=FMath::Lerp(D[V],Mean/Total,.3);Maximum=FMath::Max(Maximum,(Next[V]-D[V]).Size());
+        }
+        if(Maximum<1.e-6)break;Changed=true;D=MoveTemp(Next);
+    }
+    if(Changed)for(int V=0;V<Count;++V)if(FMath::Abs(Skin[V].Determinant())>=.01)Proc[V]=FVector(Skin[V].Inverse().TransformVector(D[Rep[V]]))-Source[V];
+    return Changed;
 }
 inline FQuat Rotation(const FVamGluteSide& S,const FVector& D)
 {
@@ -93,8 +134,85 @@ inline bool TriangleSafe(const FVector& A,const FVector& B,const FVector& C,cons
 }
 // Safety is computed from the actual target displacement, never from a global
 // worst-case baseline compression field. Existing 5x area / 3x edge bounds stay.
+inline bool GrowSafeField(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,const FDeltaField& Native,const TMap<int32,TArray<int32>>& Aliases,TArray<double>& Safety,const FDeltaField* Fixed,const TArray<FDeltaField>* Additional=nullptr)
+{
+    const int Count=Native.Num();const auto Base=Apply(Skin,I.Vertices,true),D=Apply(Skin,Native);
+    TArray<FDeltaField> Fields{Native},Displacements{D};if(Additional)for(const auto& Field:*Additional){Fields.Add(Field);Displacements.Add(Apply(Skin,Field));}
+    FDeltaField F;F.SetNumZeroed(Count);if(Fixed)F=Apply(Skin,*Fixed);
+    TArray<int> Rep;Rep.SetNumUninitialized(Count);for(int V=0;V<Count;++V)Rep[V]=V;
+    for(const auto& Pair:Aliases){int R=Count;for(int V:Pair.Value)R=FMath::Min(R,V);for(int V:Pair.Value)Rep[V]=R;}
+    TArray<TArray<int>> Faces,Members;Faces.SetNum(Count);Members.SetNum(Count);
+    for(int V=0;V<Count;++V)Members[Rep[V]].Add(V);
+    for(int T=0;T<I.Triangles.Num();T+=3)for(int K=0;K<3;++K)Faces[Rep[I.Triangles[T+K]]].AddUnique(T);
+    TMap<uint64,TArray<int>> EdgeFaces;TArray<TArray<int>> FaceNeighbors;FaceNeighbors.SetNum(I.Triangles.Num()/3);
+    TArray<FVector> BaseNormals;BaseNormals.SetNum(FaceNeighbors.Num());
+    for(int T=0;T<I.Triangles.Num();T+=3)
+    {
+        const int A=I.Triangles[T],B=I.Triangles[T+1],C=I.Triangles[T+2];
+        BaseNormals[T/3]=FVector::CrossProduct(Base[B]-Base[A],Base[C]-Base[A]).GetSafeNormal();
+        for(int K=0;K<3;++K){const int U=Rep[I.Triangles[T+K]],V=Rep[I.Triangles[T+(K+1)%3]];if(U!=V)EdgeFaces.FindOrAdd((uint64(FMath::Min(U,V))<<32)|uint32(FMath::Max(U,V))).Add(T);}
+    }
+    for(const auto& Pair:EdgeFaces)if(Pair.Value.Num()==2){FaceNeighbors[Pair.Value[0]/3].Add(Pair.Value[1]);FaceNeighbors[Pair.Value[1]/3].Add(Pair.Value[0]);}
+    Safety.Init(1,Count);
+    auto Normal=[&](int T,int FI){const auto& D=Displacements[FI];const int A=I.Triangles[T],B=I.Triangles[T+1],C=I.Triangles[T+2];const FVector P=Base[A]+F[A]+D[A]*Safety[A];return FVector::CrossProduct(Base[B]+F[B]+D[B]*Safety[B]-P,Base[C]+F[C]+D[C]*Safety[C]-P).GetSafeNormal();};
+    bool Verification=true;
+    auto SafeFaceFor=[&](int T,int FI)
+    {
+        const auto& Native=Fields[FI];const auto& D=Displacements[FI];
+        const int A=I.Triangles[T],B=I.Triangles[T+1],C=I.Triangles[T+2];
+        if(!TriangleSafe(Base[A],Base[B],Base[C],F[A]+D[A]*Safety[A],F[B]+D[B]*Safety[B],F[C]+D[C]*Safety[C],1,(Fixed||Verification)?.05:.051))return false;
+        for(int K=0;K<3;++K)
+        {
+            const int U=I.Triangles[T+K],V=I.Triangles[T+(K+1)%3];
+            const double Length=(I.Vertices[U]-I.Vertices[V]).Size();
+            const FVector Offset=Fixed?(*Fixed)[U]-(*Fixed)[V]:FVector::ZeroVector;
+            if((Offset+Native[U]*Safety[U]-Native[V]*Safety[V]).Size()>=FMath::Max(.15,Length*3)*((Fixed||Verification)?1.:.9999))return false;
+            // Limit only the additional differential introduced by attenuation.
+            const double Amplitude=FMath::Min(Native[U].Size(),Native[V].Size());
+            if(FMath::Abs(Safety[U]-Safety[V])*Amplitude>Length*(Verification?.5:.4999)+1.e-10)return false;
+        }
+        // Triangle orientation alone permits a severe crease. Check the actual
+        // adjoining surface on proven source topology, preserving existing folds.
+        const FVector N=Normal(T,FI);
+        for(int Other:FaceNeighbors[T/3])
+        {
+            const double BaseDot=FVector::DotProduct(BaseNormals[T/3],BaseNormals[Other/3]);
+            const double Limit=FMath::Min(BaseDot,FMath::Cos(FMath::DegreesToRadians((Fixed||Verification)?45.:44.5)));
+            if(FVector::DotProduct(N,Normal(Other,FI))<Limit-((Fixed||Verification)?1.e-6:1.e-8))return false;
+        }
+        return true;
+    };
+    auto SafeFace=[&](int T){for(int FI=0;FI<Fields.Num();++FI)if(!SafeFaceFor(T,FI))return false;return true;};
+    auto SafeAll=[&](){for(int T=0;T<I.Triangles.Num();T+=3)if(!SafeFace(T))return false;return true;};
+    bool Singular=false;for(int V=0;V<Count;++V)if(!Native[V].IsNearlyZero(1.e-8)&&FMath::Abs(Skin[V].Determinant())<.01)Singular=true;
+    if(!Singular&&SafeAll())return true;
+    Verification=false;
+    Safety.Init(0,Count);if(!SafeAll()){UE_LOG(LogTemp,Error,TEXT("GLUTE_GROWTH_FIXED_UNSAFE %s"),*SafetyTraceContext);return false;}
+    // Coordinate ascent starts feasible. An accepted update never invalidates
+    // a neighboring triangle; no subsequent pass needs to erase its neighbor.
+    for(int Pass=0;Pass<12;++Pass)
+    {
+        double Gain=0;
+        for(int Index=0;Index<Count;++Index)
+        {
+            const int R=Pass%2?Count-1-Index:Index;if(Members[R].IsEmpty()||Safety[R]>.999999999)continue;
+            bool Locked=false;for(int V:Members[R])if(!Native[V].IsNearlyZero(1.e-8)&&FMath::Abs(Skin[V].Determinant())<.01)Locked=true;if(Locked)continue;
+            const double Start=Safety[R];auto Set=[&](double X){for(int V:Members[R])Safety[V]=X;};
+            auto Valid=[&](){for(int T:Faces[R])if(!SafeFace(T))return false;return true;};
+            Set(1);if(!Valid())
+            {
+                double Lo=Start,Hi=1;for(int Step=0;Step<24;++Step){const double Mid=(Lo+Hi)*.5;Set(Mid);if(Valid())Lo=Mid;else Hi=Mid;}
+                Set(Lo);
+            }
+            Gain=FMath::Max(Gain,Safety[R]-Start);
+        }
+        if(Gain<1.e-7)break;
+    }
+    for(int T=0;T<I.Triangles.Num();T+=3)if(!SafeFace(T)){UE_LOG(LogTemp,Error,TEXT("GLUTE_GROWTH_FINAL_UNSAFE %s triangle=%d,%d,%d"),*SafetyTraceContext,I.Triangles[T],I.Triangles[T+1],I.Triangles[T+2]);return false;}return true;
+}
 inline bool Condition(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,const FDeltaField& Native,const TMap<int32,TArray<int32>>& Aliases,TArray<double>& Safety,const FDeltaField* Fixed=nullptr)
 {
+    if(FeasibleSafetyGrowth)return GrowSafeField(I,Skin,Native,Aliases,Safety,Fixed);
     const auto Base=Apply(Skin,I.Vertices,true),D=Apply(Skin,Native);Safety.Init(1,Native.Num());for(int32 V=0;V<Native.Num();++V) if(!Native[V].IsNearlyZero(1.e-8) && FMath::Abs(Skin[V].Determinant())<.01) Safety[V]=0;
     FDeltaField F;F.SetNumZeroed(Native.Num());if(Fixed) F=Apply(Skin,*Fixed);
     for(int32 Pass=0;Pass<80;++Pass)
@@ -106,6 +224,12 @@ inline bool Condition(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,c
             auto Safe=[&](double Scale){return TriangleSafe(Base[A],Base[B],Base[C],F[A]+DA*Scale,F[B]+DB*Scale,F[C]+DC*Scale,1,.05);};
             if(!Safe(1))
             {
+                if((SafetyTraceVertices.Contains(A)||SafetyTraceVertices.Contains(B)||SafetyTraceVertices.Contains(C)))
+                {
+                    const FVector N0=FVector::CrossProduct(Base[B]-Base[A],Base[C]-Base[A]);
+                    const FVector N1=FVector::CrossProduct(Base[B]+F[B]+DB-Base[A]-F[A]-DA,Base[C]+F[C]+DC-Base[A]-F[A]-DA);
+                    UE_LOG(LogTemp,Display,TEXT("GLUTE_SAFETY_CAUSE %s condition_pass=%d triangle %d %d %d cosine=%.9g area_ratio=%.9g"),*SafetyTraceContext,Pass,A,B,C,FVector::DotProduct(N0.GetSafeNormal(),N1.GetSafeNormal()),N1.Size()/FMath::Max(1.e-20,N0.Size()));
+                }
                 if(Fixed && !Safe(0)) return false;
                 Good=false;double Lo=0,Hi=1;for(int32 N=0;N<30;++N) { const double M=(Lo+Hi)*.5;if(Safe(M)) Lo=M;else Hi=M; }
                 for(int32 V:{A,B,C}) Next[V]=FMath::Min(Next[V],Safety[V]*Lo*.99);
@@ -122,9 +246,3 @@ inline bool Condition(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,c
     }return false;
 }
 }
-                if((SafetyTraceVertices.Contains(A)||SafetyTraceVertices.Contains(B)||SafetyTraceVertices.Contains(C)))
-                {
-                    const FVector N0=FVector::CrossProduct(Base[B]-Base[A],Base[C]-Base[A]);
-                    const FVector N1=FVector::CrossProduct(Base[B]+F[B]+DB-Base[A]-F[A]-DA,Base[C]+F[C]+DC-Base[A]-F[A]-DA);
-                    UE_LOG(LogTemp,Display,TEXT("GLUTE_SAFETY_CAUSE %s condition_pass=%d triangle %d %d %d cosine=%.9g area_ratio=%.9g"),*SafetyTraceContext,Pass,A,B,C,FVector::DotProduct(N0.GetSafeNormal(),N1.GetSafeNormal()),N1.Size()/FMath::Max(1.e-20,N0.Size()));
-                }

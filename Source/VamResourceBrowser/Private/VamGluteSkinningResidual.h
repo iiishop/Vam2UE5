@@ -77,6 +77,7 @@ inline bool BuildSkinningResidual(const FVamNativeMeshInput& I,const UVamGluteSt
             const auto M=Skin(I,I.Influences,Bind,Pose(I,G,Bind,Side!=1?D:FVector::ZeroVector,Side!=0?D:FVector::ZeroVector,true));
             FDeltaField Fixed,Adjust;Fixed.SetNumZeroed(I.Vertices.Num());Adjust=Fixed;
             for(int32 S=0;S<2;++S) if(Side==2 || S==Side) for(int32 T=1;T<W.Num();++T) for(int32 V=0;V<Fixed.Num();++V) { Fixed[V]+=(Source[S][T][V]+Procedural[S][T][V])*W[T];Adjust[V]+=Residual[S][T][V]*W[T]; }
+            SafetyTraceContext=FString::Printf(TEXT("residual iteration=%d side=%d step=%d"),Iteration,Side,Step);
             TArray<double> Safety;if(!Condition(I,M,Adjust,Aliases,Safety,&Fixed)) { UE_LOG(LogTemp,Error,TEXT("GLUTE_RESIDUAL_BLEND_UNSAFE side=%d step=%d"),Side,Step);return false; }
             for(int32 V=0;V<Fixed.Num();++V) if(Safety[V]<.999999)
             {
