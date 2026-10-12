@@ -1,0 +1,263 @@
+{
+  "scope": "Source topology IDs from rear-camera fold picking. VaM pre-skin samples from frozen C1.5. Generator rows from fresh UE Glute Build; no nearest-neighbor matching. Largest-area representative is downstream Leg WeldWeights policy.",
+  "source_contract_id": "8dc812aa2ab4cfdefb293e47b9b6160d47364968ab440497c7cf40a7628cbc55",
+  "probes": [
+    {
+      "source_pair": [
+        7189,
+        17896
+      ],
+      "vam_preskin_right_minus_reflected_left_cm": [
+        -0.03478670120239258,
+        -0.013683557510375977,
+        1.57550048828125
+      ],
+      "aliases": {
+        "L": {
+          "copies": [
+            {
+              "input": 7189,
+              "source": 7189,
+              "position": [
+                -6.3146772384643555,
+                -2.88228178024292,
+                89.35382843017578
+              ],
+              "area": 0.7785014113346744,
+              "seed": 0.1260286736881935,
+              "gate": 0.6681978106498718,
+              "morph_evidence": 0,
+              "region": 0.26751431822776794
+            },
+            {
+              "input": 21566,
+              "source": 7189,
+              "position": [
+                -6.3146772384643555,
+                -2.88228178024292,
+                89.35382843017578
+              ],
+              "area": 0.7854941315763038,
+              "seed": 0.12602868120008806,
+              "gate": 0.6681978106498718,
+              "morph_evidence": 0,
+              "region": 0.21125267446041107
+            }
+          ],
+          "largest_area_input": 21566,
+          "region_spread": 0.05626164376735687,
+          "source_capture_error_cm": 6.10537798601884e-05
+        },
+        "R": {
+          "copies": [
+            {
+              "input": 17896,
+              "source": 17896,
+              "position": [
+                -6.349458694458008,
+                2.868598222732544,
+                90.92936706542969
+              ],
+              "area": 0.7333361360251925,
+              "seed": 0.17078984672133546,
+              "gate": 0.7697863578796387,
+              "morph_evidence": 0,
+              "region": 0.3918185532093048
+            },
+            {
+              "input": 21601,
+              "source": 17896,
+              "position": [
+                -6.349458694458008,
+                2.868598222732544,
+                90.92936706542969
+              ],
+              "area": 0.6743146244072304,
+              "seed": 0.17078984163140137,
+              "gate": 0.7697862982749939,
+              "morph_evidence": 0,
+              "region": 0.3055403530597687
+            }
+          ],
+          "largest_area_input": 17896,
+          "region_spread": 0.08627820014953613,
+          "source_capture_error_cm": 9.935734933420278e-05
+        }
+      },
+      "morph_contributions": [
+        {
+          "name": "a07 - Body",
+          "target": "M_75d9f4791b4ab929c7815039",
+          "value": 1.0,
+          "delta_cm": [
+            -0.03478121943771839,
+            -0.013683561701327562,
+            1.5755431726574898
+          ]
+        }
+      ]
+    },
+    {
+      "source_pair": [
+        7840,
+        18520
+      ],
+      "vam_preskin_right_minus_reflected_left_cm": [
+        -0.04619932174682617,
+        -0.023929119110107422,
+        1.4532012939453125
+      ],
+      "aliases": {
+        "L": {
+          "copies": [
+            {
+              "input": 7840,
+              "source": 7840,
+              "position": [
+                -6.570438385009766,
+                -2.343451499938965,
+                90.01626586914062
+              ],
+              "area": 1.1559726280510096,
+              "seed": 0.09870961114625586,
+              "gate": 0.4853891432285309,
+              "morph_evidence": 0,
+              "region": 0.2110341638326645
+            },
+            {
+              "input": 21570,
+              "source": 7840,
+              "position": [
+                -6.570438385009766,
+                -2.343451499938965,
+                90.01626586914062
+              ],
+              "area": 0.626209689139253,
+              "seed": 0.09870960820448028,
+              "gate": 0.4853891432285309,
+              "morph_evidence": 0,
+              "region": 0.1583750993013382
+            }
+          ],
+          "largest_area_input": 7840,
+          "region_spread": 0.052659064531326294,
+          "source_capture_error_cm": 3.1023745230890504e-05
+        },
+        "R": {
+          "copies": [
+            {
+              "input": 18520,
+              "source": 18520,
+              "position": [
+                -6.616641521453857,
+                2.3195180892944336,
+                91.46944427490234
+              ],
+              "area": 1.0303742723227538,
+              "seed": 0.12673665896479205,
+              "gate": 0.5525302290916443,
+              "morph_evidence": 0,
+              "region": 0.2979002296924591
+            },
+            {
+              "input": 21605,
+              "source": 18520,
+              "position": [
+                -6.616641521453857,
+                2.3195180892944336,
+                91.46944427490234
+              ],
+              "area": 0.5125503881261881,
+              "seed": 0.1267366551877453,
+              "gate": 0.5525302290916443,
+              "morph_evidence": 0,
+              "region": 0.22421130537986755
+            }
+          ],
+          "largest_area_input": 18520,
+          "region_spread": 0.07368892431259155,
+          "source_capture_error_cm": 8.120244200671388e-06
+        }
+      },
+      "morph_contributions": [
+        {
+          "name": "a07 - Body",
+          "target": "M_75d9f4791b4ab929c7815039",
+          "value": 1.0,
+          "delta_cm": [
+            -0.04620314575731754,
+            -0.023933331249281764,
+            1.4531726017594337
+          ]
+        }
+      ]
+    },
+    {
+      "source_pair": [
+        8249,
+        18920
+      ],
+      "vam_preskin_right_minus_reflected_left_cm": [
+        0.010924339294433594,
+        -0.0661001205444336,
+        2.2478256225585938
+      ],
+      "aliases": {
+        "L": {
+          "copies": [
+            {
+              "input": 8249,
+              "source": 8249,
+              "position": [
+                -8.387483596801758,
+                -8.222151756286621,
+                88.25997924804688
+              ],
+              "area": 1.8391637989422143,
+              "seed": 0.06825749519979375,
+              "gate": 0.788114070892334,
+              "morph_evidence": 0,
+              "region": 0.24219755828380585
+            }
+          ],
+          "largest_area_input": 8249,
+          "region_spread": 0.0,
+          "source_capture_error_cm": 3.328309701273946e-05
+        },
+        "R": {
+          "copies": [
+            {
+              "input": 18920,
+              "source": 18920,
+              "position": [
+                -8.376564979553223,
+                8.156050682067871,
+                90.5077896118164
+              ],
+              "area": 1.8182301900121782,
+              "seed": 0.1115175273581618,
+              "gate": 0.8907554149627686,
+              "morph_evidence": 0,
+              "region": 0.3597896695137024
+            }
+          ],
+          "largest_area_input": 18920,
+          "region_spread": 0.0,
+          "source_capture_error_cm": 1.9097313303471363e-05
+        }
+      },
+      "morph_contributions": [
+        {
+          "name": "a07 - Body",
+          "target": "M_75d9f4791b4ab929c7815039",
+          "value": 1.0,
+          "delta_cm": [
+            0.010918360203504562,
+            -0.06610089913010597,
+            2.247810922563076
+          ]
+        }
+      ]
+    }
+  ]
+}

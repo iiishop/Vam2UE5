@@ -12,6 +12,9 @@
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "Misc/PackageName.h"
 #include "Misc/SecureHash.h"
+#include "Misc/FileHelper.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
@@ -121,7 +124,7 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
             || SuperiorExtent<2.5 || SuperiorExtent>4 || SuperiorFade<1 || SuperiorFade>2 || SuperiorEvidence<2 || SuperiorEvidence>3)
             return Fail(TEXT("Invalid superior glute transition family policy"));
     }
-    P->SchemaVersion=2;P->RefinementVersion=1;P->Algorithm=TEXT("glute-structure-g05-surface-v5-final-budget");
+    P->SchemaVersion=2;P->RefinementVersion=1;P->Algorithm=TEXT("glute-structure-g05-surface-v6-source-topology");
     P->SourceTopologyIdentity=Geometry->TopologyDigest;P->SkeletonFamily=Family->GetStringField(TEXT("family"));P->SourceBoneCount=I.Bones.Num();P->Sides.Reset();
     auto Bone=[&](const TCHAR* Key)->int32 { FString Name;if(!(*Map)->TryGetStringField(Key,Name)) return INDEX_NONE;return I.Bones.IndexOfByPredicate([&](const FVamBuildBone& B){return B.Name==FName(*Name);}); };
     const int32 Pelvis=Bone(TEXT("pelvis")),Superior=Bone(TEXT("superior"));
@@ -133,7 +136,21 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
     const auto AreaWeights=SurfaceAreas(I,I.Vertices);
     TArray<TArray<int32>> Adj;Adj.SetNum(I.Vertices.Num());
     for(int32 T=0;T<I.Triangles.Num();T+=3) for(int32 K=0;K<3;++K) { const int32 A=I.Triangles[T+K],B=I.Triangles[T+(K+1)%3];Adj[A].AddUnique(B);Adj[B].AddUnique(A); }
-    TMap<int32,int32> First;for(int32 V=0;V<I.Vertices.Num();++V) { const int32 Id=Geometry->InputToSource[V];if(const int32* Other=First.Find(Id)) { Adj[V].AddUnique(*Other);Adj[*Other].AddUnique(V); }else First.Add(Id,V); }
+    // Diffuse on logical source topology, not UV/section copies. A single alias
+    // edge does not make two split one-rings equivalent; later representative
+    // selection must never decide how much static glute support a point receives.
+    TMap<int32,int32> SourceGroups;TArray<int32> GroupOf;GroupOf.Init(INDEX_NONE,I.Vertices.Num());
+    TArray<TArray<int32>> Groups,Neighbors;
+    for(int32 V=0;V<I.Vertices.Num();++V)
+    {
+        const int32 SourceId=Geometry->InputToSource[V];int32 Group=INDEX_NONE;
+        if(SourceId>=0)if(const int32* Existing=SourceGroups.Find(SourceId))Group=*Existing;
+        if(Group==INDEX_NONE){Group=Groups.AddDefaulted();if(SourceId>=0)SourceGroups.Add(SourceId,Group);}
+        if(!Groups[Group].IsEmpty() && !I.Vertices[V].Equals(I.Vertices[Groups[Group][0]],1.e-4))return Fail(TEXT("Glute source aliases disagree in bind position"));
+        GroupOf[V]=Group;Groups[Group].Add(V);
+    }
+    Neighbors.SetNum(Groups.Num());
+    for(int32 V=0;V<Adj.Num();++V)for(int32 N:Adj[V])if(GroupOf[V]!=GroupOf[N])Neighbors[GroupOf[V]].AddUnique(GroupOf[N]);
     const FVector Z=(CS[Superior].GetLocation()-CS[Pelvis].GetLocation()).GetSafeNormal();
     FVector Y=(CS[Thighs[0]].GetLocation()-CS[Thighs[1]].GetLocation());Y=(Y-Z*FVector::DotProduct(Y,Z)).GetSafeNormal();
     FVector X=FVector::CrossProduct(Y,Z).GetSafeNormal(),Posterior=FVector::ZeroVector;double Support=0;
@@ -193,11 +210,38 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::Build(const FString& Root,UV
             const double ME=MaxMorph>0?FMath::Sqrt(MorphEvidence[V]/MaxMorph):0;
             S.RegionWeights[V]=Gate[V]*FMath::Clamp(G*2+Nearby*(PW*.35+T*.15)+ME*.25,0.,1.);
         }
+        TArray<double> LogicalWeights,LogicalGate;LogicalWeights.Init(0,Groups.Num());LogicalGate=LogicalWeights;
+        for(int32 K=0;K<Groups.Num();++K)
+        {
+            double Area=0;for(int32 V:Groups[K]){Area+=AreaWeights[V];LogicalWeights[K]+=S.RegionWeights[V]*AreaWeights[V];LogicalGate[K]+=Gate[V]*AreaWeights[V];}
+            if(Area>0){LogicalWeights[K]/=Area;LogicalGate[K]/=Area;}
+        }
         for(int32 Pass=0;Pass<8;++Pass)
         {
-            auto Next=S.RegionWeights;
-            for(int32 V=0;V<I.Vertices.Num();++V) if(!Adj[V].IsEmpty()) { double Average=0;for(int32 N:Adj[V]) Average+=S.RegionWeights[N];Next[V]=FMath::Min(double(Gate[V]),.6*S.RegionWeights[V]+.4*Average/Adj[V].Num()); }
-            S.RegionWeights=MoveTemp(Next);
+            auto Next=LogicalWeights;
+            for(int32 K=0;K<Groups.Num();++K)if(!Neighbors[K].IsEmpty())
+            {double Average=0;for(int32 N:Neighbors[K])Average+=LogicalWeights[N];Next[K]=FMath::Min(LogicalGate[K],.6*LogicalWeights[K]+.4*Average/Neighbors[K].Num());}
+            LogicalWeights=MoveTemp(Next);
+        }
+        for(int32 V=0;V<I.Vertices.Num();++V)S.RegionWeights[V]=AreaWeights[V]>1.e-12?LogicalWeights[GroupOf[V]]:0;
+        // Opt-in generation evidence: retain the exact inputs behind each side's support field.
+        FString AuditDirectory;
+        if(FParse::Value(FCommandLine::Get(),TEXT("VamGluteEvidenceDir="),AuditDirectory))
+        {
+            auto O=MakeShared<FJsonObject>();
+            auto Vec=[](const FVector& V){return TArray<TSharedPtr<FJsonValue>>{MakeShared<FJsonValueNumber>(V.X),MakeShared<FJsonValueNumber>(V.Y),MakeShared<FJsonValueNumber>(V.Z)};};
+            O->SetArrayField(TEXT("mean"),Vec(Mean));O->SetArrayField(TEXT("spread"),Vec(Spread));O->SetArrayField(TEXT("landmark"),Vec(Landmark));
+            O->SetNumberField(TEXT("seed_radius"),SeedRadius);O->SetNumberField(TEXT("max_morph"),MaxMorph);
+            TArray<TSharedPtr<FJsonValue>> Rows;
+            for(int32 V=0;V<I.Vertices.Num();++V)
+            {
+                auto R=MakeShared<FJsonObject>();R->SetNumberField(TEXT("input"),V);R->SetNumberField(TEXT("source"),Geometry->InputToSource[V]);
+                R->SetArrayField(TEXT("position"),Vec(I.Vertices[V]));R->SetNumberField(TEXT("area"),AreaWeights[V]);R->SetNumberField(TEXT("seed"),Seeds[V]);
+                R->SetNumberField(TEXT("gate"),Gate[V]);R->SetNumberField(TEXT("morph_evidence"),MorphEvidence[V]);R->SetNumberField(TEXT("region"),S.RegionWeights[V]);
+                Rows.Add(MakeShared<FJsonValueObject>(R));
+            }
+            O->SetArrayField(TEXT("vertices"),Rows);FString Json;FJsonSerializer::Serialize(O,TJsonWriterFactory<>::Create(&Json));
+            FFileHelper::SaveStringToFile(Json,*(AuditDirectory/(S.Side.ToString()+TEXT("-generation.json"))));
         }
         const FVector Shin=Anchor.InverseTransformPosition(CS[Shins[Side]].GetLocation());
         Measure(S,I,I.Vertices,Anchor,W,Shin,P->DensityCandidateKgPerCm3,P->EffectiveModulusPa);
@@ -291,3 +335,4 @@ FString UVamGluteStructureBuilder::Validate(UVamCharacterDefinition* D,UVamGlute
     }
     return FString();
 }
+
