@@ -1,0 +1,12 @@
+{
+  "rms_cm": 0.2070182956635904,
+  "p95_cm": 0.45124571422385334,
+  "max_cm": 1.8898492980122739,
+  "thresholds": {
+    "global_rms": 0.3,
+    "global_p95": 0.5,
+    "per_joint_maximum": 2.0
+  },
+  "passed": true,
+  "scope": "mathematical isolated held-out fit only; not rebuilt source asset"
+}

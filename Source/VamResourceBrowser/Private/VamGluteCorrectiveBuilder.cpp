@@ -15,13 +15,14 @@ TArray<TSharedPtr<FJsonValue>> JsonVec(FVector V) { return {MakeShared<FJsonValu
 FDeltaField Local(const FDeltaField& F,const FTransform& A) { auto R=F;for(auto& V:R) V=A.InverseTransformVectorNoScale(V);return R; }
 // Explicit DAZSkinV2 CPU isolated thigh-X port. Source node order and disjoint
 // graft node domains are retained. This excludes source post-skin smoothing.
-TArray<FMatrix> SourceReference(const FVamNativeMeshInput& I,const TArray<int32>& Ids,const TArray<FTransform>& Bind,const FJsonObject& Source,const FVector& Degrees)
+TArray<FMatrix> SourceReference(const FVamNativeMeshInput& I,const TArray<int32>& Ids,const TArray<FTransform>& Bind,const FJsonObject& Source,const FVector& Degrees,const FString& OnlyBone=FString())
 {
     TArray<FMatrix> M;M.Init(FMatrix::Identity,I.Vertices.Num());TMap<int32,TArray<int32>> Map;for(int32 V=0;V<Ids.Num();++V) Map.FindOrAdd(Ids[V]).Add(V);
     const double Angle=-Degrees.X*PI/180.,Bulge=Source.GetNumberField(TEXT("source_bulge_scale"));
     for(const auto& Value:Source.GetArrayField(TEXT("source_skin_nodes")))
     {
         const auto N=Value->AsObject();const FString Name=N->GetStringField(TEXT("name"));const int32 Bone=I.Bones.IndexOfByPredicate([&](const auto& B){return B.Name.ToString()==Name;});check(Bone>=0);
+        if(!OnlyBone.IsEmpty() && Name!=OnlyBone) continue;
         const auto Factors=N->GetObjectField(TEXT("bulgeFactors"));
         auto Add=[&](int32 Id,double Weight,double Left,double Right,bool Full)
         {
@@ -67,6 +68,8 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     for(const auto& V:(*Policy)->GetArrayField(TEXT("targets"))) { const auto O=V->AsObject();FVamGlutePoseTarget T;T.Name=FName(*O->GetStringField(TEXT("name")));T.Degrees=Vec(O->GetArrayField(TEXT("degrees")));P.Targets.Add(T); }
     const TSharedPtr<FJsonObject>* Source=nullptr;Family->TryGetObjectField(TEXT("glute_corrective_source"),Source);const bool Verified=Source && !(*Source)->GetArrayField(TEXT("deltas")).IsEmpty();
     if(Verified && (*Source)->GetIntegerField(TEXT("version"))!=2) return Fail(TEXT("Corrective requires verified merged topology mapping v2"));
+    bool SourceFieldOperator=false;(*Policy)->TryGetBoolField(TEXT("source_operator_in_source_field"),SourceFieldOperator);
+    if(SourceFieldOperator && (!Verified || !(*Source)->HasField(TEXT("bulge_preparation")))) return Fail(TEXT("Source field operator requires initialized source bulge weights"));
     const TSharedPtr<FJsonObject>* Calibration=nullptr;(*Policy)->TryGetObjectField(TEXT("family_reference"),Calibration);
     if(!Verified && !Calibration) return Fail(TEXT("No source: family corrective reference calibration required"));
     P.Provenance=Verified?TEXT("Verified !Bend Fix; Boundary graft transfer; source-only TriAx thigh-X reference; independent-side extension; target-local safety. Procedural residual separately gated/smoothed."):TEXT("Procedural family moment calibration; no source vertex deltas reused. ");
@@ -112,6 +115,17 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             FDeltaField Raw,Adapt,SourceField,Proc;Raw.SetNumZeroed(Ids.Num());Adapt=Raw;SourceField=Raw;Proc=Raw;TArray<double> Boundary;Boundary.Init(0,Ids.Num());
             const double Driver=FMath::Clamp(Degrees.X/100.,0.,1.);
             auto RefSkin=Verified?SourceReference(I,Ids,Bind,**Source,FVector(Degrees.X,0,0)):Skin;
+            FDeltaField SourceOperatorDelta;
+            if(SourceFieldOperator && FMath::Abs(Degrees.X)>1.e-8)
+            {
+                const FVector Flex(Degrees.X,0,0);
+                const auto FlexPose=Pose(I,G,Bind,Side==0?Flex:FVector::ZeroVector,Side==1?Flex:FVector::ZeroVector,true);
+                const auto FlexDQ=RotationBlend(I,Bind,FlexPose),FullDQ=RotationBlend(I,Bind,Posed),Base=Apply(Skin,I.Vertices,true);
+                const auto SourceFlex=Apply(SourceReference(I,Ids,Bind,**Source,Flex,I.Bones[S.ThighBone].Name.ToString()),I.Vertices,true);
+                SourceOperatorDelta.SetNum(I.Vertices.Num());
+                for(int32 V=0;V<I.Vertices.Num();++V)SourceOperatorDelta[V]=FullDQ[V]+SourceFlex[V]-FlexDQ[V]-Base[V];
+                Capture(TEXT("source_operator_posed_before_localization"),Local(SourceOperatorDelta,Anchor));
+            }
             for(int32 V=0;V<Ids.Num();++V)
             {
                 if(const auto* D=RawMap.Find(Ids[V])) Raw[V]=Anchor.InverseTransformVectorNoScale(*D)*Driver;
@@ -127,6 +141,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             {
                 const double Both=G.Sides[0].RegionWeights[V]+G.Sides[1].RegionWeights[V];const double Localize=Both>1.e-12?S.RegionWeights[V]/Both*FMath::SmoothStep(0.,MaxRegion*.01,Both):0;
                 SourceField[V]=Anchor.InverseTransformVectorNoScale(RefPosed[V])*Localize;
+                if(!SourceOperatorDelta.IsEmpty())SourceField[V]+=Anchor.InverseTransformVectorNoScale(SourceOperatorDelta[V])*Localize;
                 Boundary[V]=FMath::Min(1.,double(S.RegionWeights[V])*8);
                 Proc[V]=VamGluteCorrective::CurvatureDelta(S,S.RegionPoints[V],Degrees,Structure.FoldState)*S.RegionWeights[V];
                 // Verified response owns its support. Procedural curvature fills
@@ -192,6 +207,36 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     for(int32 Iteration=0;Iteration<64;++Iteration)
     {
         bool Changed=false;
+    // Source operators can be much larger than a source Morph increment.
+    // Condition every independently exported AP/ML/SI basis before treating
+    // these fields as fixed input to the residual stage. Keep the same native
+    // edge and posed triangle predicates; do not bypass a failed fixed basis.
+    if(SourceFieldOperator) for(int32 S=0;S<2;++S) for(int32 T=1;T<P.Targets.Num();++T)
+    {
+        const auto& M=TargetSkin[S][T];const FTransform Anchor=G.Sides[S].AnchorLocal*Bind[G.Sides[S].PelvisBone];
+        auto& A=SourceNative[S][T];auto& B=ProcNative[S][T];
+        for(int32 Pass=0;Pass<64;++Pass)
+        {
+            TArray<double> Factors;Factors.Init(1,I.Vertices.Num());
+            for(int32 Axis=0;Axis<3;++Axis)
+            {
+                FDeltaField Projected;Projected.SetNumZeroed(I.Vertices.Num());
+                for(int32 V=0;V<Projected.Num();++V)
+                {
+                    if(FMath::Abs(M[V].Determinant())<.01)continue;
+                    const FVector Local=Anchor.InverseTransformVectorNoScale(FVector(M[V].TransformVector(A[V]+B[V])));FVector D=FVector::ZeroVector;D[Axis]=Local[Axis];
+                    Projected[V]=FVector(M[V].Inverse().TransformVector(Anchor.TransformVectorNoScale(D)));
+                }
+                TArray<double> Safety;if(!Condition(I,M,Projected,Aliases,Safety))return Fail(TEXT("Source operator axis safety did not converge"));
+                for(int32 V=0;V<Factors.Num();++V)Factors[V]=FMath::Min(Factors[V],Safety[V]);
+            }
+            bool PassChanged=false;for(int32 V=0;V<Factors.Num();++V)if(Factors[V]<.999999)
+            {
+                PassChanged=true;Changed=true;A[V]*=Factors[V];B[V]*=Factors[V];if(Detail)Detail->SourceSafety[S][T][V]*=Factors[V];
+            }
+            if(!PassChanged)break;if(Pass==63)return Fail(TEXT("Source operator common axis safety did not converge"));
+        }
+    }
         for(int32 Side=0;Side<3;++Side) for(int32 Step=0;Step<72;++Step)
         {
             FVector D;
@@ -220,7 +265,32 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
         Audit->SetNumberField(TEXT("blend_safety_iterations"),Iteration+1);if(!Changed) break;if(Iteration==63) return Fail(TEXT("Target-aware blended safety failed convergence"));
     }
     FTargetFields SkinningResidual;
-    if(!BuildSkinningResidual(I,G,P,Bind,Aliases,SourceNative,ProcNative,SkinningResidual,*Audit,Detail)) return Fail(TEXT("Skinning residual safety failed; output not published"));
+    bool SourceOperator=false;(*Policy)->TryGetBoolField(TEXT("use_source_skinning_reference"),SourceOperator);
+    FTargetFields OperatorReference;
+    if(SourceOperator || SourceFieldOperator)
+    {
+        if(!Verified || !(*Source)->HasField(TEXT("bulge_preparation"))) return Fail(TEXT("Source operator requires initialized source bulge weights"));
+        OperatorReference.SetNum(2);
+        for(int32 S=0;S<2;++S)
+        {
+            OperatorReference[S].SetNum(P.Targets.Num());
+            for(int32 T=1;T<P.Targets.Num();++T)
+            {
+                const FVector D=P.Targets[T].Degrees,Flex(D.X,0,0);
+                const auto FullPose=Pose(I,G,Bind,S==0?D:FVector::ZeroVector,S==1?D:FVector::ZeroVector,true);
+                const auto FlexPose=Pose(I,G,Bind,S==0?Flex:FVector::ZeroVector,S==1?Flex:FVector::ZeroVector,true);
+                auto Reference=RotationBlend(I,Bind,FullPose);const auto FlexReference=RotationBlend(I,Bind,FlexPose);
+                const auto SourceFlex=Apply(SourceReference(I,Ids,Bind,**Source,Flex,I.Bones[G.Sides[S].ThighBone].Name.ToString()),I.Vertices,true);
+                for(int32 V=0;V<Reference.Num();++V)Reference[V]+=SourceFlex[V]-FlexReference[V];
+                // The verified source field already owns flexion. Do not apply
+                // the same operator again through the synthetic DQ residual.
+                if(SourceFieldOperator && FMath::Abs(D.X)>1.e-8)Reference=Apply(Skin(I,I.Influences,Bind,FullPose),I.Vertices,true);
+                OperatorReference[S][T]=MoveTemp(Reference);
+            }
+        }
+        Audit->SetStringField(TEXT("skinning_reference"),TEXT("Initialized source thigh-X operator plus rotation-blend non-flexion residual; experimental compound-pose extension"));
+    }
+    if(!BuildSkinningResidual(I,G,P,Bind,Aliases,SourceNative,ProcNative,SkinningResidual,*Audit,Detail,(SourceOperator||SourceFieldOperator)?&OperatorReference:nullptr)) return Fail(TEXT("Skinning residual safety failed; output not published"));
     P.Provenance+=TEXT(" Local rotation-blend minus LBS residual; fixed source contribution; baked GPU Morphs.");
     for(int32 Side=0;Side<2;++Side) for(int32 Target=1;Target<P.Targets.Num();++Target)
     {
