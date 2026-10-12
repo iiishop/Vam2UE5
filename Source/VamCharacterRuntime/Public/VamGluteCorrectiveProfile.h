@@ -56,6 +56,17 @@ struct FVamGluteCorrectiveReplay
     UPROPERTY() int32 Target=0;
     UPROPERTY() TArray<FVector> PosedDelta;
 };
+/** A source knee operator sampled into native GPU morphs on the final skin operator. */
+USTRUCT()
+struct FVamKneeCorrective
+{
+    GENERATED_BODY()
+    UPROPERTY() int32 Bone=INDEX_NONE;
+    UPROPERTY() int32 Parent=INDEX_NONE;
+    UPROPERTY() FQuat ReferenceRotation=FQuat::Identity;
+    UPROPERTY() TArray<double> Angles;
+    UPROPERTY() TArray<FName> Morphs;
+};
 /** Family policy plus immutable geometry calibration. No character-ID branches or dynamic state. */
 UCLASS(BlueprintType)
 class VAMCHARACTERRUNTIME_API UVamGluteCorrectiveProfile : public UDataAsset
@@ -84,6 +95,8 @@ public:
     UPROPERTY() TSoftObjectPtr<class UVamCharacterDefinition> OriginalInfluenceDefinition;
     UPROPERTY() FString SourceFamilyJson;
     UPROPERTY() TArray<FVamGluteCorrectiveReplay> AuthoredReplay;
+    UPROPERTY() TArray<FVamKneeCorrective> Knees;
+    UPROPERTY() FString KneeSourceDigest;
     UPROPERTY(VisibleAnywhere, Category="Corrective|Diagnostics") FString FinalReplayJson;
     TMap<FString,FString> ComputeFinalData(class UVamCharacterDefinition* Definition, class UVamGluteStructureProfile* Glute, class UVamLegJiggleProfile* Leg, class UVamBreastJiggleProfile* Breast, FString& Error) const;
     FString ValidateFinalData(class UVamCharacterDefinition* Definition, class UVamGluteStructureProfile* Glute, class UVamLegJiggleProfile* Leg, class UVamBreastJiggleProfile* Breast) const;
@@ -92,6 +105,7 @@ public:
 struct FVamGluteSide;
 namespace VamGluteCorrective
 {
+    VAMCHARACTERRUNTIME_API TMap<FName,float> KneeWeights(const UVamGluteCorrectiveProfile&,const TArray<FTransform>& Pose,const TArray<FTransform>* ShapeReference=nullptr);
     VAMCHARACTERRUNTIME_API FVector CurvatureDelta(const FVamGluteSide& S,const FVector& Point,const FVector& Degrees,const FVamGluteFoldState& Fold);
     /** Cardinal normalized radial interpolation, positive weights, no matrix conditioning problem. */
     VAMCHARACTERRUNTIME_API TArray<double> Weights(const UVamGluteCorrectiveProfile& Profile,const FVamHipSidePose& Pose);

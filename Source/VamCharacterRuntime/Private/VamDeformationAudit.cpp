@@ -137,7 +137,8 @@ void AVamCharacterActor::ExportDeformationAudit()
    A Sides;TArray<TArray<double>> Weights;
    for(int Side=0;Side<2;++Side){Weights.Add(VamGluteCorrective::Weights(*B->CorrectiveProfile,Hip.Sides[Side]));auto O=Obj();A W;for(double V:Weights.Last())W.Add(Num(V));O->SetArrayField(TEXT("target_weights"),W);O->SetNumberField(TEXT("side"),Side);Sides.Add(MakeShared<FJsonValueObject>(O));}
    for(const auto& Basis:B->CorrectiveProfile->Bases){const auto Scale=VamGluteCorrective::ShapeScale(B->CorrectiveProfile->BuildDimensions[Basis.Side],B->GluteRest[Basis.Side].Dimensions);AllMorphs.Add(Basis.Morph,B->bCorrectiveEnabled?Weights[Basis.Side][Basis.Target]*Scale[Basis.Axis]:0);}
-   Corrective->SetArrayField(TEXT("sides"),Sides);Corrective->SetStringField(TEXT("evaluation"),TEXT("native G062 evaluated at supplied matrices; not live actor pose"));Root->SetObjectField(TEXT("active_morphs"),MorphJson(AllMorphs));
+   for(const auto& W:VamGluteCorrective::KneeWeights(*B->CorrectiveProfile,Final,&Local))AllMorphs.Add(W.Key,B->bCorrectiveEnabled?W.Value:0);
+   Corrective->SetArrayField(TEXT("sides"),Sides);Corrective->SetStringField(TEXT("evaluation"),TEXT("native G062 and knee operator evaluated at supplied matrices; not live actor pose"));Root->SetObjectField(TEXT("active_morphs"),MorphJson(AllMorphs));
   }
  }
  auto Base=Final;
@@ -148,6 +149,7 @@ void AVamCharacterActor::ExportDeformationAudit()
  for(const auto& S:B->GluteRest){ResetBone(S.AnchorBone);for(const auto& N:S.Regions)ResetBone(N.BoneIndex);}
  for(const auto& S:B->LegRest){ResetBone(S.AnchorBone);for(const auto& N:S.Dynamics.Nodes)ResetBone(N.BoneIndex);}
  auto NonCorrective=AllMorphs;if(B->CorrectiveProfile)for(const auto& X:B->CorrectiveProfile->Bases)NonCorrective.Remove(X.Morph);
+ if(B->CorrectiveProfile)for(const auto& K:B->CorrectiveProfile->Knees)for(FName Name:K.Morphs)NonCorrective.Remove(Name);
  auto Stages=Obj();J Meta;Surface(Dir/TEXT("01-final-weights"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Base,NonCorrective,Meta,Inverse);Meta->SetStringField(TEXT("meaning"),TEXT("final weights, shape-reference helpers, current primary pose; NOT source LBS"));Stages->SetObjectField(TEXT("01-final-weights"),Meta);
  auto Static=Base;
  for(const auto& S:B->LegRest){const auto Anchor=S.AnchorLocal*Static[S.bCalf?S.Shin:S.Thigh];Static[S.AnchorBone]=Anchor;for(const auto& N:S.Dynamics.Nodes)Static[N.BoneIndex]=FTransform(N.Rest)*Anchor;}

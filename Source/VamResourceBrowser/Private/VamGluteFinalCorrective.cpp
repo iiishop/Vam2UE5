@@ -1,4 +1,5 @@
 #include "VamGluteStructureBuilder.h"
+#include "VamKneeCorrectiveBuilder.h"
 #include "VamGluteCorrectiveBuilder.h"
 #include "VamGluteCorrectiveAudit.h"
 #include "VamGluteCorrectiveDetail.h"
@@ -83,6 +84,7 @@ UVamCharacterDefinition* UVamGluteStructureBuilder::BuildCorrective(const FStrin
     if(!PrepareFinal(D,Original,G,I,OriginalWeights,Ids,Error))return nullptr;
     P->OriginalInfluenceDefinition=Original;P->SourceFamilyJson=FamilyJson;
     if(!VamGluteCorrectiveBuilder::Build(I,OriginalWeights,Ids,*G,*P,FamilyJson,Error))return nullptr;
+    if(!VamKneeBuilder::Build(I,Ids,*P,FamilyJson,Error))return nullptr;
     auto* Mesh=UVamNativeBuilder::BuildMesh(Root+TEXT("/SK_Body"),I,Error);if(!Mesh)return nullptr;
     if(!UVamNativeBuilder::ShareCompatibleSkeleton(Mesh,D->Body.LoadSynchronous()))return Fail(TEXT("Final corrective changed skeleton"));
     // Skinning normals alone omit spatial derivatives of the weight field, and

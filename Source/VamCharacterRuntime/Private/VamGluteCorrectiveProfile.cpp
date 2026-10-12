@@ -3,6 +3,12 @@
 
 bool UVamGluteCorrectiveProfile::IsValidProfile() const
 {
+    if(!Knees.IsEmpty() && (Knees.Num()!=2 || KneeSourceDigest.IsEmpty()))return false;
+    for(const auto& K:Knees)
+    {
+        if(K.Bone<0||K.Parent<0||K.Angles.Num()<2||K.Morphs.Num()!=K.Angles.Num()||K.ReferenceRotation.ContainsNaN())return false;
+        for(int I=0;I<K.Angles.Num();++I)if(!FMath::IsFinite(K.Angles[I])||(K.Morphs[I].IsNone()&&K.Angles[I]!=0)||(I>0&&K.Angles[I]<=K.Angles[I-1]))return false;
+    }
     if((SchemaVersion!=1 && SchemaVersion!=2 && SchemaVersion!=3 && SchemaVersion!=4) || Targets.Num()<2 || Targets.Num()>32 || !Targets[0].Degrees.IsNearlyZero(1.e-12) || BuildDimensions.Num()!=2 || SourceTopologyIdentity.IsEmpty() || MetricDegrees.ContainsNaN() || MetricDegrees.GetMin()<=0 || !FMath::IsFinite(BlendWidth) || BlendWidth<=0 || !FMath::IsFinite(MaximumDimensionFraction) || MaximumDimensionFraction<=0 || MaximumDimensionFraction>.2 || Bases.IsEmpty()) return false;
     for(int32 I=0;I<Targets.Num();++I) { if(Targets[I].Degrees.ContainsNaN()) return false;for(int32 J=0;J<I;++J) if(Targets[I].Degrees.Equals(Targets[J].Degrees,1.e-6)) return false; }
     for(const FVector& D:BuildDimensions) if(D.ContainsNaN() || D.GetMin()<=0) return false;

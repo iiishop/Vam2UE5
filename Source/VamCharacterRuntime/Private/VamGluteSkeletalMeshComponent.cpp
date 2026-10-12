@@ -10,6 +10,7 @@ void UVamGluteSkeletalMeshComponent::UpdateGluteShape(const TMap<FName,float>& V
     if(!GluteProfile || !GluteProfile->IsValidProfile() || !GetSkeletalMeshAsset()) return;
     const auto OldRest=GluteRest;bGluteShapeRebase=true;
     GluteShapeRevision=ShapeRevision;GluteRest=GluteProfile->Sides;
+    CorrectiveShapeReference=Reference;
     auto CS=Reference;const auto& Ref=GetSkeletalMeshAsset()->GetRefSkeleton();
     for(int32 I=0;I<CS.Num();++I) if(Ref.GetParentIndex(I)>=0) CS[I]=CS[I]*CS[Ref.GetParentIndex(I)];
     for(auto& S:GluteRest)

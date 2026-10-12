@@ -36,6 +36,11 @@ void UVamGluteSkeletalMeshComponent::ApplyGluteCorrectives()
         for(int32 V=0;V<D.Positions.Num() && V<Vectors.Num();++V) { const FVector Start=World.TransformPosition(D.Positions[V]);DrawDebugLine(GetWorld(),Start,Start+World.TransformVectorNoScale(Vectors[V]),Colors[FMath::Clamp(CorrectiveDiagnosticStage,0,4)],false,0,0,.6f); }
     }
     // Finalize runs after primary animation/rigid completion, before native render publication.
+    for(const auto& W:VamGluteCorrective::KneeWeights(*CorrectiveProfile,GetEditableComponentSpaceTransforms(),&CorrectiveShapeReference))
+    {
+        const float Value=bCorrectiveEnabled?W.Value:0;
+        CorrectiveWeights.Add(W.Key,Value);SetMorphTarget(W.Key,Value,false);
+    }
     // Refresh native curve buffers now, rather than waiting for next TickAnimation's curve cache.
     // This preserves animation/Shape curves; no render-resource rebuild and no CPU mesh skinning.
     FAnimationRuntime::AppendActiveMorphTargets(GetSkeletalMeshAsset(),CorrectiveWeights,ActiveMorphTargets,MorphTargetWeights);MarkRenderDynamicDataDirty();
