@@ -10,6 +10,8 @@ struct VAMCHARACTERRUNTIME_API FVamBreastContactParticle
     GENERATED_BODY()
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") FVector Rest=FVector::ZeroVector;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") int32 Side=INDEX_NONE;
+    /** Collision exclusion only; never used as a volume/material region. Legacy assets use Side. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") int32 CollisionGroup=INDEX_NONE;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TArray<int32> Bones;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") TArray<float> Weights;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Contact") float RootSupport=0;
@@ -24,6 +26,7 @@ struct VAMCHARACTERRUNTIME_API FVamBreastContactMorph
     GENERATED_BODY()
     UPROPERTY() FName Parameter;
     UPROPERTY() float Baseline=0;
+    UPROPERTY() bool bPoseCorrective=false;
     UPROPERTY() TArray<FVector> ParticleDeltas;
 };
 

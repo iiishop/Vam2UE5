@@ -52,8 +52,10 @@ public:
     FVector2D GetBoundSurfaceResidualCm() const { return BoundSurfaceResidualCm; }
 private:
     TMap<int32,FBox> LowerWakeBoneBounds;
+    TMap<int32,TMap<int32,FBox>> LowerWakeGroupBoneBounds;
     int32 LowerWakeRevision=INDEX_NONE;
     uint64 LowerWakeGeneration=MAX_uint64;
+    uint32 LowerWakePoseHash=0;
     FVamGPUContactHandlePtr GPUHandle;
     TArray<float> GPUInverseMass;
     bool bGPUActive=false;
@@ -75,6 +77,8 @@ private:
     UPROPERTY(Transient) TObjectPtr<UFleshComponent> SurfaceProducer;
     UPROPERTY(Transient) TArray<TObjectPtr<class UFleshAsset>> InstanceAssets;
     TArray<FVector> ShapedRest;
+    TArray<FVector> LowerCanonicalRest;
+    TArray<FTransform> LowerReferenceCS;
     TArray<FTransform> ReferenceCS;
     UPROPERTY(Transient) TObjectPtr<UMeshDeformer> PreviousDeformer;
     bool bPreviousDeformerOverride=false;

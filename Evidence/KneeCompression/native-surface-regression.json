@@ -1,0 +1,122 @@
+[
+  {
+    "pose": "knee-120",
+    "stage": "00-source-lbs",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "knee-120",
+    "stage": "01-final-weights",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "knee-120",
+    "stage": "02-static-helpers",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "knee-120",
+    "stage": "03-corrective",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "knee-120",
+    "stage": "04-jiggle",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "knee-60",
+    "stage": "00-source-lbs",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "knee-60",
+    "stage": "01-final-weights",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "knee-60",
+    "stage": "02-static-helpers",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "knee-60",
+    "stage": "03-corrective",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "knee-60",
+    "stage": "04-jiggle",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "standing",
+    "stage": "00-source-lbs",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "standing",
+    "stage": "01-final-weights",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "standing",
+    "stage": "02-static-helpers",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "standing",
+    "stage": "03-corrective",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "standing",
+    "stage": "04-jiggle",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "suspended-seat",
+    "stage": "00-source-lbs",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "suspended-seat",
+    "stage": "01-final-weights",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "suspended-seat",
+    "stage": "02-static-helpers",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "suspended-seat",
+    "stage": "03-corrective",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  },
+  {
+    "pose": "suspended-seat",
+    "stage": "04-jiggle",
+    "rms_cm": 0.0,
+    "max_cm": 0.0
+  }
+]

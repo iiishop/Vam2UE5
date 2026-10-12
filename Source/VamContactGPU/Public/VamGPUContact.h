@@ -29,6 +29,7 @@ struct VAMCONTACTGPU_API FVamGPUContactTopology
 {
  TArray<FIntVector4> Tets, Parents, SkinHinges, SkinFaces;
  TArray<uint32> Regions;
+ TArray<uint32> CollisionGroups; // independent exclusion labels; empty retains legacy Regions
  uint32 RegionCount=2;
  uint32 ReactionRegionCount=MAX_uint32; // Lower-body static support currently has no procedural body-recoil mapping.
  TArray<FIntPoint> SurfaceEdges;

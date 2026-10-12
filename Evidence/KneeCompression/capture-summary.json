@@ -1,0 +1,178 @@
+[
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-1\\editor\\knee-120\\state.json",
+    "pose": "knee-120",
+    "world": "Editor",
+    "actual_knee_bend_deg": {
+      "l": 92.02198254750846,
+      "r": 92.00793682061583
+    },
+    "solver_active": false,
+    "acceptance": "captured_with_limit_reduction"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-1\\editor\\knee-60\\state.json",
+    "pose": "knee-60",
+    "world": "Editor",
+    "actual_knee_bend_deg": {
+      "l": 60.00000000000001,
+      "r": 60.00000000000001
+    },
+    "solver_active": false,
+    "acceptance": "captured"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-1\\editor\\standing\\state.json",
+    "pose": "standing",
+    "world": "Editor",
+    "actual_knee_bend_deg": {
+      "l": 0.0,
+      "r": 0.0
+    },
+    "solver_active": false,
+    "acceptance": "captured"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-1\\editor\\suspended-seat\\state.json",
+    "pose": "suspended-seat",
+    "world": "Editor",
+    "actual_knee_bend_deg": {
+      "l": 90.00000000000009,
+      "r": 90.00000000000009
+    },
+    "solver_active": false,
+    "acceptance": "captured"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-2\\pie-soft\\knee-120-soft\\state.json",
+    "pose": "knee-120-soft",
+    "world": "PIE",
+    "actual_knee_bend_deg": {
+      "l": 92.02198254750846,
+      "r": 92.00793682061583
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-2\\pie-soft\\knee-60-soft\\state.json",
+    "pose": "knee-60-soft",
+    "world": "PIE",
+    "actual_knee_bend_deg": {
+      "l": 60.00000000000001,
+      "r": 60.00000000000001
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-2\\pie-soft\\standing-soft\\state.json",
+    "pose": "standing-soft",
+    "world": "PIE",
+    "actual_knee_bend_deg": {
+      "l": 0.0,
+      "r": 0.0
+    },
+    "solver_active": true,
+    "acceptance": "captured"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-2\\pie-soft\\suspended-seat-soft\\state.json",
+    "pose": "suspended-seat-soft",
+    "world": "PIE",
+    "actual_knee_bend_deg": {
+      "l": 90.00000000000009,
+      "r": 90.00000000000009
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-3\\editor-soft\\knee-120-soft\\state.json",
+    "pose": "knee-120-soft",
+    "world": "Editor",
+    "actual_knee_bend_deg": {
+      "l": 92.02198254750846,
+      "r": 92.00793682061583
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-3\\editor-soft\\knee-60-soft\\state.json",
+    "pose": "knee-60-soft",
+    "world": "Editor",
+    "actual_knee_bend_deg": {
+      "l": 60.00000000000001,
+      "r": 60.00000000000001
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-3\\editor-soft\\standing-soft\\state.json",
+    "pose": "standing-soft",
+    "world": "Editor",
+    "actual_knee_bend_deg": {
+      "l": 0.0,
+      "r": 0.0
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-3\\editor-soft\\suspended-seat-soft\\state.json",
+    "pose": "suspended-seat-soft",
+    "world": "Editor",
+    "actual_knee_bend_deg": {
+      "l": 90.00000000000009,
+      "r": 90.00000000000009
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-3\\pie-soft\\knee-120-soft\\state.json",
+    "pose": "knee-120-soft",
+    "world": "PIE",
+    "actual_knee_bend_deg": {
+      "l": 92.02198254750846,
+      "r": 92.00793682061583
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-3\\pie-soft\\knee-60-soft\\state.json",
+    "pose": "knee-60-soft",
+    "world": "PIE",
+    "actual_knee_bend_deg": {
+      "l": 60.00000000000001,
+      "r": 60.00000000000001
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-3\\pie-soft\\standing-soft\\state.json",
+    "pose": "standing-soft",
+    "world": "PIE",
+    "actual_knee_bend_deg": {
+      "l": 0.0,
+      "r": 0.0
+    },
+    "solver_active": true,
+    "acceptance": "captured"
+  },
+  {
+    "capture": "Saved\\LowerBodyContact\\KneeCompression\\candidate-3\\pie-soft\\suspended-seat-soft\\state.json",
+    "pose": "suspended-seat-soft",
+    "world": "PIE",
+    "actual_knee_bend_deg": {
+      "l": 90.00000000000009,
+      "r": 90.00000000000009
+    },
+    "solver_active": false,
+    "acceptance": "blocked_contact_solver_inactive"
+  }
+]

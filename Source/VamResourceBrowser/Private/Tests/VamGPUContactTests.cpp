@@ -144,15 +144,18 @@ bool FVamGPUCouplingTest::RunTest(const FString&)
  }
 
  // Two regions in one handle exercise self contact independently of actor count.
- VamGPUUnregister(A);VamGPUUnregister(B);auto SelfTopology=Build();const auto OtherTopology=Build();
+ VamGPUUnregister(A);VamGPUUnregister(B);
+ for(int SharedVolume=0;SharedVolume<2;++SharedVolume){auto SelfTopology=Build();const auto OtherTopology=Build();
  for(auto T:OtherTopology.Tets){for(int J=0;J<4;++J)T[J]+=5;SelfTopology.Tets.Add(T);}for(auto T:OtherTopology.SkinFaces){for(int J=0;J<4;++J)T[J]+=5;SelfTopology.SkinFaces.Add(T);}for(auto T:OtherTopology.SkinHinges){for(int J=0;J<4;++J)T[J]+=5;SelfTopology.SkinHinges.Add(T);}
  for(auto E:OtherTopology.SurfaceEdges)SelfTopology.SurfaceEdges.Add(FIntPoint(E.X+5,E.Y+5));SelfTopology.EdgeLimits.Append(OtherTopology.EdgeLimits);SelfTopology.Material.Append(OtherTopology.Material);for(int I=0;I<5;++I)SelfTopology.Regions.Add(1);
+ if(SharedVolume){SelfTopology.CollisionGroups=SelfTopology.Regions;SelfTopology.Regions.Init(0,10);SelfTopology.RegionCount=1;}
  auto Self=VamGPURegister(A,MoveTemp(SelfTopology));
  for(int I=0;I<151;++I){TArray<FVector4f> R=Points;const FTransform X(FRotator(0,180,0),FVector(.5-.7*FMath::Min(1.,I/60.),0,0));for(auto P:Points)R.Add(FVector4f(FVector3f(X.TransformPosition(FVector(FVector3f(P)))),P.W));
   FVamGPUContactScene Scene;Scene.WorldId=1;Scene.bSoftCollision=true;VamGPUSetScene(Self,MoveTemp(Scene));TArray<FVector4f> Empty,Starts;VamGPUUpdate(Self,MoveTemp(R),MoveTemp(Empty),MoveTemp(Starts));VamGPUFlushBatch();ENQUEUE_RENDER_COMMAND(VamSelfTestFence)([](FRHICommandListImmediate& Cmd){Cmd.SubmitAndBlockUntilGPUIdle();});FlushRenderingCommands();}
  VamGPUReadDiagnostic(Self,R0,X0);VamGPUReadLoads(Self,L0,Time);FVector SelfForce=FVector::ZeroVector,SelfTorque=FVector::ZeroVector;for(const auto& L:L0){SelfForce+=L.ForceNewtons;SelfTorque+=L.TorqueNewtonMeters;}
  TestTrue(TEXT("Self contact deforms both regions"),X0.Num()==10&&X0[4].X<-.02&&X0[9].X>-.18);TestTrue(TEXT("Self contact has zero external wrench"),SelfForce.Size()<1e-5&&SelfTorque.Size()<1e-5);
  AddInfo(FString::Printf(TEXT("COUPLING self regions=%d force=%s torque=%s"),X0.Num(),*SelfForce.ToString(),*SelfTorque.ToString()));VamGPUUnregister(A);Self.Reset();
+ }
  H0.Reset();H1.Reset();FlushRenderingCommands();A->RemoveFromRoot();B->RemoveFromRoot();return true;
 
 }

@@ -101,10 +101,11 @@ bool UVamBreastContactComponent::Initialize()
     if(!Profile || !Profile->SurfaceDeformer) { Status=TEXT("Contact profile/deformer absent; generate upgraded Runtime");return false; }
     Status=Profile->ValidateData();if(!Status.IsEmpty()) return false;
     if(Profile->Body.LoadSynchronous()!=Body->GetSkeletalMeshAsset()) { Status=TEXT("Contact body identity mismatch");return false; }
-    const int32 N=Profile->Particles.Num();ShapedRest.Reset(N);
+    const int32 N=Profile->Particles.Num();ShapedRest.Reset(N);LowerCanonicalRest.Reset();LowerReferenceCS.Reset();
     for(const auto& P:Profile->Particles) ShapedRest.Add(P.Rest);
     for(const auto& M:Profile->Morphs)
     {
+        if(M.bPoseCorrective)continue;
         // ApplyMorphWeights has already converted absolute Shape values into
         // mesh-relative Morph weights. Subtracting the authored default here
         // applies the appearance offset twice and can invert the rest cage.
@@ -128,6 +129,10 @@ bool UVamBreastContactComponent::Initialize()
     // in imported pose while roots immediately use animation creates a spurious
     // relaxation that can be mistaken for pressure deformation.
     const auto CurrentPose=Body->GetComponentSpaceTransforms();
+    if(Profile->EffectiveVolumeCm3.Num()>2){
+        LowerCanonicalRest=ShapedRest;LowerReferenceCS=ReferenceCS;
+        for(const auto& M:Profile->Morphs)if(M.bPoseCorrective){const double W=Body->GetMorphTarget(M.Parameter);if(FMath::Abs(W)>1.e-8)for(int I=0;I<N;++I)ShapedRest[I]+=M.ParticleDeltas[I]*W;}
+    }
     for(int32 I=0;I<N;++I){const auto& P=Profile->Particles[I];FVector X=FVector::ZeroVector;
         for(int32 J=0;J<P.Bones.Num();++J){const int32 B=P.Bones[J];if(!CurrentPose.IsValidIndex(B) || !ReferenceCS.IsValidIndex(B)){Status=TEXT("Contact pose bone missing");return false;}
             X+=CurrentPose[B].TransformPosition(ReferenceCS[B].InverseTransformPosition(ShapedRest[I]))*P.Weights[J];}ShapedRest[I]=X;}
@@ -137,7 +142,7 @@ bool UVamBreastContactComponent::Initialize()
     {
         FVamGPUContactTopology Topology;Topology.Tets=Profile->Tetrahedra;Topology.Parents=Profile->SurfaceParents;Topology.Weights=Profile->SurfaceWeights;Topology.Mask=Profile->SurfaceMask;
         Topology.RegionCount=Profile->EffectiveVolumeCm3.Num();Topology.ReactionRegionCount=2;
-        for(const auto& P:Profile->Particles)Topology.Regions.Add(P.Side);
+        for(const auto& P:Profile->Particles){Topology.Regions.Add(P.Side);Topology.CollisionGroups.Add(P.CollisionGroup>=0?P.CollisionGroup:P.Side);}
         if(!bLowerBodyContactEnabled)for(int V=0;V<Topology.Mask.Num();++V)if(Topology.Mask[V]>0 && Profile->Particles[Topology.Parents[V].X].Side>=2)Topology.Mask[V]=0;
         TSet<uint64> SeenEdges;
         for(const auto& Face:Profile->BoundaryTriangles)for(int J=0;J<3;++J)
@@ -155,7 +160,13 @@ bool UVamBreastContactComponent::Initialize()
             for(int I=0;I<Nodes.Num();++I)for(int J=I+1;J<Nodes.Num();++J){int A=FMath::Min(Nodes[I],Nodes[J]),B=FMath::Max(Nodes[I],Nodes[J]);uint64 Key=(uint64(A)<<32)|uint32(B);if(SeenEdges.Contains(Key))continue;SeenEdges.Add(Key);
                 const double W=FMath::Clamp(Profile->NippleShapePreservation*NippleShapePreservationScale*FMath::Min(Profile->Particles[A].NippleSupport,Profile->Particles[B].NippleSupport),0.,1.);
                 Topology.SurfaceEdges.Add(FIntPoint(A,B));Topology.EdgeLimits.Add(FVector2f(FMath::Lerp(Profile->SurfaceMinimumStretch,1-Profile->NippleAllowedStrain,W),FMath::Lerp(Profile->SurfaceMaximumStretch,1+Profile->NippleAllowedStrain,W)));}}
-        for(const auto& F:Profile->BoundaryTriangles)if(bLowerBodyContactEnabled || Profile->Particles[F.X].Side<2)Topology.SkinFaces.Add(FIntVector4(F.X,F.Y,F.Z,F.Z));
+        for(const auto& F:Profile->BoundaryTriangles){
+            const bool Lower=Profile->Particles[F.X].Side>=2;
+            // The skeleton-side closure is a volume boundary, not exposed skin.
+            // Keep it in Tets/volume constraints, exclude it from soft surface contact.
+            const bool Exposed=!Lower || FMath::Max3(Profile->Particles[F.X].RootSupport,Profile->Particles[F.Y].RootSupport,Profile->Particles[F.Z].RootSupport)<.1f;
+            if((bLowerBodyContactEnabled || !Lower)&&Exposed)Topology.SkinFaces.Add(FIntVector4(F.X,F.Y,F.Z,F.Z));
+        }
         TMap<uint64,int> HingeOpposites;
         for(const auto& F:Profile->BoundaryTriangles)for(int J=0;J<3;++J){int A=FMath::Min(F[J],F[(J+1)%3]),B=FMath::Max(F[J],F[(J+1)%3]),C=F[(J+2)%3];uint64 K=(uint64(A)<<32)|uint32(B);
             if(const int* D=HingeOpposites.Find(K))Topology.SkinHinges.Add(FIntVector4(A,B,*D,C));else HingeOpposites.Add(K,C);}
@@ -634,7 +645,7 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
     if(!Character || !Character->Body || !bEnabled) { Release();if(!Status.StartsWith(TEXT("ERROR:"))) Status=TEXT("Contact disabled");return; }
     if(Body!=Character->Body || Generation!=Character->GetLoadGeneration())
     {
-        Release();LowerWakeRevision=INDEX_NONE;LowerWakeBoneBounds.Reset();Body=Character->Body;
+        Release();LowerWakeRevision=INDEX_NONE;LowerWakeBoneBounds.Reset();LowerWakeGroupBoneBounds.Reset();Body=Character->Body;
         const auto* RC=Character->RuntimeConfiguration.LoadSynchronous();Profile=RC?RC->BreastContact.LoadSynchronous():nullptr;
         Generation=Character->GetLoadGeneration();
     }
@@ -655,14 +666,17 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
     // skinned points inside their union. Per-frame wake work scales with bones,
     // not particle count times Morph count.
     if(Profile && bLowerBodyContactEnabled && Profile->EffectiveVolumeCm3.Num()>2){
-        if(LowerWakeRevision!=Character->GetShapeState().Revision || LowerWakeGeneration!=Generation){
-            LowerWakeBoneBounds.Reset();TArray<FTransform> Ref=Character->GetShapeReferencePose();const auto& Skeleton=Body->GetSkeletalMeshAsset()->GetRefSkeleton();
+        uint32 PoseHash=0;for(const auto& M:Profile->Morphs)if(M.bPoseCorrective)PoseHash=HashCombine(PoseHash,GetTypeHash(Body->GetMorphTarget(M.Parameter)));
+        if(LowerWakeRevision!=Character->GetShapeState().Revision || LowerWakeGeneration!=Generation || LowerWakePoseHash!=PoseHash){
+            LowerWakeBoneBounds.Reset();LowerWakeGroupBoneBounds.Reset();TArray<FTransform> Ref=Character->GetShapeReferencePose();const auto& Skeleton=Body->GetSkeletalMeshAsset()->GetRefSkeleton();
             for(int B=0;B<Ref.Num();++B)if(Skeleton.GetParentIndex(B)>=0)Ref[B]*=Ref[Skeleton.GetParentIndex(B)];
             TArray<FVector> Rest;for(const auto& P:Profile->Particles)Rest.Add(P.Rest);
             for(const auto& M:Profile->Morphs){const double W=Body->GetMorphTarget(M.Parameter);if(FMath::Abs(W)>1e-8)for(int I=0;I<Rest.Num();++I)Rest[I]+=M.ParticleDeltas[I]*W;}
             for(int I=0;I<Profile->Particles.Num();++I){const auto& P=Profile->Particles[I];if(P.Side<2)continue;
-                for(int J=0;J<P.Bones.Num();++J)if(P.Weights[J]>0&&Ref.IsValidIndex(P.Bones[J])){FBox* Box=LowerWakeBoneBounds.Find(P.Bones[J]);if(!Box)Box=&LowerWakeBoneBounds.Add(P.Bones[J],FBox(ForceInit));*Box+=Ref[P.Bones[J]].InverseTransformPosition(Rest[I]);}}
-            LowerWakeRevision=Character->GetShapeState().Revision;LowerWakeGeneration=Generation;}
+                for(int J=0;J<P.Bones.Num();++J)if(P.Weights[J]>0&&Ref.IsValidIndex(P.Bones[J])){FBox* Box=LowerWakeBoneBounds.Find(P.Bones[J]);if(!Box)Box=&LowerWakeBoneBounds.Add(P.Bones[J],FBox(ForceInit));const FVector Local=Ref[P.Bones[J]].InverseTransformPosition(Rest[I]);*Box+=Local;
+                    auto& Group=LowerWakeGroupBoneBounds.FindOrAdd(P.CollisionGroup>=0?P.CollisionGroup:P.Side);
+                    FBox* GroupBox=Group.Find(P.Bones[J]);if(!GroupBox)GroupBox=&Group.Add(P.Bones[J],FBox(ForceInit));*GroupBox+=Local;}}
+            LowerWakeRevision=Character->GetShapeState().Revision;LowerWakeGeneration=Generation;LowerWakePoseHash=PoseHash;}
         const auto& Pose=Body->GetComponentSpaceTransforms();for(const auto& Pair:LowerWakeBoneBounds)if(Pose.IsValidIndex(Pair.Key))ContactBounds+=Pair.Value.TransformBy(Pose[Pair.Key]*Body->GetComponentTransform());
     }
     if(bWorldCollision && ContactBounds.IsValid)
@@ -681,9 +695,20 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
     bool NearbySoft=false;
     auto SoftBounds=[](UVamBreastSkeletalMeshComponent* Mesh,TArray<FBox>& Sides){if(!Mesh)return;for(const auto& R:Mesh->RestSides)if(Mesh->GetComponentSpaceTransforms().IsValidIndex(R.AnchorBone)){
         Sides.Add(ContactRegionBounds(Mesh,R,.55));}};
+    auto LowerSoftBounds=[](UVamBreastContactComponent* Contact,TArray<FBox>& Bounds){
+        if(!Contact || !Contact->bLowerBodyContactEnabled || !Contact->Body)return;
+        const auto& Pose=Contact->Body->GetComponentSpaceTransforms();
+        for(const auto& Group:Contact->LowerWakeGroupBoneBounds){FBox Box(ForceInit);
+            for(const auto& Pair:Group.Value)if(Pose.IsValidIndex(Pair.Key))Box+=Pair.Value.TransformBy(Pose[Pair.Key]*Contact->Body->GetComponentTransform());
+            if(Box.IsValid)Bounds.Add(Box);
+        }
+    };
     if(bSoftCollision){TArray<FBox> Own;SoftBounds(Cast<UVamBreastSkeletalMeshComponent>(Body),Own);NearbySoft=Own.Num()==2&&Own[0].Intersect(Own[1]);
+        TArray<FBox> Lower;LowerSoftBounds(this,Lower);
+        for(int A=0;A<Lower.Num();++A)for(int B=A+1;B<Lower.Num();++B)NearbySoft|=Lower[A].ExpandBy(3).Intersect(Lower[B]);
+        Own.Append(Lower);
         for(TObjectIterator<UVamBreastContactComponent> It;It&&!NearbySoft;++It){if(*It==this || It->GetWorld()!=GetWorld() || !It->IsRegistered() || !It->bEnabled || !It->bSoftCollision)continue;
-            auto* Other=It->GetOwner()->FindComponentByClass<UVamCharacterComponent>();TArray<FBox> Their;SoftBounds(Other?Cast<UVamBreastSkeletalMeshComponent>(Other->Body):nullptr,Their);for(const auto& A:Own)for(const auto& B:Their)NearbySoft|=A.ExpandBy(3).Intersect(B);}}
+            auto* Other=It->GetOwner()->FindComponentByClass<UVamCharacterComponent>();TArray<FBox> Their;SoftBounds(Other?Cast<UVamBreastSkeletalMeshComponent>(Other->Body):nullptr,Their);LowerSoftBounds(*It,Their);for(const auto& A:Own)for(const auto& B:Their)NearbySoft|=A.ExpandBy(3).Intersect(B);}}
     if(DebugSide==INDEX_NONE && PressSpheres.IsEmpty() && !NearbyWorld && !NearbySoft)
     { if(!Solvers.IsEmpty() || GPUHandle) Release();Status=TEXT("Contact idle: no sources; native skinning; zero solver steps");return; }
     AppliedDebugDepth=FMath::FInterpConstantTo(AppliedDebugDepth,DebugDepth,Dt,.4f);
@@ -701,13 +726,18 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
     for(auto F:Flesh) F->InputPose=Body->GetComponentSpaceTransforms();
     TArray<FVector> AnimatedRest;AnimatedRest.SetNum(N);
     const auto& FinalPose=Body->GetComponentSpaceTransforms();
+    // Lower-body targets follow current pose correctives in canonical space;
+    // never re-skin an already blended, posed particle from initialization.
+    TArray<FVector> LowerTarget=LowerCanonicalRest;
+    if(LowerTarget.Num()==N)for(const auto& M:Profile->Morphs)if(M.bPoseCorrective){const double W=Body->GetMorphTarget(M.Parameter);if(FMath::Abs(W)>1.e-8)for(int I=0;I<N;++I)LowerTarget[I]+=M.ParticleDeltas[I]*W;}
     for(int32 I=0;I<N;++I)
     {
         FVector P=FVector::ZeroVector;const auto& Particle=Profile->Particles[I];
         for(int32 J=0;J<Particle.Bones.Num();++J)
         {
             const int32 B=Particle.Bones[J];
-            P+=FinalPose[B].TransformPosition(ReferenceCS[B].InverseTransformPosition(ShapedRest[I]))*Particle.Weights[J];
+            const bool Lower=Particle.Side>=2&&LowerTarget.Num()==N;
+            P+=FinalPose[B].TransformPosition((Lower?LowerReferenceCS[B]:ReferenceCS[B]).InverseTransformPosition(Lower?LowerTarget[I]:ShapedRest[I]))*Particle.Weights[J];
         }
         AnimatedRest[I]=P;
     }

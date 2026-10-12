@@ -58,12 +58,22 @@ FString UVamLowerBodyContactBuilder::Append(UVamCharacterDefinition* Definition,
             SourceFaces.Add(F);for(int J=0;J<3;++J)Used.Add(F[J]);}
         if(SourceFaces.Num()<16)return TEXT("Lower contact has insufficient source surface evidence");
         TArray<int> Ordered=Used.Array();Ordered.Sort();TMap<int,int> Map;TArray<FVector> Surface,Inner;
-        TArray<TMap<int,double>> Support;TMap<FIntVector,int> Weld;
+        TArray<TMap<int,double>> Support;TArray<int> CollisionGroup;TMap<FIntVector,int> Weld;
         for(int V:Ordered){const FVector X=Input.Vertices[V];const FIntVector Key(FMath::RoundToInt(X.X*10000),FMath::RoundToInt(X.Y*10000),FMath::RoundToInt(X.Z*10000));if(const int* Existing=Weld.Find(Key)){Map.Add(V,*Existing);continue;}Weld.Add(Key,Surface.Num());FVector Closest=FVector::ZeroVector;double Dist=DBL_MAX,TBest=0;int Best=0;
             for(int J=0;J<3;++J){const FVector A=Ref[Bones[J]].GetLocation(),B=Ref[Bones[J+1]].GetLocation(),D=B-A;const double T=FMath::Clamp(FVector::DotProduct(X-A,D)/FMath::Max(1e-12,D.SizeSquared()),0.,1.);const FVector Q=A+D*T;
                 if(FVector::DistSquared(X,Q)<Dist){Dist=FVector::DistSquared(X,Q);Closest=Q;TBest=T;Best=J;}}
             if(Dist<1e-4)return TEXT("Lower contact source intersects skeletal support axis");
-            Map.Add(V,Surface.Num());Surface.Add(X);Inner.Add(FMath::Lerp(Closest,X,.45));TMap<int,double> Weights;Weights.Add(Bones[Best],1-TBest);Weights.FindOrAdd(Bones[Best+1])+=TBest;Support.Add(Weights);}
+            Map.Add(V,Surface.Num());Surface.Add(X);Inner.Add(FMath::Lerp(Closest,X,.45));TMap<int,double> Weights;// A segment is supported by its proximal bone. Blending toward the child
+            // makes the femur interior rotate with the shin and inverts the shell.
+            // Only the joint neighbourhood blends adjacent segment supports. A nearest-segment
+            // hard switch creates a discontinuity in the inner envelope at the knee/ankle.
+            const double Length=(Ref[Bones[Best+1]].GetLocation()-Ref[Bones[Best]].GetLocation()).Size();
+            const double Width=FMath::Clamp(.45*FMath::Sqrt(Dist)/FMath::Max(Length,1.e-6),.02,.25);
+            const double Start=Best>0?.5*(1-LowerSmooth(TBest/Width)):0.;
+            const double End=Best<2?.5*(1-LowerSmooth((1-TBest)/Width)):0.;
+            Weights.Add(Bones[Best],1-Start-End);
+            if(Start>0)Weights.Add(Bones[Best-1],Start);if(End>0)Weights.Add(Bones[Best+1],End);
+            Support.Add(Weights);CollisionGroup.Add(Side+(Best==2?4:2));}
         const int OuterCount=Surface.Num();Surface.Append(Inner);TArray<FIntVector> Envelope;
         struct FEdge {int A=0,B=0,Count=0;};TMap<uint64,FEdge> Edges;
         for(auto F:SourceFaces){for(int J=0;J<3;++J)F[J]=Map[F[J]];Envelope.Add(F);Envelope.Add(FIntVector(F.X+OuterCount,F.Z+OuterCount,F.Y+OuterCount));
@@ -83,6 +93,7 @@ FString UVamLowerBodyContactBuilder::Append(UVamCharacterDefinition* Definition,
             const auto F=SourceFaces[FaceId];for(int J=0;J<3;++J)Bary[J]=FMath::Max(0.,Bary[J]);Bary/=Bary.X+Bary.Y+Bary.Z;
             const double Depth=FMath::Sqrt(DOuter)/(FMath::Sqrt(DOuter)+FMath::Sqrt(DInner)+1e-9);
             FVamBreastContactParticle Particle;Particle.Rest=X;Particle.Side=Side+2;Particle.RootSupport=Depth;Particle.bKinematic=Depth>.98;
+            double Calf=0;for(int J=0;J<3;++J)if(CollisionGroup[Map[F[J]]]==Side+4)Calf+=Bary[J];Particle.CollisionGroup=Side+(Calf>.5?4:2);
             TMap<int,double> W;for(int J=0;J<3;++J){for(auto Pair:Skin[F[J]])W.FindOrAdd(Pair.Key)+=Pair.Value*Bary[J]*(1-Depth);for(auto Pair:Support[Map[F[J]]])W.FindOrAdd(Pair.Key)+=Pair.Value*Bary[J]*Depth;}
             TArray<int> Keys;W.GetKeys(Keys);Keys.Sort();double Sum=0;for(int K:Keys)Sum+=W[K];if(Sum<=0)return TEXT("Lower contact lost attachment support");
             for(int K:Keys)if(W[K]>0){Particle.Bones.Add(K);Particle.Weights.Add(W[K]/Sum);}P->Particles.Add(Particle);ClosestFaces.Add(FaceId);Coordinates.Add(Bary);}
@@ -100,12 +111,12 @@ FString UVamLowerBodyContactBuilder::Append(UVamCharacterDefinition* Definition,
             auto Parents=B->Parents;FVector Embedded=FVector::ZeroVector;for(int J=0;J<4;++J){Embedded+=Points[Parents[J]]*B->Weights[J];Parents[J]+=Base;}
             P->SurfaceParents[R]=Parents;P->SurfaceWeights[R]=B->Weights;P->SurfaceMask[R]=W;P->SurfaceOffsets[R]=FVector3f(Input.Vertices[V]-Embedded);}
         for(auto& M:P->Morphs)M.ParticleDeltas.SetNumZeroed(P->Particles.Num());
-        for(const auto& Morph:Input.Morphs){const auto* Parameter=Definition->Parameters.FindByPredicate([&](const FVamMorphParameter& V){return V.Target==Morph.Name;});if(!Parameter || Parameter->Group==TEXT("Expression"))continue;auto* M=P->Morphs.FindByPredicate([&](const FVamBreastContactMorph& V){return V.Parameter==Morph.Name;});
-            if(!M){FVamBreastContactMorph New;New.Parameter=Morph.Name;New.ParticleDeltas.Init(FVector::ZeroVector,P->Particles.Num());M=&P->Morphs.Add_GetRef(MoveTemp(New));}
-            for(int I=0;I<Points.Num();++I){const auto F=SourceFaces[ClosestFaces[I]];const auto W=Coordinates[I];M->ParticleDeltas[Base+I]=Morph.Deltas[F.X]*W.X+Morph.Deltas[F.Y]*W.Y+Morph.Deltas[F.Z]*W.Z;}}
+        for(const auto& Morph:Input.Morphs){const auto* Parameter=Definition->Parameters.FindByPredicate([&](const FVamMorphParameter& V){return V.Target==Morph.Name;});if(Parameter && Parameter->Group==TEXT("Expression"))continue;auto* M=P->Morphs.FindByPredicate([&](const FVamBreastContactMorph& V){return V.Parameter==Morph.Name;});
+            if(!M){FVamBreastContactMorph New;New.Parameter=Morph.Name;New.bPoseCorrective=!Parameter;New.ParticleDeltas.Init(FVector::ZeroVector,P->Particles.Num());M=&P->Morphs.Add_GetRef(MoveTemp(New));}
+            for(int I=0;I<Points.Num();++I){const auto F=SourceFaces[ClosestFaces[I]];const auto W=Coordinates[I];M->ParticleDeltas[Base+I]=(Morph.Deltas[F.X]*W.X+Morph.Deltas[F.Y]*W.Y+Morph.Deltas[F.Z]*W.Z)*(M->bPoseCorrective?1-P->Particles[Base+I].RootSupport:1);}}
         UE_LOG(LogTemp,Display,TEXT("LOWER_CONTACT side=%d particles=%d tets=%d volume_cm3=%g source_faces=%d"),Side,Points.Num(),Cells.Num(),Volume,SourceFaces.Num());
     }
-    P->bResidualOnlySurface=true;P->BuildAlgorithmVersion+=TEXT("-lower-connected-ftetwild-v1");
+    P->bResidualOnlySurface=true;P->BuildAlgorithmVersion+=TEXT("-lower-connected-ftetwild-v4-pose-target-support");
     P->RegionProvenance+=TEXT("; lower body: Glute/Leg continuous source support union; source surface shell closed onto skeleton-supported inner envelope; inner radial fraction .45 is an engineering proxy, not segmented anatomy; UE fTetWild edge=.10 eps=.0005");
     Error=P->ValidateData();if(!Error.IsEmpty())return Error;
     Profile->SchemaVersion=P->SchemaVersion;Profile->RegionNames=P->RegionNames;Profile->Particles=MoveTemp(P->Particles);Profile->Tetrahedra=MoveTemp(P->Tetrahedra);Profile->BoundaryTriangles=MoveTemp(P->BoundaryTriangles);Profile->Morphs=MoveTemp(P->Morphs);Profile->EffectiveVolumeCm3=P->EffectiveVolumeCm3;
