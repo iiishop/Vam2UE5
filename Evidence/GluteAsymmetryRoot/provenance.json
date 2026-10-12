@@ -1,0 +1,19 @@
+{
+  "definition": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/FinalCorrective/CD_Character.CD_Character",
+  "profile": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/DA_GluteCorrective.DA_GluteCorrective",
+  "final_data_seal": {
+    "final_weights": "829C9CCBD59336FC9575722DE45DC2F2",
+    "final_bind": "3282456CE58FF9CD76E158396CD07B47",
+    "final_topology": "5900B06BEDFAE32545A40ADA8664F8DC",
+    "final_morphs": "54B15283DF9C2D3F649093A9FCEA3995",
+    "source_weights": "99568382EC58C770C35A41FE38560CA2",
+    "source_bind": "D099F86A8021F68CD9904B6E0DB5C12C",
+    "source_topology": "A1D5331A36FA1CF90C75DC5B18E11925",
+    "source_morphs": "CA2D605B172E6AFE135DA9CDDB35EF09",
+    "helper_definitions": "4DF8278DBA0912D5C6CFA6B3D5680028",
+    "shape_reference_and_mapping": "682B7C400EDACA0E12920BE6BCDA4D6C",
+    "source_corrective_data": "67219627E40E0231A1DC9E5C8C12F93C",
+    "corrective_policy_and_targets": "54CC9BC9F9EA468190C08D2DB8BF725C"
+  },
+  "rebake_max_error_cm": 6.751199025752314e-14
+}

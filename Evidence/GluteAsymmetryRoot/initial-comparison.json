@@ -1,0 +1,119 @@
+{
+  "L": {
+    "generation": {
+      "mean": [
+        8.44998962296949,
+        9.074604167651616,
+        -13.618838017555937
+      ],
+      "spread": [
+        4.734742922631466,
+        5.533308146178124,
+        6.5019027348869765
+      ],
+      "landmark": [
+        1.5226067976422866,
+        -5.999999865888274,
+        95.73919773103903
+      ],
+      "seed_radius": 7.69817233850002,
+      "max_morph": 0
+    },
+    "safety": [
+      {
+        "target": 1,
+        "supported_vertices": 570,
+        "below_half": 12,
+        "fraction_below_half": 0.021052631578947368
+      },
+      {
+        "target": 2,
+        "supported_vertices": 570,
+        "below_half": 99,
+        "fraction_below_half": 0.1736842105263158
+      },
+      {
+        "target": 3,
+        "supported_vertices": 570,
+        "below_half": 166,
+        "fraction_below_half": 0.2912280701754386
+      },
+      {
+        "target": 9,
+        "supported_vertices": 570,
+        "below_half": 110,
+        "fraction_below_half": 0.19298245614035087
+      },
+      {
+        "target": 10,
+        "supported_vertices": 570,
+        "below_half": 122,
+        "fraction_below_half": 0.21403508771929824
+      }
+    ],
+    "actual_pose_before_safety": {
+      "faces": 251,
+      "normal_predicate_failures": 0,
+      "area_predicate_failures": 0
+    }
+  },
+  "R": {
+    "generation": {
+      "mean": [
+        8.625618630192266,
+        -8.848843923196483,
+        -13.752843299531119
+      ],
+      "spread": [
+        4.6555460972535965,
+        5.536735723246845,
+        6.302917043834605
+      ],
+      "landmark": [
+        1.5226067976422926,
+        5.999999865890828,
+        95.73919773104012
+      ],
+      "seed_radius": 7.698603130790786,
+      "max_morph": 0
+    },
+    "safety": [
+      {
+        "target": 1,
+        "supported_vertices": 614,
+        "below_half": 18,
+        "fraction_below_half": 0.029315960912052116
+      },
+      {
+        "target": 2,
+        "supported_vertices": 614,
+        "below_half": 112,
+        "fraction_below_half": 0.18241042345276873
+      },
+      {
+        "target": 3,
+        "supported_vertices": 614,
+        "below_half": 210,
+        "fraction_below_half": 0.34201954397394135
+      },
+      {
+        "target": 9,
+        "supported_vertices": 614,
+        "below_half": 114,
+        "fraction_below_half": 0.18566775244299674
+      },
+      {
+        "target": 10,
+        "supported_vertices": 614,
+        "below_half": 126,
+        "fraction_below_half": 0.20521172638436483
+      }
+    ],
+    "actual_pose_before_safety": {
+      "faces": 270,
+      "normal_predicate_failures": 0,
+      "area_predicate_failures": 0
+    }
+  },
+  "scope": "Existing generation evidence predates source-topology diffusion fix; safety and actual pose refer to candidate11. This diagnostic does not assert current complete safety or mirrored geometry."
+}

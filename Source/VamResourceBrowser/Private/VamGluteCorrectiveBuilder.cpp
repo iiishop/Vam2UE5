@@ -80,6 +80,13 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     if(Ids.Num()!=I.Vertices.Num()) return Fail(TEXT("Corrective topology mapping mismatch"));
     auto Audit=MakeShared<FJsonObject>();Audit->SetStringField(TEXT("algorithm"),P.Algorithm);Audit->SetStringField(TEXT("reference_scope"),TEXT("CPU source thigh-X equations and verified average-angle driver; excludes VaM post-skin smoothing/physics. Source and native LBS baselines are separately measured."));
     if(Verified) Audit->SetObjectField(TEXT("source_mapping"),(*Source)->GetObjectField(TEXT("topology_mapping")));
+    SafetyTraceVertices.Reset();SafetyTraceContext.Reset();FString TraceIds;
+    if(FParse::Value(FCommandLine::Get(),TEXT("VamGluteSafetyTrace="),TraceIds))
+    {
+        TArray<FString> Values;TraceIds.ParseIntoArray(Values,TEXT(","));
+        for(const auto& Value:Values)for(int32 V=0;V<Ids.Num();++V)if(Ids[V]==FCString::Atoi(*Value))
+        {SafetyTraceVertices.Add(V);UE_LOG(LogTemp,Display,TEXT("GLUTE_SAFETY_MAP source=%d input=%d"),Ids[V],V);}
+    }
     TMap<int32,FVector> RawMap,SourceMap;FDeltaField SourcePositions;
     if(Verified)
     {
@@ -204,6 +211,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             auto Combined=NS;for(int32 V=0;V<Ids.Num();++V) Combined[V]+=NP[V];TArray<double> Safety;
             if(!Condition(I,Skin,Combined,Aliases,Safety)) return Fail(TEXT("Target local safety did not converge"));
             for(int32 V=0;V<Ids.Num();++V) { NS[V]*=Safety[V];NP[V]*=Safety[V];if(Detail)Detail->SourceSafety[Side][Target][V]*=Safety[V]; }
+            SafetyTraceContext=FString::Printf(TEXT("target side=%d target=%d"),Side,Target);
         }
         RefSide->SetArrayField(TEXT("targets"),RefTargets);ReferenceSides.Add(MakeShared<FJsonValueObject>(RefSide));
     }
@@ -253,6 +261,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             }
             bool PassChanged=false;for(int32 V=0;V<Factors.Num();++V)if(Factors[V]<.999999)
             {
+                SafetyTraceContext=FString::Printf(TEXT("axis iteration=%d side=%d target=%d axis=%d pass=%d"),Iteration,S,T,Axis,Pass);
                 PassChanged=true;Changed=true;A[V]*=Factors[V];B[V]*=Factors[V];if(Detail)Detail->SourceSafety[S][T][V]*=Factors[V];
             }
             if(!PassChanged)break;if(Pass==63)return Fail(TEXT("Source operator common axis safety did not converge"));
@@ -272,6 +281,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             {
                 // Weight alone is insufficient after local conditioning: a
                 // low-weight target may become the only remaining contributor.
+            SafetyTraceContext=FString::Printf(TEXT("blend iteration=%d side=%d step=%d degrees=%s"),Iteration,Side,Step,*D.ToString());
                 // Select by actual displacement contribution at this vertex.
                 double Max=0;for(int32 S=0;S<2;++S) if(Side==2 || S==Side) for(int32 T=1;T<W.Num();++T) Max=FMath::Max(Max,(SourceNative[S][T][V]+ProcNative[S][T][V]).Size()*W[T]);
                 if(Max<=1.e-16) continue;Changed=true;

@@ -7,6 +7,10 @@
 namespace VamGluteGeometry
 {
 using FDeltaField=TArray<FVector>;
+// Opt-in build diagnostics only; input indices are resolved from source IDs by
+// the caller. This records the predicate that first constrains a probe point.
+inline FString SafetyTraceContext;
+inline TSet<int32> SafetyTraceVertices;
 // Largest attenuation field below the safety solution with a bounded spatial
 // derivative. Only follow mesh edges and proven source aliases, never proximity.
 // The attenuation gradient has an explicit bind-edge displacement budget
@@ -109,7 +113,7 @@ inline bool Condition(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,c
             for(int32 K=0;K<3;++K)
             {
                 const int32 U=I.Triangles[T+K],V=I.Triangles[T+(K+1)%3];const double Limit=FMath::Max(.15,(I.Vertices[U]-I.Vertices[V]).Size()*3);const FVector Offset=Fixed?(*Fixed)[U]-(*Fixed)[V]:FVector::ZeroVector,Adjust=Native[U]*Safety[U]-Native[V]*Safety[V];
-                if((Offset+Adjust).Size()>=Limit) { Good=false;double Lo=0,Hi=1;if(Offset.Size()>=Limit) return false;for(int32 N=0;N<30;++N) { const double M=(Lo+Hi)*.5;if((Offset+Adjust*M).Size()<Limit) Lo=M;else Hi=M; }const double Factor=Lo*.99;Next[U]=FMath::Min(Next[U],Safety[U]*Factor);Next[V]=FMath::Min(Next[V],Safety[V]*Factor); }
+                if((Offset+Adjust).Size()>=Limit) { if((SafetyTraceVertices.Contains(U)||SafetyTraceVertices.Contains(V)))UE_LOG(LogTemp,Display,TEXT("GLUTE_SAFETY_CAUSE %s condition_pass=%d native_edge %d %d length=%.9g limit=%.9g"),*SafetyTraceContext,Pass,U,V,(Offset+Adjust).Size(),Limit);Good=false;double Lo=0,Hi=1;if(Offset.Size()>=Limit) return false;for(int32 N=0;N<30;++N) { const double M=(Lo+Hi)*.5;if((Offset+Adjust*M).Size()<Limit) Lo=M;else Hi=M; }const double Factor=Lo*.99;Next[U]=FMath::Min(Next[U],Safety[U]*Factor);Next[V]=FMath::Min(Next[V],Safety[V]*Factor); }
             }
         }
         if(Good) return true;
@@ -118,3 +122,9 @@ inline bool Condition(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,c
     }return false;
 }
 }
+                if((SafetyTraceVertices.Contains(A)||SafetyTraceVertices.Contains(B)||SafetyTraceVertices.Contains(C)))
+                {
+                    const FVector N0=FVector::CrossProduct(Base[B]-Base[A],Base[C]-Base[A]);
+                    const FVector N1=FVector::CrossProduct(Base[B]+F[B]+DB-Base[A]-F[A]-DA,Base[C]+F[C]+DC-Base[A]-F[A]-DA);
+                    UE_LOG(LogTemp,Display,TEXT("GLUTE_SAFETY_CAUSE %s condition_pass=%d triangle %d %d %d cosine=%.9g area_ratio=%.9g"),*SafetyTraceContext,Pass,A,B,C,FVector::DotProduct(N0.GetSafeNormal(),N1.GetSafeNormal()),N1.Size()/FMath::Max(1.e-20,N0.Size()));
+                }

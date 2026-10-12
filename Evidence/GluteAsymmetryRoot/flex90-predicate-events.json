@@ -1,0 +1,6974 @@
+[
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "2350 6077 6089 cosine=-0.086988234 area_ratio=0.760955644"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "409 23990 23991 cosine=-0.345622963 area_ratio=0.433810885"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "2786 324 2776 cosine=0.717749464 area_ratio=7.27783814"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "324 2786 328 cosine=0.500650501 area_ratio=7.27200897"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "2786 325 328 cosine=-0.211468627 area_ratio=3.51676835"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "413 6108 325 cosine=0.0400014902 area_ratio=8.10755218"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "328 6108 6111 cosine=-0.705027041 area_ratio=4.39729728"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "6108 328 325 cosine=-0.0157625842 area_ratio=10.1879327"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "6119 328 6111 cosine=0.580841993 area_ratio=7.60775611"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "7783 7797 7788 cosine=-0.747725665 area_ratio=1.23051511"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "7797 7784 7788 cosine=-0.710551182 area_ratio=1.31872706"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "7796 7808 7797 cosine=-0.0323476184 area_ratio=2.26483561"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "7808 7796 7807 cosine=-0.175146024 area_ratio=5.48759149"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "7796 7807 length=4.68162062 limit=4.00447562"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "7796 7809 7807 cosine=-0.702991314 area_ratio=5.82552531"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "7809 7807 length=4.82034329 limit=3.02314686"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "7807 7796 length=4.68162062 limit=4.00447562"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "7809 2330 7807 cosine=-0.372694361 area_ratio=6.46630654"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "7807 7809 length=4.82034329 limit=3.02314686"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "2330 7809 6654 cosine=0.678257319 area_ratio=5.70126834"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "7809 6654 length=5.92584925 limit=5.29716054"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "7810 6654 7809 cosine=0.456551286 area_ratio=7.17809036"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "6654 7809 length=5.92584925 limit=5.29716054"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "6654 7810 6656 cosine=-0.47979557 area_ratio=2.86397184"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "6656 6654 length=5.92584925 limit=3.48207112"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "6656 8203 6654 cosine=-0.330253774 area_ratio=4.84756452"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "6654 6656 length=5.92584925 limit=3.48207112"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "8203 6656 8206 cosine=0.860505633 area_ratio=4.90866678"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "6656 8206 length=6.4778113 limit=5.31036087"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "6656 8205 8206 cosine=0.523308997 area_ratio=5.5027332"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8205 8206 length=6.4778113 limit=3.1870945"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8206 6656 length=6.4778113 limit=5.31036087"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "8216 2327 8217 cosine=0.930988977 area_ratio=6.81592714"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8216 2327 length=6.14284023 limit=6.00259727"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "2327 8217 length=6.14284023 limit=5.54531406"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "2327 8216 2325 cosine=0.943312375 area_ratio=6.66783171"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "2327 8216 length=6.14284023 limit=6.00259727"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8216 2325 length=5.38946184 limit=5.19707664"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "8228 8206 8205 cosine=0.552873775 area_ratio=5.0861535"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8206 8205 length=6.4778113 limit=3.1870945"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8205 8228 length=5.9440125 limit=5.20187705"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8228 8205 length=5.9440125 limit=5.20187705"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8230 8228 length=5.9440125 limit=2.98723685"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8238 8237 length=5.11461792 limit=2.94513371"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8228 8230 length=5.9440125 limit=2.98723685"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8237 8238 length=5.11461792 limit=2.94513371"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8217 2327 length=6.14284023 limit=5.54531406"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "2327 8232 length=6.13705745 limit=4.01809605"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "323 8232 2327 cosine=-0.878202252 area_ratio=1.78753682"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8232 2327 length=6.13705745 limit=4.01809605"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "8225 8713 8233 cosine=0.16989932 area_ratio=0.117271814"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8713 8233 length=4.80761518 limit=2.40519082"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "8702 8233 8713 cosine=-0.414938378 area_ratio=1.49094219"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "8233 8713 length=4.80761518 limit=2.40519082"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "307 8826 2303 cosine=-0.538524483 area_ratio=0.376092596"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21562 21718 length=0.83131028 limit=0.632686865"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22861 21556 length=1.79897298 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21556 22861 length=1.79897298 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21715 21561 length=1.84624178 limit=1.69858579"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21718 21562 length=0.83131028 limit=0.632686865"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21559 22852 21558 cosine=-0.58959914 area_ratio=2.07836735"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22852 21558 length=0.523955003 limit=0.323233595"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21559 21716 length=0.725685901 limit=0.501213402"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21560 21716 21559 cosine=0.796727021 area_ratio=14.448099"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21716 21559 length=0.725685901 limit=0.501213402"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22852 24676 21558 cosine=-0.647720006 area_ratio=0.646747953"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21558 22852 length=0.523955003 limit=0.323233595"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21588 21715 21714 cosine=-0.884542682 area_ratio=2.26773962"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21561 21715 length=1.84624178 limit=1.69858579"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21714 21564 21588 cosine=-0.884696271 area_ratio=8.4876644"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21564 21588 length=2.75562677 limit=2.07523215"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21589 21645 21560 cosine=-0.98537696 area_ratio=10.1152175"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21645 21589 21642 cosine=-0.949820625 area_ratio=1.7952794"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21642 21644 21645 cosine=-0.904172509 area_ratio=3.36475521"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22870 21674 length=1.87941163 limit=1.41419933"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22869 21674 21673 cosine=-0.982622534 area_ratio=0.13649608"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "24682 21717 24681 cosine=0.037099856 area_ratio=0.44905983"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21717 24681 length=1.11244876 limit=0.444940553"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24682 21718 length=0.43932261 limit=0.348213662"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21674 22870 length=1.87941163 limit=1.41419933"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24684 22861 length=0.537581277 limit=0.479749444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21718 24683 length=0.43932261 limit=0.348213662"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22871 21687 length=1.93808083 limit=1.35380862"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21688 21675 length=2.74665329 limit=1.95828216"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22852 21672 length=1.18210807 limit=0.951169777"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21673 24685 length=1.11244876 limit=0.444940553"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21716 21672 22852 cosine=-0.534316319 area_ratio=0.970986271"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21672 22852 length=1.18210807 limit=0.951169777"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21671 21645 21644 cosine=-0.135834597 area_ratio=0.708012619"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21689 21676 length=2.51399717 limit=1.86819495"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21688 21676 21675 cosine=-0.229776666 area_ratio=0.622342892"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21675 21688 length=2.74665329 limit=1.95828216"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21676 21689 length=2.51399717 limit=1.86819495"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22198 21706 22199 cosine=0.908106181 area_ratio=6.8920999"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22861 24889 length=0.537581277 limit=0.479749444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22869 21685 length=1.5804694 limit=1.56778049"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21686 22870 length=1.34248418 limit=1.13982613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22870 21686 length=1.34248418 limit=1.13982613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21687 22871 length=1.93808083 limit=1.35380862"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21685 22869 length=1.5804694 limit=1.56778049"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21715 22904 21714 cosine=0.91975194 area_ratio=5.35758749"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22898 22861 22903 cosine=-0.253824234 area_ratio=0.0916295894"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22898 24912 length=0.90640131 limit=0.837015766"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24914 22898 length=0.90640131 limit=0.837015766"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22904 22205 22901 cosine=0.595664712 area_ratio=4.88767768"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21559 22969 22970 cosine=-0.565938245 area_ratio=10.0624732"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21559 22969 length=5.70389932 limit=5.56495982"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22970 21559 length=4.51118977 limit=2.31169385"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22969 21559 21558 cosine=0.15119252 area_ratio=12.0455012"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22969 21559 length=5.70389932 limit=5.56495982"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21558 22969 length=3.75279356 limit=2.40112223"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21560 22970 22971 cosine=0.376416734 area_ratio=16.5132466"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22970 21560 21559 cosine=0.866407874 area_ratio=7.23952904"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21559 22970 length=4.51118977 limit=2.31169385"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24924 22974 length=4.43704436 limit=2.61879868"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21558 22974 22969 cosine=0.880683119 area_ratio=6.26410049"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22969 21558 length=3.75279356 limit=2.40112223"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21562 22973 length=4.3917337 limit=2.71714513"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21563 22973 24925 cosine=0.934948823 area_ratio=4.80680066"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24925 21563 length=4.43704436 limit=2.61879868"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21556 22968 length=3.67899017 limit=2.67480133"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21562 22968 22973 cosine=0.687901808 area_ratio=8.59519143"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22973 21562 length=4.3917337 limit=2.71714513"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22968 21561 22972 cosine=0.987021123 area_ratio=13.9867005"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21561 22968 21556 cosine=0.454383631 area_ratio=10.5663662"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22968 21556 length=3.67899017 limit=2.67480133"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22981 21561 21588 cosine=0.947524146 area_ratio=9.27598023"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21588 22981 length=4.35491592 limit=4.13597338"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21560 22982 21589 cosine=-0.735474215 area_ratio=5.7725731"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22982 21560 22971 cosine=0.86373923 area_ratio=14.3276016"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22971 22982 length=5.38946184 limit=5.19707664"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21568 22983 21564 cosine=-0.576539063 area_ratio=1.13714309"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22983 21568 21567 cosine=-0.961477193 area_ratio=2.02808779"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21567 22983 length=2.49636181 limit=2.18185676"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21566 22983 21567 cosine=-0.903352092 area_ratio=1.72236473"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22983 21567 length=2.49636181 limit=2.18185676"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22983 21588 21564 cosine=-0.948720296 area_ratio=11.5590672"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21588 21564 length=2.75562677 limit=2.07523215"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21588 22983 22981 cosine=0.963743972 area_ratio=8.50661575"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22983 22981 length=4.10022359 limit=1.57744393"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22981 21588 length=4.35491592 limit=4.13597338"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22984 22981 22983 cosine=0.885815479 area_ratio=10.4743155"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22981 22983 length=4.10022359 limit=1.57744393"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "2324 2309 length=8.84982715 limit=7.88362552"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "2309 323 length=7.88821713 limit=6.22630722"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "2309 2324 length=8.84982715 limit=7.88362552"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "2310 2309 length=8.60810693 limit=4.83508208"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "6109 6108 length=9.85171246 limit=5.1028633"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "413 6123 length=5.39758504 limit=5.22244351"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "2310 6110 length=10.2745784 limit=7.07771348"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "2309 2310 length=8.60810693 limit=4.83508208"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "6110 2310 length=10.2745784 limit=7.07771348"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "6120 6110 length=6.92447897 limit=4.33374644"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "6123 413 length=5.39758504 limit=5.22244351"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "6111 24009 6119 cosine=-0.976374655 area_ratio=0.147027575"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "6111 24010 length=8.77513127 limit=4.76606055"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24010 24009 length=6.92447897 limit=4.33374644"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "6108 24010 length=8.74666332 limit=8.62061006"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24010 6111 length=8.77513127 limit=4.76606055"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24010 6108 length=8.74666332 limit=8.62061006"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "6108 6109 length=9.85171246 limit=5.1028633"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "7784 7797 7798 cosine=0.11301391 area_ratio=0.392770359"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "7808 2330 303 cosine=-0.0136792243 area_ratio=1.49430358"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "7798 7808 7811 cosine=-0.551448345 area_ratio=0.892010966"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "7808 304 7811 cosine=-0.610178364 area_ratio=0.882517489"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "7840 337 7189 cosine=-0.836109553 area_ratio=3.20320128"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "7189 7840 length=2.78901559 limit=2.67416842"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "336 8197 length=6.40242571 limit=4.06652678"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "8197 336 length=6.40242571 limit=4.06652678"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "8202 6654 8203 cosine=-0.134910634 area_ratio=0.975066905"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "8203 8224 8202 cosine=-0.220075329 area_ratio=0.947716582"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "323 2309 length=7.88821713 limit=6.22630722"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "8250 8187 8252 cosine=0.896078307 area_ratio=7.11630391"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "8187 8252 length=4.65302441 limit=1.64883782"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "8795 8713 8794 cosine=0.115882865 area_ratio=0.392691296"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21718 21556 21562 cosine=-0.126307763 area_ratio=0.159840023"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21562 21717 21718 cosine=-0.796063026 area_ratio=0.0645747754"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21563 21717 length=0.862465175 limit=0.419132498"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21559 22852 21558 cosine=-0.201443902 area_ratio=0.415917314"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21560 21716 21559 cosine=0.908923474 area_ratio=5.51187785"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24675 24676 length=0.862465175 limit=0.419132498"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21713 21568 21564 cosine=-0.872887673 area_ratio=2.62040269"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21713 21568 length=2.85503482 limit=2.39590923"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21564 21713 length=4.30258411 limit=1.86824356"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21568 21713 21565 cosine=-0.987826135 area_ratio=3.59060817"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21568 21713 length=2.85503482 limit=2.39590923"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21565 21568 length=2.94323422 limit=1.31932765"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21566 22817 21570 cosine=-0.838447975 area_ratio=2.5171742"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21570 21566 length=2.78901559 limit=2.67416842"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22817 21566 21567 cosine=-0.994812589 area_ratio=3.74719646"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21567 22817 length=3.11506294 limit=1.66385209"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21565 21567 21568 cosine=-0.98280572 area_ratio=4.53089623"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21565 21567 length=2.85297643 limit=2.71103806"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21568 21565 length=2.94323422 limit=1.31932765"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21567 21565 22817 cosine=-0.977754916 area_ratio=3.00724469"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21567 21565 length=2.85297643 limit=2.71103806"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22817 21567 length=3.11506294 limit=1.66385209"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21564 21714 21713 cosine=-0.943880527 area_ratio=7.02885568"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21714 21713 length=4.32487245 limit=3.50008415"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21713 21564 length=4.30258411 limit=1.86824356"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24682 21718 length=1.11622515 limit=0.348213662"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21718 24683 length=1.11622515 limit=0.348213662"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21677 21689 21833 cosine=0.154205995 area_ratio=0.160436439"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21689 21677 21676 cosine=-0.367645721 area_ratio=0.433038701"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22912 22198 length=1.16070775 limit=1.14776162"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21677 21834 21678 cosine=-0.648555607 area_ratio=0.462667713"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24738 24739 length=1.16070775 limit=1.14776162"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22861 24888 22903 cosine=-0.611519187 area_ratio=2.44615946"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24888 22903 length=0.967368181 limit=0.500577183"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21684 22869 21673 cosine=-0.912552234 area_ratio=0.49022443"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22876 21713 21714 cosine=-0.360759993 area_ratio=3.23354126"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21713 21714 length=4.32487245 limit=3.50008415"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21714 22876 length=3.05775793 limit=2.29881931"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22904 21715 22898 cosine=-0.713700713 area_ratio=2.13786439"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21715 22904 21714 cosine=-0.490593464 area_ratio=3.02376972"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22861 22898 21715 cosine=-0.91597161 area_ratio=1.67866872"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22898 22861 22903 cosine=-0.998241429 area_ratio=0.743416396"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "24914 22903 24915 cosine=-0.301547148 area_ratio=3.81629529"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22903 24915 length=0.967368181 limit=0.500577183"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21714 22901 22876 cosine=-0.710021332 area_ratio=2.71825187"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22876 21714 length=3.05775793 limit=2.29881931"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22901 21714 22904 cosine=-0.394352245 area_ratio=3.93060535"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21560 22970 22971 cosine=0.494622325 area_ratio=8.67799323"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22981 21561 21588 cosine=0.986957453 area_ratio=5.36809536"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22982 21560 22971 cosine=0.913968889 area_ratio=5.36886234"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21568 22983 21564 cosine=-0.998774768 area_ratio=1.89699156"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22983 21568 21567 cosine=-0.977255028 area_ratio=0.878775704"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21566 22983 21567 cosine=-0.975633699 area_ratio=0.829843546"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21588 22983 22981 cosine=0.979318532 area_ratio=5.55015629"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22983 22981 length=2.51578913 limit=1.57744393"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22984 22981 22983 cosine=0.956516027 area_ratio=6.02589161"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22981 22983 length=2.51578913 limit=1.57744393"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22981 22984 22980 cosine=0.974796833 area_ratio=6.13045621"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22984 22980 length=4.65302441 limit=1.64883782"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "6111 24009 6119 cosine=-0.930987695 area_ratio=0.455790482"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "6119 328 6111 cosine=-0.558909802 area_ratio=0.656035539"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "7812 7798 7811 cosine=-0.673169646 area_ratio=0.394699943"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "7821 7840 7820 cosine=-0.924999318 area_ratio=1.79425026"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "7840 7820 length=2.98004391 limit=2.69107568"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "7837 337 7833 cosine=-0.798182408 area_ratio=1.41814086"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "337 7833 length=3.8771566 limit=3.80305092"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "7840 337 7189 cosine=-0.294623915 area_ratio=0.222125444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "337 7840 7833 cosine=-0.659316025 area_ratio=1.94571109"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "7833 337 length=3.8771566 limit=3.80305092"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "304 7812 7811 cosine=-0.775878331 area_ratio=0.399465709"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "8187 7178 length=5.83698216 limit=3.23709514"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "8250 337 length=3.60952777 limit=3.00392062"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "337 8250 length=3.60952777 limit=3.00392062"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "8188 8250 length=2.89400196 limit=1.84196679"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "8250 8188 length=2.89400196 limit=1.84196679"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "323 8232 2327 cosine=-0.329051066 area_ratio=0.406922684"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "7178 8187 length=5.83698216 limit=3.23709514"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21562 21718 length=1.63247639 limit=0.632686865"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21556 21718 22861 cosine=-0.596071576 area_ratio=0.0539421125"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22861 21556 length=1.93095538 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21556 22861 length=1.93095538 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21718 21562 length=1.63247639 limit=0.632686865"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21568 21713 21565 cosine=0.133912769 area_ratio=0.107820982"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21570 22857 21569 cosine=-0.907049389 area_ratio=2.75613085"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21569 21570 length=2.98004391 limit=2.69107568"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22857 21570 22817 cosine=-0.994579238 area_ratio=2.5936939"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22817 22857 length=3.0707249 limit=2.56346259"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22817 21566 21567 cosine=-0.0757588493 area_ratio=0.0609526794"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22871 21674 22870 cosine=-0.95607362 area_ratio=0.0844306754"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21674 22871 21675 cosine=-0.991524713 area_ratio=0.465311085"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22861 24683 24684 cosine=-0.984934764 area_ratio=0.599676235"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "24684 22861 length=0.75488581 limit=0.479749444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21667 21833 21689 cosine=0.139805654 area_ratio=0.114771598"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21677 21834 21678 cosine=-0.955461746 area_ratio=0.837897584"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22901 24738 24739 cosine=-0.474841363 area_ratio=4.71312297"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24738 22901 22205 cosine=0.215950651 area_ratio=5.52318131"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22198 21706 22199 cosine=0.907439953 area_ratio=4.7862597"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24740 22875 22876 cosine=-0.0627176381 area_ratio=3.02270762"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22875 22876 length=2.91453409 limit=2.52609549"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22861 24889 length=0.75488581 limit=0.479749444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21713 22879 21565 cosine=-0.98119587 area_ratio=1.82107988"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21713 22879 length=3.41892691 limit=3.25122254"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22879 21565 length=3.12857517 limit=2.35413885"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22879 21713 22875 cosine=-0.973800624 area_ratio=3.07547746"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22879 21713 length=3.41892691 limit=3.25122254"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21713 22875 length=3.2706368 limit=2.24817991"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21713 22876 22875 cosine=-0.95625879 area_ratio=3.98617349"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22876 22875 length=2.91453409 limit=2.52609549"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22875 21713 length=3.2706368 limit=2.24817991"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21565 22857 22817 cosine=-0.961135368 area_ratio=1.89429359"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22857 22817 length=3.0707249 limit=2.56346259"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22857 21565 22879 cosine=-0.970618071 area_ratio=2.433174"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21565 22879 length=3.12857517 limit=2.35413885"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22904 21715 22898 cosine=0.00590301979 area_ratio=0.776868646"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21715 22904 21714 cosine=0.00520149783 area_ratio=1.51788271"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24914 22903 24915 cosine=-0.242972296 area_ratio=0.964121915"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22904 22205 22901 cosine=-0.0476322939 area_ratio=6.45014697"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21714 22901 22876 cosine=-0.0292623166 area_ratio=0.460111275"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22901 24922 22876 cosine=-0.611213057 area_ratio=1.04586181"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24922 22901 24923 cosine=-0.500479582 area_ratio=1.42494031"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22968 21561 22972 cosine=0.990829776 area_ratio=5.59905102"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22983 22981 length=1.63549787 limit=1.57744393"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22981 22983 length=1.63549787 limit=1.57744393"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "6111 24010 length=5.21838097 limit=4.76606055"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "24010 6111 length=5.21838097 limit=4.76606055"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "6119 328 6111 cosine=-0.0297620298 area_ratio=0.438727111"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "7821 7840 7820 cosine=-0.0577241776 area_ratio=0.249263315"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "7833 7822 7837 cosine=-0.216607443 area_ratio=0.595818724"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "7825 7837 7822 cosine=-0.159718079 area_ratio=0.515404155"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "2387 337 length=6.02881898 limit=5.46850007"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "337 7840 7833 cosine=0.0731284359 area_ratio=0.592042243"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "7812 304 7835 cosine=-0.954031429 area_ratio=0.519427849"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "336 8197 length=4.12522733 limit=4.06652678"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "8197 336 length=4.12522733 limit=4.06652678"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "337 2387 length=6.02881898 limit=5.46850007"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "21556 21718 22861 cosine=-0.501137995 area_ratio=0.195275489"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22861 21556 length=1.48794415 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "21556 22861 length=1.48794415 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "21570 22857 21569 cosine=-0.127915925 area_ratio=0.305167812"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "21711 21569 22857 cosine=-0.470291218 area_ratio=0.456317212"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "21669 21835 21834 cosine=0.185405439 area_ratio=0.106491689"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22879 22200 24736 cosine=-0.167489933 area_ratio=0.800095556"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22200 22879 22875 cosine=-0.914389706 area_ratio=1.0722288"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22201 24737 22204 cosine=0.00107779665 area_ratio=1.89658819"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22912 22199 22911 cosine=-0.2931827 area_ratio=2.66171572"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22199 22912 22198 cosine=-0.0746398963 area_ratio=1.22524777"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "24738 22901 22205 cosine=0.539997833 area_ratio=6.06899096"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22198 21706 22199 cosine=0.707176083 area_ratio=8.28017805"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22875 24740 22200 cosine=-0.818470313 area_ratio=1.81882773"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "24740 22875 22876 cosine=-0.30262598 area_ratio=0.406781828"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "21835 21678 21834 cosine=-0.407144375 area_ratio=0.149986564"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22857 24885 21711 cosine=-0.63061858 area_ratio=0.538063363"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "24885 22857 22879 cosine=-0.330828599 area_ratio=0.408121821"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22861 22898 21715 cosine=-0.12233414 area_ratio=0.183168938"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22898 24912 length=0.968972077 limit=0.837015766"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "24914 22898 length=0.968972077 limit=0.837015766"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22904 22205 22901 cosine=0.0561662667 area_ratio=6.67311141"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22201 22912 22911 cosine=-0.266122898 area_ratio=1.0271177"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22901 24922 22876 cosine=-0.23460818 area_ratio=0.356529344"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "6119 328 6111 cosine=0.0648100892 area_ratio=0.434789156"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "7868 7821 7820 cosine=0.0727247676 area_ratio=0.39624304"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "21562 21718 length=0.696542343 limit=0.632686865"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "21718 21562 length=0.696542343 limit=0.632686865"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "24684 22861 length=0.60990838 limit=0.479749444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "22879 22200 24736 cosine=-0.239439609 area_ratio=0.354774501"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "22201 24737 22204 cosine=-0.0145503094 area_ratio=0.413957218"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "24737 22201 22202 cosine=-0.672138921 area_ratio=0.953566984"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "24738 22901 22205 cosine=0.609821688 area_ratio=4.76985235"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "24885 22857 22879 cosine=-0.189922201 area_ratio=0.263275879"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "22861 24889 length=0.60990838 limit=0.479749444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "22861 21556 length=1.36476046 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "21556 22861 length=1.36476046 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "22879 22200 24736 cosine=0.0346056757 area_ratio=0.473925559"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "22886 24896 22202 cosine=0.00261105636 area_ratio=0.641256285"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "24684 22861 length=0.500829452 limit=0.479749444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "22861 24889 length=0.500829452 limit=0.479749444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "22861 21556 length=1.33419354 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "21556 22861 length=1.33419354 limit=1.31821613"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "24684 22861 length=0.486680979 limit=0.479749444"
+  },
+  {
+    "side": 0,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "22861 24889 length=0.486680979 limit=0.479749444"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "16813 13855 16814 cosine=-0.173740204 area_ratio=0.56811792"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "24041 11289 24040 cosine=-0.163706115 area_ratio=0.4508974"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "13593 11252 11256 cosine=0.770142393 area_ratio=7.52524851"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "11252 13593 13585 cosine=0.767307912 area_ratio=6.70659676"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "11253 13593 11256 cosine=-0.444061619 area_ratio=3.15622908"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "11255 11254 length=4.45813637 limit=4.41811132"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "16830 11341 11253 cosine=-0.411276466 area_ratio=6.74645131"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "11256 16830 11253 cosine=-0.58327731 area_ratio=6.36621476"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "16830 11256 16833 cosine=-0.522397049 area_ratio=4.19924036"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18477 18463 18468 cosine=-0.80750087 area_ratio=1.3569302"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18464 18477 18468 cosine=-0.751634342 area_ratio=1.45541492"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18476 18488 18487 cosine=-0.16803107 area_ratio=5.30759021"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18487 18476 length=4.74950506 limit=4.00383863"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18488 18476 18477 cosine=-0.0736333718 area_ratio=2.3361687"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18489 18476 18487 cosine=-0.715492666 area_ratio=5.75922812"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18476 18487 length=4.74950506 limit=4.00383863"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18487 18489 length=4.84680373 limit=3.02591716"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18489 13160 17364 cosine=0.673249484 area_ratio=5.6071184"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "17364 18489 length=5.96790135 limit=5.29919765"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "13160 18489 18487 cosine=-0.383095377 area_ratio=6.45035789"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18489 18487 length=4.84680373 limit=3.02591716"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18490 17364 17366 cosine=-0.491176226 area_ratio=2.82553172"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "17364 17366 length=5.96790135 limit=3.48376992"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "17364 18490 18489 cosine=0.428432587 area_ratio=7.23103788"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18489 17364 length=5.96790135 limit=5.29919765"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18868 11264 length=2.70537636 limit=2.68828459"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "11264 18868 length=2.70537636 limit=2.68828459"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18877 17366 length=6.48807163 limit=5.30998216"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18874 17366 17364 cosine=-0.356683978 area_ratio=4.81962857"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "17366 17364 length=5.96790135 limit=3.48376992"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18876 17366 18877 cosine=0.515560446 area_ratio=5.49462858"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "17366 18877 length=6.48807163 limit=5.30998216"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18877 18876 length=6.48807163 limit=3.18496042"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18887 13157 13155 cosine=0.945239486 area_ratio=6.66146369"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18887 13157 length=6.14150763 limit=6.00302956"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "13155 18887 length=5.3973139 limit=5.19631756"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "13157 18887 18888 cosine=0.932491715 area_ratio=6.83671086"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "13157 18887 length=6.14150763 limit=6.00302956"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18888 13157 length=6.14150763 limit=5.54454404"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18877 18899 18876 cosine=0.547200118 area_ratio=5.05143011"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18899 18876 length=5.89845777 limit=5.20072426"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18876 18877 length=6.48807163 limit=3.18496042"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18899 18901 length=5.89845777 limit=2.98613403"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18876 18899 length=5.89845777 limit=5.20072426"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "11254 11255 length=4.45813637 limit=4.41811132"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18908 18909 length=4.97919172 limit=2.9427321"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18901 18899 length=5.89845777 limit=2.98613403"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18909 18908 length=4.97919172 limit=2.9427321"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "11338 19361 length=2.56032872 limit=2.52046432"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "19361 11338 length=2.56032872 limit=2.52046432"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18903 13157 length=6.13646462 limit=4.01848234"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "13157 18888 length=6.14150763 limit=5.54454404"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18903 11251 13157 cosine=-0.857772374 area_ratio=1.84686763"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "13157 18903 length=6.13646462 limit=4.01848234"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "19384 18896 18904 cosine=-0.0408996648 area_ratio=0.123781509"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "18904 19384 length=4.84864055 limit=2.4044244"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "18904 19373 19384 cosine=-0.42195385 area_ratio=1.52783532"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "19384 18904 length=4.84864055 limit=2.4044244"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "19497 11235 13133 cosine=-0.5173974 area_ratio=0.348683501"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21592 22862 length=1.88204761 limit=1.320792"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22315 21597 length=0.909023411 limit=0.560734024"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21596 22312 length=2.09515372 limit=1.66787884"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22862 21592 length=1.88204761 limit=1.320792"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21597 22315 length=0.909023411 limit=0.560734024"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22313 21594 length=0.752760681 limit=0.501173312"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22854 21594 21593 cosine=-0.189682979 area_ratio=4.16715805"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21593 22854 length=0.501900458 limit=0.325287334"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22313 21595 21594 cosine=0.846778447 area_ratio=8.55569309"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21594 22313 length=0.752760681 limit=0.501173312"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "24677 22854 21593 cosine=-0.640096436 area_ratio=0.881322022"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22854 21593 length=0.501900458 limit=0.325287334"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22858 21605 21604 cosine=0.966594753 area_ratio=5.25366448"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22312 21596 length=2.09515372 limit=1.66787884"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22312 21622 22311 cosine=-0.912541307 area_ratio=1.75146392"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21599 22311 21622 cosine=-0.719625163 area_ratio=5.02408613"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21622 21599 length=2.88146651 limit=2.21517756"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21623 22243 22240 cosine=-0.949620502 area_ratio=1.77377411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22243 21623 21595 cosine=-0.982866744 area_ratio=9.77083468"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22243 22239 22240 cosine=-0.859159178 area_ratio=1.36201619"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22239 22243 22242 cosine=-0.176444538 area_ratio=0.681205401"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22242 22313 22269 cosine=0.0704318556 area_ratio=0.656926141"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22854 22270 length=1.01322726 limit=0.956201479"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24765 22271 length=1.01817953 limit=0.445786273"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22270 22854 length=1.01322726 limit=0.956201479"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22283 22271 22872 cosine=-0.716442027 area_ratio=0.894345622"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22315 22272 length=0.508199855 limit=0.341496231"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24766 22314 length=1.01817953 limit=0.445786273"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22873 24767 length=1.7650049 limit=1.3879475"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22862 24768 length=0.610215296 limit=0.471706726"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22272 22315 length=0.508199855 limit=0.341496231"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22273 22287 length=2.90939026 limit=2.48838886"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22286 22273 length=2.95055545 limit=1.97732516"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22287 22273 22274 cosine=-0.435266127 area_ratio=1.09077157"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22287 22273 length=2.90939026 limit=2.48838886"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22274 22287 length=2.58470901 limit=1.88866831"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22274 22439 length=2.59535496 limit=2.33209584"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22287 22274 length=2.58470901 limit=1.88866831"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22439 22274 length=2.59535496 limit=2.33209584"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22304 22300 22299 cosine=0.779312699 area_ratio=4.90092401"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22794 22307 22306 cosine=-0.571749974 area_ratio=0.497227823"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22668 22811 22812 cosine=0.936699116 area_ratio=0.036513711"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22445 22461 24799 cosine=0.0345592293 area_ratio=0.881156652"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "24800 22461 22460 cosine=-0.881447844 area_ratio=1.31263276"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22461 24800 24801 cosine=-0.104910257 area_ratio=0.497519237"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22668 24802 22460 cosine=-0.819038704 area_ratio=0.98537209"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "24849 21841 22445 cosine=-0.301173242 area_ratio=0.7425039"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24887 22862 length=0.610215296 limit=0.471706726"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22873 22284 length=1.27721708 limit=1.15743228"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22284 22873 length=1.27721708 limit=1.15743228"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22874 22285 length=1.94987053 limit=1.38749233"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24890 22873 length=1.7650049 limit=1.3879475"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22285 22874 length=1.94987053 limit=1.38749233"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22273 22286 length=2.95055545 limit=1.97732516"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22899 24910 length=0.867703317 limit=0.782568613"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22312 22899 length=1.13601301 limit=1.08180102"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22899 24917 24918 cosine=-0.141437448 area_ratio=0.833999806"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "24918 22899 length=0.867703317 limit=0.782568613"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22899 22312 length=1.13601301 limit=1.08180102"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22900 24919 24920 cosine=-0.0017702929 area_ratio=1.65632783"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21594 22989 21593 cosine=-0.302802724 area_ratio=11.8505883"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21594 22989 length=5.82083867 limit=5.54209352"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22989 21593 length=3.87388699 limit=2.40931768"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22989 21594 22990 cosine=-0.694906518 area_ratio=8.42713124"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22989 21594 length=5.82083867 limit=5.54209352"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21594 22990 length=4.64485333 limit=2.31240967"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21595 22990 21594 cosine=0.887955013 area_ratio=8.49587135"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22990 21594 length=4.64485333 limit=2.31240967"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22990 21595 22991 cosine=-0.601694028 area_ratio=19.2498509"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22994 21593 22989 cosine=0.69471018 area_ratio=8.65957433"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21593 22989 length=3.87388699 limit=2.40931768"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22994 24926 length=4.5435577 limit=2.61416039"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22993 21598 length=5.52716154 limit=4.9965671"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21598 24927 length=4.5435577 limit=2.61416039"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21598 22993 length=5.52716154 limit=4.9965671"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22993 21597 length=4.48611437 limit=2.62864217"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "22988 21597 22993 cosine=0.926719026 area_ratio=5.15265127"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21597 22993 length=4.48611437 limit=2.62864217"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22988 21592 length=4.13947816 limit=2.68436659"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21592 22988 length=4.13947816 limit=2.68436659"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21596 22988 22992 cosine=0.950810104 area_ratio=5.30796433"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "22992 21596 length=3.11654416 limit=2.70282247"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21596 23001 21622 cosine=0.916131178 area_ratio=9.13237993"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "23001 21622 length=5.02872481 limit=3.42532014"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21596 22992 length=3.11654416 limit=2.70282247"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21595 23002 22991 cosine=0.868093335 area_ratio=14.4647665"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "23002 22991 length=5.3973139 limit=5.19631756"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "23002 21595 21623 cosine=-0.737382315 area_ratio=5.63507739"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21603 23003 21602 cosine=-0.982653216 area_ratio=3.23483806"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "23003 21602 length=2.5918999 limit=2.08510893"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "23003 21603 21599 cosine=-0.59780415 area_ratio=0.46467366"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "23003 21601 21602 cosine=-0.998326793 area_ratio=2.7985963"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21602 23003 length=2.5918999 limit=2.08510893"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "23003 21622 23001 cosine=0.765140332 area_ratio=7.29421167"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21622 23001 length=5.02872481 limit=3.42532014"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "23001 23003 length=4.71714287 limit=2.26401047"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "21622 23003 21599 cosine=-0.479091967 area_ratio=7.5174292"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "21599 21622 length=2.88146651 limit=2.21517756"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "triangle",
+    "detail": "23001 23004 23003 cosine=0.798187407 area_ratio=10.415667"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 0,
+    "predicate": "native_edge",
+    "detail": "23003 23001 length=4.71714287 limit=2.26401047"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "13592 11341 13588 cosine=-0.189369677 area_ratio=0.653080266"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "11341 13588 length=11.4849686 limit=6.34888161"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13592 11253 length=10.7956896 limit=5.84828958"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "11341 13587 13588 cosine=-0.456092387 area_ratio=0.605527775"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13588 11341 length=11.4849686 limit=6.34888161"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "13593 11252 11256 cosine=-0.801819342 area_ratio=3.15964683"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "11252 11256 length=3.93509335 limit=3.08932732"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "11252 13593 13585 cosine=-0.752363765 area_ratio=5.25108705"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13593 13585 length=2.98986472 limit=2.2812204"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "11253 13592 length=10.7956896 limit=5.84828958"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13592 13593 length=9.13029291 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13154 13139 length=10.002085 limit=7.83538579"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13139 13140 length=8.86613467 limit=4.8133061"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13139 13154 length=10.002085 limit=7.83538579"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "11251 13139 length=8.29159434 limit=6.20420135"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "16830 16831 length=11.2464809 limit=5.09017602"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "16845 11341 length=9.52881216 limit=5.245796"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13140 16832 length=10.6897291 limit=6.73618456"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "16832 16842 length=7.51047399 limit=4.2348814"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "16832 13140 length=10.6897291 limit=6.73618456"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13140 13139 length=8.86613467 limit=4.8133061"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "16845 11337 11341 cosine=0.982026593 area_ratio=4.86996276"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "11341 16845 length=9.52881216 limit=5.245796"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24059 24060 length=7.51047399 limit=4.2348814"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24060 16833 length=7.84970874 limit=4.67673902"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "16830 24060 length=9.26147758 limit=7.97213596"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "16831 16830 length=11.2464809 limit=5.09017602"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24060 16830 length=9.26147758 limit=7.97213596"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "16833 24060 length=7.84970874 limit=4.67673902"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "16830 11256 16833 cosine=-0.204307401 area_ratio=1.86551179"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "16841 11256 11252 cosine=-0.953063149 area_ratio=1.97373291"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "11256 11252 length=3.93509335 limit=3.08932732"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "11263 13593 length=9.29403445 limit=9.06782791"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13593 13592 length=9.13029291 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13593 11263 length=9.29403445 limit=9.06782791"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "18477 18464 18478 cosine=-0.161866372 area_ratio=0.423057687"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "13160 18488 11231 cosine=-0.0518438502 area_ratio=1.54504746"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "18488 18478 18491 cosine=-0.608103429 area_ratio=0.952229484"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "11232 18488 18491 cosine=-0.666661095 area_ratio=0.884122443"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "11265 18520 17896 cosine=-0.990908502 area_ratio=6.69395581"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "18520 17896 length=3.32729292 limit=2.44561474"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "17896 11265 length=5.59156122 limit=5.23634198"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "17885 18868 11264 cosine=0.79209909 area_ratio=5.48460335"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "18868 11264 length=6.80624442 limit=2.68828459"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "11264 18868 length=6.80624442 limit=2.68828459"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "13593 18868 13585 cosine=-0.488947757 area_ratio=1.71892854"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13585 13593 length=2.98986472 limit=2.2812204"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "17364 18873 18874 cosine=-0.271472471 area_ratio=1.03680165"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "18895 18874 18873 cosine=-0.312210736 area_ratio=1.00097579"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "13139 11251 length=8.29159434 limit=6.20420135"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "17896 18921 length=7.17627488 limit=6.54557237"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "11265 17896 length=5.59156122 limit=5.23634198"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "18921 17896 length=7.17627488 limit=6.54557237"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "18858 18921 18923 cosine=0.728756314 area_ratio=8.62231262"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "18923 18858 length=5.1356637 limit=1.5818489"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "19384 19466 19465 cosine=0.0781963972 area_ratio=0.393556721"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22313 21594 length=0.993353267 limit=0.501173312"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22854 21594 21593 cosine=-0.139418686 area_ratio=1.04758427"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21595 22313 22243 cosine=-0.112497704 area_ratio=0.22841589"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22313 21595 21594 cosine=0.939002628 area_ratio=6.22006075"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21594 22313 length=0.993353267 limit=0.501173312"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "24677 22854 21593 cosine=0.30034043 area_ratio=0.0809532062"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22310 21603 21600 cosine=-0.992815024 area_ratio=4.62566487"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22310 21603 length=3.45914198 limit=2.48540363"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21603 21600 length=3.55875449 limit=1.0582642"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21603 22310 21599 cosine=-0.270342775 area_ratio=1.75476168"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21603 22310 length=3.45914198 limit=2.48540363"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22310 21599 length=3.99788404 limit=1.5602481"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21601 22819 21602 cosine=-0.973561393 area_ratio=4.60112046"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22819 21602 length=3.79718876 limit=1.65859569"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22819 21601 21605 cosine=-0.727704883 area_ratio=3.93554707"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21601 21605 length=3.32729292 limit=2.44561474"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21600 21602 22819 cosine=-0.986588377 area_ratio=3.90308633"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21600 21602 length=3.47852636 limit=2.5640608"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21602 22819 length=3.79718876 limit=1.65859569"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21602 21600 21603 cosine=-0.97713285 area_ratio=8.34650816"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21602 21600 length=3.47852636 limit=2.5640608"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21600 21603 length=3.55875449 limit=1.0582642"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22311 21599 22310 cosine=-0.955235216 area_ratio=10.2362385"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21599 22310 length=3.99788404 limit=1.5602481"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22310 22311 length=4.21322686 limit=3.46904262"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22666 22253 22254 cosine=-0.738672554 area_ratio=0.784629509"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22254 22667 22666 cosine=-0.67932655 area_ratio=0.817183999"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22283 22271 22872 cosine=-0.921578884 area_ratio=0.632540706"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22862 24768 length=0.533352269 limit=0.471706726"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22287 22273 22274 cosine=-0.0635704272 area_ratio=0.372660455"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22900 22311 22878 cosine=-0.858146768 area_ratio=3.66568041"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22311 22878 length=2.80113695 limit=2.17682051"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22303 22789 22790 cosine=0.821649803 area_ratio=5.09530465"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22668 22811 22812 cosine=-0.997220944 area_ratio=1.21046774"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "24802 22668 22812 cosine=-0.99582676 area_ratio=1.20415617"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "24886 22862 22902 cosine=-0.359572557 area_ratio=4.18081881"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22902 24886 length=1.43456378 limit=0.488496874"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24887 22862 length=0.533352269 limit=0.471706726"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22310 22878 22311 cosine=-0.582487281 area_ratio=3.62074721"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22878 22311 length=2.80113695 limit=2.17682051"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22311 22310 length=4.21322686 limit=3.46904262"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24909 22905 length=1.18297895 limit=1.10154993"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22902 24910 length=1.91910965 limit=1.85381565"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24911 22902 length=1.43456378 limit=0.488496874"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "24910 22902 length=1.91910965 limit=1.85381565"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22312 22902 22862 cosine=-0.974287792 area_ratio=1.50950201"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "24917 22899 22905 cosine=0.103137947 area_ratio=5.65888477"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22905 24917 length=1.18297895 limit=1.10154993"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22899 22311 22905 cosine=-0.49688978 area_ratio=5.23395009"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "24919 22900 24921 cosine=-0.118985294 area_ratio=3.06657371"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "22989 21594 22990 cosine=-0.00609456371 area_ratio=0.824144171"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22994 24926 length=2.89806359 limit=2.61416039"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21598 24927 length=2.89806359 limit=2.61416039"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "22992 21596 length=3.68904779 limit=2.70282247"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21596 23001 21622 cosine=0.969088527 area_ratio=6.58388496"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "21596 22992 length=3.68904779 limit=2.70282247"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "21603 23003 21602 cosine=-0.104736292 area_ratio=0.124312989"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "23003 21601 21602 cosine=-0.932863722 area_ratio=0.0261923968"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "23003 21622 23001 cosine=0.769731953 area_ratio=4.88261401"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "23001 23003 length=3.06846619 limit=2.26401047"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "23004 23001 23000 cosine=0.936404725 area_ratio=6.47865195"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "23000 23004 length=5.1356637 limit=1.5818489"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "triangle",
+    "detail": "23001 23004 23003 cosine=0.895273302 area_ratio=6.08821368"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 1,
+    "predicate": "native_edge",
+    "detail": "23003 23001 length=3.06846619 limit=2.26401047"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "13592 13593 length=5.46781945 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "24053 11255 length=5.22881144 limit=4.83131768"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "11255 24053 length=5.22881144 limit=4.83131768"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "16830 11256 16833 cosine=-0.0522111181 area_ratio=1.46502787"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "11264 11263 length=9.10870001 limit=5.69282299"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "11263 13593 length=11.4363393 limit=9.06782791"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "13593 13592 length=5.46781945 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "13593 11263 length=11.4363393 limit=9.06782791"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "11263 11264 length=9.10870001 limit=5.69282299"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "18478 18492 18491 cosine=-0.707258575 area_ratio=0.522970443"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "18520 18501 18500 cosine=-0.958010276 area_ratio=5.90490569"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18500 18520 length=3.2772754 limit=2.02507566"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18520 18513 length=5.34498842 limit=4.96601486"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "11265 18517 18513 cosine=-0.88806592 area_ratio=3.72963011"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18513 11265 length=5.06288389 limit=3.52188905"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "18517 11265 13217 cosine=-0.0900232389 area_ratio=3.24822314"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "11265 13217 length=6.88762933 limit=5.42171318"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "18520 11265 18513 cosine=-0.955631151 area_ratio=4.60826628"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "11265 18513 length=5.06288389 limit=3.52188905"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18513 18520 length=5.34498842 limit=4.96601486"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "18492 11232 18491 cosine=-0.849083014 area_ratio=0.534440997"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "17885 18868 length=8.03733494 limit=7.63933772"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18868 17885 length=8.03733494 limit=7.63933772"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "17885 18858 length=6.72034257 limit=2.53419008"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18922 11265 length=8.28205027 limit=7.00631994"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "11265 18921 length=4.18439637 limit=2.84041747"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "11265 18922 13217 cosine=-0.102514953 area_ratio=4.48721648"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "11265 18922 length=8.28205027 limit=7.00631994"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "13217 11265 length=6.88762933 limit=5.42171318"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18921 11265 length=4.18439637 limit=2.84041747"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "18921 18863 18922 cosine=-0.0370625493 area_ratio=2.02364463"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "18863 18921 18859 cosine=0.923849293 area_ratio=7.56245166"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18921 18859 length=4.54469879 limit=1.74811983"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "18921 18858 18859 cosine=0.901309468 area_ratio=4.95521896"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18858 18859 length=6.84043478 limit=5.4406214"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18859 18921 length=4.54469879 limit=1.74811983"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "18903 11251 13157 cosine=-0.342971503 area_ratio=0.481694349"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18858 17888 length=8.64046985 limit=7.4844656"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18859 18858 length=6.84043478 limit=5.4406214"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "17888 18858 length=8.64046985 limit=7.4844656"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "18858 17885 length=6.72034257 limit=2.53419008"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21592 22862 length=3.07858002 limit=1.320792"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22862 21592 length=3.07858002 limit=1.320792"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22854 21594 21593 cosine=-0.0131529248 area_ratio=0.763612492"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21605 22858 22819 cosine=-0.99696881 area_ratio=2.52099862"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22858 22819 length=2.83623759 limit=2.26284885"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22858 21605 21604 cosine=-0.82651605 area_ratio=9.38271371"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21605 21604 length=3.2772754 limit=2.02507566"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21601 22819 21602 cosine=-0.312336033 area_ratio=0.251505122"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21600 21602 22819 cosine=-0.341580683 area_ratio=0.134658266"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22666 22253 22254 cosine=-0.180569259 area_ratio=0.368718802"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22254 22667 22666 cosine=-0.0729596864 area_ratio=0.388923098"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22667 22254 22255 cosine=-0.134694688 area_ratio=0.469951496"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22854 22270 length=1.01725056 limit=0.956201479"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "24765 22271 length=0.891947428 limit=0.445786273"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22270 22854 length=1.01725056 limit=0.956201479"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24766 22315 22272 cosine=-0.0902706346 area_ratio=0.0151320402"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22315 24766 22314 cosine=-0.934887018 area_ratio=0.132547347"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "24766 22314 length=0.891947428 limit=0.445786273"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24768 22315 22862 cosine=-0.248230202 area_ratio=2.15655519"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22862 24768 length=1.31808034 limit=0.471706726"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22439 22274 22275 cosine=-0.962399486 area_ratio=1.93674721"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22900 22311 22878 cosine=-0.142511488 area_ratio=0.249288341"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22303 22789 22790 cosine=0.723652548 area_ratio=7.70285067"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21600 22858 22880 cosine=-0.854485313 area_ratio=3.39604153"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22880 21600 length=3.51646767 limit=1.84214618"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22858 21600 22819 cosine=-0.941477625 area_ratio=2.06292476"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22819 22858 length=2.83623759 limit=2.26284885"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22877 22795 22878 cosine=-0.317229375 area_ratio=3.69260544"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22795 22878 length=1.88302612 limit=1.71042179"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22878 22877 length=3.21212748 limit=2.52546959"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22503 24809 22811 cosine=-0.867263382 area_ratio=0.60464467"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24822 22812 22811 cosine=-0.898944837 area_ratio=0.597944178"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22255 22079 22667 cosine=-0.431891794 area_ratio=0.25218742"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "24887 22862 length=1.31808034 limit=0.471706726"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22284 22872 22873 cosine=-0.98734615 area_ratio=0.38348947"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22872 24890 22873 cosine=-0.943791901 area_ratio=0.275770386"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24890 22872 22271 cosine=-0.578167888 area_ratio=0.301248211"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22878 22310 22877 cosine=-0.978363503 area_ratio=4.88931263"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22310 22877 length=3.48992966 limit=2.11003881"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22877 22878 length=3.21212748 limit=2.52546959"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22880 22310 21600 cosine=-0.946367603 area_ratio=1.99070777"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22880 22310 length=3.64922041 limit=3.57884709"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "21600 22880 length=3.51646767 limit=1.84214618"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22310 22880 22877 cosine=-0.94348037 area_ratio=3.11327299"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22310 22880 length=3.64922041 limit=3.57884709"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22877 22310 length=3.48992966 limit=2.11003881"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22900 22795 24907 cosine=-0.446324249 area_ratio=2.63063172"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22795 22900 22878 cosine=-0.818455045 area_ratio=1.71249074"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "native_edge",
+    "detail": "22878 22795 length=1.88302612 limit=1.71042179"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24908 22905 22900 cosine=0.328957411 area_ratio=7.58840661"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22902 24910 24911 cosine=-0.718020886 area_ratio=2.23459283"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22899 22311 22905 cosine=-0.0268012589 area_ratio=2.00611564"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22917 22790 22789 cosine=0.0307132374 area_ratio=1.3505756"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22900 24919 24920 cosine=0.484999993 area_ratio=6.65368826"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "24919 22900 24921 cosine=-0.751016511 area_ratio=3.01494025"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "22990 21595 22991 cosine=-0.0170881782 area_ratio=1.53438821"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 2,
+    "predicate": "triangle",
+    "detail": "21597 22988 21592 cosine=-0.766928363 area_ratio=0.343264054"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "11252 13593 13585 cosine=-0.958594006 area_ratio=0.272728099"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "13592 13593 length=5.22537374 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "11270 17885 length=9.18075809 limit=4.94715597"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "13593 13592 length=5.22537374 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "18492 18475 18515 cosine=-0.546612054 area_ratio=0.307265069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "18513 18502 18501 cosine=-0.0105993067 area_ratio=1.25137635"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "18502 18513 18517 cosine=-0.836611661 area_ratio=2.12692465"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "18517 18502 length=4.08588873 limit=3.98104341"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "18517 18505 18502 cosine=-0.82170288 area_ratio=2.25676266"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "18502 18517 length=4.08588873 limit=3.98104341"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "11265 13217 length=5.44248696 limit=5.42171318"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "13217 18517 length=4.22421958 limit=3.96276334"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "18517 13217 length=4.22421958 limit=3.96276334"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "11232 18492 18515 cosine=-0.963383728 area_ratio=0.700733"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "18501 18548 18500 cosine=-0.637724203 area_ratio=0.906377798"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "18548 18501 18546 cosine=-0.649862804 area_ratio=0.964561707"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "18501 18547 18546 cosine=-0.719894445 area_ratio=1.04452741"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "18863 17889 length=4.891882 limit=3.33990303"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "13593 18868 13585 cosine=-0.777150146 area_ratio=0.29035081"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "11265 18922 13217 cosine=-0.0323268831 area_ratio=2.71317408"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "13217 11265 length=5.44248696 limit=5.42171318"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "18921 18863 18922 cosine=-0.672166298 area_ratio=1.80412442"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "18863 18920 18922 cosine=-0.622610935 area_ratio=1.33568607"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "17889 18863 length=4.891882 limit=3.33990303"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "18859 17888 length=6.14493996 limit=3.414173"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "21013 17885 length=9.62992318 limit=7.51711262"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "17885 11270 length=9.18075809 limit=4.94715597"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "17885 21013 length=9.62992318 limit=7.51711262"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "17888 17885 length=6.28228493 limit=5.97055512"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "18858 17888 length=8.76932813 limit=7.4844656"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "17888 18859 length=6.14493996 limit=3.414173"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "17888 18858 length=8.76932813 limit=7.4844656"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "17885 17888 length=6.28228493 limit=5.97055512"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "21592 22862 length=1.36828795 limit=1.320792"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22862 21592 length=1.36828795 limit=1.320792"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22314 21598 length=0.95311418 limit=0.415865972"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22313 21594 length=0.511073758 limit=0.501173312"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "21594 22313 length=0.511073758 limit=0.501173312"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "24677 24678 length=0.95311418 limit=0.415865972"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "21604 22308 22858 cosine=-0.790510588 area_ratio=1.63202277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22308 22858 length=2.4302341 limit=2.41563083"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22308 21604 21607 cosine=-0.665440298 area_ratio=1.35152281"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22267 22439 22440 cosine=-0.948986245 area_ratio=0.960517728"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22315 24766 22314 cosine=0.122156947 area_ratio=0.123378505"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "24767 22874 22873 cosine=-0.921201415 area_ratio=0.0896682373"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22275 22440 22439 cosine=-0.936094969 area_ratio=0.41691259"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22440 22275 22276 cosine=-0.914518986 area_ratio=1.39404752"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22303 22789 22790 cosine=0.63395392 area_ratio=7.54714561"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22277 22796 22789 cosine=0.788508343 area_ratio=7.8576566"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22790 22916 length=0.848660311 limit=0.786021793"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22795 22877 22791 cosine=-0.876924258 area_ratio=2.8315563"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22877 22791 length=2.18070789 limit=2.00113973"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22791 22795 length=2.09057623 limit=1.97659882"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22917 22792 22916 cosine=-0.533236265 area_ratio=1.20575661"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22792 22917 24842 cosine=-0.71290452 area_ratio=0.978642451"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "24844 22792 24843 cosine=-0.374858568 area_ratio=2.85915969"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "24843 24844 length=2.09057623 limit=1.97659882"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22880 22791 22877 cosine=-0.874240428 area_ratio=1.34961241"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22791 22877 length=2.18070789 limit=2.00113973"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22791 22880 22860 cosine=-0.0110654362 area_ratio=1.4598802"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "24890 22872 22271 cosine=-0.230752325 area_ratio=0.232684845"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22860 22858 22308 cosine=-0.70233468 area_ratio=2.05681368"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22858 22308 length=2.4302341 limit=2.41563083"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "24908 22905 22900 cosine=0.490409079 area_ratio=5.65139164"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "24910 22902 22899 cosine=-0.942565074 area_ratio=1.3123786"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22902 22312 22899 cosine=-0.965782034 area_ratio=0.525500587"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22899 24917 24918 cosine=-0.68532488 area_ratio=3.09147094"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22917 22790 22789 cosine=-0.108021456 area_ratio=0.730223604"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22790 22917 22916 cosine=-0.508502425 area_ratio=3.46682125"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "native_edge",
+    "detail": "22916 22790 length=0.848660311 limit=0.786021793"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 3,
+    "predicate": "triangle",
+    "detail": "22900 24919 24920 cosine=0.696657269 area_ratio=5.43597395"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "13592 13593 length=5.29160542 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "13593 13592 length=5.29160542 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18517 18518 length=6.19574189 limit=5.92780504"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18518 18505 length=4.82506598 limit=4.55876978"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18505 18518 length=4.82506598 limit=4.55876978"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "13217 18517 length=4.53505281 limit=3.96276334"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18517 13217 length=4.53505281 limit=3.96276334"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18518 18517 length=6.19574189 limit=5.92780504"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "11232 18522 13162 cosine=-0.562291242 area_ratio=0.301351711"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "18547 18505 18545 cosine=-0.696261308 area_ratio=1.07916552"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "18505 18551 18545 cosine=-0.67571006 area_ratio=0.847209873"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "17890 18863 length=8.80589766 limit=7.64108194"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18863 17889 length=4.62306498 limit=3.33990303"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "18863 17890 18864 cosine=-0.0750773664 area_ratio=3.15834478"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18863 17890 length=8.80589766 limit=7.64108194"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18864 18863 length=7.42312453 limit=5.35219302"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "18871 11232 13162 cosine=-0.0176062595 area_ratio=0.302970194"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "11265 18922 13217 cosine=-0.790575219 area_ratio=2.56259149"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "18920 13217 18922 cosine=-0.821328018 area_ratio=2.07257356"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "13217 18920 17882 cosine=-0.74147627 area_ratio=2.76641114"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "18920 17883 17882 cosine=-0.737034856 area_ratio=1.77767353"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "18863 18920 18922 cosine=0.0734197366 area_ratio=0.495360838"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18863 18864 length=7.42312453 limit=5.35219302"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18864 18920 length=5.0509837 limit=2.47235267"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "18920 18864 length=5.0509837 limit=2.47235267"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "17889 18863 length=4.62306498 limit=3.33990303"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "21013 17885 length=8.28144656 limit=7.51711262"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "17885 21013 length=8.28144656 limit=7.51711262"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "21013 17888 length=4.76846039 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "17888 21014 length=6.56087962 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "21015 17888 length=7.0271383 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "17888 21013 length=4.76846039 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "17888 21015 length=7.0271383 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "21014 17888 length=6.56087962 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "21596 22312 length=2.0302394 limit=1.66787884"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "22308 21604 21607 cosine=0.0150761005 area_ratio=0.434285646"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "22312 21596 length=2.0302394 limit=1.66787884"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "22268 22440 22441 cosine=-0.654378875 area_ratio=0.648406576"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "22862 24768 length=0.480569133 limit=0.471706726"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "22790 22913 22303 cosine=-0.0170878684 area_ratio=1.74452918"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "22792 24844 22793 cosine=-0.851591788 area_ratio=2.10996606"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "native_edge",
+    "detail": "24887 22862 length=0.480569133 limit=0.471706726"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "24893 22890 22793 cosine=-0.0293346868 area_ratio=2.04050838"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "22890 24893 24894 cosine=-0.217337984 area_ratio=0.523030818"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "22905 24908 24909 cosine=-0.00444060887 area_ratio=1.15360603"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 4,
+    "predicate": "triangle",
+    "detail": "24917 22899 22905 cosine=-0.600995992 area_ratio=0.797418589"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "11270 17885 length=5.08809295 limit=4.94715597"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "17889 13226 length=5.99640631 limit=5.16666891"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18518 18505 length=5.24015296 limit=4.55876978"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18505 18518 length=5.24015296 limit=4.55876978"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "18517 17882 18518 cosine=-0.727578199 area_ratio=3.3682842"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "17883 18519 18523 cosine=-0.697097121 area_ratio=1.38857371"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "17882 18523 18518 cosine=-0.771941923 area_ratio=1.82352147"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "18523 17882 17883 cosine=-0.689793426 area_ratio=1.55548892"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "11232 18492 18515 cosine=-0.0553291155 area_ratio=0.106139329"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "17890 18864 length=4.497816 limit=3.24125996"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18861 18864 length=4.76965706 limit=4.68704383"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18864 17890 length=4.497816 limit=3.24125996"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "13593 18868 13585 cosine=0.0571215314 area_ratio=0.243204838"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18870 11232 length=5.92844174 limit=5.81776635"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "11232 18870 length=5.92844174 limit=5.81776635"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "17883 18925 length=5.9310283 limit=3.84211146"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18920 18925 length=7.48255979 limit=4.95218622"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18925 17883 length=5.9310283 limit=3.84211146"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18864 18920 length=3.27078988 limit=2.47235267"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18864 18925 length=4.27290285 limit=4.153037"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18925 18920 length=7.48255979 limit=4.95218622"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18920 18864 length=3.27078988 limit=2.47235267"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18925 18864 length=4.27290285 limit=4.153037"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "18864 18861 length=4.76965706 limit=4.68704383"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "17885 11270 length=5.08809295 limit=4.94715597"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "21013 17888 length=4.59595324 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "17888 21014 length=6.21410197 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "13226 17889 length=5.99640631 limit=5.16666891"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "17888 21013 length=4.59595324 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "native_edge",
+    "detail": "21014 17888 length=6.21410197 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "22792 22305 22304 cosine=-0.402602211 area_ratio=1.65543931"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "22268 21839 22444 cosine=-0.681962744 area_ratio=0.660158301"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "24893 22890 22793 cosine=-0.409010844 area_ratio=1.01786256"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "22890 24893 24894 cosine=-0.499826764 area_ratio=0.439798309"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "22913 22792 22304 cosine=-0.648819597 area_ratio=0.582102279"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 5,
+    "predicate": "triangle",
+    "detail": "22790 22917 22916 cosine=0.0471303775 area_ratio=0.762694862"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "13592 13593 length=5.0396954 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "11269 17890 length=5.16685545 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "17890 11269 length=5.16685545 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "13593 13592 length=5.0396954 limit=5.03959053"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "18502 18513 18517 cosine=-0.10190096 area_ratio=0.443035769"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "18517 18505 18502 cosine=0.0720352291 area_ratio=0.402224094"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "18519 18507 18523 cosine=-0.654550132 area_ratio=1.11616845"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "18507 18519 18506 cosine=-0.508372623 area_ratio=0.643302133"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "18516 18506 18519 cosine=-0.525429455 area_ratio=1.32220074"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "18505 18523 18507 cosine=-0.64722565 area_ratio=1.96649995"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "17883 17884 length=6.04706328 limit=5.2296418"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "17884 18519 length=4.50292698 limit=4.01574971"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "11232 18522 13162 cosine=0.226699387 area_ratio=0.173447762"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "18519 17884 length=4.50292698 limit=4.01574971"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "18547 18505 18545 cosine=-0.0202039487 area_ratio=0.433497793"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "18505 18551 18545 cosine=0.0927579314 area_ratio=0.37192505"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "18861 18864 length=5.89332891 limit=4.68704383"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "17884 17883 length=6.04706328 limit=5.2296418"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "17883 18925 length=4.37119622 limit=3.84211146"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "18925 17883 length=4.37119622 limit=3.84211146"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "18864 18861 length=5.89332891 limit=4.68704383"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "18861 18925 length=3.55524698 limit=2.62588742"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "18925 18861 length=3.55524698 limit=2.62588742"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "17888 21014 length=5.95948169 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "21015 17888 length=6.15910082 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "17888 21015 length=6.15910082 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "native_edge",
+    "detail": "21014 17888 length=5.95948169 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 6,
+    "predicate": "triangle",
+    "detail": "22268 22440 22441 cosine=0.126021413 area_ratio=0.285434418"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "triangle",
+    "detail": "18516 18506 18519 cosine=-0.0266598993 area_ratio=0.498179486"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "triangle",
+    "detail": "18506 18516 18503 cosine=-0.304998129 area_ratio=0.687057482"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "17884 18519 length=4.77239427 limit=4.01574971"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "18519 17884 length=4.77239427 limit=4.01574971"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "triangle",
+    "detail": "18525 18503 18516 cosine=-0.432438373 area_ratio=0.689326937"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "triangle",
+    "detail": "18547 18505 18545 cosine=-0.323454334 area_ratio=0.484611681"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "triangle",
+    "detail": "18505 18551 18545 cosine=-0.347381842 area_ratio=0.440654211"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "triangle",
+    "detail": "18547 18538 18540 cosine=0.0757588672 area_ratio=0.170523854"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "18861 17891 length=3.48985576 limit=3.48197626"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "17890 18864 length=3.8120051 limit=3.24125996"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "18864 17890 length=3.8120051 limit=3.24125996"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "17891 18861 length=3.48985576 limit=3.48197626"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "17883 18918 length=7.45092992 limit=7.35087684"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "18918 17883 length=7.45092992 limit=7.35087684"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "21013 17888 length=4.47537019 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "17888 21014 length=6.03075557 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "17888 21013 length=4.47537019 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "native_edge",
+    "detail": "21014 17888 length=6.03075557 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 7,
+    "predicate": "triangle",
+    "detail": "22268 21839 22444 cosine=-0.0429509258 area_ratio=0.193732374"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "11269 17890 length=6.08653512 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "17891 17890 length=4.71265025 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "17890 11269 length=6.08653512 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "17881 18516 length=4.50330371 limit=3.9062014"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "18516 17881 length=4.50330371 limit=3.9062014"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "triangle",
+    "detail": "18542 18507 18506 cosine=-0.464066082 area_ratio=0.458448078"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "triangle",
+    "detail": "18506 18553 18542 cosine=-0.474498388 area_ratio=0.413877498"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "triangle",
+    "detail": "18547 18538 18540 cosine=-0.130626167 area_ratio=0.17407282"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "triangle",
+    "detail": "18542 18531 18551 cosine=-0.309810736 area_ratio=0.262237141"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "17890 17891 length=4.71265025 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "17888 21014 length=5.96417713 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "21015 17888 length=6.02473616 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "17888 21015 length=6.02473616 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 8,
+    "predicate": "native_edge",
+    "detail": "21014 17888 length=5.96417713 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 9,
+    "predicate": "native_edge",
+    "detail": "17891 17890 length=4.62143187 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 9,
+    "predicate": "triangle",
+    "detail": "18506 18516 18503 cosine=-0.297169071 area_ratio=0.537380892"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 9,
+    "predicate": "triangle",
+    "detail": "18525 18503 18516 cosine=-0.423825057 area_ratio=0.509035402"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 9,
+    "predicate": "triangle",
+    "detail": "18547 18505 18545 cosine=0.128634026 area_ratio=0.382452602"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 9,
+    "predicate": "native_edge",
+    "detail": "17890 17891 length=4.62143187 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 9,
+    "predicate": "native_edge",
+    "detail": "21013 17888 length=4.37522243 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 9,
+    "predicate": "native_edge",
+    "detail": "17888 21013 length=4.37522243 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "native_edge",
+    "detail": "11269 17890 length=5.43349488 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "native_edge",
+    "detail": "17890 11269 length=5.43349488 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "native_edge",
+    "detail": "17881 18516 length=4.30632675 limit=3.9062014"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "triangle",
+    "detail": "18503 18525 18504 cosine=-0.0794507135 area_ratio=0.40228266"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "native_edge",
+    "detail": "18516 17881 length=4.30632675 limit=3.9062014"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "triangle",
+    "detail": "18542 18507 18506 cosine=-0.288951001 area_ratio=0.346820336"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "triangle",
+    "detail": "18506 18553 18542 cosine=-0.382166161 area_ratio=0.335257895"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "native_edge",
+    "detail": "17888 21014 length=6.02931042 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "native_edge",
+    "detail": "21015 17888 length=5.93305313 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "native_edge",
+    "detail": "17888 21015 length=5.93305313 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 10,
+    "predicate": "native_edge",
+    "detail": "21014 17888 length=6.02931042 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 11,
+    "predicate": "native_edge",
+    "detail": "17891 17890 length=4.52899288 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 11,
+    "predicate": "native_edge",
+    "detail": "17890 17891 length=4.52899288 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 11,
+    "predicate": "native_edge",
+    "detail": "21013 17888 length=4.34892721 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 11,
+    "predicate": "native_edge",
+    "detail": "17888 21013 length=4.34892721 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 12,
+    "predicate": "native_edge",
+    "detail": "11269 17890 length=5.30818924 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 12,
+    "predicate": "native_edge",
+    "detail": "17890 11269 length=5.30818924 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 12,
+    "predicate": "native_edge",
+    "detail": "17888 21014 length=5.94599447 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 12,
+    "predicate": "native_edge",
+    "detail": "21015 17888 length=5.94094169 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 12,
+    "predicate": "native_edge",
+    "detail": "17888 21015 length=5.94094169 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 12,
+    "predicate": "native_edge",
+    "detail": "21014 17888 length=5.94599447 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 13,
+    "predicate": "native_edge",
+    "detail": "17891 17890 length=4.41324417 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 13,
+    "predicate": "native_edge",
+    "detail": "17890 17891 length=4.41324417 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 13,
+    "predicate": "native_edge",
+    "detail": "21013 17888 length=4.31771133 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 13,
+    "predicate": "native_edge",
+    "detail": "17888 21013 length=4.31771133 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 14,
+    "predicate": "native_edge",
+    "detail": "11269 17890 length=5.19720601 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 14,
+    "predicate": "native_edge",
+    "detail": "17890 11269 length=5.19720601 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 14,
+    "predicate": "native_edge",
+    "detail": "17888 21014 length=5.93902644 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 14,
+    "predicate": "native_edge",
+    "detail": "21014 17888 length=5.93902644 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 15,
+    "predicate": "native_edge",
+    "detail": "17891 17890 length=4.33130812 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 15,
+    "predicate": "native_edge",
+    "detail": "17890 17891 length=4.33130812 limit=4.28928277"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 15,
+    "predicate": "native_edge",
+    "detail": "21015 17888 length=5.91610372 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 15,
+    "predicate": "native_edge",
+    "detail": "17888 21015 length=5.91610372 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 16,
+    "predicate": "native_edge",
+    "detail": "11269 17890 length=5.12963397 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 16,
+    "predicate": "native_edge",
+    "detail": "17890 11269 length=5.12963397 limit=5.11679001"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 16,
+    "predicate": "native_edge",
+    "detail": "21013 17888 length=4.3358821 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 16,
+    "predicate": "native_edge",
+    "detail": "17888 21013 length=4.3358821 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 17,
+    "predicate": "native_edge",
+    "detail": "17888 21014 length=5.97286195 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 17,
+    "predicate": "native_edge",
+    "detail": "21014 17888 length=5.97286195 limit=5.93696411"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 18,
+    "predicate": "native_edge",
+    "detail": "21013 17888 length=4.31010383 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 18,
+    "predicate": "native_edge",
+    "detail": "21015 17888 length=5.94351564 limit=5.89833069"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 18,
+    "predicate": "native_edge",
+    "detail": "17888 21013 length=4.31010383 limit=4.303023"
+  },
+  {
+    "side": 1,
+    "target": 3,
+    "iteration": 18,
+    "predicate": "native_edge",
+    "detail": "17888 21015 length=5.94351564 limit=5.89833069"
+  }
+]
