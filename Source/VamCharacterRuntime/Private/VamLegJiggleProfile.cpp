@@ -2,7 +2,7 @@
 
 bool UVamLegJiggleProfile::IsValidProfile() const
 {
-    if(SchemaVersion!=1 || Segments.Num()!=4 || !Integration || Integration->SchemaVersion!=2 || Integration->FixedStep<=0 || SourceBoneCount<1 || SourceBoneNames.Num()!=SourceBoneCount || SourceLocalBind.Num()!=SourceBoneCount || SourceTopologyIdentity.IsEmpty()) return false;
+    if((SchemaVersion!=1 && SchemaVersion!=2) || Segments.Num()!=4 || !Integration || Integration->SchemaVersion!=2 || Integration->FixedStep<=0 || SourceBoneCount<1 || SourceBoneNames.Num()!=SourceBoneCount || SourceLocalBind.Num()!=SourceBoneCount || SourceTopologyIdentity.IsEmpty()) return false;
     TSet<int32> Helpers;
     for(const auto& S:Segments)
     {

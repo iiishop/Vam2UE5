@@ -332,7 +332,7 @@ FString UVamBreastJiggleBuilder::Validate(UVamCharacterDefinition* D,UVamBreastJ
     for(const auto& Section:Mesh->GetImportedModel()->LODModels[0].Sections) for(const auto& V:Section.SoftVertices)
     {
         int32 Count=0;uint32 Sum=0;for(int32 I=0;I<MAX_TOTAL_INFLUENCES;++I) if(V.InfluenceWeights[I]) { ++Count;Sum+=V.InfluenceWeights[I]; }
-        if(Count>8 || FMath::Abs(int32(Sum)-65535)>8) return TEXT("Invalid final influence count/normalization");
+        if(Count>MAX_TOTAL_INFLUENCES || FMath::Abs(int32(Sum)-65535)>8) return TEXT("Invalid final influence count/normalization");
         FVector Reconstructed=FVector::ZeroVector;
         for(int32 I=0;I<MAX_TOTAL_INFLUENCES;++I) if(V.InfluenceWeights[I])
         {

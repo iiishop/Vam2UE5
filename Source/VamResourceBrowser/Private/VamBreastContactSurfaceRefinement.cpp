@@ -78,8 +78,8 @@ UVamCharacterDefinition* UVamBreastContactBuilder::RefineRenderSurface(const FSt
             Representatives.Add(Weld?*Weld:V);if(!Weld)WeldedMidpoints.Add(WeldKey,V);
             Skin.AddDefaulted();for(const auto& W:Skin[A])Skin[V].FindOrAdd(W.Key)+=W.Value*.5;for(const auto& W:Skin[B])Skin[V].FindOrAdd(W.Key)+=W.Value*.5;
             TArray<int32> Bones;Skin[V].GetKeys(Bones);Bones.Sort([&](int32 L,int32 R){const double D=Skin[V][L]-Skin[V][R];return D==0?L<R:D>0;});
-            double Total=0;for(int32 K=0;K<FMath::Min(8,Bones.Num());++K)Total+=Skin[V][Bones[K]];
-            for(int32 K=8;K<Bones.Num();++K)Skin[V].Remove(Bones[K]);for(auto& W:Skin[V])W.Value/=Total;
+            double Total=0;for(int32 K=0;K<FMath::Min(int32(MAX_TOTAL_INFLUENCES),Bones.Num());++K)Total+=Skin[V][Bones[K]];
+            for(int32 K=MAX_TOTAL_INFLUENCES;K<Bones.Num();++K)Skin[V].Remove(Bones[K]);for(auto& W:Skin[V])W.Value/=Total;
             // Evaluate the same bounded Hermite operator on each Morph.
             // The normals define a fixed rest patch; Morph normals are rebuilt by UE.
             for(auto& M:I.Morphs)M.Deltas.Add(CurvedMidpoint(I.Vertices[A]+M.Deltas[A],I.Vertices[B]+M.Deltas[B],CurveNormals[A],CurveNormals[B])-Position);

@@ -116,6 +116,19 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
    for(int I=0;I<VideoFrames;++I)
    {
     const double Ramp=FMath::Clamp(I/30.,0.,1.),Z=I<180?MotionAmplitude*Ramp*Ramp*(3-2*Ramp)*FMath::Sin(2*PI*I/60.):0;
+    FString Action;C->TryGetStringField(TEXT("video_action"),Action);
+    if(Action==TEXT("flexion") || Action==TEXT("step"))
+    {
+     auto Animated=Reference;
+     for(const auto& S:Body->LegRest)if(!S.bCalf)
+     {
+      const double Wave=I<240?FMath::Sin(2*PI*I/120.+(Action==TEXT("step")?S.Side*PI:0)):0;
+      const double H=FMath::DegreesToRadians(Action==TEXT("step")?25*Wave:Ramp*35*(1-Wave));
+      const double K=FMath::DegreesToRadians(Action==TEXT("step")?45*FMath::Max(0.,Wave):Ramp*35*(1-Wave));
+      const FVector Targets[]={Front*FMath::Sin(H)-Up*FMath::Cos(H),Front*FMath::Sin(H-K)-Up*FMath::Cos(H-K)};const int Bones[]={S.Thigh,S.Shin,S.Foot};
+      for(int J=0;J<3;++J){auto CS=Animated;for(int B=0;B<CS.Num();++B)if(Ref.GetParentIndex(B)>=0)CS[B]*=CS[Ref.GetParentIndex(B)];const int B=Bones[J],Parent=Ref.GetParentIndex(B);FQuat Desired=Neutral[B].GetRotation();if(J<2)Desired=FQuat::FindBetweenNormals((CS[Bones[J+1]].GetLocation()-CS[B].GetLocation()).GetSafeNormal(),Targets[J])*CS[B].GetRotation();const FQuat Relative=(CS[Parent].GetRotation().Inverse()*Desired).GetNormalized();const auto* Joint=Rig->Joints.FindByPredicate([&](const FVamRigJoint& X){return X.Bone==Ref.GetBoneName(B);});if(!Joint)return false;const FQuat Delta=VamPoseControl::Clamp(*Joint,(Relative*Reference[B].GetRotation().Inverse()).Rotator()).Quaternion();Anim->GeometricDebugBones.Add(B);Actor->Character->SetDebugBoneOffset(B,FTransform(Delta));Animated[B].SetRotation((Delta*Reference[B].GetRotation()).GetNormalized());}
+     }
+    }
     Actor->SetActorLocation(Start+MotionDirection*Z);Tick();
     if(I%2==0)
     {
@@ -132,11 +145,11 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
        for(int N=0;N<5;++N){const auto& P=Solver.Nodes[N];const auto& Node=Segment.Dynamics.Nodes[N];auto Particle=MakeShared<FJsonObject>();Particle->SetStringField(TEXT("bone"),Ref.GetBoneName(Node.BoneIndex).ToString());Particle->SetArrayField(TEXT("raw_cm"),Numbers(P.Displacement));Particle->SetArrayField(TEXT("final_cm"),Numbers(Current[Segment.AnchorBone].InverseTransformPosition(Current[Node.BoneIndex].GetLocation())-Node.Rest));Particle->SetArrayField(TEXT("matrix"),Matrix(Current[Node.BoneIndex]));Particle->SetArrayField(TEXT("support"),Numbers(P.Support));Particle->SetArrayField(TEXT("damping"),Numbers(P.Damping));Particle->SetArrayField(TEXT("travel"),Numbers(P.Travel));Particle->SetNumberField(TEXT("mass"),P.Mass);Particle->SetNumberField(TEXT("nonlinear_travel"),P.NonlinearTravel);Particle->SetNumberField(TEXT("tension"),Body->LegTension[S][N]);Particles.Add(MakeShared<FJsonValueObject>(Particle));}
        Row->SetArrayField(TEXT("nodes"),Particles);Segments.Add(MakeShared<FJsonValueObject>(Row));
       }
-      Sample->SetArrayField(TEXT("leg_pipeline"),Segments);
+      Sample->SetArrayField(TEXT("leg_pipeline"),Segments);TArray<TSharedPtr<FJsonValue>> BoneFrames;for(const auto& Bone:Current)BoneFrames.Add(MakeShared<FJsonValueArray>(Matrix(Bone)));Sample->SetArrayField(TEXT("bone_matrices"),BoneFrames);
      }
     }
    }
-   auto Video=MakeShared<FJsonObject>();Video->SetStringField(TEXT("protocol"),TEXT("120 frames stationary warmup; 0-3s 1Hz translation along motion_direction with 0.5s onset ramp; 3s stop; remainder free decay. dt=1/60, images every 2 frames, encode 30fps. Contact off unless recipe enables it."));Video->SetArrayField(TEXT("motion_direction"),Numbers(MotionDirection));Video->SetBoolField(TEXT("diagnostic_pose_preload"),PosePreloadProbe);Video->SetArrayField(TEXT("samples"),Samples);Save(CaseDir/TEXT("video.json"),Video);
+   auto Video=MakeShared<FJsonObject>();Video->SetStringField(TEXT("protocol"),TEXT("120 frames stationary warmup; 0-3s 1Hz translation along motion_direction with 0.5s onset ramp; 3s stop; remainder free decay. dt=1/60, images every 2 frames, encode 30fps. Contact off unless recipe enables it."));Video->SetObjectField(TEXT("request"),C);Video->SetArrayField(TEXT("motion_direction"),Numbers(MotionDirection));Video->SetBoolField(TEXT("diagnostic_pose_preload"),PosePreloadProbe);Video->SetArrayField(TEXT("samples"),Samples);Save(CaseDir/TEXT("video.json"),Video);
   }
  }
  auto Summary=MakeShared<FJsonObject>();Summary->SetStringField(TEXT("schema"),TEXT("vam-pose-captures/1"));Summary->SetStringField(TEXT("recipe"),RecipePath);Summary->SetArrayField(TEXT("states"),Results);Summary->SetStringField(TEXT("comparison_contract"),TEXT("Compare converted actual local/component matrices and source mapping; UI Euler labels are requests only. Dynamics disabled unless explicitly requested jiggle or GPU contact. Failed solver captures are not contact acceptance."));Save(Directory/TEXT("suite.json"),Summary);SeatActor->Destroy();return CaseIndex>0;

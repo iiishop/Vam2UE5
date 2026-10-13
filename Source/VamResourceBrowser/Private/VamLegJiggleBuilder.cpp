@@ -31,21 +31,19 @@ FVector Vector(const TSharedPtr<FJsonObject>& Row,const TCHAR* Name)
 {
     const auto& A=Row->GetArrayField(Name);return FVector(A[0]->AsNumber(),A[1]->AsNumber(),A[2]->AsNumber());
 }
-// Preserve hip and leg participation separately while sharing the eight-slot budget.
+// Fit the complete continuous leg field; sparsity is deferred to final native export.
 void BlendLegWeights(TMap<int32,double>& W,int32 Primary,const TSet<int32>& HipBones,TArray<TPair<int32,double>> Leg,double Fraction)
 {
     const double Moved=W.FindRef(Primary)*FMath::Clamp(Fraction,0.,.85);if(Moved<1.e-8) return;
-    // Static glute helpers have distinct transforms. Replacing a small helper by
-    // another helper preserves total hip mass but changes the posed surface.
-    // Spend only genuinely unused slots on leg dynamics; never evict authored support.
-    const int32 Slots=8-W.Num();if(Slots<=0)return;
+    // Never make regional participation depend on the number of existing slots.
+    // Retain every static support through fitting; use UE native influence capacity.
     Leg.RemoveAll([](const auto& Pair){return Pair.Value<=0;});
     Leg.Sort([](const auto& A,const auto& B){return A.Value==B.Value?A.Key<B.Key:A.Value>B.Value;});
-    const int32 Count=FMath::Min(Slots,Leg.Num());double Sum=0;
+    const int32 Count=Leg.Num();double Sum=0;
     for(int32 K=0;K<Count;++K)Sum+=Leg[K].Value;
     if(Sum<=0)return;
     W.FindChecked(Primary)-=Moved;
-    for(int32 K=0;K<Count;++K)W.Add(Leg[K].Key,Moved*Leg[K].Value/Sum);
+    for(int32 K=0;K<Count;++K)W.FindOrAdd(Leg[K].Key)+=Moved*Leg[K].Value/Sum;
 }
 double Kernel(const FVector& Point,const FVector& Center,double Radius,double Length)
 {
@@ -68,6 +66,7 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
     TArray<FTransform> CS;P->SourceBoneCount=Input.Bones.Num();P->SourceBoneNames.Reset();P->SourceLocalBind.Reset();
     for(const auto& B:Input.Bones){CS.Add(B.Parent<0?B.LocalBind:B.LocalBind*CS[B.Parent]);P->SourceBoneNames.Add(B.Name);P->SourceLocalBind.Add(B.LocalBind);}
     P->SourceTopologyIdentity=Geometry->TopologyDigest;P->SkeletonFamily=Family->GetStringField(TEXT("family"));P->Segments.Reset();
+    P->SchemaVersion=2;P->Algorithm=TEXT("leg-pose-equilibrium-v4-continuous");
     P->Integration=NewObject<UVamGluteJiggleProfile>(P,TEXT("Integration"));P->Integration->SchemaVersion=2;P->Integration->bNormalizedAttachmentDamping=true;
     const FVector Up=(CS[Superior].GetLocation()-CS[Pelvis].GetLocation()).GetSafeNormal();
     const FVector Across=(CS[Thigh[0]].GetLocation()-CS[Thigh[1]].GetLocation()).GetSafeNormal();
@@ -318,7 +317,7 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
     }
     // Sparsity is a final export operation, never an input constraint for fitting.
     // This avoids zero-support islands being magnified into folds on activation.
-    double MaximumDiscarded=0;for(auto& W:Weights)MaximumDiscarded=FMath::Max(MaximumDiscarded,VamBreastWeights::FinalizeBudget(W));
+    double MaximumDiscarded=0;for(auto& W:Weights)MaximumDiscarded=FMath::Max(MaximumDiscarded,VamBreastWeights::FinalizeBudget(W,MAX_TOTAL_INFLUENCES));
     UE_LOG(LogTemp,Display,TEXT("HIP_FINAL_BUDGET max discarded candidate mass %.9f"),MaximumDiscarded);
     AuditWeights(TEXT("04-final-budget"));
     WeldWeights();
@@ -346,7 +345,7 @@ FString UVamLegJiggleBuilder::Validate(UVamCharacterDefinition* D,UVamLegJiggleP
     for(int32 B=0;B<P->SourceBoneCount;++B) if(Ref.GetBoneName(B)!=P->SourceBoneNames[B] || !Ref.GetRefBonePose()[B].Equals(P->SourceLocalBind[B],1.e-6)) return TEXT("Leg build changed existing skeleton");
     for(const auto& S:P->Segments){if(Ref.GetParentIndex(S.AnchorBone)!=(S.bCalf?S.Shin:S.Thigh)) return TEXT("Leg anchor hierarchy mismatch");for(const auto& N:S.Dynamics.Nodes) if(Ref.GetParentIndex(N.BoneIndex)!=S.AnchorBone) return TEXT("Leg helper hierarchy mismatch");}
     auto CS=Ref.GetRefBonePose();for(int32 B=0;B<CS.Num();++B) if(Ref.GetParentIndex(B)>=0) CS[B]=CS[B]*CS[Ref.GetParentIndex(B)];
-    for(const auto& Section:Mesh->GetImportedModel()->LODModels[0].Sections) for(const auto& V:Section.SoftVertices){int32 Count=0;uint32 Sum=0;FVector Position=FVector::ZeroVector;for(int32 K=0;K<MAX_TOTAL_INFLUENCES;++K) if(V.InfluenceWeights[K]){++Count;Sum+=V.InfluenceWeights[K];const int32 B=Section.BoneMap[V.InfluenceBones[K]];Position+=CS[B].TransformPosition(FVector(Mesh->GetRefBasesInvMatrix()[B].TransformPosition(V.Position)))*double(V.InfluenceWeights[K]);}if(Count>8 || !Sum || FMath::Abs(int32(Sum)-65535)>8 || !(Position/Sum).Equals(FVector(V.Position),.001)) return TEXT("Leg weights/bind reconstruction invalid");}
+    for(const auto& Section:Mesh->GetImportedModel()->LODModels[0].Sections) for(const auto& V:Section.SoftVertices){int32 Count=0;uint32 Sum=0;FVector Position=FVector::ZeroVector;for(int32 K=0;K<MAX_TOTAL_INFLUENCES;++K) if(V.InfluenceWeights[K]){++Count;Sum+=V.InfluenceWeights[K];const int32 B=Section.BoneMap[V.InfluenceBones[K]];Position+=CS[B].TransformPosition(FVector(Mesh->GetRefBasesInvMatrix()[B].TransformPosition(V.Position)))*double(V.InfluenceWeights[K]);}if(Count>MAX_TOTAL_INFLUENCES || !Sum || FMath::Abs(int32(Sum)-65535)>8 || !(Position/Sum).Equals(FVector(V.Position),.001)) return TEXT("Leg weights/bind reconstruction invalid");}
     if(D->Shape.LoadSynchronous()->NeutralLocalBind.Num()!=Ref.GetRawBoneNum()) return TEXT("Leg Shape identity mismatch");return FString();
 }
 
@@ -358,13 +357,15 @@ bool FVamLegSupportSlotsTest::RunTest(const FString&)
     TMap<int32,double> Weights={{0,.2},{1,.3},{2,.1},{3,.1},{4,.1},{5,.1},{6,.1}};
     const auto Before=Weights;TSet<int32> Hip={2,3,4,5,6};TArray<TPair<int32,double>> Leg={{7,.4},{8,.3},{9,.2},{10,.1}};
     BlendLegWeights(Weights,1,Hip,Leg,.5);
-    TestEqual(TEXT("Eight slots respected"),Weights.Num(),8);double Total=0;
+    TestEqual(TEXT("All smooth regional helpers retained"),Weights.Num(),11);double Total=0;
     for(const auto& W:Weights)Total+=W.Value;
     TestTrue(TEXT("Normalized total"),FMath::IsNearlyEqual(Total,1.,1.e-12));
     for(int32 B:Hip)TestEqual(TEXT("Every static helper retained exactly"),Weights.FindRef(B),Before.FindRef(B));
-    TestTrue(TEXT("Leg dynamics still receives donor mass"),FMath::IsNearlyEqual(Weights.FindRef(7),.15,1.e-12));
-    const auto Full=Weights;BlendLegWeights(Weights,1,Hip,Leg,.5);
-    for(const auto& W:Full)TestEqual(TEXT("Full support budget is not destructively repacked"),Weights.FindRef(W.Key),W.Value);
+    TestTrue(TEXT("Leg dynamics still receives donor mass"),FMath::IsNearlyEqual(Weights.FindRef(7),.06,1.e-12));
+    TMap<int32,double> Full={{0,.1},{1,.3},{2,.1},{3,.1},{4,.1},{5,.1},{6,.1},{11,.1}};
+    BlendLegWeights(Full,1,Hip,Leg,.5);
+    TestTrue(TEXT("Full old budget no longer blocks leg motion"),FMath::IsNearlyEqual(Full.FindRef(7),.06,1.e-12));
+    TestTrue(TEXT("Native twelve influence export retains this fixture"),VamBreastWeights::FinalizeBudget(Full,MAX_TOTAL_INFLUENCES)<1.e-12);
     return !HasAnyErrors();
 }
 #endif

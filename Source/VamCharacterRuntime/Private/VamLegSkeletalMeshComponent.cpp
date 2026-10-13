@@ -64,9 +64,13 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
         {
             const auto& S=LegRest[I];if(!Pose.IsValidIndex(S.AnchorBone) || !Pose.IsValidIndex(S.Foot)) continue;
             FVector2D SideAngles;LegAngles[I]=VamLegDynamics::JointAngles(S,PrimaryPose,SideAngles);
-            const auto Dynamics=VamLegDynamics::Evaluate(*LegProfile,S,LegAngles[I],SideAngles,LegTension[I]);
+            auto Dynamics=VamLegDynamics::Evaluate(*LegProfile,S,LegAngles[I],SideAngles,LegTension[I]);
             const FTransform Anchor=S.AnchorLocal*PrimaryPose[S.bCalf?S.Shin:S.Thigh];Pose[S.AnchorBone]=Anchor;
             FVamGluteMotion Input;Input.Pelvis=Anchor*GetComponentTransform();Input.Thigh=PrimaryPose[S.bCalf?S.Foot:S.Shin]*GetComponentTransform();
+            // The authored, posed skin is the loaded equilibrium. Balance its
+            // gravity at the current support orientation without rebasing particles:
+            // velocities and inertia remain continuous through joint animation.
+            if(LegProfile->SchemaVersion>=2) Dynamics.ReferenceGravityLocal=Input.Pelvis.GetRotation().UnrotateVector(FVector(0,0,GetWorld()->GetGravityZ()));
             FVamGluteTuning Tuning;Tuning.Support=LegSupport;Tuning.Damping=LegDamping*(S.bCalf?CalfDamping:ThighDamping);
             if(bLegJiggleEnabled && GetWorld()->IsGameWorld()) LegSolvers[I].Advance(*LegIntegration,Dynamics,Input,Dt,FVector(0,0,GetWorld()->GetGravityZ()),Tuning,Revision!=LegLastTeleport || bLegWasEnabled!=bLegJiggleEnabled,Paused,bLegShapeRebase);
             else LegSolvers[I].Reset();

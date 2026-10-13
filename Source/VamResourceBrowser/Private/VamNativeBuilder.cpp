@@ -56,7 +56,7 @@ USkeletalMesh* UVamNativeBuilder::BuildMesh(const FString& Path, const FVamNativ
         Weights[W.Vertex].Add(UE::AnimationCore::FBoneWeight(W.Bone, W.Weight));
     }
     for (int32 V=0; V<Count; ++V)
-        if (Weights[V].Num()>8 || FMath::Abs(Totals[V]-1.)>1.e-5) return Fail(TEXT("Unnormalized, unweighted or >8-influence vertex; no guessed fallback"));
+        if (Weights[V].Num()>MAX_TOTAL_INFLUENCES || FMath::Abs(Totals[V]-1.)>1.e-5) return Fail(TEXT("Unnormalized, unweighted or >native-limit-influence vertex; no guessed fallback"));
     Names.Reset();
     for (const auto& M : I.Morphs)
     {
@@ -127,6 +127,7 @@ USkeletalMesh* UVamNativeBuilder::BuildMesh(const FString& Path, const FVamNativ
     // UE's default 0.015 cm Morph threshold discards valid small clothing deltas.
     // Rebuild from the retained MeshDescription with our recorded precision policy.
     Result.SkeletalMesh->GetLODInfo(0)->BuildSettings.MorphThresholdPosition=1.e-6f;
+    Result.SkeletalMesh->GetLODInfo(0)->BuildSettings.BoneInfluenceLimit=MAX_TOTAL_INFLUENCES;
     Result.SkeletalMesh->GetLODInfo(0)->BuildSettings.bUseHighPrecisionSkinWeights=I.bUseHighPrecisionSkinWeights;
     Result.SkeletalMesh->CreateMeshDescription(0,MoveTemp(Description));
     Result.SkeletalMesh->CommitMeshDescription(0);

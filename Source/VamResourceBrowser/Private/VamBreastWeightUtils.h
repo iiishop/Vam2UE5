@@ -30,13 +30,13 @@ inline int32 Redistribute(TMap<int32,double>& Weights,const TSet<int32>& Donors,
     return Compressed;
 }
 /** Apply the native eight-influence budget only after all continuous weight fitting. */
-inline double FinalizeBudget(TMap<int32,double>& Weights)
+inline double FinalizeBudget(TMap<int32,double>& Weights,int32 Budget=8)
 {
     TArray<TPair<int32,double>> Ranked;for(const auto& W:Weights)if(W.Value>0)Ranked.Add(W);
     Ranked.Sort([](const auto& A,const auto& B){return A.Value==B.Value?A.Key<B.Key:A.Value>B.Value;});
-    double Kept=0,Discarded=0;for(int32 N=0;N<Ranked.Num();++N)(N<8?Kept:Discarded)+=Ranked[N].Value;
+    double Kept=0,Discarded=0;for(int32 N=0;N<Ranked.Num();++N)(N<Budget?Kept:Discarded)+=Ranked[N].Value;
     if(Kept<=1.e-12)return 0;
-    Weights.Reset();for(int32 N=0;N<FMath::Min(8,Ranked.Num());++N)Weights.Add(Ranked[N].Key,Ranked[N].Value/Kept);
+    Weights.Reset();for(int32 N=0;N<FMath::Min(Budget,Ranked.Num());++N)Weights.Add(Ranked[N].Key,Ranked[N].Value/Kept);
     return Discarded;
 }
 /** Glute scaffolds have different static transforms. Allocate the finite influence

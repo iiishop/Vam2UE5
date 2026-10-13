@@ -323,7 +323,7 @@ FString UVamGluteStructureBuilder::Validate(UVamCharacterDefinition* D,UVamGlute
     {
         int32 Count=0;uint32 Sum=0;FVector Position=FVector::ZeroVector;
         for(int32 K=0;K<MAX_TOTAL_INFLUENCES;++K) if(V.InfluenceWeights[K]) { ++Count;Sum+=V.InfluenceWeights[K];const int32 B=Section.BoneMap[V.InfluenceBones[K]];Position+=CS[B].TransformPosition(FVector(Mesh->GetRefBasesInvMatrix()[B].TransformPosition(V.Position)))*double(V.InfluenceWeights[K]); }
-        if(Count>8 || FMath::Abs(int32(Sum)-65535)>8 || Sum==0) return TEXT("G0 invalid normalized influences");
+        if(Count>MAX_TOTAL_INFLUENCES || FMath::Abs(int32(Sum)-65535)>8 || Sum==0) return TEXT("G0 invalid normalized influences");
         if(!(Position/Sum).Equals(FVector(V.Position),.001)) return TEXT("G0 bind reconstruction exceeded .001 cm");
     }
     if(!D->Shape.LoadSynchronous() || D->Shape.Get()->NeutralLocalBind.Num()!=Ref.GetRawBoneNum()) return TEXT("G0 Shape identity mismatch");
