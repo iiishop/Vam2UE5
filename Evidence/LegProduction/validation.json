@@ -1,0 +1,11 @@
+{
+  "code_commit": "8625586",
+  "code_push": "origin/fix/allbody succeeded",
+  "tests": 15,
+  "authored_targets": 20,
+  "main_editor_pie_matched_poses": 4,
+  "main_pie_seated_jiggle": true,
+  "raw_video_frames": 1680,
+  "comparison_videos": 4,
+  "contact_scope": "Disabled for leg isolation; no historical contact acceptance claimed."
+}

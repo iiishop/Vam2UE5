@@ -1,0 +1,42 @@
+{
+  "abducted": {
+    "scope": "Exact retained input vertex mapping including refined vertices; no nearest-neighbor matching. Render duplicate counts may differ with section bone palettes.",
+    "vertices": 33330,
+    "rms_cm": 0.0018837954987590195,
+    "p95_cm": 6.563095034005141e-09,
+    "max_cm": 0.131347614661923,
+    "worst_input_vertex": 13592,
+    "same_cameras": true,
+    "max_primary_matrix_error": 0.0
+  },
+  "knee-120": {
+    "scope": "Exact retained input vertex mapping including refined vertices; no nearest-neighbor matching. Render duplicate counts may differ with section bone palettes.",
+    "vertices": 33330,
+    "rms_cm": 0.00022637310521383855,
+    "p95_cm": 6.210733286061466e-09,
+    "max_cm": 0.013771765537926889,
+    "worst_input_vertex": 13592,
+    "same_cameras": true,
+    "max_primary_matrix_error": 0.0
+  },
+  "standing": {
+    "scope": "Exact retained input vertex mapping including refined vertices; no nearest-neighbor matching. Render duplicate counts may differ with section bone palettes.",
+    "vertices": 33330,
+    "rms_cm": 0.000254636025726197,
+    "p95_cm": 6.210733286061466e-09,
+    "max_cm": 0.013913201535768447,
+    "worst_input_vertex": 13592,
+    "same_cameras": true,
+    "max_primary_matrix_error": 0.0
+  },
+  "suspended-seat": {
+    "scope": "Exact retained input vertex mapping including refined vertices; no nearest-neighbor matching. Render duplicate counts may differ with section bone palettes.",
+    "vertices": 33330,
+    "rms_cm": 0.00031366959145030793,
+    "p95_cm": 6.4908522326259754e-09,
+    "max_cm": 0.01788764957262503,
+    "worst_input_vertex": 13588,
+    "same_cameras": true,
+    "max_primary_matrix_error": 0.0
+  }
+}
