@@ -105,23 +105,38 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
   int32 VideoFrames=0;C->TryGetNumberField(TEXT("video_frames"),VideoFrames);
   if(VideoFrames>0)
   {
-   const FVector Start=Initial.GetLocation();Actor->SetActorLocation(Start);Actor->ResetDeformationAuditState();for(int I=0;I<120;++I)Tick();
+   bool LegPipeline=false;C->TryGetBoolField(TEXT("leg_pipeline"),LegPipeline);FString Direction;C->TryGetStringField(TEXT("video_direction"),Direction);const FVector MotionDirection=Direction==TEXT("front")?Initial.TransformVectorNoScale(Front):FVector::UpVector;
+   const FVector Start=Initial.GetLocation();Actor->SetActorLocation(Start);Actor->ResetDeformationAuditState();
+   bool PosePreloadProbe=false;C->TryGetBoolField(TEXT("leg_pose_preload_probe"),PosePreloadProbe);
+   if(PosePreloadProbe)for(auto& S:Body->LegRest){const FTransform Anchor=S.AnchorLocal*Body->GetComponentSpaceTransforms()[S.bCalf?S.Shin:S.Thigh]*Body->GetComponentTransform();S.Dynamics.ReferenceGravityLocal=Anchor.GetRotation().UnrotateVector(FVector(0,0,World->GetGravityZ()));}
+   for(int I=0;I<120;++I)Tick();
    const FVector Center=Initial.TransformPosition(ViewCenter),Eye=Initial.TransformPosition(ViewCenter+(Front+Right).GetSafeNormal()*230);
    Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((Center-Eye).GetSafeNormal(),Initial.TransformVectorNoScale(Up)).Rotator());
    const FString VideoDir=CaseDir/TEXT("video");IFileManager::Get().MakeDirectory(*VideoDir,true);TArray<TSharedPtr<FJsonValue>> Samples;
    for(int I=0;I<VideoFrames;++I)
    {
     const double Ramp=FMath::Clamp(I/30.,0.,1.),Z=I<180?MotionAmplitude*Ramp*Ramp*(3-2*Ramp)*FMath::Sin(2*PI*I/60.):0;
-    Actor->SetActorLocation(Start+FVector(0,0,Z));Tick();
+    Actor->SetActorLocation(Start+MotionDirection*Z);Tick();
     if(I%2==0)
     {
      Capture->CaptureScene();ENQUEUE_RENDER_COMMAND(VamJiggleVideoFence)([](FRHICommandListImmediate& Cmd){Cmd.SubmitAndBlockUntilGPUIdle();});FlushRenderingCommands();
      FBufferArchive PNG;Test.TestTrue(TEXT("Jiggle video PNG export"),FImageUtils::ExportRenderTarget2DAsPNG(Capture->TextureTarget,PNG));Test.TestTrue(TEXT("Jiggle video frame save"),FFileHelper::SaveArrayToFile(PNG,*(VideoDir/FString::Printf(TEXT("frame-%04d.png"),I/2))));
-     auto Sample=MakeShared<FJsonObject>();Sample->SetNumberField(TEXT("frame"),I/2);Sample->SetNumberField(TEXT("time_seconds"),I/60.);Sample->SetNumberField(TEXT("root_z_cm"),Z);TArray<TSharedPtr<FJsonValue>> Nodes;
+     auto Sample=MakeShared<FJsonObject>();Sample->SetNumberField(TEXT("frame"),I/2);Sample->SetNumberField(TEXT("time_seconds"),I/60.);Sample->SetNumberField(TEXT("root_z_cm"),MotionDirection.Z*Z);Sample->SetArrayField(TEXT("root_offset_cm"),Numbers(MotionDirection*Z));TArray<TSharedPtr<FJsonValue>> Nodes;
      const auto& Current=Body->GetComponentSpaceTransforms();for(int B=0;B<Current.Num();++B)if(Ref.GetBoneName(B).ToString().Contains(TEXT("_Thigh_"))||Ref.GetBoneName(B).ToString().Contains(TEXT("_Glute_"))){auto N=MakeShared<FJsonObject>();N->SetStringField(TEXT("bone"),Ref.GetBoneName(B).ToString());N->SetArrayField(TEXT("matrix"),Matrix(Current[B]));Nodes.Add(MakeShared<FJsonValueObject>(N));}Sample->SetArrayField(TEXT("helper_matrices"),Nodes);Samples.Add(MakeShared<FJsonValueObject>(Sample));
+     if(LegPipeline)
+     {
+      TArray<TSharedPtr<FJsonValue>> Segments;
+      for(int S=0;S<Body->LegRest.Num();++S)
+      {
+       const auto& Segment=Body->LegRest[S];const auto& Solver=Body->LegSolvers[S];auto Row=MakeShared<FJsonObject>();Row->SetStringField(TEXT("name"),Segment.Name.ToString());Row->SetNumberField(TEXT("steps"),Solver.LastSteps);Row->SetNumberField(TEXT("samples"),Solver.Samples);Row->SetNumberField(TEXT("limits"),Solver.LimitCorrections);Row->SetBoolField(TEXT("sleeping"),Solver.bSleeping);Row->SetArrayField(TEXT("acceleration"),Numbers(Solver.LinearAcceleration));Row->SetArrayField(TEXT("omega"),Numbers(Solver.Omega));Row->SetArrayField(TEXT("gravity_residual"),Numbers(Solver.GravityResidualLocal));Row->SetArrayField(TEXT("anchor"),Matrix(Current[Segment.AnchorBone]));TArray<TSharedPtr<FJsonValue>> Particles;
+       for(int N=0;N<5;++N){const auto& P=Solver.Nodes[N];const auto& Node=Segment.Dynamics.Nodes[N];auto Particle=MakeShared<FJsonObject>();Particle->SetStringField(TEXT("bone"),Ref.GetBoneName(Node.BoneIndex).ToString());Particle->SetArrayField(TEXT("raw_cm"),Numbers(P.Displacement));Particle->SetArrayField(TEXT("final_cm"),Numbers(Current[Segment.AnchorBone].InverseTransformPosition(Current[Node.BoneIndex].GetLocation())-Node.Rest));Particle->SetArrayField(TEXT("matrix"),Matrix(Current[Node.BoneIndex]));Particle->SetArrayField(TEXT("support"),Numbers(P.Support));Particle->SetArrayField(TEXT("damping"),Numbers(P.Damping));Particle->SetArrayField(TEXT("travel"),Numbers(P.Travel));Particle->SetNumberField(TEXT("mass"),P.Mass);Particle->SetNumberField(TEXT("nonlinear_travel"),P.NonlinearTravel);Particle->SetNumberField(TEXT("tension"),Body->LegTension[S][N]);Particles.Add(MakeShared<FJsonValueObject>(Particle));}
+       Row->SetArrayField(TEXT("nodes"),Particles);Segments.Add(MakeShared<FJsonValueObject>(Row));
+      }
+      Sample->SetArrayField(TEXT("leg_pipeline"),Segments);
+     }
     }
    }
-   auto Video=MakeShared<FJsonObject>();Video->SetStringField(TEXT("protocol"),TEXT("120 frames stationary warmup; 0-3s 1Hz vertical excitation with 0.5s onset ramp; 3s stop; remainder free decay. dt=1/60, images every 2 frames, encode 30fps. Contact off unless recipe enables it."));Video->SetArrayField(TEXT("samples"),Samples);Save(CaseDir/TEXT("video.json"),Video);
+   auto Video=MakeShared<FJsonObject>();Video->SetStringField(TEXT("protocol"),TEXT("120 frames stationary warmup; 0-3s 1Hz translation along motion_direction with 0.5s onset ramp; 3s stop; remainder free decay. dt=1/60, images every 2 frames, encode 30fps. Contact off unless recipe enables it."));Video->SetArrayField(TEXT("motion_direction"),Numbers(MotionDirection));Video->SetBoolField(TEXT("diagnostic_pose_preload"),PosePreloadProbe);Video->SetArrayField(TEXT("samples"),Samples);Save(CaseDir/TEXT("video.json"),Video);
   }
  }
  auto Summary=MakeShared<FJsonObject>();Summary->SetStringField(TEXT("schema"),TEXT("vam-pose-captures/1"));Summary->SetStringField(TEXT("recipe"),RecipePath);Summary->SetArrayField(TEXT("states"),Results);Summary->SetStringField(TEXT("comparison_contract"),TEXT("Compare converted actual local/component matrices and source mapping; UI Euler labels are requests only. Dynamics disabled unless explicitly requested jiggle or GPU contact. Failed solver captures are not contact acceptance."));Save(Directory/TEXT("suite.json"),Summary);SeatActor->Destroy();return CaseIndex>0;
