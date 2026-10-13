@@ -1,0 +1,82 @@
+{
+  "schema": "vam-pose-suite/1",
+  "limit_policy": "Converted local quaternion checked against actual RigProfile limits; reduce rotation along same axis until admitted; requested angles are never accepted as achieved angles.",
+  "fixed_dt": 0.016666666666666666,
+  "settle_frames": 90,
+  "views": [
+    "front",
+    "side",
+    "rear",
+    "oblique"
+  ],
+  "modes": [
+    "material",
+    "gray",
+    "silhouette",
+    "wireframe",
+    "unlit",
+    "world-normal",
+    "base-color",
+    "section-boundary"
+  ],
+  "cases": [
+    {
+      "id": "seated-jiggle",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": false,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true
+    },
+    {
+      "id": "abducted-jiggle",
+      "hip": [
+        60,
+        60
+      ],
+      "knee": [
+        60,
+        60
+      ],
+      "abduction": [
+        20,
+        20
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "jiggle": true,
+      "soft_contact": false,
+      "structure": true,
+      "corrective": true
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+[
+  {
+    "world": "editor",
+    "max_error_cm": 0.0,
+    "screenshots": [
+      {
+        "file": "main-editor\\seated\\front-base-color.png",
+        "sha256": "22c32611e2cd122b6cbad95c51d1e8997b1a11895011df07775a7d6493d81759"
+      },
+      {
+        "file": "main-editor\\seated\\front-gray.png",
+        "sha256": "831e7f39faea45912e2ba631fa6012cc90644f41540c2e9d186fc603b82b61e2"
+      },
+      {
+        "file": "main-editor\\seated\\front-material.png",
+        "sha256": "287d70e6dd25473a2c5c44b7e29735b7202c7d135b34e2da7e4bc6d6ad4e2d1f"
+      },
+      {
+        "file": "main-editor\\seated\\front-section-boundary.png",
+        "sha256": "5e87986b7bcf2ffff3633cda954c61b0042d1d5aa202c04a18863918a4ccd374"
+      },
+      {
+        "file": "main-editor\\seated\\front-silhouette.png",
+        "sha256": "bb19a1d48b08a7973b3e5bb358fe31c7fd18cfe33b66b47249fec8b2e716c813"
+      },
+      {
+        "file": "main-editor\\seated\\front-unlit.png",
+        "sha256": "16c67c8a5f3026f14d005cb008b8681e52383c21aff9917b80852204e93180ab"
+      },
+      {
+        "file": "main-editor\\seated\\front-wireframe.png",
+        "sha256": "77e89c82635291c7316394e326013cdf0088cdfead1925d7e682602e063c3b39"
+      },
+      {
+        "file": "main-editor\\seated\\front-world-normal.png",
+        "sha256": "01fc38e89fd47c0efcff1f72cd9a8c41585b668acd47d4630b988e616428bd3a"
+      },
+      {
+        "file": "main-editor\\seated\\oblique-base-color.png",
+        "sha256": "3f4b14662c84c4b10d0e5cb8906ab08228aa442772637deacb63c4f5d7245ca6"
+      },
+      {
+        "file": "main-editor\\seated\\oblique-gray.png",
+        "sha256": "5a7f0ce4ad1dbf25399f40972b5932f9944d882a26e7ce119fb516ba7f0e9479"
+      },
+      {
+        "file": "main-editor\\seated\\oblique-material.png",
+        "sha256": "42a326712795a1bafd15335278f71882c10940fb784d9be1cfbd0177dc85280a"
+      },
+      {
+        "file": "main-editor\\seated\\oblique-section-boundary.png",
+        "sha256": "48abf3b89d092d8fabc89fb4f47581ef16e06da1b27c99b057a580c5a048978a"
+      },
+      {
+        "file": "main-editor\\seated\\oblique-silhouette.png",
+        "sha256": "950d44371c1d168f376fba5ee7f8127b6c468fc39409b97d889d20fd2635305a"
+      },
+      {
+        "file": "main-editor\\seated\\oblique-unlit.png",
+        "sha256": "0595bc839e552c3e9e93e1b5b1ccd785f4dc0eedf91013c1ac7aa52bbd22763c"
+      },
+      {
+        "file": "main-editor\\seated\\oblique-wireframe.png",
+        "sha256": "dba23667d309221bb36780068287f5c2d2b79f9baed01ac7ffbb03d747745352"
+      },
+      {
+        "file": "main-editor\\seated\\oblique-world-normal.png",
+        "sha256": "708f7d9e84de83ce770c3d2d996831ed36f78385befcfbb2056740a2fda967de"
+      },
+      {
+        "file": "main-editor\\seated\\rear-base-color.png",
+        "sha256": "5d142e42da75ed63491da5477c7d3b7510389df42c507693fc024f6eccc688d9"
+      },
+      {
+        "file": "main-editor\\seated\\rear-gray.png",
+        "sha256": "edfee05d1ed6e75cecd0027b897d7844d8abab0f8d08614b307ddcaeb4ae3bc4"
+      },
+      {
+        "file": "main-editor\\seated\\rear-material.png",
+        "sha256": "b36ce3a73d4e013f2cdf139584cfd42d238ef0a9dd878b5d1356c7f43d9d318c"
+      },
+      {
+        "file": "main-editor\\seated\\rear-section-boundary.png",
+        "sha256": "26008816c6f832a4e6caad5608f0496ffef7194ed8d77263870238fafc890284"
+      },
+      {
+        "file": "main-editor\\seated\\rear-silhouette.png",
+        "sha256": "3735d858dc9e847ffb9d63090cbc1e1e43327604f68a07713e450a999323ece8"
+      },
+      {
+        "file": "main-editor\\seated\\rear-unlit.png",
+        "sha256": "54ef7d4fe7478189aceaad833a14d6ae3c1ea3a9ec1d6a22c3ceda805e2d9a2a"
+      },
+      {
+        "file": "main-editor\\seated\\rear-wireframe.png",
+        "sha256": "84448bc10b065f6e9f24c2134110c6f891b328ded5469692312964ce0aa5435f"
+      },
+      {
+        "file": "main-editor\\seated\\rear-world-normal.png",
+        "sha256": "dfc4cc820302f7dda8444392625fa9d5f76e56ef00dbbde07518952a18353114"
+      },
+      {
+        "file": "main-editor\\seated\\side-base-color.png",
+        "sha256": "c2c31b21a8abcc2c07b10c9df26bcd9f21f6635e0e8459a41031c2c2c0b894b8"
+      },
+      {
+        "file": "main-editor\\seated\\side-gray.png",
+        "sha256": "18293a7ea4ce33ca234f4146f036e202641aa6c4f6b26bd69e6bb55c7e6a0648"
+      },
+      {
+        "file": "main-editor\\seated\\side-material.png",
+        "sha256": "ae170f814f659feddc59793c7ddd03f8b6a5b278fcdcebe62f62cfe199786cec"
+      },
+      {
+        "file": "main-editor\\seated\\side-section-boundary.png",
+        "sha256": "40aa4c3810ce188dabdd5cdb93d30d2f3c6bbddeeb3cb68642c082ea8c6bd491"
+      },
+      {
+        "file": "main-editor\\seated\\side-silhouette.png",
+        "sha256": "25490ce60c8c83f43e7df2afe9520b09cc7a18fbed40ab3e6139b8e1efbe632e"
+      },
+      {
+        "file": "main-editor\\seated\\side-unlit.png",
+        "sha256": "c3b4b6c0e9cdaf7dffd343b940e636783a1f0a976fc1203865661e40993aeabd"
+      },
+      {
+        "file": "main-editor\\seated\\side-wireframe.png",
+        "sha256": "042e3d5eb5b14ca807b04f1f05cc6a7476e2a43b3c5daf8f09d247e90f1f1632"
+      },
+      {
+        "file": "main-editor\\seated\\side-world-normal.png",
+        "sha256": "32c70407cfc7652ebc25adfe98c77ee80d2d614f9766d1dd52f5b7388ab81e3f"
+      }
+    ]
+  },
+  {
+    "world": "pie",
+    "max_error_cm": 0.0,
+    "screenshots": [
+      {
+        "file": "main-pie\\seated\\front-base-color.png",
+        "sha256": "1443c32cb64bf21a7d69de3fe93836a823fa2cd08df78ee2d2debb73a6900cff"
+      },
+      {
+        "file": "main-pie\\seated\\front-gray.png",
+        "sha256": "8fa19a01458100952178c6afaecd2994c059a7b8b687cf00cb88596a7fcb5b7d"
+      },
+      {
+        "file": "main-pie\\seated\\front-material.png",
+        "sha256": "67c635b72c17c160a1f5c763dd49ce75f4738973b38e4aed5de0f90c152eda58"
+      },
+      {
+        "file": "main-pie\\seated\\front-section-boundary.png",
+        "sha256": "c179705b6a8cd4fca326c75697b5083b02fde292346d9b9ff82839bdc726c569"
+      },
+      {
+        "file": "main-pie\\seated\\front-silhouette.png",
+        "sha256": "6039eb5971f863043a64b33ed7277e38a069a5ead660dfcd480be6db505f0692"
+      },
+      {
+        "file": "main-pie\\seated\\front-unlit.png",
+        "sha256": "59cf0c739b1665df519953f1cd0f2d2335bfeb5d6abae90507b303634adee931"
+      },
+      {
+        "file": "main-pie\\seated\\front-wireframe.png",
+        "sha256": "7264b27ce7c5dd059c8588d155662627dc539452925a8eb5ac842c54b287f12b"
+      },
+      {
+        "file": "main-pie\\seated\\front-world-normal.png",
+        "sha256": "5712ed6ba60232dea45be56c068e474a0b51e114e7d23a06021020a906906bb6"
+      },
+      {
+        "file": "main-pie\\seated\\oblique-base-color.png",
+        "sha256": "4182a20e0a8df74d1c43f0943bef934a7f9882168f6e23684db4430ec351c28b"
+      },
+      {
+        "file": "main-pie\\seated\\oblique-gray.png",
+        "sha256": "79168f95722d1d55f88351a7162674754eb45a47f859dc297ce2c56efc7299a0"
+      },
+      {
+        "file": "main-pie\\seated\\oblique-material.png",
+        "sha256": "657299bdb8d46821b0356e04e91a135990a578fa28a484b38906ee8fad8580c0"
+      },
+      {
+        "file": "main-pie\\seated\\oblique-section-boundary.png",
+        "sha256": "620deafa0124da12d5b0965e3feb0b6d063874d93a6c04cdfbee24cb706fde61"
+      },
+      {
+        "file": "main-pie\\seated\\oblique-silhouette.png",
+        "sha256": "9794019de7c23d53f82c8163454cad13c4aa6dcb9d99b5286c92ada6898576ad"
+      },
+      {
+        "file": "main-pie\\seated\\oblique-unlit.png",
+        "sha256": "39240bcc97ef4b623d7aa80d337da10ea18371f7fe46b7d2585371df422b4d32"
+      },
+      {
+        "file": "main-pie\\seated\\oblique-wireframe.png",
+        "sha256": "76a2a1f2c137c3c3a2f0571e422a409f9c96c6c463c39df2330a3a993e09de7b"
+      },
+      {
+        "file": "main-pie\\seated\\oblique-world-normal.png",
+        "sha256": "594f57b6082495a7728cacb2d2a9411b61f78366b72bfa7f1eb0036f5e379d1a"
+      },
+      {
+        "file": "main-pie\\seated\\rear-base-color.png",
+        "sha256": "e4a0a371aba92d53511df4c9ffbe47d1d0988b1afcf0ba93802742a48ae996d0"
+      },
+      {
+        "file": "main-pie\\seated\\rear-gray.png",
+        "sha256": "4e5a2c981186f426cc07a312957b1e809ffa73dfc7e90237ebf2a034f88acf3e"
+      },
+      {
+        "file": "main-pie\\seated\\rear-material.png",
+        "sha256": "7f74e9aad8604d71f9d35f93651f06c1712ea6682934b6d5b0051ffa926b89ef"
+      },
+      {
+        "file": "main-pie\\seated\\rear-section-boundary.png",
+        "sha256": "5af4bacdd45ed53d42969027c3fc7577c568753e65e4c2827167561f9b996169"
+      },
+      {
+        "file": "main-pie\\seated\\rear-silhouette.png",
+        "sha256": "e4dc3a6233d888b2c6db946240810d30bb0db84d798572ae3801f17a79aff18b"
+      },
+      {
+        "file": "main-pie\\seated\\rear-unlit.png",
+        "sha256": "50e03e5320e5148191246e71e9de6d71c52e6a6cc04def388ecd1ec67677bbdf"
+      },
+      {
+        "file": "main-pie\\seated\\rear-wireframe.png",
+        "sha256": "24422b057efe83bb2910fbe65d9aee1cbf75b2cfc1aa00cc1f723003a76117f1"
+      },
+      {
+        "file": "main-pie\\seated\\rear-world-normal.png",
+        "sha256": "8dcafc95ca70383e59a28a706555736626c4a57af19f80ad56cfd9d733231254"
+      },
+      {
+        "file": "main-pie\\seated\\side-base-color.png",
+        "sha256": "c17b7088c0bf372884e4a7616184ab95ca45cf477ff69b6090657f52830eea56"
+      },
+      {
+        "file": "main-pie\\seated\\side-gray.png",
+        "sha256": "e026883fdf01d2eed921fccdc428e919a434acf4f00449ad7a42c84438508f06"
+      },
+      {
+        "file": "main-pie\\seated\\side-material.png",
+        "sha256": "40c302004a1e22f6a0f5faa237d178b9aaefd9b82d2cf9ff1d707e0f28a696ba"
+      },
+      {
+        "file": "main-pie\\seated\\side-section-boundary.png",
+        "sha256": "a26f519141028d6671e0be28fea59542c958277866d7ea2fdaa9df7fa827c0d9"
+      },
+      {
+        "file": "main-pie\\seated\\side-silhouette.png",
+        "sha256": "5cbf68bdf421c46e15ded562c0fc9fb4ebb9602571699f5c8c21b08487b6eb3a"
+      },
+      {
+        "file": "main-pie\\seated\\side-unlit.png",
+        "sha256": "76c57d2a4a9577243adf90bcdfcba5f908e80ed0824bc65659f95e6222ac5d68"
+      },
+      {
+        "file": "main-pie\\seated\\side-wireframe.png",
+        "sha256": "86ea67c2e9d9f94b1cfe031373e0346e81c25cc1aa10bf29140268b7e99210d3"
+      },
+      {
+        "file": "main-pie\\seated\\side-world-normal.png",
+        "sha256": "aa73052ac461022f06b9448cf506423992678dc77c4f7bfbeff0f23d9bfe0dde"
+      }
+    ]
+  }
+]

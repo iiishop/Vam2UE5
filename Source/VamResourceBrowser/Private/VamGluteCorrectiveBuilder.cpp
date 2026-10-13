@@ -15,9 +15,10 @@ TArray<TSharedPtr<FJsonValue>> JsonVec(FVector V) { return {MakeShared<FJsonValu
 FDeltaField Local(const FDeltaField& F,const FTransform& A) { auto R=F;for(auto& V:R) V=A.InverseTransformVectorNoScale(V);return R; }
 // Explicit DAZSkinV2 CPU isolated thigh-X port. Source node order and disjoint
 // graft node domains are retained. This excludes source post-skin smoothing.
-TArray<FMatrix> SourceReference(const FVamNativeMeshInput& I,const TArray<int32>& Ids,const TArray<FTransform>& Bind,const FJsonObject& Source,const FVector& Degrees,const FString& OnlyBone=FString())
+TArray<FMatrix> SourceReference(const FVamNativeMeshInput& I,const TArray<int32>& Ids,const TArray<FTransform>& Bind,const FJsonObject& Source,const FVector& Degrees,const FString& OnlyBone=FString(),TArray<uint8>* Domain=nullptr,const TArray<FTransform>* ActualPose=nullptr)
 {
     TArray<FMatrix> M;M.Init(FMatrix::Identity,I.Vertices.Num());TMap<int32,TArray<int32>> Map;for(int32 V=0;V<Ids.Num();++V) Map.FindOrAdd(Ids[V]).Add(V);
+    if(Domain)Domain->Init(0,I.Vertices.Num());
     const double Angle=-Degrees.X*PI/180.,Bulge=Source.GetNumberField(TEXT("source_bulge_scale"));
     for(const auto& Value:Source.GetArrayField(TEXT("source_skin_nodes")))
     {
@@ -28,10 +29,21 @@ TArray<FMatrix> SourceReference(const FVamNativeMeshInput& I,const TArray<int32>
         {
             if(const auto* Vertices=Map.Find(Id))
             {
+                if(Domain)for(int32 V:*Vertices)(*Domain)[V]=1;
                 const double L=FMath::Abs(Angle)>.01 && !Full?1+Factors->GetNumberField(Angle<0?TEXT("xnegleft"):TEXT("xposleft"))*Angle*Bulge*Left:1;
                 const double R=FMath::Abs(Angle)>.01 && !Full?1+Factors->GetNumberField(Angle<0?TEXT("xnegright"):TEXT("xposright"))*Angle*Bulge*Right:1;
-                const FTransform T(FQuat(FVector::YAxisVector,Angle*Weight),FVector::ZeroVector,FVector(L*R,1,L*R));
-                const FMatrix A=Bind[Bone].ToInverseMatrixWithScale()*T.ToMatrixWithScale()*Bind[Bone].ToMatrixWithScale();for(int32 V:*Vertices) M[V]=M[V]*A;
+                FTransform T(FQuat(FVector::YAxisVector,Angle*Weight),FVector::ZeroVector,FVector(L*R,1,L*R));
+                // Runtime swing is defined in the glute anchor, not necessarily
+                // the source node's nominal Y axis. Match its actual rigid
+                // endpoint so fully weighted calf vertices inherit the SAME
+                // thigh motion as descendants outside this source node domain.
+                if(ActualPose)
+                {
+                    const FTransform Delta((*ActualPose)[Bone].ToMatrixWithScale()*Bind[Bone].ToInverseMatrixWithScale());
+                    T.SetRotation(FQuat::Slerp(FQuat::Identity,Delta.GetRotation(),Weight).GetNormalized());
+                    T.SetTranslation(Delta.GetTranslation()*Weight);
+                }
+                const FMatrix A=ActualPose && Full?Bind[Bone].ToInverseMatrixWithScale()*(*ActualPose)[Bone].ToMatrixWithScale():Bind[Bone].ToInverseMatrixWithScale()*T.ToMatrixWithScale()*Bind[Bone].ToMatrixWithScale();for(int32 V:*Vertices) M[V]=M[V]*A;
             }
         };
         for(const auto& Row:N->GetArrayField(TEXT("weights"))) { const auto W=Row->AsObject();const bool Full=W->GetNumberField(TEXT("xweight"))>.99999 && W->GetNumberField(TEXT("yweight"))>.99999 && W->GetNumberField(TEXT("zweight"))>.99999;Add(W->GetIntegerField(TEXT("vertex")),Full?1:W->GetNumberField(TEXT("xweight")),W->GetNumberField(TEXT("xleftbulge")),W->GetNumberField(TEXT("xrightbulge")),Full); }
@@ -128,9 +140,14 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
                 const FVector Flex(Degrees.X,0,0);
                 const auto FlexPose=Pose(I,G,Bind,Side==0?Flex:FVector::ZeroVector,Side==1?Flex:FVector::ZeroVector,true);
                 const auto FlexDQ=RotationBlend(I,Bind,FlexPose),FullDQ=RotationBlend(I,Bind,Posed),Base=Apply(Skin,I.Vertices,true);
-                const auto SourceFlex=Apply(SourceReference(I,Ids,Bind,**Source,Flex,I.Bones[S.ThighBone].Name.ToString()),I.Vertices,true);
+                TArray<uint8> SourceDomain;
+                const auto SourceFlex=Apply(SourceReference(I,Ids,Bind,**Source,Flex,I.Bones[S.ThighBone].Name.ToString(),&SourceDomain,&FlexPose),I.Vertices,true);
+                const auto FlexBase=Apply(VamGluteGeometry::Skin(I,I.Influences,Bind,FlexPose),I.Vertices,true);
                 SourceOperatorDelta.SetNum(I.Vertices.Num());
-                for(int32 V=0;V<I.Vertices.Num();++V)SourceOperatorDelta[V]=FullDQ[V]+SourceFlex[V]-FlexDQ[V]-Base[V];
+                // A node's isolated source equation is defined only on its
+                // explicit rows/full-weight domain. Elsewhere preserve inherited
+                // bone motion from the real skin operator, NOT identity/rest.
+                for(int32 V=0;V<I.Vertices.Num();++V)SourceOperatorDelta[V]=FullDQ[V]+(SourceDomain[V]?SourceFlex[V]:FlexBase[V])-FlexDQ[V]-Base[V];
                 Capture(TEXT("source_operator_posed_before_localization"),Local(SourceOperatorDelta,Anchor));
             }
             for(int32 V=0;V<Ids.Num();++V)
@@ -148,7 +165,12 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             {
                 const double Both=G.Sides[0].RegionWeights[V]+G.Sides[1].RegionWeights[V];const double Localize=Both>1.e-12?S.RegionWeights[V]/Both*FMath::SmoothStep(0.,MaxRegion*.01,Both):0;
                 SourceField[V]=Anchor.InverseTransformVectorNoScale(RefPosed[V])*Localize;
-                if(!SourceOperatorDelta.IsEmpty())SourceField[V]+=Anchor.InverseTransformVectorNoScale(SourceOperatorDelta[V])*Localize;
+                // Operator conversion already has side-specific support: it is
+                // the difference between the same unilateral source and final
+                // skinning pose. A soft-tissue region mask is NOT its domain.
+                // Truncating that difference at the glute mask switches skinning
+                // operators inside the thigh and creates a circumferential fold.
+                if(!SourceOperatorDelta.IsEmpty())SourceField[V]+=Anchor.InverseTransformVectorNoScale(SourceOperatorDelta[V]);
                 Boundary[V]=FMath::Min(1.,double(S.RegionWeights[V])*8);
                 Proc[V]=VamGluteCorrective::CurvatureDelta(S,S.RegionPoints[V],Degrees,Structure.FoldState)*S.RegionWeights[V];
                 // Verified response owns its support. Procedural curvature fills
