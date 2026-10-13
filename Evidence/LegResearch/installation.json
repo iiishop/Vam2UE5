@@ -1,0 +1,37 @@
+[
+  {
+    "file": "UnrealEditor.modules",
+    "old": "95cff1f95b93f156bd38a0438132586f70bc292902228a235957510c25596ff6",
+    "new": "95cff1f95b93f156bd38a0438132586f70bc292902228a235957510c25596ff6"
+  },
+  {
+    "file": "UnrealEditor-VamCharacterRuntime.dll",
+    "old": "a3093f0cb1b1cd16bc398c33d94bbf3bc26eff010d184f5c752a76be13ec482a",
+    "new": "1ca29fcd368d686c798372ea8e96b7a6be9dfb49ef2de76ec73053e97c548ef9"
+  },
+  {
+    "file": "UnrealEditor-VamCharacterRuntime.pdb",
+    "old": "7ce2adea9ec4d15ce40c0b7d04b28d8ed10f81def7eb94152d5c190899116648",
+    "new": "c3f27c84b1f616388ed554b6903882446ba0a08ec24af0d032623f3d0d9386c8"
+  },
+  {
+    "file": "UnrealEditor-VamContactGPU.dll",
+    "old": "c952f86dd9557e7f87d4fca2b993be7fa6082a4ea36fb06661df8f39c73ec7eb",
+    "new": "c952f86dd9557e7f87d4fca2b993be7fa6082a4ea36fb06661df8f39c73ec7eb"
+  },
+  {
+    "file": "UnrealEditor-VamContactGPU.pdb",
+    "old": "90c9c41dc7fa48c5e0f018942c748436228c5201adbdd782d7987744596d323d",
+    "new": "90c9c41dc7fa48c5e0f018942c748436228c5201adbdd782d7987744596d323d"
+  },
+  {
+    "file": "UnrealEditor-VamResourceBrowser.dll",
+    "old": "7ebe835c6c5ba369aca76a4068cd8ba6a08f3e90ec7ce7d1b37b371c4e6d06d5",
+    "new": "6f963e480f19c204844654b6d8238a0dabd7147f7138343ca5351942a6353ae1"
+  },
+  {
+    "file": "UnrealEditor-VamResourceBrowser.pdb",
+    "old": "cb4d78e314b7510c8f3a2463e2944c4d6e4ae3d96bf1ad96ffad0059f7f17030",
+    "new": "60130b315eefe0c62a4fa3952ffae32e711a193abd21684ff98c4de30b929ce2"
+  }
+]

@@ -9,7 +9,7 @@
 
 void UVamLegSkeletalMeshComponent::ResetLegTuning()
 {
-    ThighAmplitude=CalfAmplitude=3;LegSupport=.85;LegDamping=1;ThighDamping=.3;CalfDamping=.4;ResetLegJiggle();
+    ThighAmplitude=CalfAmplitude=3;LegSupport=.85;LegDamping=1;ThighDamping=.4;CalfDamping=.55;ResetLegJiggle();
 }
 void UVamLegSkeletalMeshComponent::ResetLegJiggle(){for(auto& S:LegSolvers) S.Reset();LegLastTime=-1;}
 void UVamLegSkeletalMeshComponent::UpdateLegShape(const TMap<FName,float>& Values,TArray<FTransform>& Reference)
