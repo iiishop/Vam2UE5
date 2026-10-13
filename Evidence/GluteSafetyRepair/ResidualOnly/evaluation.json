@@ -1,0 +1,885 @@
+{
+  "rebake_max_error_cm": 6.751199025752314e-14,
+  "fields": [
+    {
+      "side": 0,
+      "target": 1,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 0,
+      "target": 2,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 0,
+      "target": 3,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 0,
+      "target": 4,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 0,
+      "target": 5,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 0,
+      "target": 6,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 0,
+      "target": 7,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 0,
+      "target": 8,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 0,
+      "target": 9,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 0,
+      "target": 10,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 1,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 2,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 3,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 4,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 5,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 6,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 7,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 8,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 9,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    },
+    {
+      "side": 1,
+      "target": 10,
+      "source_procedural_error_cm": {
+        "source": 0.0,
+        "procedural": 0.0
+      },
+      "source_factor_min": 1.0,
+      "residual_factor_min": 1.0
+    }
+  ],
+  "poses": [
+    {
+      "pose": "abducted",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.0008828904659058913,
+          "rms_cm": 1.5604162482057223e-05
+        },
+        "04-jiggle": {
+          "max_cm": 0.0008828904659058913,
+          "rms_cm": 1.5604162482057223e-05
+        }
+      },
+      "matched_edge_max_deg": 176.6517923807358,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816771259023302e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.817113246241526e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.858340089561546e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.858340089561546e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009917147223835e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "held-out-asymmetric",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.0003133272076793564,
+          "rms_cm": 6.69241428738744e-06
+        },
+        "04-jiggle": {
+          "max_cm": 0.0003133272076793564,
+          "rms_cm": 6.69241428738744e-06
+        }
+      },
+      "matched_edge_max_deg": 20.660145366250603,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816795879414506e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.817201275847315e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.85534452674214e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.85534452674214e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009911252957949e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "held-out-mirrored",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.0003136803071974317,
+          "rms_cm": 6.36148873087302e-06
+        },
+        "04-jiggle": {
+          "max_cm": 0.0003136803071974317,
+          "rms_cm": 6.36148873087302e-06
+        }
+      },
+      "matched_edge_max_deg": 20.723679680452644,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816742198971451e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.81715589045497e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.85860481103376e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.85860481103376e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009921374166459e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "hip-30",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.00013446580356486928,
+          "rms_cm": 6.407064369453043e-06
+        },
+        "04-jiggle": {
+          "max_cm": 0.00013446580356486928,
+          "rms_cm": 6.407064369453043e-06
+        }
+      },
+      "matched_edge_max_deg": 23.84640855641672,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816774967057808e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816948806061287e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.848649223543538e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.848649223543538e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009850815498114e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "hip-60",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.00014222937971217577,
+          "rms_cm": 6.052712537816298e-06
+        },
+        "04-jiggle": {
+          "max_cm": 0.00014222937971217577,
+          "rms_cm": 6.052712537816298e-06
+        }
+      },
+      "matched_edge_max_deg": 21.245786142180137,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816796344612306e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.8171531952755465e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.8476784226136305e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.8476784226136305e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.0099246132075725e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "hip-90",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.00013719046199922377,
+          "rms_cm": 5.877418964141448e-06
+        },
+        "04-jiggle": {
+          "max_cm": 0.00013719046199922377,
+          "rms_cm": 5.877418964141448e-06
+        }
+      },
+      "matched_edge_max_deg": 20.3907044813295,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816852857718704e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.817268589331533e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.841374479228343e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.841374479228343e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.010057192433119e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "knee-120",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 2.1654367050603077e-05,
+          "rms_cm": 3.1190092229893486e-07
+        },
+        "04-jiggle": {
+          "max_cm": 2.1654367050603077e-05,
+          "rms_cm": 3.1190092229893486e-07
+        }
+      },
+      "matched_edge_max_deg": 26.48320463440595,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816701069025944e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816700130546076e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.8516346303525265e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.8516346303525265e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009693109537878e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "knee-30",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 2.1654367050603077e-05,
+          "rms_cm": 3.118792527596334e-07
+        },
+        "04-jiggle": {
+          "max_cm": 2.1654367050603077e-05,
+          "rms_cm": 3.118792527596334e-07
+        }
+      },
+      "matched_edge_max_deg": 26.420455438644268,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816800900060021e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816799961722642e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.852524996947428e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.852524996947428e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.0098558774444535e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "knee-90",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 2.1654367050603077e-05,
+          "rms_cm": 3.118792527596334e-07
+        },
+        "04-jiggle": {
+          "max_cm": 2.1654367050603077e-05,
+          "rms_cm": 3.118792527596334e-07
+        }
+      },
+      "matched_edge_max_deg": 26.46181880845884,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816744390549976e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816743452102854e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.850114288286464e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.850114288286464e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009759542936702e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "seated",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.00013719046199922377,
+          "rms_cm": 5.876535305453554e-06
+        },
+        "04-jiggle": {
+          "max_cm": 0.00013719046199922377,
+          "rms_cm": 5.876535305453554e-06
+        }
+      },
+      "matched_edge_max_deg": 20.3907044813295,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816781722170152e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.817197445353212e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.840008171986836e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.840008171986836e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009946393388773e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "standing",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "versus_diagnostic_residual_retained": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 2.1654367050603077e-05,
+          "rms_cm": 3.118792527596334e-07
+        },
+        "04-jiggle": {
+          "max_cm": 2.1654367050603077e-05,
+          "rms_cm": 3.118792527596334e-07
+        }
+      },
+      "matched_edge_max_deg": 26.400822110380556,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816801303589713e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816800365299548e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.852951632057623e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.852951632057623e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009861174624876e-06,
+          "vertices": 25064
+        }
+      }
+    }
+  ],
+  "editor": [
+    {
+      "pose": "abducted",
+      "max_error_cm": 0.0
+    },
+    {
+      "pose": "held-out-asymmetric",
+      "max_error_cm": 0.0
+    },
+    {
+      "pose": "seated",
+      "max_error_cm": 0.0
+    },
+    {
+      "pose": "standing",
+      "max_error_cm": 0.0
+    }
+  ]
+}

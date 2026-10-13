@@ -22,5 +22,8 @@
     "phase": "build",
     "error": "Traceback (most recent call last):\n  File \"I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Scripts/ue_runtime_build.py\", line 313, in main\n    {'build':build,'reload':reload_and_publish,'verify':verify_publication}[phase](recipe,report)\n  File \"I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Scripts/ue_runtime_build.py\", line 143, in build\n    require(definition is not None,'Final-weight corrective: '+str(error))\n  File \"I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Scripts\\vam_runtime_recipe.py\", line 13, in require\n    if not condition: raise ValueError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Final-weight corrective: Final actual-weight authored replay failed side 0 target 1 max 0.00012856405 cm unsafe 2 render 33538 input 21843 precision16 1\n"
   },
-  "visual_status": "capture in progress, not yet accepted"
+  "visual_status": "Production residual-only appearance matches historical diagnostic within 0.000883 cm; seated fullness recovered. Abduction inner fold remains and is not marked fixed.",
+  "editor_pie_surface_error_cm": 0,
+  "main_project_editor_pie": "passed",
+  "implementation_commit": "f37a386"
 }

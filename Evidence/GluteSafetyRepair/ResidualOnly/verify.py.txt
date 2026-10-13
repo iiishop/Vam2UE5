@@ -1,0 +1,21 @@
+import json,os,subprocess,sys,re
+from pathlib import Path
+r=Path(__file__).resolve().parent;repo=r.parents[3]
+b=json.loads((r/'bundle.json').read_text());assert b['status']=='committed' and b['independent_reload_verified']
+editor='I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe';project='I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject'
+tests=['Vam.Glute.ResidualOnlySafety','Vam.Glute.FinalCorrective','Vam.Glute.G1.CharacterCalibration','Vam.Glute.PoseFunction','Vam.Glute.PoseRefinement','Vam.Glute.RotationBlendReference','Vam.Glute.G1.Mechanics','Vam.Glute.G1.FrameRateStability','Vam.Glute.G1.AttachmentDamping','Vam.Breast.Dynamics','Vam.Material.AffineStreaming','Vam.Leg.PreserveSupportSlots','Vam.Breast.WeightCompression','Vam.Glute.FinalInfluenceBudget','Vam.Glute.MorphNormalOrientation']
+cmd=[editor,project,'-VamFinalCorrectiveConfig='+b['configuration'],'-VamGluteTestConfig='+b['configuration'],'-VamFinalCorrectiveReport='+str(r/'authored-targets.json'),'-ExecCmds=Automation RunTests '+'+'.join(tests),'-TestExit=Automation Test Queue Empty','-NullRHI','-unattended','-nosplash','-abslog='+str(r/'tests.log')]
+(r/'test-command.json').write_text(json.dumps(cmd,indent=2))
+with (r/'tests-stdout.log').open('w') as f:subprocess.run(cmd,stdout=f,stderr=subprocess.STDOUT,check=True)
+log=(r/'tests.log').read_text(errors='replace');success=re.findall(r'Test Completed. Result=\{Success\}.*Path=\{([^}]+)\}',log);assert set(tests)<=set(success),success
+(r/'tests.json').write_text(json.dumps(success,indent=2))
+d=r/'bindings';d.mkdir(exist_ok=False);env=os.environ.copy();env.update(VAM_B2_CONFIG=b['configuration'],VAM_B2_OUTPUT=str(d))
+cmd=[editor,project,'-run=pythonscript','-script='+str(repo/'Scripts/ue_corrective_diagnostics.py'),'-NullRHI','-unattended','-nosplash','-abslog='+str(d/'runtime.log')]
+(d/'command.json').write_text(json.dumps(cmd,indent=2))
+with (d/'stdout.log').open('w') as f:subprocess.run(cmd,env=env,stdout=f,stderr=subprocess.STDOUT,check=True)
+assert not json.loads((d/'export-status.json').read_text())['error']
+for world,recipe in [('Editor','editor-recipe.json'),('PIE','pose-recipe.json')]:
+ cmd=[sys.executable,'-X','utf8',str(repo/'Scripts/run_s1s2_pose_suite.py'),str(r/'bundle.json'),str(r/world.lower()),'--world',world,'--recipe',str(r.parent/'unattenuated-survey'/recipe),'--light-from-below']
+ subprocess.run(cmd,cwd=repo,check=True)
+ log=(r/world.lower()/'runtime.log').read_text(errors='replace');assert 'Result={Success} Name={ContactRuntime}' in log
+(r/'verification.json').write_text(json.dumps(dict(status='complete',identity=b['identity'],tests=success,contact='Historical contact issues excluded; no contact code modified.'),indent=2))

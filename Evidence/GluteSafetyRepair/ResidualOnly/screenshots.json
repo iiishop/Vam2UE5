@@ -1,0 +1,1922 @@
+[
+  {
+    "file": "pie\\abducted\\front-base-color.png",
+    "sha256": "3ddc0b390c7db5c4799514685b3ca96b3e7817adff4701c592dc6f02dca01608"
+  },
+  {
+    "file": "pie\\abducted\\front-gray.png",
+    "sha256": "2d1fece6a49baaa3eed502347fda720e36fb2e445ff5802473aeba8c8c1d8341"
+  },
+  {
+    "file": "pie\\abducted\\front-material.png",
+    "sha256": "7317f47ce20351926125dcf4af0335db9b8a9a5c613bed12a54476519a3ef78a"
+  },
+  {
+    "file": "pie\\abducted\\front-section-boundary.png",
+    "sha256": "5ad7e7787051f4c32465214089d99683f75aa17af244cb29744547b699b5b074"
+  },
+  {
+    "file": "pie\\abducted\\front-silhouette.png",
+    "sha256": "2a6237bf7bd8b33ff9203d17da0a9d42edc21ef95aa1aadd53c1021b276b60dc"
+  },
+  {
+    "file": "pie\\abducted\\front-unlit.png",
+    "sha256": "be6d105b69a799bb73042bc65d67ffd34c3e0af92ed470369b9aacd6c7ce647f"
+  },
+  {
+    "file": "pie\\abducted\\front-wireframe.png",
+    "sha256": "13345f54cfb58518242e8598cbe0164c72a266663ddb9e59e8577043c8610173"
+  },
+  {
+    "file": "pie\\abducted\\front-world-normal.png",
+    "sha256": "471eab9ff584074650efeb9d3eb0533765090299ccca95d6f6c1d0d860b75da8"
+  },
+  {
+    "file": "pie\\abducted\\oblique-base-color.png",
+    "sha256": "1eaed3c3b4f49514c475752ae521712f2a65b2ce50d7139987a06a35a5bc7499"
+  },
+  {
+    "file": "pie\\abducted\\oblique-gray.png",
+    "sha256": "2c268f9d403dad571d6c64b4bfc8d61d95d3745bb665aeabbeaf642624ef2220"
+  },
+  {
+    "file": "pie\\abducted\\oblique-material.png",
+    "sha256": "2b25ba4e5f772f82736cba071e8159c14b036a16d8589e6568fdcda6356f59d9"
+  },
+  {
+    "file": "pie\\abducted\\oblique-section-boundary.png",
+    "sha256": "4e4eaae01f6fd3c10477fe53cf7a3f1ced3a039bc014c1a1462532aa4b323ba9"
+  },
+  {
+    "file": "pie\\abducted\\oblique-silhouette.png",
+    "sha256": "d089a243e60c966060feec1a56e899344cafb875a66f2eedd845789f0f4e957a"
+  },
+  {
+    "file": "pie\\abducted\\oblique-unlit.png",
+    "sha256": "065f03c071340ffcf60140d93d1a83581ddf7937bad5bd93fae1f7c541a26333"
+  },
+  {
+    "file": "pie\\abducted\\oblique-wireframe.png",
+    "sha256": "d30319678c99457f8a01b76a720c7b9ca184edec698e50ba2055d1a154d2a812"
+  },
+  {
+    "file": "pie\\abducted\\oblique-world-normal.png",
+    "sha256": "5c5deaf6d9500be2b145eeeed5f38c9f72c97267195b5d5a10f0ed1a34129ae2"
+  },
+  {
+    "file": "pie\\abducted\\rear-base-color.png",
+    "sha256": "c6cbceabbf9ccdad0fa7577fd1095b15ba1943cd5961b886ae1c0b736ea9fa31"
+  },
+  {
+    "file": "pie\\abducted\\rear-gray.png",
+    "sha256": "f0fdd4fa36bba87914cf5478469efa775971ad8504045ffb6bf553b44169901b"
+  },
+  {
+    "file": "pie\\abducted\\rear-material.png",
+    "sha256": "9aa085ddbe48031996af85d0188d9383cf6180a086b030b2c3411e207ae4805d"
+  },
+  {
+    "file": "pie\\abducted\\rear-section-boundary.png",
+    "sha256": "2202556d7351fbadc823e5ba4ed6b06ef3ba8bb5d607f1a165194bbaeaecee91"
+  },
+  {
+    "file": "pie\\abducted\\rear-silhouette.png",
+    "sha256": "eebf1ffcf0ab1f6d88e987aef92944c34231e5a483c3b3b4f79797582a807a77"
+  },
+  {
+    "file": "pie\\abducted\\rear-unlit.png",
+    "sha256": "9ec297b01bc3eb7c0f5e6d892551b6dadbc9b73ef9faca9b95b427f635d2c726"
+  },
+  {
+    "file": "pie\\abducted\\rear-wireframe.png",
+    "sha256": "a945b35828075c111c9e843253a26377ed7eea1aaaf8336e04715ff5f6897259"
+  },
+  {
+    "file": "pie\\abducted\\rear-world-normal.png",
+    "sha256": "43bbf9c8af7914a43f8580aa6f6a3a590544a487e8a14f78374d2fcc44f5fa09"
+  },
+  {
+    "file": "pie\\abducted\\side-base-color.png",
+    "sha256": "4fad69f7c3a70a11bca63b8ea65270107e361d604025c87bcc342f81c51f32f0"
+  },
+  {
+    "file": "pie\\abducted\\side-gray.png",
+    "sha256": "1f31a680aef03704f3b65b42b8b9e2ca683844adc2827cabba512ce4467b49ca"
+  },
+  {
+    "file": "pie\\abducted\\side-material.png",
+    "sha256": "48ea12f8210240d3746ae8ca0ebd216d8b5f3c55e1a02d8e9def7928048450ac"
+  },
+  {
+    "file": "pie\\abducted\\side-section-boundary.png",
+    "sha256": "2ac8f8c82d49e28b8a2decd24457a19fdf5a7682595af6da4cb44fe5003dec58"
+  },
+  {
+    "file": "pie\\abducted\\side-silhouette.png",
+    "sha256": "4d56057e4f3f96965007ab6555e822bbccad8adc7ee9334201b0b4b551a3181f"
+  },
+  {
+    "file": "pie\\abducted\\side-unlit.png",
+    "sha256": "f49b64a29111fba4236cc17f75ca910f3f1dba99d1de419e63dfc699cebf4eca"
+  },
+  {
+    "file": "pie\\abducted\\side-wireframe.png",
+    "sha256": "32e773312029cb50c9aca379abcbb000efa624809b3159168b347ac5df9aeda2"
+  },
+  {
+    "file": "pie\\abducted\\side-world-normal.png",
+    "sha256": "a472704a39ba03161ce59e3713f9134f9562caf12dd7e3f43ded94c182edc8fc"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\front-base-color.png",
+    "sha256": "5c6c7f75a34c09f430558ebb1d8891df0c83d36f4c6e4c3091d7c2e8241e89a9"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\front-gray.png",
+    "sha256": "912a1e522fa5b0a2c272721af3c7c9e479eb05de475cc205966497b9ea9f9d0b"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\front-material.png",
+    "sha256": "6f8e21e7bf06b095d5d929938a6827e5add7a509bf4421f160c1d9de773ec81c"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\front-section-boundary.png",
+    "sha256": "7b27998d40a8303c2bc3bf823dc3f09a4fc1d4dfd537b9d7d541d46696afaaa8"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\front-silhouette.png",
+    "sha256": "34f90f4a3de84d484e95971128868842f7ee7baa594dd6ff16f0be80e2c4206b"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\front-unlit.png",
+    "sha256": "5bf47a4de52ca667f96b0a3605369d3989a238923ec725f1b1d3c9d1f8944d95"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\front-wireframe.png",
+    "sha256": "71649e9e7fea31b29a88534d49cf7f788cab6ec65f6bcf8f47a0e95444f0452e"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\front-world-normal.png",
+    "sha256": "e08d76f7eae16c9d2ee8e4e937971e53d15759fbd245b3f4cac4b4642905b7c5"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\oblique-base-color.png",
+    "sha256": "b2124a646f9f49ce8478109da726a0ce532f75298abcca9f05b92591a2a9c561"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\oblique-gray.png",
+    "sha256": "1fce596618607040f40adff50df404dbfab318971c41638fb2985f8ccfee0dcb"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\oblique-material.png",
+    "sha256": "664d4e72500d4051825fd7a25caa2f82869d35697771a594e0ef038b69f076a4"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\oblique-section-boundary.png",
+    "sha256": "4916c07fe3f073afb2c175d7b9ca387d1bbfa3da43e59e421ad3da1ae782071c"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\oblique-silhouette.png",
+    "sha256": "bd2cc802282bb378592c0b44f76490b41d1483e1177850be1de8df9a65de4345"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\oblique-unlit.png",
+    "sha256": "cfaa5344769d9e2318e87da4d496bc91d32a15d310452f5fca6a6552ef5406af"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\oblique-wireframe.png",
+    "sha256": "54bd77e483fd888da573b196fc9c0ef5211a6e1061690933304ce9c3ce8833cd"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\oblique-world-normal.png",
+    "sha256": "d4d284b34bd7df77ebb45e380c85e7632481a2a1c76ecb9ad904fd1016c39fca"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\rear-base-color.png",
+    "sha256": "12cc62f6d9e6925816af2fa08e6fd810849b94ba82abc8b4e9a7ae8c509cc322"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\rear-gray.png",
+    "sha256": "44dc1a0161522efee7f05540e56328a22e25fb02c68be80274fdaeae6b419b67"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\rear-material.png",
+    "sha256": "7d1e665fa47f14c8be9c61d50d666ffd18653f2faacb36620ed08129d47b82e4"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\rear-section-boundary.png",
+    "sha256": "cf97c687e6d3671bf2c70b3f49ae718700d4091e901b1cfc8aab2dd90bcff9c1"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\rear-silhouette.png",
+    "sha256": "124eb4add8c63afeef3654f9e1160953b7e341c57aed457443034e30e38b632f"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\rear-unlit.png",
+    "sha256": "7f1d836b70463d62ffea110131da64279bcb4d6baf9ee3b5ec7255a0828bea7e"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\rear-wireframe.png",
+    "sha256": "eb9e504ffbbb8e725d9e3d784248a9a2793bd502f4e3fc5779803dad2fc9466f"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\rear-world-normal.png",
+    "sha256": "9462135036369ceac6c0b8b9fa866d5e52de193d5dc82bbfcef29d881e5812ac"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\side-base-color.png",
+    "sha256": "81cded0ee5ea5c3f410420b9af1c0628d0f8e532db768b3156b69030e8b9f333"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\side-gray.png",
+    "sha256": "99da2c46b35e5e38385b87ac556909bb940afacf4bbed95f82f741a507593491"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\side-material.png",
+    "sha256": "91a38012bec9817685e31d977bdfdf78cb3068b903f678657d65906f2fe1a759"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\side-section-boundary.png",
+    "sha256": "ef3d08e88baff5bdf1954dd6ca2d073033fc518668f165921e80f44e32f45c68"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\side-silhouette.png",
+    "sha256": "3dc78c181dbcef0074c1d9365376dcd99a6123d08adce0cd7179a399f3f4bbb3"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\side-unlit.png",
+    "sha256": "5660958b7d834fec8a3b7de6b39c80c36ed898d0ccfb10328d14ff36a0df2dc8"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\side-wireframe.png",
+    "sha256": "48b5e66ccb6fbea4a55a649c67bcfd78924eff970862fa3d133edf1506ee7a0f"
+  },
+  {
+    "file": "pie\\held-out-asymmetric\\side-world-normal.png",
+    "sha256": "a9f79d1ea5905cf29d0df4f2b1f0a26c3334b447eab771066446a2eebbe65c95"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\front-base-color.png",
+    "sha256": "d8b12d8f7990c11dc3fae8c829a8b572cd9544537fd9174bcfeb8269ca2d532c"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\front-gray.png",
+    "sha256": "3cb35e55dbffde101e8e0260cceb7e414554f739437bc6aa94c77e8a43ec5a6a"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\front-material.png",
+    "sha256": "20a6aa599e014ccdac449639f2d98788377f05867bf361aa8ce0a15527043ded"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\front-section-boundary.png",
+    "sha256": "00e32bb4baa59a83fc3b0f9a029a1f232f76955d21cdcd2350b7a77bb765c9c6"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\front-silhouette.png",
+    "sha256": "00413f949cb99a29414fb94b026bd92fdd8b13fa0dbb0962b9d0f932f153eaf3"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\front-unlit.png",
+    "sha256": "df6caf6f201d93b2cdb7a621acfcd6d41c6dd69ea3d77bba0b8163e86531fe5b"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\front-wireframe.png",
+    "sha256": "9c06bb494ce8ca96e869d8239893a3e4224da669c82b097cb9a1b3a528f776f0"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\front-world-normal.png",
+    "sha256": "1178437eb0d099a9ac334b2cb762bfe1806509543d39a629e00d3178063f1e35"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\oblique-base-color.png",
+    "sha256": "6dff992f4260fe864502f88d75d9c37fbaa68f3debae57ba458f65c43acb29e6"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\oblique-gray.png",
+    "sha256": "0a58492f91dc87b961744a9af1676e8699854c2df2ded59f5a0ac0aeace1082e"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\oblique-material.png",
+    "sha256": "6d4ce2de37468cd1c32b5d02d57ec1465c8158e161ae7e67cd5f4434a27d4298"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\oblique-section-boundary.png",
+    "sha256": "d2a86c8a4bb330952128705605d0dfbe5d6732f66db467eb3983568f913c500c"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\oblique-silhouette.png",
+    "sha256": "f2503444032415cf6470c19d92fe4e6ad2406cc4ab0c888e7d858ea77daa24d3"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\oblique-unlit.png",
+    "sha256": "6963798f14f38c45fa9a1a1b55c3ff457393e38ee8dd2197d2c65baed29ef90c"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\oblique-wireframe.png",
+    "sha256": "9be12119c383dc781d932973460717e7a7157c4799cdf24c6865eae57571bf59"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\oblique-world-normal.png",
+    "sha256": "ec2b85f5b7931e6a7b7f97717eda57cb42d25f5094088feb86e455a6b696d39c"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\rear-base-color.png",
+    "sha256": "a73a14cb64b1aed0150a10d63d1df4267209a5d75fbcd8565c148612ae8749a0"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\rear-gray.png",
+    "sha256": "f03e93b62da5034b0ba608208bd438584d2a7f940dde8713a5bc7b64ccc948b2"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\rear-material.png",
+    "sha256": "5d81c028cf749aff32105448f53f237b42e77431b2c0aecffca2e5b1ea4f9293"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\rear-section-boundary.png",
+    "sha256": "9cdee976ae054abe60538d4308056d878d12b0b9b8f5560a549c492b02fcb731"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\rear-silhouette.png",
+    "sha256": "abb7cec048555c4b90a8d4ff4450f61f3ed835fb4ba9166658b57924e47b865a"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\rear-unlit.png",
+    "sha256": "b69b539ddac3e63dd6caa07dc93f2e056c45ae6c737012ea7b0316e0f01bfc16"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\rear-wireframe.png",
+    "sha256": "5b69fc23cb967a801d369e955b3ad4ef99eb1441da7f0cfdb1114cea6046b4bf"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\rear-world-normal.png",
+    "sha256": "97f5ddb65410de208ae2f970511cb2b911c92972898590e40f897f839fc2e57a"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\side-base-color.png",
+    "sha256": "01a55d82bf839b0580b404bc84f16ec47430e9732995ce5437a431078108c447"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\side-gray.png",
+    "sha256": "179b0a675a2cf6b22fb58378e9d71d71049d67aaaf38a46d88ae05e1a4350d3f"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\side-material.png",
+    "sha256": "3cf28624bd331c2ff9abc288b7aaf56901af0f84c1de76773e5a2b0b3fdf7ef6"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\side-section-boundary.png",
+    "sha256": "bbf84b0776441b684f7a4c6dfb19e3ae30b9fa63e9cbccf266d305b124fb9a23"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\side-silhouette.png",
+    "sha256": "1ddd22f4d6ec6a45764462ce4a038e82724b221e0d2d8a9a4e2f861d670c0068"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\side-unlit.png",
+    "sha256": "3cd4dd790e3b55167a379f5c399990dcb8003b49cbc2cae17ea25e9a98274415"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\side-wireframe.png",
+    "sha256": "2885cd2cb03da9dc60b595ca70ba98d14f56c891e9271f4120e816634b0f2e46"
+  },
+  {
+    "file": "pie\\held-out-mirrored\\side-world-normal.png",
+    "sha256": "54aedcb2bda1bf8063837ce4878ae7121c67f386ffe51f8554aee9f9afc82128"
+  },
+  {
+    "file": "pie\\hip-30\\front-base-color.png",
+    "sha256": "2de2920487623726077f31d2ce24e9931bd915d9464d41ffd9d5086463b0b2a9"
+  },
+  {
+    "file": "pie\\hip-30\\front-gray.png",
+    "sha256": "cbf1f6c45eb7885dda93a78d219dfe92fa0514037e9727da03245b39d7735f22"
+  },
+  {
+    "file": "pie\\hip-30\\front-material.png",
+    "sha256": "16b4996ae6b217b3a4f8392cb1daf7648721a0c20b714c5528bb4c03c4bf3478"
+  },
+  {
+    "file": "pie\\hip-30\\front-section-boundary.png",
+    "sha256": "2c799299ae30bfe5895b1dcc9dc04a09af5ce588526e7b6d0bfb3b626a7e7768"
+  },
+  {
+    "file": "pie\\hip-30\\front-silhouette.png",
+    "sha256": "b0bf0af883ea78c529cd456c1a2b33d91e70eedfec7fda26a87d3f8cc3215af7"
+  },
+  {
+    "file": "pie\\hip-30\\front-unlit.png",
+    "sha256": "ad24da29e0b263542981df3734953dc6027f1d6f553c164678aafa2d3a8b24b6"
+  },
+  {
+    "file": "pie\\hip-30\\front-wireframe.png",
+    "sha256": "25add2f866c51f5b37ceeb6c624de9192ed3adcd975415d1c336dae6bb7eff2f"
+  },
+  {
+    "file": "pie\\hip-30\\front-world-normal.png",
+    "sha256": "d23abda3a88245ec0c44fb2ae30e270fd64170dd7ce2be579e793b69f89ed60f"
+  },
+  {
+    "file": "pie\\hip-30\\oblique-base-color.png",
+    "sha256": "6d858acf8d2bf6d41dc1622819cb1034e343bc8043aa1b787282686ee5443c8a"
+  },
+  {
+    "file": "pie\\hip-30\\oblique-gray.png",
+    "sha256": "837c741d4808dba09991808a20f686022791ec97d2dc6768eae0b4f7a9ce3dc5"
+  },
+  {
+    "file": "pie\\hip-30\\oblique-material.png",
+    "sha256": "3d784a6102e98f5c5fbe45f09a005689fa6b72c2808e688a0edf5ee6e7aff4d8"
+  },
+  {
+    "file": "pie\\hip-30\\oblique-section-boundary.png",
+    "sha256": "12741fe6ae9eedee6166185f8304c7cb1eb8c680780e930d3fb73fc00d784b58"
+  },
+  {
+    "file": "pie\\hip-30\\oblique-silhouette.png",
+    "sha256": "5d7b34ed2dcb7006109e6f6857f2830aaa3b27737817c9bff2753a0f3db311cd"
+  },
+  {
+    "file": "pie\\hip-30\\oblique-unlit.png",
+    "sha256": "72c5a853703710bfc04bdb06927b6db146d0d9998a921d3614728b8abe130823"
+  },
+  {
+    "file": "pie\\hip-30\\oblique-wireframe.png",
+    "sha256": "2f93c492ae97d610f3ef619ad67fa9a4a48635b3906b74f25a5be959a5860a78"
+  },
+  {
+    "file": "pie\\hip-30\\oblique-world-normal.png",
+    "sha256": "8d531f900d7c2ad0dc296e7e4287981159908520eac20da67fee946a3be66025"
+  },
+  {
+    "file": "pie\\hip-30\\rear-base-color.png",
+    "sha256": "039206db3ff12c9a9db9e3cc9c771104e70c5eebd2f39556290c5df7b6c87e60"
+  },
+  {
+    "file": "pie\\hip-30\\rear-gray.png",
+    "sha256": "1942c14b5f7acd92910efbfae4774bebb74047ab3cea699cd177a9327802826d"
+  },
+  {
+    "file": "pie\\hip-30\\rear-material.png",
+    "sha256": "54a14ffd6f0a01b3497fbf5efa6ef23f7647ebbab91a5e79f54e22bb86c6363e"
+  },
+  {
+    "file": "pie\\hip-30\\rear-section-boundary.png",
+    "sha256": "fcb5fdbfe5604f51e670b614c30be5a1228b289403fc1f8bf7bcb49ff0a515bb"
+  },
+  {
+    "file": "pie\\hip-30\\rear-silhouette.png",
+    "sha256": "2aa42402997763d065e9abe7669f1d7b61d7473281d0c734aa0d964e454b593c"
+  },
+  {
+    "file": "pie\\hip-30\\rear-unlit.png",
+    "sha256": "6edfaf4b09ce85894b8a572d9d63922c0ec8be60591bcd55381992042920ea5f"
+  },
+  {
+    "file": "pie\\hip-30\\rear-wireframe.png",
+    "sha256": "83948b351d27f8c99298c3f558cb22fbf8d07815abbb48f6c2b2245908d1b844"
+  },
+  {
+    "file": "pie\\hip-30\\rear-world-normal.png",
+    "sha256": "80d392e99e001d9e0532b80360876a2545174ed3733cd992906e8f78b4178760"
+  },
+  {
+    "file": "pie\\hip-30\\side-base-color.png",
+    "sha256": "d1c025b8a3b0c6b7345d34875107e6b286983ab684a5cba3812b4ef8569363fd"
+  },
+  {
+    "file": "pie\\hip-30\\side-gray.png",
+    "sha256": "a07d706516bb8856c9ce4ee93fe6c64b4d9a5d0ffe901dee049a271bf7d29edb"
+  },
+  {
+    "file": "pie\\hip-30\\side-material.png",
+    "sha256": "cc96e14918b9b730fd92164545148390c9fdab8e6057a3a4d89126e2e6b4c504"
+  },
+  {
+    "file": "pie\\hip-30\\side-section-boundary.png",
+    "sha256": "af3463c6c5d8c7679210aca5c4799c38e479ad99f0a8c4a954802596c5be48a8"
+  },
+  {
+    "file": "pie\\hip-30\\side-silhouette.png",
+    "sha256": "d45139095a08a7cdf9d73f7e6cd28f2980c35dd5cbccd34bed544a378937c9a7"
+  },
+  {
+    "file": "pie\\hip-30\\side-unlit.png",
+    "sha256": "801831d8be5d960092534b2ede152c09fe7d726f7bead10dda4171831e526fc3"
+  },
+  {
+    "file": "pie\\hip-30\\side-wireframe.png",
+    "sha256": "e1b98526ee9790b3c3faaa6facc6c929a8c381177ca7a8254c2a39af415d9887"
+  },
+  {
+    "file": "pie\\hip-30\\side-world-normal.png",
+    "sha256": "151cc938609adcf9edc9a99efd25a976087c2cedb5ac547f1c37441fc0c56bc8"
+  },
+  {
+    "file": "pie\\hip-60\\front-base-color.png",
+    "sha256": "c9a2d90115072452e08d0d9a5c2864feed996d419582cf161d2f047b64efa3cc"
+  },
+  {
+    "file": "pie\\hip-60\\front-gray.png",
+    "sha256": "19724bdd3105e516d47b2ecf8474e246530952179e42255f60f4253dfd678a25"
+  },
+  {
+    "file": "pie\\hip-60\\front-material.png",
+    "sha256": "4d263235754543cc1ea5006fb212948abf784205f0bb9c3c5782e61b45c6e0aa"
+  },
+  {
+    "file": "pie\\hip-60\\front-section-boundary.png",
+    "sha256": "d738c23da756f6b2f671e2226381a86ce1b2d6dbb398020fc478e906ffff629d"
+  },
+  {
+    "file": "pie\\hip-60\\front-silhouette.png",
+    "sha256": "3247c11ad83e4c54262988623b65548e6732e3ddcb591ac0ecd5c851108abaf0"
+  },
+  {
+    "file": "pie\\hip-60\\front-unlit.png",
+    "sha256": "9dadf0407d62dc820a680850979e26accb46153eaf1364f7fd9703dd6718fba0"
+  },
+  {
+    "file": "pie\\hip-60\\front-wireframe.png",
+    "sha256": "0d12284362dc14abb70ea495a53d9d36f7dc81cb0378e702c9977ebf491472e3"
+  },
+  {
+    "file": "pie\\hip-60\\front-world-normal.png",
+    "sha256": "920085ecafadde65b0ee4be034c16dbfd5c4c963f2406c79655b6a498d7711cc"
+  },
+  {
+    "file": "pie\\hip-60\\oblique-base-color.png",
+    "sha256": "c75f3c59f47a765c3cc9dc9bef28bad3c3920ca26d8ee31550b0170a93581a4d"
+  },
+  {
+    "file": "pie\\hip-60\\oblique-gray.png",
+    "sha256": "bb94cf38a9a01ca990c31e28ea0df837c1bdee0ed68323553c470f23a725e0a9"
+  },
+  {
+    "file": "pie\\hip-60\\oblique-material.png",
+    "sha256": "8f4538add2114070c4074daa6fb79165ab95c602aa417ce0ad51a42984cafcd8"
+  },
+  {
+    "file": "pie\\hip-60\\oblique-section-boundary.png",
+    "sha256": "0c5f263380ccabf50477aa7c22ba9d3bf3bad2e16eac47dc50e00598dec1f996"
+  },
+  {
+    "file": "pie\\hip-60\\oblique-silhouette.png",
+    "sha256": "37d3746db3e25e38770877d33a2733932f8b7cca615516433828e074da586b37"
+  },
+  {
+    "file": "pie\\hip-60\\oblique-unlit.png",
+    "sha256": "807595ea0bd944a6d936f93b9d86caad63109bec3b2f65d946d7de9d26e094ae"
+  },
+  {
+    "file": "pie\\hip-60\\oblique-wireframe.png",
+    "sha256": "48a388a5e3339914faaae07fc355963054bce4f4871f33ad215e5df5f5d6bf4b"
+  },
+  {
+    "file": "pie\\hip-60\\oblique-world-normal.png",
+    "sha256": "c270beac37f3ba7e4a65923638ddddfa225b93d3236abc27be143ee97296f1a7"
+  },
+  {
+    "file": "pie\\hip-60\\rear-base-color.png",
+    "sha256": "14e8dc8e1de612f9c3cc6fcca7d6591fea93bf7431797d121877974e8d61964d"
+  },
+  {
+    "file": "pie\\hip-60\\rear-gray.png",
+    "sha256": "c6de10e003c5680e88f5dfdc6cad0a16b1284198e865a05299d2d42f995dbd91"
+  },
+  {
+    "file": "pie\\hip-60\\rear-material.png",
+    "sha256": "b3cd6149e2879be3baa22cde990a88977e2c1b788ca464592a4737653c206be1"
+  },
+  {
+    "file": "pie\\hip-60\\rear-section-boundary.png",
+    "sha256": "892fe583604f7049beb0e14eb34f7587b091c41cbc371fcc8fbe65fc1efe30a3"
+  },
+  {
+    "file": "pie\\hip-60\\rear-silhouette.png",
+    "sha256": "cd459c7259ed8fd46cf4f025ba44779a7e77a6a82ecb161b76687b1f86170bea"
+  },
+  {
+    "file": "pie\\hip-60\\rear-unlit.png",
+    "sha256": "40bf11fbb3fd3a4defbddf4ecc49644e357372a82f0461868e4263cef991d65f"
+  },
+  {
+    "file": "pie\\hip-60\\rear-wireframe.png",
+    "sha256": "8e3c7da6de0f373cd0ad52e8a50f93d679934444d87ed5330ed0d8a58dac9f23"
+  },
+  {
+    "file": "pie\\hip-60\\rear-world-normal.png",
+    "sha256": "c45823be05b582b63bbdc5786067807cc20be655683dae28509c776b486e959f"
+  },
+  {
+    "file": "pie\\hip-60\\side-base-color.png",
+    "sha256": "cba5480ef7c826f7e46da11a48e5b2ec2eee18b1846dd9063d3f6f78db16692a"
+  },
+  {
+    "file": "pie\\hip-60\\side-gray.png",
+    "sha256": "2401798a3d19b0ccab76d59641bfe980e74053659a15ebebe0402f7fa6dcd040"
+  },
+  {
+    "file": "pie\\hip-60\\side-material.png",
+    "sha256": "6a8d87e3e706f4af2e3d29fbb9e0cf5660eeb918e5777d8ecaaccd06bd63691b"
+  },
+  {
+    "file": "pie\\hip-60\\side-section-boundary.png",
+    "sha256": "ef063ea176dc397119186fa5aaecd86d9aba38abbd9c3514ecc192df93086599"
+  },
+  {
+    "file": "pie\\hip-60\\side-silhouette.png",
+    "sha256": "a03a21c19c0b1adab85b3a1bf9866ac8df5c42c331f00e6287991b30c1894a8a"
+  },
+  {
+    "file": "pie\\hip-60\\side-unlit.png",
+    "sha256": "427b8c4f7017ce9e92e3f65243ac1e744e1a6bcdedd569166beeb300368fd843"
+  },
+  {
+    "file": "pie\\hip-60\\side-wireframe.png",
+    "sha256": "b77de724ee051f5211c353079ec03e53268bf1ef05a96d0fbaa58ad157e16a73"
+  },
+  {
+    "file": "pie\\hip-60\\side-world-normal.png",
+    "sha256": "454f3a6661b4e9691815688c8de7ad5c7565c1e677307b9926a7d075a610370c"
+  },
+  {
+    "file": "pie\\hip-90\\front-base-color.png",
+    "sha256": "7f0975080457bcfa4c0f57cccee4eada24b0d7cd9896f59a37e730c6f815fbff"
+  },
+  {
+    "file": "pie\\hip-90\\front-gray.png",
+    "sha256": "ece93efcbd3b8839e4677c213aeaf14744230fef955ec8f08ee98665400cf4f4"
+  },
+  {
+    "file": "pie\\hip-90\\front-material.png",
+    "sha256": "20c3979575837bab125591dd00cf458812d0102e0aca5a2ca66034f3faf11c0a"
+  },
+  {
+    "file": "pie\\hip-90\\front-section-boundary.png",
+    "sha256": "72b88a9ec861bc2358d4e0728ad63b0c11f14d8dd3cbe31aa4d65b2ce3cce799"
+  },
+  {
+    "file": "pie\\hip-90\\front-silhouette.png",
+    "sha256": "3ad1714be77431e726c0fe46d7e65330270bbc7d7e89a35fffed52327c45dab5"
+  },
+  {
+    "file": "pie\\hip-90\\front-unlit.png",
+    "sha256": "8fcf956f1ffb2a0729769151ac5d6a6a08abfa358feeaf54971811f742fddba0"
+  },
+  {
+    "file": "pie\\hip-90\\front-wireframe.png",
+    "sha256": "93fa9ab34e27f65d65531c583bbe3cdfed5e5ef9ca9ed3eee44644bb1f5fc9c7"
+  },
+  {
+    "file": "pie\\hip-90\\front-world-normal.png",
+    "sha256": "84858f632b3dfb403514a3d1d47dbdcdbe5571bc9b1d1a5cee98b3a86594b590"
+  },
+  {
+    "file": "pie\\hip-90\\oblique-base-color.png",
+    "sha256": "0304165a6f69757cb2f21b8206f438bb4240f0b8228bcb8e6eeb0122ea6a80cf"
+  },
+  {
+    "file": "pie\\hip-90\\oblique-gray.png",
+    "sha256": "27ee853927cf10117081b67b768568fc8c771571236b57b49ee03865b2b2d940"
+  },
+  {
+    "file": "pie\\hip-90\\oblique-material.png",
+    "sha256": "fbb61a680a10601603ac387b91c82405f5e3f313d8d1042fa08c7e0795db0e2b"
+  },
+  {
+    "file": "pie\\hip-90\\oblique-section-boundary.png",
+    "sha256": "11abf2c3b03c8da946fb209787fad3b8079db8c18a57d20703d0b5c901d4024b"
+  },
+  {
+    "file": "pie\\hip-90\\oblique-silhouette.png",
+    "sha256": "5b4960dcfbe04a5b65c89e46a0215dc09668362b7119ecbb48047bcce89d179e"
+  },
+  {
+    "file": "pie\\hip-90\\oblique-unlit.png",
+    "sha256": "f645d48b0981dacaee9712b3be43118dca0232815f2eeb6ee0627b89b57de06d"
+  },
+  {
+    "file": "pie\\hip-90\\oblique-wireframe.png",
+    "sha256": "88f8018bd117e243910c96fce77cb09a186946a8708c40c146a6008e79c6108a"
+  },
+  {
+    "file": "pie\\hip-90\\oblique-world-normal.png",
+    "sha256": "f154cc07395c1ca5557a8e4988f8b2b3dc8d8d717a7ff639fa66928c556b5401"
+  },
+  {
+    "file": "pie\\hip-90\\rear-base-color.png",
+    "sha256": "374f1f044061caf84f23cca29a43cb069ff6593090c78eba54a15a6c9f4429b0"
+  },
+  {
+    "file": "pie\\hip-90\\rear-gray.png",
+    "sha256": "acf9f0ef82c496d7cd3bb42857a60fc5727eaea182d223e9662db9eaffb6170a"
+  },
+  {
+    "file": "pie\\hip-90\\rear-material.png",
+    "sha256": "6549189a274854fa02633889e892aa9bf21972b158f3cb0e27044307eb111020"
+  },
+  {
+    "file": "pie\\hip-90\\rear-section-boundary.png",
+    "sha256": "a24ff75891d5473d8b4dd5efdcd73f190b870cce3fd7e4a3a6847ebe8bbbffba"
+  },
+  {
+    "file": "pie\\hip-90\\rear-silhouette.png",
+    "sha256": "fd37e696d4f70ea952854e5f306e3ee728c0908e74298ec4ef8b993f1a346321"
+  },
+  {
+    "file": "pie\\hip-90\\rear-unlit.png",
+    "sha256": "83907c7d47fbe218914a9db55a5761b75e5ed220dbce1ffa95591a53926ac41e"
+  },
+  {
+    "file": "pie\\hip-90\\rear-wireframe.png",
+    "sha256": "bb7d8d1d9f621d945bdf1fcddca76f850def30e1e94b46392bf3cf04305206b0"
+  },
+  {
+    "file": "pie\\hip-90\\rear-world-normal.png",
+    "sha256": "0bbb18c5e22ef1f22cb2607277884b11c1e62e305f2e5bc51584f9276c0066f4"
+  },
+  {
+    "file": "pie\\hip-90\\side-base-color.png",
+    "sha256": "24dbe7446d0c1ff069bc9a6c84e9faf58e9d8910cb7c686eac4b529f1d3e981c"
+  },
+  {
+    "file": "pie\\hip-90\\side-gray.png",
+    "sha256": "510229589e6acf8787d82203aa113f3037c1013ac6d751d7e047a4a6ca4ccaf0"
+  },
+  {
+    "file": "pie\\hip-90\\side-material.png",
+    "sha256": "7a9a28a3f78f15f0d0b25893fbf216622f24f6eaa36dd811fa2d691385a5c9f6"
+  },
+  {
+    "file": "pie\\hip-90\\side-section-boundary.png",
+    "sha256": "d9d37b350b2d76b6898c8754ddb67e2dbd2971818c4ce1b80153ea22b8dbeed0"
+  },
+  {
+    "file": "pie\\hip-90\\side-silhouette.png",
+    "sha256": "afbd0ce8745ac6c5ff44a8a4e81b3f0fa53a4e8a7a13f5130ca5652fdd7850c6"
+  },
+  {
+    "file": "pie\\hip-90\\side-unlit.png",
+    "sha256": "ebd7f41170a18f222724d173a5ef89170311f983734bfc7cbb1ee5498314bda2"
+  },
+  {
+    "file": "pie\\hip-90\\side-wireframe.png",
+    "sha256": "f8bff1974187df2bdcccfb41910e771cfde356637574104549f81a8649bd3cfd"
+  },
+  {
+    "file": "pie\\hip-90\\side-world-normal.png",
+    "sha256": "3319af12cebcf14ba445699835e2c1ed82e505ee40aee314542996be3e36efdf"
+  },
+  {
+    "file": "pie\\knee-120\\front-base-color.png",
+    "sha256": "f1c0c1eb25533491479f2f828d12383c9f53f5209ce1e38eccbb6bedbfbc9d62"
+  },
+  {
+    "file": "pie\\knee-120\\front-gray.png",
+    "sha256": "bde1aee7034460aa047a2005b3d4e792f764f4e79917114e5457b7bf36f425d0"
+  },
+  {
+    "file": "pie\\knee-120\\front-material.png",
+    "sha256": "0f529bf257b82a6364462abb69b13d6b6a3764ee51a49b9dfcbaa1127d2880f7"
+  },
+  {
+    "file": "pie\\knee-120\\front-section-boundary.png",
+    "sha256": "ba32573057ee068a4b91d5f90107f8a7dc10b64fc07d5d568f77ffc3b625fe7d"
+  },
+  {
+    "file": "pie\\knee-120\\front-silhouette.png",
+    "sha256": "a69bb8311e24df647195772c0dc4bf816aebc88c2fcd564b2199d07c4804292c"
+  },
+  {
+    "file": "pie\\knee-120\\front-unlit.png",
+    "sha256": "b55f8962a8573cd16cfd43ba837b3e917176260ba3f65be1d2acb3a8915e5e77"
+  },
+  {
+    "file": "pie\\knee-120\\front-wireframe.png",
+    "sha256": "39881ca5cb16c98bc40052409c1199b8f81e66b92e8883b9200a024b46709cdf"
+  },
+  {
+    "file": "pie\\knee-120\\front-world-normal.png",
+    "sha256": "fc734f946de2aadc6fda2b58ff7ff563dbe8ed838663796666f8d8fc79c532f2"
+  },
+  {
+    "file": "pie\\knee-120\\oblique-base-color.png",
+    "sha256": "7eb2f8d689ab0c97e61d387d335ec7aff9a4682a9a9a0d0225ddd75a2d9e5019"
+  },
+  {
+    "file": "pie\\knee-120\\oblique-gray.png",
+    "sha256": "4bbfbbe6c4832e3706e68c2cba61a9f32bb2802f13bd1111d702f1757748103d"
+  },
+  {
+    "file": "pie\\knee-120\\oblique-material.png",
+    "sha256": "1660213965168bc8a4c4c64e6701dfaff114567ac067889bb3bcd5cb89a34fce"
+  },
+  {
+    "file": "pie\\knee-120\\oblique-section-boundary.png",
+    "sha256": "fefe43695e844424d8c4ea00f7e0a5dd8cf6f5c10bac608921957e122c442628"
+  },
+  {
+    "file": "pie\\knee-120\\oblique-silhouette.png",
+    "sha256": "9a8241b0acc82255846ebada2dba9052ffd2e6a025ccb3aefb34d959eb733178"
+  },
+  {
+    "file": "pie\\knee-120\\oblique-unlit.png",
+    "sha256": "f36511bf3b697cc3bacdd719ea81863afa85573868093861cb8ed74f511d7c96"
+  },
+  {
+    "file": "pie\\knee-120\\oblique-wireframe.png",
+    "sha256": "c77a5d1a96ae0246ef0174df16a3086a3cc73bca0d7f1783133ab5efb3961d48"
+  },
+  {
+    "file": "pie\\knee-120\\oblique-world-normal.png",
+    "sha256": "e88b2dc766302c227733ecc630a7bb1b22ca6ce6edd1695acaf6ef618e4f7979"
+  },
+  {
+    "file": "pie\\knee-120\\rear-base-color.png",
+    "sha256": "1b1c9a5521810143a746aede8e2933d50445ef16147553f95d02ee94b4eae8c6"
+  },
+  {
+    "file": "pie\\knee-120\\rear-gray.png",
+    "sha256": "13b1d15ecc1fb7586154564f9f1191278fea3dc6b06fb8d7d2250ede65ea3e0f"
+  },
+  {
+    "file": "pie\\knee-120\\rear-material.png",
+    "sha256": "6f7ee1d404e6630022e5672974a7f0cc0d47d2b5bb0503f309d972e57dbed8d4"
+  },
+  {
+    "file": "pie\\knee-120\\rear-section-boundary.png",
+    "sha256": "87873ee41de014af1fa3dd68359e62114e04bb3954b57953522c2d91655cfcce"
+  },
+  {
+    "file": "pie\\knee-120\\rear-silhouette.png",
+    "sha256": "7ed4b89567fdc746ed97d7145c29c60a0049dd49f3158248789216cba30ea5b0"
+  },
+  {
+    "file": "pie\\knee-120\\rear-unlit.png",
+    "sha256": "7314e0f9b21b6b84b68a15fa6c49a72ae6b8d8342a1a27c42390cfbd594ce9f6"
+  },
+  {
+    "file": "pie\\knee-120\\rear-wireframe.png",
+    "sha256": "5a655d59920951210da23d00ed80a5dc48a0c55c9d5a0b608b9a91a07ee5003d"
+  },
+  {
+    "file": "pie\\knee-120\\rear-world-normal.png",
+    "sha256": "509e6f45d535bd637e3dd0a33a248a08c8b45edee01a5328b2ab2ab9431bc99b"
+  },
+  {
+    "file": "pie\\knee-120\\side-base-color.png",
+    "sha256": "fde6e162461e480f1ef365c4990c7e9acb8641601f9e326aa5296fb3cd17c6ff"
+  },
+  {
+    "file": "pie\\knee-120\\side-gray.png",
+    "sha256": "29d0aa1d00f5644693190cd97127a7ffe9218b8ae9f72a31cbd20abe708ea7eb"
+  },
+  {
+    "file": "pie\\knee-120\\side-material.png",
+    "sha256": "dc6aa8a9b670719863ba171d28db5190f1fbe6686bcd26de1a87508b3a326186"
+  },
+  {
+    "file": "pie\\knee-120\\side-section-boundary.png",
+    "sha256": "870ac8e5eb19083806e3c75ceb4919df751cb274781f0dedabb54d7567f16b78"
+  },
+  {
+    "file": "pie\\knee-120\\side-silhouette.png",
+    "sha256": "0d4b236e14ff2034ec8137a47ae2caab3a31ec7a376269d41362667a62dd5d27"
+  },
+  {
+    "file": "pie\\knee-120\\side-unlit.png",
+    "sha256": "af09a152a7ea8daf03e0ddd1684ecbd182b0405af1db73fcd0f38c555cb8869c"
+  },
+  {
+    "file": "pie\\knee-120\\side-wireframe.png",
+    "sha256": "eaa69bc11d799948744779ac1e9ef3dc5408561949e8074bc17080ffea131b98"
+  },
+  {
+    "file": "pie\\knee-120\\side-world-normal.png",
+    "sha256": "0c7b5ea617541e752a3dc89d42942ef32b1308096bee7199178991bbde31a77a"
+  },
+  {
+    "file": "pie\\knee-30\\front-base-color.png",
+    "sha256": "c555e38b560a05be41411af0794ea43c718ec3146b91e45272188946cb6b1e9d"
+  },
+  {
+    "file": "pie\\knee-30\\front-gray.png",
+    "sha256": "f79f85d761d926a48760f376a0e75a6232a912af39bc194e0810aa18feab9f87"
+  },
+  {
+    "file": "pie\\knee-30\\front-material.png",
+    "sha256": "56a597503749190db2cb9b9c7d4c74b8d11be5be467807ef3afc563717be96d7"
+  },
+  {
+    "file": "pie\\knee-30\\front-section-boundary.png",
+    "sha256": "4ef4fee9115f40133a39ada533f01fc1740e06c7fd881ba4aa5ec38151eefa33"
+  },
+  {
+    "file": "pie\\knee-30\\front-silhouette.png",
+    "sha256": "57da4a2603026284770a142b96a5a9f9519dce829e819dffaf8ce8178e3995ea"
+  },
+  {
+    "file": "pie\\knee-30\\front-unlit.png",
+    "sha256": "72bd339131f590f7f4bbe09b8a371fdbcb4c57b19f15bcae5d030406ef15aea2"
+  },
+  {
+    "file": "pie\\knee-30\\front-wireframe.png",
+    "sha256": "c29f7254a8fde22d3da6a8eb26e7eb386da9d95980257849acc23f5569ef3366"
+  },
+  {
+    "file": "pie\\knee-30\\front-world-normal.png",
+    "sha256": "b13f99a7d87741d3b1dd0b2b2de3ae3ffab2c19e02c4d1f8dbdfd183cdf3d3d6"
+  },
+  {
+    "file": "pie\\knee-30\\oblique-base-color.png",
+    "sha256": "14e3befa578f9510b8a06fe6eee499c241fd6b933aca7fc2f7081e1847bf5eee"
+  },
+  {
+    "file": "pie\\knee-30\\oblique-gray.png",
+    "sha256": "99ab4bfdc93757fa848741c31bb129bd8c753cd53d45d08aee22664cd290b538"
+  },
+  {
+    "file": "pie\\knee-30\\oblique-material.png",
+    "sha256": "b975d9810719a9f1595fa54f693aead685f4a40b56e428711c630899ad81d943"
+  },
+  {
+    "file": "pie\\knee-30\\oblique-section-boundary.png",
+    "sha256": "7ffca7cf546e118200f09d7d3497ebf8beed90045f44b6ecd557e77a437da137"
+  },
+  {
+    "file": "pie\\knee-30\\oblique-silhouette.png",
+    "sha256": "559789ab6a493f2b3f3de13b7a7a881b10ad16aab5903e8c871ac198ea8a28bf"
+  },
+  {
+    "file": "pie\\knee-30\\oblique-unlit.png",
+    "sha256": "d78733f31df8585c691538d7db39dd2e47ff3150b877040fe2377c66c3a44111"
+  },
+  {
+    "file": "pie\\knee-30\\oblique-wireframe.png",
+    "sha256": "13fbefa998bc834d0835f119aff0eb152e01eb3caaa974193ddcb6b7601d60fb"
+  },
+  {
+    "file": "pie\\knee-30\\oblique-world-normal.png",
+    "sha256": "5fcc8e9738d8b7ca80aa2fcd594934ac7df24cdac837746e750dc44691726c29"
+  },
+  {
+    "file": "pie\\knee-30\\rear-base-color.png",
+    "sha256": "4e348bc87160ce7b817b261344b02b24dc3f3168192ee827cecf87ede2934737"
+  },
+  {
+    "file": "pie\\knee-30\\rear-gray.png",
+    "sha256": "8462f19bc9540e48499ea51b71b2224078255818853bfb5dc7327078c9dea6fd"
+  },
+  {
+    "file": "pie\\knee-30\\rear-material.png",
+    "sha256": "4a2bdd0aec20c2c480435ef2c0d8117948df9e81655b75428d0b20ee7945e922"
+  },
+  {
+    "file": "pie\\knee-30\\rear-section-boundary.png",
+    "sha256": "0881d5f479c161e135685c10e6611954ac3f139ec7b9af3ef1f409686e0a7e41"
+  },
+  {
+    "file": "pie\\knee-30\\rear-silhouette.png",
+    "sha256": "8e7524c03bc31fa37f0e2be04885fcb7ae43976bdff18228214cdabd0dd66cb8"
+  },
+  {
+    "file": "pie\\knee-30\\rear-unlit.png",
+    "sha256": "8469df1e393c0b075b362326b9a760230c14a813fdbe500a4d95eb1a96626460"
+  },
+  {
+    "file": "pie\\knee-30\\rear-wireframe.png",
+    "sha256": "c83c665168a7bfd6d4ec5c7cad30cc956b42b1f1482d584c889d042648b341a5"
+  },
+  {
+    "file": "pie\\knee-30\\rear-world-normal.png",
+    "sha256": "99b4df4cbf85ed10cc74697c43ac0e6234a404b9f6678241b51b7bf47fb9815a"
+  },
+  {
+    "file": "pie\\knee-30\\side-base-color.png",
+    "sha256": "62709ac73bee8e61d6231999de8f8de472588016e6b0bf0f74b49cc25717fd62"
+  },
+  {
+    "file": "pie\\knee-30\\side-gray.png",
+    "sha256": "38d5f2c1c56b362431135ae1ead7d011ea06592fb0df576a28d751bf81e95e8b"
+  },
+  {
+    "file": "pie\\knee-30\\side-material.png",
+    "sha256": "f7a456bfda32521df1aa744bb55e9a9404f33f38530c805bef2d843ea9296aff"
+  },
+  {
+    "file": "pie\\knee-30\\side-section-boundary.png",
+    "sha256": "486ae1cb57f733d613e00b1e0cb6cdc1d8236b1c1e586458cf3e5e780d5f072f"
+  },
+  {
+    "file": "pie\\knee-30\\side-silhouette.png",
+    "sha256": "8fd2b97a2042a93b9416a5c81e289a9b0f5ae487dbe92f246ea595b3b804f5d9"
+  },
+  {
+    "file": "pie\\knee-30\\side-unlit.png",
+    "sha256": "9de3f4c498081974f6fb937e13e24f5f92c771e6fef9038aa41e19a6de55ca46"
+  },
+  {
+    "file": "pie\\knee-30\\side-wireframe.png",
+    "sha256": "291633a7cecfd41a1d3481f6e2f034914cb7ab7c6c289774bf41d7821e290932"
+  },
+  {
+    "file": "pie\\knee-30\\side-world-normal.png",
+    "sha256": "c618a29931f8c427c5433cd144999ded43aabf74a295b7d4eb9ecd962a3c9d01"
+  },
+  {
+    "file": "pie\\knee-90\\front-base-color.png",
+    "sha256": "925cb19c82f5c9ed0036d21709d12659227e4fd7658a0eeedf9acb65e0372e54"
+  },
+  {
+    "file": "pie\\knee-90\\front-gray.png",
+    "sha256": "4285f521b39caa147ff382223acb263e738ac0569ec3f10c921a45da7c47e826"
+  },
+  {
+    "file": "pie\\knee-90\\front-material.png",
+    "sha256": "4256203a091c68cb3e847a394b5441be1d55899189c4a43b0063aa86a4bf5359"
+  },
+  {
+    "file": "pie\\knee-90\\front-section-boundary.png",
+    "sha256": "bedc0f3d580ecf3cef94637048e501c5980a927a4913bc44ff5d575173d2ebde"
+  },
+  {
+    "file": "pie\\knee-90\\front-silhouette.png",
+    "sha256": "d00bd5d0c4ed01a2fd7b14bc0303c66670faff64968f84d47e7e39f0100952cf"
+  },
+  {
+    "file": "pie\\knee-90\\front-unlit.png",
+    "sha256": "40e55fdda8c7f0da5bff6b68eb79c046ed63401995d9bbc7f361fe438454d37c"
+  },
+  {
+    "file": "pie\\knee-90\\front-wireframe.png",
+    "sha256": "8e1355323658f5a1b2b4eab20e923f3fce22014ed78dcab1e64d8878a44c321a"
+  },
+  {
+    "file": "pie\\knee-90\\front-world-normal.png",
+    "sha256": "7fd696ffd88f1017c97cbfa801a1ef9f2ae1d14feee4cb5005be5aa8ebb8c52a"
+  },
+  {
+    "file": "pie\\knee-90\\oblique-base-color.png",
+    "sha256": "a4384c7f29570da5b69b3476f1a284c15c0d55aef86756cc12a5668bcb3e83c1"
+  },
+  {
+    "file": "pie\\knee-90\\oblique-gray.png",
+    "sha256": "a3484f543119a98de796b4290970117e44a3acfbf196e2e040347b2d3196ebb9"
+  },
+  {
+    "file": "pie\\knee-90\\oblique-material.png",
+    "sha256": "927595a9bc982ce3cde145c8e358cec70777523917fe165cd45b54f7d6a5d893"
+  },
+  {
+    "file": "pie\\knee-90\\oblique-section-boundary.png",
+    "sha256": "95d493002983ee47e00c0451b6be872fa04d91f794bbb6acabcbf7d34a14d444"
+  },
+  {
+    "file": "pie\\knee-90\\oblique-silhouette.png",
+    "sha256": "42dc978b40f2a58579d6cc34b5d7581ab478def43a3cf295e244df2f5029196a"
+  },
+  {
+    "file": "pie\\knee-90\\oblique-unlit.png",
+    "sha256": "2b9cd79ba0b0e1885c19199ffdfc11b92d35d72e08bc57f9f332a8e013ff4608"
+  },
+  {
+    "file": "pie\\knee-90\\oblique-wireframe.png",
+    "sha256": "001b1992c132d909eaa9675a67687f3a7997886d96c3df3b49bba8dda152716c"
+  },
+  {
+    "file": "pie\\knee-90\\oblique-world-normal.png",
+    "sha256": "4e4f323a6d26cb1c60ac0b20a5ef748b25a745436edd3756eba1690d1f9da409"
+  },
+  {
+    "file": "pie\\knee-90\\rear-base-color.png",
+    "sha256": "77562f4ae5fe75cee31a7784726d8f2dbeb9578957eea4841742be7e41e4eea9"
+  },
+  {
+    "file": "pie\\knee-90\\rear-gray.png",
+    "sha256": "6471cc68fc8d538458a432dc2d8eec62fbeb828f6e828454d1bd17eaeb311266"
+  },
+  {
+    "file": "pie\\knee-90\\rear-material.png",
+    "sha256": "60438be0e45ff72809ba45010bc8e2b43aa8a95af5d2db9ef5fa65ec2f704a8b"
+  },
+  {
+    "file": "pie\\knee-90\\rear-section-boundary.png",
+    "sha256": "f5703dc9c4e9c151eeb2505f4b951f93fbac0add769bc4dbd806706f2729ff50"
+  },
+  {
+    "file": "pie\\knee-90\\rear-silhouette.png",
+    "sha256": "1721135955ce1c6c420f0ce0a3dd65c2dd1979f20b8b2d594a37c885ce676414"
+  },
+  {
+    "file": "pie\\knee-90\\rear-unlit.png",
+    "sha256": "36c38eb48103f986eb82ac950c25fa206bc9a0458fa3bf73895cb20a224672ba"
+  },
+  {
+    "file": "pie\\knee-90\\rear-wireframe.png",
+    "sha256": "ae8e03b638968b35be05d75952d88acaf08fb65c8a9294a7edf002b4f14427f0"
+  },
+  {
+    "file": "pie\\knee-90\\rear-world-normal.png",
+    "sha256": "159cfb9ac7a6485bcc9cac054419ce808d1cf134dd5f34ec1eaca4fc0b9f48d8"
+  },
+  {
+    "file": "pie\\knee-90\\side-base-color.png",
+    "sha256": "bc7187d0ab66575246de93f76570772aded7d2d1d050e07c4f34c2683a91c121"
+  },
+  {
+    "file": "pie\\knee-90\\side-gray.png",
+    "sha256": "d6bd5cd663cb4a770ce91a89edd49975852238d01e8400bdc5fb1d41c8695797"
+  },
+  {
+    "file": "pie\\knee-90\\side-material.png",
+    "sha256": "3c2a6fbd38449df940724d77ad31eca56a40f1c4a36b57ce29d049302a643626"
+  },
+  {
+    "file": "pie\\knee-90\\side-section-boundary.png",
+    "sha256": "db0ccaf9cccb8da23b09537152da70e8d1adf00f492d83aa826d09ba88e12044"
+  },
+  {
+    "file": "pie\\knee-90\\side-silhouette.png",
+    "sha256": "8216ad9c85ce55d6810be985c726053d888b7ae74aaf78dc8d86a72ce3a64730"
+  },
+  {
+    "file": "pie\\knee-90\\side-unlit.png",
+    "sha256": "6fdeab18e6202c099779befed9507ffa59e011f1cce47123a6828d49d0e186a3"
+  },
+  {
+    "file": "pie\\knee-90\\side-wireframe.png",
+    "sha256": "29147599edba4a7089522d2c63740038f25ffb69cd72b7a50a509161d84992de"
+  },
+  {
+    "file": "pie\\knee-90\\side-world-normal.png",
+    "sha256": "c79d9bb839f38cf73e6537dd799f54ef3fca7ce4c361e0f53aa77a65f0cecddd"
+  },
+  {
+    "file": "pie\\seated\\front-base-color.png",
+    "sha256": "b786ac7fc1c50147a2db2a3699388219250955329e94b168e31e8f9d5ef399b3"
+  },
+  {
+    "file": "pie\\seated\\front-gray.png",
+    "sha256": "25747ed98b123780b679f84f360d30c729332b5953a47755a3fdee4229569dc3"
+  },
+  {
+    "file": "pie\\seated\\front-material.png",
+    "sha256": "ea9b4a53dd0509820e807e914f706c9a94214ac947ed50eafd1a21a0fab977d5"
+  },
+  {
+    "file": "pie\\seated\\front-section-boundary.png",
+    "sha256": "c1408fd28ca6c72f1acf16518d7f362f15deb1478e7e2fb4d2ba750f6f6a3d64"
+  },
+  {
+    "file": "pie\\seated\\front-silhouette.png",
+    "sha256": "b4eb7d0d4f8f9545e6477f49e254d302eb183845f683213f67cc3046f8174436"
+  },
+  {
+    "file": "pie\\seated\\front-unlit.png",
+    "sha256": "c00fff45d35c6f28ba2451fe6290576cfa9a67df49778aa62fc33ca65de21701"
+  },
+  {
+    "file": "pie\\seated\\front-wireframe.png",
+    "sha256": "fea7f645c95f24c784b8ce7a4bedaeba2b242c4bfc4578669f7c992db4c74701"
+  },
+  {
+    "file": "pie\\seated\\front-world-normal.png",
+    "sha256": "03e6624cff552f1363b114063bd196ebd2818643a97a9e17e3d728c370f5bc53"
+  },
+  {
+    "file": "pie\\seated\\oblique-base-color.png",
+    "sha256": "20d9d67ced24e974f597e3f957c81235662b878c719823fed583f4a4819c11a7"
+  },
+  {
+    "file": "pie\\seated\\oblique-gray.png",
+    "sha256": "2f2d4f2d89c24140c27e75862476cfc63d582a6f1c3ab43aa4e7af4e70214872"
+  },
+  {
+    "file": "pie\\seated\\oblique-material.png",
+    "sha256": "29e53761f7a17befb94628d24aaec98e1d31e47e45cd97afbb5d058b9d69fbfa"
+  },
+  {
+    "file": "pie\\seated\\oblique-section-boundary.png",
+    "sha256": "6cdcf9cb9dd67c890486d7eeaf45acdd34300d31f962c82a0c1b61b80bab7408"
+  },
+  {
+    "file": "pie\\seated\\oblique-silhouette.png",
+    "sha256": "44c05b10150d0626b1a2ed8c38b5295d0a0edc3462a441455989d214503df29d"
+  },
+  {
+    "file": "pie\\seated\\oblique-unlit.png",
+    "sha256": "01711989396760ec931acb22daa3cbc96bd234bcb8d12ab3a2e05c2b2c2b3dc3"
+  },
+  {
+    "file": "pie\\seated\\oblique-wireframe.png",
+    "sha256": "10e77fa602afd5335166823ccb6c507b22cc073e69630bdd6754ccf93cf0df42"
+  },
+  {
+    "file": "pie\\seated\\oblique-world-normal.png",
+    "sha256": "f3bd57a94f100d4ac837945a660dea6236179e420b98ecc0405b6096e4c33878"
+  },
+  {
+    "file": "pie\\seated\\rear-base-color.png",
+    "sha256": "79ff7126d317ffd66833609c08728ef6c4f790ef86d90cea2c6c298b812302ee"
+  },
+  {
+    "file": "pie\\seated\\rear-gray.png",
+    "sha256": "ef7a48ff3ffd5b9236d19a4134848042c58ba5ea6c45d99be8eb836a5bf8176b"
+  },
+  {
+    "file": "pie\\seated\\rear-material.png",
+    "sha256": "00dbd077bef8ef6e39ad1edddf81f069219133b47b73319d85fb2baba2f29c17"
+  },
+  {
+    "file": "pie\\seated\\rear-section-boundary.png",
+    "sha256": "45e7ef46d2630edb92b4270e7cbbd5589e9fef1e8f6441d50100b43d5c599704"
+  },
+  {
+    "file": "pie\\seated\\rear-silhouette.png",
+    "sha256": "5968d18eaef3df0440aec26e55ffd17aa91dabc9cd91634f42c74d82355bbcb4"
+  },
+  {
+    "file": "pie\\seated\\rear-unlit.png",
+    "sha256": "1b511067fd9f3a9d5a8439c23c6707ae7af76a952d3922e8d139d23c95470e02"
+  },
+  {
+    "file": "pie\\seated\\rear-wireframe.png",
+    "sha256": "e59455182850d776ae6b51e38701b64cd55061f55a3bc6de5fd42b2c5a232f23"
+  },
+  {
+    "file": "pie\\seated\\rear-world-normal.png",
+    "sha256": "99e10a3b49babe10af936427253cb7474a400f345a16b864d1b5cb7e061e1a0d"
+  },
+  {
+    "file": "pie\\seated\\side-base-color.png",
+    "sha256": "64bc123ad21da8d57b8989eb94a2c57b3cc2caf3557feb0ce9c44a77ab74dbcb"
+  },
+  {
+    "file": "pie\\seated\\side-gray.png",
+    "sha256": "2d47ef99c6e2035bed7487b6012cd6eb76017b4e0f08269643f0dd01f0bbace9"
+  },
+  {
+    "file": "pie\\seated\\side-material.png",
+    "sha256": "cba20f5858b4a38cbf261af886835a51a64c3f8f9855ac6ce584d54a83fb7e8c"
+  },
+  {
+    "file": "pie\\seated\\side-section-boundary.png",
+    "sha256": "e290684164b941e36f5d08d64448f1848bb8c727b1abbf47f96d48d20b8d9e4f"
+  },
+  {
+    "file": "pie\\seated\\side-silhouette.png",
+    "sha256": "f568a5ea23ad5518ae9492a5c4ae09743faced6231a8474040ef318a2256457b"
+  },
+  {
+    "file": "pie\\seated\\side-unlit.png",
+    "sha256": "3cc723e669a576334b325ac400717a8b55d7f537234651777d40b7032cc246be"
+  },
+  {
+    "file": "pie\\seated\\side-wireframe.png",
+    "sha256": "4a8ea11db8e4d220c44a5028c47da14d4323845c8f3f5c4a82b8ea0154dcd6ab"
+  },
+  {
+    "file": "pie\\seated\\side-world-normal.png",
+    "sha256": "10e6174e8837445a133625145a13f528e104cc45b1e54f1833b683a2a2b69e74"
+  },
+  {
+    "file": "pie\\standing\\front-base-color.png",
+    "sha256": "d69281e891ef6698bbf641c01f7741c22327a24c07f4b05baf7e4b98b3fdde9b"
+  },
+  {
+    "file": "pie\\standing\\front-gray.png",
+    "sha256": "a4bb32b596982cea282d4615d961871f005300e5d5c85f1269d3d54a35fd3481"
+  },
+  {
+    "file": "pie\\standing\\front-material.png",
+    "sha256": "0a71a31de8417f20dbf273d7de7992d2f1fe8eb0dd75ee7c0906ecd07f02ca9d"
+  },
+  {
+    "file": "pie\\standing\\front-section-boundary.png",
+    "sha256": "f5467b6841824cfea86c08d7f92a3e5fc0432bc819a509182150484c2b910bd5"
+  },
+  {
+    "file": "pie\\standing\\front-silhouette.png",
+    "sha256": "9a1791a6aea3d513aec04a152ad434c86d3a4d057b1a3e51a7de20d468d6ddf7"
+  },
+  {
+    "file": "pie\\standing\\front-unlit.png",
+    "sha256": "3d29ef2d58727db3ea15bccbb08eb3b489220a05e6a8140992232f28766bd977"
+  },
+  {
+    "file": "pie\\standing\\front-wireframe.png",
+    "sha256": "5d6ac6490012281fce8a84484ddbd8057bacb38a09a477773b0a09ff4dd55a21"
+  },
+  {
+    "file": "pie\\standing\\front-world-normal.png",
+    "sha256": "090c39c8edc0a4037152cadd13b6b3c5caab031adb529972458019105a21e58f"
+  },
+  {
+    "file": "pie\\standing\\oblique-base-color.png",
+    "sha256": "f4412eed7efad557b1a36611faeba4fb8312515464d47cca326f6f247c4f2a94"
+  },
+  {
+    "file": "pie\\standing\\oblique-gray.png",
+    "sha256": "887045b779b62f12dc9973e477ffec6b553d58a1ea48d71006c9837a14b53280"
+  },
+  {
+    "file": "pie\\standing\\oblique-material.png",
+    "sha256": "c2f8b531f96adab7999b9cd41fb2587f7a88146d2b3c48c87cc6637c2d5e0087"
+  },
+  {
+    "file": "pie\\standing\\oblique-section-boundary.png",
+    "sha256": "f3c96c87a8e233c79dbd5d5ced570e3578cd881a0559d81a1ee1213fec255a33"
+  },
+  {
+    "file": "pie\\standing\\oblique-silhouette.png",
+    "sha256": "4073d3a0c3237f49cfce7f16f736095c60e7cfc5e80d0ee6f1cda040e2368a10"
+  },
+  {
+    "file": "pie\\standing\\oblique-unlit.png",
+    "sha256": "ad752ee7f5588c89bb520d8fa2315e91e7884dd4b2dd03ec706e1c214d3b5d6c"
+  },
+  {
+    "file": "pie\\standing\\oblique-wireframe.png",
+    "sha256": "aec21820fd5384131faf17c396233a864f17fa2b10837f6bb918eb4a92d66428"
+  },
+  {
+    "file": "pie\\standing\\oblique-world-normal.png",
+    "sha256": "c2a09470f919490179480c412574304a05234230f622c19718264f54c2b89d28"
+  },
+  {
+    "file": "pie\\standing\\rear-base-color.png",
+    "sha256": "24ee46b03178ea477f919819dbba27dc8c3fe9ffc6ff56dbed3cc8066a901ecc"
+  },
+  {
+    "file": "pie\\standing\\rear-gray.png",
+    "sha256": "af2ba17874da054248143f1a88dc83e39e17e8b81c13c37a3f10322d46e95593"
+  },
+  {
+    "file": "pie\\standing\\rear-material.png",
+    "sha256": "49cd0e254628568f81d92dd0bf7f114ab6c0f2033024a25d21a36fcdd1179d95"
+  },
+  {
+    "file": "pie\\standing\\rear-section-boundary.png",
+    "sha256": "45224e1f0f8929088b10a618a1120d8bd8261ffd0e4534f088f4070927254b7c"
+  },
+  {
+    "file": "pie\\standing\\rear-silhouette.png",
+    "sha256": "487771873d4bb3d5d4060a5eedb95826a63b3650186ed95dba3ce60029f25df7"
+  },
+  {
+    "file": "pie\\standing\\rear-unlit.png",
+    "sha256": "c0e2aec1eb5f29a1ff54f1b20dad36c4cd0bd029d31b902b7e56b1e39a1b4122"
+  },
+  {
+    "file": "pie\\standing\\rear-wireframe.png",
+    "sha256": "f33a8c7d6c01f50670fd232389b45398a054d868090f65052295d36f6de20f84"
+  },
+  {
+    "file": "pie\\standing\\rear-world-normal.png",
+    "sha256": "0a1ad7eda8c6356eddb2a1c4112f7721f4e3710ca8b3175ce9d8829e4aa5be9f"
+  },
+  {
+    "file": "pie\\standing\\side-base-color.png",
+    "sha256": "b9d5471dda36f99d0a2873540cc3c4949317bc4bd801766f0e6fa45f13feb987"
+  },
+  {
+    "file": "pie\\standing\\side-gray.png",
+    "sha256": "92c865e267a86c3f88d716ad846174daba9df32c94105ae1b1600f4acd548da6"
+  },
+  {
+    "file": "pie\\standing\\side-material.png",
+    "sha256": "e244b0454c1056f44d47d7447f2c36d839c02aee1f3d28e27a78885a74cb1859"
+  },
+  {
+    "file": "pie\\standing\\side-section-boundary.png",
+    "sha256": "35b9937dd1b4cf5bd0a2a52e861aac9bdbcf5c195686971396bade893fb3de66"
+  },
+  {
+    "file": "pie\\standing\\side-silhouette.png",
+    "sha256": "716d2ad47a740be85813f254731e1d1e7dec252b78b0351fb3bdd8609559aa2d"
+  },
+  {
+    "file": "pie\\standing\\side-unlit.png",
+    "sha256": "c114499b92c3e780eb5548aae5e300a6b308c02c12954cdb12c7131702461341"
+  },
+  {
+    "file": "pie\\standing\\side-wireframe.png",
+    "sha256": "6752660086def9417d0b6f8567d8a53d8f89ab482ac43757fd1f8941c8ac877a"
+  },
+  {
+    "file": "pie\\standing\\side-world-normal.png",
+    "sha256": "87a36039758f0faba012111fa3c3028f0e5ed6f8eda8324b44acc82e4f929d54"
+  },
+  {
+    "file": "editor\\abducted\\front-base-color.png",
+    "sha256": "51e63c2df4fb035e24c763706f980013584c9a8f63d43874d91e130d95b62599"
+  },
+  {
+    "file": "editor\\abducted\\front-gray.png",
+    "sha256": "59d865637e63536f99b8205019b066f058a865b77288376daff8b80da248fb43"
+  },
+  {
+    "file": "editor\\abducted\\front-material.png",
+    "sha256": "0a4a3720a7ff355fa3b5b5faefb5c38488aaba552f75acda71f3f49efb119b3a"
+  },
+  {
+    "file": "editor\\abducted\\front-section-boundary.png",
+    "sha256": "34db11f83d34a8f91ee26a1bc724f0ebb29d0009b2be8fa7fddeddc5a447d7b0"
+  },
+  {
+    "file": "editor\\abducted\\front-silhouette.png",
+    "sha256": "5fad0b43d3f5f170ef1fee49a0db7c05e92b3b1fef7c583f6f66d2cb4da1109d"
+  },
+  {
+    "file": "editor\\abducted\\front-unlit.png",
+    "sha256": "860a81dee7b5467293a43a824706d5390e9bfd2dff283750961918504a7d699f"
+  },
+  {
+    "file": "editor\\abducted\\front-wireframe.png",
+    "sha256": "091d5d63c90f80fc379b6eafae4884592fda1fffa48927a5f45b5d88916a4f6a"
+  },
+  {
+    "file": "editor\\abducted\\front-world-normal.png",
+    "sha256": "a5e4dabc8ba2211f0746d64a7c7beb05d54d843a125dd6b4243340cb42ebd92c"
+  },
+  {
+    "file": "editor\\abducted\\oblique-base-color.png",
+    "sha256": "d8478bc879e9a751689eab6749c8f7bdef821252e095131d14c7e17f2e587159"
+  },
+  {
+    "file": "editor\\abducted\\oblique-gray.png",
+    "sha256": "c3cfb85441ec7afc6d9d50537b687ce76c449a40b0ac3921cf1868399bdfee25"
+  },
+  {
+    "file": "editor\\abducted\\oblique-material.png",
+    "sha256": "5378be3152cb067edb40bc6f57a44854be84b78c086d80e1c1481518e2b2daca"
+  },
+  {
+    "file": "editor\\abducted\\oblique-section-boundary.png",
+    "sha256": "7a339e4207bdd03034792e11b68869ce124440a007aa1f0ed3fa914b6ba696d4"
+  },
+  {
+    "file": "editor\\abducted\\oblique-silhouette.png",
+    "sha256": "df7401be68f957bba0b97cdc93e07045463f5367f758d938e4e260c85cea2524"
+  },
+  {
+    "file": "editor\\abducted\\oblique-unlit.png",
+    "sha256": "070bab076ad475bfb873b49f4191bce670111b72a9bb59dc1ffb1ae7b74281c3"
+  },
+  {
+    "file": "editor\\abducted\\oblique-wireframe.png",
+    "sha256": "0c7317a51355e11d57c1c41c78f041f18b1bb90c1da663400c65456b27a1f9a6"
+  },
+  {
+    "file": "editor\\abducted\\oblique-world-normal.png",
+    "sha256": "7ee94a4e4f38c3dafaa741f11cc15b46ed62ef41e1430a56ca5cba1696f2312e"
+  },
+  {
+    "file": "editor\\abducted\\rear-base-color.png",
+    "sha256": "ba7770bee8cb296632bdf353ff415ebc58d19cbf28f663576bd83c3c86278add"
+  },
+  {
+    "file": "editor\\abducted\\rear-gray.png",
+    "sha256": "8f88174dc45337176cc38c2752c8412a295eaf023dfe097704005018b7ecd20b"
+  },
+  {
+    "file": "editor\\abducted\\rear-material.png",
+    "sha256": "6e92051616999a536df1be0e33441dc128b6ce50d6526e5ca773d4740fb88374"
+  },
+  {
+    "file": "editor\\abducted\\rear-section-boundary.png",
+    "sha256": "56e84c5d9364d5a0bd8f870038f0fa4677a0effeec197f80326a449e24c98788"
+  },
+  {
+    "file": "editor\\abducted\\rear-silhouette.png",
+    "sha256": "0cc4d26be8dbcc5425a2afcd21596c222f98f33630d267c1d80a7a9e9ba818c6"
+  },
+  {
+    "file": "editor\\abducted\\rear-unlit.png",
+    "sha256": "4ad7083aef6578b9b3a6be97c39e60ab170ddc3c8fd89eb77d5e1cbbf8b7c22f"
+  },
+  {
+    "file": "editor\\abducted\\rear-wireframe.png",
+    "sha256": "2ee9987a404fd8b9742e0cb8e5c6bd2cb5e5326875b7dadf6d30c6281f4028d8"
+  },
+  {
+    "file": "editor\\abducted\\rear-world-normal.png",
+    "sha256": "fd17883e94f21b61178d99057750f16098a707b403e6fa8b85c06928b15bbb1c"
+  },
+  {
+    "file": "editor\\abducted\\side-base-color.png",
+    "sha256": "4b1ed9d991323794fc846277b4e2f12cfca839eac5f0728b88a2228a341d3560"
+  },
+  {
+    "file": "editor\\abducted\\side-gray.png",
+    "sha256": "4e220a2f8c7f2671b4e515c77637ef5b785cb4fcebab994f62cdb72f7d3e48e7"
+  },
+  {
+    "file": "editor\\abducted\\side-material.png",
+    "sha256": "b4f7d701bae4850ee97ffc949e4d180ba221288f9d9cc4f5d11bcc132ee56d35"
+  },
+  {
+    "file": "editor\\abducted\\side-section-boundary.png",
+    "sha256": "9345fc098b661a78c21ca23f6e96cb821c7f3ba057deeb45cf7032fafb4b2779"
+  },
+  {
+    "file": "editor\\abducted\\side-silhouette.png",
+    "sha256": "b0cb027c23da410a4c4a6eac0ff5fb0a18ab3e28a610709e55979e61fe3656e1"
+  },
+  {
+    "file": "editor\\abducted\\side-unlit.png",
+    "sha256": "b1fc7e95695da166e908ef2367f14cbba3e4de48b878d51b24bc3069cca32d34"
+  },
+  {
+    "file": "editor\\abducted\\side-wireframe.png",
+    "sha256": "69735511d2ea92bc368179c6d732ee75072be1c20ef78582c223edda6a89bde5"
+  },
+  {
+    "file": "editor\\abducted\\side-world-normal.png",
+    "sha256": "08b27019792e0c25668cd56110a60acf5b44602618ad99dccb58a5e8d3b5cbd9"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\front-base-color.png",
+    "sha256": "0b74878ca4b0d533e264d63fc24668d7e28f954e89ebe4fdfd1b3f73068089bd"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\front-gray.png",
+    "sha256": "ebbb267e37be0c1771403e07229bd3530bcd6952a6262dcf42d3bf58c2e5042a"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\front-material.png",
+    "sha256": "5a77ca4cf314bd7158a2ad673500614f02645c24cfb6bcf298fc83310df67735"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\front-section-boundary.png",
+    "sha256": "394f8ca0692c28f74f8d311fe90e3c7bdc288a94aabda87a3df157e17b171409"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\front-silhouette.png",
+    "sha256": "ae3e21e2843d7702f0cf0b629e929a94e97aace688b45ad4d4b7cbdd81f7cd07"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\front-unlit.png",
+    "sha256": "9bf6d175596e7f2c24f951c0e0492e5aec2ca9b32655cb2b42a0e7adb5b776d5"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\front-wireframe.png",
+    "sha256": "867c5a77cc2c761b62a7bd5c3ec9b635177bb5ac4965296ba44f572fe70743b8"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\front-world-normal.png",
+    "sha256": "3cad947349d2e237a9354bebc57dcc199e726345e6ef485c28502243fa1a21dc"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\oblique-base-color.png",
+    "sha256": "5319fd4c83deae3e30cfb54561c51e2a0ce8b5050beac346e76d54f02bf9af29"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\oblique-gray.png",
+    "sha256": "2c72b17f4e300ef85bb51368485fbe0913e7a6ea2b668f663cdda0dbecb8c519"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\oblique-material.png",
+    "sha256": "5dd059f353153d0f229504e9ab3d21ffc129299ace43dd6cfb1e29acb6417c4d"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\oblique-section-boundary.png",
+    "sha256": "57bde03fb2e11a841985527e0774005785146e528575ac5f8646a843b01ab2d0"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\oblique-silhouette.png",
+    "sha256": "c6680f69b3931fbc3d6d8bd0bdaf5b46d2a44529a7b49dce8b7c43889fe49301"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\oblique-unlit.png",
+    "sha256": "406d3090ba2f2f15f39c22d45139941c5e25d695af094e90e378bfbfb6555d84"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\oblique-wireframe.png",
+    "sha256": "67bf3f9d02395f7319e5d99c118b138659022d221b00f26690fdf055627941f2"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\oblique-world-normal.png",
+    "sha256": "790f7bc7903920cda74e7687eb372c206e1ab3a109b04b549e2894f4fd3022bf"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\rear-base-color.png",
+    "sha256": "890806d455fcf380a661dece18e9811105160ecdef3445bf56660b98484156e1"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\rear-gray.png",
+    "sha256": "b9a2775f727c206712426eb69ecbb416ff3b79a958830513bc2bc7783b68a15d"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\rear-material.png",
+    "sha256": "76736a87c3a0cf5bb8b950ef49351080cdae0c6d9a97c4d6fd0ea98aab678a11"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\rear-section-boundary.png",
+    "sha256": "5e4afc721c12be0f2260f5957a778caa4f8b8b02d4a8e53609616cfeea07abb4"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\rear-silhouette.png",
+    "sha256": "8ae9601ff2aa20638afc6d0c9f4298e98b49080816a46bcd41bc4c20d36f6ab8"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\rear-unlit.png",
+    "sha256": "17a5b9c349636b47e3d348411e3ef9ebdbd1d5f3108771d7942fc822df2153a1"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\rear-wireframe.png",
+    "sha256": "81c6c9c748c3b737ed399f07dd4fb5bf2fb2dbc5c85f5f0a74c681da49eb1b11"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\rear-world-normal.png",
+    "sha256": "5f84cac7e438ecf3f96b388fd2889a438e7a4c808ed4bfdad3c9bade9aac2a6e"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\side-base-color.png",
+    "sha256": "19e9c828468110369d32419e2354c6b6df8757ef2debc3329f27d0ff12eb3d57"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\side-gray.png",
+    "sha256": "eb24ba01ae66130be0dbaa3519031cf1d8cf367cf115faf4ae33a7ed09791d6d"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\side-material.png",
+    "sha256": "6309852d012154a9598a6adf6769b1017a0b5c1fa9ab536761942211aa8519a5"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\side-section-boundary.png",
+    "sha256": "446167abd191c5f5e47701d9207eef46bde9127222809d85095cf202a377894e"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\side-silhouette.png",
+    "sha256": "30610bc26d730ce4a7698a681bb1c63f7d567795c4887bb9edf9cebda5382483"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\side-unlit.png",
+    "sha256": "ac327f3e58227aecac1f63ef4114a042e05055234b2502144c86639727d7316b"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\side-wireframe.png",
+    "sha256": "bcabda97380d7e9797a722cf1bb8d7a1a84d1c87e342061daeb80d2ca4d20838"
+  },
+  {
+    "file": "editor\\held-out-asymmetric\\side-world-normal.png",
+    "sha256": "dba6b5fae7da6855150947897809eaf6d2ad548a41f7212155e80b7baef4d11d"
+  },
+  {
+    "file": "editor\\seated\\front-base-color.png",
+    "sha256": "08aaa76843c7b7838c77d3630ff299804b27aab9fc8777b61e850cbba5e154ae"
+  },
+  {
+    "file": "editor\\seated\\front-gray.png",
+    "sha256": "ffec1d65e7435b457a58fe54feea9013891773cb0ae301b0132355889672b2e6"
+  },
+  {
+    "file": "editor\\seated\\front-material.png",
+    "sha256": "19bccd4ff42368f39069b10ee329e9c9c02d16a506d911a82347a6223c7a3e21"
+  },
+  {
+    "file": "editor\\seated\\front-section-boundary.png",
+    "sha256": "655afe42309e33f4e86ed1eb1987792b866516f0689ab36e814d269901095aa0"
+  },
+  {
+    "file": "editor\\seated\\front-silhouette.png",
+    "sha256": "1e1e444854705ae0bb5518eed75cbf1f816bee2b66b648245a00bd4ca3730cc1"
+  },
+  {
+    "file": "editor\\seated\\front-unlit.png",
+    "sha256": "5977573cece2f3f7e7ae4ca9845ca2e604e69fc317eec5df6feb00bd9751791c"
+  },
+  {
+    "file": "editor\\seated\\front-wireframe.png",
+    "sha256": "a2d2ff72823f9bc4d8ac5e85143820890018e519c15a85a3f296679868c9a69d"
+  },
+  {
+    "file": "editor\\seated\\front-world-normal.png",
+    "sha256": "92ccade72486dc50e5bc67af9155df592d5d276f9f4696c80ffd04e6bc80cc5d"
+  },
+  {
+    "file": "editor\\seated\\oblique-base-color.png",
+    "sha256": "d71151d8ea777b8be312e14ea0c52d13d3ea558198b5d07c7404497779fc117a"
+  },
+  {
+    "file": "editor\\seated\\oblique-gray.png",
+    "sha256": "ddf48587d3e6d09e61d73baf8e769ec4708e0cddb37e8e1822dd1276e15100a8"
+  },
+  {
+    "file": "editor\\seated\\oblique-material.png",
+    "sha256": "12ec723967485c4e4a09c6cbc40f704d8d40915d819afe505048006efdff31c9"
+  },
+  {
+    "file": "editor\\seated\\oblique-section-boundary.png",
+    "sha256": "e7819ee92eeec0592b45b52fbefeced89b606e45145631d55f0e1729b27f944c"
+  },
+  {
+    "file": "editor\\seated\\oblique-silhouette.png",
+    "sha256": "bee2ed0c21938c222b8e11d0b55ee4da07f4632f9257e9a01aa809cf3a260a20"
+  },
+  {
+    "file": "editor\\seated\\oblique-unlit.png",
+    "sha256": "8a21a49788eb1077a40efe82072fa0934aaa2b8fd0ec0398d1241e00964c1dc3"
+  },
+  {
+    "file": "editor\\seated\\oblique-wireframe.png",
+    "sha256": "adae02e1fd35decb91cf3dd17320e7ff39777935ec12329e27d99f9be4d7c216"
+  },
+  {
+    "file": "editor\\seated\\oblique-world-normal.png",
+    "sha256": "a9a85ddbfd493f3ddafa69b3db4cf72b69c2826b34a3ffec6d48203c9f916ec6"
+  },
+  {
+    "file": "editor\\seated\\rear-base-color.png",
+    "sha256": "a11d9b6e4b05501e3c9ea0c09c72e971e0551af9674e960375b1e3ca1a7e9aec"
+  },
+  {
+    "file": "editor\\seated\\rear-gray.png",
+    "sha256": "3bf5401d771dbea4086e4967b203a5a92b8716c2f507d831b6db88040eb9ad82"
+  },
+  {
+    "file": "editor\\seated\\rear-material.png",
+    "sha256": "9e83871b3b6b51b9dfe3823d2c0a425cf8dfb1b32b7f0e3b77470d29bd91e578"
+  },
+  {
+    "file": "editor\\seated\\rear-section-boundary.png",
+    "sha256": "12cfe5674c4fa243c36a6d9c80f5c691fec72b76faf2b2b697192763da3d7908"
+  },
+  {
+    "file": "editor\\seated\\rear-silhouette.png",
+    "sha256": "ded2a87c26a0e031cdb014b9407f6e97fef89fb8c4a2c7460cfe55fb5f79efbf"
+  },
+  {
+    "file": "editor\\seated\\rear-unlit.png",
+    "sha256": "e4d2716d09b9530884a4a0f48c9b4d30b4bd4bbef4baa17b901e050d243bfb59"
+  },
+  {
+    "file": "editor\\seated\\rear-wireframe.png",
+    "sha256": "5859edbeac49b7f109935ea414ee0ca2e40bee0a00db7732b8d88f44fad9a36d"
+  },
+  {
+    "file": "editor\\seated\\rear-world-normal.png",
+    "sha256": "cf78f3f8e2b3972c7dd1313002bbe0fc54140b1d01832592f6c5028a57d061cc"
+  },
+  {
+    "file": "editor\\seated\\side-base-color.png",
+    "sha256": "0948bdab4a89a5133b5a0ead146914fffe05412f341f2d414dd0112cbb381d59"
+  },
+  {
+    "file": "editor\\seated\\side-gray.png",
+    "sha256": "3a10e00ae3237a6777777aebf6a31e07a9706c7ed765a26001707282721bf2c1"
+  },
+  {
+    "file": "editor\\seated\\side-material.png",
+    "sha256": "09e56e125ea78d2cb87cb7498c0f897679dc205f8d4da99658b3b9efa003311e"
+  },
+  {
+    "file": "editor\\seated\\side-section-boundary.png",
+    "sha256": "88108f53e87d9da36f81b6d21a9a9983dfdaa22ba3e9cf3e8ed31f88c924d8ab"
+  },
+  {
+    "file": "editor\\seated\\side-silhouette.png",
+    "sha256": "40d6d828f4b710664fd92ac3a17e39f635a0424432b71e122ee7a03d48ac3eb3"
+  },
+  {
+    "file": "editor\\seated\\side-unlit.png",
+    "sha256": "652edc4ad270488759ff2fa55bfaea59a44d4714bb3fd044844ae018076a2e4a"
+  },
+  {
+    "file": "editor\\seated\\side-wireframe.png",
+    "sha256": "8d4c40b5a4b39844babfb714422eb30bb2ac0208f5d40d3ffb2b8b2b1251fc86"
+  },
+  {
+    "file": "editor\\seated\\side-world-normal.png",
+    "sha256": "d41fcaca63bd8b03ebff4f4416a3818923f3f97dd1c7df469d7f6e0859d3f711"
+  },
+  {
+    "file": "editor\\standing\\front-base-color.png",
+    "sha256": "db34eb0ad7a6fac366a247bcaf82492f8867bacbb9a8585f12dff1c4eb248ccf"
+  },
+  {
+    "file": "editor\\standing\\front-gray.png",
+    "sha256": "f9ed2b13a0cdd34e0eeb6795e54b5e58c67f474e2b653b48c2707f7b43f42fe4"
+  },
+  {
+    "file": "editor\\standing\\front-material.png",
+    "sha256": "076ce0127ee95db28ddec1762f18a17643b1d0f3e53fe5d2c3ee1be2d9ca417c"
+  },
+  {
+    "file": "editor\\standing\\front-section-boundary.png",
+    "sha256": "27f41ec444757757080bad7718759dc698f07f7a0040b79b052384cfccdb9aff"
+  },
+  {
+    "file": "editor\\standing\\front-silhouette.png",
+    "sha256": "90071a3dd43800980099161a04fdfcf923dc40d9fcdceeb3595e0a79b1faf6a8"
+  },
+  {
+    "file": "editor\\standing\\front-unlit.png",
+    "sha256": "9439e67262c9f7b2dbf91717e5f81ab249425fc3bf15cb06027bf0b62384e8f4"
+  },
+  {
+    "file": "editor\\standing\\front-wireframe.png",
+    "sha256": "acf940a8567e51093e2144f3aa890312c0372ef062ac8a6c9dfa04a5920fe009"
+  },
+  {
+    "file": "editor\\standing\\front-world-normal.png",
+    "sha256": "a613ff63095b58a5461074759520d4d3e117a8bd002e779351b0bd5fbb9b35e5"
+  },
+  {
+    "file": "editor\\standing\\oblique-base-color.png",
+    "sha256": "c7028bf6988ef2f8172139bf4ab78d1a3449e643495a5bf0a2822e83c6282e33"
+  },
+  {
+    "file": "editor\\standing\\oblique-gray.png",
+    "sha256": "246bb264c3c1bb861c4809e073dbb2a8a23f3fe3638a3bc6d25f6ac5de329eaa"
+  },
+  {
+    "file": "editor\\standing\\oblique-material.png",
+    "sha256": "6413be151cf11881b17709d3514b31f4c09b0111a8decd27673abe29ae7b63a0"
+  },
+  {
+    "file": "editor\\standing\\oblique-section-boundary.png",
+    "sha256": "a4452a943e5553fe17c226dcdfa57912d69e2e57107d9a745cf04c8eba07967f"
+  },
+  {
+    "file": "editor\\standing\\oblique-silhouette.png",
+    "sha256": "4859a8015584a2f165f37c771d89cd67d085711e5aaa1b05efbbb3276b067aec"
+  },
+  {
+    "file": "editor\\standing\\oblique-unlit.png",
+    "sha256": "e41d34b695e6efd3f6f66a9ddded2e27fc2c3207903fa8f8672286171e0a6c80"
+  },
+  {
+    "file": "editor\\standing\\oblique-wireframe.png",
+    "sha256": "257390d5a3aff1452d5a734cff335e12f4924daa8a080163c21c367363d4701c"
+  },
+  {
+    "file": "editor\\standing\\oblique-world-normal.png",
+    "sha256": "b6dfd249ea70d7cf6015f98b7e6c0c61538b5255036a5830e72c11bb749df049"
+  },
+  {
+    "file": "editor\\standing\\rear-base-color.png",
+    "sha256": "35b66a21997e68da6415637366838e4a397f1c4289ae93a2ca5d5d12f5e5a1a1"
+  },
+  {
+    "file": "editor\\standing\\rear-gray.png",
+    "sha256": "64473686f94ba723544927b07fc640014d7575c5041cee15a2555c028e6018db"
+  },
+  {
+    "file": "editor\\standing\\rear-material.png",
+    "sha256": "6ab4cd1bdc9f7e00e04c75689fc614956365e2296e38ba339265a937ce12b879"
+  },
+  {
+    "file": "editor\\standing\\rear-section-boundary.png",
+    "sha256": "ebcb8cd7b5319817e724514a2b24e76ba97a579c0cc970599978f2ecd8285394"
+  },
+  {
+    "file": "editor\\standing\\rear-silhouette.png",
+    "sha256": "eb92206f2c9db33d0c22120683aacdfeb392fbf31150dc5c5db6b0fcab1e87a8"
+  },
+  {
+    "file": "editor\\standing\\rear-unlit.png",
+    "sha256": "c6656cbb2d1a34dd3cdd7cd1002a972542659173e90309de9024cc45aa31eb23"
+  },
+  {
+    "file": "editor\\standing\\rear-wireframe.png",
+    "sha256": "1eaf2dbec8e143acd39a6601b7b30d8832f5c2cc37c41d5bb01f619f23910d68"
+  },
+  {
+    "file": "editor\\standing\\rear-world-normal.png",
+    "sha256": "58e38914b80cb795dd180b9a90b7abf464563aab4dc936029217035f0066e964"
+  },
+  {
+    "file": "editor\\standing\\side-base-color.png",
+    "sha256": "ba786098828468b555e9cadabd5564498bab5d2ff49d0128b4a35ce9b3e31fab"
+  },
+  {
+    "file": "editor\\standing\\side-gray.png",
+    "sha256": "35b873bc8a03153117e9eabb3a366348b481fccf025abf8c9a72b6da17828e71"
+  },
+  {
+    "file": "editor\\standing\\side-material.png",
+    "sha256": "b5c237436cca85f93aa29ca0bd5bde8e4957e7492fcfb89048fcc00c51795880"
+  },
+  {
+    "file": "editor\\standing\\side-section-boundary.png",
+    "sha256": "85a0bfa031f1057a8b0769431d3a5f5f496ca8a616c76303afb86c2e1999216e"
+  },
+  {
+    "file": "editor\\standing\\side-silhouette.png",
+    "sha256": "e87c7d70a8411cb3875e41a89872d688799b8ccb51a5f02eebef1d9b9a5e6a3f"
+  },
+  {
+    "file": "editor\\standing\\side-unlit.png",
+    "sha256": "97229ca542be7cfc5e9668f8a8888b0febf3f74c7000edb9facde394d46235ca"
+  },
+  {
+    "file": "editor\\standing\\side-wireframe.png",
+    "sha256": "603cd4f85ec16b54930537357cd316d8b7369ff070f5a6ecf768701272a92c82"
+  },
+  {
+    "file": "editor\\standing\\side-world-normal.png",
+    "sha256": "c5345a0fc1301e8c3d39d4535aa36a4092d55c2b3a5bb1afc81b8350a47701d0"
+  }
+]
