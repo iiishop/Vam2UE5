@@ -11,6 +11,7 @@
 #include "Engine/TextureStreamingTypes.h"
 
 #include "VamUnsafeMorphDiagnostic.h"
+#include "VamLocomotionCapture.h"
 
 // Explicit opt-in acceptance capture. Never runs during ordinary character play.
 static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,UWorld* World,USceneCaptureComponent2D* Capture,const FString& Directory,TFunctionRef<void()> Tick)
@@ -105,6 +106,7 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
   int32 VideoFrames=0;C->TryGetNumberField(TEXT("video_frames"),VideoFrames);
   if(VideoFrames>0)
   {
+   FString LocomotionAction;C->TryGetStringField(TEXT("video_action"),LocomotionAction);if(LocomotionAction==TEXT("locomotion")){if(!VamCaptureLocomotion(Test,Actor,World,Capture,CaseDir,Tick))return false;continue;}
    bool LegPipeline=false;C->TryGetBoolField(TEXT("leg_pipeline"),LegPipeline);FString Direction;C->TryGetStringField(TEXT("video_direction"),Direction);const FVector MotionDirection=Direction==TEXT("front")?Initial.TransformVectorNoScale(Front):FVector::UpVector;
    const FVector Start=Initial.GetLocation();Actor->SetActorLocation(Start);Actor->ResetDeformationAuditState();
    bool PosePreloadProbe=false;C->TryGetBoolField(TEXT("leg_pose_preload_probe"),PosePreloadProbe);

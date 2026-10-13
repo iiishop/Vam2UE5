@@ -1,0 +1,66 @@
+{
+  "asset": {
+    "identity": "843374e7df2fa61a960032b3ea36d5df34558ee2d9f3b7fca1f3363615fee5f8",
+    "configuration": "/Game/VamLegResearchV1/Runtime/R_843374e7df2fa61a960032b3/RC_Runtime",
+    "blueprint": "/Game/VamLegResearchV1/Runtime/R_843374e7df2fa61a960032b3/BP_VamCharacter.BP_VamCharacter"
+  },
+  "frames": 480,
+  "seconds": 16,
+  "world": "PIE",
+  "glute_enabled": true,
+  "leg_enabled": true,
+  "finite_bones": true,
+  "same_camera": true,
+  "same_trajectory": true,
+  "primary_bones_max_difference": 0.02912622223951722,
+  "distance_cm": 2620,
+  "walk_cm_s": 160,
+  "run_cm_s": 400,
+  "groups": {
+    "glute": {
+      "helper_count": 12,
+      "max_output_offset_cm": 5.104446671684341,
+      "peak_time": 10.6,
+      "peak_bone": "R_Glute_Lower",
+      "max_offset_after_13s_cm": 0.04157553111614128,
+      "max_offset_final_second_cm": 0.0006264597480963843,
+      "walking_max_cm": 4.336458387151509,
+      "running_max_cm": 4.6058310672239
+    },
+    "thigh": {
+      "helper_count": 12,
+      "max_output_offset_cm": 2.1053703987018006,
+      "peak_time": 7.3,
+      "peak_bone": "L_Thigh_Hamstrings",
+      "max_offset_after_13s_cm": 0.00183634483416002,
+      "max_offset_final_second_cm": 0.00180074025386379,
+      "walking_max_cm": 2.001651433349857,
+      "running_max_cm": 2.1053703987018006
+    },
+    "calf": {
+      "helper_count": 12,
+      "max_output_offset_cm": 1.5080007833124964,
+      "peak_time": 6.7,
+      "peak_bone": "R_Calf_Soleus",
+      "max_offset_after_13s_cm": 0.004677499839506686,
+      "max_offset_final_second_cm": 0.004677122635491656,
+      "walking_max_cm": 1.4948104921404703,
+      "running_max_cm": 1.5080007833124964
+    }
+  },
+  "solver_limit_corrections": {
+    "leg": 0,
+    "glute": 0
+  },
+  "retarget": {
+    "walk": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd.MF_Unarmed_Walk_Fwd",
+    "run": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd.MF_Unarmed_Jog_Fwd",
+    "walk_play_rate": 0.48612289185502855,
+    "run_play_rate": 0.6073085243634053,
+    "retarget_clamp_count": 821,
+    "max_clamp_degrees": 55.36585630701906
+  },
+  "primary_position_max_cm": 0.0420708510033202,
+  "primary_rotation_matrix_element_max": 0.0009418726971215374,
+  "comparison_scope": "Independent sequential PIE clips. Not bit-identical: report primary pose mismatch. Visual comparison tolerance 0.05 cm translation and 0.002 rotation-matrix elements; do not infer sub-mm surface differences from this comparison."
+}
