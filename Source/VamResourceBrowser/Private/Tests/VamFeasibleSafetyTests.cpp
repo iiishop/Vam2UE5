@@ -54,5 +54,13 @@ bool FVamJointFamilySafetyTest::RunTest(const FString&)
  FGluteJointSafety FS(Fan,FanGoal,FanAliases);FS.AddScene(FP,{1},FanZero,false,true);TestTrue(TEXT("Locked centre remains protected"),FS.Solve());
  for(int V=1;V<5;++V)TestTrue(TEXT("Safe outer vertex is not frozen by its locked neighbour"),FS.Alpha[0][V]>.99999);
  TestTrue(TEXT("Full original checks still pass for fan"),FS.AllValid(false));
+ // The final composed surface can be safe even when a scalar attenuation
+ // gradient exceeds the former surrogate budget. Test the surface itself.
+ auto SurfaceGoals=FanGoal;SurfaceGoals[0].Init(FVector(0,0,1),5);SurfaceGoals[0][0]=FVector(0,0,5);
+ FGluteJointSafety SurfaceOnly(Fan,SurfaceGoals,FanAliases);SurfaceOnly.AddScene(FP,{1},FanZero,false,true);
+ TestTrue(TEXT("Surface-constrained recovery succeeds"),SurfaceOnly.Solve());
+ for(int V=1;V<5;++V)TestTrue(TEXT("Safe actual surface is not reduced by a surrogate mask gradient"),SurfaceOnly.Alpha[0][V]>.99999);
+ TestTrue(TEXT("All actual surface predicates still hold"),SurfaceOnly.AllValid(false));
+
  return true;
 }

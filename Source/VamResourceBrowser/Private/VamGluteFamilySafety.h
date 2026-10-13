@@ -11,7 +11,7 @@ inline bool JointFamilySafety=false;
 // therefore cannot erase an earlier pose's recovery. This is a bake-time solver.
 struct FGluteJointSafety
 {
-    struct FPose { TArray<FMatrix> Skin;FDeltaField Base,Normals; };
+    struct FPose { TArray<FMatrix> Skin;FDeltaField Base,Normals;FVector LeftDegrees=FVector::ZeroVector,RightDegrees=FVector::ZeroVector; };
     struct FScene
     {
         TSharedPtr<FPose> Pose;TArray<double> Weights;int AxisTarget=INDEX_NONE;
@@ -66,19 +66,19 @@ struct FGluteJointSafety
             S.Margins[F]=FMath::Clamp(.05+(FMath::Min(Area,Signed)-.05)*.5,.05,.051);
         }
     }
-    bool ValidScene(const FScene& S,const TArray<int>& CheckFaces,const TArray<int>& Vertices,bool Strict)const
+    bool ValidScene(const FScene& S,const TArray<int>& CheckFaces,const TArray<int>& Vertices,bool Strict,FString* Reason=nullptr)const
     {
-        for(int V:Vertices)if(S.Native[V].ContainsNaN() || (!S.Native[V].IsNearlyZero(1.e-8)&&FMath::Abs(S.Pose->Skin[V].Determinant())<.01))return false;
+        for(int V:Vertices)if(S.Native[V].ContainsNaN() || (!S.Native[V].IsNearlyZero(1.e-8)&&FMath::Abs(S.Pose->Skin[V].Determinant())<.01)){if(Reason)*Reason=TEXT("nonfinite_or_singular");return false;}
         const auto& P=S.Pose->Base;
         for(int Face:CheckFaces)
         {
             const int T=Face*3,A=Input.Triangles[T],B=Input.Triangles[T+1],C=Input.Triangles[T+2];
-            if(!TriangleSafe(P[A],P[B],P[C],S.Delta[A],S.Delta[B],S.Delta[C],1,Strict?S.Margins[Face]:.05))return false;
+            if(!TriangleSafe(P[A],P[B],P[C],S.Delta[A],S.Delta[B],S.Delta[C],1,Strict?S.Margins[Face]:.05)){if(Reason)*Reason=FString::Printf(TEXT("triangle_%d"),Face);return false;}
             for(int K=0;K<3;++K)
             {
                 const int U=Input.Triangles[T+K],V=Input.Triangles[T+(K+1)%3];const double Limit=FMath::Max(.15,(Input.Vertices[U]-Input.Vertices[V]).Size()*3);
                 const double Reserve=Strict?FMath::Min(Limit*.0001,FMath::Max(0.,Limit-(S.Fixed[U]-S.Fixed[V]).Size())*.5):0;
-                if((S.Native[U]-S.Native[V]).Size()>=Limit-Reserve)return false;
+                if((S.Native[U]-S.Native[V]).Size()>=Limit-Reserve){if(Reason)*Reason=FString::Printf(TEXT("native_edge_%d_%d"),U,V);return false;}
             }
             if(S.Continuity)
             {
@@ -89,7 +89,7 @@ struct FGluteJointSafety
                     const double Relaxed=FMath::Min(BaseDot,FMath::Cos(FMath::DegreesToRadians(30.)))-1.e-6;
                     double Limit=Strict?FMath::Min(BaseDot,FMath::Cos(FMath::DegreesToRadians(29.5)))-1.e-8:Relaxed;
                     if(Strict&&S.HasFixed)Limit=FMath::Min(Limit,(FVector::DotProduct(S.FixedNormals[Face],S.FixedNormals[Other])+Relaxed)*.5);
-                    if(FVector::DotProduct(N,Normal(S,Other,S.Delta))<Limit)return false;
+                    if(FVector::DotProduct(N,Normal(S,Other,S.Delta))<Limit){if(Reason)*Reason=FString::Printf(TEXT("continuity_%d_%d"),Face,Other);return false;}
                 }
             }
         }
@@ -123,11 +123,10 @@ struct FGluteJointSafety
         auto Test=[&](double Amount)
         {
             for(const auto& V:Variables)for(int P:Members[V.Root])Alpha[V.Target][P]=V.Before+(1-V.Before)*Amount;
-            for(const auto& V:Variables)for(int N:Neighbors[V.Root])
-            {
-                const double Amplitude=FMath::Min(Goals[V.Target][V.Root].Size(),Goals[V.Target][N].Size());
-                if(FMath::Abs(Alpha[V.Target][V.Root]-Alpha[V.Target][N])*Amplitude>(Input.Vertices[V.Root]-Input.Vertices[N]).Size()*.4999+1.e-10)return false;
-            }
+            // Judge the resulting posed surfaces, not the gradient of a scalar
+            // mask. A mask bound can propagate a distant restriction even when
+            // the actual geometry remains continuous. All triangle, native-edge,
+            // inverse-conditioning and composed-continuity checks below remain.
             std::atomic<bool> Good{true};ParallelFor(Scenes.Num(),[&](int C)
             {
                 const auto& Q=Trial[C];if(!Q.Active)return;auto& S=Scenes[C];
@@ -138,6 +137,26 @@ struct FGluteJointSafety
         double Lo=1;if(!Test(1)){Lo=0;double Hi=1;for(int Step=0;Step<20;++Step){const double M=(Lo+Hi)*.5;if(Test(M))Lo=M;else Hi=M;}if(!Test(Lo)){UE_LOG(LogTemp,Error,TEXT("GLUTE_JOINT_ACCEPTANCE_LOST"));return -1;}}
         double Gain=0;for(const auto& V:Variables)Gain=FMath::Max(Gain,Alpha[V.Target][V.Root]-V.Before);return Gain;
     }
+    void TraceBindings()
+    {
+        TSet<int> Selected;for(int V:SafetyTraceVertices)if(Rep.IsValidIndex(V))Selected.Add(Rep[V]);
+        for(int R:Selected)for(int K=0;K<Goals.Num();++K)
+        {
+            if(Alpha[K][R]>.95 || Goals[K][R].Size()<.01)continue;
+            const double Step=.0001;int Rejections=0;const auto& Vertices=Members[R];const auto& CheckFaces=Faces[R];
+            for(int C=0;C<Scenes.Num();++C)
+            {
+                auto& S=Scenes[C];const double W=S.AxisTarget>=0?(S.AxisTarget==K?1.:0.):S.Weights[K];if(W==0)continue;
+                FDeltaField SavedNative,SavedDelta;
+                for(int V:Vertices){SavedNative.Add(S.Native[V]);SavedDelta.Add(S.Delta[V]);const FVector D=(S.AxisTarget>=0?S.AxisGoal[V]:Goals[K][V])*(W*Step);S.Native[V]+=D;S.Delta[V]+=FVector(S.Pose->Skin[V].TransformVector(D));}
+                FString Why;const bool Valid=ValidScene(S,CheckFaces,Vertices,true,&Why);
+                for(int J=0;J<Vertices.Num();++J){S.Native[Vertices[J]]=SavedNative[J];S.Delta[Vertices[J]]=SavedDelta[J];}
+                if(!Valid){if(Rejections<3)UE_LOG(LogTemp,Display,TEXT("GLUTE_BINDING target=%d input=%d alpha=%.9g scene=%d axis=%d L=%s R=%s reason=%s"),K,R,Alpha[K][R],C,S.AxisTarget,*S.Pose->LeftDegrees.ToString(),*S.Pose->RightDegrees.ToString(),*Why);++Rejections;}
+            }
+            if(!Rejections)UE_LOG(LogTemp,Display,TEXT("GLUTE_BINDING_FREE target=%d input=%d alpha=%.9g goal_cm=%.9g"),K,R,Alpha[K][R],Goals[K][R].Size());
+        }
+    }
+
     bool Solve()
     {
         for(const auto& Field:Goals)for(const auto& V:Field)if(V.ContainsNaN())return false;
@@ -175,6 +194,7 @@ struct FGluteJointSafety
                 else for(int K=0;K<Goals.Num();++K)if(S.Weights[K]!=0)S.Native[V]+=Goals[K][V]*(S.Weights[K]*Alpha[K][V]);
             S.Delta=Apply(S.Pose->Skin,S.Native);
         }
+        TraceBindings();
         if(!AllValid(false)){UE_LOG(LogTemp,Error,TEXT("GLUTE_JOINT_FINAL_UNSAFE"));return false;}return true;
     }
 };
@@ -188,7 +208,7 @@ inline bool ConditionTargetFamily(const FVamNativeMeshInput& I,const UVamGluteSt
     auto GetPose=[&](const FVector& L,const FVector& R) -> TSharedPtr<FGluteJointSafety::FPose>
     {
         for(const auto& E:Cache)if(E.L==L&&E.R==R)return E.Data;
-        auto D=MakeShared<FGluteJointSafety::FPose>();D->Skin=Skin(I,I.Influences,Bind,Pose(I,G,Bind,L,R,true));D->Base=Apply(D->Skin,I.Vertices,true);
+        auto D=MakeShared<FGluteJointSafety::FPose>();D->LeftDegrees=L;D->RightDegrees=R;D->Skin=Skin(I,I.Influences,Bind,Pose(I,G,Bind,L,R,true));D->Base=Apply(D->Skin,I.Vertices,true);
         for(int T=0;T<I.Triangles.Num();T+=3)D->Normals.Add(FVector::CrossProduct(D->Base[I.Triangles[T+1]]-D->Base[I.Triangles[T]],D->Base[I.Triangles[T+2]]-D->Base[I.Triangles[T]]).GetSafeNormal());
         Cache.Add({L,R,D});return D;
     };
