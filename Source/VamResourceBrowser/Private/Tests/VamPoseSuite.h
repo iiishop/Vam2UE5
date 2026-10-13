@@ -41,6 +41,7 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
  int CaseIndex=0;FString Only;FParse::Value(FCommandLine::Get(),TEXT("VamPoseCase="),Only);
  for(const auto& Value:Recipe->GetArrayField(TEXT("cases"))){const auto C=Value->AsObject();const FString Id=C->GetStringField(TEXT("id"));if(!Only.IsEmpty()&&Only!=Id)continue;
   bool Dynamic=false;C->TryGetBoolField(TEXT("jiggle"),Dynamic);Actor->BreastContact->SetContactEnabled(false);Actor->BodyContactResponse->bEnabled=false;Body->bJiggleEnabled=Body->bGluteJiggleEnabled=Body->bLegJiggleEnabled=Dynamic;
+  C->TryGetBoolField(TEXT("breast_jiggle"),Body->bJiggleEnabled);C->TryGetBoolField(TEXT("glute_jiggle"),Body->bGluteJiggleEnabled);C->TryGetBoolField(TEXT("leg_jiggle"),Body->bLegJiggleEnabled);
   double Coherence=.75;C->TryGetNumberField(TEXT("glute_coherence"),Coherence);Body->GluteCoherence=FMath::Clamp(Coherence,0.,1.);
   Actor->Character->ResetDebugBoneOffsets();Actor->Character->ResetPoseControlRotations();Actor->Character->SetFootLocked(TEXT("left_foot"),false);Actor->Character->SetFootLocked(TEXT("right_foot"),false);Actor->Character->ClearIKGoal(TEXT("pelvis"));
   bool Structure=true,Corrective=true;C->TryGetBoolField(TEXT("structure"),Structure);C->TryGetBoolField(TEXT("corrective"),Corrective);Body->bGluteEnabled=Structure;Body->bCorrectiveEnabled=Corrective;
@@ -61,6 +62,7 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
    }
   }
   Report->SetArrayField(TEXT("joint_limits"),Limits);Report->SetBoolField(TEXT("limited"),Clamped);
+  Report->SetBoolField(TEXT("glute_jiggle_enabled"),Body->bGluteJiggleEnabled);Report->SetBoolField(TEXT("leg_jiggle_enabled"),Body->bLegJiggleEnabled);Report->SetBoolField(TEXT("breast_jiggle_enabled"),Body->bJiggleEnabled);
   for(int I=0;I<10;++I)Tick();
   bool SoftContact=false;C->TryGetBoolField(TEXT("soft_contact"),SoftContact);const bool Contact=C->GetBoolField(TEXT("contact"));const bool SolveContact=Contact||SoftContact;Actor->BreastContact->bWorldCollision=!SoftContact;Seat->SetVisibility(Contact);Seat->SetCollisionEnabled(Contact?ECollisionEnabled::QueryAndPhysics:ECollisionEnabled::NoCollision);
   FBox Region(ForceInit);for(const auto& S:Body->GluteRest)for(int I=0;I<S.RegionPoints.Num();++I)if(S.RegionWeights[I]>.35)Region+=Body->GetComponentSpaceTransforms()[S.AnchorBone].TransformPosition(S.RegionPoints[I]);
@@ -98,6 +100,29 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
   Report->SetArrayField(TEXT("texture_residency"),TextureState);Report->SetBoolField(TEXT("streaming_view_supplied"),FParse::Param(FCommandLine::Get(),TEXT("VamPoseStreaming")));
   Report->SetArrayField(TEXT("cameras"),Cameras);Report->SetNumberField(TEXT("width"),Capture->TextureTarget->SizeX);Report->SetNumberField(TEXT("height"),Capture->TextureTarget->SizeY);Report->SetBoolField(TEXT("temporal_aa"),false);Report->SetBoolField(TEXT("motion_blur"),false);Report->SetNumberField(TEXT("exposure_bias"),2);Report->SetNumberField(TEXT("fixed_dt"),1./60.);Report->SetNumberField(TEXT("settle_frames"),Settle);Report->SetStringField(TEXT("acceptance"),SolveContact&&Actor->BreastContact->GetActiveSolverCount()==0?TEXT("blocked_contact_solver_inactive"):Clamped?TEXT("captured_with_limit_reduction"):TEXT("captured"));Save(CaseDir/TEXT("state.json"),Report);Results.Add(MakeShared<FJsonValueObject>(Report));
   for(int I=0;I<OriginalMaterials.Num();++I)Body->SetMaterial(I,OriginalMaterials[I]);Capture->CaptureSource=SCS_FinalColorLDR;Capture->ShowFlags=Flags;for(int I=0;I<Components.Num();++I)Components[I]->SetComponentTickEnabled(Enabled[I]);UE_LOG(LogTemp,Display,TEXT("A2_POSE %s limited=%d contact=%d solver=%d"),*Id,Clamped,Contact,Actor->BreastContact->GetActiveSolverCount());++CaseIndex;
+  // Opt-in real-time-sequence evidence using the same normal character, camera
+  // and solver. Encoding uses fixed simulated time, not capture wall time.
+  int32 VideoFrames=0;C->TryGetNumberField(TEXT("video_frames"),VideoFrames);
+  if(VideoFrames>0)
+  {
+   const FVector Start=Initial.GetLocation();Actor->SetActorLocation(Start);Actor->ResetDeformationAuditState();for(int I=0;I<120;++I)Tick();
+   const FVector Center=Initial.TransformPosition(ViewCenter),Eye=Initial.TransformPosition(ViewCenter+(Front+Right).GetSafeNormal()*230);
+   Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((Center-Eye).GetSafeNormal(),Initial.TransformVectorNoScale(Up)).Rotator());
+   const FString VideoDir=CaseDir/TEXT("video");IFileManager::Get().MakeDirectory(*VideoDir,true);TArray<TSharedPtr<FJsonValue>> Samples;
+   for(int I=0;I<VideoFrames;++I)
+   {
+    const double Ramp=FMath::Clamp(I/30.,0.,1.),Z=I<180?MotionAmplitude*Ramp*Ramp*(3-2*Ramp)*FMath::Sin(2*PI*I/60.):0;
+    Actor->SetActorLocation(Start+FVector(0,0,Z));Tick();
+    if(I%2==0)
+    {
+     Capture->CaptureScene();ENQUEUE_RENDER_COMMAND(VamJiggleVideoFence)([](FRHICommandListImmediate& Cmd){Cmd.SubmitAndBlockUntilGPUIdle();});FlushRenderingCommands();
+     FBufferArchive PNG;Test.TestTrue(TEXT("Jiggle video PNG export"),FImageUtils::ExportRenderTarget2DAsPNG(Capture->TextureTarget,PNG));Test.TestTrue(TEXT("Jiggle video frame save"),FFileHelper::SaveArrayToFile(PNG,*(VideoDir/FString::Printf(TEXT("frame-%04d.png"),I/2))));
+     auto Sample=MakeShared<FJsonObject>();Sample->SetNumberField(TEXT("frame"),I/2);Sample->SetNumberField(TEXT("time_seconds"),I/60.);Sample->SetNumberField(TEXT("root_z_cm"),Z);TArray<TSharedPtr<FJsonValue>> Nodes;
+     const auto& Current=Body->GetComponentSpaceTransforms();for(int B=0;B<Current.Num();++B)if(Ref.GetBoneName(B).ToString().Contains(TEXT("_Thigh_"))||Ref.GetBoneName(B).ToString().Contains(TEXT("_Glute_"))){auto N=MakeShared<FJsonObject>();N->SetStringField(TEXT("bone"),Ref.GetBoneName(B).ToString());N->SetArrayField(TEXT("matrix"),Matrix(Current[B]));Nodes.Add(MakeShared<FJsonValueObject>(N));}Sample->SetArrayField(TEXT("helper_matrices"),Nodes);Samples.Add(MakeShared<FJsonValueObject>(Sample));
+    }
+   }
+   auto Video=MakeShared<FJsonObject>();Video->SetStringField(TEXT("protocol"),TEXT("120 frames stationary warmup; 0-3s 1Hz vertical excitation with 0.5s onset ramp; 3s stop; remainder free decay. dt=1/60, images every 2 frames, encode 30fps. Contact off unless recipe enables it."));Video->SetArrayField(TEXT("samples"),Samples);Save(CaseDir/TEXT("video.json"),Video);
+  }
  }
  auto Summary=MakeShared<FJsonObject>();Summary->SetStringField(TEXT("schema"),TEXT("vam-pose-captures/1"));Summary->SetStringField(TEXT("recipe"),RecipePath);Summary->SetArrayField(TEXT("states"),Results);Summary->SetStringField(TEXT("comparison_contract"),TEXT("Compare converted actual local/component matrices and source mapping; UI Euler labels are requests only. Dynamics disabled unless explicitly requested jiggle or GPU contact. Failed solver captures are not contact acceptance."));Save(Directory/TEXT("suite.json"),Summary);SeatActor->Destroy();return CaseIndex>0;
 }

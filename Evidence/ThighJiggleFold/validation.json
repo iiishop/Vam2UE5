@@ -1,0 +1,468 @@
+{
+  "asset": {
+    "identity": "26c92372d157d5e374d254c0531789b4273a177e72d7255e7e0a1d96948a224f",
+    "configuration": "/Game/VamThighOperatorDomainV3/Runtime/R_26c92372d157d5e374d254c0/RC_Runtime",
+    "blueprint": "/Game/VamThighOperatorDomainV3/Runtime/R_26c92372d157d5e374d254c0/BP_VamCharacter.BP_VamCharacter"
+  },
+  "compile": "Succeeded",
+  "runtime_automation": "Success",
+  "cases": {
+    "abducted-both-moving": {
+      "statistics": {
+        "00-source-lbs": {
+          "max_deg": 27.017424570429338,
+          "p95_deg": 14.688091367428832,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "01-final-weights": {
+          "max_deg": 25.516630880937242,
+          "p95_deg": 15.198140965598991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "02-static-helpers": {
+          "max_deg": 26.27024428238952,
+          "p95_deg": 15.198140965598991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "03-corrective": {
+          "max_deg": 25.522684174819055,
+          "p95_deg": 14.123654142372052,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "04-jiggle": {
+          "max_deg": 48.795324647716114,
+          "p95_deg": 16.888521773250837,
+          "edges_over_45": 1,
+          "reversed_vs_static_faces": 0
+        }
+      },
+      "probe_edge": {
+        "source_edge": [
+          11274,
+          16801
+        ],
+        "angles": {
+          "00-source-lbs": 13.351393411703539,
+          "01-final-weights": 25.516630880937242,
+          "02-static-helpers": 26.27024428238952,
+          "03-corrective": 20.263232627821914,
+          "04-jiggle": 40.39714468558573
+        }
+      },
+      "glute": true,
+      "leg": true
+    },
+    "abducted-both-still": {
+      "statistics": {
+        "00-source-lbs": {
+          "max_deg": 27.017424570429338,
+          "p95_deg": 14.688091367428832,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "01-final-weights": {
+          "max_deg": 25.516630880937242,
+          "p95_deg": 15.198140965598991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "02-static-helpers": {
+          "max_deg": 26.27024428238952,
+          "p95_deg": 15.198140965598991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "03-corrective": {
+          "max_deg": 25.522684174819055,
+          "p95_deg": 14.123654142372052,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "04-jiggle": {
+          "max_deg": 49.21949619965738,
+          "p95_deg": 16.803322444249456,
+          "edges_over_45": 1,
+          "reversed_vs_static_faces": 0
+        }
+      },
+      "probe_edge": {
+        "source_edge": [
+          11274,
+          16801
+        ],
+        "angles": {
+          "00-source-lbs": 13.351393411703539,
+          "01-final-weights": 25.516630880937242,
+          "02-static-helpers": 26.27024428238952,
+          "03-corrective": 20.263232627821914,
+          "04-jiggle": 41.841939609764964
+        }
+      },
+      "glute": true,
+      "leg": true
+    },
+    "abducted-glute-only": {
+      "statistics": {
+        "00-source-lbs": {
+          "max_deg": 27.017424570429338,
+          "p95_deg": 14.688091367428832,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "01-final-weights": {
+          "max_deg": 25.516630880937242,
+          "p95_deg": 15.198140965598991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "02-static-helpers": {
+          "max_deg": 26.27024428238952,
+          "p95_deg": 15.198140965598991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "03-corrective": {
+          "max_deg": 25.522684174819055,
+          "p95_deg": 14.123654142372052,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "04-jiggle": {
+          "max_deg": 24.71392726544427,
+          "p95_deg": 14.200408896526012,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        }
+      },
+      "probe_edge": {
+        "source_edge": [
+          11274,
+          16801
+        ],
+        "angles": {
+          "00-source-lbs": 13.351393411703539,
+          "01-final-weights": 25.516630880937242,
+          "02-static-helpers": 26.27024428238952,
+          "03-corrective": 20.263232627821914,
+          "04-jiggle": 18.56338209772212
+        }
+      },
+      "glute": true,
+      "leg": false
+    },
+    "abducted-leg-only": {
+      "statistics": {
+        "00-source-lbs": {
+          "max_deg": 27.017424570429338,
+          "p95_deg": 14.688091367428832,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "01-final-weights": {
+          "max_deg": 25.516630880937242,
+          "p95_deg": 15.198140965598991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "02-static-helpers": {
+          "max_deg": 26.27024428238952,
+          "p95_deg": 15.198140965598991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "03-corrective": {
+          "max_deg": 25.522684174819055,
+          "p95_deg": 14.123654142372052,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "04-jiggle": {
+          "max_deg": 49.0286781064878,
+          "p95_deg": 16.717414880747622,
+          "edges_over_45": 1,
+          "reversed_vs_static_faces": 0
+        }
+      },
+      "probe_edge": {
+        "source_edge": [
+          11274,
+          16801
+        ],
+        "angles": {
+          "00-source-lbs": 13.351393411703539,
+          "01-final-weights": 25.516630880937242,
+          "02-static-helpers": 26.27024428238952,
+          "03-corrective": 20.263232627821914,
+          "04-jiggle": 41.832826129271176
+        }
+      },
+      "glute": false,
+      "leg": true
+    },
+    "seated-both-moving": {
+      "statistics": {
+        "00-source-lbs": {
+          "max_deg": 30.97951473672557,
+          "p95_deg": 14.82488354072991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "01-final-weights": {
+          "max_deg": 24.149903196367223,
+          "p95_deg": 15.398220891265861,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "02-static-helpers": {
+          "max_deg": 30.42273251121054,
+          "p95_deg": 15.776219048447741,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "03-corrective": {
+          "max_deg": 24.01488687827238,
+          "p95_deg": 15.258490739972027,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "04-jiggle": {
+          "max_deg": 46.534382816646776,
+          "p95_deg": 17.243451472485386,
+          "edges_over_45": 1,
+          "reversed_vs_static_faces": 0
+        }
+      },
+      "probe_edge": {
+        "source_edge": [
+          11274,
+          16801
+        ],
+        "angles": {
+          "00-source-lbs": 12.188956675633154,
+          "01-final-weights": 21.044196248782818,
+          "02-static-helpers": 18.687490539016213,
+          "03-corrective": 21.337630454820665,
+          "04-jiggle": 46.534382816646776
+        }
+      },
+      "glute": true,
+      "leg": true
+    },
+    "seated-both-still": {
+      "statistics": {
+        "00-source-lbs": {
+          "max_deg": 30.97951473672557,
+          "p95_deg": 14.82488354072991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "01-final-weights": {
+          "max_deg": 24.149903196367223,
+          "p95_deg": 15.398220891265861,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "02-static-helpers": {
+          "max_deg": 30.42273251121054,
+          "p95_deg": 15.776219048447741,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "03-corrective": {
+          "max_deg": 24.01488687827238,
+          "p95_deg": 15.258490739972027,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "04-jiggle": {
+          "max_deg": 47.87629935341728,
+          "p95_deg": 17.191697785029863,
+          "edges_over_45": 1,
+          "reversed_vs_static_faces": 0
+        }
+      },
+      "probe_edge": {
+        "source_edge": [
+          11274,
+          16801
+        ],
+        "angles": {
+          "00-source-lbs": 12.188956675633154,
+          "01-final-weights": 21.044196248782818,
+          "02-static-helpers": 18.687490539016213,
+          "03-corrective": 21.337630454820665,
+          "04-jiggle": 47.87629935341728
+        }
+      },
+      "glute": true,
+      "leg": true
+    },
+    "seated-glute-only": {
+      "statistics": {
+        "00-source-lbs": {
+          "max_deg": 30.97951473672557,
+          "p95_deg": 14.82488354072991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "01-final-weights": {
+          "max_deg": 24.149903196367223,
+          "p95_deg": 15.398220891265861,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "02-static-helpers": {
+          "max_deg": 30.42273251121054,
+          "p95_deg": 15.776219048447741,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "03-corrective": {
+          "max_deg": 24.01488687827238,
+          "p95_deg": 15.258490739972027,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "04-jiggle": {
+          "max_deg": 23.750178297189706,
+          "p95_deg": 15.227332209514472,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        }
+      },
+      "probe_edge": {
+        "source_edge": [
+          11274,
+          16801
+        ],
+        "angles": {
+          "00-source-lbs": 12.188956675633154,
+          "01-final-weights": 21.044196248782818,
+          "02-static-helpers": 18.687490539016213,
+          "03-corrective": 21.337630454820665,
+          "04-jiggle": 19.897465511203915
+        }
+      },
+      "glute": true,
+      "leg": false
+    },
+    "seated-leg-only": {
+      "statistics": {
+        "00-source-lbs": {
+          "max_deg": 30.97951473672557,
+          "p95_deg": 14.82488354072991,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "01-final-weights": {
+          "max_deg": 24.149903196367223,
+          "p95_deg": 15.398220891265861,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "02-static-helpers": {
+          "max_deg": 30.42273251121054,
+          "p95_deg": 15.776219048447741,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "03-corrective": {
+          "max_deg": 24.01488687827238,
+          "p95_deg": 15.258490739972027,
+          "edges_over_45": 0,
+          "reversed_vs_static_faces": 0
+        },
+        "04-jiggle": {
+          "max_deg": 47.86048552337952,
+          "p95_deg": 17.17501981479078,
+          "edges_over_45": 1,
+          "reversed_vs_static_faces": 0
+        }
+      },
+      "probe_edge": {
+        "source_edge": [
+          11274,
+          16801
+        ],
+        "angles": {
+          "00-source-lbs": 12.188956675633154,
+          "01-final-weights": 21.044196248782818,
+          "02-static-helpers": 18.687490539016213,
+          "03-corrective": 21.337630454820665,
+          "04-jiggle": 47.86048552337952
+        }
+      },
+      "glute": false,
+      "leg": true
+    }
+  },
+  "videos": {
+    "both": {
+      "width": 768,
+      "height": 768,
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "leg-only": {
+      "width": 768,
+      "height": 768,
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "glute-only": {
+      "width": 768,
+      "height": 768,
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "comparison": {
+      "width": 1680,
+      "height": 400,
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "seated-both-moving": {
+      "root_motion_cm": [
+        -1.989043867385865,
+        1.9890438158820445
+      ],
+      "hamstring_component_translation_range_cm": [
+        0.08689553143146966,
+        0.07036552715360145,
+        0.31719826690125785
+      ]
+    },
+    "seated-leg-only": {
+      "root_motion_cm": [
+        -1.989043867385865,
+        1.9890438158820445
+      ],
+      "hamstring_component_translation_range_cm": [
+        0.08689553143146966,
+        0.07036552715360145,
+        0.31719826690125785
+      ]
+    },
+    "seated-glute-only": {
+      "root_motion_cm": [
+        -1.989043867385865,
+        1.9890438158820445
+      ],
+      "hamstring_component_translation_range_cm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "production_modified": false,
+  "wrinkle_fixed": false
+}
