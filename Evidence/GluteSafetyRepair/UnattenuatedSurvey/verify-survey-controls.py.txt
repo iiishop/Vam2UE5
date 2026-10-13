@@ -1,0 +1,12 @@
+import json,numpy as np
+from pathlib import Path
+r=Path(__file__).resolve().parent/'unattenuated-survey';read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'));rows=[]
+for folder in ['off-above','off-side','off-editor']:
+ for p in sorted((r/folder).glob('*/state.json')):
+  a=read(p);b=read(r/'off-below'/p.parent.name/'state.json');ab=Path(a['audit_bundle']);bb=Path(b['audit_bundle']);mat=max(float(np.max(abs(np.array(x[k])-np.array(y[k])))) for x,y in zip(a['actual_bones'],b['actual_bones']) for k in ['component_matrix','local_matrix']);cam=a['cameras']==b['cameras'];errs={}
+  for stage in ['00-source-lbs','01-final-weights','02-static-helpers','03-corrective','04-jiggle']:
+   x=np.array(read(ab/stage/'surface.json')['positions']);y=np.array(read(bb/stage/'surface.json')['positions']);errs[stage]=float(np.linalg.norm(x-y,axis=1).max())
+  assert mat<1e-9 and cam and max(errs.values())<1e-6
+  rows.append(dict(run=folder,pose=p.parent.name,bone_matrix_error=mat,cameras_identical=cam,surface_error_cm=errs))
+assert len(rows)==26,len(rows)
+(r/'lighting-editor-equivalence.json').write_text(json.dumps(rows,indent=2));print('26 matched captures verified')

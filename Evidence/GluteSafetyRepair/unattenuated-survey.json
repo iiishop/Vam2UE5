@@ -1,0 +1,671 @@
+{
+  "status": "DIAGNOSTIC_CAPTURE_AND_EVALUATION_COMPLETE",
+  "production_status": "Not installed as globally unattenuated production asset",
+  "diagnostic_identity": "61df519fdd344453483f2a5c3f99a8c088b4e39e2086d81320dc2967d30ed9aa",
+  "configuration": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/RC_Runtime",
+  "runs": [
+    {
+      "name": "off-below",
+      "exit_code": 0,
+      "automation_success": true,
+      "states": 11,
+      "screenshots": 352
+    },
+    {
+      "name": "on-below",
+      "exit_code": 0,
+      "automation_success": true,
+      "states": 11,
+      "screenshots": 352
+    },
+    {
+      "name": "off-above",
+      "exit_code": 0,
+      "automation_success": true,
+      "states": 11,
+      "screenshots": 352
+    },
+    {
+      "name": "off-side",
+      "exit_code": 0,
+      "automation_success": true,
+      "states": 11,
+      "screenshots": 352
+    },
+    {
+      "name": "off-editor",
+      "exit_code": 0,
+      "automation_success": true,
+      "states": 4,
+      "screenshots": 128
+    },
+    {
+      "name": "source-off-below",
+      "exit_code": 0,
+      "automation_success": true,
+      "states": 11,
+      "screenshots": 352
+    }
+  ],
+  "conclusion": "Posterior contour improvement is real; matched source-edge audit detects a severe medial glute/thigh fold during abduction after disabling source/procedural attenuation. Residual-only release is negligible in this set. Not a full dynamic/contact/self-intersection acceptance.",
+  "rows": [
+    {
+      "pose": "abducted",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 0.00013295508411914693,
+      "change_cm": {
+        "rms": 0.1986827146875976,
+        "p95": 9.140806974497538e-07,
+        "max": 5.569026867473479,
+        "worst_source_vertex": 16833
+      },
+      "fixed_comparison_source_edges": 723,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 37,
+        "area_expansion_guard_count": 4,
+        "native_edge_guard_count": 15,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 176.6518984944451,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 0,
+        "area_expansion_guard_count": 0,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 91.20288751536933,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "held-out-asymmetric",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 0.00013906594418056415,
+      "change_cm": {
+        "rms": 0.3983251030622635,
+        "p95": 8.674601007340101e-07,
+        "max": 9.227116496131657,
+        "worst_source_vertex": 16830
+      },
+      "fixed_comparison_source_edges": 695,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 71,
+        "area_expansion_guard_count": 49,
+        "native_edge_guard_count": 73,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 20.660143539458772,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 2,
+        "area_expansion_guard_count": 1,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 89.92740439217371,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "held-out-mirrored",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 0.00011342167384585764,
+      "change_cm": {
+        "rms": 0.3626553362705002,
+        "p95": 8.950390241272332e-07,
+        "max": 8.451673125070139,
+        "worst_source_vertex": 6108
+      },
+      "fixed_comparison_source_edges": 665,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 63,
+        "area_expansion_guard_count": 50,
+        "native_edge_guard_count": 69,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 20.723563229754927,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 2,
+        "area_expansion_guard_count": 1,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 80.32830897238344,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "hip-30",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 0.00013512854222215933,
+      "change_cm": {
+        "rms": 0.04315981092064538,
+        "p95": 9.536743163926942e-07,
+        "max": 2.310270261265743,
+        "worst_source_vertex": 13593
+      },
+      "fixed_comparison_source_edges": 836,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 6,
+        "area_expansion_guard_count": 0,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 23.84614630993435,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 2,
+        "area_expansion_guard_count": 0,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 23.84640855641672,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "hip-60",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 0.00014208042089705578,
+      "change_cm": {
+        "rms": 0.1945110028922621,
+        "p95": 9.524690196906433e-07,
+        "max": 5.602926240163428,
+        "worst_source_vertex": 16833
+      },
+      "fixed_comparison_source_edges": 694,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 40,
+        "area_expansion_guard_count": 4,
+        "native_edge_guard_count": 15,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 21.24582748678847,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 3,
+        "area_expansion_guard_count": 0,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 92.10973165969918,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "hip-90",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 0.00013972279054527833,
+      "change_cm": {
+        "rms": 0.44454296704221774,
+        "p95": 9.543442070932228e-07,
+        "max": 9.2583029902729,
+        "worst_source_vertex": 16830
+      },
+      "fixed_comparison_source_edges": 682,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 83,
+        "area_expansion_guard_count": 70,
+        "native_edge_guard_count": 93,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 20.39067869365163,
+        "limited": true,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 1,
+        "area_expansion_guard_count": 0,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 91.80261683395972,
+        "limited": true,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "knee-120",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 8.615460987835837e-08,
+      "change_cm": {
+        "rms": 6.247576862200414e-06,
+        "p95": 0.0,
+        "max": 0.00029798261044638536,
+        "worst_source_vertex": 16833
+      },
+      "fixed_comparison_source_edges": 1098,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 4,
+        "area_expansion_guard_count": 5,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 26.48320463440595,
+        "limited": true,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 4,
+        "area_expansion_guard_count": 5,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 26.483184271200454,
+        "limited": true,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "knee-30",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 8.615460987835837e-08,
+      "change_cm": {
+        "rms": 6.244582371754461e-06,
+        "p95": 0.0,
+        "max": 0.00029798261044638536,
+        "worst_source_vertex": 16833
+      },
+      "fixed_comparison_source_edges": 1098,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 0,
+        "area_expansion_guard_count": 0,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 26.420455438644268,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 0,
+        "area_expansion_guard_count": 0,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 26.420416835309283,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "knee-90",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 8.615460987835837e-08,
+      "change_cm": {
+        "rms": 6.246340476132975e-06,
+        "p95": 0.0,
+        "max": 0.00029798261044638536,
+        "worst_source_vertex": 16833
+      },
+      "fixed_comparison_source_edges": 1098,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 0,
+        "area_expansion_guard_count": 2,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 26.46181880845884,
+        "limited": true,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 0,
+        "area_expansion_guard_count": 2,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 26.461779790693008,
+        "limited": true,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "seated",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 0.00013972279054527833,
+      "change_cm": {
+        "rms": 0.4445429245033033,
+        "p95": 9.552573597085676e-07,
+        "max": 9.2583029902729,
+        "worst_source_vertex": 16830
+      },
+      "fixed_comparison_source_edges": 682,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 83,
+        "area_expansion_guard_count": 72,
+        "native_edge_guard_count": 93,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 20.39067869365163,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 1,
+        "area_expansion_guard_count": 2,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 91.80261683395972,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    },
+    {
+      "pose": "standing",
+      "bone_matrix_max_difference": 0.0,
+      "camera_identical": true,
+      "no_attenuation_payload_max_error_cm": 8.615460987835837e-08,
+      "change_cm": {
+        "rms": 6.248414848239598e-06,
+        "p95": 0.0,
+        "max": 0.00029798261044638536,
+        "worst_source_vertex": 16833
+      },
+      "fixed_comparison_source_edges": 1098,
+      "off": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 0,
+        "area_expansion_guard_count": 0,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 26.400822110380556,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      },
+      "on": {
+        "finite": true,
+        "near_zero_faces": 0,
+        "static_near_zero_faces": 0,
+        "signed_area_guard_count": 0,
+        "area_expansion_guard_count": 0,
+        "native_edge_guard_count": 0,
+        "posterior_signed_guard_count": 0,
+        "posterior_area_guard_count": 0,
+        "max_alias_error_cm": 0,
+        "posterior_max_dihedral_deg": 26.400786223615487,
+        "limited": false,
+        "actor": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/BP_VamCharacter.BP_VamCharacter_C"
+      }
+    }
+  ],
+  "isolation": {
+    "rows": [
+      {
+        "pose": "abducted",
+        "residual_attenuation_effect_max_cm": 0.0008828904659058913,
+        "source_procedural_attenuation_effect_max_cm": 5.569026867473479,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "held-out-asymmetric",
+        "residual_attenuation_effect_max_cm": 0.0003133272076793564,
+        "source_procedural_attenuation_effect_max_cm": 9.227116496131657,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "held-out-mirrored",
+        "residual_attenuation_effect_max_cm": 0.0003136803071974317,
+        "source_procedural_attenuation_effect_max_cm": 8.451673125070139,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "hip-30",
+        "residual_attenuation_effect_max_cm": 1.1830211090064531e-05,
+        "source_procedural_attenuation_effect_max_cm": 2.310270261265743,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "hip-60",
+        "residual_attenuation_effect_max_cm": 7.1263616154362925e-06,
+        "source_procedural_attenuation_effect_max_cm": 5.602926240163428,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "hip-90",
+        "residual_attenuation_effect_max_cm": 1.9832974212464335e-07,
+        "source_procedural_attenuation_effect_max_cm": 9.2583029902729,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "knee-120",
+        "residual_attenuation_effect_max_cm": 2.1654367050603077e-05,
+        "source_procedural_attenuation_effect_max_cm": 0.00029798261044638536,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "knee-30",
+        "residual_attenuation_effect_max_cm": 2.1654367050603077e-05,
+        "source_procedural_attenuation_effect_max_cm": 0.00029798261044638536,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "knee-90",
+        "residual_attenuation_effect_max_cm": 2.1654367050603077e-05,
+        "source_procedural_attenuation_effect_max_cm": 0.00029798261044638536,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "seated",
+        "residual_attenuation_effect_max_cm": 1.9832974212464335e-07,
+        "source_procedural_attenuation_effect_max_cm": 9.2583029902729,
+        "matrix_error": 0.0
+      },
+      {
+        "pose": "standing",
+        "residual_attenuation_effect_max_cm": 2.1654367050603077e-05,
+        "source_procedural_attenuation_effect_max_cm": 0.00029798261044638536,
+        "matrix_error": 0.0
+      }
+    ],
+    "abducted_edge": [
+      {
+        "group": "on-below",
+        "measurement": {
+          "source_edge": [
+            17896,
+            21602
+          ],
+          "position_cm": [
+            -3.8998143668844927,
+            3.177627244872507,
+            90.02623768711027
+          ],
+          "angles_deg": {
+            "00-source-lbs": 16.358876239371337,
+            "01-final-weights": 9.338006815246667,
+            "02-static-helpers": 5.623825150316573,
+            "03-corrective": 52.4287530225704,
+            "04-jiggle": 52.4287530225704
+          }
+        }
+      },
+      {
+        "group": "source-off-below",
+        "measurement": {
+          "source_edge": [
+            17896,
+            21602
+          ],
+          "position_cm": [
+            -1.1946631546249395,
+            3.8106193343405717,
+            88.72481553325578
+          ],
+          "angles_deg": {
+            "00-source-lbs": 16.358876239371337,
+            "01-final-weights": 9.338006815246667,
+            "02-static-helpers": 5.623825150316573,
+            "03-corrective": 176.63481695017128,
+            "04-jiggle": 176.63481695017128
+          }
+        }
+      },
+      {
+        "group": "off-below",
+        "measurement": {
+          "source_edge": [
+            17896,
+            21602
+          ],
+          "position_cm": [
+            -1.1946631546249395,
+            3.8106193343405717,
+            88.72481553325578
+          ],
+          "angles_deg": {
+            "00-source-lbs": 16.358876239371337,
+            "01-final-weights": 9.338006815246667,
+            "02-static-helpers": 5.623825150316573,
+            "03-corrective": 176.6518984944451,
+            "04-jiggle": 176.6518984944451
+          }
+        }
+      }
+    ]
+  },
+  "artifact_root": "Saved\\LowerBodyContact\\GluteSafetyRepair\\unattenuated-survey",
+  "artifacts": {
+    "report.html": {
+      "sha256": "64111c7dea8b0ea1c85b9d4f8d903e108800bdb60a94e7760797da4581084763",
+      "bytes": 18752
+    },
+    "report.md": {
+      "sha256": "0677b3813d5465a7b38f01af9627d71d3b45b221ceaadb939bbf86730ce2ad29",
+      "bytes": 6394
+    },
+    "evaluation.json": {
+      "sha256": "9ec3658a5bee1dbb7aee040b89599a15273423f44b133644b5e38ba3ad971c2c",
+      "bytes": 241391
+    },
+    "lighting-editor-equivalence.json": {
+      "sha256": "a705505a88e0b0f6d9f067441c9de684de7db324f2487d99c83f31a90383db49",
+      "bytes": 8099
+    },
+    "screenshot-manifest.json": {
+      "sha256": "06f4f317a4771c4272607d2c9b4c4aeb36a419278f0958af101198497281edfb",
+      "bytes": 221371
+    },
+    "unattenuated.json": {
+      "sha256": "4382d73442ae6fc06a318d2ae198aef13799c849f4bdc87ca4db6c1883a8c293",
+      "bytes": 28820
+    },
+    "pose-recipe.json": {
+      "sha256": "532f6a95ec13e62d887a049d2fd7f3cf2bddb0ea783c13054080c26d1a0ed2d1",
+      "bytes": 5490
+    }
+  },
+  "excluded_candidate35_rebake_error_cm": 0.578969045
+}

@@ -1,0 +1,42 @@
+import json,sys,numpy as np,contextlib,io
+from pathlib import Path
+r=Path(__file__).resolve().parent;o=r/'unattenuated-survey';sys.path.insert(0,str(r.parents[2]/'Scripts'));from audit_glute_fold import analyze
+from replay_deformation_audit import run as replay
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+def load(state):
+ s=read(state);b=Path(s['audit_bundle']);m=read(b/'mapping.json');ids=np.array([m['input_to_source'][x] for x in m['render_to_input']]);return s,b,m,ids
+
+def geometry(state):
+ s,b,m,ids=load(state);data=read(b/'03-corrective/inputs.json');tri=np.array(data['triangle_indices']).reshape(-1,3);base=np.array(read(b/'02-static-helpers/surface.json')['positions']);out=np.array(read(b/'03-corrective/surface.json')['positions']);native=np.array(read(b/'03-corrective/preskin.json')['positions'])-np.array(read(b/'02-static-helpers/preskin.json')['positions']);bind=np.array(read(b/'02-static-helpers/preskin.json')['positions']);u,v,w=tri.T;n0=np.cross(base[v]-base[u],base[w]-base[u]);n=np.cross(out[v]-out[u],out[w]-out[u]);area0=np.linalg.norm(n0,axis=1);area=np.linalg.norm(n,axis=1);signed=(n*n0).sum(1);sq=(n0*n0).sum(1);signbad=(sq>=1e-16)&(signed<=.05*sq);areabad=area>=np.maximum(.01,area0*5)*.95
+ edges=np.unique(np.sort(np.concatenate([tri[:,[0,1]],tri[:,[1,2]],tri[:,[2,0]]]),axis=1),axis=0);eu,ev=edges.T;ebad=np.linalg.norm(native[eu]-native[ev],axis=1)>=np.maximum(.15,np.linalg.norm(bind[eu]-bind[ev],axis=1)*3)
+ center=base[tri].mean(1);roi=(center[:,0]<-2)&(abs(center[:,1])>3)&(abs(center[:,1])<17)&(center[:,2]>82)&(center[:,2]<110)
+ aliases={};maxalias=0
+ for idx,source in enumerate(ids):
+  if source<0:continue
+  if int(source) in aliases:maxalias=max(maxalias,float(np.linalg.norm(out[idx]-out[aliases[int(source)]])))
+  else:aliases[int(source)]=idx
+ fold=analyze(state);(state.parent/'fold-angles.json').write_text(json.dumps(fold,indent=2));ar=fold['regional_edges'];worst=ar[:8]
+ guard_faces=[dict(render_face=int(i),source_vertices=ids[tri[i]].tolist(),static_center_cm=center[i].tolist(),final_center_cm=out[tri[i]].mean(0).tolist(),signed_ratio=float(signed[i]/max(sq[i],1e-30)),area_ratio=float(area[i]/max(area0[i],1e-30))) for i in np.flatnonzero(signbad|areabad)]
+ (state.parent/'guard-faces.json').write_text(json.dumps(guard_faces,indent=2))
+ return dict(finite=bool(np.isfinite(out).all()),near_zero_faces=int((area<1e-8).sum()),static_near_zero_faces=int((area0<1e-8).sum()),signed_area_guard_count=int(signbad.sum()),area_expansion_guard_count=int(areabad.sum()),native_edge_guard_count=int(ebad.sum()),posterior_signed_guard_count=int((signbad&roi).sum()),posterior_area_guard_count=int((areabad&roi).sum()),max_alias_error_cm=maxalias,posterior_max_dihedral_deg=max((x['angles_deg']['03-corrective'] for x in ar),default=0),worst_posterior_edges=worst,limited=s['limited'],joint_limits=s['joint_limits'],actor=s['actor_class'])
+
+manifest=read(o/'unattenuated.json');fields=r.parent/'GluteAsymmetryRoot/trace-region/fields';detail=read(fields/'detail.json');expected={}
+for q in detail['bases']:
+ name=q['morph'];src=np.fromfile(fields/f"s{q['side']}_t{q['target']}_final_axis{q['axis']}.f32",dtype='<f4').reshape(-1,3).astype(float);expected[name]=src
+rows=[]
+for p in sorted((o/'off-below').glob('*/state.json')):
+ control=o/'on-below'/p.parent.name/'state.json'
+ if not control.exists():raise RuntimeError('Missing control '+str(control))
+ a,ab,am,ids=load(p);b,bb,bm,_=load(control);row=dict(pose=p.parent.name,off=geometry(p),on=geometry(control))
+ assert am==bm
+ materr=max(float(np.max(abs(np.array(x[k])-np.array(y[k])))) for x,y in zip(a['actual_bones'],b['actual_bones']) for k in ['component_matrix','local_matrix']);row['bone_matrix_max_difference']=materr;assert materr<1e-9
+ assert a['cameras']==b['cameras'];row['camera_identical']=True
+ weights=read(ab/'03-corrective/inputs.json')['active_morphs'];assert weights==read(bb/'03-corrective/inputs.json')['active_morphs'];ri=np.array(am['render_to_input']);delta=np.zeros((len(ri),3))
+ for q in manifest['morphs']:
+  before=np.fromfile(q['file'],dtype='<f4').reshape(-1,3);delta+=(before-expected[q['name']][ri])*weights.get(q['name'],0)
+ native_off=np.array(read(ab/'03-corrective/preskin.json')['positions']);native_on=np.array(read(bb/'03-corrective/preskin.json')['positions']);row['no_attenuation_payload_max_error_cm']=float(np.linalg.norm(native_off-native_on-delta,axis=1).max());assert row['no_attenuation_payload_max_error_cm']<.001
+ out=np.array(read(ab/'03-corrective/surface.json')['positions']);old=np.array(read(bb/'03-corrective/surface.json')['positions']);err=np.linalg.norm(out-old,axis=1);row['change_cm']=dict(rms=float(np.sqrt(np.mean(err**2))),p95=float(np.percentile(err,95)),max=float(err.max()),worst_source_vertex=int(ids[np.argmax(err)]))
+ with contextlib.redirect_stdout(io.StringIO()):replay(ab)
+ row['a1_replay']=read(ab/'replay-report.json')['stages'];rows.append(row)
+ print(p.parent.name,'maxdeg',row['off']['posterior_max_dihedral_deg'],'signed',row['off']['signed_area_guard_count'],'payload',row['no_attenuation_payload_max_error_cm'],flush=True)
+ (o/'evaluation.json').write_text(json.dumps(dict(scope='Safety trigger counts are engineering predicates, not proof of self-intersection. No full triangle-triangle intersection test. Geometric dihedrals are not GPU shading normals.',identity=manifest['identity'],rows=rows),indent=2))

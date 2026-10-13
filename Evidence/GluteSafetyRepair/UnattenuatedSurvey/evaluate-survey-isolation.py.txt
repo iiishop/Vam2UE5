@@ -1,0 +1,17 @@
+import json,sys,numpy as np,time
+from pathlib import Path
+r=Path(__file__).resolve().parent;o=r/'unattenuated-survey';read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'));sys.path.insert(0,str(r.parents[2]/'Scripts'));from audit_glute_fold import analyze
+for _ in range(900):
+ if (o/'isolation-run.json').exists():break
+ time.sleep(2)
+else:raise SystemExit('isolation timeout')
+rows=[]
+for p in sorted((o/'source-off-below').glob('*/state.json')):
+ s=read(p);a=read(o/'off-below'/p.parent.name/'state.json');b=read(o/'on-below'/p.parent.name/'state.json');assert s['cameras']==a['cameras']==b['cameras'];mat=max(float(np.max(abs(np.array(x[k])-np.array(y[k])))) for x,y in zip(s['actual_bones'],a['actual_bones']) for k in ['component_matrix','local_matrix']);assert mat<1e-9
+ points=lambda d:np.array(read(Path(d['audit_bundle'])/'03-corrective/surface.json')['positions'])
+ x,y,z=points(s),points(a),points(b);rows.append(dict(pose=p.parent.name,residual_attenuation_effect_max_cm=float(np.linalg.norm(x-y,axis=1).max()),source_procedural_attenuation_effect_max_cm=float(np.linalg.norm(x-z,axis=1).max()),matrix_error=mat))
+assert len(rows)==11
+edge=[]
+for group in ['on-below','source-off-below','off-below']:
+ a=analyze(o/group/'abducted/state.json',{(17896,21602)});edge.append(dict(group=group,measurement=next(x for x in a['regional_edges'] if x['source_edge']==(17896,21602))))
+(o/'isolation.json').write_text(json.dumps(dict(rows=rows,abducted_edge=edge),indent=2));print('Isolation evaluated',rows)

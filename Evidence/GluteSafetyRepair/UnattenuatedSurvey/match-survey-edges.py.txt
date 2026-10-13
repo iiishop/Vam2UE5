@@ -1,0 +1,13 @@
+import sys,json
+from pathlib import Path
+r=Path(__file__).resolve().parent;o=r/'unattenuated-survey';sys.path.insert(0,str(r.parents[2]/'Scripts'));from audit_glute_fold import analyze
+p=o/'evaluation.json';d=json.loads(p.read_text())
+for row in d['rows']:
+ states={k:o/(k+'-below')/row['pose']/'state.json' for k in ['on','off']};edges=set()
+ for state in states.values():
+  for item in json.loads((state.parent/'fold-angles.json').read_text())['regional_edges']:edges.add(tuple(item['source_edge']))
+ row['fixed_comparison_source_edges']=len(edges)
+ for k,state in states.items():
+  result=analyze(state,edges);(state.parent/'fold-angles-matched.json').write_text(json.dumps(result,indent=2));a=result['regional_edges'];row[k]['posterior_max_dihedral_deg']=max(x['angles_deg']['03-corrective'] for x in a);row[k]['worst_posterior_edges']=a[:8]
+ print(row['pose'],row['on']['posterior_max_dihedral_deg'],row['off']['posterior_max_dihedral_deg'],flush=True)
+d['fold_comparison_scope']='Fixed union of both source-ID engineering ROIs for each on/off pair; identical retained source edges in both states.';p.write_text(json.dumps(d,indent=2))

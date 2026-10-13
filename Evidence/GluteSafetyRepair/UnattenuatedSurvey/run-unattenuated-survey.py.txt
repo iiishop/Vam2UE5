@@ -1,0 +1,13 @@
+import json,subprocess,sys,time
+from pathlib import Path
+r=Path(__file__).resolve().parent;o=r/'unattenuated-survey';base=json.loads((r/'unattenuated-preview-v4/command.json').read_text());prefixes=['-VamPoseSuite=','-VamContactEvidence=','-abslog=','-VamUnsafeCorrectiveFields=','-VamPoseLightYaw=','-VamPoseWorld='];base=[x for x in base if not any(x.startswith(p) for p in prefixes) and x!='-VamPoseLightFromBelow']
+runs=[('off-below','PIE',True,0,True),('on-below','PIE',True,0,False),('off-above','PIE',False,0,True),('off-side','PIE',False,65,True),('off-editor','Editor',True,0,True)]
+results=[]
+for name,world,below,yaw,off in runs:
+ d=o/name;d.mkdir(exist_ok=False);recipe=o/('editor-recipe.json' if world=='Editor' else 'pose-recipe.json');cmd=base+['-VamPoseSuite='+str(recipe),'-VamContactEvidence='+str(d),'-abslog='+str(d/'runtime.log'),'-VamPoseWorld='+world,'-VamPoseLightYaw='+str(yaw)]
+ if below:cmd.append('-VamPoseLightFromBelow')
+ if off:cmd.append('-VamUnsafeCorrectiveFields='+str(o/'unattenuated.json'))
+ (d/'command.json').write_text(json.dumps(cmd,indent=2));print('START',name,flush=True)
+ with (d/'stdout.log').open('w') as f:p=subprocess.run(cmd,stdout=f,stderr=subprocess.STDOUT)
+ log=(d/'runtime.log').read_text(errors='replace');ok=p.returncode==0 and 'Result={Success} Name={ContactRuntime}' in log;row=dict(name=name,exit_code=p.returncode,automation_success=ok,states=len(list(d.glob('*/state.json'))),screenshots=len(list(d.glob('*/*.png'))));results.append(row);(o/'runs.json').write_text(json.dumps(results,indent=2));print(row,flush=True)
+ if not ok:print('Preserving failure; continuing independent captures',flush=True)
