@@ -60,20 +60,32 @@ FString ReplayFinal(UVamCharacterDefinition* D,UVamGluteStructureProfile* G,UVam
     TArray<FTransform> Bind;for(const auto& B:I.Bones)Bind.Add(B.Parent<0?B.LocalBind:B.LocalBind*Bind[B.Parent]);
     const auto& L=M->GetResourceForRendering()->LODRenderData[0];const auto& W=L.SkinWeightVertexBuffer;auto* Index=L.MultiSizeIndexContainer.GetIndexBuffer();TArray<TSharedPtr<FJsonValue>> Results;
     if(P->AuthoredReplay.Num()!=2*(P->Targets.Num()-1))return TEXT("Authored target data incomplete");
+    const bool ResidualOnly=P->Algorithm==TEXT("glute-corrective-residual-only-v2");
     for(const auto& R:P->AuthoredReplay)
     {
+        const auto* FixedReplay=P->FixedAuthoredReplay.FindByPredicate([&](const auto& F){return F.Side==R.Side && F.Target==R.Target;});
+        if(ResidualOnly && (!FixedReplay || FixedReplay->PosedDelta.Num()!=I.Vertices.Num()))return TEXT("Residual-only fixed reference missing");
         if(R.PosedDelta.Num()!=I.Vertices.Num())return TEXT("Authored target topology mismatch");
         const FVector Degrees=P->Targets[R.Target].Degrees;const auto CS=Pose(I,*G,Bind,R.Side==0?Degrees:FVector::ZeroVector,R.Side==1?Degrees:FVector::ZeroVector,true);
         TArray<FVector> Native;Native.SetNumZeroed(W.GetNumVertices());
         for(const auto& Basis:P->Bases)if(Basis.Side==R.Side&&Basis.Target==R.Target){auto* Morph=M->FindMorphTarget(Basis.Morph);if(!Morph||Morph->GetMorphLODModels().IsEmpty())return TEXT("Missing baked corrective morph");for(const auto& V:Morph->GetMorphLODModels()[0].Vertices)Native[V.SourceIdx]+=FVector(V.PositionDelta);}
-        TArray<FVector> Base,Delta;Base.SetNumZeroed(W.GetNumVertices());Delta=Base;double Maximum=0;int Worst=0,Unsafe=0;
+        TArray<FVector> Base,Delta;Base.SetNumZeroed(W.GetNumVertices());Delta=Base;double Maximum=0;int Worst=0,Unsafe=0,ResidualUnsafe=0;
         for(const auto& S:L.RenderSections)for(uint32 V=S.BaseVertexIndex;V<S.BaseVertexIndex+S.NumVertices;++V){FMatrix Skin(ForceInitToZero);for(uint32 K=0;K<W.GetMaxBoneInfluences();++K)if(W.GetBoneWeight(V,K)){const int B=S.BoneMap[W.GetBoneIndex(V,K)];Skin+=Bind[B].ToInverseMatrixWithScale()*CS[B].ToMatrixWithScale()*(W.GetBoneWeight(V,K)/65535.);}
             Base[V]=FVector(Skin.TransformPosition(FVector(L.StaticVertexBuffers.PositionVertexBuffer.VertexPosition(V))));Delta[V]=FVector(Skin.TransformVector(Native[V]));const double E=(Delta[V]-R.PosedDelta[Geometry->RenderToInput[V]]).Size();if(E>Maximum){Maximum=E;Worst=V;}}
-        for(int T=0;T<Index->Num();T+=3){const int A=Index->Get(T),B=Index->Get(T+1),C=Index->Get(T+2);if(!TriangleSafe(Base[A],Base[B],Base[C],Delta[A],Delta[B],Delta[C]))++Unsafe;}
-        auto O=MakeShared<FJsonObject>();O->SetNumberField(TEXT("side"),R.Side);O->SetStringField(TEXT("target"),P->Targets[R.Target].Name.ToString());O->SetNumberField(TEXT("maximum_delta_error_cm"),Maximum);O->SetNumberField(TEXT("worst_render_vertex"),Worst);O->SetNumberField(TEXT("unsafe_triangles"),Unsafe);Results.Add(MakeShared<FJsonValueObject>(O));
-        if(Maximum>.001||Unsafe>0)return FString::Printf(TEXT("Final actual-weight authored replay failed side %d target %d max %.9g cm unsafe %d render %d input %d precision16 %d"),R.Side,R.Target,Maximum,Unsafe,Worst,Geometry->RenderToInput[Worst],W.Use16BitBoneWeight());
+        for(int T=0;T<Index->Num();T+=3)
+        {
+            const int A=Index->Get(T),B=Index->Get(T+1),C=Index->Get(T+2);
+            if(!TriangleSafe(Base[A],Base[B],Base[C],Delta[A],Delta[B],Delta[C]))++Unsafe;
+            if(ResidualOnly)
+            {
+                const FVector FA=FixedReplay->PosedDelta[Geometry->RenderToInput[A]],FB=FixedReplay->PosedDelta[Geometry->RenderToInput[B]],FC=FixedReplay->PosedDelta[Geometry->RenderToInput[C]];
+                if(!TriangleSafe(Base[A]+FA,Base[B]+FB,Base[C]+FC,Delta[A]-FA,Delta[B]-FB,Delta[C]-FC))++ResidualUnsafe;
+            }
+        }
+        auto O=MakeShared<FJsonObject>();O->SetNumberField(TEXT("side"),R.Side);O->SetStringField(TEXT("target"),P->Targets[R.Target].Name.ToString());O->SetNumberField(TEXT("maximum_delta_error_cm"),Maximum);O->SetNumberField(TEXT("worst_render_vertex"),Worst);O->SetNumberField(TEXT("unsafe_triangles"),Unsafe);O->SetNumberField(TEXT("residual_unsafe_triangles"),ResidualUnsafe);Results.Add(MakeShared<FJsonValueObject>(O));
+        if(Maximum>.001||(ResidualOnly?ResidualUnsafe:Unsafe)>0)return FString::Printf(TEXT("Final actual-weight authored replay failed side %d target %d max %.9g cm unsafe %d residual_unsafe %d render %d input %d precision16 %d"),R.Side,R.Target,Maximum,Unsafe,ResidualUnsafe,Worst,Geometry->RenderToInput[Worst],W.Use16BitBoneWeight());
     }
-    auto Report=MakeShared<FJsonObject>();Report->SetStringField(TEXT("operator"),TEXT("Final LOD0 render buffer quantized actual weights and baked morph deltas; authored posed targets, not neutral bind"));Report->SetArrayField(TEXT("poses"),Results);P->FinalReplayJson=VamGluteAudit::Json(Report);return FString();
+    auto Report=MakeShared<FJsonObject>();Report->SetStringField(TEXT("operator"),TEXT("Final LOD0 render buffer quantized actual weights and baked morph deltas; authored posed targets, not neutral bind"));Report->SetStringField(TEXT("safety_scope"),ResidualOnly?TEXT("residual relative to fixed source/procedural surface; total unsafe triangles are reported, not certified"):TEXT("complete corrective"));Report->SetArrayField(TEXT("poses"),Results);P->FinalReplayJson=VamGluteAudit::Json(Report);return FString();
 }
 }
 UVamCharacterDefinition* UVamGluteStructureBuilder::BuildCorrective(const FString& Root,UVamCharacterDefinition* D,UVamCharacterDefinition* Original,UVamGluteStructureProfile* G,UVamGluteCorrectiveProfile* P,UVamBreastContactProfile* Contact,const FString& FamilyJson,FString& Error)

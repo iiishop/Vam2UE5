@@ -95,6 +95,8 @@ public:
     UPROPERTY() TSoftObjectPtr<class UVamCharacterDefinition> OriginalInfluenceDefinition;
     UPROPERTY() FString SourceFamilyJson;
     UPROPERTY() TArray<FVamGluteCorrectiveReplay> AuthoredReplay;
+    // Kept separate so legacy replay serialization and data seals stay valid.
+    UPROPERTY() TArray<FVamGluteCorrectiveReplay> FixedAuthoredReplay;
     UPROPERTY() TArray<FVamKneeCorrective> Knees;
     UPROPERTY() FString KneeSourceDigest;
     UPROPERTY(VisibleAnywhere, Category="Corrective|Diagnostics") FString FinalReplayJson;

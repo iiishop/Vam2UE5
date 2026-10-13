@@ -249,11 +249,18 @@ inline bool GrowSafeField(const FVamNativeMeshInput& I,const TArray<FMatrix>& Sk
     if(BlockGain>.01)UE_LOG(LogTemp,Display,TEXT("GLUTE_BLOCK_RECOVERY %s maximum_gain=%.9g"),*SafetyTraceContext,BlockGain);
     for(int T=0;T<I.Triangles.Num();T+=3)if(!SafeFace(T)){UE_LOG(LogTemp,Error,TEXT("GLUTE_GROWTH_FINAL_UNSAFE %s triangle=%d,%d,%d"),*SafetyTraceContext,I.Triangles[T],I.Triangles[T+1],I.Triangles[T+2]);return false;}return true;
 }
-inline bool Condition(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,const FDeltaField& Native,const TMap<int32,TArray<int32>>& Aliases,TArray<double>& Safety,const FDeltaField* Fixed=nullptr)
+// FixedIsReference protects only the new residual, relative to the supplied
+// source/procedural surface. It neither validates nor attenuates that surface.
+inline bool Condition(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,const FDeltaField& Native,const TMap<int32,TArray<int32>>& Aliases,TArray<double>& Safety,const FDeltaField* Fixed=nullptr,bool FixedIsReference=false)
 {
-    if(FeasibleSafetyGrowth)return GrowSafeField(I,Skin,Native,Aliases,Safety,Fixed);
-    const auto Base=Apply(Skin,I.Vertices,true),D=Apply(Skin,Native);Safety.Init(1,Native.Num());for(int32 V=0;V<Native.Num();++V) if(!Native[V].IsNearlyZero(1.e-8) && FMath::Abs(Skin[V].Determinant())<.01) Safety[V]=0;
+    if(FeasibleSafetyGrowth && !FixedIsReference)return GrowSafeField(I,Skin,Native,Aliases,Safety,Fixed);
+    auto Base=Apply(Skin,I.Vertices,true);const auto D=Apply(Skin,Native);Safety.Init(1,Native.Num());for(int32 V=0;V<Native.Num();++V) if(!Native[V].IsNearlyZero(1.e-8) && FMath::Abs(Skin[V].Determinant())<.01) Safety[V]=0;
     FDeltaField F;F.SetNumZeroed(Native.Num());if(Fixed) F=Apply(Skin,*Fixed);
+    for(int V=0;V<Native.Num();++V)
+    {
+        if(Base[V].ContainsNaN() || D[V].ContainsNaN() || F[V].ContainsNaN())return false;
+        if(FixedIsReference){Base[V]+=F[V];F[V]=FVector::ZeroVector;}
+    }
     for(int32 Pass=0;Pass<80;++Pass)
     {
         auto Next=Safety;bool Good=true;
@@ -275,7 +282,7 @@ inline bool Condition(const FVamNativeMeshInput& I,const TArray<FMatrix>& Skin,c
             }
             for(int32 K=0;K<3;++K)
             {
-                const int32 U=I.Triangles[T+K],V=I.Triangles[T+(K+1)%3];const double Limit=FMath::Max(.15,(I.Vertices[U]-I.Vertices[V]).Size()*3);const FVector Offset=Fixed?(*Fixed)[U]-(*Fixed)[V]:FVector::ZeroVector,Adjust=Native[U]*Safety[U]-Native[V]*Safety[V];
+                const int32 U=I.Triangles[T+K],V=I.Triangles[T+(K+1)%3];const double Limit=FMath::Max(.15,(I.Vertices[U]-I.Vertices[V]).Size()*3);const FVector Offset=Fixed && !FixedIsReference?(*Fixed)[U]-(*Fixed)[V]:FVector::ZeroVector,Adjust=Native[U]*Safety[U]-Native[V]*Safety[V];
                 if((Offset+Adjust).Size()>=Limit) { if((SafetyTraceVertices.Contains(U)||SafetyTraceVertices.Contains(V)))UE_LOG(LogTemp,Display,TEXT("GLUTE_SAFETY_CAUSE %s condition_pass=%d native_edge %d %d length=%.9g limit=%.9g"),*SafetyTraceContext,Pass,U,V,(Offset+Adjust).Size(),Limit);Good=false;double Lo=0,Hi=1;if(Offset.Size()>=Limit) return false;for(int32 N=0;N<30;++N) { const double M=(Lo+Hi)*.5;if((Offset+Adjust*M).Size()<Limit) Lo=M;else Hi=M; }const double Factor=Lo*.99;Next[U]=FMath::Min(Next[U],Safety[U]*Factor);Next[V]=FMath::Min(Next[V],Safety[V]*Factor); }
             }
         }
