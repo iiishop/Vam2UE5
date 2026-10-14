@@ -1,0 +1,14 @@
+{
+  "continuous.mp4": {
+    "width": 1280,
+    "height": 720,
+    "duration": "24.000000",
+    "nb_read_frames": "720"
+  },
+  "half-speed.mp4": {
+    "width": 1280,
+    "height": 720,
+    "duration": "47.966667",
+    "nb_read_frames": "720"
+  }
+}
