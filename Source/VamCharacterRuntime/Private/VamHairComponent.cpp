@@ -6,6 +6,7 @@
 #include "GroomComponent.h"
 #include "GroomAsset.h"
 #include "VamHairAsset.h"
+#include "PhysicsEngine/PhysicsAsset.h"
 
 UVamHairComponent::UVamHairComponent()
 {
@@ -48,7 +49,8 @@ void UVamHairComponent::TickComponent(float Dt,ELevelTick Type,FActorComponentTi
     Groom->SetGroomAsset(Asset);
     Groom->SimulationSettings.bOverrideSettings=!bSimulate;
     Groom->SimulationSettings.SolverSettings.bEnableSimulation=bSimulate;
-    Groom->SetPhysicsAsset(B->GetPhysicsAsset());
+    Groom->SimulationSettings.SimulationSetup.LocalBone=P->AttachmentBone.ToString();
+    Groom->SetPhysicsAsset(P->HairCollision.IsNull()?B->GetPhysicsAsset():P->HairCollision.LoadSynchronous());
     for(int32 I=0;I<P->Materials.Num();++I)Groom->SetMaterial(I,P->Materials[I].LoadSynchronous());
     Groom->RegisterComponent();Groom->AddTickPrerequisiteComponent(B);Groom->SetForcedLOD(0);
     Groom->ResetSimulation();BoundBody=B;AppliedProfile=P;AppliedQuality=Quality;

@@ -19,13 +19,15 @@ static TSharedPtr<FJsonObject> VamCaptureHairAudit(AVamCharacterActor* Actor)
         Row->SetNumberField(TEXT("group"),I);Row->SetBoolField(TEXT("simulation"),G->IsSimulationEnable(I,0));
         if(R&&Rest&&R->GetBuffer(FHairStrandsDeformedResource::Current).Buffer)
         {
-            const uint32 Count=Rest->GetPointCount(),Bytes=Count*sizeof(FPackedHairVertex);TArray<FPackedHairVertex> Data;Data.SetNumZeroed(Count);FVector Offset;bool Ready=false;
-            ENQUEUE_RENDER_COMMAND(VamHairRead)([R,Bytes,&Data,&Offset,&Ready](FRHICommandListImmediate& Cmd){
+            const uint32 Count=Rest->GetPointCount(),Bytes=Count*sizeof(FPackedHairVertex);TArray<FPackedHairVertex> Data,RestData;Data.SetNumZeroed(Count);RestData.SetNumZeroed(Count);FVector Offset;bool Ready=false;
+            ENQUEUE_RENDER_COMMAND(VamHairRead)([R,Rest,Bytes,&Data,&RestData,&Offset,&Ready](FRHICommandListImmediate& Cmd){
                 FRHIGPUBufferReadback Readback(TEXT("VamHairAudit"));Readback.EnqueueCopy(Cmd,R->GetBuffer(FHairStrandsDeformedResource::Current).Buffer->GetRHI(),Bytes);Cmd.SubmitAndBlockUntilGPUIdle();
                 if(Readback.IsReady()){FMemory::Memcpy(Data.GetData(),Readback.Lock(Bytes),Bytes);Readback.Unlock();Ready=true;}
+                FRHIGPUBufferReadback RestRead(TEXT("VamHairRestAudit"));RestRead.EnqueueCopy(Cmd,Rest->PositionBuffer.Buffer->GetRHI(),Bytes);Cmd.SubmitAndBlockUntilGPUIdle();if(RestRead.IsReady()){FMemory::Memcpy(RestData.GetData(),RestRead.Lock(Bytes),Bytes);RestRead.Unlock();}
                 Offset=R->GetPositionOffset(FHairStrandsDeformedResource::Current);
             });FlushRenderingCommands();
             Row->SetBoolField(TEXT("readback_ready"),Ready);TArray<TSharedPtr<FJsonValue>> Points;if(Ready)for(const auto& P:Data){const FVector V=FVector(float(P.X),float(P.Y),float(P.Z))+Offset;Points.Add(MakeShared<FJsonValueArray>(TArray<TSharedPtr<FJsonValue>>{MakeShared<FJsonValueNumber>(V.X),MakeShared<FJsonValueNumber>(V.Y),MakeShared<FJsonValueNumber>(V.Z)}));}
+            TArray<TSharedPtr<FJsonValue>> RestPoints;for(const auto& P:RestData){const FVector V=FVector(float(P.X),float(P.Y),float(P.Z))+Rest->GetPositionOffset();RestPoints.Add(MakeShared<FJsonValueArray>(TArray<TSharedPtr<FJsonValue>>{MakeShared<FJsonValueNumber>(V.X),MakeShared<FJsonValueNumber>(V.Y),MakeShared<FJsonValueNumber>(V.Z)}));}Row->SetArrayField(TEXT("guide_rest_points"),RestPoints);
             Row->SetNumberField(TEXT("guide_curves"),Rest->GetCurveCount());Row->SetArrayField(TEXT("guide_points"),Points);
         }
         Groups.Add(MakeShared<FJsonValueObject>(Row));

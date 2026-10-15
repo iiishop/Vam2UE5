@@ -18,6 +18,8 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM|Hair") TSoftObjectPtr<class UVamHairstyle> Hairstyle;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM|Hair") FString HairstyleSignature;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM|Hair") TSoftObjectPtr<class USkeletalMesh> ReferenceBody;
+    /** Body collision proxies fitted conservatively to the authored hair rest state. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM|Hair") TSoftObjectPtr<class UPhysicsAsset> HairCollision;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Hair") FName AttachmentBone=TEXT("head");
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM|Hair") TSoftObjectPtr<class UGroomAsset> FineGroom;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM|Hair") TSoftObjectPtr<class UGroomAsset> CoarseGroom;

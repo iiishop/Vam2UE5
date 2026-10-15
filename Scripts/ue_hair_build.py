@@ -31,10 +31,10 @@ def main():
     assert source['identity']==hashlib.sha256(json.dumps({k:v for k,v in source.items() if k!='identity'},sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest(),'Hair input content digest mismatch'
     # Source input identity is combined with actual body and solver implementation.
     repo=Path(__file__).resolve().parents[1]
-    implementation={f:hashlib.sha256((repo/f).read_bytes()).hexdigest() for f in ['Scripts/vam_hair_prepare.py','Scripts/vam_hair_catalog.py','Scripts/vam_hair_frames.py','Scripts/prepare_hair_render_reference.py','Scripts/vam_unity.py','Scripts/vam_fit.py','Scripts/ue_hair_build.py','Source/VamResourceBrowser/Private/VamHairBuilder.cpp','Source/VamResourceBrowser/Private/VamHairCatalogBuilder.cpp','Source/VamCharacterRuntime/Public/VamHairAsset.h','Source/VamCharacterRuntime/Private/VamHairAsset.cpp','Source/VamResourceBrowser/Public/VamHairBuilder.h','Source/VamCharacterRuntime/Private/VamHairComponent.cpp','Source/VamCharacterRuntime/Public/VamHairComponent.h','Source/VamCharacterRuntime/Public/VamHairProfile.h']}
+    implementation={f:hashlib.sha256((repo/f).read_bytes()).hexdigest() for f in ['Scripts/vam_hair_prepare.py','Scripts/vam_hair_catalog.py','Scripts/vam_hair_frames.py','Scripts/prepare_hair_render_reference.py','Scripts/prepare_hair_physics.py','Scripts/vam_unity.py','Scripts/vam_fit.py','Scripts/ue_hair_build.py','Source/VamResourceBrowser/Private/VamHairBuilder.cpp','Source/VamResourceBrowser/Private/VamHairStyleSolver.h','Source/VamCharacterRuntime/Public/VamHairProfile.h','Source/VamResourceBrowser/Private/VamHairCatalogBuilder.cpp','Source/VamCharacterRuntime/Public/VamHairAsset.h','Source/VamCharacterRuntime/Private/VamHairAsset.cpp','Source/VamResourceBrowser/Public/VamHairBuilder.h','Source/VamCharacterRuntime/Private/VamHairComponent.cpp','Source/VamCharacterRuntime/Public/VamHairComponent.h','Source/VamCharacterRuntime/Public/VamHairProfile.h']}
     identity=hashlib.sha256((source['identity']+base['identity']+json.dumps(implementation,sort_keys=True)).encode()).hexdigest();root='/Game/VamHairRuntime/H_'+identity[:24]
     assert not u.EditorAssetLibrary.does_asset_exist(root+'/HP_Hair')
-    result=u.VamHairBuilder.build_hair(str(inp.resolve()),root,mesh,identity)
+    result=u.VamHairBuilder.build_hair(str(inp.resolve()),root,mesh,identity,c0.get_editor_property('physics'))
     profile=result[0] if isinstance(result,tuple) else result
     assert profile,result
     config=u.EditorAssetLibrary.duplicate_asset(base['configuration'],root+'/RC_Runtime');assert config
@@ -45,6 +45,7 @@ def main():
     factory=u.BlueprintFactory();factory.set_editor_property('parent_class',u.VamCharacterActor)
     bp=asset_tools.create_asset('BP_VamCharacter',root,u.Blueprint,factory);assert bp
     defaults=u.get_default_object(bp.generated_class());defaults.get_editor_property('character').set_editor_property('runtime_configuration',config)
+    defaults.get_editor_property('hair').set_editor_property('b_simulate' if hasattr(defaults.get_editor_property('hair'),'b_simulate') else 'simulate',bool(source.get('physics_policy')))
     u.BlueprintEditorLibrary.compile_blueprint(bp);save(bp)
     style=profile.get_editor_property('hairstyle')
     resources=[e.get_editor_property('hair').get_path_name() for e in style.get_editor_property('entries')] if style else []

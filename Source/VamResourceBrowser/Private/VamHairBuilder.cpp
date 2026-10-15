@@ -17,6 +17,8 @@
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
 #include "ShaderCompiler.h"
+#include "PhysicsEngine/PhysicsAsset.h"
+#include "PhysicsEngine/SkeletalBodySetup.h"
 
 namespace VamHairBuild
 {
@@ -42,7 +44,9 @@ static TArray<int32> Guides(const TArray<FCurve>& C,int32 Budget)
 }
 }
 
-UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FString& AssetRoot,USkeletalMesh* Body,const FString& GenerationIdentity,FString& Error)
+#include "VamHairStyleSolver.h"
+
+UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FString& AssetRoot,USkeletalMesh* Body,const FString& GenerationIdentity,FString& Error,UPhysicsAsset* Physics)
 {
     using namespace VamHairBuild;
     FString Text;TSharedPtr<FJsonObject> Input;
@@ -73,6 +77,25 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
     }
     auto* Profile=NewObject<UVamHairProfile>(CreatePackage(*(AssetRoot/TEXT("HP_Hair"))),TEXT("HP_Hair"),RF_Public|RF_Standalone);
     Profile->ReferenceBody=Body;
+    TArray<TSharedPtr<FJsonValue>> ColliderReport;
+    if(!Physics)Physics=Body->GetPhysicsAsset();
+    if(Input->HasField(TEXT("physics_policy"))&&!Physics){Error=TEXT("Physics hair requires the actual runtime body collision asset");return nullptr;}
+    if(Input->HasField(TEXT("physics_policy"))&&Physics)
+    {
+        const FString CollisionPath=AssetRoot/TEXT("PA_Hair");
+        auto* PA=DuplicateObject<UPhysicsAsset>(Physics,CreatePackage(*CollisionPath),TEXT("PA_Hair"));PA->SetFlags(RF_Public|RF_Standalone);
+        for(USkeletalBodySetup* Setup:PA->SkeletalBodySetups)
+        {
+            const int32 Bone=Ref.FindBoneIndex(Setup->BoneName);if(Bone<0)continue;
+            TArray<FVector> Points;for(const auto& Group:Curves)for(const auto& Curve:Group)for(const auto& P:Curve.P)Points.Add(Pose[Bone].InverseTransformPosition(HeadFrame.TransformPosition(P)));
+            auto Fit=[&](const FVector& A,const FVector& B,float Radius){float Safe=Radius;for(const auto& P:Points)Safe=FMath::Min(Safe,float(FMath::PointDistToSegment(P,A,B))-.17f);return FMath::Max(.01f,Safe);};
+            auto Record=[&](float Before,float After){auto R=MakeShared<FJsonObject>();R->SetStringField(TEXT("bone"),Setup->BoneName.ToString());R->SetNumberField(TEXT("before_radius_cm"),Before);R->SetNumberField(TEXT("after_radius_cm"),After);ColliderReport.Add(MakeShared<FJsonValueObject>(R));};
+            for(auto& S:Setup->AggGeom.SphereElems){const float Before=S.Radius;S.Radius=Fit(S.Center,S.Center,S.Radius);Record(Before,S.Radius);}
+            for(auto& S:Setup->AggGeom.SphylElems){const FVector Axis=S.Rotation.RotateVector(FVector::UpVector)*S.Length*.5;const float Before=S.Radius;S.Radius=Fit(S.Center-Axis,S.Center+Axis,S.Radius);Record(Before,S.Radius);}
+            Setup->InvalidatePhysicsData();
+        }
+        if(!Save(PA)){Error=TEXT("Hair collision asset save failed");return nullptr;}Profile->HairCollision=PA;
+    }
     if(Input->HasTypedField<EJson::Object>(TEXT("catalog")))
     {
         auto* Style=BuildHairstyle(InputFile,TEXT("/Game/VamHairLibrary"),Error);if(!Style)return nullptr;
@@ -91,6 +114,9 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
         for(int32 G=0;G<Groups.Num();++G)
         {
             const auto& C=Curves[G];const bool Anchor=Kinds[G]==TEXT("anchor"),Coiled=Kinds[G]==TEXT("coiled"),Firm=Kinds[G]==TEXT("firm");
+            const auto* Policy=Groups[G]->AsObject()->Values.Find(TEXT("physics_policy"));
+            const FString Class=Policy?(*Policy)->AsObject()->GetStringField(TEXT("kind")):TEXT("legacy");
+            const bool Compact=Class==TEXT("compact"),Supported=Class==TEXT("supported");
             auto Selected=Guides(C,Fine?128:32);for(int32 I:Selected)Add(C[I].P,G,true,.008);
             // Preserve the source scalp triangle domain. Spatially close guide roots can
             // belong to opposing parts of an updo; nearest-curve mixing bridges those parts.
@@ -131,7 +157,7 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
             }
             auto& IP=Groom->GetHairGroupsInterpolation()[G].InterpolationSettings;IP.GuideType=EGroomGuideType::Imported;IP.InterpolationQuality=EHairInterpolationQuality::High;IP.InterpolationDistance=EHairInterpolationWeight::Parametric;IP.bRandomizeGuide=false;
             auto& L=Groom->GetHairGroupsLOD()[G].LODs;L.SetNum(1);L[0].BindingType=EGroomBindingType::Rigid;L[0].Simulation=Anchor?EGroomOverrideType::Disable:EGroomOverrideType::Enable;
-            auto& Physics=Groom->GetHairGroupsPhysics()[G];Physics.SolverSettings.EnableSimulation=!Anchor;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CosseratRods;Physics.SolverSettings.SubSteps=Fine?5:3;Physics.SolverSettings.IterationCount=Fine?8:4;
+            auto& Physics=Groom->GetHairGroupsPhysics()[G];Physics.SolverSettings.EnableSimulation=!Anchor;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CosseratRods;if(Policy){auto* StyleSolver=BuildHairStyleSolver(AssetRoot,Class,Error);if(!StyleSolver)return nullptr;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CustomSolver;Physics.SolverSettings.CustomSystem=StyleSolver;}Physics.SolverSettings.SubSteps=Fine?5:3;Physics.SolverSettings.IterationCount=Fine?8:4;
             auto Length=[](const FCurve& X){double V=0;for(int I=1;I<X.P.Num();++I)V+=FVector::Distance(X.P[I-1],X.P[I]);return V;};
             double SourceLength=0,GuideLength=0;for(const auto& X:C)SourceLength+=Length(X);for(int I:Selected)GuideLength+=Length(C[I]);
             // Match total represented length as well as guide count: long guides
@@ -139,21 +165,21 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
             const float RenderCopies=float(NRender-RenderStart)/C.Num();
             const float RepresentedFibers=RenderCopies*SourceLength/FMath::Max(GuideLength,1.e-6);
             Physics.StrandsParameters.StrandsSize=Fine?EGroomStrandsSize::Size32:EGroomStrandsSize::Size16;Physics.StrandsParameters.StrandsDensity=1.3;Physics.StrandsParameters.StrandsThickness=.008f*FMath::Sqrt(RepresentedFibers);Physics.StrandsParameters.StrandsSmoothing=0;
-            Physics.ExternalForces.GravityVector=FVector(0,0,-981);Physics.ExternalForces.AirDrag=.12;
-            auto& Bend=Physics.MaterialConstraints.BendConstraint;Bend.SolveBend=true;Bend.ProjectBend=true;Bend.BendDamping=.2;Bend.BendStiffness=(Coiled?1000.f:(Firm?100.f:10.f))/RepresentedFibers;
+            Physics.ExternalForces.GravityVector=FVector(0,0,-981);Physics.ExternalForces.AirDrag=Compact?.3f:.15f;
+            auto& Bend=Physics.MaterialConstraints.BendConstraint;Bend.SolveBend=true;Bend.ProjectBend=true;Bend.BendDamping=.2;Bend.BendStiffness=(Compact?2000.f:(Supported?100.f:5.f))/RepresentedFibers;
             // Effective bundle area preserves total mass when guide count changes. EI scales
             // with fiber count, not its square: compensate r^4 with the reciprocal count.
-            auto* Scale=Bend.BendScale.GetRichCurve();Scale->Reset();for(int32 K=0;K<8;++K){float Rig=0;for(const auto& X:C)Rig+=X.RigidityProfile.IsEmpty()?X.Rigidity:X.RigidityProfile[K*(X.RigidityProfile.Num()-1)/7];Rig/=C.Num();Scale->AddKey(K/7.f,FMath::Lerp(.15f,1.f,FMath::Clamp(Rig,0.f,1.f)));}
+            auto* Scale=Bend.BendScale.GetRichCurve();Scale->Reset();for(int32 K=0;K<8;++K){float Rig=0;for(const auto& X:C)Rig+=X.RigidityProfile.IsEmpty()?X.Rigidity:X.RigidityProfile[K*(X.RigidityProfile.Num()-1)/7];Rig/=C.Num();Scale->AddKey(K/7.f,FMath::Lerp(Compact?.8f:(Supported?.6f:.25f),1.f,FMath::Clamp(Rig,0.f,1.f)));}
             auto& Stretch=Physics.MaterialConstraints.StretchConstraint;Stretch.SolveStretch=true;Stretch.ProjectStretch=true;Stretch.StretchStiffness=10;Stretch.StretchDamping=.1;
             auto& Collision=Physics.MaterialConstraints.CollisionConstraint;Collision.SolveCollision=true;Collision.ProjectCollision=true;Collision.CollisionRadius=.12;Collision.StrandsViscosity=Fine?.1f:.05f;Collision.GridDimension=Fine?FIntVector(24):FIntVector(12);
             auto& Rendering=Groom->GetHairGroupsRendering()[G];Rendering.GeometrySettings.HairWidth=RenderWidth;Rendering.GeometrySettings.HairWidth_Override=true;Rendering.ShadowSettings.bUseHairRaytracingGeometry=false;Rendering.AdvancedSettings.bUseStableRasterization=true;Rendering.MaterialSlotName=FName(*FString::Printf(TEXT("Hair_%d"),G));
             FHairGroupsMaterial Slot;Slot.SlotName=Rendering.MaterialSlotName;Slot.Material=Mats[G];Groom->GetHairGroupsMaterials().Add(Slot);
-            auto R=MakeShared<FJsonObject>();R->SetStringField(TEXT("name"),Groups[G]->AsObject()->GetStringField(TEXT("name")));R->SetStringField(TEXT("kind"),Kinds[G]);R->SetNumberField(TEXT("guides"),Selected.Num());R->SetNumberField(TEXT("source_curves"),C.Num());R->SetBoolField(TEXT("simulation"),!Anchor);R->SetNumberField(TEXT("points_per_guide"),Fine?32:16);GroupReports.Add(MakeShared<FJsonValueObject>(R));
+            auto R=MakeShared<FJsonObject>();R->SetStringField(TEXT("name"),Groups[G]->AsObject()->GetStringField(TEXT("name")));R->SetStringField(TEXT("kind"),Kinds[G]);R->SetStringField(TEXT("constraint_class"),Class);R->SetNumberField(TEXT("guides"),Selected.Num());R->SetNumberField(TEXT("source_curves"),C.Num());R->SetBoolField(TEXT("simulation"),!Anchor);R->SetNumberField(TEXT("points_per_guide"),Fine?32:16);GroupReports.Add(MakeShared<FJsonValueObject>(R));
         }
         Groom->CommitHairDescription(MoveTemp(Desc),EHairDescriptionType::Source);if(!Groom->CacheDerivedDatas()){Error=TEXT("Native Groom build failed");return nullptr;}Groom->InitResources();if(!Save(Groom)){Error=TEXT("Groom save failed");return nullptr;}
         if(Fine)Profile->FineGroom=Groom;else Profile->CoarseGroom=Groom;
         auto Q=MakeShared<FJsonObject>();Q->SetStringField(TEXT("quality"),Name);Q->SetNumberField(TEXT("render_curves"),NRender);Q->SetNumberField(TEXT("guides"),NGuides);Q->SetArrayField(TEXT("groups"),GroupReports);QualityReports.Add(MakeShared<FJsonValueObject>(Q));
     }
-    if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();auto Report=MakeShared<FJsonObject>();Report->SetArrayField(TEXT("quality"),QualityReports);FJsonSerializer::Serialize(Report,TJsonWriterFactory<>::Create(&Profile->BuildReportJson));
+    if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();auto Report=MakeShared<FJsonObject>();Report->SetArrayField(TEXT("quality"),QualityReports);Report->SetArrayField(TEXT("collision_fit"),ColliderReport);FJsonSerializer::Serialize(Report,TJsonWriterFactory<>::Create(&Profile->BuildReportJson));
     if(!Save(Profile)){Error=TEXT("Profile save failed");return nullptr;}return Profile;
 }
