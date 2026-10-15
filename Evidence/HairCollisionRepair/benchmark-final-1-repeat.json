@@ -1,0 +1,39 @@
+{
+  "protocol": "BP=/Game/VamHairRuntime/H_171a2fec712e0a8bcdec2204/BP_VamCharacter.BP_VamCharacter_C\ncharacters=1\nviewport=1920x1080\nWarmup=180, measured=300 per phase. Root sway and yaw; contact off, glute/leg Jiggle on.\n",
+  "scope": "Whole-frame wall time; hair rendering plus simulation delta, not isolated solver/GPU timing; no audit GPU readback.",
+  "phases": {
+    "off_before": {
+      "frames": 300,
+      "mean_ms": 7.08505366,
+      "median_ms": 6.9288,
+      "p95_ms": 9.105387200000001,
+      "mean_fps": 141.1421914340166
+    },
+    "fine": {
+      "frames": 300,
+      "mean_ms": 10.69153034,
+      "median_ms": 10.345852,
+      "p95_ms": 13.685227000000001,
+      "mean_fps": 93.53197981945773
+    },
+    "coarse": {
+      "frames": 300,
+      "mean_ms": 10.673269666666664,
+      "median_ms": 10.3868005,
+      "p95_ms": 13.27865895,
+      "mean_fps": 93.6920017230584
+    },
+    "off_after": {
+      "frames": 300,
+      "mean_ms": 7.254742316666667,
+      "median_ms": 7.0584489999999995,
+      "p95_ms": 9.7521819,
+      "mean_fps": 137.84087102620475
+    }
+  },
+  "off_drift_ms": 0.16968865666666755,
+  "hair_delta_ms": {
+    "fine": 3.521632351666666,
+    "coarse": 3.5033716783333304
+  }
+}

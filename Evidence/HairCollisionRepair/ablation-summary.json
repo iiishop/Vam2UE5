@@ -1,0 +1,37 @@
+[
+  {
+    "case": "baseline",
+    "max_render_step_cm": 19.74128892738322,
+    "scope": "same first 6 seconds, 30 Hz, head-local"
+  },
+  {
+    "case": "no-viscosity",
+    "max_render_step_cm": 22.98053224390451,
+    "scope": "same first 6 seconds, 30 Hz, head-local"
+  },
+  {
+    "case": "no-collision",
+    "max_render_step_cm": 0.7535443796353856,
+    "scope": "same first 6 seconds, 30 Hz, head-local"
+  },
+  {
+    "case": "contact-r2",
+    "max_render_step_cm": 23.095554389716636,
+    "scope": "same first 6 seconds, 30 Hz, head-local"
+  },
+  {
+    "case": "order",
+    "max_render_step_cm": 1.1092425126069059,
+    "scope": "same first 6 seconds, 30 Hz, head-local"
+  },
+  {
+    "case": "native-springs",
+    "max_render_step_cm": 20.321819086773697,
+    "scope": "same first 6 seconds, 30 Hz, head-local"
+  },
+  {
+    "case": "final-bound-fine",
+    "max_render_step_cm": 0.49967182833851687,
+    "scope": "same first 6 seconds, 30 Hz, head-local"
+  }
+]

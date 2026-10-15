@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "file": "UnrealEditor-VamCharacterRuntime.dll",
+      "installed_sha256": "293446d67b16546fbf934398596bbeae0d585e543923ad85256d7cceed0d9096",
+      "before_sha256": "12DFB57E9C64FF65C78BC2ED487A42DFB525451DB7C82692F1E4B0E46ED641DF"
+    },
+    {
+      "file": "UnrealEditor-VamCharacterRuntime.pdb",
+      "installed_sha256": "0bf79d5d56626916273c24e4e9df8a93754bddf569933a4527f665d359c2f8b5",
+      "before_sha256": "A4A2A203430860FAD5B61AC62C9A455C5B8481EF9CB03D623701206151F0B109"
+    },
+    {
+      "file": "UnrealEditor-VamResourceBrowser.dll",
+      "installed_sha256": "32c8b5cd767cb4e5d20e76baa9fa6f9877966bc3706f008b2f529f3789ac0e06",
+      "before_sha256": "CABBFD156F83C7BE084435A4A312F5EF1BFC619A9F83094279A8CE6B329E5571"
+    },
+    {
+      "file": "UnrealEditor-VamResourceBrowser.pdb",
+      "installed_sha256": "199cd1e26ce2fdf042f48290a414885a8d74a51ea65a512c77bfda53e0d39ecf",
+      "before_sha256": "5B46ABA4748EAC542F786C3450885C642FAE4423D5CB177806FEEA97A766E480"
+    },
+    {
+      "file": "UnrealEditor-VamContactGPU.dll",
+      "installed_sha256": "c952f86dd9557e7f87d4fca2b993be7fa6082a4ea36fb06661df8f39c73ec7eb",
+      "before_sha256": "C952F86DD9557E7F87D4FCA2B993BE7FA6082A4EA36FB06661DF8F39C73EC7EB"
+    },
+    {
+      "file": "UnrealEditor-VamContactGPU.pdb",
+      "installed_sha256": "90c9c41dc7fa48c5e0f018942c748436228c5201adbdd782d7987744596d323d",
+      "before_sha256": "90C9C41DC7FA48C5E0F018942C748436228C5201ADBDD782D7987744596D323D"
+    },
+    {
+      "file": "UnrealEditor.modules",
+      "installed_sha256": "95cff1f95b93f156bd38a0438132586f70bc292902228a235957510c25596ff6",
+      "before_sha256": "95CFF1F95B93F156BD38A0438132586F70BC292902228A235957510C25596FF6"
+    }
+  ],
+  "status": "installed",
+  "backup": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairCollisionRepair\\main-binaries-before",
+  "source": "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Binaries/Win64",
+  "time": "2026-10-16T00:37:18.636156",
+  "verification": "Main binary matches compiled host binary"
+}

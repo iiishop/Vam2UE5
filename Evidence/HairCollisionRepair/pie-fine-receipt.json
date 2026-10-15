@@ -1,0 +1,20 @@
+{
+  "world": "PIE",
+  "actor": "/Game/VamHairRuntime/H_171a2fec712e0a8bcdec2204/BP_VamCharacter.BP_VamCharacter_C",
+  "hair": "UE Groom / physics on / Fine / 4 groups / 171a2fec712e0a8bcdec22043059cf23e2f0930c9ea2161f4713721076a6e9bb-hair",
+  "glute_jiggle": true,
+  "leg_jiggle": true,
+  "orbit_camera": true,
+  "local_frame_control": false,
+  "frames": 720,
+  "simulation_dt": 0.016666666666666666,
+  "video_fps": 30,
+  "rest_control": false,
+  "bun_max_step_cm": 0.49992370023303306,
+  "bun_first6_max_cm": 0.4975190600860692,
+  "bun_first6_rms_p95_cm": 0.047763431887103386,
+  "process": {
+    "exit_code": 1,
+    "owned_pie_editor_cleanup_after_complete_capture": true
+  }
+}

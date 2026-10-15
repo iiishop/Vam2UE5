@@ -1,0 +1,20 @@
+{
+  "implementation_commit": "11589a0",
+  "initial_diagnostics_commit": "869e513",
+  "branch": "feature/hair",
+  "implementation_push": "succeeded",
+  "editor_check": "editor-check.json",
+  "editor_process": {
+    "exit_code": 0
+  },
+  "known_limits": [
+    "Current hairstyle/body and recorded motion only",
+    "Skin geometry sampled once per second; render points subsampled",
+    "Coarse tier has no demonstrated whole-frame performance advantage",
+    "Jaw/facial animation not validated"
+  ],
+  "historical_intermediates": [
+    "fine.mp4 and fine-comparison.mp4 are earlier d1 candidate, not final; final-* videos are delivery"
+  ],
+  "new_body_pipeline": "prepare_hair_head_collision.py then prepare_hair_outer_collision.py; build ue_hair_build.py with resulting input; original interior proxy is not the final face proxy"
+}

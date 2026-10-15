@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "guide": {
+      "max_inside_over_02cm": 0,
+      "max_depth_cm": 0.0
+    },
+    "render": {
+      "max_inside_over_02cm": 0,
+      "max_depth_cm": 0.0
+    }
+  },
+  "worst": [],
+  "scope": "Static A1 head, once/sec geometry, sampled render points; root prefix excluded; winding threshold 0.5; nearest-48 triangle distances"
+}

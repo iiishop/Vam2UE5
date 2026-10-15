@@ -19,5 +19,6 @@ if c.get('temporal_samples'):
    prev[g['group']]=True
    for kind in ['guide','render']:
     rows.append(dict(group=g['group'],time=f['time'],dt=1/30,kind=kind,rms_step_cm=g[kind+'_rms_step_cm'],max_step_cm=g[kind+'_max_step_cm'],rms_speed_cm_s=g[kind+'_rms_step_cm']*30))
+assert rows and all(np.isfinite([r['max_step_cm'],r['rms_step_cm']]).all() for r in rows), 'Missing or nonfinite motion samples'
 summary={str(k):{kind:dict(max_step_cm=max(r['max_step_cm'] for r in rows if r['group']==k and r['kind']==kind),max_rms_step_cm=max(r['rms_step_cm'] for r in rows if r['group']==k and r['kind']==kind)) for kind in ['guide','render']} for k in prev}
 a.out.write_text(json.dumps(dict(summary=summary,frames=c.get('frames',len(c['gpu_samples'])),geometry_frames=len(c['gpu_samples']),temporal_intervals=len(c.get('temporal_samples',[])),rows=rows),indent=2));print(json.dumps(summary,indent=2))

@@ -1,0 +1,44 @@
+[
+  {
+    "file": "final-coarse-comparison.mp4",
+    "width": 2560,
+    "height": 720,
+    "duration": "24.000000",
+    "nb_frames": "720"
+  },
+  {
+    "file": "final-coarse.mp4",
+    "width": 1280,
+    "height": 720,
+    "duration": "24.000000",
+    "nb_frames": "720"
+  },
+  {
+    "file": "final-fine-comparison.mp4",
+    "width": 2560,
+    "height": 720,
+    "duration": "24.000000",
+    "nb_frames": "720"
+  },
+  {
+    "file": "final-fine.mp4",
+    "width": 1280,
+    "height": 720,
+    "duration": "24.000000",
+    "nb_frames": "720"
+  },
+  {
+    "file": "final-pie-coarse.mp4",
+    "width": 1280,
+    "height": 688,
+    "duration": "24.000000",
+    "nb_frames": "720"
+  },
+  {
+    "file": "final-pie-fine.mp4",
+    "width": 1280,
+    "height": 688,
+    "duration": "24.000000",
+    "nb_frames": "720"
+  }
+]

@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "0": {
+      "guide": {
+        "max_step_cm": 0.2873218813898284,
+        "max_rms_step_cm": 0.06890023972304016
+      },
+      "render": {
+        "max_step_cm": 0.28720900694768436,
+        "max_rms_step_cm": 0.06759962723833277
+      }
+    },
+    "1": {
+      "guide": {
+        "max_step_cm": 2.8507021925698686,
+        "max_rms_step_cm": 0.24632879740770186
+      },
+      "render": {
+        "max_step_cm": 2.3305058434475945,
+        "max_rms_step_cm": 0.17674123026691088
+      }
+    },
+    "2": {
+      "guide": {
+        "max_step_cm": 2.3828655299554984,
+        "max_rms_step_cm": 0.2075983755616038
+      },
+      "render": {
+        "max_step_cm": 1.5493529538166855,
+        "max_rms_step_cm": 0.15854431286565243
+      }
+    },
+    "3": {
+      "guide": {
+        "max_step_cm": 1.489195055030156,
+        "max_rms_step_cm": 0.11522036501329862
+      },
+      "render": {
+        "max_step_cm": 1.1092425126069059,
+        "max_rms_step_cm": 0.13098248567799045
+      }
+    }
+  },
+  "frames": 180,
+  "summary_same_first_6s": {
+    "0": {
+      "guide": {
+        "max_step_cm": 0.2873218813898284,
+        "max_rms_step_cm": 0.06890023972304016
+      },
+      "render": {
+        "max_step_cm": 0.28720900694768436,
+        "max_rms_step_cm": 0.06759962723833277
+      }
+    },
+    "1": {
+      "guide": {
+        "max_step_cm": 2.8507021925698686,
+        "max_rms_step_cm": 0.24632879740770186
+      },
+      "render": {
+        "max_step_cm": 2.3305058434475945,
+        "max_rms_step_cm": 0.17674123026691088
+      }
+    },
+    "2": {
+      "guide": {
+        "max_step_cm": 2.3828655299554984,
+        "max_rms_step_cm": 0.2075983755616038
+      },
+      "render": {
+        "max_step_cm": 1.5493529538166855,
+        "max_rms_step_cm": 0.15854431286565243
+      }
+    },
+    "3": {
+      "guide": {
+        "max_step_cm": 1.489195055030156,
+        "max_rms_step_cm": 0.11522036501329862
+      },
+      "render": {
+        "max_step_cm": 1.1092425126069059,
+        "max_rms_step_cm": 0.13098248567799045
+      }
+    }
+  }
+}

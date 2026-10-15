@@ -1,0 +1,14 @@
+[
+  "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+  "I:/Document/UE5/SmartNPC/SmartNPC.uproject",
+  "/Engine/Maps/Entry",
+  "-RenderOffscreen",
+  "-unattended",
+  "-nosplash",
+  "-dx12",
+  "-windowed",
+  "-ResX=1280",
+  "-ResY=720",
+  "-ExecCmds=vam.HairPIECapture I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairCollisionRepair/coverage-pie-coarse /Game/VamHairRuntime/H_171a2fec712e0a8bcdec2204/BP_VamCharacter.BP_VamCharacter_C I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairRuntime/qimeng-take-1/fine/locomotion.json coarse orbit temporal-audit",
+  "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairCollisionRepair\\coverage-pie-coarse\\runtime.log"
+]

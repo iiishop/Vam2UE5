@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "world": "Editor",
+  "identity": "171a2fec712e0a8bcdec22043059cf23e2f0930c9ea2161f4713721076a6e9bb",
+  "scope": "Normal BP Editor attachment, tier switching and Niagara asset binding; active simulation recorded separately",
+  "rows": [
+    {
+      "quality": "<VamHairQuality.FINE: 1>",
+      "actor": "/Temp/Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0",
+      "parameters": [
+        {
+          "collision_radius_cm": 0.11999999731779099,
+          "self_collision_viscosity": 0.0
+        },
+        {
+          "collision_radius_cm": 0.800000011920929,
+          "self_collision_viscosity": 0.0
+        },
+        {
+          "collision_radius_cm": 0.800000011920929,
+          "self_collision_viscosity": 0.0
+        },
+        {
+          "collision_radius_cm": 0.11999999731779099,
+          "self_collision_viscosity": 0.0
+        }
+      ],
+      "groom": "/Game/VamHairRuntime/H_171a2fec712e0a8bcdec2204/Groom_Fine.Groom_Fine",
+      "head_attachment_error_cm": 0.0,
+      "active_niagara": 4,
+      "bound_niagara": 4,
+      "status": "UE Groom / physics on / Fine / 4 groups / 171a2fec712e0a8bcdec22043059cf23e2f0930c9ea2161f4713721076a6e9bb-hair"
+    },
+    {
+      "quality": "<VamHairQuality.COARSE: 0>",
+      "actor": "/Temp/Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0",
+      "parameters": [
+        {
+          "collision_radius_cm": 0.11999999731779099,
+          "self_collision_viscosity": 0.0
+        },
+        {
+          "collision_radius_cm": 1.100000023841858,
+          "self_collision_viscosity": 0.0
+        },
+        {
+          "collision_radius_cm": 1.100000023841858,
+          "self_collision_viscosity": 0.0
+        },
+        {
+          "collision_radius_cm": 0.11999999731779099,
+          "self_collision_viscosity": 0.0
+        }
+      ],
+      "groom": "/Game/VamHairRuntime/H_171a2fec712e0a8bcdec2204/Groom_Coarse.Groom_Coarse",
+      "head_attachment_error_cm": 0.0,
+      "active_niagara": 4,
+      "bound_niagara": 4,
+      "status": "UE Groom / physics on / Coarse / 4 groups / 171a2fec712e0a8bcdec22043059cf23e2f0930c9ea2161f4713721076a6e9bb-hair"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "0": {
+      "guide": {
+        "max_step_cm": 11.52734706960053,
+        "max_rms_step_cm": 0.6849480518970459
+      },
+      "render": {
+        "max_step_cm": 11.5273490448141,
+        "max_rms_step_cm": 0.8835059508649429
+      }
+    },
+    "1": {
+      "guide": {
+        "max_step_cm": 3.289513056469246,
+        "max_rms_step_cm": 0.22630191527480156
+      },
+      "render": {
+        "max_step_cm": 2.085639618024162,
+        "max_rms_step_cm": 0.16461263229335912
+      }
+    },
+    "2": {
+      "guide": {
+        "max_step_cm": 2.1193312598765597,
+        "max_rms_step_cm": 0.2091365244296116
+      },
+      "render": {
+        "max_step_cm": 1.5813909294442394,
+        "max_rms_step_cm": 0.15617227360984443
+      }
+    },
+    "3": {
+      "guide": {
+        "max_step_cm": 25.089037384991826,
+        "max_rms_step_cm": 1.696652029577449
+      },
+      "render": {
+        "max_step_cm": 23.095554389716636,
+        "max_rms_step_cm": 2.287892574421938
+      }
+    }
+  },
+  "frames": 180,
+  "summary_same_first_6s": {
+    "0": {
+      "guide": {
+        "max_step_cm": 11.52734706960053,
+        "max_rms_step_cm": 0.6849480518970459
+      },
+      "render": {
+        "max_step_cm": 11.5273490448141,
+        "max_rms_step_cm": 0.8835059508649429
+      }
+    },
+    "1": {
+      "guide": {
+        "max_step_cm": 3.289513056469246,
+        "max_rms_step_cm": 0.22630191527480156
+      },
+      "render": {
+        "max_step_cm": 2.085639618024162,
+        "max_rms_step_cm": 0.16461263229335912
+      }
+    },
+    "2": {
+      "guide": {
+        "max_step_cm": 2.1193312598765597,
+        "max_rms_step_cm": 0.2091365244296116
+      },
+      "render": {
+        "max_step_cm": 1.5813909294442394,
+        "max_rms_step_cm": 0.15617227360984443
+      }
+    },
+    "3": {
+      "guide": {
+        "max_step_cm": 25.089037384991826,
+        "max_rms_step_cm": 1.696652029577449
+      },
+      "render": {
+        "max_step_cm": 23.095554389716636,
+        "max_rms_step_cm": 2.287892574421938
+      }
+    }
+  }
+}
