@@ -1,0 +1,1746 @@
+ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.101 / 61.  1.101
+  libavcodec     63.  1.101 / 63.  1.101
+  libavformat    63.  1.101 / 63.  1.101
+  libavdevice    63.  1.101 / 63.  1.101
+  libavfilter    12.  1.101 / 12.  1.101
+  libswscale     10.  1.101 / 10.  1.101
+  libswresample   7.  1.101 /  7.  1.101
+[png @ 000001b755c9ca00] Invalid PNG signature 0xFFD8FFE000104A46.
+    Last message repeated 149 times
+[in#0/image2 @ 000001b755c9c3c0] Could not find codec parameters for stream 0 (Video: png, none): unspecified size
+Consider increasing the value for the 'analyzeduration' (0) and 'probesize' (5000000) options
+Input #0, image2, from 'Saved\HairPhysics\fine-05\video\frame-%04d.png':
+  Duration: 00:00:24.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, none, 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d619c0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d48500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dbc600] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dc7200] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dd2480] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b755d4a780] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757de7500] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757df2b80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757dfe580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e09580] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d67c80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757d68a80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fac0] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2fe80] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e30d40] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[png @ 000001b757e2f700] Invalid PNG signature 0xFFD8FFE000104A46.
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decoding error: Invalid data found when processing input
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Decode error rate 1 exceeds maximum 0.666667
+[vf#0:0 @ 000001b75776a880] Cannot determine format of input 0:0 after EOF
+[vf#0:0 @ 000001b75776a880] Task finished with error code: -1094995529 (Invalid data found when processing input)
+[vf#0:0 @ 000001b75776a880] Terminating thread with return code -1094995529 (Invalid data found when processing input)
+[vost#0:0/libx264 @ 000001b755c9cf40] [enc:libx264 @ 000001b75767e980] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001b755c9cf40] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001b755c9cf40] Terminating thread with return code -22 (Invalid argument)
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Task finished with error code: -1145393733 (Error number -1145393733 occurred)
+[vist#0:0/png @ 000001b755d3bf40] [dec:png @ 000001b75776dc80] Terminating thread with return code -1145393733 (Error number -1145393733 occurred)
+[out#0/mp4 @ 000001b755d24040] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:00.17    
+Conversion failed!
+ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.101 / 61.  1.101
+  libavcodec     63.  1.101 / 63.  1.101
+  libavformat    63.  1.101 / 63.  1.101
+  libavdevice    63.  1.101 / 63.  1.101
+  libavfilter    12.  1.101 / 12.  1.101
+  libswscale     10.  1.101 / 10.  1.101
+  libswresample   7.  1.101 /  7.  1.101
+Input #0, image2, from 'Saved\HairPhysics\fine-05\video\frame-%04d.png':
+  Duration: 00:00:24.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1280x720 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[swscaler @ 000001fad51e0d80] deprecated pixel format used, make sure you did set range correctly
+[libx264 @ 000001fad4d38bc0] using SAR=1/1
+[libx264 @ 000001fad4d38bc0] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 000001fad4d38bc0] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 000001fad4d38bc0] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=22 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\HairPhysics\fine.mp4':
+  Metadata:
+    encoder         : Lavf63.1.101
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.101 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=  142 fps=0.0 q=26.0 size=     512KiB time=00:00:04.66 bitrate= 898.9kbits/s speed=8.99x elapsed=0:00:00.51    frame=  324 fps=314 q=26.0 size=    1536KiB time=00:00:10.73 bitrate=1172.4kbits/s speed=10.4x elapsed=0:00:01.03    frame=  568 fps=364 q=26.0 size=    2304KiB time=00:00:18.86 bitrate=1000.4kbits/s speed=12.1x elapsed=0:00:01.56    [mp4 @ 000001fad2becec0] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 000001fad2c74400] video:3020KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.308346%
+frame=  720 fps=389 q=-1.0 Lsize=    3029KiB time=00:00:23.93 bitrate=1036.7kbits/s speed=12.9x elapsed=0:00:01.85    
+[libx264 @ 000001fad4d38bc0] frame I:3     Avg QP: 8.76  size: 16672
+[libx264 @ 000001fad4d38bc0] frame P:181   Avg QP:17.95  size:  6417
+[libx264 @ 000001fad4d38bc0] frame B:536   Avg QP:17.30  size:  3507
+[libx264 @ 000001fad4d38bc0] consecutive B-frames:  0.6%  0.3%  0.8% 98.3%
+[libx264 @ 000001fad4d38bc0] mb I  I16..4: 41.2% 58.2%  0.6%
+[libx264 @ 000001fad4d38bc0] mb P  I16..4:  0.9%  7.6%  0.2%  P16..4:  4.1%  2.6%  1.6%  0.0%  0.0%    skip:83.2%
+[libx264 @ 000001fad4d38bc0] mb B  I16..4:  1.4%  2.6%  0.1%  B16..8: 10.3%  3.4%  0.3%  direct: 3.9%  skip:78.1%  L0:52.6% L1:38.3% BI: 9.1%
+[libx264 @ 000001fad4d38bc0] 8x8 transform intra:73.2% inter:68.4%
+[libx264 @ 000001fad4d38bc0] coded y,uvDC,uvAC intra: 42.0% 23.5% 2.6% inter: 2.9% 2.8% 0.1%
+[libx264 @ 000001fad4d38bc0] i16 v,h,dc,p: 66% 19%  8%  7%
+[libx264 @ 000001fad4d38bc0] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 38% 20% 28%  3%  2%  3%  1%  3%  2%
+[libx264 @ 000001fad4d38bc0] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 31% 10% 19%  5%  6%  9%  4% 10%  3%
+[libx264 @ 000001fad4d38bc0] i8c dc,h,v,p: 59% 16% 24%  1%
+[libx264 @ 000001fad4d38bc0] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 000001fad4d38bc0] ref P L0: 60.7% 39.3%
+[libx264 @ 000001fad4d38bc0] ref B L0: 65.6% 34.4%
+[libx264 @ 000001fad4d38bc0] ref B L1: 95.2%  4.8%
+[libx264 @ 000001fad4d38bc0] kb/s:1030.43
+ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.101 / 61.  1.101
+  libavcodec     63.  1.101 / 63.  1.101
+  libavformat    63.  1.101 / 63.  1.101
+  libavdevice    63.  1.101 / 63.  1.101
+  libavfilter    12.  1.101 / 12.  1.101
+  libswscale     10.  1.101 / 10.  1.101
+  libswresample   7.  1.101 /  7.  1.101
+Input #0, image2, from 'Saved\HairPhysics\coarse-05\video\frame-%04d.png':
+  Duration: 00:00:24.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1280x720 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[swscaler @ 00000189c9ce2500] deprecated pixel format used, make sure you did set range correctly
+[libx264 @ 00000189c78e7940] using SAR=1/1
+[libx264 @ 00000189c78e7940] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 00000189c78e7940] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 00000189c78e7940] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=22 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\HairPhysics\coarse.mp4':
+  Metadata:
+    encoder         : Lavf63.1.101
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.101 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=  172 fps=0.0 q=26.0 size=     768KiB time=00:00:05.66 bitrate=1110.3kbits/s speed=11.1x elapsed=0:00:00.51    frame=  372 fps=363 q=26.0 size=    1792KiB time=00:00:12.33 bitrate=1190.3kbits/s speed=  12x elapsed=0:00:01.02    frame=  607 fps=391 q=26.0 size=    2560KiB time=00:00:20.16 bitrate=1039.9kbits/s speed=  13x elapsed=0:00:01.55    [mp4 @ 00000189c783dac0] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 00000189c78c4180] video:3098KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.300823%
+frame=  720 fps=414 q=-1.0 Lsize=    3107KiB time=00:00:23.93 bitrate=1063.5kbits/s speed=13.8x elapsed=0:00:01.73    
+[libx264 @ 00000189c78e7940] frame I:3     Avg QP: 8.51  size: 16388
+[libx264 @ 00000189c78e7940] frame P:182   Avg QP:17.91  size:  6556
+[libx264 @ 00000189c78e7940] frame B:535   Avg QP:17.20  size:  3605
+[libx264 @ 00000189c78e7940] consecutive B-frames:  0.8%  0.0%  0.8% 98.3%
+[libx264 @ 00000189c78e7940] mb I  I16..4: 43.0% 56.4%  0.7%
+[libx264 @ 00000189c78e7940] mb P  I16..4:  0.8%  7.6%  0.2%  P16..4:  4.0%  2.7%  1.6%  0.0%  0.0%    skip:83.1%
+[libx264 @ 00000189c78e7940] mb B  I16..4:  1.4%  2.6%  0.1%  B16..8: 10.3%  3.5%  0.4%  direct: 3.9%  skip:77.9%  L0:52.1% L1:38.5% BI: 9.4%
+[libx264 @ 00000189c78e7940] 8x8 transform intra:73.1% inter:68.1%
+[libx264 @ 00000189c78e7940] coded y,uvDC,uvAC intra: 41.9% 23.4% 2.6% inter: 3.1% 2.8% 0.1%
+[libx264 @ 00000189c78e7940] i16 v,h,dc,p: 65% 19%  8%  7%
+[libx264 @ 00000189c78e7940] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 38% 20% 28%  3%  2%  3%  1%  3%  2%
+[libx264 @ 00000189c78e7940] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 33% 10% 19%  5%  6% 10%  4% 10%  3%
+[libx264 @ 00000189c78e7940] i8c dc,h,v,p: 58% 16% 24%  1%
+[libx264 @ 00000189c78e7940] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 00000189c78e7940] ref P L0: 59.9% 40.1%
+[libx264 @ 00000189c78e7940] ref B L0: 65.7% 34.3%
+[libx264 @ 00000189c78e7940] ref B L1: 95.4%  4.6%
+[libx264 @ 00000189c78e7940] kb/s:1057.09
+ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.101 / 61.  1.101
+  libavcodec     63.  1.101 / 63.  1.101
+  libavformat    63.  1.101 / 63.  1.101
+  libavdevice    63.  1.101 / 63.  1.101
+  libavfilter    12.  1.101 / 12.  1.101
+  libswscale     10.  1.101 / 10.  1.101
+  libswresample   7.  1.101 /  7.  1.101
+Input #0, image2, from 'Saved\HairPhysics\rest-05\video\frame-%04d.png':
+  Duration: 00:00:24.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1280x720 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[swscaler @ 000001eb85d2bac0] deprecated pixel format used, make sure you did set range correctly
+[libx264 @ 000001eb8392e440] using SAR=1/1
+[libx264 @ 000001eb8392e440] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 000001eb8392e440] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 000001eb8392e440] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=22 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\HairPhysics\rest.mp4':
+  Metadata:
+    encoder         : Lavf63.1.101
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.101 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=  155 fps=0.0 q=26.0 size=     512KiB time=00:00:05.06 bitrate= 827.9kbits/s speed=9.78x elapsed=0:00:00.51    frame=  346 fps=335 q=26.0 size=    1536KiB time=00:00:11.46 bitrate=1097.4kbits/s speed=11.1x elapsed=0:00:01.03    frame=  586 fps=376 q=26.0 size=    2304KiB time=00:00:19.46 bitrate= 969.6kbits/s speed=12.5x elapsed=0:00:01.56    [mp4 @ 000001eb8384cb80] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 000001eb838d3800] video:2784KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.334129%
+frame=  720 fps=404 q=-1.0 Lsize=    2793KiB time=00:00:23.93 bitrate= 956.2kbits/s speed=13.4x elapsed=0:00:01.78    
+[libx264 @ 000001eb8392e440] frame I:3     Avg QP: 8.67  size: 17249
+[libx264 @ 000001eb8392e440] frame P:182   Avg QP:17.79  size:  5936
+[libx264 @ 000001eb8392e440] frame B:535   Avg QP:17.00  size:  3212
+[libx264 @ 000001eb8392e440] consecutive B-frames:  0.8%  0.0%  0.8% 98.3%
+[libx264 @ 000001eb8392e440] mb I  I16..4: 42.2% 57.1%  0.7%
+[libx264 @ 000001eb8392e440] mb P  I16..4:  0.8%  7.4%  0.2%  P16..4:  4.2%  2.4%  1.4%  0.0%  0.0%    skip:83.5%
+[libx264 @ 000001eb8392e440] mb B  I16..4:  1.2%  2.6%  0.0%  B16..8:  9.9%  3.2%  0.3%  direct: 3.9%  skip:79.0%  L0:53.6% L1:37.4% BI: 9.0%
+[libx264 @ 000001eb8392e440] 8x8 transform intra:74.5% inter:71.1%
+[libx264 @ 000001eb8392e440] coded y,uvDC,uvAC intra: 42.3% 23.8% 2.7% inter: 2.6% 2.8% 0.1%
+[libx264 @ 000001eb8392e440] i16 v,h,dc,p: 70% 16%  7%  7%
+[libx264 @ 000001eb8392e440] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 38% 20% 28%  3%  2%  3%  1%  3%  2%
+[libx264 @ 000001eb8392e440] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 33% 10% 19%  5%  6% 10%  4% 11%  3%
+[libx264 @ 000001eb8392e440] i8c dc,h,v,p: 58% 16% 25%  1%
+[libx264 @ 000001eb8392e440] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 000001eb8392e440] ref P L0: 62.0% 38.0%
+[libx264 @ 000001eb8392e440] ref B L0: 67.1% 32.9%
+[libx264 @ 000001eb8392e440] ref B L1: 95.4%  4.6%
+[libx264 @ 000001eb8392e440] kb/s:950.10
+ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.101 / 61.  1.101
+  libavcodec     63.  1.101 / 63.  1.101
+  libavformat    63.  1.101 / 63.  1.101
+  libavdevice    63.  1.101 / 63.  1.101
+  libavfilter    12.  1.101 / 12.  1.101
+  libswscale     10.  1.101 / 10.  1.101
+  libswresample   7.  1.101 /  7.  1.101
+Input #0, image2, from 'Saved\HairPhysics\full-05\video\frame-%04d.png':
+  Duration: 00:00:24.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1280x720 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[swscaler @ 0000020afdf5e000] deprecated pixel format used, make sure you did set range correctly
+[libx264 @ 0000020afbb67b80] using SAR=1/1
+[libx264 @ 0000020afbb67b80] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 0000020afbb67b80] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0000020afbb67b80] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=22 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\HairPhysics\full.mp4':
+  Metadata:
+    encoder         : Lavf63.1.101
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.101 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=  166 fps=0.0 q=26.0 size=     256KiB time=00:00:05.46 bitrate= 383.7kbits/s speed=10.8x elapsed=0:00:00.50    frame=  425 fps=410 q=26.0 size=    1280KiB time=00:00:14.10 bitrate= 743.7kbits/s speed=13.6x elapsed=0:00:01.03    frame=  684 fps=441 q=26.0 size=    1792KiB time=00:00:22.73 bitrate= 645.8kbits/s speed=14.6x elapsed=0:00:01.55    [mp4 @ 0000020afbabcd00] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0000020afbad8cc0] video:1981KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.469296%
+frame=  720 fps=453 q=-1.0 Lsize=    1990KiB time=00:00:23.93 bitrate= 681.1kbits/s speed=15.1x elapsed=0:00:01.59    
+[libx264 @ 0000020afbb67b80] frame I:3     Avg QP: 7.26  size: 12318
+[libx264 @ 0000020afbb67b80] frame P:181   Avg QP:18.50  size:  3948
+[libx264 @ 0000020afbb67b80] frame B:536   Avg QP:17.29  size:  2381
+[libx264 @ 0000020afbb67b80] consecutive B-frames:  0.4%  0.6%  1.2% 97.8%
+[libx264 @ 0000020afbb67b80] mb I  I16..4: 47.9% 51.6%  0.5%
+[libx264 @ 0000020afbb67b80] mb P  I16..4:  0.3%  3.5%  0.3%  P16..4:  2.6%  1.5%  0.8%  0.0%  0.0%    skip:91.1%
+[libx264 @ 0000020afbb67b80] mb B  I16..4:  1.4%  0.7%  0.1%  B16..8:  9.3%  2.7%  0.3%  direct: 2.8%  skip:82.8%  L0:55.7% L1:38.3% BI: 6.0%
+[libx264 @ 0000020afbb67b80] 8x8 transform intra:51.3% inter:59.4%
+[libx264 @ 0000020afbb67b80] coded y,uvDC,uvAC intra: 26.0% 28.1% 10.1% inter: 1.5% 2.4% 0.1%
+[libx264 @ 0000020afbb67b80] i16 v,h,dc,p: 70% 24%  3%  3%
+[libx264 @ 0000020afbb67b80] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 39% 16% 32%  2%  1%  4%  1%  4%  1%
+[libx264 @ 0000020afbb67b80] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 38%  8% 22%  3%  4% 10%  3%  8%  2%
+[libx264 @ 0000020afbb67b80] i8c dc,h,v,p: 62%  9% 26%  3%
+[libx264 @ 0000020afbb67b80] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0000020afbb67b80] ref P L0: 57.9% 42.1%
+[libx264 @ 0000020afbb67b80] ref B L0: 63.5% 36.5%
+[libx264 @ 0000020afbb67b80] ref B L1: 96.9%  3.1%
+[libx264 @ 0000020afbb67b80] kb/s:675.82
+ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.101 / 61.  1.101
+  libavcodec     63.  1.101 / 63.  1.101
+  libavformat    63.  1.101 / 63.  1.101
+  libavdevice    63.  1.101 / 63.  1.101
+  libavfilter    12.  1.101 / 12.  1.101
+  libswscale     10.  1.101 / 10.  1.101
+  libswresample   7.  1.101 /  7.  1.101
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\HairPhysics\fine.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.101
+  Duration: 00:00:24.00, start: 0.000000, bitrate: 1033 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], 1030 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.101 libx264
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\HairPhysics\coarse.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.101
+  Duration: 00:00:24.00, start: 0.000000, bitrate: 1060 kb/s
+  Stream #1:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], 1057 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.101 libx264
+Stream mapping:
+  Stream #0:0 (h264) -> hstack
+  Stream #1:0 (h264) -> hstack
+  hstack:default -> Stream #0:0 (libx264)
+Press [q] to stop, [?] for help
+[swscaler @ 000001ae59441380] deprecated pixel format used, make sure you did set range correctly
+[libx264 @ 000001ae558cafc0] using SAR=1/1
+[libx264 @ 000001ae558cafc0] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 000001ae558cafc0] profile High, level 4.0, 4:2:0, 8-bit
+[libx264 @ 000001ae558cafc0] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=2 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=6 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=22 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=30 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\HairPhysics\comparison.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.101
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(pc, bt470bg/unknown/unknown, progressive), 2560x720 [SAR 1:1 DAR 32:9], q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.101 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=   36 fps=0.0 q=26.0 size=       0KiB time=00:00:01.13 bitrate=   0.3kbits/s speed=2.25x elapsed=0:00:00.50    frame=  129 fps=127 q=26.0 size=     768KiB time=00:00:04.23 bitrate=1486.3kbits/s speed=4.16x elapsed=0:00:01.01    frame=  224 fps=145 q=26.0 size=    1792KiB time=00:00:07.40 bitrate=1983.8kbits/s speed=4.78x elapsed=0:00:01.54    frame=  310 fps=150 q=26.0 size=    2560KiB time=00:00:10.26 bitrate=2042.7kbits/s speed=4.98x elapsed=0:00:02.06    frame=  398 fps=155 q=26.0 size=    3584KiB time=00:00:13.20 bitrate=2224.3kbits/s speed=5.14x elapsed=0:00:02.56    frame=  502 fps=163 q=26.0 size=    4096KiB time=00:00:16.66 bitrate=2013.3kbits/s speed=5.41x elapsed=0:00:03.08    frame=  604 fps=167 q=26.0 size=    4608KiB time=00:00:20.06 bitrate=1881.2kbits/s speed=5.56x elapsed=0:00:03.61    [mp4 @ 000001ae57818040] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 000001ae558b3800] video:5364KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.174605%
+frame=  720 fps=180 q=-1.0 Lsize=    5374KiB time=00:00:23.93 bitrate=1839.3kbits/s speed=   6x elapsed=0:00:03.99    
+[libx264 @ 000001ae558cafc0] frame I:3     Avg QP: 8.40  size: 32941
+[libx264 @ 000001ae558cafc0] frame P:183   Avg QP:17.51  size: 11789
+[libx264 @ 000001ae558cafc0] frame B:534   Avg QP:17.41  size:  6060
+[libx264 @ 000001ae558cafc0] consecutive B-frames:  0.8%  0.8%  0.0% 98.3%
+[libx264 @ 000001ae558cafc0] mb I  I16..4: 45.8% 53.4%  0.9%
+[libx264 @ 000001ae558cafc0] mb P  I16..4:  1.1%  4.7%  0.3%  P16..4:  5.8%  3.2%  1.6%  0.0%  0.0%    skip:83.5%
+[libx264 @ 000001ae558cafc0] mb B  I16..4:  1.2%  1.2%  0.1%  B16..8: 11.2%  3.4%  0.3%  direct: 3.6%  skip:78.9%  L0:52.1% L1:39.3% BI: 8.7%
+[libx264 @ 000001ae558cafc0] 8x8 transform intra:60.6% inter:61.2%
+[libx264 @ 000001ae558cafc0] coded y,uvDC,uvAC intra: 32.6% 24.7% 3.8% inter: 2.7% 2.9% 0.1%
+[libx264 @ 000001ae558cafc0] i16 v,h,dc,p: 61% 19%  9% 11%
+[libx264 @ 000001ae558cafc0] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 37% 17% 25%  3%  3%  5%  2%  5%  3%
+[libx264 @ 000001ae558cafc0] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 31% 10% 19%  5%  7% 10%  5% 10%  4%
+[libx264 @ 000001ae558cafc0] i8c dc,h,v,p: 62% 14% 22%  2%
+[libx264 @ 000001ae558cafc0] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 000001ae558cafc0] ref P L0: 63.8% 36.2%
+[libx264 @ 000001ae558cafc0] ref B L0: 66.2% 33.8%
+[libx264 @ 000001ae558cafc0] ref B L1: 95.5%  4.5%
+[libx264 @ 000001ae558cafc0] kb/s:1830.76

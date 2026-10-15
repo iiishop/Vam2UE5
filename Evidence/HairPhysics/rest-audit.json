@@ -1,0 +1,10 @@
+{
+  "world": "Game",
+  "actor": "/Game/VamHairRuntime/H_b03f5e72719dcee9894ff7a4/BP_VamCharacter.BP_VamCharacter_C",
+  "hair": "UE Groom / physics off / Fine / 4 groups / b03f5e72719dcee9894ff7a4d0a29084f79c2384042ccb15c2070ae5d93d7dc5-hair",
+  "frames": 720,
+  "simulation_dt": 0.016666666666666666,
+  "video_fps": 30,
+  "measurements": [],
+  "note": "Guide-local motion sampled once per second; does not detect all between-sample peaks or prove strand nonpenetration."
+}

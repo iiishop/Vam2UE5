@@ -1,0 +1,14 @@
+{
+  "code_commit": "49b48e5",
+  "branch": "feature/hair",
+  "code_push": "succeeded",
+  "ue_compile": "Saved/HairPhysics/compile-11.log: Succeeded",
+  "main_asset_audit": "passed",
+  "main_pie_frames": 180,
+  "main_pie_world": "PIE",
+  "main_pie_cleanup": "Capture completed; own offscreen editor terminated after quit left editor alive",
+  "browser_visual_check": "Not performed: browser tool rejects local file protocol",
+  "game_motion_frames_per_tier": 720,
+  "sampling": "GPU guides once per second; visual snapshots at idle, run, stop, crouch",
+  "validation_scope": "Current four-resource source hairstyle only; no guarantee for all unseen hairstyles"
+}

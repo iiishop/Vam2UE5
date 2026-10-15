@@ -1,0 +1,53 @@
+{
+  "catalog_unchanged": true,
+  "groups": [
+    {
+      "name": "ponybase1_2_free",
+      "render_curves": 24416,
+      "width_cm": 0.02,
+      "physics_class": {
+        "kind": "supported",
+        "median_length_cm": 13.454058023461613,
+        "median_chord_ratio": 0.9034139549850239,
+        "median_rigidity": 0.26972822235016075
+      },
+      "render_unchanged": true
+    },
+    {
+      "name": "lo_bangs12_free",
+      "render_curves": 1932,
+      "width_cm": 0.03,
+      "physics_class": {
+        "kind": "loose",
+        "median_length_cm": 10.294275398488871,
+        "median_chord_ratio": 0.9127984475974189,
+        "median_rigidity": 0.03687301988036185
+      },
+      "render_unchanged": true
+    },
+    {
+      "name": "lo_bangs11_free",
+      "render_curves": 2079,
+      "width_cm": 0.03,
+      "physics_class": {
+        "kind": "loose",
+        "median_length_cm": 11.178687299350429,
+        "median_chord_ratio": 0.9200389397054338,
+        "median_rigidity": 0.0340397634846958
+      },
+      "render_unchanged": true
+    },
+    {
+      "name": "pony_tail3_firm",
+      "render_curves": 10496,
+      "width_cm": 0.02,
+      "physics_class": {
+        "kind": "compact",
+        "median_length_cm": 27.433585096696067,
+        "median_chord_ratio": 0.2841969468405657,
+        "median_rigidity": 0.30624438157317535
+      },
+      "render_unchanged": true
+    }
+  ]
+}
