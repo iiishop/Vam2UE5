@@ -12,6 +12,14 @@ import numpy as np
 from audit_hair_rest import audit
 
 
+def source_half_width_to_groom_diameter_cm(width_m):
+    """Source ribbon vertices are centre +/- width; UE HairWidth is diameter."""
+    width=float(width_m)
+    if not np.isfinite(width) or width<=0:
+        raise ValueError('Source strand half-width must be finite and positive')
+    return width*200.0
+
+
 def main(capture, prepared, contract, output):
     data=json.loads(prepared.read_text()); source=json.loads((capture/'hair-rest.json').read_text())
     body=json.loads((capture/'hair-rest-body.json').read_text()); contract_data=json.loads(contract.read_text())
@@ -74,9 +82,11 @@ def main(capture, prepared, contract, output):
                 mixed+=((p0+p1+p2)/3-mixed)*np.array(interp)[ids,None]
                 curves.append(mixed.tolist())
         group['render_curves']=curves
-        group['render_width_cm']=float(item['lod_settings']['FixedWidth'])*100
+        group['render_width_cm']=source_half_width_to_groom_diameter_cm(item['lod_settings']['FixedWidth'])
         summaries.append(dict(resource=name,render_curves=len(curves),native_samples_per_guide=detail,
-                              source_triangles=len(triangles),physics=False))
+                              source_triangles=len(triangles),physics=False,
+                              source_half_width_m=float(item['lod_settings']['FixedWidth']),
+                              groom_diameter_cm=group['render_width_cm']))
     data.pop('identity')
     data['native_render_evaluation']={'schema':'vam-native-hair-render-cache/1','capture':str(capture.resolve()),
         'manifest_sha256':hashlib.sha256((capture/'hair-rest.json').read_bytes()).hexdigest(),

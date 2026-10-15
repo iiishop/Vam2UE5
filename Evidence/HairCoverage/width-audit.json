@@ -1,0 +1,34 @@
+{
+  "source_assets_unchanged": true,
+  "hairstyle_unchanged": true,
+  "groups": [
+    {
+      "name": "ponybase1_2_free",
+      "render_curves": 24416,
+      "centre_lines_identical": true,
+      "before_diameter_cm": 0.01,
+      "after_diameter_cm": 0.02
+    },
+    {
+      "name": "lo_bangs12_free",
+      "render_curves": 1932,
+      "centre_lines_identical": true,
+      "before_diameter_cm": 0.015,
+      "after_diameter_cm": 0.03
+    },
+    {
+      "name": "lo_bangs11_free",
+      "render_curves": 2079,
+      "centre_lines_identical": true,
+      "before_diameter_cm": 0.015,
+      "after_diameter_cm": 0.03
+    },
+    {
+      "name": "pony_tail3_firm",
+      "render_curves": 10496,
+      "centre_lines_identical": true,
+      "before_diameter_cm": 0.01,
+      "after_diameter_cm": 0.02
+    }
+  ]
+}
