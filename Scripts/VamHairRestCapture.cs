@@ -17,6 +17,13 @@ public partial class C1Capture {
   var result=new JSONClass();foreach(var f in value.GetType().GetFields(BindingFlags.Instance|BindingFlags.Public))result[f.Name]=HairValue(f.GetValue(value),depth-1);return result;
  }
  IEnumerator CaptureHairRest(){
+  string variant=Environment.GetEnvironmentVariable("VAM_HAIR_PRESET");
+  if(!String.IsNullOrEmpty(variant)){
+   var hairManager=person.GetComponentsInChildren<MeshVR.PresetManager>(true).First(m=>m.storeFolderName=="Hair");
+   hairManager.LoadPresetFromJSON(JSON.Parse(File.ReadAllText(variant)).AsObject,false);
+   yield return new WaitForSecondsRealtime(15);while(SuperController.singleton.isLoading)yield return null;
+   Log("hair-only preset loaded: "+variant);
+  }
   Log("hair restoration baseline; physics disabled before capture");
   foreach(var ctrl in person.GetComponentsInChildren<FreeControllerV3>(true))ctrl.enabled=false;
   SuperController.singleton.SetFreezeAnimation(true);person.SetFreezePhysics(true);
@@ -27,7 +34,7 @@ public partial class C1Capture {
   foreach(var h in hairs){h.PhysicsSettings.IsEnabled=false;h.UpdateSettings();}
   for(int i=0;i<120;i++)yield return null;
   yield return new WaitForEndOfFrame();Capture("hair-rest-body");
-  var manifest=new JSONClass();manifest["preset"]=J(Preset);manifest["physics"]=J(false);manifest["scope"]=J("Actual source renderer; appearance untouched; pose frozen; original render settings retained");var entries=new JSONArray();
+  var manifest=new JSONClass();manifest["preset"]=J(Preset);manifest["hair_preset"]=J(variant);manifest["physics"]=J(false);manifest["scope"]=J("Actual source renderer; appearance untouched; pose frozen; original render settings retained");var entries=new JSONArray();
   for(int i=0;i<hairs.Length;i++){
    var h=hairs[i];var row=new JSONClass();string key="hair-"+i;row["path"]=J(PathOf(h.transform));row["local_to_world"]=J(h.transform.localToWorldMatrix);row["render_settings"]=HairValue(h.RenderSettings,2);row["lod_settings"]=HairValue(h.LODSettings,2);row["strand_settings"]=HairValue(h.StandsSettings,1);row["physics_settings"]=HairValue(h.PhysicsSettings,1);
    var guides=h.StandsSettings.Provider.GetVertices().ToArray();VecFile(key+"-provider.f32",guides,guides.Length);row["provider_count"]=J(guides.Length);

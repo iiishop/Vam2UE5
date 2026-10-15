@@ -1,0 +1,175 @@
+{
+  "identity": "88f677fa37c1755eaa151e390a8a19992d5843cbe7dc9b71656e8e9480363625",
+  "body_contract": "8dc812aa2ab4cfdefb293e47b9b6160d47364968ab440497c7cf40a7628cbc55",
+  "physics_policy": {
+    "version": "native-rest-classification-1",
+    "render_unchanged": true,
+    "groups": [
+      {
+        "source": "Custom/Hair/Female/ddaamm/ddaamm/long9 side.vab",
+        "kind": "loose",
+        "median_length_cm": 54.616610275920536,
+        "median_chord_ratio": 0.5835591834171768,
+        "median_rigidity": 0.0
+      },
+      {
+        "source": "Custom/Hair/Female/ddaamm/ddaamm/long9 extra.vab",
+        "kind": "loose",
+        "median_length_cm": 18.066077224777068,
+        "median_chord_ratio": 0.9050557182969765,
+        "median_rigidity": 0.10378227194046302
+      },
+      {
+        "source": "Custom/Hair/Female/ddaamm/ddaamm/long9 base.vab",
+        "kind": "loose",
+        "median_length_cm": 43.1093884815,
+        "median_chord_ratio": 0.7838176443153954,
+        "median_rigidity": 0.1334462536126958
+      },
+      {
+        "source": "Custom/Hair/Female/ddaamm/ddaamm/long9 bang.vab",
+        "kind": "loose",
+        "median_length_cm": 9.726071524386526,
+        "median_chord_ratio": 0.7851410934179247,
+        "median_rigidity": 0.07804353726646757
+      },
+      {
+        "source": "Custom/Hair/Female/ddaamm/ddaamm/long9 extra2.vab",
+        "kind": "loose",
+        "median_length_cm": 9.497153348581339,
+        "median_chord_ratio": 0.8675542975908564,
+        "median_rigidity": 0.0371544100124117
+      }
+    ]
+  },
+  "native_render_evaluation": {
+    "schema": "vam-native-hair-render-cache/1",
+    "capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairRestoration\\variants-long-01\\runtime",
+    "manifest_sha256": "836a20aa4a9e923959696ec8b44a07f9d144de12f765cbc49a00fbb0df0cda15",
+    "input_hashes": {
+      "hair-0-barycentrics.f32": "9453a16dc4bae57adab6d394d85a684b0e2e3fecaf7a5fa827c5c7441969a522",
+      "hair-0-normals.f32": "c6473cec8aee6c6902ae8d908a61388270b74e98466ae3c14ce36da632a15e5e",
+      "hair-0-particles.f32": "d04a64a9ff75f5df8106627c3799312648eb204c701f6e6d5485061d1b861002",
+      "hair-0-provider.f32": "7720d3271ee85b31a9266d471b9a1153998c4ef6f8a8d091507ef183eebdff24",
+      "hair-0-tess.f32": "c23957f9222a27a7a3cb1cb4ef0ab3ae88dabeed577115e5db876c4d0ebb6469",
+      "hair-1-barycentrics.f32": "92c1e22e4a470975c8bfcc5b7f54bae38a67f7fba314b186ccfa4dd3c76db976",
+      "hair-1-normals.f32": "c6473cec8aee6c6902ae8d908a61388270b74e98466ae3c14ce36da632a15e5e",
+      "hair-1-particles.f32": "139fbe89fb939dfa8282585b258da17c99e5be9649e301c4a4b53d1c18d0642c",
+      "hair-1-provider.f32": "51606e4695911936b800e9fd2c23d8d113802f4fa525282c19c1dc37f4b503c9",
+      "hair-1-tess.f32": "904890e84fc1c975aecbab57a19c6f41807d4ec0f95840c8d283da2e2bd62ab4",
+      "hair-2-barycentrics.f32": "5c43c861ddeddfd3f0f2797838d81cf439493a3c284f5cfcdf5e190223c05852",
+      "hair-2-normals.f32": "c6473cec8aee6c6902ae8d908a61388270b74e98466ae3c14ce36da632a15e5e",
+      "hair-2-particles.f32": "e79b03901ee46d0689510ddcbe48dd0c59a1b38d7e22deb0cba1eb8e167cb374",
+      "hair-2-provider.f32": "3e91e73ebcc20bdddbf2c15ad416db0f13ef908e9f9d339afe56321973af1a2f",
+      "hair-2-tess.f32": "9d1a549fd4fb1149eebae75060df367e7486bd645bd1e3a14a6951699fc931a2",
+      "hair-3-barycentrics.f32": "2135a2a90870a1545f5d1020af01b54940fd23d280a754b8ef6ef197fedf570b",
+      "hair-3-normals.f32": "c6473cec8aee6c6902ae8d908a61388270b74e98466ae3c14ce36da632a15e5e",
+      "hair-3-particles.f32": "b56cc3bde97a71aadcc02e7df08851dd936757320b3784a96f1beb19a862ae4e",
+      "hair-3-provider.f32": "64ad86b03472a2d7a9f255380165dbd95d9f11c242595f87cd9c91fd7777d4ba",
+      "hair-3-tess.f32": "887bd0d3d645b1b093a9084839428b1929ab4acafb7df8ae1b490641c04ceb40",
+      "hair-4-barycentrics.f32": "e4fde6f9d437fc5b4fc23d47b11b66e80cfdaa2b32c1028e69b5d2106c5212d7",
+      "hair-4-normals.f32": "c6473cec8aee6c6902ae8d908a61388270b74e98466ae3c14ce36da632a15e5e",
+      "hair-4-particles.f32": "647a4c75c19cd850df0e8492e96e135c03cce71b8d3b204b6caa5c2e20539b37",
+      "hair-4-provider.f32": "35c655927ead151804eb3357262a5cf928c5d20914403c48211d6526ca4f2a54",
+      "hair-4-tess.f32": "90ace450dd97daf7bd25f042488e494567f5b20319eedeab2d08f25596bf004b",
+      "hair-rest-body-legacy-morphed.f32": "963fa8044a8dce3d0a418ea695f169c9f98076af6a476fb75864dd0b709492df",
+      "hair-rest-body-raw.f32": "b04704ea5f9c8eeb63e6b9e1a6e26252306ac17c68eacd58938420cf6c983d4f",
+      "hair-rest-body-smoothed.f32": "5a679a1b10e76b2717bef8d7d880ff3afd94b074e78ec3f2b9236c441a093dba"
+    },
+    "style_identity": "346aaaac911b124918434cad942e68977b8b0ed1e566a2847cf1fcfd11116f5e",
+    "body_contract": "8dc812aa2ab4cfdefb293e47b9b6160d47364968ab440497c7cf40a7628cbc55",
+    "scope": "Measured static native tessellation + source triangle/length/spread expansion; UE hair shader is a separate rendering model",
+    "resources": [
+      {
+        "resource": "long9 base",
+        "render_curves": 12432,
+        "native_samples_per_guide": 30,
+        "source_triangles": 1036,
+        "physics": false,
+        "source_half_width_m": 0.00011,
+        "groom_diameter_cm": 0.022000000000000002
+      },
+      {
+        "resource": "long9 side",
+        "render_curves": 1896,
+        "native_samples_per_guide": 40,
+        "source_triangles": 158,
+        "physics": false,
+        "source_half_width_m": 0.00011,
+        "groom_diameter_cm": 0.022000000000000002
+      },
+      {
+        "resource": "long9 bang",
+        "render_curves": 880,
+        "native_samples_per_guide": 20,
+        "source_triangles": 22,
+        "physics": false,
+        "source_half_width_m": 0.0001527122,
+        "groom_diameter_cm": 0.030542440000000004
+      },
+      {
+        "resource": "long9 extra",
+        "render_curves": 160,
+        "native_samples_per_guide": 20,
+        "source_triangles": 4,
+        "physics": false,
+        "source_half_width_m": 0.00011,
+        "groom_diameter_cm": 0.022000000000000002
+      },
+      {
+        "resource": "long9 extra2",
+        "render_curves": 300,
+        "native_samples_per_guide": 20,
+        "source_triangles": 15,
+        "physics": false,
+        "source_half_width_m": 5.79273e-05,
+        "groom_diameter_cm": 0.011585459999999999
+      }
+    ],
+    "guide_validation": {
+      "scope": "Native physics-off particles vs imported source-ID curves, aligned by actual head matrix; not final density-expanded render-strand validation",
+      "prepared_identity": "20610e1adf6f4b2e56640e6acf1fe34be7a3853c99f8f007efe3fa087a05efb0",
+      "capture": "Saved\\HairRestoration\\variants-long-01\\runtime",
+      "resources": [
+        {
+          "resource": "long9 base",
+          "rms_cm": 0.0001565547596805791,
+          "p95_cm": 0.0003104472781794724,
+          "max_cm": 0.0010801972933625716,
+          "root_rms_cm": 7.746590034627131e-05
+        },
+        {
+          "resource": "long9 side",
+          "rms_cm": 0.00016827446948875635,
+          "p95_cm": 0.0003509959852620982,
+          "max_cm": 0.0008042777219484918,
+          "root_rms_cm": 7.73084113902939e-05
+        },
+        {
+          "resource": "long9 bang",
+          "rms_cm": 8.510606009446118e-05,
+          "p95_cm": 0.00012517479815324722,
+          "max_cm": 0.00015822917890070053,
+          "root_rms_cm": 8.087947978053873e-05
+        },
+        {
+          "resource": "long9 extra",
+          "rms_cm": 9.402952126646187e-05,
+          "p95_cm": 0.00015023692998104236,
+          "max_cm": 0.00017706462763362804,
+          "root_rms_cm": 8.276911318129364e-05
+        },
+        {
+          "resource": "long9 extra2",
+          "rms_cm": 8.206005570237165e-05,
+          "p95_cm": 9.552083572101733e-05,
+          "max_cm": 0.0001106343112325016,
+          "root_rms_cm": 7.762709980335881e-05
+        }
+      ],
+      "transport_tolerance_cm": 0.0013459451729431748,
+      "tolerance_policy": "max(0.001 cm, 64 * float32 epsilon * max source-fit coordinate in cm)"
+    }
+  },
+  "native_root_fit": null
+}

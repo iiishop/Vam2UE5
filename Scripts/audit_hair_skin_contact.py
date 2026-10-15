@@ -9,7 +9,9 @@ from pathlib import Path
 import numpy as np
 from scipy.spatial import ConvexHull,cKDTree
 
-p=argparse.ArgumentParser();p.add_argument('mesh',type=Path);p.add_argument('source',type=Path);p.add_argument('capture',type=Path);p.add_argument('out',type=Path);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('mesh',type=Path);p.add_argument('source',type=Path);p.add_argument('capture',type=Path);p.add_argument('out',type=Path)
+p.add_argument('--groups',type=int,nargs='+',default=[1,2],help='Actual source group IDs to audit; legacy two loose groups remain the default')
+a=p.parse_args()
 m=np.load(a.mesh);v=m['vertices'];tri=m['triangles'];tv=v[tri];h=ConvexHull(v[m['head_mask']]);tree=cKDTree(tv.mean(1))
 source=json.loads(a.source.read_text());capture=json.loads(a.capture.read_text());rows=[];worst=[]
 
@@ -37,7 +39,7 @@ def distance(points):
 
 for frame in capture['gpu_samples']:
     for g in frame['groups']:
-        if g['group'] not in (1,2):continue
+        if g['group'] not in a.groups:continue
         for kind in ['guide','render']:
             points=np.asarray(g[kind+'_points'])
             if kind=='guide':nodes=len(points)//g['guide_curves'];ids=np.arange(len(points))

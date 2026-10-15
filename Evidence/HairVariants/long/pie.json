@@ -1,0 +1,9 @@
+{
+  "world": "PIE",
+  "actor": "/Game/VamHairRuntime/H_c9499c1a97fd7b7c748ea4e2/BP_VamCharacter.BP_VamCharacter_C",
+  "hair": "UE Groom / physics on / Fine / 5 groups / c9499c1a97fd7b7c748ea4e2d419b51c3078359b797b238b17493e1cd9b73359-hair",
+  "frames": 180,
+  "simulation_dt": 0.016666666666666666,
+  "video_fps": 30,
+  "orbit_camera": true
+}

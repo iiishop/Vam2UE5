@@ -1,0 +1,15 @@
+{
+  "files": {
+    "Saved/HairChainAudit/prepared-collision-03.npz": "f9f487e85fec39667db54e5e153c4446e8db063069adaec56b4286060b6e1b2e",
+    "Saved/HairVariants/long/fine-main/capture.json": "d46443343bf698ac8c98c5f2bf99766e375bebe2bc9b1b3127bbb76a7b0f4c37",
+    "Saved/HairVariants/long/ready.json": "7e3e053df87ddacb7cfc9d38c730ca2c1d07f50eaa3530eb0371058d417f2bb2"
+  },
+  "group_ids": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "scope": "Static head surface reused for unchanged body; once/second geometry readback; no shoulder/back or animated face certification"
+}

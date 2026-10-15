@@ -1,0 +1,18 @@
+[
+  {
+    "id": "56074b36dc776fd405d64db91ceafda310b2ac3085f4332e3531526ffa7d9d41",
+    "name": "long9 black",
+    "source": "AddonPackages/Thorn.WanEr/Dependencies/4ddaamm.long9.2.var",
+    "path": "Custom/Atom/Person/Hair/ddaamm/Preset_long9 black.vap",
+    "thumb": "Custom/Atom/Person/Hair/ddaamm/Preset_long9 black.jpg",
+    "key": "long"
+  },
+  {
+    "id": "6c0f4c57df36706f5f6044d9df480d90798a46cb3668e52f3e42dc1d1f95a89c",
+    "name": "Swift Ponytail + Bangs A",
+    "source": "AddonPackages/Miki.Swift_Tails.2.var",
+    "path": "Custom/Atom/Person/Hair/SwiftTails/Preset_Swift Ponytail + Bangs A.vap",
+    "thumb": "Custom/Atom/Person/Hair/SwiftTails/Preset_Swift Ponytail + Bangs A.jpg",
+    "key": "ponytail"
+  }
+]

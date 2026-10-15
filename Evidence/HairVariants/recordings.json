@@ -1,0 +1,90 @@
+[
+  {
+    "style": "long",
+    "quality": "fine",
+    "asset_identity": "c9499c1a97fd7b7c748ea4e2d419b51c3078359b797b238b17493e1cd9b73359",
+    "world": "Game",
+    "actor": "/Game/VamHairRuntime/H_c9499c1a97fd7b7c748ea4e2/BP_VamCharacter.BP_VamCharacter_C",
+    "frames": 720,
+    "simulation_dt": 0.016666666666666666,
+    "video_fps": 30,
+    "orbit_camera": true,
+    "glute_jiggle": true,
+    "leg_jiggle": true,
+    "source_motion_sha256": "df77c97f8831b9c79b80bec6a4ddd7b0c24fe9d7632f7396904bb03767b9a9d0",
+    "capture_sha256": "d46443343bf698ac8c98c5f2bf99766e375bebe2bc9b1b3127bbb76a7b0f4c37",
+    "capture_path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairVariants\\long\\fine-main\\capture.json",
+    "probe": {
+      "width": 1280,
+      "height": 720,
+      "duration": "24.000000",
+      "nb_frames": "720"
+    }
+  },
+  {
+    "style": "long",
+    "quality": "coarse",
+    "asset_identity": "c9499c1a97fd7b7c748ea4e2d419b51c3078359b797b238b17493e1cd9b73359",
+    "world": "Game",
+    "actor": "/Game/VamHairRuntime/H_c9499c1a97fd7b7c748ea4e2/BP_VamCharacter.BP_VamCharacter_C",
+    "frames": 720,
+    "simulation_dt": 0.016666666666666666,
+    "video_fps": 30,
+    "orbit_camera": true,
+    "glute_jiggle": true,
+    "leg_jiggle": true,
+    "source_motion_sha256": "df77c97f8831b9c79b80bec6a4ddd7b0c24fe9d7632f7396904bb03767b9a9d0",
+    "capture_sha256": "af60f69a72e33644954c433f8072d55e463b5aa526d85359df9e5d88bfae64b3",
+    "capture_path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairVariants\\long\\coarse-main\\capture.json",
+    "probe": {
+      "width": 1280,
+      "height": 720,
+      "duration": "24.000000",
+      "nb_frames": "720"
+    }
+  },
+  {
+    "style": "ponytail",
+    "quality": "fine",
+    "asset_identity": "a176f2b2833404df22a8ab7111c145f2dfe7a139b0145d1ae244028a23c92433",
+    "world": "Game",
+    "actor": "/Game/VamHairRuntime/H_a176f2b2833404df22a8ab71/BP_VamCharacter.BP_VamCharacter_C",
+    "frames": 720,
+    "simulation_dt": 0.016666666666666666,
+    "video_fps": 30,
+    "orbit_camera": true,
+    "glute_jiggle": true,
+    "leg_jiggle": true,
+    "source_motion_sha256": "df77c97f8831b9c79b80bec6a4ddd7b0c24fe9d7632f7396904bb03767b9a9d0",
+    "capture_sha256": "00e4af7a316ffe014780f3c9c6d5dfcd84de5cd4dbaabbd54a02bfc4e548743f",
+    "capture_path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairVariants\\ponytail\\fine-main\\capture.json",
+    "probe": {
+      "width": 1280,
+      "height": 720,
+      "duration": "24.000000",
+      "nb_frames": "720"
+    }
+  },
+  {
+    "style": "ponytail",
+    "quality": "coarse",
+    "asset_identity": "a176f2b2833404df22a8ab7111c145f2dfe7a139b0145d1ae244028a23c92433",
+    "world": "Game",
+    "actor": "/Game/VamHairRuntime/H_a176f2b2833404df22a8ab71/BP_VamCharacter.BP_VamCharacter_C",
+    "frames": 720,
+    "simulation_dt": 0.016666666666666666,
+    "video_fps": 30,
+    "orbit_camera": true,
+    "glute_jiggle": true,
+    "leg_jiggle": true,
+    "source_motion_sha256": "df77c97f8831b9c79b80bec6a4ddd7b0c24fe9d7632f7396904bb03767b9a9d0",
+    "capture_sha256": "08ac24efb00527688e1e85c5df8eb228b121efd6a0099bf27f7196e16a781a68",
+    "capture_path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairVariants\\ponytail\\coarse-main\\capture.json",
+    "probe": {
+      "width": 1280,
+      "height": 720,
+      "duration": "24.000000",
+      "nb_frames": "720"
+    }
+  }
+]

@@ -1,0 +1,168 @@
+{
+  "identity": "e935d0e96ba3d23acbace19d1de4d70f9032aa1137401cf24f76cfa9ec44dbe8",
+  "body_contract": "8dc812aa2ab4cfdefb293e47b9b6160d47364968ab440497c7cf40a7628cbc55",
+  "physics_policy": {
+    "version": "native-rest-classification-1",
+    "render_unchanged": true,
+    "groups": [
+      {
+        "source": "Custom/Hair/Female/Miki/Swift Tails/Swift Bangs 3 A.vab",
+        "kind": "loose",
+        "median_length_cm": 29.500563467202063,
+        "median_chord_ratio": 0.671604841979018,
+        "median_rigidity": 0.02333703115218869
+      },
+      {
+        "source": "Custom/Hair/Female/Miki/Swift Tails/Swift Ponytail Hairline.vab",
+        "kind": "supported",
+        "median_length_cm": 13.994744565265725,
+        "median_chord_ratio": 0.9083376151055378,
+        "median_rigidity": 1.0
+      },
+      {
+        "source": "Custom/Hair/Female/Miki/Swift Tails/Swift Ponytail.vab",
+        "kind": "loose",
+        "median_length_cm": 64.00274359879565,
+        "median_chord_ratio": 0.6675801292440176,
+        "median_rigidity": 0.02866965317480208
+      }
+    ]
+  },
+  "native_render_evaluation": {
+    "schema": "vam-native-hair-render-cache/1",
+    "capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairRestoration\\variants-ponytail-01\\runtime",
+    "manifest_sha256": "69cf646a182eb43ad948e8b1414c6f3da0beb70ff3cd47aa1210470480f71004",
+    "input_hashes": {
+      "hair-0-barycentrics.f32": "4a820ded61c6c99b42313bdededab018d2e2db4d710b1a7db4ed33e067f21bbf",
+      "hair-0-normals.f32": "cedcb2a06639c1c3aa216f8331b1c6f966b20f9d5471f06dd3fcb6d9e28bfa24",
+      "hair-0-particles.f32": "499d40cffcbb3822e90acebaf671b9974a8ec8e1404e4ac08ee00c85047f3e77",
+      "hair-0-provider.f32": "dc43aa3f154dcc50306fcd81a6442bdef4331d63d28014febd40d56c6e0773c0",
+      "hair-0-tess.f32": "209512f7dc0b07b9751e8f9317b77c79f0608994fac4d05dbe733ab0c40354cf",
+      "hair-1-barycentrics.f32": "9fc8a38a36be697f7ac83ad674703566f03e43637414a7df72e163caf98bf966",
+      "hair-1-normals.f32": "c6473cec8aee6c6902ae8d908a61388270b74e98466ae3c14ce36da632a15e5e",
+      "hair-1-particles.f32": "115eb69d6d15c0946977b6c63876820abe4b668b80fb4033ee947542165af1a1",
+      "hair-1-provider.f32": "edc843b635496643e4e75fb664202cd37c4564c204a4b1f14d46545f9058b504",
+      "hair-1-tess.f32": "90b9ef6c9224f21954717db80409ce6144efbdf4540550a8729eb11e55c64470",
+      "hair-2-barycentrics.f32": "5e7069c951185b9849ccd2b0cb680ed4364772f538b85d85eadb93dd9eb5fccb",
+      "hair-2-normals.f32": "0fc689af7c097e3fd7965959b4d40cc75e99e8e1182367b38c5dbacef2bdd34a",
+      "hair-2-particles.f32": "fd8e5282c0eede8c78382f22206eb710d37dfca08abc751e0ff351b9228264d7",
+      "hair-2-provider.f32": "44766a622f1e23f046bbe6a3715f1a5aaec0e47aa365b46e36a66e5958a73e12",
+      "hair-2-tess.f32": "3c1411fa55a14d36216709c7bb0343df9cd2870725c0836894cb28c15bf19f1a",
+      "hair-rest-body-legacy-morphed.f32": "963fa8044a8dce3d0a418ea695f169c9f98076af6a476fb75864dd0b709492df",
+      "hair-rest-body-raw.f32": "afa51184ee9e1ca198bd0c66edde75b104b6f9946d58026d577fa41219629940",
+      "hair-rest-body-smoothed.f32": "f654efa83dcd8c2e55a1f5a55c8184607f67d180401e139c869f20dad1fe8c03"
+    },
+    "style_identity": "40c105486869165a6d7db5155ae14d678ddcb2d9b9003b0f27f2e3423941dbbd",
+    "body_contract": "8dc812aa2ab4cfdefb293e47b9b6160d47364968ab440497c7cf40a7628cbc55",
+    "scope": "Measured static native tessellation + source triangle/length/spread expansion; UE hair shader is a separate rendering model",
+    "resources": [
+      {
+        "resource": "Swift Ponytail Hairline",
+        "render_curves": 522,
+        "native_samples_per_guide": 64,
+        "source_triangles": 58,
+        "physics": false,
+        "source_half_width_m": 7.328223e-05,
+        "groom_diameter_cm": 0.014656446
+      },
+      {
+        "resource": "Swift Ponytail",
+        "render_curves": 20986,
+        "native_samples_per_guide": 64,
+        "source_triangles": 1499,
+        "physics": false,
+        "source_half_width_m": 0.0001120908,
+        "groom_diameter_cm": 0.02241816
+      },
+      {
+        "resource": "Swift Bangs 3 A",
+        "render_curves": 1760,
+        "native_samples_per_guide": 64,
+        "source_triangles": 110,
+        "physics": false,
+        "source_half_width_m": 0.00015703,
+        "groom_diameter_cm": 0.031406
+      }
+    ],
+    "guide_validation": {
+      "scope": "Native physics-off particles vs imported source-ID curves, aligned by actual head matrix; not final density-expanded render-strand validation",
+      "prepared_identity": "a345cc5d4f35c817075896ffcc6b40c8d6b0e774bb5318f2940904e80a59c195",
+      "capture": "Saved\\HairRestoration\\variants-ponytail-01\\runtime",
+      "resources": [
+        {
+          "resource": "Swift Ponytail Hairline",
+          "rms_cm": 7.88467663472401e-06,
+          "p95_cm": 1.395055187617834e-05,
+          "max_cm": 2.1540441185948777e-05,
+          "root_rms_cm": 7.769158021762193e-06
+        },
+        {
+          "resource": "Swift Ponytail",
+          "rms_cm": 9.558532523161839e-06,
+          "p95_cm": 1.786169123862997e-05,
+          "max_cm": 4.725129699708189e-05,
+          "root_rms_cm": 7.32870848082855e-06
+        },
+        {
+          "resource": "Swift Bangs 3 A",
+          "rms_cm": 7.072655983646035e-06,
+          "p95_cm": 1.2261404510973412e-05,
+          "max_cm": 1.942133575142018e-05,
+          "root_rms_cm": 7.3180267527513095e-06
+        }
+      ],
+      "transport_tolerance_cm": 0.001392241334542632,
+      "tolerance_policy": "max(0.001 cm, 64 * float32 epsilon * max source-fit coordinate in cm)"
+    }
+  },
+  "native_root_fit": {
+    "scope": "Body-specific measured scalp matrices; offline scalp fit discrepancies retained, not a general offline fitting fix",
+    "capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairRestoration\\variants-ponytail-01\\runtime",
+    "before": {
+      "scope": "Native physics-off particles vs imported source-ID curves, aligned by actual head matrix; not final density-expanded render-strand validation",
+      "prepared_identity": "6824b0d47df822a74f7f10f74a51d43eb967c0cf56365911f4f5ba4d236cd231",
+      "capture": "Saved\\HairRestoration\\variants-ponytail-01\\runtime",
+      "resources": [
+        {
+          "resource": "Swift Ponytail Hairline",
+          "rms_cm": 0.8881872070619728,
+          "p95_cm": 0.8985005662984222,
+          "max_cm": 0.9041767178043851,
+          "root_rms_cm": 0.8836046104897172
+        },
+        {
+          "resource": "Swift Ponytail",
+          "rms_cm": 0.00023463791617866288,
+          "p95_cm": 0.0003842717136612527,
+          "max_cm": 0.004404288772624997,
+          "root_rms_cm": 7.775804405338722e-05
+        },
+        {
+          "resource": "Swift Bangs 3 A",
+          "rms_cm": 0.00010999612924038262,
+          "p95_cm": 0.00019367613269530786,
+          "max_cm": 0.0003181494664034523,
+          "root_rms_cm": 7.78117947700504e-05
+        }
+      ]
+    },
+    "reconstruction": [
+      {
+        "resource": "Custom/Hair/Female/Miki/Swift Tails/Swift Ponytail Hairline.vab",
+        "particle_reconstruction_max_cm": 2.1540440205541368e-05,
+        "particle_reconstruction_rms_cm": 8.263624903498866e-06
+      },
+      {
+        "resource": "Custom/Hair/Female/Miki/Swift Tails/Swift Ponytail.vab",
+        "particle_reconstruction_max_cm": 2.296279356716358e-05,
+        "particle_reconstruction_rms_cm": 7.4297511647063966e-06
+      },
+      {
+        "resource": "Custom/Hair/Female/Miki/Swift Tails/Swift Bangs 3 A.vab",
+        "particle_reconstruction_max_cm": 1.9913897378554258e-05,
+        "particle_reconstruction_rms_cm": 7.286862907942368e-06
+      }
+    ],
+    "capture_sha256": "69cf646a182eb43ad948e8b1414c6f3da0beb70ff3cd47aa1210470480f71004"
+  }
+}

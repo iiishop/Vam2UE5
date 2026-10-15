@@ -27,7 +27,7 @@ def resample(points,n=32):
     if arc[-1]<.00001:raise ValueError('Degenerate hair curve')
     return [[interp(arc[-1]*i/(n-1),arc,[p[k] for p in points]) for k in range(3)] for i in range(n)]
 
-def prepare(ir,contract,extra=None,scalp_frames=True):
+def prepare(ir,contract,extra=None,scalp_frames=True,native_full_guides=False):
     body=copy.deepcopy(next(r['mesh'] for r in ir['records'] if r.get('class')=='DAZMergedMesh'))
     cb=contract['body'];x=copy.deepcopy(cb['vertices'])
     if contract['shape_convention']=='neutral_plus_parameters':
@@ -85,14 +85,14 @@ def prepare(ir,contract,extra=None,scalp_frames=True):
             while prefix<seg-2 and rig[prefix]>=.98:prefix+=1
             full_stiff=bool(sum(rig[1:])/len(rig[1:])>.95)
             if full_stiff:prefix=1
-            cut=max(0,prefix-1);prefixes.append(cut)
+            authored_prefix=max(0,prefix-1);cut=0 if native_full_guides else authored_prefix;prefixes.append(authored_prefix)
             if cut>0:
                 buckets.setdefault('anchor',[]).append({'source_curve':i,'points':resample(p[:cut+1],max(2,min(16,cut+1))),'rigidity':1.0})
             tail=p[cut:];length=arclength(tail)[-1];lengths.append(length)
-            stiff=sum(rig[cut+1:])/len(rig[cut+1:]);kind='coiled' if full_stiff else ('firm' if stiff>.3 else 'free')
+            stiff=sum(rig[cut+1:])/len(rig[cut+1:]);kind='native_full' if native_full_guides else ('coiled' if full_stiff else ('firm' if stiff>.3 else 'free'))
             arc=arclength(tail)
             profile=[interp(arc[-1]*j/31,arc,rig[cut:]) for j in range(32)]
-            buckets.setdefault(kind,[]).append({'source_curve':i,'points':resample(tail),'rigidity':stiff,'rigidity_profile':profile,'length_cm':length,'anchor_index':cut})
+            buckets.setdefault(kind,[]).append({'source_curve':i,'points':resample(tail),'rigidity':stiff,'rigidity_profile':profile,'length_cm':length,'anchor_index':cut,'authored_anchor_prefix':authored_prefix})
         for kind,curves in buckets.items():
             members={c['source_curve'] for c in curves}
             triangles=[h['indices'][i:i+3] for i in range(0,len(h['indices']),3)]

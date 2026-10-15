@@ -24,7 +24,13 @@ def main(capture, prepared, contract, output):
     data=json.loads(prepared.read_text()); source=json.loads((capture/'hair-rest.json').read_text())
     body=json.loads((capture/'hair-rest-body.json').read_text()); contract_data=json.loads(contract.read_text())
     result=audit(capture,data,contract_data)
-    assert max(r['max_cm'] for r in result['resources'])<.001, 'Guide transport has not passed source comparison'
+    # Native Unity buffers and matrices are float32. Bound roundoff in the
+    # world->head->UE transform by coordinate scale, while retaining the 10um floor.
+    coordinate_scale=max(abs(v) for g in data['groups'] for c in g['curves'] for p in c['points'] for v in p)
+    tolerance=max(.001,64*np.finfo(np.float32).eps*coordinate_scale)
+    result['transport_tolerance_cm']=float(tolerance)
+    result['tolerance_policy']='max(0.001 cm, 64 * float32 epsilon * max source-fit coordinate in cm)'
+    assert max(r['max_cm'] for r in result['resources'])<tolerance, 'Guide transport has not passed source comparison'
     head=np.array(next(b for b in body['bones'] if b['id']=='head')['worldMatrix'],float).reshape(4,4)
     bind=np.array(next(b for b in contract_data['bones'] if b['name']=='head')['world_bind'])
     assets={a['source_path']:a for a in data['catalog']['assets']}

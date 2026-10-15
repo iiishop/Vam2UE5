@@ -1,6 +1,7 @@
 ﻿param(
  [string]$GameRoot='F:\Virt A Mate',
  [string]$OutputRoot=(Join-Path $PSScriptRoot '..\Saved\HairRestoration'),
+ [string]$HairPresetPath="",
  [int]$TimeoutSeconds=900
 )
 # Diagnostic instrumentation only. Original scene/preset files are never changed.
@@ -33,6 +34,7 @@ $process=$null
 try {
  New-Item -ItemType Directory -Path $plugins | Out-Null
  Copy-Item -LiteralPath $dll -Destination (Join-Path $plugins 'C1Capture.dll')
+ if($HairPresetPath){$env:VAM_HAIR_PRESET=(Resolve-Path -LiteralPath $HairPresetPath).Path}
  $env:VAM_HAIR_REST_AUDIT='1'
  $env:VAM_AUDIT_OUTPUT=Join-Path $out 'runtime'
  $process=Start-Process -FilePath (Join-Path $game 'VaM.exe') -ArgumentList '-vrmode None -screen-fullscreen 0 -screen-width 960 -screen-height 720' -WorkingDirectory $game -WindowStyle Hidden -PassThru
@@ -42,6 +44,7 @@ try {
   'Capture timed out; partial data is not completion' | Set-Content (Join-Path $out 'launcher-timeout.txt')
  }
 } finally {
+ Remove-Item Env:VAM_HAIR_PRESET -ErrorAction SilentlyContinue
  Remove-Item Env:VAM_HAIR_REST_AUDIT -ErrorAction SilentlyContinue
  Remove-Item Env:VAM_AUDIT_OUTPUT -ErrorAction SilentlyContinue
  if($process -and -not $process.HasExited){Stop-Process -Id $process.Id}
