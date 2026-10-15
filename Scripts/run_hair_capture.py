@@ -1,12 +1,13 @@
 """Real viewport hair recording/benchmark. Never treats encoded FPS as runtime FPS."""
-import argparse,json,subprocess
+import argparse,json,subprocess,time
 from pathlib import Path
 p=argparse.ArgumentParser()
 p.add_argument('bundle',type=Path);p.add_argument('out',type=Path)
 p.add_argument('--source',type=Path,help='Existing actual-bone locomotion recording')
 p.add_argument('--quality',choices=['fine','coarse','rest'],default='fine')
 p.add_argument('--benchmark',action='store_true');p.add_argument('--characters',type=int,default=1)
-p.add_argument('--pie',action='store_true');p.add_argument('--diagnostic',choices=['no-collision','no-gravity','both','springs','dense','native-loose','soft-loose']);
+p.add_argument('--pie',action='store_true');p.add_argument('--diagnostic',choices=['no-collision','no-gravity','both','springs','dense','native-loose','soft-loose','no-viscosity']);
+p.add_argument('--temporal-audit',action='store_true')
 p.add_argument('--body-audit',action='store_true')
 p.add_argument('--orbit',action='store_true');p.add_argument('--local-frame',action='store_true')
 p.add_argument('--preview',action='store_true');p.add_argument('--full-body',action='store_true')
@@ -23,6 +24,7 @@ else:
     if a.full_body:command+=' full-body'
     if a.orbit:command+=' orbit'
     if a.body_audit:command+=' body-audit'
+    if a.temporal_audit:command+=' temporal-audit'
     if a.local_frame:command+=' local-frame'
 if a.diagnostic:command+=' '+('no-collision no-gravity' if a.diagnostic=='both' else a.diagnostic)
 if a.pie:command=command.replace('vam.HairCapture','vam.HairPIECapture')
@@ -31,9 +33,32 @@ cmd=[a.editor,a.project,'/Engine/Maps/Entry','-game','-RenderOffscreen','-unatte
 if a.pie:cmd.remove('-game')
 (a.out/'command.json').write_text(json.dumps(cmd,indent=2));(a.out/'bundle.json').write_text(json.dumps(d,indent=2))
 try:
-    with (a.out/'stdout.log').open('w') as log:r=subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT,timeout=1200)
-    (a.out/'process.json').write_text(json.dumps({'exit_code':r.returncode}))
-    assert r.returncode==0
+    cleanup=False
+    with (a.out/'stdout.log').open('w') as log:
+        if a.pie:
+            process=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT)
+            started=time.monotonic()
+            while process.poll() is None:
+                capture=a.out/'capture.json'
+                if capture.exists():
+                    try:
+                        complete=json.loads(capture.read_text())
+                        expected=180 if a.preview else len(json.loads(a.source.read_text())['samples'])
+                        if complete.get('world')=='PIE' and complete.get('frames')==expected:
+                            # The in-world quit ends PIE, not its isolated editor.
+                            # Only terminate this runner's own child after evidence is complete.
+                            time.sleep(2)
+                            if process.poll() is None:process.terminate();cleanup=True
+                            break
+                    except (ValueError,OSError):pass
+                if time.monotonic()-started>1200:
+                    process.kill();process.wait();raise subprocess.TimeoutExpired(cmd,1200)
+                time.sleep(1)
+            code=process.wait(timeout=30)
+        else:
+            code=subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT,timeout=1200).returncode
+    (a.out/'process.json').write_text(json.dumps({'exit_code':code,'owned_pie_editor_cleanup_after_complete_capture':cleanup}))
+    assert code==0 or cleanup
     assert (a.out/('frames.csv' if a.benchmark else 'capture.json')).exists(),'Missing completion evidence'
 except subprocess.TimeoutExpired:
     (a.out/'process.json').write_text(json.dumps({'timeout':True,'limit_seconds':1200}));raise

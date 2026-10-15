@@ -10,6 +10,33 @@
 #include "RHIGPUReadback.h"
 #include "NiagaraComponent.h"
 
+static TSharedPtr<FJsonObject> VamHairFrameDifference(const TSharedPtr<FJsonObject>& Current,const TSharedPtr<FJsonObject>& Previous)
+{
+    auto Out=MakeShared<FJsonObject>();TArray<TSharedPtr<FJsonValue>> Rows;
+    if(!Previous.IsValid())return Out;
+    const auto& Before=Previous->GetArrayField(TEXT("groups"));
+    for(auto Value:Current->GetArrayField(TEXT("groups")))
+    {
+        auto G=Value->AsObject();const int I=G->GetIntegerField(TEXT("group"));if(!Before.IsValidIndex(I))continue;auto B=Before[I]->AsObject();
+        auto Row=MakeShared<FJsonObject>();Row->SetNumberField(TEXT("group"),I);
+        for(bool Render:{false,true})
+        {
+            const TCHAR* Key=Render?TEXT("render_points"):TEXT("guide_points");const TArray<TSharedPtr<FJsonValue>> *Now=nullptr,*Old=nullptr;
+            if(!G->TryGetArrayField(Key,Now)||!B->TryGetArrayField(Key,Old))continue;
+            TMap<int32,int32> OldIDs;if(Render){const auto& IDs=B->GetArrayField(TEXT("render_point_ids"));for(int J=0;J<IDs.Num();++J)OldIDs.Add(IDs[J]->AsNumber(),J);}
+            double Sum=0,Max=0;int Count=0;
+            for(int J=0;J<Now->Num();++J)
+            {
+                int K=J;if(Render){auto* Found=OldIDs.Find(G->GetArrayField(TEXT("render_point_ids"))[J]->AsNumber());if(!Found)continue;K=*Found;}if(!Old->IsValidIndex(K))continue;
+                const auto& X=(*Now)[J]->AsArray();const auto& Y=(*Old)[K]->AsArray();double D=0;for(int Axis=0;Axis<3;++Axis)D+=FMath::Square(X[Axis]->AsNumber()-Y[Axis]->AsNumber());Sum+=D;Max=FMath::Max(Max,D);++Count;
+            }
+            const FString Prefix=Render?TEXT("render"):TEXT("guide");Row->SetNumberField(Prefix+TEXT("_max_step_cm"),FMath::Sqrt(Max));Row->SetNumberField(Prefix+TEXT("_rms_step_cm"),FMath::Sqrt(Sum/FMath::Max(1,Count)));Row->SetNumberField(Prefix+TEXT("_matched_points"),Count);
+        }
+        Rows.Add(MakeShared<FJsonValueObject>(Row));
+    }
+    Out->SetArrayField(TEXT("groups"),Rows);return Out;
+}
+
 // Explicit capture-only GPU readback. Never called by the production character tick.
 static TSharedPtr<FJsonObject> VamCaptureHairAudit(AVamCharacterActor* Actor)
 {
@@ -49,7 +76,7 @@ static TSharedPtr<FJsonObject> VamCaptureHairAudit(AVamCharacterActor* Actor)
         const auto& P=G->GroomAsset->GetHairGroupsPhysics()[I];
         Row->SetNumberField(TEXT("substeps"),P.SolverSettings.SubSteps);Row->SetNumberField(TEXT("iterations"),P.SolverSettings.IterationCount);
         Row->SetNumberField(TEXT("density"),P.StrandsParameters.StrandsDensity);Row->SetNumberField(TEXT("thickness_cm"),P.StrandsParameters.StrandsThickness);Row->SetNumberField(TEXT("bend_stiffness"),P.MaterialConstraints.BendConstraint.BendStiffness);
-        Row->SetNumberField(TEXT("air_drag"),P.ExternalForces.AirDrag);Row->SetStringField(TEXT("solver"),P.SolverSettings.CustomSystem.ToString());
+        Row->SetNumberField(TEXT("self_collision_viscosity"),P.MaterialConstraints.CollisionConstraint.StrandsViscosity);Row->SetNumberField(TEXT("air_drag"),P.ExternalForces.AirDrag);Row->SetStringField(TEXT("solver"),P.SolverSettings.CustomSystem.ToString());
         // Read the rendered strand buffer as well, with deterministic point IDs.
         auto* Instance=G->GetGroupInstance(I);
         if(Instance&&Instance->Strands.RestResource&&Instance->Strands.DeformedResource)
