@@ -5,6 +5,7 @@ Custom catalog Morph selections still take the original full calibration path.
 """
 import hashlib
 import json
+import os
 from pathlib import Path
 
 from vam_native_source import digest
@@ -14,7 +15,7 @@ CODE = ('vam_native_cache.py', 'vam_native_calibrate.py', 'vam_native_source.py'
         'vam_triax_lbs.py', 'vam_fit.py', 'vam_editable_morphs.py', 'vam_unity.py',
         'vam_decode.py', 'vam_ue_mesh.py', 'vam_plan.py', 'vam_index.py',
         'vam_native_input.py', 'vam_zip_compat.py', 'vam_glute_corrective_source.py', 'vam_preview.py')
-CONFIG = ('BuiltinCatalog.json', 'DecodeLayouts.json', 'Stage05Quality.json', 'RigFamilies/VamFemale88.json')
+CONFIG = ('BuiltinCatalog.json', 'DecodeLayouts.json', 'Stage05Quality.json', 'RigFamilies/VamFemale88.json', 'ProvenOrientationFormulas.json')
 
 
 def _sha_file(path):
@@ -34,6 +35,7 @@ def _inputs(data, preview, selection_path):
     files = dict(character['builtin_mapping']['files'])
     signature = digest({'decode_id': preview['decode_id'], 'ir_sha256': _sha_file(ir_path),
                         'plan_id': preview['plan_id'], 'root': str(root), 'selection': selection,
+                        'orientation_evidence': _sha_file(Path(os.environ.get('VAM_ORIENTATION_EVIDENCE',str(SCRIPTS.parent/'Config/ProvenOrientationFormulas.json')))),
                         'code': {name: _sha_file(SCRIPTS / name) for name in CODE},
                         'config': {name: _sha_file(SCRIPTS.parent / 'Config' / name)
                                    for name in CONFIG}})

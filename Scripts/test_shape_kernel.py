@@ -1,7 +1,7 @@
 import copy,os,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
-from vam_fit import apply_bone_centers,finalize_bone_centers
+from vam_fit import apply_bone_centers,finalize_bone_centers,evaluate_morph_orientations
 from vam_native_source import reference_bones
 from vam_native_job_state import check_cancel,BuildCancelled,progress
 
@@ -20,6 +20,18 @@ class ShapeKernelTests(unittest.TestCase):
         shaped=reference_bones(changed)
         for a,b in zip(shaped[1]['translation'],neutral[1]['translation']):self.assertAlmostEqual(a,b)
         self.assertEqual(shaped[0]['translation'],[0,50,0])
+
+    def test_orientation_formula_replacement_inheritance_and_idempotence(self):
+        bones=[{'name':str(i),'source_object':str(i),'orientation_degrees':[1,2,3],
+                'parameters':{'parentForMorphOffsets':{'m_PathID':i-1}}} for i in range(1,4)]
+        m={'parameters':{'formulas':[{'target':'1','targetType':4,'multiplier':2},
+            {'target':'1','targetType':'OrientationX','multiplier':4},
+            {'target':'2','targetType':'OrientationY','multiplier':6},
+            {'target':'1','targetType':'RotationZ','multiplier':100}]}}
+        apps=[('a',m,.5)];evaluate_morph_orientations(bones,apps)
+        self.assertEqual([b['orientation_degrees'] for b in bones],[[3,2,3],[3,5,3],[1,5,3]])
+        evaluate_morph_orientations(bones,apps)
+        self.assertEqual([b['orientation_degrees'] for b in bones],[[3,2,3],[3,5,3],[1,5,3]])
 
     def test_cancel_is_separate_from_published_progress(self):
         with tempfile.TemporaryDirectory() as directory,patch.dict(os.environ,VAM_BUILD_JOB=directory):

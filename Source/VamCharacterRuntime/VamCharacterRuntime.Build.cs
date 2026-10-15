@@ -3,8 +3,9 @@ public class VamCharacterRuntime : ModuleRules
 {
     public VamCharacterRuntime(ReadOnlyTargetRules Target) : base(Target)
     {
+        if (Target.bBuildEditor) PrivateDependencyModuleNames.Add("UnrealEd");
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-        PublicDependencyModuleNames.AddRange(new[] { "Core", "CoreUObject", "Engine", "PhysicsCore", "InputCore" });
-        PrivateDependencyModuleNames.AddRange(new[] { "PBIK", "Json", "Chaos", "ChaosCore" });
+        PublicDependencyModuleNames.AddRange(new[] { "Core", "CoreUObject", "Engine", "PhysicsCore", "InputCore", "ChaosFleshEngine", "ChaosFlesh", "VamContactGPU" });
+        PrivateDependencyModuleNames.AddRange(new[] { "RenderCore", "RHI", "ComputeFramework", "PBIK", "Json", "Chaos", "ChaosCore" });
     }
 }

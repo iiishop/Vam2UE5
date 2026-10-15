@@ -1,0 +1,2601 @@
+[
+  {
+    "pose": "abducted",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "asymmetric",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "deep-flexion",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "heldout-45-75",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "hip-110",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "hip-30",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "hip-60",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "hip-90",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "jiggle-motion",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "jiggle-seat-contact",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "knee-120",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "knee-30",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "knee-60",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "knee-90",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "mirror-left",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "mirror-right",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "rotation-pair",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "seat-contact",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "seat-prone",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "seat-sideways",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "single-leg",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "standing",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  },
+  {
+    "pose": "suspended-seat",
+    "stages": {
+      "01-final-weights": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "02-static-helpers": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "03-corrective": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      },
+      "04-jiggle": {
+        "position_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "bind_gap_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "normal_angle_deg": {
+          "rms": 5.495316672531063e-07,
+          "p95": 1.2074182697257333e-06,
+          "max": 1.4787793334710982e-06
+        },
+        "weight_max_difference": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        },
+        "morph_max_cm": {
+          "rms": 0.0,
+          "p95": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  }
+]

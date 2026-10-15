@@ -57,6 +57,7 @@ public:
     TArray<FVamGluteSide> GluteRest;
     UPROPERTY(Transient, BlueprintReadOnly, Category="VaM|Glute Structure") TArray<FVamGluteStructuralState> GluteStates;
     int32 GluteShapeRevision=0;
+    TArray<FTransform> CorrectiveShapeReference;
     UPROPERTY(Transient) TObjectPtr<UVamGluteCorrectiveProfile> CorrectiveProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Corrective") bool bCorrectiveEnabled=true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Glute Corrective") bool bShowCorrectiveDelta=false;

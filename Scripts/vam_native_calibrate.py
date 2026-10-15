@@ -14,6 +14,42 @@ from vam_native_source import prepare,digest,reference_bones
 from vam_triax_lbs import fit
 
 
+
+def add_evidenced_orientations(contract, skeleton, evidence):
+    """Opt-in contract v2. Only formula targets with recorded runtime keys execute."""
+    from vam_fit import evaluate_morph_orientations
+    proven={(f['source_id'],f['target'],f['target_type']) for f in evidence
+            if f.get('runtime_formula_keys') and f['target_type'].startswith('Orientation')}
+    reference=copy.deepcopy(skeleton)
+    for b in reference:
+        b['base_position']=b['position'][:]
+        b['parent']=b.get('transform_parent',b['parent'])
+    applications=[]
+    neutral_by_name={b['name']:b for b in skeleton}
+    contract['source_orientations']=[{'neutral_degrees':neutral_by_name[b['name']]['orientation_degrees'],
+        'unity_euler':bool(neutral_by_name[b['name']]['parameters']['useUnityEulerOrientation'])} for b in contract['bones']]
+    for m in contract['morphs']:
+        decoded={'parameters':copy.deepcopy(m['source_parameters'])}; selected=[]
+        for f in decoded['parameters'].get('formulas',[]):
+            kind=f.get('targetType')
+            if kind in (4,5,6,'4','5','6'):kind=('OrientationX','OrientationY','OrientationZ')[int(kind)-4]
+            if (m['source_id'],f.get('target'),kind) in proven:selected.append(f)
+        decoded['parameters']['formulas']=selected
+        unit=copy.deepcopy(reference); evaluate_morph_orientations(unit,[(m['source_id'],decoded,1.)])
+        by_name={b['name']:b for b in unit};m['bone_orientations']=[]
+        for i,b in enumerate(contract['bones']):
+            v=by_name[b['name']];delta=[x-y for x,y in zip(v['orientation_degrees'],v['base_orientation_degrees'])]
+            if any(abs(x)>1e-12 for x in delta):m['bone_orientations'].append({'bone_index':i,'source_degrees':delta})
+        applications.append((m['source_id'],decoded,m['default']))
+    contract['orientation_execution_trace']=evaluate_morph_orientations(reference,applications)
+    contract['bones']=reference_bones(reference);contract['bind_signature']=digest(contract['bones'])
+    contract['shape_kernel_version']=2
+    contract['skeleton_baseline']='Source neutral centers + absolute center offsets; evidenced orientation formulas in source world Euler degrees; source reference order then Unity->UE quaternion conversion. Rotation/scale remain unexecuted.'
+    contract['orientation_evidence_digest']=digest(evidence)
+    contract['status']='orientation_adapter_pending_runtime_validation'
+    return contract
+
+
 def calibrate(data):
     from vam_native_job_state import progress
     progress('校准来源','读取锁定来源与骨架')
@@ -21,6 +57,8 @@ def calibrate(data):
     preview=load_preview(data)
     ir_path=data/'Decoded'/(preview['decode_id']+'.ir.json')
     ir=json.loads(ir_path.read_text(encoding='utf8'))
+    require(all(r.get('data',{}).get('source_geometry_id') for r in ir['records'] if r.get('kind')=='morph' and r.get('source')=='builtin'),
+            'source_domain_redecode_required','Legacy built-in Morph IR has no owning-bank geometry identity; re-decode the source before calibration')
     plan=json.loads((data/'Plans'/(ir['plan_id']+'.json')).read_text(encoding='utf8'))
     character=next(i for i in plan['items'] if i.get('builtin_mapping',{}).get('entry',{}).get('role')=='character')
     ref=character['builtin_mapping']['files']['a_per'];path=(Path(plan['source_root'])/ref['path']).resolve()
@@ -84,6 +122,10 @@ def calibrate(data):
     require(bone_error<1e-5,'bone_center_basis','p0 local reference reconstruction differs from source')
     contract['bone_center_p0_error_cm']=bone_error
     contract['shape_kernel_version']=1
+    orientation_evidence=Path(os.environ.get('VAM_ORIENTATION_EVIDENCE',str(SCRIPTS.parent/'Config/ProvenOrientationFormulas.json')))
+    if orientation_evidence.exists():
+        evidence=json.loads(orientation_evidence.read_text(encoding='utf-8-sig'))
+        add_evidenced_orientations(contract,ir['skeleton'],evidence)
     contract['formula_classification']=[{'source_id':m['source_id'],'executed_bone_center_offsets':m['bone_centers'],
         'retained_unexecuted_or_missing_targets':m['formula_diagnostics'],'original_formulas':m['source_parameters'].get('formulas',[])} for m in contract['morphs']]
     contract['blockers']=[b for b in contract['blockers'] if b['code']!='formula_adapter_pending']
@@ -94,7 +136,11 @@ def calibrate(data):
         import numpy as np
         appearance=np.asarray(contract['body']['vertices'])
         for morph in contract['morphs']:appearance+=morph['default']*np.asarray(morph['deltas'])
-        contract['influences'],contract['skin']['fit']=fit(skin['parameters'],appearance,contract['bones'])
+        from vam_skin_runtime import runtime_skin_nodes
+        runtime_skin=copy.deepcopy(skin['parameters'])
+        runtime_skin['nodes']=runtime_skin_nodes(ir,skin['parameters'])
+        contract['influences'],contract['skin']['fit']=fit(runtime_skin,appearance,contract['bones'])
+        contract['skin']['fit']['bulge_preparation']='InitMesh inverse initial distance in metres v1'
         contract['skin']['calibration']='mathematical_reference_fit_pending_runtime'
         contract['skin']['calibration_shape']='X(p0); Morph geometry remains X0 plus absolute parameters'
     contract['hierarchy_provenance']=hierarchy

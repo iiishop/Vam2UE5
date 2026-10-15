@@ -151,3 +151,28 @@ def validate_skin(data, mesh, bones):
     return {'bones':len(data['nodes']), 'vertex_domain':'source_uv_vertices', 'weight_mode': 'general' if data['_hasGeneralWeights'] else 'triaxial',
             'triaxial_sum_range': [[min(v[a] for v in totals),max(v[a] for v in totals)]for a in range(3)],
             'policy':'Raw axis weights and bulges preserved. No silent normalization or LBS conversion.'}
+
+
+def morph_bank_geometry(bundle, subbank):
+    """Resolve a built-in subbank through its actual Transform ancestry.
+
+    Display names and numeric delta ranges cannot identify a mesh domain.
+    The owning DAZMorphBank geometryId is the source of truth.
+    """
+    banks={int(data['m_GameObject']['m_PathID']):data for _,_,data in bundle.records({'DAZMorphBank'})}
+    objects=subbank.assets_file.objects
+    data=bundle.read(subbank,'DAZMorphSubBank');go=int(data['m_GameObject']['m_PathID']);seen=set()
+    while go and go not in seen:
+        seen.add(go)
+        if go in banks:
+            geometry=banks[go].get('geometryId')
+            require(bool(geometry),'morph_bank_domain','Owning bank has no geometryId')
+            return geometry
+        game=objects[go].read_typetree();transform=None
+        for component in game['m_Component']:
+            ref=component.get('component',component);candidate=objects[int(ref['m_PathID'])]
+            if candidate.type.name in ('Transform','RectTransform'):transform=candidate.read_typetree();break
+        require(transform is not None,'morph_bank_domain','Missing owning Transform')
+        parent=int(transform['m_Father']['m_PathID'])
+        go=int(objects[parent].read_typetree()['m_GameObject']['m_PathID']) if parent else 0
+    require(False,'morph_bank_domain','Cannot locate DAZMorphBank ancestor')

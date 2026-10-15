@@ -14,8 +14,8 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double CalfAmplitude=3;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double LegSupport=.85;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double LegDamping=1;
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle",meta=(ClampMin="0.1",ClampMax="4")) double ThighDamping=.3;
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle",meta=(ClampMin="0.1",ClampMax="4")) double CalfDamping=.4;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle",meta=(ClampMin="0.1",ClampMax="4")) double ThighDamping=.4;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle",meta=(ClampMin="0.1",ClampMax="4")) double CalfDamping=.55;
     UFUNCTION(BlueprintCallable, Category="VaM|Leg Jiggle") void ResetLegTuning();
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") bool bShowLegNodes=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") bool bShowLegRegion=false;

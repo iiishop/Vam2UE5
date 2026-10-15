@@ -25,6 +25,7 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle",meta=(ClampMin="0",ClampMax="4")) double InternalCoupling=1;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, AdvancedDisplay, Category="VaM|Breast Jiggle",meta=(ClampMin="0.1",ClampMax="10")) double MassScale=1;
     UFUNCTION(BlueprintCallable, Category="VaM|Breast Jiggle") void ResetBreastTuning();
+    FMeshDeformerSet GetAuditDeformers() const { return GetActiveMeshDeformers(); }
     FVamBreastTuning GetBreastTuning() const;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle") bool bShowHelperBones=false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Breast Jiggle") bool bShowRegionWeights=false;

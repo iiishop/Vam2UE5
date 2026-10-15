@@ -63,10 +63,17 @@ namespace VamPoseControl
         FRotator Minimum,Maximum;
         GetLimits(Joint,Minimum,Maximum);
         const FRotator Normalized=Rotation.GetNormalized();
-        return FRotator(
-            FMath::Clamp(Normalized.Pitch,FMath::Min(Minimum.Pitch,Maximum.Pitch),FMath::Max(Minimum.Pitch,Maximum.Pitch)),
-            FMath::Clamp(Normalized.Yaw,FMath::Min(Minimum.Yaw,Maximum.Yaw),FMath::Max(Minimum.Yaw,Maximum.Yaw)),
-            FMath::Clamp(Normalized.Roll,FMath::Min(Minimum.Roll,Maximum.Roll),FMath::Max(Minimum.Roll,Maximum.Roll)));
+        // Quaternion::Rotator folds pitch into [-90,90] and adds 180 degrees
+        // to yaw/roll. Test both equivalent Euler branches against the SAME
+        // authored limits, otherwise a 110-degree hinge is falsely rejected.
+        const FRotator Alternate=FRotator(180-Normalized.Pitch,Normalized.Yaw+180,Normalized.Roll+180).GetNormalized();
+        auto Bound=[&](const FRotator& R){return FRotator(
+            FMath::Clamp(R.Pitch,FMath::Min(Minimum.Pitch,Maximum.Pitch),FMath::Max(Minimum.Pitch,Maximum.Pitch)),
+            FMath::Clamp(R.Yaw,FMath::Min(Minimum.Yaw,Maximum.Yaw),FMath::Max(Minimum.Yaw,Maximum.Yaw)),
+            FMath::Clamp(R.Roll,FMath::Min(Minimum.Roll,Maximum.Roll),FMath::Max(Minimum.Roll,Maximum.Roll)));};
+        const FRotator A=Bound(Normalized),B=Bound(Alternate);
+        const FQuat Requested=Rotation.Quaternion();
+        return Requested.AngularDistance(B.Quaternion())+1.e-8<Requested.AngularDistance(A.Quaternion())?B:A;
     }
 }
 

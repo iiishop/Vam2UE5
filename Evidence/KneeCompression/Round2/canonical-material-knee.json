@@ -1,0 +1,76 @@
+{
+  "pose": "knee-120-soft",
+  "success": false,
+  "message": "STOP: TOTAL NO. of ITERATIONS REACHED LIMIT",
+  "iterations": 500,
+  "old_fixed": 2722,
+  "shaft_fixed": 1858,
+  "inverted": 22,
+  "min_j": -0.33634701792584554,
+  "volume_ratio": 0.9953289158808921,
+  "max_delta_cm": 6.615830137862906,
+  "p95_delta_cm": 1.8614028266937022,
+  "seconds": 17.23619055747986,
+  "trace": [
+    {
+      "iteration": 50,
+      "inverted": 27,
+      "min_j": -0.32522922605553045,
+      "seconds": 1.7857797145843506
+    },
+    {
+      "iteration": 100,
+      "inverted": 23,
+      "min_j": -0.33820589677568313,
+      "seconds": 3.6522021293640137
+    },
+    {
+      "iteration": 150,
+      "inverted": 21,
+      "min_j": -0.33763571869726894,
+      "seconds": 5.54870343208313
+    },
+    {
+      "iteration": 200,
+      "inverted": 22,
+      "min_j": -0.3363570430207538,
+      "seconds": 7.187297821044922
+    },
+    {
+      "iteration": 250,
+      "inverted": 22,
+      "min_j": -0.33717612053694923,
+      "seconds": 8.920932054519653
+    },
+    {
+      "iteration": 300,
+      "inverted": 22,
+      "min_j": -0.33618211596516745,
+      "seconds": 10.563217401504517
+    },
+    {
+      "iteration": 350,
+      "inverted": 22,
+      "min_j": -0.33641796567734544,
+      "seconds": 12.337385177612305
+    },
+    {
+      "iteration": 400,
+      "inverted": 22,
+      "min_j": -0.3362719563322762,
+      "seconds": 14.012845993041992
+    },
+    {
+      "iteration": 450,
+      "inverted": 22,
+      "min_j": -0.33626251388150574,
+      "seconds": 15.584244012832642
+    },
+    {
+      "iteration": 500,
+      "inverted": 22,
+      "min_j": -0.33634701792584554,
+      "seconds": 17.226524114608765
+    }
+  ]
+}

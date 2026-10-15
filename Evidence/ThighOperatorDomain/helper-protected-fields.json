@@ -1,0 +1,8 @@
+{
+  "leg_jiggle": {
+    "SourceBoneCount": "VamLegJiggleProfile: Property 'SourceBoneCount' for attribute 'SourceBoneCount' on 'VamLegJiggleProfile' is protected and cannot be read",
+    "SourceBoneNames": "VamLegJiggleProfile: Property 'SourceBoneNames' for attribute 'SourceBoneNames' on 'VamLegJiggleProfile' is protected and cannot be read",
+    "SourceLocalBind": "VamLegJiggleProfile: Property 'SourceLocalBind' for attribute 'SourceLocalBind' on 'VamLegJiggleProfile' is protected and cannot be read",
+    "Integration": "VamLegJiggleProfile: Property 'Integration' for attribute 'Integration' on 'VamLegJiggleProfile' is protected and cannot be read"
+  }
+}

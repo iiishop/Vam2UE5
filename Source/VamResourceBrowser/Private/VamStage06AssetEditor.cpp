@@ -213,6 +213,15 @@ bool UVamStage06AssetEditor::SetRuntimeConfigurationIdentity(UVamRuntimeConfigur
     if(!Configuration || !Definition || Identity.Len()!=64) return false;
     const UVamShapeDefinition* Shape=Definition->Shape.LoadSynchronous();
     if(!Shape || Shape->MorphSetLockDigest.Len()!=64) return false;
+    TSharedPtr<FJsonObject> Receipt;
+    if(!ReceiptJson.IsEmpty()&&(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(ReceiptJson),Receipt)||!Receipt))return false;
+    FString SourcePath;
+    if(Receipt&&Receipt->TryGetStringField(TEXT("source_definition"),SourcePath))
+    {
+        auto* Source=LoadObject<UVamCharacterDefinition>(nullptr,*SourcePath);
+        if(!Source||Source->SourceDigest!=Definition->SourceDigest)return false;
+        Configuration->DiagnosticSourceDefinition=Source;
+    }
     Configuration->SchemaVersion=3;
     Configuration->bIndependentReloadVerified=false;
     Configuration->BuildIdentity=Identity;
@@ -228,4 +237,105 @@ bool UVamStage06AssetEditor::PublishRuntimeConfiguration(UVamRuntimeConfiguratio
 {
     if(!Configuration || Configuration->SchemaVersion!=3 || Configuration->BuildIdentity.Len()!=64 || Configuration->ReceiptJson.IsEmpty()) return false;
     Configuration->bIndependentReloadVerified=true;Configuration->MarkPackageDirty();return true;
+}
+
+#include "Materials/Material.h"
+#include "Materials/MaterialExpressionTextureBase.h"
+#include "Engine/Texture2D.h"
+FString UVamStage06AssetEditor::DescribeMaterialStreaming(UMaterialInterface* Material)
+{
+    auto Root=MakeShared<FJsonObject>();TArray<TSharedPtr<FJsonValue>> Entries,References;
+    if(Material)
+    {
+        Root->SetStringField(TEXT("material"),Material->GetPathName());
+        for(const auto& D:Material->GetTextureStreamingData())
+        {
+            auto Row=MakeShared<FJsonObject>();Row->SetStringField(TEXT("texture"),D.TextureName.ToString());Row->SetNumberField(TEXT("uv_channel"),D.UVChannelIndex);Row->SetNumberField(TEXT("sampling_scale"),D.SamplingScale);Entries.Add(MakeShared<FJsonValueObject>(Row));
+        }
+        if(auto* M=Material->GetMaterial()) for(const auto& E:M->GetExpressionCollection().Expressions)
+            if(auto* T=Cast<UMaterialExpressionTextureBase>(E);T&&T->Texture&&!T->Texture->NeverStream)
+                References.Add(MakeShared<FJsonValueString>(T->Texture->GetPathName()));
+    }
+    Root->SetArrayField(TEXT("streaming_entries"),Entries);Root->SetArrayField(TEXT("graph_texture_references"),References);
+    FString Json;FJsonSerializer::Serialize(Root,TJsonWriterFactory<>::Create(&Json));return Json;
+}
+
+#include "Materials/MaterialExpressionTextureSample.h"
+#include "Materials/MaterialExpressionTextureCoordinate.h"
+#include "Materials/MaterialExpressionConstant.h"
+#include "Materials/MaterialExpressionConstant2Vector.h"
+#include "Materials/MaterialExpressionAdd.h"
+#include "Materials/MaterialExpressionMultiply.h"
+#include "Materials/MaterialExpressionDivide.h"
+namespace
+{
+struct FVamAffineUV
+{
+    int32 Channel=INDEX_NONE;
+    FVector2D Scale=FVector2D::ZeroVector,Offset=FVector2D::ZeroVector;
+};
+bool VamIdentityUVMask(const FExpressionInput& Input)
+{
+    return !Input.Mask||(Input.MaskR&&Input.MaskG&&!Input.MaskB&&!Input.MaskA)||
+        (Cast<UMaterialExpressionConstant>(Input.Expression)&&Input.MaskR&&!Input.MaskG&&!Input.MaskB&&!Input.MaskA);
+}
+bool VamReadAffineUV(UMaterialExpression* E,FVamAffineUV& Out,int32 Depth=0)
+{
+    if(!E||Depth>32)return false;
+    if(auto* T=Cast<UMaterialExpressionTextureCoordinate>(E)){Out.Channel=T->CoordinateIndex;Out.Scale=FVector2D(T->UTiling,T->VTiling);return true;}
+    if(auto* C=Cast<UMaterialExpressionConstant>(E)){Out.Offset=FVector2D(C->R,C->R);return true;}
+    if(auto* C=Cast<UMaterialExpressionConstant2Vector>(E)){Out.Offset=FVector2D(C->R,C->G);return true;}
+    FExpressionInput A,B;double CA=0,CB=0;bool Multiply=false,Divide=false;
+    if(auto* Add=Cast<UMaterialExpressionAdd>(E)){A=Add->A;B=Add->B;CA=Add->ConstA;CB=Add->ConstB;}
+    else if(auto* Mul=Cast<UMaterialExpressionMultiply>(E)){A=Mul->A;B=Mul->B;CA=Mul->ConstA;CB=Mul->ConstB;Multiply=true;}
+    else if(auto* Div=Cast<UMaterialExpressionDivide>(E)){A=Div->A;B=Div->B;CA=Div->ConstA;CB=Div->ConstB;Divide=true;}
+    else return false;
+    // Masked/swizzled or parameterized coordinates require UE's general GPU exporter.
+    if(!VamIdentityUVMask(A)||!VamIdentityUVMask(B))return false;
+    FVamAffineUV X,Y;
+    if(A.Expression){if(!VamReadAffineUV(A.Expression,X,Depth+1))return false;}else X.Offset=FVector2D(CA,CA);
+    if(B.Expression){if(!VamReadAffineUV(B.Expression,Y,Depth+1))return false;}else Y.Offset=FVector2D(CB,CB);
+    if(Divide)
+    {
+        if(Y.Channel!=INDEX_NONE||FMath::Abs(Y.Offset.X)<=UE_SMALL_NUMBER||FMath::Abs(Y.Offset.Y)<=UE_SMALL_NUMBER)return false;
+        Out.Channel=X.Channel;Out.Scale=X.Scale/Y.Offset;Out.Offset=X.Offset/Y.Offset;
+    }
+    else if(Multiply)
+    {
+        if(X.Channel!=INDEX_NONE&&Y.Channel!=INDEX_NONE)return false;
+        Out.Channel=X.Channel!=INDEX_NONE?X.Channel:Y.Channel;
+        Out.Scale=X.Channel!=INDEX_NONE?X.Scale*Y.Offset:Y.Scale*X.Offset;Out.Offset=X.Offset*Y.Offset;
+    }
+    else
+    {
+        if(X.Channel!=INDEX_NONE&&Y.Channel!=INDEX_NONE&&X.Channel!=Y.Channel)return false;
+        Out.Channel=X.Channel!=INDEX_NONE?X.Channel:Y.Channel;Out.Scale=X.Scale+Y.Scale;Out.Offset=X.Offset+Y.Offset;
+    }
+    return !Out.Scale.ContainsNaN()&&!Out.Offset.ContainsNaN();
+}
+}
+FString UVamStage06AssetEditor::BuildAffineMaterialStreaming(UMaterial* Material)
+{
+    if(!Material)return TEXT("Missing generated material");
+    TArray<FMaterialTextureInfo> Data;
+    for(const auto& Expression:Material->GetExpressionCollection().Expressions)
+    {
+        auto* Sample=Cast<UMaterialExpressionTextureSample>(Expression);if(!Sample||!Sample->Texture||Sample->Texture->NeverStream)continue;
+        FVamAffineUV UV;
+        if(Sample->Coordinates.Expression)
+        {
+            if(!VamIdentityUVMask(Sample->Coordinates)||!VamReadAffineUV(Sample->Coordinates.Expression,UV))
+                return TEXT("Unsupported non-affine texture coordinates; use UE material UV-density export: ")+Sample->GetPathName();
+        }
+        else{UV.Channel=Sample->ConstCoordinate;UV.Scale=FVector2D(1,1);}
+        if(UV.Channel==INDEX_NONE)continue; // Constant sampling has no surface-frequency requirement.
+        const double SX=FMath::Abs(UV.Scale.X),SY=FMath::Abs(UV.Scale.Y);
+        // Use the smaller nonzero derivative for a conservative anisotropic footprint.
+        const double Scale=SX>UE_SMALL_NUMBER&&SY>UE_SMALL_NUMBER?FMath::Min(SX,SY):FMath::Max(SX,SY);
+        if(!FMath::IsFinite(Scale)||Scale<=UE_SMALL_NUMBER||UV.Channel<0||UV.Channel>=MAX_TEXCOORDS)
+            return TEXT("Invalid generated texture sampling footprint");
+        FMaterialTextureInfo Info;Info.TextureName=Sample->Texture->GetFName();Info.TextureReference=FSoftObjectPath(Sample->Texture);Info.UVChannelIndex=UV.Channel;Info.SamplingScale=Scale;
+        Data.Add(Info);
+    }
+    Material->SetTextureStreamingData(Data);Material->MarkPackageDirty();return FString();
 }

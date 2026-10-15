@@ -10,6 +10,8 @@ class VAMCHARACTERRUNTIME_API UVamRuntimeConfiguration : public UDataAsset
 {
     GENERATED_BODY()
 public:
+    /** Retained provenance for diagnostics in both editor and packaged builds. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM|Diagnostics") TSoftObjectPtr<class UVamCharacterDefinition> DiagnosticSourceDefinition;
     // Keep the historical default: UE may omit default-valued tags in old assets.
     // Only the verified builder explicitly assigns 3, which is then serialized.
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") int32 SchemaVersion=2;
@@ -20,6 +22,7 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") FString MorphSetLockDigest;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamCharacterDefinition> Definition;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamBreastJiggleProfile> BreastJiggle;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamBreastContactProfile> BreastContact;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamGluteStructureProfile> GluteStructure;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamGluteCorrectiveProfile> GluteCorrective;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamGluteJiggleProfile> GluteJiggle;

@@ -1,0 +1,21 @@
+{
+  "status": "Kernel regression fixed; complete character visual acceptance still pending",
+  "root": "A block-only feasible recovery can freeze safe vertices whenever every candidate block also contains a locked vertex. Singleton updates were missing.",
+  "before": "Four safe fan vertices fail to recover; actual UE automation FAIL",
+  "after": "Same fan assertions pass with every original geometry predicate retained; both safety tests PASS",
+  "actual_character_example": "Input 7837 recovers an additional 0.0271417308 of the Flex90 target in the first singleton sweep after larger block attempts. Full visual regression remains required.",
+  "files": {
+    "starvation-before.log": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\starvation-before.log",
+      "sha256": "155376c8ac3a36123ed415c73b0b72b736639086783fecfc9369a1ca1d419f02"
+    },
+    "starvation-after.log": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\starvation-after.log",
+      "sha256": "72d014916590a1ad5dc1dcf4dca3c8155c92d708a3cf2bc2446c824ce3c35403"
+    },
+    "compile-v16.log": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\compile-v16.log",
+      "sha256": "97dae5f4e4241e043549416e232a943bbf9b20f4c1617c536efa729d89f1bfa4"
+    }
+  }
+}

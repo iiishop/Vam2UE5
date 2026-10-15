@@ -1,0 +1,89 @@
+{
+  "status": "VISUAL_REJECTED",
+  "reason": "Fullness restored substantially, but right inferior rim remains. Do not install as final.",
+  "identity": "b286e58610ef9d33879bc47f0f99005b462e835267e69894c83f279151bd56ec",
+  "configuration": "/Game/VamGluteSurfaceFeasibilityV15/Runtime/R_b286e58610ef9d33879bc47f/RC_Runtime",
+  "runtime_tests": [
+    "Test Completed. Result={Success} Name={ContactRuntime} Path={Vam.Breast.ContactRuntime}"
+  ],
+  "metrics": {
+    "fixed_edges": 676,
+    "max_angle": 29.506972197235708,
+    "over45": 0,
+    "shape_retention": {
+      "-1": {
+        "previous_safe": {
+          "rms_cm": 1.304398352540308,
+          "p95_cm": 3.166827805762562,
+          "max_cm": 3.8682196557516306
+        },
+        "new": {
+          "rms_cm": 0.24859298351252074,
+          "p95_cm": 0.5683767757065972,
+          "max_cm": 1.559059383547745
+        }
+      },
+      "1": {
+        "previous_safe": {
+          "rms_cm": 1.1840594700743265,
+          "p95_cm": 2.5218227218682787,
+          "max_cm": 5.182031002162856
+        },
+        "new": {
+          "rms_cm": 1.010476076239523,
+          "p95_cm": 2.785158732835691,
+          "max_cm": 4.042471004306803
+        }
+      }
+    },
+    "upstream_max_cm": {
+      "01-final-weights": 0.0,
+      "02-static-helpers": 0.0
+    }
+  },
+  "retention": {
+    "-1": {
+      "count": 114,
+      "median": 1.0,
+      "p10": 0.9999924354302024,
+      "orthogonal_max_cm": 9.704185110368412e-05
+    },
+    "1": {
+      "count": 129,
+      "median": 1.0,
+      "p10": 0.31416251429842357,
+      "orthogonal_max_cm": 1.0131937137091806e-05
+    }
+  },
+  "regression": {
+    "before": "mask-before.log: four full-recovery assertions failed",
+    "after": "mask-after.log: JointFamilySafety and FeasibleSafetyGrowth succeeded"
+  },
+  "unchanged_checks": [
+    "triangle signed area",
+    "triangle area bound",
+    "native edge displacement difference",
+    "inverse conditioning",
+    "actual composed surface continuity"
+  ],
+  "files": {
+    "Saved\\LowerBodyContact\\GluteSafetyRepair\\candidate-35\\preview\\seated\\rear-gray.png": {
+      "sha256": "d0d5bb3d359952bc7758e3b1e5b52d05b516a9c9666f16c83ca5d7ca4a0ccb76"
+    },
+    "Saved\\LowerBodyContact\\GluteSafetyRepair\\unattenuated-preview-v4\\seated\\rear-gray.png": {
+      "sha256": "c91feba4e1f37fb35565ca18e1a3a151dd71f607ef599588286b91acedd4ed31"
+    },
+    "Saved\\LowerBodyContact\\GluteShapeRecovery\\candidate-15\\preview\\seated\\rear-gray.png": {
+      "sha256": "96779638b402af0c4ceef16c47a770ebc5fe4109c89be46bac320acb272cb432"
+    },
+    "Saved\\LowerBodyContact\\GluteSafetyRepair\\rear-comparison.html": {
+      "sha256": "402ed5133626c82e39dfdd58ae58c18d6aebc901855d74c3401ba1b283836bf6"
+    },
+    "Saved\\LowerBodyContact\\GluteSafetyRepair\\mask-before.log": {
+      "sha256": "6cdf79677f9143a5c6db704423f1c08c668bb04108e7bb9fe4a5b6854ddd0d34"
+    },
+    "Saved\\LowerBodyContact\\GluteSafetyRepair\\mask-after.log": {
+      "sha256": "c215b43c16552c0ca92898fb1ba222264f8111cc62b65e0a5d0608b862e59163"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "scope": "Actual Editor BP A1 final corrective surfaces; all source-duplicate groups, finite geometry; no changed-shape VaM source sampled",
+  "checks": [
+    {
+      "value": 0.75,
+      "pose": "Neutral standing",
+      "validation_id": "98e88a940fe976cd4d77503b100eb1a812eb9cf78742ff02e40be5adcd29b323",
+      "finite": true,
+      "max_source_duplicate_gap_cm": 0.0,
+      "bounds_cm": [
+        30.892370626632292,
+        153.01870327956414,
+        173.11833323007647
+      ]
+    },
+    {
+      "value": 0.75,
+      "pose": "Flexion 60",
+      "validation_id": "b41892f3bd8c11cf506253ef7009117d33bbd5f088327e44ee94485cbb2c61e5",
+      "finite": true,
+      "max_source_duplicate_gap_cm": 0.0,
+      "bounds_cm": [
+        99.9652015516013,
+        151.17726907698767,
+        129.64572529142177
+      ]
+    },
+    {
+      "value": 0.9,
+      "pose": "Neutral standing",
+      "validation_id": "2de4e2b6f5b9f7c0e85f50e1cec99bffddd6ed12d07030ed6a02c17e81aa0737",
+      "finite": true,
+      "max_source_duplicate_gap_cm": 0.0,
+      "bounds_cm": [
+        30.48772351916299,
+        151.91384453033305,
+        171.99123058675937
+      ]
+    },
+    {
+      "value": 0.9,
+      "pose": "Flexion 60",
+      "validation_id": "5b70f779b7e8c4507f1c3f1c21d0bffe8ece74f8c92f97cd297664b7ac96f642",
+      "finite": true,
+      "max_source_duplicate_gap_cm": 0.0,
+      "bounds_cm": [
+        100.07383418427843,
+        151.1772744160155,
+        129.5651300231008
+      ]
+    },
+    {
+      "value": 1.0,
+      "pose": "Neutral standing",
+      "validation_id": "1a2a9c7585f2505ecc4866f7dbf51a47b86dfff3cc25eee4402bf1639b2cf95c",
+      "finite": true,
+      "max_source_duplicate_gap_cm": 0.0,
+      "bounds_cm": [
+        30.21795814299849,
+        151.1772747419754,
+        171.23973033870513
+      ]
+    },
+    {
+      "value": 1.0,
+      "pose": "Flexion 60",
+      "validation_id": "a2728900831f66ad6e5674876abcc152fdade9582c3e4aab8a04404c69a72dd0",
+      "finite": true,
+      "max_source_duplicate_gap_cm": 0.0,
+      "bounds_cm": [
+        100.14613692004534,
+        151.1772747419754,
+        129.51135111688296
+      ]
+    }
+  ]
+}

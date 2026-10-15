@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "identity": "26c92372d157d5e374d254c0531789b4273a177e72d7255e7e0a1d96948a224f",
+  "tests": [
+    "Vam.Breast.Dynamics",
+    "Vam.Breast.WeightCompression",
+    "Vam.Glute.G1.AttachmentDamping",
+    "Vam.Glute.G1.CharacterCalibration",
+    "Vam.Glute.G1.FrameRateStability",
+    "Vam.Glute.G1.Mechanics",
+    "Vam.Glute.FinalCorrective",
+    "Vam.Glute.FinalInfluenceBudget",
+    "Vam.Glute.MorphNormalOrientation",
+    "Vam.Glute.PoseFunction",
+    "Vam.Glute.PoseRefinement",
+    "Vam.Glute.ResidualOnlySafety",
+    "Vam.Glute.RotationBlendReference",
+    "Vam.Leg.PreserveSupportSlots",
+    "Vam.Material.AffineStreaming"
+  ],
+  "contact": "Historical contact issues excluded; no contact code modified."
+}

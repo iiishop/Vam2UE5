@@ -34,6 +34,7 @@ bool Extract(USkeletalMesh* Mesh,FVamNativeMeshInput& I,FString& Error)
 {
     const FMeshDescription* D=Mesh ? Mesh->GetMeshDescription(0) : nullptr;
     if(!D) { Error=TEXT("Source has no retained native MeshDescription; reimport required");return false; }
+    I.bUseHighPrecisionSkinWeights=Mesh->GetLODInfo(0)->BuildSettings.bUseHighPrecisionSkinWeights;
     FSkeletalMeshConstAttributes A(*D);
     const int32 Count=D->Vertices().Num();
     I.Vertices.SetNum(Count);I.Normals.Init(FVector::UpVector,Count);I.UV.Init(FVector2D::ZeroVector,Count);I.SourceVertices.SetNum(Count);
@@ -239,13 +240,12 @@ UVamCharacterDefinition* UVamBreastJiggleBuilder::Build(const FString& Root,UVam
             const auto* Morph=I.Morphs.FindByPredicate([&](const FVamBuildMorph& M){return M.Name==Parameter.Target;});
             TArray<FVector> Changed=I.Vertices;double Evidence=0;
             if(Morph) for(int32 V=0;V<Changed.Num();++V) { Changed[V]+=Morph->Deltas[V];Evidence+=Morph->Deltas[V].SizeSquared()*R.RegionWeights[V]; }
+            TMap<FName,float> ProbeValues; ProbeValues.Add(Parameter.Target,Parameter.DefaultValue+1.f);
+            TArray<FTransform> ProbeLocal; FString ProbeError;
+            if(!Source->EvaluateShapeReference(ProbeValues,ProbeLocal,ProbeError)) return Fail(ProbeError);
             TArray<FTransform> NextCS;
             for(int32 B=0;B<P->SourceBoneCount;++B)
-            {
-                FTransform Local=I.Bones[B].LocalBind;
-                for(const auto& Delta:Parameter.BoneCenters) if(Delta.BoneIndex==B) Local.AddToTranslation(Delta.LocalTranslation);
-                NextCS.Add(I.Bones[B].Parent<0 ? Local : Local*NextCS[I.Bones[B].Parent]);
-            }
+                NextCS.Add(I.Bones[B].Parent<0?ProbeLocal[B]:ProbeLocal[B]*NextCS[I.Bones[B].Parent]);
             const FTransform NextAnchor(Frame,NextCS[Pec].GetLocation());
             const FVector AnchorDelta=NextAnchor.GetRelativeTransform(NextCS[Chest]).GetLocation()-R.AnchorLocal.GetLocation();
             if(Evidence<1.e-10 && AnchorDelta.IsNearlyZero()) continue;
@@ -332,7 +332,7 @@ FString UVamBreastJiggleBuilder::Validate(UVamCharacterDefinition* D,UVamBreastJ
     for(const auto& Section:Mesh->GetImportedModel()->LODModels[0].Sections) for(const auto& V:Section.SoftVertices)
     {
         int32 Count=0;uint32 Sum=0;for(int32 I=0;I<MAX_TOTAL_INFLUENCES;++I) if(V.InfluenceWeights[I]) { ++Count;Sum+=V.InfluenceWeights[I]; }
-        if(Count>8 || FMath::Abs(int32(Sum)-65535)>8) return TEXT("Invalid final influence count/normalization");
+        if(Count>MAX_TOTAL_INFLUENCES || FMath::Abs(int32(Sum)-65535)>8) return TEXT("Invalid final influence count/normalization");
         FVector Reconstructed=FVector::ZeroVector;
         for(int32 I=0;I<MAX_TOTAL_INFLUENCES;++I) if(V.InfluenceWeights[I])
         {

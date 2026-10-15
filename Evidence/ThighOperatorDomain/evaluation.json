@@ -1,0 +1,726 @@
+{
+  "poses": [
+    {
+      "pose": "abducted",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 3.194976887500258,
+          "rms_cm": 0.22554412462893955
+        },
+        "04-jiggle": {
+          "max_cm": 3.194976887500258,
+          "rms_cm": 0.22554412462893955
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816771259023302e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.817113246241526e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.868354897611212e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.868354897611212e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009917147223835e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "held-out-asymmetric",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 5.232593306965026,
+          "rms_cm": 0.32531704544902246
+        },
+        "04-jiggle": {
+          "max_cm": 5.232593306965026,
+          "rms_cm": 0.32531704544902246
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816795879414506e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.817201275847315e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.864850629884806e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.864850629884806e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009911252957949e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "held-out-mirrored",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 5.229959780359224,
+          "rms_cm": 0.3247271448343721
+        },
+        "04-jiggle": {
+          "max_cm": 5.229959780359224,
+          "rms_cm": 0.3247271448343721
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816742198971451e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.81715589045497e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.864173321382552e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.864173321382552e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009921374166459e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "hip-30",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 1.4126970763132147,
+          "rms_cm": 0.10552503576795767
+        },
+        "04-jiggle": {
+          "max_cm": 1.4126970763132147,
+          "rms_cm": 0.10552503576795767
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816774967057808e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816948806061287e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.852197693998467e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.852197693998467e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009850815498114e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "hip-60",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 3.164282446491013,
+          "rms_cm": 0.22504240709353443
+        },
+        "04-jiggle": {
+          "max_cm": 3.164282446491013,
+          "rms_cm": 0.22504240709353443
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816796344612306e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.8171531952755465e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.851247568437159e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.851247568437159e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.0099246132075725e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "hip-90",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 5.2702383573709435,
+          "rms_cm": 0.36002756874756525
+        },
+        "04-jiggle": {
+          "max_cm": 5.2702383573709435,
+          "rms_cm": 0.36002756874756525
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816852857718704e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.817268589331533e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.848800279929855e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.848800279929855e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.010057192433119e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "knee-120",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.0003210198123315051,
+          "rms_cm": 2.767832664229252e-05
+        },
+        "04-jiggle": {
+          "max_cm": 0.0003210198123315051,
+          "rms_cm": 2.767832664229252e-05
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816701069025944e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816700130546076e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.856593161369151e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.856593161369151e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009693109537878e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "knee-30",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.0003210198123315051,
+          "rms_cm": 2.7702955701044307e-05
+        },
+        "04-jiggle": {
+          "max_cm": 0.0003210198123315051,
+          "rms_cm": 2.7702955701044307e-05
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816800900060021e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816799961722642e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.856411955712879e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.856411955712879e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.0098558774444535e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "knee-90",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.0003210198123315051,
+          "rms_cm": 2.7686071196216388e-05
+        },
+        "04-jiggle": {
+          "max_cm": 0.0003210198123315051,
+          "rms_cm": 2.7686071196216388e-05
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816744390549976e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816743452102854e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.855357902297405e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.855357902297405e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009759542936702e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "seated",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 5.2702383573709435,
+          "rms_cm": 0.359938121078679
+        },
+        "04-jiggle": {
+          "max_cm": 5.2702383573709435,
+          "rms_cm": 0.359938121078679
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816781722170152e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.817197445353212e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.848926566777076e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.848926566777076e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009946393388773e-06,
+          "vertices": 25064
+        }
+      }
+    },
+    {
+      "pose": "standing",
+      "matrix_error": 0.0,
+      "camera_identical": true,
+      "preskin_max_error_cm": 0.0,
+      "stage_differences": {
+        "00-source-lbs": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "01-final-weights": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "02-static-helpers": {
+          "max_cm": 0.0,
+          "rms_cm": 0.0
+        },
+        "03-corrective": {
+          "max_cm": 0.0003210198123315051,
+          "rms_cm": 2.769365116270482e-05
+        },
+        "04-jiggle": {
+          "max_cm": 0.0003210198123315051,
+          "rms_cm": 2.769365116270482e-05
+        }
+      },
+      "foot_max_change_cm": 0.0,
+      "a1": {
+        "01-final-weights": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816801303589713e-06,
+          "vertices": 33992
+        },
+        "02-static-helpers": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.816800365299548e-06,
+          "vertices": 33992
+        },
+        "03-corrective": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.856690243957235e-06,
+          "vertices": 33992
+        },
+        "04-jiggle": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 4.856690243957235e-06,
+          "vertices": 33992
+        },
+        "00-source-lbs": {
+          "status": "replayed",
+          "max_error_cm": 1.6383451412266906e-05,
+          "rms_cm": 5.009861174624876e-06,
+          "vertices": 25064
+        }
+      }
+    }
+  ],
+  "editor": [
+    {
+      "pose": "abducted",
+      "max_error_cm": 0.0
+    },
+    {
+      "pose": "held-out-asymmetric",
+      "max_error_cm": 0.0
+    },
+    {
+      "pose": "seated",
+      "max_error_cm": 0.0
+    },
+    {
+      "pose": "standing",
+      "max_error_cm": 0.0
+    }
+  ],
+  "rebake_max_error_cm": 1.2570784251863757e-13,
+  "unchanged_data_seals": {
+    "final_weights": "829C9CCBD59336FC9575722DE45DC2F2",
+    "final_bind": "3282456CE58FF9CD76E158396CD07B47",
+    "final_topology": "5900B06BEDFAE32545A40ADA8664F8DC"
+  },
+  "helper_identity_comparison": {
+    "before": "0D38828CC252DE6EC0A707EBED747F19",
+    "after": "53C75C3EA5F5A058E61FA723DB6D3661",
+    "exposed_property_differences": {
+      "glute_structure": {},
+      "leg_jiggle": {},
+      "breast_jiggle": {}
+    },
+    "protected_fields": {
+      "leg_jiggle": {
+        "SourceBoneCount": "VamLegJiggleProfile: Property 'SourceBoneCount' for attribute 'SourceBoneCount' on 'VamLegJiggleProfile' is protected and cannot be read",
+        "SourceBoneNames": "VamLegJiggleProfile: Property 'SourceBoneNames' for attribute 'SourceBoneNames' on 'VamLegJiggleProfile' is protected and cannot be read",
+        "SourceLocalBind": "VamLegJiggleProfile: Property 'SourceLocalBind' for attribute 'SourceLocalBind' on 'VamLegJiggleProfile' is protected and cannot be read",
+        "Integration": "VamLegJiggleProfile: Property 'Integration' for attribute 'Integration' on 'VamLegJiggleProfile' is protected and cannot be read"
+      }
+    },
+    "integration_paths": {
+      "after": "/Game/VamThighOperatorDomainV3/Runtime/R_26c92372d157d5e374d254c0/DA_LegJiggle.DA_LegJiggle:Integration",
+      "before": "/Game/VamGluteResidualOnlyV2/Runtime/R_330820d9f44ce116cf1383a3/DA_LegJiggle.DA_LegJiggle:Integration"
+    }
+  },
+  "shape_identity_comparison": {
+    "before": "7887A989A6FDF7E9FF513C08D9F29813",
+    "after": "F44858D723430D174EBE0E06F2157927",
+    "scope": "Serialized shape UObject includes generated Geometry asset reference; numerical pre-skin geometry checked independently for every pose above."
+  },
+  "source_procedural_attenuation": "absent; fields unchanged by residual protection"
+}

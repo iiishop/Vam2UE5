@@ -40,6 +40,8 @@ public:
     /** Instance-only visibility for imported clothing/accessory parts; never hides Body. */
     UFUNCTION(BlueprintCallable, Category="VaM|Appearance") void SetImportedPartsVisible(bool bPartsVisible);
     UFUNCTION(BlueprintPure, Category="VaM|Appearance") bool AreImportedPartsVisible() const { return bImportedPartsVisible; }
+    UVamRuntimeConfiguration* GetLoadedRuntimeConfiguration() const { return LoadedRuntimeConfiguration; }
+    UVamCharacterDefinition* GetLoadedDefinition() const { return LoadedDefinition; }
     uint64 GetLoadGeneration() const { return Generation; }
     UFUNCTION(BlueprintCallable, Category="VaM") bool SetParameter(FName Name, float Value);
     /** Complete transient expression layer. Strongest absolute closure wins over authored

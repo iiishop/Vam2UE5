@@ -1,0 +1,22 @@
+[
+  {
+    "file": "seated-before.png",
+    "source": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\unattenuated-survey\\on-below\\seated\\rear-gray.png",
+    "sha256": "1d33b446992b4cfd6fec76058fb84ceeb5b860894e013fb2fccd70138be5a5c5"
+  },
+  {
+    "file": "seated-residual-only.png",
+    "source": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\residual-only-r2\\main-pie\\seated\\rear-gray.png",
+    "sha256": "8d7225cc88de199da87e1a939cea76dcbc59e673e010647d3b09dcb5db8e3a1a"
+  },
+  {
+    "file": "seated-all-off.png",
+    "source": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\unattenuated-survey\\off-below\\seated\\rear-gray.png",
+    "sha256": "2cb692b914ab379da4dbf521ddda9c21e1b8f624736ee74fd2008a3943db8f8b"
+  },
+  {
+    "file": "abducted-known-fold.png",
+    "source": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\residual-only-r2\\pie\\abducted\\rear-gray.png",
+    "sha256": "f0fdd4fa36bba87914cf5478469efa775971ad8504045ffb6bf553b44169901b"
+  }
+]

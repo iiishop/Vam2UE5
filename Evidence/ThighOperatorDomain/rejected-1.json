@@ -1,0 +1,8 @@
+{
+  "status": "rejected",
+  "reason": "Removed tissue mask but undefined source node vertices remained identity; foot inherited motion cancelled, causing detached feet and long triangles. Tests passed but actual screenshot failed. Never installed.",
+  "evidence": [
+    "editor/seated/side-gray.png",
+    "editor/seated/oblique-material.png"
+  ]
+}

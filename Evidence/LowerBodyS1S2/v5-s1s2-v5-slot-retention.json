@@ -1,0 +1,83 @@
+{
+  "scope": "Compare same post-weld leg transfer stages, old vs v5. Initial 00 also contains changes due to legitimate source-ID welding and is not a pure slot-truncation counterfactual. Runtime builder asserts unchanged post-weld authored helper weights.",
+  "rendered_vertices_changed": 533,
+  "unique_source_vertices_changed": 475,
+  "max_weight_change": 0.10803387314081192,
+  "worst": [
+    {
+      "input": 7849,
+      "source": 7849,
+      "max_weight_change": 0.10803387314081192
+    },
+    {
+      "input": 7872,
+      "source": 7872,
+      "max_weight_change": 0.09053177386522293
+    },
+    {
+      "input": 8743,
+      "source": 8743,
+      "max_weight_change": 0.08833447843790054
+    },
+    {
+      "input": 7876,
+      "source": 7876,
+      "max_weight_change": 0.06569009274244308
+    },
+    {
+      "input": 8756,
+      "source": 8756,
+      "max_weight_change": 0.062897689640522
+    },
+    {
+      "input": 18532,
+      "source": 18532,
+      "max_weight_change": 0.054718852043151855
+    },
+    {
+      "input": 7842,
+      "source": 7842,
+      "max_weight_change": 0.05450522527098656
+    },
+    {
+      "input": 7881,
+      "source": 7881,
+      "max_weight_change": 0.05203326418995857
+    },
+    {
+      "input": 18531,
+      "source": 18531,
+      "max_weight_change": 0.0474860779941082
+    },
+    {
+      "input": 7861,
+      "source": 7861,
+      "max_weight_change": 0.0472266711294651
+    },
+    {
+      "input": 7864,
+      "source": 7864,
+      "max_weight_change": 0.046829938888549805
+    },
+    {
+      "input": 18529,
+      "source": 18529,
+      "max_weight_change": 0.04556344076991081
+    },
+    {
+      "input": 18541,
+      "source": 18541,
+      "max_weight_change": 0.04290837049484253
+    },
+    {
+      "input": 7875,
+      "source": 7875,
+      "max_weight_change": 0.03747615963220596
+    },
+    {
+      "input": 18545,
+      "source": 18545,
+      "max_weight_change": 0.037445638328790665
+    }
+  ]
+}

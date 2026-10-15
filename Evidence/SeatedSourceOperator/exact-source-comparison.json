@@ -1,0 +1,1342 @@
+{
+  "gates": [
+    {
+      "version": "before",
+      "bones": {
+        "hip": 4.344970942327109e-05,
+        "pelvis": 1.3479595835974578e-05,
+        "rThigh": 2.163052698733736e-06,
+        "rShin": 4.9195698039739e-06,
+        "rFoot": 7.88610370960896e-06,
+        "lThigh": 5.531718514362183e-06,
+        "lShin": 7.654308987525837e-06,
+        "lFoot": 3.538233990241224e-06
+      },
+      "scope": "same retained preset, actual matrices; VaM core auto on versus UE corrective implementation, not identical morph drivers"
+    },
+    {
+      "version": "bulge-only",
+      "bones": {
+        "hip": 4.344970942327109e-05,
+        "pelvis": 1.3479595835974578e-05,
+        "rThigh": 2.163052698733736e-06,
+        "rShin": 4.9195698039739e-06,
+        "rFoot": 7.88610370960896e-06,
+        "lThigh": 5.531718514362183e-06,
+        "lShin": 7.654308987525837e-06,
+        "lFoot": 3.538233990241224e-06
+      },
+      "scope": "same retained preset, actual matrices; VaM core auto on versus UE corrective implementation, not identical morph drivers"
+    },
+    {
+      "version": "source-operator",
+      "bones": {
+        "hip": 4.344970942327109e-05,
+        "pelvis": 1.3479595835974578e-05,
+        "rThigh": 2.163052698733736e-06,
+        "rShin": 4.9195698039739e-06,
+        "rFoot": 7.88610370960896e-06,
+        "lThigh": 5.531718514362183e-06,
+        "lShin": 7.654308987525837e-06,
+        "lFoot": 3.538233990241224e-06
+      },
+      "scope": "same retained preset, actual matrices; VaM core auto on versus UE corrective implementation, not identical morph drivers"
+    },
+    {
+      "version": "source-field",
+      "bones": {
+        "hip": 4.344970942327109e-05,
+        "pelvis": 1.3479595835974578e-05,
+        "rThigh": 2.163052698733736e-06,
+        "rShin": 4.9195698039739e-06,
+        "rFoot": 7.88610370960896e-06,
+        "lThigh": 5.531718514362183e-06,
+        "lShin": 7.654308987525837e-06,
+        "lFoot": 3.538233990241224e-06
+      },
+      "scope": "same retained preset, actual matrices; VaM core auto on versus UE corrective implementation, not identical morph drivers"
+    }
+  ],
+  "rows": [
+    {
+      "version": "before",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.3200478781862426,
+      "p95_cm": 4.778929386548945,
+      "max_cm": 5.256435303667174,
+      "worst_source": 8764
+    },
+    {
+      "version": "before",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.245230419677587,
+      "p95_cm": 4.506487368543106,
+      "max_cm": 5.246086062716125,
+      "worst_source": 19438
+    },
+    {
+      "version": "before",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 1.9800438793590303,
+      "p95_cm": 3.7000519330321064,
+      "max_cm": 5.70814937282987,
+      "worst_source": 325
+    },
+    {
+      "version": "before",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 1.8761560239667812,
+      "p95_cm": 3.738773054991452,
+      "max_cm": 5.677821735492803,
+      "worst_source": 328
+    },
+    {
+      "version": "before",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.3239651601281475,
+      "p95_cm": 4.765561585875368,
+      "max_cm": 5.321671203687018,
+      "worst_source": 8764
+    },
+    {
+      "version": "before",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.251810393915716,
+      "p95_cm": 4.435711268487289,
+      "max_cm": 5.231833204547051,
+      "worst_source": 19438
+    },
+    {
+      "version": "before",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 1.964133346733444,
+      "p95_cm": 3.7119356472423872,
+      "max_cm": 5.76486418636408,
+      "worst_source": 325
+    },
+    {
+      "version": "before",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 1.8595029126307934,
+      "p95_cm": 3.7128535952898307,
+      "max_cm": 5.751555036976317,
+      "worst_source": 328
+    },
+    {
+      "version": "before",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.5671042640207005,
+      "p95_cm": 6.1111361885749025,
+      "max_cm": 7.006121213023591,
+      "worst_source": 8251
+    },
+    {
+      "version": "before",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.303197923611648,
+      "p95_cm": 8.473935198299994,
+      "max_cm": 9.591964221843538,
+      "worst_source": 21013
+    },
+    {
+      "version": "before",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.7506942085749437,
+      "p95_cm": 6.036118181752612,
+      "max_cm": 8.628636459491055,
+      "worst_source": 6108
+    },
+    {
+      "version": "before",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.8634903157879905,
+      "p95_cm": 6.981349595661456,
+      "max_cm": 9.591964221843538,
+      "worst_source": 21013
+    },
+    {
+      "version": "before",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.5712206723863775,
+      "p95_cm": 6.063336993930982,
+      "max_cm": 7.012645778670903,
+      "worst_source": 8192
+    },
+    {
+      "version": "before",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.314709895221356,
+      "p95_cm": 8.308508064334871,
+      "max_cm": 9.826058783813886,
+      "worst_source": 21013
+    },
+    {
+      "version": "before",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.7375314588453636,
+      "p95_cm": 5.955615353427919,
+      "max_cm": 8.77561645135234,
+      "worst_source": 6108
+    },
+    {
+      "version": "before",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.8509281544771437,
+      "p95_cm": 6.825273182969191,
+      "max_cm": 9.826058783813886,
+      "worst_source": 21013
+    },
+    {
+      "version": "before",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.477316304989115,
+      "p95_cm": 5.6394671946524015,
+      "max_cm": 6.288808403968229,
+      "worst_source": 8219
+    },
+    {
+      "version": "before",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.106502307542357,
+      "p95_cm": 7.513969362404943,
+      "max_cm": 8.54476682825603,
+      "worst_source": 21013
+    },
+    {
+      "version": "before",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.6851424351136326,
+      "p95_cm": 5.6785294479077075,
+      "max_cm": 8.698300973433321,
+      "worst_source": 6108
+    },
+    {
+      "version": "before",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.7937264220708546,
+      "p95_cm": 6.53113103277142,
+      "max_cm": 9.559214373630445,
+      "worst_source": 16830
+    },
+    {
+      "version": "before",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.4807411713331193,
+      "p95_cm": 5.6052290819163115,
+      "max_cm": 6.264780414605862,
+      "worst_source": 8243
+    },
+    {
+      "version": "before",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.116654731186306,
+      "p95_cm": 7.386483980770182,
+      "max_cm": 8.784361780843748,
+      "worst_source": 21013
+    },
+    {
+      "version": "before",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.670151720199894,
+      "p95_cm": 5.4857438250553825,
+      "max_cm": 8.847018752450085,
+      "worst_source": 6108
+    },
+    {
+      "version": "before",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.7792224349951784,
+      "p95_cm": 6.527944531440022,
+      "max_cm": 9.74407282118643,
+      "worst_source": 16830
+    },
+    {
+      "version": "before",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.939209385380435,
+      "p95_cm": 4.8425420535159,
+      "max_cm": 5.2624538483703525,
+      "worst_source": 8767
+    },
+    {
+      "version": "before",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 3.403781900535547,
+      "p95_cm": 5.679247825429407,
+      "max_cm": 6.576256746532126,
+      "worst_source": 21013
+    },
+    {
+      "version": "before",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.373836965264012,
+      "p95_cm": 4.470207517276462,
+      "max_cm": 8.261492639421439,
+      "worst_source": 6108
+    },
+    {
+      "version": "before",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.474059014397697,
+      "p95_cm": 5.521625058588688,
+      "max_cm": 9.427263084434244,
+      "worst_source": 16830
+    },
+    {
+      "version": "before",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.9415318777354904,
+      "p95_cm": 4.8999815348271,
+      "max_cm": 5.325484739865583,
+      "worst_source": 8764
+    },
+    {
+      "version": "before",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 3.413916448214507,
+      "p95_cm": 5.687901488577215,
+      "max_cm": 6.782213228769561,
+      "worst_source": 21013
+    },
+    {
+      "version": "before",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.356549162247114,
+      "p95_cm": 4.4089846025492845,
+      "max_cm": 8.410282569885055,
+      "worst_source": 6108
+    },
+    {
+      "version": "before",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.4584042912499577,
+      "p95_cm": 5.498071413203074,
+      "max_cm": 9.611604426022241,
+      "worst_source": 16830
+    },
+    {
+      "version": "bulge-only",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.3200478781862426,
+      "p95_cm": 4.778929386548945,
+      "max_cm": 5.256435303667174,
+      "worst_source": 8764
+    },
+    {
+      "version": "bulge-only",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.245230419677587,
+      "p95_cm": 4.506487368543106,
+      "max_cm": 5.246086062716125,
+      "worst_source": 19438
+    },
+    {
+      "version": "bulge-only",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 1.9800438793590303,
+      "p95_cm": 3.7000519330321064,
+      "max_cm": 5.70814937282987,
+      "worst_source": 325
+    },
+    {
+      "version": "bulge-only",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 1.8761560239667812,
+      "p95_cm": 3.738773054991452,
+      "max_cm": 5.677821735492803,
+      "worst_source": 328
+    },
+    {
+      "version": "bulge-only",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.3239651601281475,
+      "p95_cm": 4.765561585875368,
+      "max_cm": 5.321671203687018,
+      "worst_source": 8764
+    },
+    {
+      "version": "bulge-only",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.251810393915716,
+      "p95_cm": 4.435711268487289,
+      "max_cm": 5.231833204547051,
+      "worst_source": 19438
+    },
+    {
+      "version": "bulge-only",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 1.964133346733444,
+      "p95_cm": 3.7119356472423872,
+      "max_cm": 5.76486418636408,
+      "worst_source": 325
+    },
+    {
+      "version": "bulge-only",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 1.8595029126307934,
+      "p95_cm": 3.7128535952898307,
+      "max_cm": 5.751555036976317,
+      "worst_source": 328
+    },
+    {
+      "version": "bulge-only",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.5671042640207005,
+      "p95_cm": 6.1111361885749025,
+      "max_cm": 7.006121213023591,
+      "worst_source": 8251
+    },
+    {
+      "version": "bulge-only",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.303197923611648,
+      "p95_cm": 8.473935198299994,
+      "max_cm": 9.591964221843538,
+      "worst_source": 21013
+    },
+    {
+      "version": "bulge-only",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.7506942085749437,
+      "p95_cm": 6.036118181752612,
+      "max_cm": 8.628636459491055,
+      "worst_source": 6108
+    },
+    {
+      "version": "bulge-only",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.8634903157879905,
+      "p95_cm": 6.981349595661456,
+      "max_cm": 9.591964221843538,
+      "worst_source": 21013
+    },
+    {
+      "version": "bulge-only",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.5712206723863775,
+      "p95_cm": 6.063336993930982,
+      "max_cm": 7.012645778670903,
+      "worst_source": 8192
+    },
+    {
+      "version": "bulge-only",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.314709895221356,
+      "p95_cm": 8.308508064334871,
+      "max_cm": 9.826058783813886,
+      "worst_source": 21013
+    },
+    {
+      "version": "bulge-only",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.7375314588453636,
+      "p95_cm": 5.955615353427919,
+      "max_cm": 8.77561645135234,
+      "worst_source": 6108
+    },
+    {
+      "version": "bulge-only",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.8509281544771437,
+      "p95_cm": 6.825273182969191,
+      "max_cm": 9.826058783813886,
+      "worst_source": 21013
+    },
+    {
+      "version": "bulge-only",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.477316304989115,
+      "p95_cm": 5.6394671946524015,
+      "max_cm": 6.288808403968229,
+      "worst_source": 8219
+    },
+    {
+      "version": "bulge-only",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.106502307542357,
+      "p95_cm": 7.513969362404943,
+      "max_cm": 8.54476682825603,
+      "worst_source": 21013
+    },
+    {
+      "version": "bulge-only",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.6851424351136326,
+      "p95_cm": 5.6785294479077075,
+      "max_cm": 8.698300973433321,
+      "worst_source": 6108
+    },
+    {
+      "version": "bulge-only",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.7937264220708546,
+      "p95_cm": 6.53113103277142,
+      "max_cm": 9.559214373630445,
+      "worst_source": 16830
+    },
+    {
+      "version": "bulge-only",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.4807411713331193,
+      "p95_cm": 5.6052290819163115,
+      "max_cm": 6.264780414605862,
+      "worst_source": 8243
+    },
+    {
+      "version": "bulge-only",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.116654731186306,
+      "p95_cm": 7.386483980770182,
+      "max_cm": 8.784361780843748,
+      "worst_source": 21013
+    },
+    {
+      "version": "bulge-only",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.670151720199894,
+      "p95_cm": 5.4857438250553825,
+      "max_cm": 8.847018752450085,
+      "worst_source": 6108
+    },
+    {
+      "version": "bulge-only",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.7792224349951784,
+      "p95_cm": 6.527944531440022,
+      "max_cm": 9.74407282118643,
+      "worst_source": 16830
+    },
+    {
+      "version": "bulge-only",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.939209385380435,
+      "p95_cm": 4.8425420535159,
+      "max_cm": 5.2624538483703525,
+      "worst_source": 8767
+    },
+    {
+      "version": "bulge-only",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 3.403781900535547,
+      "p95_cm": 5.679247825429407,
+      "max_cm": 6.576256746532126,
+      "worst_source": 21013
+    },
+    {
+      "version": "bulge-only",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.376235680283417,
+      "p95_cm": 4.470207517276462,
+      "max_cm": 8.256310519451603,
+      "worst_source": 6108
+    },
+    {
+      "version": "bulge-only",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.4747147096965443,
+      "p95_cm": 5.534708441122377,
+      "max_cm": 9.414888078569481,
+      "worst_source": 16830
+    },
+    {
+      "version": "bulge-only",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.9415318777354904,
+      "p95_cm": 4.8999815348271,
+      "max_cm": 5.325484739865583,
+      "worst_source": 8764
+    },
+    {
+      "version": "bulge-only",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 3.413916448214507,
+      "p95_cm": 5.687901488577215,
+      "max_cm": 6.782213228769561,
+      "worst_source": 21013
+    },
+    {
+      "version": "bulge-only",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.358718652203879,
+      "p95_cm": 4.407631591263281,
+      "max_cm": 8.405099391144171,
+      "worst_source": 6108
+    },
+    {
+      "version": "bulge-only",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.4589551892094876,
+      "p95_cm": 5.510988077890036,
+      "max_cm": 9.59918577072409,
+      "worst_source": 16830
+    },
+    {
+      "version": "source-operator",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.3200478781862426,
+      "p95_cm": 4.778929386548945,
+      "max_cm": 5.256435303667174,
+      "worst_source": 8764
+    },
+    {
+      "version": "source-operator",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.245230419677587,
+      "p95_cm": 4.506487368543106,
+      "max_cm": 5.246086062716125,
+      "worst_source": 19438
+    },
+    {
+      "version": "source-operator",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 1.9800438793590303,
+      "p95_cm": 3.7000519330321064,
+      "max_cm": 5.70814937282987,
+      "worst_source": 325
+    },
+    {
+      "version": "source-operator",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 1.8761560239667812,
+      "p95_cm": 3.738773054991452,
+      "max_cm": 5.677821735492803,
+      "worst_source": 328
+    },
+    {
+      "version": "source-operator",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.3239651601281475,
+      "p95_cm": 4.765561585875368,
+      "max_cm": 5.321671203687018,
+      "worst_source": 8764
+    },
+    {
+      "version": "source-operator",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.251810393915716,
+      "p95_cm": 4.435711268487289,
+      "max_cm": 5.231833204547051,
+      "worst_source": 19438
+    },
+    {
+      "version": "source-operator",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 1.964133346733444,
+      "p95_cm": 3.7119356472423872,
+      "max_cm": 5.76486418636408,
+      "worst_source": 325
+    },
+    {
+      "version": "source-operator",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 1.8595029126307934,
+      "p95_cm": 3.7128535952898307,
+      "max_cm": 5.751555036976317,
+      "worst_source": 328
+    },
+    {
+      "version": "source-operator",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.5671042640207005,
+      "p95_cm": 6.1111361885749025,
+      "max_cm": 7.006121213023591,
+      "worst_source": 8251
+    },
+    {
+      "version": "source-operator",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.303197923611648,
+      "p95_cm": 8.473935198299994,
+      "max_cm": 9.591964221843538,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-operator",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.7506942085749437,
+      "p95_cm": 6.036118181752612,
+      "max_cm": 8.628636459491055,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-operator",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.8634903157879905,
+      "p95_cm": 6.981349595661456,
+      "max_cm": 9.591964221843538,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-operator",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.5712206723863775,
+      "p95_cm": 6.063336993930982,
+      "max_cm": 7.012645778670903,
+      "worst_source": 8192
+    },
+    {
+      "version": "source-operator",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.314709895221356,
+      "p95_cm": 8.308508064334871,
+      "max_cm": 9.826058783813886,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-operator",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.7375314588453636,
+      "p95_cm": 5.955615353427919,
+      "max_cm": 8.77561645135234,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-operator",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.8509281544771437,
+      "p95_cm": 6.825273182969191,
+      "max_cm": 9.826058783813886,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-operator",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.477316304989115,
+      "p95_cm": 5.6394671946524015,
+      "max_cm": 6.288808403968229,
+      "worst_source": 8219
+    },
+    {
+      "version": "source-operator",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.106502307542357,
+      "p95_cm": 7.513969362404943,
+      "max_cm": 8.54476682825603,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-operator",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.6851424351136326,
+      "p95_cm": 5.6785294479077075,
+      "max_cm": 8.698300973433321,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-operator",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.7937264220708546,
+      "p95_cm": 6.53113103277142,
+      "max_cm": 9.559214373630445,
+      "worst_source": 16830
+    },
+    {
+      "version": "source-operator",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.4807411713331193,
+      "p95_cm": 5.6052290819163115,
+      "max_cm": 6.264780414605862,
+      "worst_source": 8243
+    },
+    {
+      "version": "source-operator",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.116654731186306,
+      "p95_cm": 7.386483980770182,
+      "max_cm": 8.784361780843748,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-operator",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.670151720199894,
+      "p95_cm": 5.4857438250553825,
+      "max_cm": 8.847018752450085,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-operator",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.7792224349951784,
+      "p95_cm": 6.527944531440022,
+      "max_cm": 9.74407282118643,
+      "worst_source": 16830
+    },
+    {
+      "version": "source-operator",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.242579702491276,
+      "p95_cm": 4.964117233644948,
+      "max_cm": 5.392091356012569,
+      "worst_source": 8211
+    },
+    {
+      "version": "source-operator",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.579106573347082,
+      "p95_cm": 5.136619687255157,
+      "max_cm": 5.999221423223272,
+      "worst_source": 18892
+    },
+    {
+      "version": "source-operator",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.075159994402144,
+      "p95_cm": 4.095073797550935,
+      "max_cm": 8.661916095610787,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-operator",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.2447941320355937,
+      "p95_cm": 5.12130042855708,
+      "max_cm": 9.202136723371682,
+      "worst_source": 16830
+    },
+    {
+      "version": "source-operator",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.2462460580715895,
+      "p95_cm": 4.96198692588926,
+      "max_cm": 5.359368010787678,
+      "worst_source": 8211
+    },
+    {
+      "version": "source-operator",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.592844291495839,
+      "p95_cm": 5.107293524181703,
+      "max_cm": 5.977503004189057,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-operator",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.0548281544521942,
+      "p95_cm": 4.156693808360739,
+      "max_cm": 8.810622000621915,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-operator",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.226940049059194,
+      "p95_cm": 4.989332855348423,
+      "max_cm": 9.386877805517365,
+      "worst_source": 16830
+    },
+    {
+      "version": "source-field",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.3200478781862426,
+      "p95_cm": 4.778929386548945,
+      "max_cm": 5.256435303667174,
+      "worst_source": 8764
+    },
+    {
+      "version": "source-field",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.245230419677587,
+      "p95_cm": 4.506487368543106,
+      "max_cm": 5.246086062716125,
+      "worst_source": 19438
+    },
+    {
+      "version": "source-field",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 1.9800438793590303,
+      "p95_cm": 3.7000519330321064,
+      "max_cm": 5.70814937282987,
+      "worst_source": 325
+    },
+    {
+      "version": "source-field",
+      "stage": "00-source-lbs",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 1.8761560239667812,
+      "p95_cm": 3.738773054991452,
+      "max_cm": 5.677821735492803,
+      "worst_source": 328
+    },
+    {
+      "version": "source-field",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.3239651601281475,
+      "p95_cm": 4.765561585875368,
+      "max_cm": 5.321671203687018,
+      "worst_source": 8764
+    },
+    {
+      "version": "source-field",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.251810393915716,
+      "p95_cm": 4.435711268487289,
+      "max_cm": 5.231833204547051,
+      "worst_source": 19438
+    },
+    {
+      "version": "source-field",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 1.964133346733444,
+      "p95_cm": 3.7119356472423872,
+      "max_cm": 5.76486418636408,
+      "worst_source": 325
+    },
+    {
+      "version": "source-field",
+      "stage": "00-source-lbs",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 1.8595029126307934,
+      "p95_cm": 3.7128535952898307,
+      "max_cm": 5.751555036976317,
+      "worst_source": 328
+    },
+    {
+      "version": "source-field",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.5671042640207005,
+      "p95_cm": 6.1111361885749025,
+      "max_cm": 7.006121213023591,
+      "worst_source": 8251
+    },
+    {
+      "version": "source-field",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.303197923611648,
+      "p95_cm": 8.473935198299994,
+      "max_cm": 9.591964221843538,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-field",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.7506942085749437,
+      "p95_cm": 6.036118181752612,
+      "max_cm": 8.628636459491055,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-field",
+      "stage": "01-final-weights",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.8634903157879905,
+      "p95_cm": 6.981349595661456,
+      "max_cm": 9.591964221843538,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-field",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.5712206723863775,
+      "p95_cm": 6.063336993930982,
+      "max_cm": 7.012645778670903,
+      "worst_source": 8192
+    },
+    {
+      "version": "source-field",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.314709895221356,
+      "p95_cm": 8.308508064334871,
+      "max_cm": 9.826058783813886,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-field",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.7375314588453636,
+      "p95_cm": 5.955615353427919,
+      "max_cm": 8.77561645135234,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-field",
+      "stage": "01-final-weights",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.8509281544771437,
+      "p95_cm": 6.825273182969191,
+      "max_cm": 9.826058783813886,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-field",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.477316304989115,
+      "p95_cm": 5.6394671946524015,
+      "max_cm": 6.288808403968229,
+      "worst_source": 8219
+    },
+    {
+      "version": "source-field",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.106502307542357,
+      "p95_cm": 7.513969362404943,
+      "max_cm": 8.54476682825603,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-field",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.6851424351136326,
+      "p95_cm": 5.6785294479077075,
+      "max_cm": 8.698300973433321,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-field",
+      "stage": "02-static-helpers",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.7937264220708546,
+      "p95_cm": 6.53113103277142,
+      "max_cm": 9.559214373630445,
+      "worst_source": 16830
+    },
+    {
+      "version": "source-field",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 3.4807411713331193,
+      "p95_cm": 5.6052290819163115,
+      "max_cm": 6.264780414605862,
+      "worst_source": 8243
+    },
+    {
+      "version": "source-field",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 4.116654731186306,
+      "p95_cm": 7.386483980770182,
+      "max_cm": 8.784361780843748,
+      "worst_source": 21013
+    },
+    {
+      "version": "source-field",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.670151720199894,
+      "p95_cm": 5.4857438250553825,
+      "max_cm": 8.847018752450085,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-field",
+      "stage": "02-static-helpers",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.7792224349951784,
+      "p95_cm": 6.527944531440022,
+      "max_cm": 9.74407282118643,
+      "worst_source": 16830
+    },
+    {
+      "version": "source-field",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.1125540028394676,
+      "p95_cm": 5.103990720054274,
+      "max_cm": 6.031638715983991,
+      "worst_source": 8221
+    },
+    {
+      "version": "source-field",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.5398791214925254,
+      "p95_cm": 5.542531963691983,
+      "max_cm": 6.935115436124097,
+      "worst_source": 18922
+    },
+    {
+      "version": "source-field",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.0222934404848827,
+      "p95_cm": 4.633785191425981,
+      "max_cm": 8.563733669348837,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-field",
+      "stage": "03-corrective",
+      "target": "raw",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.2441674237186082,
+      "p95_cm": 5.337060972957089,
+      "max_cm": 9.279649607281934,
+      "worst_source": 16830
+    },
+    {
+      "version": "source-field",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "0_lateral_glute",
+      "rms_cm": 2.1134588531310627,
+      "p95_cm": 5.083864699542968,
+      "max_cm": 5.952048837663891,
+      "worst_source": 8211
+    },
+    {
+      "version": "source-field",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "1_lateral_glute",
+      "rms_cm": 2.5510931547480302,
+      "p95_cm": 5.527884300620156,
+      "max_cm": 6.769181771613949,
+      "worst_source": 18922
+    },
+    {
+      "version": "source-field",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "0_glute_thigh",
+      "rms_cm": 2.0025038384499636,
+      "p95_cm": 4.52596073889601,
+      "max_cm": 8.712432158684697,
+      "worst_source": 6108
+    },
+    {
+      "version": "source-field",
+      "stage": "03-corrective",
+      "target": "smoothed",
+      "region": "1_glute_thigh",
+      "rms_cm": 2.2278857999497355,
+      "p95_cm": 5.308423838193645,
+      "max_cm": 9.46446683682681,
+      "worst_source": 16830
+    }
+  ]
+}

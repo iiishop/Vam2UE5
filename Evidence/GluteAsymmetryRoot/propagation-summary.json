@@ -1,0 +1,14 @@
+{
+  "L": {
+    "initial_events": 143,
+    "all_events": 355,
+    "last_condition_pass": 8,
+    "new_predicates_after_initial": 137
+  },
+  "R": {
+    "initial_events": 159,
+    "all_events": 641,
+    "last_condition_pass": 18,
+    "new_predicates_after_initial": 293
+  }
+}

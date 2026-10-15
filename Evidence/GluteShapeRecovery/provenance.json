@@ -1,0 +1,36 @@
+{
+  "identity": "793747f088c92b87cc5622c13fa5831d4a46a2cf9e90f8e8ad1ba98749755506",
+  "configuration": "/Game/VamGluteShapeRecoveryV1/Runtime/R_793747f088c92b87cc5622c1/RC_Runtime",
+  "blueprint": "/Game/VamGluteShapeRecoveryV1/Runtime/R_793747f088c92b87cc5622c1/BP_VamCharacter.BP_VamCharacter",
+  "independent_reload_verified": true,
+  "files": [
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteShapeRecovery\\compile.log",
+      "sha256": "30dea06949a03a6223d783360da31dd4a1e05c8f45a2871a66b778e1012c581e"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteShapeRecovery\\candidate-15\\bundle.json",
+      "sha256": "ab4e3ff3dac270bdac7a9c05d45017e49608d5a82af548b86f88d389de96f901"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteShapeRecovery\\candidate-15\\preview\\seated\\rear-gray.png",
+      "sha256": "96779638b402af0c4ceef16c47a770ebc5fe4109c89be46bac320acb272cb432"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteShapeRecovery\\candidate-15\\preview\\seated\\side-gray.png",
+      "sha256": "ca4162d959eddd13607296ed697dff6b5dbd807f154d906700311e7c96ae4761"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteShapeRecovery\\candidate-15\\regression\\tests.log",
+      "sha256": "e9f8f7502d082c4842154940e1680823aa17a8f81fa9e3bc29a1f41d52a71e25"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteShapeRecovery\\candidate-15\\held-out\\process.json",
+      "sha256": "124fd50cb6d223cdd18fedc166d00af7254199b6e6dedf9be82f71db87af6d01"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteShapeRecovery\\report.html",
+      "sha256": "773c6010190558f82110cd1e251e912bcbd56e64e95cf82f7b786f62c0717cbc"
+    }
+  ]
+}

@@ -98,11 +98,12 @@ def build(data):
         influences=[props(u.VamBuildInfluence(),vertex=v,bone=b,weight=w) for v,b,w in contract['influences']])
     mesh,error=u.VamNativeBuilder.build_mesh(folder+'/SK_Body',native)
     assert mesh,error
-    supported=[m for m in contract['morphs'] if m in vertex_morphs or m.get('bone_centers')]
+    supported=[m for m in contract['morphs'] if m in vertex_morphs or m.get('bone_centers') or m.get('bone_orientations')]
     parameters=[props(u.VamMorphParameter(),target=m['name'],source_id=m['source_id'],default_value=float(m['default']),
         minimum=min(0.,float(m['minimum']),m['default']),maximum=max(0.,float(m['maximum']),m['default']),
         display_name=m['display_name'],group=m['group'],unit=m['unit'],affected_regions=m['affected_regions'],
         bone_centers=[props(u.VamBoneCenterDelta(),bone_index=b['bone_index'],local_translation=u.Vector(*b['local_translation'])) for b in m['bone_centers']],
+        bone_orientations=[props(u.VamBoneOrientationDelta(),bone_index=b['bone_index'],source_degrees=u.Vector(*b['source_degrees'])) for b in m.get('bone_orientations',[])],
         formula_diagnostics_json=json.dumps(m['formula_diagnostics'],ensure_ascii=False)) for m in supported]
     definition=u.VamNativeBuilder.create_definition(definition_path,mesh,parameters,contract['plan_id'],contract['decode_id'],contract['bind_signature'])
     assert definition,'Definition validation failed'
@@ -114,6 +115,8 @@ def build(data):
         return asset
     shape=data_asset('SD_Shape',u.VamShapeDefinition)
     shape.set_editor_property('neutral_local_bind',[u.Transform(location=u.Vector(*b['translation']),rotation=u.Quat(*b['quaternion_xyzw']).rotator()) for b in contract['neutral_bones']])
+    shape.set_editor_property('source_orientations',[props(u.VamSourceOrientation(),neutral_degrees=u.Vector(*b['neutral_degrees']),unity_euler=b['unity_euler']) for b in contract.get('source_orientations',[])])
+    shape.set_editor_property('schema_version',contract.get('shape_kernel_version',1))
     shape.set_editor_property('morph_set_lock_digest',contract['editable_morph_lock']['lock_id'])
     shape.set_editor_property('formula_diagnostics_json',json.dumps(contract['formula_classification'],ensure_ascii=False))
     preset=data_asset('AP_Imported',u.VamAppearancePreset)
@@ -207,7 +210,7 @@ def build(data):
         assert u.EditorAssetLibrary.save_loaded_asset(asset,False),'Save failed: '+asset.get_path_name()
     progress('保存原生资产','全部资产已保存',False,len(assets),len(assets))
     report={'status':'native_character_saved','acceptance_status':'pending_per_build_validation','folder':folder,'blueprint':bp_path,
-            'shape_kernel_version':1,'render_domain_validation':{'morph_component_tolerance_cm':0.0001,'position_component_tolerance_cm':0.00002,'uv_tolerance':0.000001,'skin_quantization_tolerance':8/65535},
+            'shape_kernel_version':contract.get('shape_kernel_version',1),'render_domain_validation':{'morph_component_tolerance_cm':0.0001,'position_component_tolerance_cm':0.00002,'uv_tolerance':0.000001,'skin_quantization_tolerance':8/65535},
             'definition':definition_path,'assets':sorted({a.get_path_name() for a in assets}),
             'source_identity':contract['plan_id'],'source_digest':contract['decode_id'],
             'animation_adapter':adapter_report,

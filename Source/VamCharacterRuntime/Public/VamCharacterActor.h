@@ -23,5 +23,17 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<UPhysicalAnimationComponent> PhysicalAnimation;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<UVamActivePoseComponent> ActivePose;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<class UVamPhysicsOutputComponent> PhysicsOutput;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<class UVamBreastContactComponent> BreastContact;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="VaM") TObjectPtr<class UVamBodyContactResponseComponent> BodyContactResponse;
+    UFUNCTION(BlueprintCallable, Category="VaM|Breast Contact") void SetBreastContactEnabled(bool bEnabled);
+    UFUNCTION(BlueprintPure, Category="VaM|Breast Contact") bool IsBreastContactEnabled() const;
+    UFUNCTION(BlueprintCallable, Category="VaM|Lower Body Contact") void SetLowerBodyContactEnabled(bool bEnabled);
+    /** Writes a unique fixed-pose diagnostic bundle under Saved/VamDeformationAudit. */
+    UFUNCTION(CallInEditor, BlueprintCallable, Category="VaM|Diagnostics") void ExportDeformationAudit();
+    /** Isolated offline geometry replay only; never modifies the production rig. */
+    UPROPERTY(Transient, EditAnywhere, BlueprintReadWrite, Category="VaM|Diagnostics") FString AuditPoseOverrideJson;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient, Category="VaM|Diagnostics") FString DeformationAuditStatus;
+    /** Explicit reset for OFF/ON experiments. Clears contact and all jiggle histories. */
+    UFUNCTION(CallInEditor, BlueprintCallable, Category="VaM|Diagnostics") void ResetDeformationAuditState();
     UFUNCTION(CallInEditor, BlueprintCallable, Category="VaM") void LoadCharacter();
 };

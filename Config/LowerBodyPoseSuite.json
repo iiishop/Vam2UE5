@@ -1,0 +1,470 @@
+{
+  "schema": "vam-pose-suite/1",
+  "limit_policy": "Converted local quaternion checked against actual RigProfile limits; reduce rotation along same axis until admitted; requested angles are never accepted as achieved angles.",
+  "fixed_dt": 0.016666666666666666,
+  "settle_frames": 90,
+  "views": [
+    "side",
+    "rear",
+    "front",
+    "oblique"
+  ],
+  "modes": [
+    "material",
+    "gray",
+    "silhouette",
+    "wireframe"
+  ],
+  "cases": [
+    {
+      "id": "standing",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "hip-30",
+      "hip": [
+        30,
+        30
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "hip-60",
+      "hip": [
+        60,
+        60
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "hip-90",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "hip-110",
+      "hip": [
+        110,
+        110
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "knee-30",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        30,
+        30
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "knee-60",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        60,
+        60
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "knee-90",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "knee-120",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        120,
+        120
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "suspended-seat",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "seat-contact",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": true
+    },
+    {
+      "id": "deep-flexion",
+      "hip": [
+        110,
+        110
+      ],
+      "knee": [
+        130,
+        130
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "single-leg",
+      "hip": [
+        90,
+        0
+      ],
+      "knee": [
+        90,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "asymmetric",
+      "hip": [
+        60,
+        30
+      ],
+      "knee": [
+        90,
+        30
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "abducted",
+      "hip": [
+        60,
+        60
+      ],
+      "knee": [
+        60,
+        60
+      ],
+      "abduction": [
+        20,
+        20
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "rotation-pair",
+      "hip": [
+        60,
+        60
+      ],
+      "knee": [
+        60,
+        60
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        15,
+        -15
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false
+    },
+    {
+      "id": "seat-sideways",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        90
+      ],
+      "contact": false
+    },
+    {
+      "id": "seat-prone",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        90,
+        0,
+        0
+      ],
+      "contact": false
+    }
+  ]
+}

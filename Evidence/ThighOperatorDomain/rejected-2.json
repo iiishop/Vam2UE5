@@ -1,0 +1,6 @@
+{
+  "status": "rejected",
+  "reason": "Thigh ring removed but source nominal-axis rotation differs from actual glute anchor swing; isolated node fully weighted calf endpoint introduces ankle crease. No installation.",
+  "calf_max_change_cm": 3.727727664972736,
+  "feet_band_max_change_cm": 3.835937474157587
+}

@@ -1,0 +1,7 @@
+{
+  "bones_equal": true,
+  "cameras_equal": true,
+  "light_equal": true,
+  "body_transform_equal": true,
+  "request_equal": true
+}

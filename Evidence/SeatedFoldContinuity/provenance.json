@@ -1,0 +1,28 @@
+{
+  "identity": "18995681394f3dbd1b9e7cd24b870f756ff9826c5549c6bae7258c64015c97af",
+  "configuration": "/Game/VamSeatedContinuousSafetyV3/Runtime/R_18995681394f3dbd1b9e7cd2/RC_Runtime",
+  "blueprint": "/Game/VamSeatedContinuousSafetyV3/Runtime/R_18995681394f3dbd1b9e7cd2/BP_VamCharacter.BP_VamCharacter",
+  "files": [
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFoldOrigin\\build-v3.log",
+      "sha256": "f394a3804f57e97e193ec20f3f3c78a820299aa201c883672ebe0bf707f590ad"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFoldOrigin\\candidate-14\\bundle.json",
+      "sha256": "92d7614ec941a6490aaf95f2f9e01aea18973d1a9e1213da4f329e6bec596085"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFoldOrigin\\candidate-14\\regression\\tests.log",
+      "sha256": "7039a66057a1f1898d6350076b201f346020bc3d7e6e68fc4668c1f68b308286"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFoldOrigin\\candidate-14\\preview\\seated\\rear-gray.png",
+      "sha256": "d7ca122d04c07c727ac8814729cbcd0376f663844f2f9dc27414a1f2bf0e171c"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFoldOrigin\\candidate-14\\preview\\seated\\side-gray.png",
+      "sha256": "c5c696182988f6a4b30fdfddefb5af74dde5b82fdae5b45ccfd158e0702b1b65"
+    }
+  ],
+  "scope": "Corrective attenuation discontinuity repair; historical contact issue excluded. Explicit continuous_safety family policy enabled in this generated normal BP."
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "validation_id": "d72eef80f2bdd4409a6cb1ec852756e6db6fd9a6cfb9b3c6cdfc29e0a383e0a8",
+    "value": 0.75,
+    "pose": "Neutral standing",
+    "stages": {
+      "00-source-lbs": {
+        "vertices": 25064,
+        "finite": true
+      },
+      "01-final-weights": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "02-static-helpers": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "03-corrective": {
+        "vertices": 33992,
+        "finite": true
+      }
+    }
+  },
+  {
+    "validation_id": "9ba93305dbdff313144a0bf606d060a7e4ea847de62a4e0166bbd49cd409c220",
+    "value": 0.75,
+    "pose": "Flexion 60",
+    "stages": {
+      "00-source-lbs": {
+        "vertices": 25064,
+        "finite": true
+      },
+      "01-final-weights": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "02-static-helpers": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "03-corrective": {
+        "vertices": 33992,
+        "finite": true
+      }
+    }
+  },
+  {
+    "validation_id": "d38a4d9a37db3c8ee9961af9b349fe3e0ae45ee13118112611fae81df6fae445",
+    "value": 0.9,
+    "pose": "Neutral standing",
+    "stages": {
+      "00-source-lbs": {
+        "vertices": 25064,
+        "finite": true
+      },
+      "01-final-weights": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "02-static-helpers": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "03-corrective": {
+        "vertices": 33992,
+        "finite": true
+      }
+    }
+  },
+  {
+    "validation_id": "8b5192281308d8925983a3c6d6d6b1e09af9a0e7999560e9b7f82816bb9637dd",
+    "value": 0.9,
+    "pose": "Flexion 60",
+    "stages": {
+      "00-source-lbs": {
+        "vertices": 25064,
+        "finite": true
+      },
+      "01-final-weights": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "02-static-helpers": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "03-corrective": {
+        "vertices": 33992,
+        "finite": true
+      }
+    }
+  },
+  {
+    "validation_id": "5ccf86e700f2e1a7816bcc3a913b27c6f19f8fd341c238b68cc4d118f7e50290",
+    "value": 1.0,
+    "pose": "Neutral standing",
+    "stages": {
+      "00-source-lbs": {
+        "vertices": 25064,
+        "finite": true
+      },
+      "01-final-weights": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "02-static-helpers": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "03-corrective": {
+        "vertices": 33992,
+        "finite": true
+      }
+    }
+  },
+  {
+    "validation_id": "a91877cef04a5ffab3cf6c0a4a22c48d8241a69aaea81592c7d6611edc696f8f",
+    "value": 1.0,
+    "pose": "Flexion 60",
+    "stages": {
+      "00-source-lbs": {
+        "vertices": 25064,
+        "finite": true
+      },
+      "01-final-weights": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "02-static-helpers": {
+        "vertices": 33992,
+        "finite": true
+      },
+      "03-corrective": {
+        "vertices": 33992,
+        "finite": true
+      }
+    }
+  }
+]

@@ -1,0 +1,376 @@
+{
+  "pose": "knee-120-soft",
+  "success": false,
+  "message": "STOP: TOTAL NO. of ITERATIONS REACHED LIMIT",
+  "iterations": 150,
+  "old_fixed": 2722,
+  "shaft_fixed": 1858,
+  "inverted": 24,
+  "min_j": -0.572209898271779,
+  "volume_ratio": 0.9952799596483275,
+  "max_delta_cm": 5.336291395800591,
+  "p95_delta_cm": 1.8612677017940653,
+  "seconds": 96.32880187034607,
+  "trace": [
+    {
+      "iteration": 50,
+      "inverted": 0,
+      "min_j": 0.07287106350635127,
+      "seconds": 1.1119379997253418
+    },
+    {
+      "iteration": 100,
+      "inverted": 0,
+      "min_j": 0.42157184020164284,
+      "seconds": 2.1916403770446777
+    },
+    {
+      "iteration": 150,
+      "inverted": 0,
+      "min_j": 0.782081922954929,
+      "seconds": 3.4263763427734375
+    },
+    {
+      "iteration": 200,
+      "inverted": 1,
+      "min_j": -0.20682596154959587,
+      "seconds": 4.501685380935669
+    },
+    {
+      "iteration": 250,
+      "inverted": 0,
+      "min_j": 0.24471131050710365,
+      "seconds": 5.544567346572876
+    },
+    {
+      "iteration": 300,
+      "inverted": 0,
+      "min_j": 0.6310809399947094,
+      "seconds": 6.436304330825806
+    },
+    {
+      "iteration": 350,
+      "inverted": 1,
+      "min_j": -0.16809236992546026,
+      "seconds": 7.5037925243377686
+    },
+    {
+      "iteration": 400,
+      "inverted": 0,
+      "min_j": 0.2702378840919462,
+      "seconds": 9.312176704406738
+    },
+    {
+      "iteration": 450,
+      "inverted": 0,
+      "min_j": 0.5149488646338695,
+      "seconds": 10.949106931686401
+    },
+    {
+      "iteration": 500,
+      "inverted": 1,
+      "min_j": -0.16607046062198155,
+      "seconds": 12.771409273147583
+    },
+    {
+      "iteration": 550,
+      "inverted": 0,
+      "min_j": 0.11765149941824948,
+      "seconds": 14.450971603393555
+    },
+    {
+      "iteration": 600,
+      "inverted": 0,
+      "min_j": 0.40271674829333,
+      "seconds": 16.206614017486572
+    },
+    {
+      "iteration": 650,
+      "inverted": 2,
+      "min_j": -0.19306732147794517,
+      "seconds": 18.037994384765625
+    },
+    {
+      "iteration": 700,
+      "inverted": 0,
+      "min_j": 0.03925631935148839,
+      "seconds": 19.652684450149536
+    },
+    {
+      "iteration": 750,
+      "inverted": 0,
+      "min_j": 0.2844923160974058,
+      "seconds": 21.308485984802246
+    },
+    {
+      "iteration": 800,
+      "inverted": 4,
+      "min_j": -0.42170097687302893,
+      "seconds": 23.046303272247314
+    },
+    {
+      "iteration": 850,
+      "inverted": 0,
+      "min_j": 0.13237369173967645,
+      "seconds": 24.83128261566162
+    },
+    {
+      "iteration": 900,
+      "inverted": 0,
+      "min_j": 0.18713442852489345,
+      "seconds": 26.463255167007446
+    },
+    {
+      "iteration": 950,
+      "inverted": 6,
+      "min_j": -0.6431187793037038,
+      "seconds": 28.184887409210205
+    },
+    {
+      "iteration": 1000,
+      "inverted": 0,
+      "min_j": 0.0619195245421486,
+      "seconds": 29.766757011413574
+    },
+    {
+      "iteration": 1050,
+      "inverted": 0,
+      "min_j": 0.08839564423808986,
+      "seconds": 31.386963367462158
+    },
+    {
+      "iteration": 1100,
+      "inverted": 1,
+      "min_j": -0.19696725613101687,
+      "seconds": 33.08209037780762
+    },
+    {
+      "iteration": 1150,
+      "inverted": 1,
+      "min_j": -0.033876821609170174,
+      "seconds": 34.66048860549927
+    },
+    {
+      "iteration": 1200,
+      "inverted": 2,
+      "min_j": -0.047748112068059526,
+      "seconds": 36.28230595588684
+    },
+    {
+      "iteration": 1250,
+      "inverted": 4,
+      "min_j": -0.2643961072228645,
+      "seconds": 37.96923494338989
+    },
+    {
+      "iteration": 1300,
+      "inverted": 1,
+      "min_j": -0.09161774492419542,
+      "seconds": 39.570151567459106
+    },
+    {
+      "iteration": 1350,
+      "inverted": 2,
+      "min_j": -0.12804656947892817,
+      "seconds": 41.197556018829346
+    },
+    {
+      "iteration": 1400,
+      "inverted": 9,
+      "min_j": -0.6243512218663455,
+      "seconds": 43.07174634933472
+    },
+    {
+      "iteration": 1450,
+      "inverted": 8,
+      "min_j": -0.1586986943524458,
+      "seconds": 44.71232509613037
+    },
+    {
+      "iteration": 1500,
+      "inverted": 31,
+      "min_j": -0.22096108045288115,
+      "seconds": 46.32741045951843
+    },
+    {
+      "iteration": 1550,
+      "inverted": 36,
+      "min_j": -0.377302684215587,
+      "seconds": 47.96826434135437
+    },
+    {
+      "iteration": 1600,
+      "inverted": 34,
+      "min_j": -0.35853527375447414,
+      "seconds": 49.606661796569824
+    },
+    {
+      "iteration": 1650,
+      "inverted": 35,
+      "min_j": -0.34957409772921905,
+      "seconds": 51.348113775253296
+    },
+    {
+      "iteration": 1700,
+      "inverted": 40,
+      "min_j": -1.6279527473003383,
+      "seconds": 53.096999168395996
+    },
+    {
+      "iteration": 1750,
+      "inverted": 33,
+      "min_j": -0.33178057495358554,
+      "seconds": 54.80631470680237
+    },
+    {
+      "iteration": 1800,
+      "inverted": 32,
+      "min_j": -0.33166492260179625,
+      "seconds": 56.36537718772888
+    },
+    {
+      "iteration": 1850,
+      "inverted": 32,
+      "min_j": -0.3016918309417761,
+      "seconds": 58.08745789527893
+    },
+    {
+      "iteration": 1900,
+      "inverted": 29,
+      "min_j": -0.27116540573610254,
+      "seconds": 59.67922592163086
+    },
+    {
+      "iteration": 1950,
+      "inverted": 31,
+      "min_j": -0.2754466480443172,
+      "seconds": 61.34117364883423
+    },
+    {
+      "iteration": 2000,
+      "inverted": 33,
+      "min_j": -0.2213396682437128,
+      "seconds": 63.04292368888855
+    },
+    {
+      "iteration": 2050,
+      "inverted": 29,
+      "min_j": -0.21900041360564004,
+      "seconds": 64.68004274368286
+    },
+    {
+      "iteration": 2100,
+      "inverted": 31,
+      "min_j": -0.2215387693205614,
+      "seconds": 66.33268094062805
+    },
+    {
+      "iteration": 2150,
+      "inverted": 29,
+      "min_j": -0.2573395548435146,
+      "seconds": 68.08783221244812
+    },
+    {
+      "iteration": 2200,
+      "inverted": 27,
+      "min_j": -0.26119193930869006,
+      "seconds": 69.76430892944336
+    },
+    {
+      "iteration": 2250,
+      "inverted": 27,
+      "min_j": -0.25983616189996556,
+      "seconds": 71.41299223899841
+    },
+    {
+      "iteration": 2300,
+      "inverted": 31,
+      "min_j": -1.093179543230865,
+      "seconds": 73.05328965187073
+    },
+    {
+      "iteration": 2350,
+      "inverted": 35,
+      "min_j": -0.26580351611633346,
+      "seconds": 74.66220378875732
+    },
+    {
+      "iteration": 2400,
+      "inverted": 36,
+      "min_j": -0.2566567428119364,
+      "seconds": 76.23831391334534
+    },
+    {
+      "iteration": 2450,
+      "inverted": 35,
+      "min_j": -0.2797166623822186,
+      "seconds": 78.00346040725708
+    },
+    {
+      "iteration": 2500,
+      "inverted": 36,
+      "min_j": -0.27604604260593435,
+      "seconds": 79.62502813339233
+    },
+    {
+      "iteration": 2550,
+      "inverted": 33,
+      "min_j": -0.2976879056371408,
+      "seconds": 81.18988823890686
+    },
+    {
+      "iteration": 2600,
+      "inverted": 29,
+      "min_j": -0.31784869219880596,
+      "seconds": 82.86284732818604
+    },
+    {
+      "iteration": 2650,
+      "inverted": 28,
+      "min_j": -0.32876393732063,
+      "seconds": 84.55851578712463
+    },
+    {
+      "iteration": 2700,
+      "inverted": 25,
+      "min_j": -0.31343146339368116,
+      "seconds": 86.21425008773804
+    },
+    {
+      "iteration": 2750,
+      "inverted": 26,
+      "min_j": -0.39596194956210656,
+      "seconds": 87.96751046180725
+    },
+    {
+      "iteration": 2800,
+      "inverted": 28,
+      "min_j": -0.4846686308938381,
+      "seconds": 89.66223001480103
+    },
+    {
+      "iteration": 2850,
+      "inverted": 28,
+      "min_j": -0.4692007322394743,
+      "seconds": 91.2804708480835
+    },
+    {
+      "iteration": 2900,
+      "inverted": 26,
+      "min_j": -0.5252623815472535,
+      "seconds": 93.02109789848328
+    },
+    {
+      "iteration": 2950,
+      "inverted": 24,
+      "min_j": -0.5768334785460594,
+      "seconds": 94.64803695678711
+    },
+    {
+      "iteration": 3000,
+      "inverted": 24,
+      "min_j": -0.572209898271779,
+      "seconds": 96.31280326843262
+    }
+  ]
+}

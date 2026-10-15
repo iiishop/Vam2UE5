@@ -1,0 +1,8 @@
+{
+  "status": "HISTORICAL_BLOCKED",
+  "pose": "seat-contact",
+  "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8774 tetrahedra 27656\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 8.305 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+  "solver_active": false,
+  "source": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\contact-history\\seat-contact\\state.json",
+  "scope": "Not part of S1/S2 acceptance. No collision/volume safety checks disabled."
+}

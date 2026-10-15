@@ -1,0 +1,74 @@
+[
+  {
+    "file": "before-seated-side-gray.png",
+    "sha256": "2d47ef99c6e2035bed7487b6012cd6eb76017b4e0f08269643f0dd01f0bbace9"
+  },
+  {
+    "file": "after-seated-side-gray.png",
+    "sha256": "ad56dc85971243cfc4dc9cbb66277056019ba1faf112cc07d7e7b7b1cc38702b"
+  },
+  {
+    "file": "before-seated-oblique-material.png",
+    "sha256": "29e53761f7a17befb94628d24aaec98e1d31e47e45cd97afbb5d058b9d69fbfa"
+  },
+  {
+    "file": "after-seated-oblique-material.png",
+    "sha256": "42db94fd6c9333a1008bff3bc2d664abd6eba8907e5f48b23a37279cb2643f29"
+  },
+  {
+    "file": "before-seated-rear-gray.png",
+    "sha256": "ef7a48ff3ffd5b9236d19a4134848042c58ba5ea6c45d99be8eb836a5bf8176b"
+  },
+  {
+    "file": "after-seated-rear-gray.png",
+    "sha256": "6f90f634df954eacba2d6c2721cbfdbc2cd657ace4973616ced213a711ab07a8"
+  },
+  {
+    "file": "before-seated-side-world-normal.png",
+    "sha256": "10e6174e8837445a133625145a13f528e104cc45b1e54f1833b683a2a2b69e74"
+  },
+  {
+    "file": "after-seated-side-world-normal.png",
+    "sha256": "37ee245696f8e84ffcfbaed5524031543d7c939758515e81232b927a02c2fb96"
+  },
+  {
+    "file": "before-seated-side-wireframe.png",
+    "sha256": "4a8ea11db8e4d220c44a5028c47da14d4323845c8f3f5c4a82b8ea0154dcd6ab"
+  },
+  {
+    "file": "after-seated-side-wireframe.png",
+    "sha256": "671118f6f33306d29699ff6385d2428b879eca78903da7dd84fec37d562b3ec4"
+  },
+  {
+    "file": "before-standing-side-material.png",
+    "sha256": "e244b0454c1056f44d47d7447f2c36d839c02aee1f3d28e27a78885a74cb1859"
+  },
+  {
+    "file": "after-standing-side-material.png",
+    "sha256": "e5291ea25f2de78e12986c04b072c6e8eabb99bae1cfdca09d0b57eed538f405"
+  },
+  {
+    "file": "before-knee-120-side-material.png",
+    "sha256": "dc6aa8a9b670719863ba171d28db5190f1fbe6686bcd26de1a87508b3a326186"
+  },
+  {
+    "file": "after-knee-120-side-material.png",
+    "sha256": "9f029027c19b9805caf70467e4d63156a0128b4327a310a7467b9352402785de"
+  },
+  {
+    "file": "before-abducted-oblique-material.png",
+    "sha256": "2b25ba4e5f772f82736cba071e8159c14b036a16d8589e6568fdcda6356f59d9"
+  },
+  {
+    "file": "after-abducted-oblique-material.png",
+    "sha256": "c80db697a1b2f989f183ba863f0e3beb14fea78530040c2c8841f4c293903e1f"
+  },
+  {
+    "file": "before-held-out-asymmetric-side-gray.png",
+    "sha256": "99da2c46b35e5e38385b87ac556909bb940afacf4bbed95f82f741a507593491"
+  },
+  {
+    "file": "after-held-out-asymmetric-side-gray.png",
+    "sha256": "73ae468ad165fe7990ecbc3a87a23dbc3febd518c0b11462d2bc43be419ebb67"
+  }
+]

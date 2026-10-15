@@ -11,6 +11,23 @@ struct VAMCHARACTERRUNTIME_API FVamBoneCenterDelta
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) FVector LocalTranslation = FVector::ZeroVector;
 };
 
+USTRUCT(BlueprintType)
+struct VAMCHARACTERRUNTIME_API FVamBoneOrientationDelta
+{
+    GENERATED_BODY()
+    UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) int32 BoneIndex = INDEX_NONE;
+    // Effective source world Euler degrees, including parentForMorphOffsets once.
+    UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) FVector SourceDegrees = FVector::ZeroVector;
+};
+
+USTRUCT(BlueprintType)
+struct VAMCHARACTERRUNTIME_API FVamSourceOrientation
+{
+    GENERATED_BODY()
+    UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) FVector NeutralDegrees = FVector::ZeroVector;
+    UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) bool bUnityEuler = false;
+};
+
 /** Shape is parameter state, never a captured posed/simulated surface. */
 USTRUCT(BlueprintType)
 struct VAMCHARACTERRUNTIME_API FVamShapeState
@@ -86,6 +103,11 @@ public:
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) TArray<int32> InputToSource;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) TArray<int32> InputTriangles;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) TArray<FVamSurfaceRegion> Regions;
+    // Append-only render refinement. An appended input vertex has source INDEX_NONE;
+    // its two earlier input parents record the exact midpoint provenance (UV/weights).
+    // Curved rest position and Morph deltas live in the native MeshDescription.
+    UPROPERTY(Category="VaM", VisibleAnywhere) int32 RenderRefinementVersion = 0;
+    UPROPERTY(Category="VaM", VisibleAnywhere) TArray<FIntPoint> RenderRefinementParents;
     // Lossless native strings, no external paths or runtime VAR decoder dependency.
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) FString ClothGeometryDataJson;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) FString HairSourceDataJson;
@@ -99,6 +121,7 @@ public:
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) int32 SchemaVersion = 1;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) FString MorphSetLockDigest;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) TArray<FTransform> NeutralLocalBind;
+    UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) TArray<FVamSourceOrientation> SourceOrientations;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) FString FormulaDiagnosticsJson;
     UPROPERTY(Category="VaM", EditAnywhere, BlueprintReadOnly) TSoftObjectPtr<UVamGeometryBinding> Geometry;
 };

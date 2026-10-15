@@ -1,0 +1,38 @@
+import json,sys,numpy as np,hashlib,contextlib,io
+from pathlib import Path
+r=Path(__file__).resolve().parent;old=r.parent/'unattenuated-survey';repo=r.parents[3];sys.path.insert(0,str(repo/'Scripts'))
+from audit_glute_fold import analyze
+from replay_deformation_audit import run as replay
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+d=read(r/'bindings/fields/detail.json');fields=r/'bindings/fields';rows=[]
+for side in range(2):
+ for target in range(1,len(d['targets'])):
+  prefix=f's{side}_t{target}_';errors={}
+  for kind in ['source','procedural']:
+   errors[kind]=max(float(np.max(abs(np.fromfile(fields/(prefix+kind+'_before_axis'+str(ax)+'.f32'),dtype='<f4')-np.fromfile(fields/(prefix+kind+'_axis'+str(ax)+'.f32'),dtype='<f4')))) for ax in range(3))
+  factors=np.fromfile(fields/(prefix+'source_procedural_safety.f32'),dtype='<f4');assert np.all(factors==1) and max(errors.values())==0
+  res=np.fromfile(fields/(prefix+'residual_safety.f32'),dtype='<f4');rows.append(dict(side=side,target=target,source_procedural_error_cm=errors,source_factor_min=float(factors.min()),residual_factor_min=float(res.min())))
+result=dict(rebake_max_error_cm=d['rebake_max_error_cm'],fields=rows,poses=[],editor=[])
+points=lambda b,stage:np.array(read(b/stage/'surface.json')['positions'])
+for p in sorted((r/'pie').glob('*/state.json')):
+ a=read(p);b=read(old/'source-off-below'/p.parent.name/'state.json');ab=Path(a['audit_bundle']);bb=Path(b['audit_bundle']);assert {k:v for k,v in read(ab/'mapping.json').items() if k!='path'}=={k:v for k,v in read(bb/'mapping.json').items() if k!='path'};assert a['cameras']==b['cameras'];mat=max(float(np.max(abs(np.array(x[k])-np.array(y[k])))) for x,y in zip(a['actual_bones'],b['actual_bones']) for k in ['component_matrix','local_matrix']);assert mat<1e-9
+ stages={}
+ for st in ['00-source-lbs','01-final-weights','02-static-helpers','03-corrective','04-jiggle']:
+  err=np.linalg.norm(points(ab,st)-points(bb,st),axis=1);stages[st]=dict(max_cm=float(err.max()),rms_cm=float(np.sqrt(np.mean(err**2))))
+  if st in ['00-source-lbs','01-final-weights','02-static-helpers']:assert err.max()<1e-5
+ with contextlib.redirect_stdout(io.StringIO()):replay(ab)
+ edges={tuple(e['source_edge']) for e in read(old/'off-below'/p.parent.name/'fold-angles-matched.json')['regional_edges']}
+ fold=analyze(p,edges);(p.parent/'fold-angles-matched.json').write_text(json.dumps(fold,indent=2))
+ result['poses'].append(dict(pose=p.parent.name,matrix_error=mat,camera_identical=True,versus_diagnostic_residual_retained=stages,matched_edge_max_deg=max(e['angles_deg']['03-corrective'] for e in fold['regional_edges']),a1=read(ab/'replay-report.json')['stages']))
+ print(p.parent.name,stages['03-corrective'],flush=True)
+for p in sorted((r/'editor').glob('*/state.json')):
+ a=read(p);b=read(r/'pie'/p.parent.name/'state.json');assert a['cameras']==b['cameras'];err=np.linalg.norm(points(Path(a['audit_bundle']),'03-corrective')-points(Path(b['audit_bundle']),'03-corrective'),axis=1);assert err.max()<1e-6
+ result['editor'].append(dict(pose=p.parent.name,max_error_cm=float(err.max())))
+assert len(result['poses'])==11 and len(result['editor'])==4
+(r/'evaluation.json').write_text(json.dumps(result,indent=2))
+manifest=[]
+for group in ['pie','editor']:
+ for p in (r/group).glob('*/*.png'):
+  raw=p.read_bytes();assert raw[:8]==b'\x89PNG\r\n\x1a\n';manifest.append(dict(file=str(p.relative_to(r)),sha256=hashlib.sha256(raw).hexdigest()))
+assert len(manifest)==480,len(manifest)
+(r/'screenshots.json').write_text(json.dumps(manifest,indent=2));print('Verified 480 UE screenshots, 11 A1 replays, immutable source and procedural fields')

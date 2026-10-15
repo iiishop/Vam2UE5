@@ -1,0 +1,43 @@
+{
+  "videos": {
+    "preload-comparison.mp4": {
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "seated-front-pose-preload.mp4": {
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "seated-front.mp4": {
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "seated-up-pose-preload.mp4": {
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "seated-up.mp4": {
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "standing-front.mp4": {
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    },
+    "standing-up.mp4": {
+      "r_frame_rate": "30/1",
+      "duration": "6.000000",
+      "nb_read_frames": "180"
+    }
+  },
+  "PIE_batches": 2,
+  "cases": 6,
+  "raw_frame_count": 1080,
+  "production_changed": false
+}

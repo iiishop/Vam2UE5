@@ -1,0 +1,154 @@
+[
+  {
+    "pose": "knee-120-soft",
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-082242-D5BDA666474E94BB7A7164A704CCEACC",
+    "regions": {
+      "0": {
+        "cells": 1784,
+        "canonical_min": 0.025193397951074965,
+        "posed_min": 0.025193240288170302,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.02519326094510428
+      },
+      "1": {
+        "cells": 1832,
+        "canonical_min": 0.0013560355624706588,
+        "posed_min": 0.0013560354583047978,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.001356035494288162
+      },
+      "2": {
+        "cells": 11792,
+        "canonical_min": 0.0001067074041301165,
+        "posed_min": -1.1220494970291874,
+        "posed_invalid": 236,
+        "runtime_initial_invalid": 186,
+        "runtime_initial_min": -2.2337460507220137
+      },
+      "3": {
+        "cells": 12248,
+        "canonical_min": 7.139002258704616e-05,
+        "posed_min": -1.6427419904628309,
+        "posed_invalid": 262,
+        "runtime_initial_invalid": 213,
+        "runtime_initial_min": -3.203614071840331
+      }
+    }
+  },
+  {
+    "pose": "knee-60-soft",
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-082225-54F338B24163FFFB8F07D2A85E090879",
+    "regions": {
+      "0": {
+        "cells": 1784,
+        "canonical_min": 0.025193397951074965,
+        "posed_min": 0.025193240288170302,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.02519326094510428
+      },
+      "1": {
+        "cells": 1832,
+        "canonical_min": 0.0013560355624706588,
+        "posed_min": 0.0013560354583047978,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.001356035494288162
+      },
+      "2": {
+        "cells": 11792,
+        "canonical_min": 0.0001067074041301165,
+        "posed_min": -0.019490656396902308,
+        "posed_invalid": 8,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.00011018935802793491
+      },
+      "3": {
+        "cells": 12248,
+        "canonical_min": 7.139002258704616e-05,
+        "posed_min": -0.03907995991006873,
+        "posed_invalid": 8,
+        "runtime_initial_invalid": 1,
+        "runtime_initial_min": -0.03908005615153281
+      }
+    }
+  },
+  {
+    "pose": "standing-soft",
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-082208-C610614A4E631551D232FFA176D50F4F",
+    "regions": {
+      "0": {
+        "cells": 1784,
+        "canonical_min": 0.025193397951074965,
+        "posed_min": 0.025193240288170302,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.02519326094510428
+      },
+      "1": {
+        "cells": 1832,
+        "canonical_min": 0.0013560355624706588,
+        "posed_min": 0.0013560354583047978,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.001356035494288162
+      },
+      "2": {
+        "cells": 11792,
+        "canonical_min": 0.0001067074041301165,
+        "posed_min": 0.00011018730320987867,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.00011018935802793491
+      },
+      "3": {
+        "cells": 12248,
+        "canonical_min": 7.139002258704616e-05,
+        "posed_min": 7.134116894642953e-05,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 7.134159953664974e-05
+      }
+    }
+  },
+  {
+    "pose": "suspended-seat-soft",
+    "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261012-082259-D766D4684BF22EDE38C31BB7B95D6229",
+    "regions": {
+      "0": {
+        "cells": 1784,
+        "canonical_min": 0.025193397951074965,
+        "posed_min": 0.025193240288170302,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.02519326094510428
+      },
+      "1": {
+        "cells": 1832,
+        "canonical_min": 0.0013560355624706588,
+        "posed_min": 0.0013560354583047978,
+        "posed_invalid": 0,
+        "runtime_initial_invalid": 0,
+        "runtime_initial_min": 0.001356035494288162
+      },
+      "2": {
+        "cells": 11792,
+        "canonical_min": 0.0001067074041301165,
+        "posed_min": -2.865605203271866,
+        "posed_invalid": 918,
+        "runtime_initial_invalid": 807,
+        "runtime_initial_min": -3.0643747640302688
+      },
+      "3": {
+        "cells": 12248,
+        "canonical_min": 7.139002258704616e-05,
+        "posed_min": -4.174250845651007,
+        "posed_invalid": 1061,
+        "runtime_initial_invalid": 931,
+        "runtime_initial_min": -3.8054113710458526
+      }
+    }
+  }
+]

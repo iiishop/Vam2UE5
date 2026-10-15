@@ -1,0 +1,66 @@
+{
+  "gates": [
+    {
+      "pose": "asymmetric",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "deep",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "hip110",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "hip30",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "hip60",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "hip90",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "knee120",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "knee30",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "knee60",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "knee90",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "seated",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    },
+    {
+      "pose": "standing",
+      "same_request": true,
+      "source_matrix_max_difference": 0.0
+    }
+  ],
+  "mapping": "retained source IDs only; source [z,x,y] meters to UE cm; same request hashes; masks threshold .05 from C1.5",
+  "scope": "VaM core-on raw surface, no plugin attribution and no claim all anatomical residuals are defects"
+}

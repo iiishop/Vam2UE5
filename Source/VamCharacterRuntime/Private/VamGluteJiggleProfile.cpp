@@ -5,10 +5,12 @@ FVamGluteDynamicSide VamGluteDynamics::Calibrate(const UVamGluteJiggleProfile& P
     FVamGluteDynamicSide Out;Out.Side=S.Side;Out.COM=State.FinalRestCOM;Out.Dimensions=S.Dimensions;Out.MassKg=S.EffectiveVolumeCm3*P.DensityKgPerCm3;
     for(const auto& Imported:P.Sides) if(Imported.Side==S.Side) { Out.ReferenceGravityLocal=Imported.ReferenceGravityLocal;break; }
     if(S.Regions.Num()!=5 || State.Regions.Num()!=5) return Out;
+    Out.bTransportedGravity=P.bPoseTransportedGravity;
     for(int32 I=0;I<S.Regions.Num();++I)
     {
         const auto& R=S.Regions[I];const auto& N=State.Regions[I];FVamGluteDynamicNode D;D.Semantic=R.Semantic;D.BoneIndex=R.BoneIndex;D.MassKg=Out.MassKg*R.MassFractionCandidate;
         D.Rest=N.Transform.GetLocation();D.COM=R.MassCenter;D.Inertia=R.InertiaCandidate;D.PelvisPoint=R.PelvisPoint;D.ThighPointLocal=R.ThighPointLocal;
+        D.TransportedGravityLocal=P.bPoseTransportedGravity?N.OrientationAdjustment.RotateVector(Out.ReferenceGravityLocal):Out.ReferenceGravityLocal;
         D.PelvisAttachment=N.PelvisAttachment;D.ThighAttachment=N.ThighAttachment;D.Support=N.RegionalStiffnessBaseline*P.DynamicModulusFraction;
         // Geometry + original structural tether calibrate travel; pose tension
         // changes stiffness above, not mass or the user's Mobility parameter.
@@ -43,6 +45,7 @@ bool UVamGluteJiggleProfile::IsValidProfile() const
     if((SchemaVersion!=1 && SchemaVersion!=2) || Sides.Num()!=2 || SourceTopologyIdentity.IsEmpty() || SkeletonFamily.IsEmpty() || !FMath::IsFinite(DensityKgPerCm3) || DensityKgPerCm3<=0 || !FMath::IsFinite(FixedStep) || FixedStep<=0 || FixedStep>1./60. || MaxSubsteps<1 || MaxSubsteps>64 || SoftLimitFraction<=0 || SoftLimitFraction>=1) return false;
     if(SchemaVersion==2 && (AuthoredGravityWorld.ContainsNaN() || !FMath::IsNearlyEqual(AuthoredGravityWorld.Size(),980.,1.e-6) || Algorithm!=TEXT("glute-dual-attachment-g1.1-reference-gravity-v1") || GravityPolicy!=TEXT("body-attached-imported-1g-v1"))) return false;
     for(double Value:{DynamicModulusFraction,TeleportDistanceCm,TeleportAngleRadians,PoseDiscontinuityRadians,LargeShapeChangeRatio,SleepSpeedCmS,SleepDisplacementCm,SoftLimitFraction,NonlinearGain,LimitHardening}) if(!FMath::IsFinite(Value) || Value<=0) return false;
+    if(bPoseTransportedGravity && SchemaVersion!=2) return false;
     if(SurfaceGuardVersion<0 || SurfaceGuardVersion>1) return false;
     if(SurfaceGuardVersion==1)
     {

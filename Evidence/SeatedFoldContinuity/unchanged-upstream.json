@@ -1,0 +1,9 @@
+{
+  "same_actual_bones": true,
+  "same_cameras": true,
+  "stages": {
+    "00-source-lbs": 0.0,
+    "01-final-weights": 0.0,
+    "02-static-helpers": 0.0
+  }
+}

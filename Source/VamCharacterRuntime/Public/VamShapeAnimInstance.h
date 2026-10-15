@@ -23,6 +23,8 @@ public:
     /** Temporary local-space pose offsets used by the editor debug tool. */
     void SetDebugBoneOffset(int32 BoneIndex, const FTransform& Offset);
     void ClearDebugBoneOffsets();
+    /** Explicit geometric debug presets already define anatomical directions. Reset clears this exception. */
+    TSet<int32> GeometricDebugBones;
     FTransform GetDebugBoneOffset(int32 BoneIndex) const;
     const TMap<int32,FTransform>& GetDebugBoneOffsets() const { return DebugBoneOffsets; }
     void SetActiveBoneOffset(int32 BoneIndex, const FTransform& Offset);

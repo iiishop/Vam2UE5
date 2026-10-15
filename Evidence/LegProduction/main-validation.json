@@ -1,0 +1,34 @@
+[
+  {
+    "pose": "abducted",
+    "max_surface_error_cm": 0.0,
+    "max_bone_matrix_error": 1.0408340855860843e-17,
+    "editor_actor": "/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/BP_VamCharacter.BP_VamCharacter_C",
+    "pie_actor": "/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/BP_VamCharacter.BP_VamCharacter_C",
+    "screenshots_per_world": 32
+  },
+  {
+    "pose": "knee-120",
+    "max_surface_error_cm": 0.0,
+    "max_bone_matrix_error": 1.0408340855860843e-17,
+    "editor_actor": "/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/BP_VamCharacter.BP_VamCharacter_C",
+    "pie_actor": "/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/BP_VamCharacter.BP_VamCharacter_C",
+    "screenshots_per_world": 32
+  },
+  {
+    "pose": "standing",
+    "max_surface_error_cm": 0.0,
+    "max_bone_matrix_error": 1.0408340855860843e-17,
+    "editor_actor": "/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/BP_VamCharacter.BP_VamCharacter_C",
+    "pie_actor": "/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/BP_VamCharacter.BP_VamCharacter_C",
+    "screenshots_per_world": 32
+  },
+  {
+    "pose": "suspended-seat",
+    "max_surface_error_cm": 0.0,
+    "max_bone_matrix_error": 1.0408340855860843e-17,
+    "editor_actor": "/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/BP_VamCharacter.BP_VamCharacter_C",
+    "pie_actor": "/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/BP_VamCharacter.BP_VamCharacter_C",
+    "screenshots_per_world": 32
+  }
+]

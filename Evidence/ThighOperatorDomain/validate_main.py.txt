@@ -1,0 +1,16 @@
+import json,hashlib,numpy as np
+from pathlib import Path
+r=Path(__file__).resolve().parent
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+rows=[]
+for world in ['editor','pie']:
+ p=r/('main-'+world)/'seated/state.json';a=read(p);b=read(r/world/'seated/state.json')
+ assert a['cameras']==b['cameras']
+ for x,y in zip(a['actual_bones'],b['actual_bones']):
+  assert np.max(abs(np.array(x['component_matrix'])-y['component_matrix']))<1e-9
+ points=lambda s:np.array(read(Path(s['audit_bundle'])/'03-corrective/surface.json')['positions'])
+ err=float(np.linalg.norm(points(a)-points(b),axis=1).max());assert err<1e-6
+ assert 'Result={Success} Name={ContactRuntime}' in (r/('main-'+world)/'runtime.log').read_text(errors='replace')
+ rows.append(dict(world=world,max_error_cm=err,screenshots=[dict(file=str(f.relative_to(r)),sha256=hashlib.sha256(f.read_bytes()).hexdigest()) for f in p.parent.glob('*.png')]))
+assert all(len(x['screenshots'])==32 for x in rows)
+(r/'main-project-validation.json').write_text(json.dumps(rows,indent=2));print('PASS: installed plugin in main Editor and PIE, exact matched surface, 64 screenshots')

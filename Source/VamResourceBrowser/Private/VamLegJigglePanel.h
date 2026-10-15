@@ -14,7 +14,7 @@ TSharedRef<SWidget> LegJiggleControls()
     }
     Box->AddSlot().AutoHeight()[SNew(SButton).Text(FText::FromString(TEXT("恢复腿部默认参数"))).OnClicked_Lambda([Body](){if(auto* B=Body()) B->ResetLegTuning();return FReply::Handled();})];
     auto Poses=SNew(SWrapBox).UseAllottedSize(true);
-    for(const TCHAR* Name:{TEXT("Neutral"),TEXT("Hip Flexion"),TEXT("Knee Flexion"),TEXT("Crouch"),TEXT("Dorsiflexion"),TEXT("Plantarflexion"),TEXT("Reset")}){const FName Command(Name);Poses->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->LegPoseCommand(Command);return FReply::Handled();})];}
+    for(const TCHAR* Name:{TEXT("Neutral"),TEXT("Hip Flexion"),TEXT("Knee Flexion"),TEXT("Crouch"),TEXT("Seated"),TEXT("Dorsiflexion"),TEXT("Plantarflexion"),TEXT("Reset")}){const FName Command(Name);Poses->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->LegPoseCommand(Command);return FReply::Handled();})];}
     Box->AddSlot().AutoHeight()[Poses];auto Motion=SNew(SWrapBox).UseAllottedSize(true);
     for(const TCHAR* Name:{TEXT("Smooth Forward Accelerate"),TEXT("Smooth Stop"),TEXT("Jump"),TEXT("Walk Cycle / Alternating Thigh Swing")}){const FName Command(Name);Motion->AddSlot().Padding(2)[SNew(SButton).Text(FText::FromName(Command)).OnClicked_Lambda([Body,Command](){if(auto* B=Body()) B->GluteMotionCommand(Command);return FReply::Handled();})];}
     Box->AddSlot().AutoHeight()[Motion];Box->AddSlot().AutoHeight()[SNew(STextBlock).AutoWrapText(true).Text_Lambda([Body](){auto* B=Body();return FText::FromString(B?B->LegDiagnostics():TEXT("Select a runtime character"));})];

@@ -1,0 +1,77 @@
+{
+  "after-v3\\seated-stop\\oblique-material.png": {
+    "raw_sha256": "349d5b66d5a3d5cc4758dd4b88c6ebae7c0a0820bf99297d7b34b55383178af3",
+    "trailing_bytes_removed": 323881,
+    "pixel_chunks_unchanged": true
+  },
+  "after-v3\\seated-stop\\side-wireframe.png": {
+    "raw_sha256": "69507020556e0c145fd9af269cf5d7db6743752624fc16a1eb56f5b8f713d93e",
+    "trailing_bytes_removed": 319598,
+    "pixel_chunks_unchanged": true
+  },
+  "after-v3\\seated-stop\\side-world-normal.png": {
+    "raw_sha256": "8967691bdb30785aa76a34dbeaee496c2dee0e47581f792e303353c76ef6d77f",
+    "trailing_bytes_removed": 90135,
+    "pixel_chunks_unchanged": true
+  },
+  "before-v3\\seated-stop\\oblique-material.png": {
+    "raw_sha256": "5c0f129c41502a1769eee17d721f05d4705c84cefe432e6500967583321412ff",
+    "trailing_bytes_removed": 323384,
+    "pixel_chunks_unchanged": true
+  },
+  "before-v3\\seated-stop\\side-wireframe.png": {
+    "raw_sha256": "43e55acee95480c4e21dae196a96d44a16cb63f4e0edcbf818da492262fa796a",
+    "trailing_bytes_removed": 318835,
+    "pixel_chunks_unchanged": true
+  },
+  "before-v3\\seated-stop\\side-world-normal.png": {
+    "raw_sha256": "ac0a38e76dfb85bc20123ce89947851c7379720c3b62701c603d86ef62578fff",
+    "trailing_bytes_removed": 89664,
+    "pixel_chunks_unchanged": true
+  },
+  "editor-before\\abducted\\rear-gray.png": {
+    "raw_sha256": "10547719da19be5413d10f7548fe2a3ea3dc535e3ff33419cc58dba1206b6e6b",
+    "trailing_bytes_removed": 219061,
+    "pixel_chunks_unchanged": true
+  },
+  "editor-before\\knee-120\\rear-gray.png": {
+    "raw_sha256": "3fddee321a804b863dd7788767da168088f387694aff50ee36d98135c099e01e",
+    "trailing_bytes_removed": 243500,
+    "pixel_chunks_unchanged": true
+  },
+  "editor-before\\standing\\rear-gray.png": {
+    "raw_sha256": "5d7309a494396132bb5fd346995f9d587130033c6570ceaad6924f300d15605e",
+    "trailing_bytes_removed": 117180,
+    "pixel_chunks_unchanged": true
+  },
+  "editor-before\\suspended-seat\\rear-gray.png": {
+    "raw_sha256": "105c3bbdc934f7afad2cb6b9ebd685235e296808acb4e4e62f4481036ae7f952",
+    "trailing_bytes_removed": 284760,
+    "pixel_chunks_unchanged": true
+  },
+  "main-editor\\abducted\\rear-gray.png": {
+    "raw_sha256": "bbdb976742d8f9b171d704cd9c971b9943b784a85c8172ea3f10e0084127b2ec",
+    "trailing_bytes_removed": 244627,
+    "pixel_chunks_unchanged": true
+  },
+  "main-editor\\knee-120\\rear-gray.png": {
+    "raw_sha256": "e1ecec70585c08e77a7dd11cfa401d32b2cd567457ef2d706392c1ee61ba76d9",
+    "trailing_bytes_removed": 275368,
+    "pixel_chunks_unchanged": true
+  },
+  "main-editor\\standing\\rear-gray.png": {
+    "raw_sha256": "1b3327187fe4afd08b7d2121d8b500c3fc91c4438afccc4db0c6ad5673f342b5",
+    "trailing_bytes_removed": 155757,
+    "pixel_chunks_unchanged": true
+  },
+  "main-editor\\suspended-seat\\rear-gray.png": {
+    "raw_sha256": "a8580b7405e8da9dec20099cb86fe9c35a79cdf338bad06b190571abef1d18fe",
+    "trailing_bytes_removed": 309489,
+    "pixel_chunks_unchanged": true
+  },
+  "main-pie\\seated-jiggle\\oblique-material.png": {
+    "raw_sha256": "1bfd6c9f0464b3d34e94328949d41bbfccb8ebfbfd2d98bf12d6cf5d24d1d223",
+    "trailing_bytes_removed": 161380,
+    "pixel_chunks_unchanged": true
+  }
+}

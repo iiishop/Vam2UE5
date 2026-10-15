@@ -1,0 +1,54 @@
+import json,sys,numpy as np,contextlib,io
+from pathlib import Path
+r=Path(__file__).resolve().parent;repo=r.parents[3]
+old=r.parents[1]/'GluteSafetyRepair/residual-only-r2'
+sys.path.insert(0,str(repo/'Scripts'))
+from replay_deformation_audit import run as replay
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+points=lambda b,st:np.asarray(read(b/st/'surface.json')['positions'])
+result={'poses':[],'editor':[]}
+for p in sorted((r/'pie').glob('*/state.json')):
+ a=read(p);b=read(old/'pie'/p.parent.name/'state.json');ab=Path(a['audit_bundle']);bb=Path(b['audit_bundle'])
+ assert {k:v for k,v in read(ab/'mapping.json').items() if k!='path'}=={k:v for k,v in read(bb/'mapping.json').items() if k!='path'}
+ assert a['cameras']==b['cameras']
+ preskin_error=float(np.max(abs(np.asarray(read(ab/'02-static-helpers/preskin.json')['positions'])-np.asarray(read(bb/'02-static-helpers/preskin.json')['positions']))));assert preskin_error<1e-7
+ mat=max(float(np.max(abs(np.asarray(x[k])-np.asarray(y[k])))) for x,y in zip(a['actual_bones'],b['actual_bones']) for k in ['component_matrix','local_matrix']);assert mat<1e-9
+ stages={}
+ for st in ['00-source-lbs','01-final-weights','02-static-helpers','03-corrective','04-jiggle']:
+  err=np.linalg.norm(points(ab,st)-points(bb,st),axis=1)
+  stages[st]={'max_cm':float(err.max()),'rms_cm':float(np.sqrt(np.mean(err**2)))}
+  if st in ['00-source-lbs','01-final-weights','02-static-helpers']:assert err.max()<1e-5
+ inp=read(ab/'02-static-helpers/inputs.json');rest=np.asarray(inp.get('bind_positions',read(ab/'02-static-helpers/preskin.json')['positions']))
+ err=np.linalg.norm(points(ab,'03-corrective')-points(bb,'03-corrective'),axis=1)
+ foot=rest[:,2]<20
+ foot_max=float(err[foot].max());assert foot_max<0.001,(p.parent.name,foot_max)
+ with contextlib.redirect_stdout(io.StringIO()):replay(ab)
+ result['poses'].append(dict(pose=p.parent.name,matrix_error=mat,camera_identical=True,preskin_max_error_cm=preskin_error,stage_differences=stages,foot_max_change_cm=foot_max,a1=read(ab/'replay-report.json')['stages']))
+ print(p.parent.name,'foot',foot_max,'corrective',stages['03-corrective'],flush=True)
+for p in sorted((r/'editor').glob('*/state.json')):
+ a=read(p);b=read(r/'pie'/p.parent.name/'state.json');assert a['cameras']==b['cameras']
+ err=np.linalg.norm(points(Path(a['audit_bundle']),'03-corrective')-points(Path(b['audit_bundle']),'03-corrective'),axis=1);assert err.max()<1e-6
+ result['editor'].append(dict(pose=p.parent.name,max_error_cm=float(err.max())))
+assert len(result['poses'])==11 and len(result['editor'])==4
+d=read(r/'bindings/fields/detail.json');result['rebake_max_error_cm']=d['rebake_max_error_cm']
+previous=read(old/'bindings/fields/detail.json')['final_data_seal']
+result['unchanged_data_seals']={}
+for key in ['final_weights','final_bind','final_topology']:
+ assert d['final_data_seal'][key]==previous[key],key
+ result['unchanged_data_seals'][key]=previous[key]
+# The helper digest serializes UObject references by path. Leg.Integration is
+# instanced below each independently generated asset, so it is not a cross-asset
+# numerical-equivalence hash. Keep both hashes and the property/path evidence.
+result['helper_identity_comparison']={'before':previous['helper_definitions'],'after':d['final_data_seal']['helper_definitions'],'exposed_property_differences':read(r/'helper-differences.json'),'protected_fields':read(r/'helper-protected-fields.json'),'integration_paths':read(r/'helper-reference-paths.json')}
+result['shape_identity_comparison']={'before':previous['shape_reference_and_mapping'],'after':d['final_data_seal']['shape_reference_and_mapping'],'scope':'Serialized shape UObject includes generated Geometry asset reference; numerical pre-skin geometry checked independently for every pose above.'}
+assert all(not x for x in result['helper_identity_comparison']['exposed_property_differences'].values())
+assert result['helper_identity_comparison']['integration_paths']['before']!=result['helper_identity_comparison']['integration_paths']['after']
+for side in range(2):
+ for target in range(1,len(d['targets'])):
+  prefix=f's{side}_t{target}_';f=r/'bindings/fields'
+  assert np.all(np.fromfile(f/(prefix+'source_procedural_safety.f32'),dtype='<f4')==1)
+  for kind in ['source','procedural']:
+   for ax in range(3):assert np.array_equal(np.fromfile(f/(prefix+kind+'_before_axis'+str(ax)+'.f32'),dtype='<f4'),np.fromfile(f/(prefix+kind+'_axis'+str(ax)+'.f32'),dtype='<f4'))
+result['source_procedural_attenuation']='absent; fields unchanged by residual protection'
+(r/'evaluation.json').write_text(json.dumps(result,indent=2))
+print('PASS: same matrices, unchanged upstream stages, feet preserved, Editor/PIE match, residual-only policy retained')

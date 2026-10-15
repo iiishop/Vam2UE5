@@ -1,0 +1,154 @@
+[
+  {
+    "suite": "v5-editor",
+    "pose": "standing",
+    "bundle": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261011-041216-B3722D964C6C18FD4AFFBCA76B7A3912",
+    "stages": {
+      "01-final-weights": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.81794990603959e-06,
+        "vertices": 33980
+      },
+      "02-static-helpers": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.817948486209049e-06,
+        "vertices": 33980
+      },
+      "03-corrective": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.837946024245918e-06,
+        "vertices": 33980
+      },
+      "04-jiggle": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.837946024233352e-06,
+        "vertices": 33980
+      },
+      "00-source-lbs": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 5.009861174624876e-06,
+        "vertices": 25064
+      }
+    },
+    "gpu": null
+  },
+  {
+    "suite": "v5-editor",
+    "pose": "abducted",
+    "bundle": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261011-041548-C01ACF2D48449EC877F043A2315A723B",
+    "stages": {
+      "01-final-weights": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.817941514003779e-06,
+        "vertices": 33980
+      },
+      "02-static-helpers": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.818441080657693e-06,
+        "vertices": 33980
+      },
+      "03-corrective": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.851708022123015e-06,
+        "vertices": 33980
+      },
+      "04-jiggle": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.851708022110484e-06,
+        "vertices": 33980
+      },
+      "00-source-lbs": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 5.009917147223835e-06,
+        "vertices": 25064
+      }
+    },
+    "gpu": null
+  },
+  {
+    "suite": "v5-editor",
+    "pose": "heldout-45-75",
+    "bundle": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\\HostProject\\Saved\\VamDeformationAudit\\20261011-041647-047EC05A4302EF6C8B98FA95BC0BFE88",
+    "stages": {
+      "01-final-weights": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.817907312282686e-06,
+        "vertices": 33980
+      },
+      "02-static-helpers": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.818292707812763e-06,
+        "vertices": 33980
+      },
+      "03-corrective": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.852555747783109e-06,
+        "vertices": 33980
+      },
+      "04-jiggle": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.85255574777058e-06,
+        "vertices": 33980
+      },
+      "00-source-lbs": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 5.009854151174409e-06,
+        "vertices": 25064
+      }
+    },
+    "gpu": null
+  },
+  {
+    "suite": "main-pie",
+    "pose": "jiggle-motion",
+    "bundle": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261011-042721-67B5ECB54BD2EB320F755E94F6861EE4",
+    "stages": {
+      "01-final-weights": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.81794990603959e-06,
+        "vertices": 33980
+      },
+      "02-static-helpers": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.817948486209049e-06,
+        "vertices": 33980
+      },
+      "03-corrective": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.837946024245918e-06,
+        "vertices": 33980
+      },
+      "04-jiggle": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 4.837946024259663e-06,
+        "vertices": 33980
+      },
+      "00-source-lbs": {
+        "status": "replayed",
+        "max_error_cm": 1.6383451412266906e-05,
+        "rms_cm": 5.009861174624876e-06,
+        "vertices": 25064
+      }
+    },
+    "gpu": null
+  }
+]

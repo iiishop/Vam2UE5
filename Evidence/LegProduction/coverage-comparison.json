@@ -1,0 +1,160 @@
+{
+  "before": {
+    "regions": {
+      "L_Thigh_": {
+        "count": 564,
+        "no_leg_helper": 123,
+        "one_leg_helper": 114,
+        "helper_weight_percentiles": [
+          0.0,
+          0.0,
+          0.24499885557335777,
+          0.6371702143892576,
+          0.6419928282597086
+        ]
+      },
+      "R_Thigh_": {
+        "count": 560,
+        "no_leg_helper": 122,
+        "one_leg_helper": 111,
+        "helper_weight_percentiles": [
+          0.0,
+          0.0,
+          0.2036087586785687,
+          0.6372037842374303,
+          0.6419928282597086
+        ]
+      },
+      "L_Calf_": {
+        "count": 485,
+        "no_leg_helper": 1,
+        "one_leg_helper": 0,
+        "helper_weight_percentiles": [
+          0.0,
+          0.009698634317540243,
+          0.5707484550240329,
+          0.6486549172198062,
+          0.6498207064927138
+        ]
+      },
+      "R_Calf_": {
+        "count": 485,
+        "no_leg_helper": 1,
+        "one_leg_helper": 0,
+        "helper_weight_percentiles": [
+          0.0,
+          0.00967421988250553,
+          0.5708247501335164,
+          0.6486243991760127,
+          0.6498054474708171
+        ]
+      }
+    },
+    "seam_pair": {
+      "11274": {
+        "rThigh": 0.7584191653315022,
+        "pelvis": 0.06591897459372854,
+        "R_Glute_Medial": 0.06105134660868238,
+        "R_Glute_Lower": 0.05421530479896239,
+        "R_Glute_Lateral": 0.05130083161669337,
+        "R_Glute_Core": 0.00563057907988098,
+        "R_Glute_Upper": 0.0020294499122606243,
+        "rShin": 0.0014343480582894638
+      },
+      "16801": {
+        "R_Thigh_Hamstrings": 0.6075226977950713,
+        "rThigh": 0.3271229114213779,
+        "pelvis": 0.04954604409857328,
+        "R_Glute_Lower": 0.007934691386282139,
+        "rShin": 0.004623483634699016,
+        "R_Glute_Medial": 0.002777141985198749,
+        "R_Glute_Core": 0.0004119935912108034,
+        "R_Glute_Lateral": 6.103608758678569e-05
+      }
+    },
+    "max_influences": 8
+  },
+  "after": {
+    "regions": {
+      "L_Thigh_": {
+        "count": 564,
+        "no_leg_helper": 75,
+        "one_leg_helper": 4,
+        "helper_weight_percentiles": [
+          0.0,
+          0.0,
+          0.39667353322652016,
+          0.6371702143892576,
+          0.6419928282597086
+        ]
+      },
+      "R_Thigh_": {
+        "count": 560,
+        "no_leg_helper": 75,
+        "one_leg_helper": 4,
+        "helper_weight_percentiles": [
+          0.0,
+          0.0,
+          0.3649347676813916,
+          0.6372037842374303,
+          0.6419928282597086
+        ]
+      },
+      "L_Calf_": {
+        "count": 485,
+        "no_leg_helper": 1,
+        "one_leg_helper": 0,
+        "helper_weight_percentiles": [
+          0.0,
+          0.009698634317540243,
+          0.5707484550240329,
+          0.6486549172198062,
+          0.6498207064927138
+        ]
+      },
+      "R_Calf_": {
+        "count": 485,
+        "no_leg_helper": 1,
+        "one_leg_helper": 0,
+        "helper_weight_percentiles": [
+          0.0,
+          0.00967421988250553,
+          0.5708247501335164,
+          0.6486243991760127,
+          0.6498054474708171
+        ]
+      }
+    },
+    "seam_pair": {
+      "11274": {
+        "R_Thigh_Hamstrings": 0.4592660410467689,
+        "rThigh": 0.2226749065384909,
+        "R_Glute_Medial": 0.060990310521095596,
+        "pelvis": 0.05529869535362783,
+        "R_Glute_Lower": 0.054184786755168995,
+        "R_Glute_Lateral": 0.05084306095979248,
+        "R_Thigh_Adductors": 0.04461738002594034,
+        "R_Thigh_VastiCore": 0.02589456015869383,
+        "R_Thigh_VastusLateral": 0.016784924086366063,
+        "R_Glute_Core": 0.005661097123674372,
+        "R_Glute_Upper": 0.0021515220874341956,
+        "R_Thigh_RectusFemoris": 0.0016327153429465172
+      },
+      "16801": {
+        "R_Thigh_Hamstrings": 0.4930342565041581,
+        "rThigh": 0.3271229114213779,
+        "R_Thigh_Adductors": 0.049607080186160064,
+        "pelvis": 0.04954604409857328,
+        "R_Thigh_VastiCore": 0.041367208361944,
+        "R_Thigh_VastusLateral": 0.02136263065537499,
+        "R_Glute_Lower": 0.007934691386282139,
+        "rShin": 0.004623483634699016,
+        "R_Glute_Medial": 0.002777141985198749,
+        "R_Thigh_RectusFemoris": 0.0021515220874341956,
+        "R_Glute_Core": 0.0004119935912108034,
+        "R_Glute_Lateral": 6.103608758678569e-05
+      }
+    },
+    "max_influences": 12
+  }
+}

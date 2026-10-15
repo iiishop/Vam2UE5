@@ -1,0 +1,26 @@
+{
+  "before": {
+    "scope": "Fixed seated pose, actual quantized weights and recorded bone translations. A1 surface plus exact LBS translation delta; rotation constancy asserted. Excludes per-frame GPU normal readback and global self-intersection.",
+    "frames": 210,
+    "edges": 606,
+    "rotation_matrix_max_difference": 0.0,
+    "maximum_edge_angle_deg": 49.24140589436908,
+    "p95_edge_angle_all_frames_deg": 17.23085061591958,
+    "frames_with_edge_over_45": 210,
+    "minimum_double_triangle_area_cm2": 0.6507655984742674,
+    "band_temporal_rms_cm": 0.04631190479956121,
+    "band_max_temporal_deviation_cm": 0.3135873143954345
+  },
+  "after": {
+    "scope": "Fixed seated pose, actual quantized weights and recorded bone translations. A1 surface plus exact LBS translation delta; rotation constancy asserted. Excludes per-frame GPU normal readback and global self-intersection.",
+    "frames": 210,
+    "edges": 606,
+    "rotation_matrix_max_difference": 0.0,
+    "maximum_edge_angle_deg": 24.544064934930184,
+    "p95_edge_angle_all_frames_deg": 15.271957297537814,
+    "frames_with_edge_over_45": 0,
+    "minimum_double_triangle_area_cm2": 0.6479910835851331,
+    "band_temporal_rms_cm": 0.11218266830165637,
+    "band_max_temporal_deviation_cm": 0.40748885913688454
+  }
+}

@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "VamNativeBuilder.h"
 #include "VamBreastJiggleBuilder.generated.h"
 UCLASS()
 class VAMRESOURCEBROWSER_API UVamBreastJiggleBuilder : public UBlueprintFunctionLibrary
@@ -8,6 +9,7 @@ class VAMRESOURCEBROWSER_API UVamBreastJiggleBuilder : public UBlueprintFunction
     GENERATED_BODY()
 public:
     // Shared retained native input extraction; preserves morphs and unused source vertices.
+    UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static bool ExtractNative(class USkeletalMesh* Mesh,struct FVamNativeMeshInput& Input,FString& Error);
     UFUNCTION(BlueprintCallable, Category="VaM|Editor")
     static class UVamCharacterDefinition* Build(const FString& Root,class UVamCharacterDefinition* Source,

@@ -1,0 +1,40 @@
+import json,sys,numpy as np
+from pathlib import Path
+root=Path(__file__).resolve().parent
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+stages=['00-source-lbs','01-final-weights','02-static-helpers','03-corrective','04-jiggle']
+def measure(state):
+ s=read(state);b=Path(s['audit_bundle']);sm=read(b/'source-mapping.json')
+ ix=np.array([sm['input_to_source'][v] for v in sm['render_to_input']])
+ tri=ix[np.array(read(b/'00-source-lbs/inputs.json')['triangle_indices']).reshape(-1,3)]
+ n=int(tri.max())+1;edges={}
+ for i,t in enumerate(tri):
+  for u,v in zip(t,np.roll(t,1)):edges.setdefault(tuple(sorted((int(u),int(v)))),[]).append(i)
+ edges=[(e,f) for e,f in edges.items() if len(f)==2]
+ pos={};norm={};rest=None
+ for st in stages:
+  m=sm if st.startswith('00') else read(b/'mapping.json');ids=np.array([m['input_to_source'][v] for v in m['render_to_input']]);valid=(ids>=0)&(ids<n)
+  p=np.array(read(b/st/'surface.json')['positions']);v=np.zeros((n,3));v[ids[valid]]=p[valid];pos[st]=v
+  t=v[tri];norm[st]=np.cross(t[:,1]-t[:,0],t[:,2]-t[:,0])
+  if st=='02-static-helpers':
+   p=np.array(read(b/st/'inputs.json')['bind_positions']) if 'bind_positions' in read(b/st/'inputs.json') else np.array(read(b/st/'preskin.json')['positions'])
+   rest=np.zeros((n,3));rest[ids[valid]]=p[valid]
+ # Fixed bind-space mid-thigh band, independent of the resulting deformation.
+ center=rest[tri].mean(1);faces=(center[:,2]>70)&(center[:,2]<85)&(abs(center[:,1])>6)&(abs(center[:,1])<23)
+ rows=[]
+ for edge,fs in edges:
+  if not (faces[fs[0]] and faces[fs[1]]):continue
+  angles={}
+  for st in stages:
+   a,c=norm[st][fs];angles[st]=float(np.degrees(np.arccos(np.clip(a@c/max(1e-20,np.linalg.norm(a)*np.linalg.norm(c)),-1,1))))
+  rows.append(dict(source_edge=edge,angles=angles))
+ stats={}
+ for st in stages:
+  a=np.array([row['angles'][st] for row in rows]);dot=np.sum(norm['02-static-helpers']*norm[st],axis=1)
+  stats[st]=dict(max_deg=float(a.max()),p95_deg=float(np.percentile(a,95)),edges_over_45=int((a>45).sum()),reversed_vs_static_faces=int(((dot<0)&faces).sum()))
+ return dict(state=str(state),asset=s.get('runtime_configuration'),scope='Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.',edges=rows,statistics=stats)
+group=Path(sys.argv[1]);out=Path(sys.argv[2]);results={}
+for p in sorted(group.glob('*/state.json')):
+ results[p.parent.name]=measure(p)
+ print(p.parent.name,results[p.parent.name]['statistics']['03-corrective'],flush=True)
+out.write_text(json.dumps(results,indent=2))

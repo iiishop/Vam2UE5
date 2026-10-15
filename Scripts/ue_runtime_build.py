@@ -68,6 +68,8 @@ def inputs(recipe_path):
     validate_family(contract['neutral_bones'],family)
     from vam_glute_corrective_source import recover
     family['glute_corrective_source']=recover(json.loads(mapping.get_editor_property('source_ir_json')),SCRIPTS.parent/'Saved/settings.json',family)
+    from vam_knee_source import recover_knees
+    family['knee_corrective_source']=recover_knees(json.loads(mapping.get_editor_property('source_ir_json')),contract,family)
     for part in definition.get_editor_property('parts'):
         require(part.get_editor_property('skeleton')==skeleton,'Part skeleton mismatch')
         verify_native_binding(json.loads(u.VamStage06AssetEditor.describe_mesh_binding(part)),contract['bones'])
@@ -75,11 +77,11 @@ def inputs(recipe_path):
     require(u.VamShapeAnimInstance.supports_base_animation(mesh,base),'Base animation must use exact skeleton and be an in-place non-additive clip')
     files=source_closure([definition,mapping,base])
     algorithms={}
-    for base in ('Source/VamCharacterRuntime','Source/VamResourceBrowser'):
+    for base in ('Source/VamCharacterRuntime','Source/VamResourceBrowser','Source/VamContactGPU','Shaders'):
         for file in sorted((SCRIPTS.parent/base).rglob('*')):
-            if file.is_file() and file.suffix in ('.h','.cpp','.cs'):
+            if file.is_file() and file.suffix in ('.h','.cpp','.cs','.usf','.ush'):
                 algorithms[str(file.relative_to(SCRIPTS.parent))]=hashlib.sha256(file.read_bytes()).hexdigest()
-    for name in ('vam_runtime_recipe.py','ue_runtime_build.py','ue_stage06_materials.py','vam_glute_corrective_source.py'):
+    for name in ('vam_runtime_recipe.py','ue_runtime_build.py','ue_stage06_materials.py','vam_glute_corrective_source.py','vam_knee_source.py','vam_skin_runtime.py'):
         algorithms['Scripts/'+name]=hashlib.sha256((SCRIPTS/name).read_bytes()).hexdigest()
     identity=build_identity(recipe,family,files,algorithms,u.SystemLibrary.get_engine_version())
     return recipe,family,definition,contract,files,identity,algorithms
@@ -120,6 +122,7 @@ def build(recipe_path,report_path):
     jiggle=create('DA_BreastJiggle',root,u.VamBreastJiggleProfile)
     definition,error=u.VamBreastJiggleBuilder.build(root,source_definition,jiggle,json.dumps(family))
     require(definition is not None,str(error))
+    original_influence_definition=definition  # retained immutable pre-Glute/Leg influence asset
     glute=create('DA_GluteStructure',root,u.VamGluteStructureProfile)
     corrective=create('DA_GluteCorrective',root,u.VamGluteCorrectiveProfile)
     definition,error=u.VamGluteStructureBuilder.build(root+'/Glute',definition,glute,corrective,json.dumps(family))
@@ -127,11 +130,25 @@ def build(recipe_path,report_path):
     glute_jiggle=create("DA_GluteJiggle",root,u.VamGluteJiggleProfile)
     error=u.VamGluteJiggleBuilder.build(glute,glute_jiggle)
     require(not error,"G1 calibration failed: "+str(error))
+    glute_jiggle.set_editor_property("pose_transported_gravity",bool(family.get("glute_jiggle",{}).get("pose_transported_gravity",False)))
     leg_jiggle=create('DA_LegJiggle',root,u.VamLegJiggleProfile)
     definition,error=u.VamLegJiggleBuilder.build(root+'/Leg',definition,leg_jiggle,glute,json.dumps(family))
     require(definition is not None,str(error))
+    contact=create('DA_BreastContact',root,u.VamBreastContactProfile)
+    error=u.VamBreastContactBuilder.build(definition,jiggle,contact,json.dumps(family))
+    require(not error,'Breast contact cage: '+str(error))
+    definition,error=u.VamBreastContactBuilder.refine_render_surface(root+'/ContactSurface',definition,jiggle,contact,glute,leg_jiggle)
+    require(definition is not None,'Breast render refinement: '+str(error))
+    definition,error=u.VamGluteStructureBuilder.build_corrective(root+'/FinalCorrective',definition,original_influence_definition,glute,corrective,contact,json.dumps(family))
+    require(definition is not None,'Final-weight corrective: '+str(error))
     error=u.VamGluteJiggleBuilder.build_surface_guard(definition,glute_jiggle)
     require(not error,'Glute surface guard: '+str(error))
+    error=u.VamLowerBodyContactBuilder.append(definition,glute,leg_jiggle,contact)
+    require(not error,'Lower-body volume contact: '+str(error))
+    error=u.VamGluteStructureBuilder.seal_corrective(definition,glute,leg_jiggle,jiggle,corrective)
+    require(not error,'Final corrective data seal: '+str(error))
+    error=u.VamBreastContactBuilder.build_deformer(contact,root+'/DG_BreastContact')
+    require(not error,'Body contact graph: '+str(error))
     # Every derived mesh, bind, morph and helper is saved before downstream assets fingerprint it.
     for path in u.EditorAssetLibrary.list_assets(root,True,False):save(load(str(path)))
     mesh=definition.get_editor_property('body');skeleton=definition.get_editor_property('skeleton')
@@ -165,6 +182,7 @@ def build(recipe_path,report_path):
     require(u.VamStage06AssetEditor.set_runtime_configuration_identity(config,definition,identity,''),'Could not initialize runtime identity')
     for key,value in [('definition',definition),('breast_jiggle',jiggle),('glute_structure',glute),('glute_corrective',corrective),('glute_jiggle',glute_jiggle),('leg_jiggle',leg_jiggle),('rig',rig),('physics',physics),('physics_shape',physics_shape),('animation_class',animation.generated_class()),('materials',materials)]:config.set_editor_property(key,value)
     if base_animation:config.set_editor_property('base_animation',base_animation)
+    config.set_editor_property('breast_contact',contact)
     factory=u.BlueprintFactory();factory.set_editor_property('parent_class',u.VamCharacterActor)
     host=create('BP_VamCharacter',root,u.Blueprint,factory)
     defaults=u.get_default_object(host.generated_class());character=defaults.get_editor_property('character')
@@ -182,10 +200,11 @@ def build(recipe_path,report_path):
     assets=[str(x).split('.')[0] for x in u.EditorAssetLibrary.list_assets(root,True,False) if str(x).split('.')[0]!=config_path]
     receipt={'glute_bilateral_material':True,'glute_surface_guard_version':1,'schema':'vam-runtime-receipt/3','algorithms':algorithms,'identity':identity,'recipe':recipe,'family':family,'source_files':source_files,
         'rig':asset_path(rig),'physics':asset_path(physics),'animation':asset_path(animation),'materials':asset_path(materials),'blueprint':asset_path(host),
-        'breast_jiggle':asset_path(jiggle),'glute_structure':asset_path(glute),'glute_corrective':asset_path(corrective),'glute_jiggle':asset_path(glute_jiggle),'leg_jiggle':asset_path(leg_jiggle),'source_definition':asset_path(source_definition),'base_animation':asset_path(base_animation) if base_animation else None,'physics_shape':asset_path(physics_shape),'definition':asset_path(definition),'rig_snapshot':rig_snapshot(rig),'physics_summary':physics_summary,'blink_targets':targets,
+        'breast_jiggle':asset_path(jiggle),'glute_structure':asset_path(glute),'glute_corrective':asset_path(corrective),'glute_jiggle':asset_path(glute_jiggle),'glute_pose_transported_gravity':glute_jiggle.get_editor_property('pose_transported_gravity'),'leg_jiggle':asset_path(leg_jiggle),'source_definition':asset_path(source_definition),'base_animation':asset_path(base_animation) if base_animation else None,'physics_shape':asset_path(physics_shape),'definition':asset_path(definition),'rig_snapshot':rig_snapshot(rig),'physics_summary':physics_summary,'blink_targets':targets,
         'body_slots':len(mesh.get_editor_property('materials')),'part_slots':[len(p.get_editor_property('materials')) for p in definition.get_editor_property('parts')],
         'body_shading_models':[str(m.get_editor_property('shading_model')) if isinstance(m,u.Material) else None for m in materials.get_editor_property('body_materials')],
         'output_files':{p:fingerprint(p) for p in assets}}
+    receipt['breast_contact']=asset_path(contact)
     require(u.VamStage06AssetEditor.set_runtime_configuration_identity(config,definition,identity,json.dumps(receipt,ensure_ascii=False,separators=(',',':'))),'Could not persist runtime receipt');save(config)
     write_json(report_path,{'writer_pid':os.getpid(),'status':'saved_pending_reload','identity':identity,'configuration':config_path,'reused':False})
 
@@ -209,14 +228,23 @@ def reload_and_publish(recipe_path,report_path):
     require(config.get_editor_property('breast_jiggle')==jiggle,'Breast profile reference mismatch')
     error=u.VamBreastJiggleBuilder.validate(definition,jiggle)
     require(not error,'Reloaded Breast Jiggle validation failed: '+str(error))
+    if receipt.get('breast_contact'):
+        contact=load(receipt['breast_contact'],u.VamBreastContactProfile)
+        require(config.get_editor_property('breast_contact')==contact,'Contact profile reference mismatch')
+        require(not contact.validate_data(),'Contact cage reload validation failed')
+        require(contact.get_editor_property('surface_deformer') is not None,'Contact surface graph missing after reload')
+        require(contact.get_editor_property('gpu_surface_deformer') is not None,'Resident GPU contact graph missing after reload')
     glute=load(receipt['glute_structure'],u.VamGluteStructureProfile)
     require(config.get_editor_property('glute_structure')==glute,'Glute profile reference mismatch')
     error=u.VamGluteStructureBuilder.validate(definition,glute)
     require(not error,'Reloaded G0 validation failed: '+str(error))
     corrective=load(receipt['glute_corrective'],u.VamGluteCorrectiveProfile)
     require(corrective.is_valid_profile() and config.get_editor_property('glute_corrective')==corrective,'Corrective profile reload validation failed')
+    error=u.VamGluteStructureBuilder.validate_corrective(definition,config.get_editor_property('glute_structure'),config.get_editor_property('leg_jiggle'),config.get_editor_property('breast_jiggle'),corrective)
+    require(not error,'Final actual-weight corrective reload: '+str(error))
     glute_jiggle=load(receipt['glute_jiggle'],u.VamGluteJiggleProfile)
     require(glute_jiggle.is_valid_profile() and config.get_editor_property('glute_jiggle')==glute_jiggle,'G1 independent reload failed')
+    require(glute_jiggle.get_editor_property('pose_transported_gravity')==receipt.get('glute_pose_transported_gravity',False),'G1 preload policy did not survive reload')
     if receipt.get('glute_bilateral_material'):
         require(glute_jiggle.get_editor_property('bilateral_material_calibration'),'Bilateral material calibration did not survive reload')
     if receipt.get('glute_surface_guard_version'):
@@ -248,6 +276,10 @@ def reload_and_publish(recipe_path,report_path):
     require(config.get_editor_property('materials')==materials,'Material profile reference mismatch')
     require(len(materials.get_editor_property('body_materials'))==receipt['body_slots'],'Material body slot mismatch')
     require([str(m.get_editor_property('shading_model')) if isinstance(m,u.Material) else None for m in materials.get_editor_property('body_materials')]==receipt['body_shading_models'],'Material shading did not persist')
+    for material in materials.get_editor_property('body_materials'):
+        if isinstance(material,u.Material):
+            streaming=json.loads(u.VamStage06AssetEditor.describe_material_streaming(material))
+            require(not streaming['graph_texture_references'] or streaming['streaming_entries'],'Generated texture sampling metadata missing after reload: '+material.get_path_name())
     require([len(p.get_editor_property('materials')) for p in materials.get_editor_property('part_materials')]==receipt['part_slots'],'Part material slot mismatch')
     host=load(receipt['blueprint'],u.Blueprint);defaults=u.get_default_object(host.generated_class())
     require(defaults.get_editor_property('character').get_editor_property('runtime_configuration')==config,'Host runtime configuration reference missing')

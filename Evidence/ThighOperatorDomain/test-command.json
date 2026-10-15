@@ -1,0 +1,13 @@
+[
+  "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+  "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject",
+  "-VamFinalCorrectiveConfig=/Game/VamThighOperatorDomainV3/Runtime/R_26c92372d157d5e374d254c0/RC_Runtime",
+  "-VamGluteTestConfig=/Game/VamThighOperatorDomainV3/Runtime/R_26c92372d157d5e374d254c0/RC_Runtime",
+  "-VamFinalCorrectiveReport=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\ThighSeamResidualOnly\\candidate-3\\authored-targets.json",
+  "-ExecCmds=Automation RunTests Vam.Glute.ResidualOnlySafety+Vam.Glute.FinalCorrective+Vam.Glute.G1.CharacterCalibration+Vam.Glute.PoseFunction+Vam.Glute.PoseRefinement+Vam.Glute.RotationBlendReference+Vam.Glute.G1.Mechanics+Vam.Glute.G1.FrameRateStability+Vam.Glute.G1.AttachmentDamping+Vam.Breast.Dynamics+Vam.Material.AffineStreaming+Vam.Leg.PreserveSupportSlots+Vam.Breast.WeightCompression+Vam.Glute.FinalInfluenceBudget+Vam.Glute.MorphNormalOrientation",
+  "-TestExit=Automation Test Queue Empty",
+  "-NullRHI",
+  "-unattended",
+  "-nosplash",
+  "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\ThighSeamResidualOnly\\candidate-3\\tests.log"
+]

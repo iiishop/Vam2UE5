@@ -1981,7 +1981,8 @@
     ],
     "topology_policy": "persisted GeometryBinding topology digest plus exact family skeleton validation",
     "left_front_reference": "lNipple",
-    "right_front_reference": "rNipple"
+    "right_front_reference": "rNipple",
+    "nipple_morph_tokens": ["nipple"]
   },
   "glute_structure": {
     "pelvis": "pelvis",

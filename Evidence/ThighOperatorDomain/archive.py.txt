@@ -1,0 +1,26 @@
+import json,shutil,hashlib
+from pathlib import Path
+r=Path(__file__).resolve().parent;repo=r.parents[3];out=repo/'Evidence/ThighOperatorDomain';out.mkdir(exist_ok=False)
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+for name in ['bundle.json','recipe.json','family.json','tests.json','test-command.json','authored-targets.json','evaluation.json','verification.json','installation.json','main-project-validation.json','jiggle-validation.json','report.md']:
+ shutil.copy2(r/name,out/name)
+for name in ['run.py','verify.py','evaluate.py','report.py','validate_main.py','archive.py']:
+ shutil.copy2(r/name,out/(name+'.txt'))
+for name in ['measure.py','field-probes-before.json','jiggle-recipe.json']:
+ shutil.copy2(r.parent/name,out/(name+'.txt' if name.endswith('.py') else name))
+for label,path in [('before',r.parent/'baseline.json'),('after',r/'band-metrics.json')]:
+ d=read(path);summary={k:{'scope':v['scope'],'statistics':v['statistics'],'probe_edges':[x for x in v['edges'] if tuple(x['source_edge']) in [(11289,16813),(13855,16813)]]} for k,v in d.items()}
+ (out/(label+'-geometry.json')).write_text(json.dumps(summary,indent=2))
+for n in [1,2]:shutil.copy2(r.parent/f'candidate-{n}/rejection.json',out/f'rejected-{n}.json')
+for name in ['helper-differences.json','helper-protected-fields.json','helper-reference-paths.json']:shutil.copy2(r/name,out/name)
+old=r.parents[1]/'GluteSafetyRepair/residual-only-r2'
+pics=[]
+for pose,view,mode in [('seated','side','gray'),('seated','oblique','material'),('seated','rear','gray'),('seated','side','world-normal'),('seated','side','wireframe'),('standing','side','material'),('knee-120','side','material'),('abducted','oblique','material'),('held-out-asymmetric','side','gray')]:
+ for base,label in [(old,'before'),(r,'after')]:
+  src=base/'pie'/pose/f'{view}-{mode}.png';name=f'{label}-{pose}-{view}-{mode}.png';shutil.copy2(src,out/name);pics.append(dict(file=name,sha256=hashlib.sha256(src.read_bytes()).hexdigest()))
+(out/'screenshots.json').write_text(json.dumps(pics,indent=2))
+for pose in ['seated-jiggle','abducted-jiggle']:shutil.copy2(r/'jiggle'/pose/'oblique-material.png',out/(pose+'.png'))
+for view,mode in [('side','gray'),('oblique','material')]:
+ for base,label in [(old,'before'),(r,'after')]:shutil.copy2(base/'main-pie/seated'/f'{view}-{mode}.png',out/f'main-{label}-{view}-{mode}.png')
+(out/'README.md').write_text('# Thigh operator-domain repair\n\nActual BP_VamCharacter, same body/bone matrices/camera/light. Source operator conversion was incorrectly truncated by the glute tissue mask. The repair uses the explicit source-node domain and actual rigid-pose endpoint. Undefined vertices preserve inherited skin motion. Residual protection remains.\n\nFull local HTML: `Saved/LowerBodyContact/ThighSeamResidualOnly/candidate-3/report.html`. Existing A1 and B2 tools reused. Failed candidate screenshots and logs retained locally; neither candidate was installed. No anatomical PSD or historical contact acceptance is claimed.\n',encoding='utf-8')
+print(out)

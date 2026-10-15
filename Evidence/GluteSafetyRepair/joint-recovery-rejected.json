@@ -1,0 +1,287 @@
+{
+  "status": "Rejected visual experiment; not a completed repair",
+  "candidate": 31,
+  "facts": [
+    "Joint all-pose feasibility completed without destructive pose-to-pose attenuation.",
+    "Actual PIE seated image shows broad ripples and flattened inferior contour; rejected.",
+    "No-attenuation seated posterior passes original geometric checks, but failures exist elsewhere.",
+    "Uniform interpolation of the actual seated posterior did not reproduce an intermediate crease barrier; do not claim that hypothetical barrier as proven."
+  ],
+  "metrics": {
+    "axis-semantics.json": {
+      "scope": "Actual seated matrices and original guard predicates. Isolated axis outputs are diagnostic counterfactuals; runtime applies all three axes together. This does not replace the full authored-pose validation.",
+      "cases": {
+        "side0_axis0": {
+          "triangle_failures": 55,
+          "posterior_triangle_failures": 0,
+          "native_edge_failures": 33,
+          "posterior_bad_faces": [],
+          "bad_face_bounds_cm": [
+            [
+              -3.981801156500763,
+              -14.617956828159853,
+              90.05469303411711
+            ],
+            [
+              21.06324473882837,
+              -0.18485165120359426,
+              102.3513896178938
+            ]
+          ]
+        },
+        "side0_axis1": {
+          "triangle_failures": 3,
+          "posterior_triangle_failures": 0,
+          "native_edge_failures": 0,
+          "posterior_bad_faces": [],
+          "bad_face_bounds_cm": [
+            [
+              5.539001876151057,
+              -3.967100247730118,
+              94.14664512701385
+            ],
+            [
+              5.9589028212844966,
+              -3.347667743437391,
+              95.57518743641917
+            ]
+          ]
+        },
+        "side0_axis2": {
+          "triangle_failures": 37,
+          "posterior_triangle_failures": 0,
+          "native_edge_failures": 5,
+          "posterior_bad_faces": [],
+          "bad_face_bounds_cm": [
+            [
+              -2.395918615234466,
+              -15.094627054412294,
+              90.29775533842538
+            ],
+            [
+              7.609682687023965,
+              -0.3404236824287464,
+              101.72322225824257
+            ]
+          ]
+        },
+        "side0_composed": {
+          "triangle_failures": 64,
+          "posterior_triangle_failures": 0,
+          "native_edge_failures": 43,
+          "posterior_bad_faces": [],
+          "bad_face_bounds_cm": [
+            [
+              -2.395918615234466,
+              -15.094627054412294,
+              90.05469303411711
+            ],
+            [
+              21.06324473882837,
+              -0.3404236824287464,
+              102.3513896178938
+            ]
+          ]
+        },
+        "side1_axis0": {
+          "triangle_failures": 59,
+          "posterior_triangle_failures": 0,
+          "native_edge_failures": 41,
+          "posterior_bad_faces": [],
+          "bad_face_bounds_cm": [
+            [
+              -3.9067980699633154,
+              0.20250341241413494,
+              90.70024764923016
+            ],
+            [
+              9.881229118841047,
+              14.619259378655165,
+              102.31289893278483
+            ]
+          ]
+        },
+        "side1_axis1": {
+          "triangle_failures": 3,
+          "posterior_triangle_failures": 0,
+          "native_edge_failures": 0,
+          "posterior_bad_faces": [],
+          "bad_face_bounds_cm": [
+            [
+              5.653835705619495,
+              1.5581548812644552,
+              91.2105635901761
+            ],
+            [
+              6.185879788935444,
+              3.9529458465016845,
+              95.51196056560441
+            ]
+          ]
+        },
+        "side1_axis2": {
+          "triangle_failures": 41,
+          "posterior_triangle_failures": 0,
+          "native_edge_failures": 5,
+          "posterior_bad_faces": [],
+          "bad_face_bounds_cm": [
+            [
+              -3.024998384924313,
+              0.051728916049930164,
+              90.54337205697061
+            ],
+            [
+              6.920608583339,
+              15.090860295043969,
+              101.77254968161886
+            ]
+          ]
+        },
+        "side1_composed": {
+          "triangle_failures": 66,
+          "posterior_triangle_failures": 0,
+          "native_edge_failures": 50,
+          "posterior_bad_faces": [],
+          "bad_face_bounds_cm": [
+            [
+              -3.9067980699633154,
+              0.051728916049930164,
+              90.39277470719416
+            ],
+            [
+              22.68523067993563,
+              15.090860295043969,
+              102.31289893278483
+            ]
+          ]
+        },
+        "both_composed": {
+          "triangle_failures": 130,
+          "posterior_triangle_failures": 0,
+          "native_edge_failures": 93,
+          "posterior_bad_faces": [],
+          "bad_face_bounds_cm": [
+            [
+              -3.9067980699633154,
+              -15.094627054412294,
+              90.05469303411711
+            ],
+            [
+              22.68523067993563,
+              15.090860295043969,
+              102.3513896178938
+            ]
+          ]
+        }
+      }
+    },
+    "continuation-path.json": [
+      {
+        "alpha": 0.0,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 25.283935723987884
+      },
+      {
+        "alpha": 0.1,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 24.490736212383908
+      },
+      {
+        "alpha": 0.2,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 23.69537123196752
+      },
+      {
+        "alpha": 0.30000000000000004,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 22.90022580832284
+      },
+      {
+        "alpha": 0.4,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 22.107461357039796
+      },
+      {
+        "alpha": 0.5,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 21.319021261334825
+      },
+      {
+        "alpha": 0.6000000000000001,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 20.56314241018628
+      },
+      {
+        "alpha": 0.7000000000000001,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 20.20127737688571
+      },
+      {
+        "alpha": 0.8,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 19.860326940046193
+      },
+      {
+        "alpha": 0.9,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 20.11402713856807
+      },
+      {
+        "alpha": 1.0,
+        "posterior_bad": 0,
+        "posterior_bad_but_endpoint_safe": 0,
+        "posterior_max_angle": 20.39067869365163
+      }
+    ],
+    "candidate-31/retention.json": {
+      "-1": {
+        "count": 114,
+        "median": 0.3091956485465208,
+        "p10": 0.007762847902412679,
+        "orthogonal_max_cm": 9.896735966229409e-05
+      },
+      "1": {
+        "count": 129,
+        "median": 0.23574583571430163,
+        "p10": 0.0,
+        "orthogonal_max_cm": 7.005620647861805e-05
+      }
+    }
+  },
+  "files": {
+    "axis-semantics.json": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\axis-semantics.json",
+      "sha256": "d6bd9100b530383fdaf6b56613c2b6aec7fd8bd1ac3f44cde94215548861c260"
+    },
+    "continuation-path.json": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\continuation-path.json",
+      "sha256": "17abfdeababe403671a7e1beb3ca7a71af3471dfa6e9a629d5571ce4fbed5ed5"
+    },
+    "candidate-31/actual-metrics.json": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\candidate-31\\actual-metrics.json",
+      "sha256": "481b2aa020f4ae267dfff88ff613d4320857d27e3489d9ec11e6489585decb2e"
+    },
+    "candidate-31/retention.json": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\candidate-31\\retention.json",
+      "sha256": "a81f30b3ea71a1f0cdb65f6ef7e603f14a8b997f5962891a53a6d94a5e0d71f6"
+    },
+    "candidate-31/preview/seated/rear-gray.png": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\candidate-31\\preview\\seated\\rear-gray.png",
+      "sha256": "8b6a68601c2185865aa0d26c700ab1528617f3b72ebf67a7c0fc2758fce28a4a"
+    },
+    "candidate-31/bundle.json": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\candidate-31\\bundle.json",
+      "sha256": "28532baea6ff81e89ecc97737fbc167ba0cc1a5cbc9c2be07b190949d8a5f44c"
+    }
+  }
+}

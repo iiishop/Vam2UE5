@@ -2,6 +2,8 @@
 #include "VamGluteCorrectiveAudit.h"
 #include "VamGluteCorrectiveGeometry.h"
 #include "VamGluteSkinningResidual.h"
+#include "VamGluteCorrectiveDetail.h"
+#include "VamMorphNormalUtils.h"
 #include "Misc/SecureHash.h"
 #include <cmath>
 
@@ -13,22 +15,35 @@ TArray<TSharedPtr<FJsonValue>> JsonVec(FVector V) { return {MakeShared<FJsonValu
 FDeltaField Local(const FDeltaField& F,const FTransform& A) { auto R=F;for(auto& V:R) V=A.InverseTransformVectorNoScale(V);return R; }
 // Explicit DAZSkinV2 CPU isolated thigh-X port. Source node order and disjoint
 // graft node domains are retained. This excludes source post-skin smoothing.
-TArray<FMatrix> SourceReference(const FVamNativeMeshInput& I,const TArray<int32>& Ids,const TArray<FTransform>& Bind,const FJsonObject& Source,const FVector& Degrees)
+TArray<FMatrix> SourceReference(const FVamNativeMeshInput& I,const TArray<int32>& Ids,const TArray<FTransform>& Bind,const FJsonObject& Source,const FVector& Degrees,const FString& OnlyBone=FString(),TArray<uint8>* Domain=nullptr,const TArray<FTransform>* ActualPose=nullptr)
 {
     TArray<FMatrix> M;M.Init(FMatrix::Identity,I.Vertices.Num());TMap<int32,TArray<int32>> Map;for(int32 V=0;V<Ids.Num();++V) Map.FindOrAdd(Ids[V]).Add(V);
+    if(Domain)Domain->Init(0,I.Vertices.Num());
     const double Angle=-Degrees.X*PI/180.,Bulge=Source.GetNumberField(TEXT("source_bulge_scale"));
     for(const auto& Value:Source.GetArrayField(TEXT("source_skin_nodes")))
     {
         const auto N=Value->AsObject();const FString Name=N->GetStringField(TEXT("name"));const int32 Bone=I.Bones.IndexOfByPredicate([&](const auto& B){return B.Name.ToString()==Name;});check(Bone>=0);
+        if(!OnlyBone.IsEmpty() && Name!=OnlyBone) continue;
         const auto Factors=N->GetObjectField(TEXT("bulgeFactors"));
         auto Add=[&](int32 Id,double Weight,double Left,double Right,bool Full)
         {
             if(const auto* Vertices=Map.Find(Id))
             {
+                if(Domain)for(int32 V:*Vertices)(*Domain)[V]=1;
                 const double L=FMath::Abs(Angle)>.01 && !Full?1+Factors->GetNumberField(Angle<0?TEXT("xnegleft"):TEXT("xposleft"))*Angle*Bulge*Left:1;
                 const double R=FMath::Abs(Angle)>.01 && !Full?1+Factors->GetNumberField(Angle<0?TEXT("xnegright"):TEXT("xposright"))*Angle*Bulge*Right:1;
-                const FTransform T(FQuat(FVector::YAxisVector,Angle*Weight),FVector::ZeroVector,FVector(L*R,1,L*R));
-                const FMatrix A=Bind[Bone].ToInverseMatrixWithScale()*T.ToMatrixWithScale()*Bind[Bone].ToMatrixWithScale();for(int32 V:*Vertices) M[V]=M[V]*A;
+                FTransform T(FQuat(FVector::YAxisVector,Angle*Weight),FVector::ZeroVector,FVector(L*R,1,L*R));
+                // Runtime swing is defined in the glute anchor, not necessarily
+                // the source node's nominal Y axis. Match its actual rigid
+                // endpoint so fully weighted calf vertices inherit the SAME
+                // thigh motion as descendants outside this source node domain.
+                if(ActualPose)
+                {
+                    const FTransform Delta((*ActualPose)[Bone].ToMatrixWithScale()*Bind[Bone].ToInverseMatrixWithScale());
+                    T.SetRotation(FQuat::Slerp(FQuat::Identity,Delta.GetRotation(),Weight).GetNormalized());
+                    T.SetTranslation(Delta.GetTranslation()*Weight);
+                }
+                const FMatrix A=ActualPose && Full?Bind[Bone].ToInverseMatrixWithScale()*(*ActualPose)[Bone].ToMatrixWithScale():Bind[Bone].ToInverseMatrixWithScale()*T.ToMatrixWithScale()*Bind[Bone].ToMatrixWithScale();for(int32 V:*Vertices) M[V]=M[V]*A;
             }
         };
         for(const auto& Row:N->GetArrayField(TEXT("weights"))) { const auto W=Row->AsObject();const bool Full=W->GetNumberField(TEXT("xweight"))>.99999 && W->GetNumberField(TEXT("yweight"))>.99999 && W->GetNumberField(TEXT("zweight"))>.99999;Add(W->GetIntegerField(TEXT("vertex")),Full?1:W->GetNumberField(TEXT("xweight")),W->GetNumberField(TEXT("xleftbulge")),W->GetNumberField(TEXT("xrightbulge")),Full); }
@@ -50,32 +65,35 @@ void AddMorph(FVamNativeMeshInput& I,UVamGluteCorrectiveProfile& P,const FVamGlu
         }
         if(B.MaximumCm<1.e-6) continue;
         for(int32 N=0;N<5;++N) B.RegionalRmsCm[N]=FMath::Sqrt(B.RegionalRmsCm[N]/FMath::Max(.001,RW[N]));
-        FDeltaField Before,After;Before.SetNumZeroed(I.Vertices.Num());After.SetNumZeroed(I.Vertices.Num());
-        for(int32 T=0;T<I.Triangles.Num();T+=3)
-        {
-            const int32 A=I.Triangles[T],C=I.Triangles[T+1],D=I.Triangles[T+2];const FVector N0=FVector::CrossProduct(I.Vertices[C]-I.Vertices[A],I.Vertices[D]-I.Vertices[A]);const FVector N1=FVector::CrossProduct(I.Vertices[C]+M.Deltas[C]-I.Vertices[A]-M.Deltas[A],I.Vertices[D]+M.Deltas[D]-I.Vertices[A]-M.Deltas[A]);
-            for(int32 V:{A,C,D}) { Before[V]+=N0;After[V]+=N1; }
-        }
-        M.NormalDeltas.SetNum(I.Vertices.Num());for(int32 V=0;V<I.Vertices.Num();++V) M.NormalDeltas[V]=After[V].GetSafeNormal()-Before[V].GetSafeNormal();P.Bases.Add(MoveTemp(B));I.Morphs.Add(MoveTemp(M));
+        M.NormalDeltas=VamMorphNormals::Deltas(I.Vertices,I.Normals,I.Triangles,M.Deltas);P.Bases.Add(MoveTemp(B));I.Morphs.Add(MoveTemp(M));
     }
 }
 }
 
-bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBuildInfluence>& OriginalInfluences,const TArray<int32>& Ids,const UVamGluteStructureProfile& G,UVamGluteCorrectiveProfile& P,const FString& FamilyJson,FString& Error)
+bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBuildInfluence>& OriginalInfluences,const TArray<int32>& Ids,const UVamGluteStructureProfile& G,UVamGluteCorrectiveProfile& P,const FString& FamilyJson,FString& Error,FVamGluteCorrectiveDetail* Detail)
 {
     using namespace VamGluteGeometry;auto Fail=[&](const FString& Why){Error=Why;return false;};TSharedPtr<FJsonObject> Family;
     if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(FamilyJson),Family)) return Fail(TEXT("Invalid corrective family JSON"));
     const TSharedPtr<FJsonObject>* Policy=nullptr;if(!Family->TryGetObjectField(TEXT("glute_corrective"),Policy)) return Fail(TEXT("Unsupported family: corrective policy missing"));
-    P.SchemaVersion=3;P.Algorithm=TEXT("glute-corrective-g062-v1");P.SkeletonFamily=G.SkeletonFamily;P.SourceTopologyIdentity=G.SourceTopologyIdentity;P.Targets.Reset();P.Bases.Reset();P.BuildDimensions.Reset();P.Diagnostics.Reset();P.ReusedSourceVertexCount=0;
+    P.SchemaVersion=4;P.Algorithm=TEXT("glute-corrective-residual-only-v2");P.SkeletonFamily=G.SkeletonFamily;P.SourceTopologyIdentity=G.SourceTopologyIdentity;P.Targets.Reset();P.Bases.Reset();P.BuildDimensions.Reset();P.Diagnostics.Reset();P.ReusedSourceVertexCount=0;P.AuthoredReplay.Reset();P.FixedAuthoredReplay.Reset();P.FinalDataDigests.Reset();
     P.FamilyPolicyIdentity=FMD5::HashAnsiString(*VamGluteAudit::Json(*Policy));P.MetricDegrees=Vec((*Policy)->GetArrayField(TEXT("metric_degrees")));P.BlendWidth=(*Policy)->GetNumberField(TEXT("blend_width"));P.MaximumDimensionFraction=(*Policy)->GetNumberField(TEXT("maximum_dimension_fraction"));
     for(const auto& V:(*Policy)->GetArrayField(TEXT("targets"))) { const auto O=V->AsObject();FVamGlutePoseTarget T;T.Name=FName(*O->GetStringField(TEXT("name")));T.Degrees=Vec(O->GetArrayField(TEXT("degrees")));P.Targets.Add(T); }
     const TSharedPtr<FJsonObject>* Source=nullptr;Family->TryGetObjectField(TEXT("glute_corrective_source"),Source);const bool Verified=Source && !(*Source)->GetArrayField(TEXT("deltas")).IsEmpty();
     if(Verified && (*Source)->GetIntegerField(TEXT("version"))!=2) return Fail(TEXT("Corrective requires verified merged topology mapping v2"));
+    bool SourceFieldOperator=false;(*Policy)->TryGetBoolField(TEXT("source_operator_in_source_field"),SourceFieldOperator);
+    if(SourceFieldOperator && (!Verified || !(*Source)->HasField(TEXT("bulge_preparation")))) return Fail(TEXT("Source field operator requires initialized source bulge weights"));
     const TSharedPtr<FJsonObject>* Calibration=nullptr;(*Policy)->TryGetObjectField(TEXT("family_reference"),Calibration);
     if(!Verified && !Calibration) return Fail(TEXT("No source: family corrective reference calibration required"));
-    P.Provenance=Verified?TEXT("Verified !Bend Fix; Boundary graft transfer; source-only TriAx thigh-X reference; independent-side extension; target-local safety. Procedural residual separately gated/smoothed."):TEXT("Procedural family moment calibration; no source vertex deltas reused. ");
+    P.Provenance=Verified?TEXT("Verified !Bend Fix; Boundary graft transfer; source-only TriAx thigh-X reference; independent-side extension; source/procedural safety attenuation removed. Only skinning residual is protected relative to the fixed source/procedural surface."):TEXT("Procedural family moment calibration; no source vertex deltas reused. ");
     if(Source) P.Provenance+=(*Source)->GetStringField(TEXT("reason"));
     if(Ids.Num()!=I.Vertices.Num()) return Fail(TEXT("Corrective topology mapping mismatch"));
+    SafetyTraceVertices.Reset();SafetyTraceContext.Reset();FString TraceIds;
+    if(FParse::Value(FCommandLine::Get(),TEXT("VamGluteSafetyTrace="),TraceIds))
+    {
+        TArray<FString> Values;TraceIds.ParseIntoArray(Values,TEXT(","));
+        for(const auto& Value:Values)for(int32 V=0;V<Ids.Num();++V)if(Ids[V]==FCString::Atoi(*Value))
+        {SafetyTraceVertices.Add(V);UE_LOG(LogTemp,Display,TEXT("GLUTE_SAFETY_MAP source=%d input=%d"),Ids[V],V);}
+    }
     auto Audit=MakeShared<FJsonObject>();Audit->SetStringField(TEXT("algorithm"),P.Algorithm);Audit->SetStringField(TEXT("reference_scope"),TEXT("CPU source thigh-X equations and verified average-angle driver; excludes VaM post-skin smoothing/physics. Source and native LBS baselines are separately measured."));
     if(Verified) Audit->SetObjectField(TEXT("source_mapping"),(*Source)->GetObjectField(TEXT("topology_mapping")));
     TMap<int32,FVector> RawMap,SourceMap;FDeltaField SourcePositions;
@@ -101,6 +119,7 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
     {
         const auto& S=G.Sides[Side];const auto& SS=Surface[Side];const FTransform Anchor=S.AnchorLocal*Bind[S.PelvisBone];P.BuildDimensions.Add(S.Dimensions);
         auto RefSide=MakeShared<FJsonObject>();RefSide->SetArrayField(TEXT("dimensions"),JsonVec(S.Dimensions));RefSide->SetNumberField(TEXT("volume"),S.EffectiveVolumeCm3);RefSide->SetNumberField(TEXT("support_area"),S.SupportAreaCm2);TArray<TSharedPtr<FJsonValue>> RefTargets;
+        if(Detail)Detail->Begin(Side,0,P.Targets.Num());
         SourceNative[Side].SetNum(P.Targets.Num());ProcNative[Side].SetNum(P.Targets.Num());TargetSkin[Side].SetNum(P.Targets.Num());Stage[Side].SetNum(P.Targets.Num());RawFields[Side].SetNum(P.Targets.Num());AdaptFields[Side].SetNum(P.Targets.Num());ReferenceFields[Side].SetNum(P.Targets.Num());
         FVector Mean0=FVector::ZeroVector,Mean1=FVector::ZeroVector,V0=FVector::ZeroVector,V1=FVector::ZeroVector;double Total=0;
         for(int32 V=0;V<Ids.Num();++V) if(SourcePositions.IsValidIndex(Ids[V])) { const double W=SS.RegionWeights[V];Mean0+=Anchor.InverseTransformPosition(SourcePositions[Ids[V]])*W;Mean1+=S.RegionPoints[V]*W;Total+=W; }
@@ -115,11 +134,28 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             FDeltaField Raw,Adapt,SourceField,Proc;Raw.SetNumZeroed(Ids.Num());Adapt=Raw;SourceField=Raw;Proc=Raw;TArray<double> Boundary;Boundary.Init(0,Ids.Num());
             const double Driver=FMath::Clamp(Degrees.X/100.,0.,1.);
             auto RefSkin=Verified?SourceReference(I,Ids,Bind,**Source,FVector(Degrees.X,0,0)):Skin;
+            FDeltaField SourceOperatorDelta;
+            if(SourceFieldOperator && FMath::Abs(Degrees.X)>1.e-8)
+            {
+                const FVector Flex(Degrees.X,0,0);
+                const auto FlexPose=Pose(I,G,Bind,Side==0?Flex:FVector::ZeroVector,Side==1?Flex:FVector::ZeroVector,true);
+                const auto FlexDQ=RotationBlend(I,Bind,FlexPose),FullDQ=RotationBlend(I,Bind,Posed),Base=Apply(Skin,I.Vertices,true);
+                TArray<uint8> SourceDomain;
+                const auto SourceFlex=Apply(SourceReference(I,Ids,Bind,**Source,Flex,I.Bones[S.ThighBone].Name.ToString(),&SourceDomain,&FlexPose),I.Vertices,true);
+                const auto FlexBase=Apply(VamGluteGeometry::Skin(I,I.Influences,Bind,FlexPose),I.Vertices,true);
+                SourceOperatorDelta.SetNum(I.Vertices.Num());
+                // A node's isolated source equation is defined only on its
+                // explicit rows/full-weight domain. Elsewhere preserve inherited
+                // bone motion from the real skin operator, NOT identity/rest.
+                for(int32 V=0;V<I.Vertices.Num();++V)SourceOperatorDelta[V]=FullDQ[V]+(SourceDomain[V]?SourceFlex[V]:FlexBase[V])-FlexDQ[V]-Base[V];
+                Capture(TEXT("source_operator_posed_before_localization"),Local(SourceOperatorDelta,Anchor));
+            }
             for(int32 V=0;V<Ids.Num();++V)
             {
                 if(const auto* D=RawMap.Find(Ids[V])) Raw[V]=Anchor.InverseTransformVectorNoScale(*D)*Driver;
                 if(const auto* D=SourceMap.Find(Ids[V])) Adapt[V]=Anchor.InverseTransformVectorNoScale(*D)*Scale*Driver;
             }
+            if(Detail){Detail->Field(Detail->Key(Side,Target,TEXT("raw_source_local")),Raw,TEXT("anchor_local_delta_cm"));Detail->Field(Detail->Key(Side,Target,TEXT("adapted_source_local")),Adapt,TEXT("anchor_local_delta_cm"));}
             Capture(TEXT("01_raw_source"),Raw);Capture(TEXT("02_mapped_adapted_source"),Adapt);RawFields[Side][Target]=Raw;AdaptFields[Side][Target]=Adapt;
             const auto RefPosed=Apply(RefSkin,[&](){auto F=Adapt;for(auto& V:F) V=Anchor.TransformVectorNoScale(V);return F;}());ReferenceFields[Side][Target]=RefPosed;
             Capture(TEXT("reference_source_posed"),Local(RefPosed,Anchor));
@@ -129,6 +165,12 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             {
                 const double Both=G.Sides[0].RegionWeights[V]+G.Sides[1].RegionWeights[V];const double Localize=Both>1.e-12?S.RegionWeights[V]/Both*FMath::SmoothStep(0.,MaxRegion*.01,Both):0;
                 SourceField[V]=Anchor.InverseTransformVectorNoScale(RefPosed[V])*Localize;
+                // Operator conversion already has side-specific support: it is
+                // the difference between the same unilateral source and final
+                // skinning pose. A soft-tissue region mask is NOT its domain.
+                // Truncating that difference at the glute mask switches skinning
+                // operators inside the thigh and creates a circumferential fold.
+                if(!SourceOperatorDelta.IsEmpty())SourceField[V]+=Anchor.InverseTransformVectorNoScale(SourceOperatorDelta[V]);
                 Boundary[V]=FMath::Min(1.,double(S.RegionWeights[V])*8);
                 Proc[V]=VamGluteCorrective::CurvatureDelta(S,S.RegionPoints[V],Degrees,Structure.FoldState)*S.RegionWeights[V];
                 // Verified response owns its support. Procedural curvature fills
@@ -182,59 +224,58 @@ bool VamGluteCorrectiveBuilder::Build(FVamNativeMeshInput& I,const TArray<FVamBu
             }
             Weld(NS,Aliases);Weld(NP,Aliases);
             Capture(TEXT("07_source_preskin_before_safety"),NS);
-            auto Combined=NS;for(int32 V=0;V<Ids.Num();++V) Combined[V]+=NP[V];TArray<double> Safety;
-            if(!Condition(I,Skin,Combined,Aliases,Safety)) return Fail(TEXT("Target local safety did not converge"));
-            for(int32 V=0;V<Ids.Num();++V) { NS[V]*=Safety[V];NP[V]*=Safety[V]; }
+            if(Detail){Detail->Project(Side,Target,TEXT("source_before"),NS,Skin,Anchor);Detail->Project(Side,Target,TEXT("procedural_before"),NP,Skin,Anchor);Detail->SourceSafety[Side][Target].Init(1,Ids.Num());}
+
         }
         RefSide->SetArrayField(TEXT("targets"),RefTargets);ReferenceSides.Add(MakeShared<FJsonValueObject>(RefSide));
     }
-    // Validate blends in their own pose, and only alter substantially active
-    // targets at failing surface vertices. No global per-vertex worst-case mask.
-    for(int32 Iteration=0;Iteration<64;++Iteration)
+    // Preserve the authored source and procedural fields exactly after mapping,
+    // smoothing and inverse skinning. No target, basis or blended-pose safety
+    // factor is propagated into either field.
+    Audit->SetStringField(TEXT("source_safety_solver"),TEXT("removed: source/procedural fields unattenuated"));
+    Audit->SetNumberField(TEXT("blend_safety_iterations"),0);
+    FTargetFields SkinningResidual;
+    bool SourceOperator=false;(*Policy)->TryGetBoolField(TEXT("use_source_skinning_reference"),SourceOperator);
+    FTargetFields OperatorReference;
+    if(SourceOperator || SourceFieldOperator)
     {
-        bool Changed=false;
-        for(int32 Side=0;Side<3;++Side) for(int32 Step=0;Step<72;++Step)
+        if(!Verified || !(*Source)->HasField(TEXT("bulge_preparation"))) return Fail(TEXT("Source operator requires initialized source bulge weights"));
+        OperatorReference.SetNum(2);
+        for(int32 S=0;S<2;++S)
         {
-            FVector D;
-            if(Step<P.Targets.Num()) D=P.Targets[Step].Degrees;
-            else if(Step<18) D=FVector((Step-10)*12,20*FMath::Sin(double(Step)),20*FMath::Cos(double(Step)));
-            else { const int32 K=(Step-18)%36;D=FVector(Step>=54?(Step<63?-40.:130.):(K/9)*30.,(K/3)%3==0?-20.:(K/3)%3==1?0.:35.,K%3==0?-25.:K%3==1?0.:30.); }
-            FVamHipSidePose H;H.FlexionExtension=D.X*PI/180.;H.AbductionAdduction=D.Y*PI/180.;H.ExternalInternalRotation=D.Z*PI/180.;const auto W=VamGluteCorrective::Weights(P,H);
-            const auto Skin=VamGluteGeometry::Skin(I,I.Influences,Bind,Pose(I,G,Bind,Side!=1?D:FVector::ZeroVector,Side!=0?D:FVector::ZeroVector,true));FDeltaField Combined;Combined.SetNumZeroed(Ids.Num());
-            for(int32 S=0;S<2;++S) if(Side==2 || S==Side) for(int32 T=1;T<W.Num();++T) for(int32 V=0;V<Ids.Num();++V) Combined[V]+=(SourceNative[S][T][V]+ProcNative[S][T][V])*W[T];
-            TArray<double> Safety;if(!Condition(I,Skin,Combined,Aliases,Safety)) return Fail(TEXT("Combined pose safety did not converge"));
-            for(int32 V=0;V<Ids.Num();++V) if(Safety[V]<.999999)
+            OperatorReference[S].SetNum(P.Targets.Num());
+            for(int32 T=1;T<P.Targets.Num();++T)
             {
-                // Weight alone is insufficient after local conditioning: a
-                // low-weight target may become the only remaining contributor.
-                // Select by actual displacement contribution at this vertex.
-                double Max=0;for(int32 S=0;S<2;++S) if(Side==2 || S==Side) for(int32 T=1;T<W.Num();++T) Max=FMath::Max(Max,(SourceNative[S][T][V]+ProcNative[S][T][V]).Size()*W[T]);
-                if(Max<=1.e-16) continue;Changed=true;
-                for(int32 S=0;S<2;++S) if(Side==2 || S==Side) for(int32 T=1;T<W.Num();++T)
-                {
-                    const double Contribution=(SourceNative[S][T][V]+ProcNative[S][T][V]).Size()*W[T];
-                    if(Contribution<Max*.05) continue;
-                    const double Factor=FMath::Pow(Safety[V],Contribution/Max);SourceNative[S][T][V]*=Factor;ProcNative[S][T][V]*=Factor;
-                }
+                const FVector D=P.Targets[T].Degrees,Flex(D.X,0,0);
+                const auto FullPose=Pose(I,G,Bind,S==0?D:FVector::ZeroVector,S==1?D:FVector::ZeroVector,true);
+                const auto FlexPose=Pose(I,G,Bind,S==0?Flex:FVector::ZeroVector,S==1?Flex:FVector::ZeroVector,true);
+                auto Reference=RotationBlend(I,Bind,FullPose);const auto FlexReference=RotationBlend(I,Bind,FlexPose);
+                const auto SourceFlex=Apply(SourceReference(I,Ids,Bind,**Source,Flex,I.Bones[G.Sides[S].ThighBone].Name.ToString()),I.Vertices,true);
+                for(int32 V=0;V<Reference.Num();++V)Reference[V]+=SourceFlex[V]-FlexReference[V];
+                // The verified source field already owns flexion. Do not apply
+                // the same operator again through the synthetic DQ residual.
+                if(SourceFieldOperator && FMath::Abs(D.X)>1.e-8)Reference=Apply(Skin(I,I.Influences,Bind,FullPose),I.Vertices,true);
+                OperatorReference[S][T]=MoveTemp(Reference);
             }
         }
-        Audit->SetNumberField(TEXT("blend_safety_iterations"),Iteration+1);if(!Changed) break;if(Iteration==63) return Fail(TEXT("Target-aware blended safety failed convergence"));
+        Audit->SetStringField(TEXT("skinning_reference"),TEXT("Initialized source thigh-X operator plus rotation-blend non-flexion residual; experimental compound-pose extension"));
     }
-    FTargetFields SkinningResidual;
-    if(!BuildSkinningResidual(I,G,P,Bind,Aliases,SourceNative,ProcNative,SkinningResidual,*Audit)) return Fail(TEXT("Skinning residual safety failed; output not published"));
+    if(!BuildSkinningResidual(I,G,P,Bind,Aliases,SourceNative,ProcNative,SkinningResidual,*Audit,Detail,(SourceOperator||SourceFieldOperator)?&OperatorReference:nullptr)) return Fail(TEXT("Skinning residual safety failed; output not published"));
     P.Provenance+=TEXT(" Local rotation-blend minus LBS residual; fixed source contribution; baked GPU Morphs.");
     for(int32 Side=0;Side<2;++Side) for(int32 Target=1;Target<P.Targets.Num();++Target)
     {
         const auto& S=G.Sides[Side];const auto& SS=Surface[Side];const FTransform Anchor=S.AnchorLocal*Bind[S.PelvisBone];auto& St=Stage[Side][Target];const auto& Skin=TargetSkin[Side][Target];auto Native=SourceNative[Side][Target];for(int32 V=0;V<Ids.Num();++V) Native[V]+=ProcNative[Side][Target][V]+SkinningResidual[Side][Target][V];
+        if(Detail){Detail->Project(Side,Target,TEXT("source"),SourceNative[Side][Target],Skin,Anchor);Detail->Project(Side,Target,TEXT("procedural"),ProcNative[Side][Target],Skin,Anchor);Detail->Project(Side,Target,TEXT("residual"),SkinningResidual[Side][Target],Skin,Anchor);Detail->Project(Side,Target,TEXT("final"),Native,Skin,Anchor);Detail->Scalar(Detail->Key(Side,Target,TEXT("source_procedural_safety")),Detail->SourceSafety[Side][Target]);Detail->Scalar(Detail->Key(Side,Target,TEXT("residual_safety")),Detail->ResidualSafety[Side][Target]);}
         const auto Residual=Local(Apply(Skin,SkinningResidual[Side][Target]),Anchor);
         St->SetObjectField(TEXT("12_skinning_residual"),VamGluteAudit::Regions(Residual,SS,Ids));
         const auto SF=Local(Apply(Skin,SourceNative[Side][Target]),Anchor),PF=Local(Apply(Skin,ProcNative[Side][Target]),Anchor),Final=Local(Apply(Skin,Native),Anchor);
         St->SetObjectField(TEXT("08_source_after_target_safety"),VamGluteAudit::Regions(SF,SS,Ids));St->SetObjectField(TEXT("09_procedural_after_target_safety"),VamGluteAudit::Regions(PF,SS,Ids));St->SetObjectField(TEXT("10_final_preskin"),VamGluteAudit::Regions(Native,SS,Ids));St->SetObjectField(TEXT("11_final_posed_surface"),VamGluteAudit::Regions(Final,SS,Ids));
         auto Entry=MakeShared<FJsonObject>();Entry->SetStringField(TEXT("side"),S.Side.ToString());Entry->SetStringField(TEXT("target"),P.Targets[Target].Name.ToString());Entry->SetNumberField(TEXT("source_driver_weight"),FMath::Clamp(P.Targets[Target].Degrees.X/100.,0.,1.));Entry->SetObjectField(TEXT("stages"),St);Entries.Add(MakeShared<FJsonValueObject>(Entry));
         auto Stats=[&](const TCHAR* Name){return St->GetObjectField(Name)->GetObjectField(TEXT("whole"));};FVamGluteCorrectiveDiagnostic DD;DD.Side=Side;DD.Target=Target;DD.RawP95=Stats(TEXT("01_raw_source"))->GetNumberField(TEXT("p95"));DD.AdaptedP95=Stats(TEXT("02_mapped_adapted_source"))->GetNumberField(TEXT("p95"));DD.SourceRms=Stats(TEXT("08_source_after_target_safety"))->GetNumberField(TEXT("rms"));DD.ProceduralRms=Stats(TEXT("09_procedural_after_target_safety"))->GetNumberField(TEXT("rms"));DD.FinalP95=Stats(TEXT("11_final_posed_surface"))->GetNumberField(TEXT("p95"));DD.AffectedVertices=int32(Stats(TEXT("11_final_posed_surface"))->GetNumberField(TEXT("affected_vertices")));
-        const double Ref=Stats(TEXT("reference_source_posed"))->GetNumberField(TEXT("rms")),Pre=Stats(TEXT("03_side_localized_source"))->GetNumberField(TEXT("rms"));DD.AttenuationRatio=Ref>1.e-12?DD.SourceRms/Ref:0;DD.SafetyLoss=Pre>1.e-12?1-DD.SourceRms/Pre:0;DD.SkinningResidualRms=Stats(TEXT("12_skinning_residual"))->GetNumberField(TEXT("rms"));
+        const double Ref=Stats(TEXT("reference_source_posed"))->GetNumberField(TEXT("rms"));DD.AttenuationRatio=Ref>1.e-12?DD.SourceRms/Ref:0;DD.SafetyLoss=0;DD.SkinningResidualRms=Stats(TEXT("12_skinning_residual"))->GetNumberField(TEXT("rms"));
         const double SmoothBefore=Stats(TEXT("05_procedural_masked"))->GetNumberField(TEXT("rms"));DD.SmoothingLoss=SmoothBefore>1.e-12?1-Stats(TEXT("06_procedural_smoothed"))->GetNumberField(TEXT("rms"))/SmoothBefore:0;
         TSet<int32> Seen;for(int32 V=0;V<Ids.Num();++V) if(Used.Contains(V) && SS.RegionWeights[V]>.001 && !Seen.Contains(Ids[V])) { Seen.Add(Ids[V]);if(Seen.Num()%4==0) { DD.Positions.Add(S.RegionPoints[V]);DD.Raw.Add(RawFields[Side][Target][V]);DD.Adapted.Add(AdaptFields[Side][Target][V]);DD.Procedural.Add(PF[V]);DD.SkinningResidual.Add(Residual[V]);DD.Final.Add(Final[V]); }if(Verified && Target==1 && SourceMap.Contains(Ids[V])) ++P.ReusedSourceVertexCount; }
+        FVamGluteCorrectiveReplay Replay;Replay.Side=Side;Replay.Target=Target;Replay.PosedDelta=Apply(Skin,Native);auto Fixed=SourceNative[Side][Target];for(int V=0;V<Fixed.Num();++V)Fixed[V]+=ProcNative[Side][Target][V];auto FixedReplay=Replay;FixedReplay.PosedDelta=Apply(Skin,Fixed);P.FixedAuthoredReplay.Add(MoveTemp(FixedReplay));P.AuthoredReplay.Add(MoveTemp(Replay));
         P.Diagnostics.Add(MoveTemp(DD));AddMorph(I,P,S,Side,Target,Native,Skin,Anchor);
     }
     TArray<TSharedPtr<FJsonValue>> Bilateral;

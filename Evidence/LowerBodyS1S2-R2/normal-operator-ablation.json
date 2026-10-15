@@ -1,0 +1,38 @@
+{
+  "scope": "Same candidate-4, main project, normal BP, pose, cameras and light; native Skin Cache recompute toggle only. Neither capture is the final generated candidate-5.",
+  "same_request": true,
+  "same_cameras": true,
+  "same_actual_bones": true,
+  "stages": {
+    "00-source-lbs": {
+      "max_position_difference_cm": 0.0,
+      "rms_cm": 0.0
+    },
+    "01-final-weights": {
+      "max_position_difference_cm": 0.0,
+      "rms_cm": 0.0
+    },
+    "02-static-helpers": {
+      "max_position_difference_cm": 0.0,
+      "rms_cm": 0.0
+    },
+    "03-corrective": {
+      "max_position_difference_cm": 0.0,
+      "rms_cm": 0.0
+    },
+    "04-jiggle": {
+      "max_position_difference_cm": 0.0,
+      "rms_cm": 0.0
+    }
+  },
+  "images": [
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\candidate-4-main-standard\\complete\\rear-gray.png",
+      "sha256": "10fb464e22e0fc740db293c555cfe857e39e886dc16f5f76395b19cbeb4c6a2e"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\candidate-4-main-recompute\\complete\\rear-gray.png",
+      "sha256": "e8b5b72d95be711489cf84e7e526f6fc2b4b349bdbc326234849b3d9a4eaf988"
+    }
+  ]
+}

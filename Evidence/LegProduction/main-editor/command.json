@@ -1,0 +1,21 @@
+[
+  "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+  "I:/Document/UE5/SmartNPC/SmartNPC.uproject",
+  "-VamPoseSuite=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\LegProduction\\main-editor\\pose-recipe.json",
+  "-VamSeamAudit",
+  "-VamPoseStreaming",
+  "-VamPoseWorld=Editor",
+  "-ExecCmds=r.SkinCache.CompileShaders,r.SkinCache.Mode,r.SkinCache.RecomputeTangents,Automation RunTests Vam.Breast.ContactRuntime",
+  "-TestExit=Automation Test Queue Empty",
+  "-unattended",
+  "-nosplash",
+  "-RenderOffscreen",
+  "-dx12",
+  "-VamBreastTestConfig=/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/RC_Runtime",
+  "-VamAuditBP=/Game/VamLegProductionV3/Runtime/R_127163febbf2462df4043c83/BP_VamCharacter.BP_VamCharacter_C",
+  "-VamContactEvidence=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\LegProduction\\main-editor",
+  "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\LegProduction\\main-editor\\runtime.log",
+  "-ini:Engine:[/Script/Engine.RendererSettings]:r.SkinCache.CompileShaders=1",
+  "-VamPoseLightYaw=0",
+  "-VamPoseLightFromBelow"
+]

@@ -1,0 +1,550 @@
+[
+  {
+    "slot": 0,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_0.M_0",
+      "streaming_entries": [
+        {
+          "texture": "T_4ccc13d903079bfe0c1f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4ccc13d903079bfe0c1f_S.T_4ccc13d903079bfe0c1f_S"
+      ]
+    }
+  },
+  {
+    "slot": 1,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_1.M_1",
+      "streaming_entries": [],
+      "graph_texture_references": []
+    }
+  },
+  {
+    "slot": 2,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_2.M_2",
+      "streaming_entries": [
+        {
+          "texture": "T_4c6f83d9e1d511073d69_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4c6f83d9e1d511073d69_S.T_4c6f83d9e1d511073d69_S"
+      ]
+    }
+  },
+  {
+    "slot": 3,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_3.M_3",
+      "streaming_entries": [
+        {
+          "texture": "T_17039a044ed81d782aea_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_17039a044ed81d782aea_S.T_17039a044ed81d782aea_S"
+      ]
+    }
+  },
+  {
+    "slot": 4,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_4.M_4",
+      "streaming_entries": [
+        {
+          "texture": "T_17039a044ed81d782aea_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_17039a044ed81d782aea_S.T_17039a044ed81d782aea_S"
+      ]
+    }
+  },
+  {
+    "slot": 5,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_5.M_5",
+      "streaming_entries": [
+        {
+          "texture": "T_4c6f83d9e1d511073d69_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4c6f83d9e1d511073d69_S.T_4c6f83d9e1d511073d69_S"
+      ]
+    }
+  },
+  {
+    "slot": 6,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_6.M_6",
+      "streaming_entries": [],
+      "graph_texture_references": []
+    }
+  },
+  {
+    "slot": 7,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_7.M_7",
+      "streaming_entries": [
+        {
+          "texture": "T_4a254617fa0b02f1a81f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4a254617fa0b02f1a81f_S.T_4a254617fa0b02f1a81f_S"
+      ]
+    }
+  },
+  {
+    "slot": 8,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_8.M_8",
+      "streaming_entries": [
+        {
+          "texture": "T_fe3e375279b3564cc678_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_fe3e375279b3564cc678_S.T_fe3e375279b3564cc678_S"
+      ]
+    }
+  },
+  {
+    "slot": 9,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_9.M_9",
+      "streaming_entries": [
+        {
+          "texture": "T_4a254617fa0b02f1a81f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4a254617fa0b02f1a81f_S.T_4a254617fa0b02f1a81f_S"
+      ]
+    }
+  },
+  {
+    "slot": 10,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_10.M_10",
+      "streaming_entries": [
+        {
+          "texture": "T_b4f825f18d7c3e977543_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_b4f825f18d7c3e977543_S.T_b4f825f18d7c3e977543_S"
+      ]
+    }
+  },
+  {
+    "slot": 11,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_11.M_11",
+      "streaming_entries": [
+        {
+          "texture": "T_4c6f83d9e1d511073d69_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4c6f83d9e1d511073d69_S.T_4c6f83d9e1d511073d69_S"
+      ]
+    }
+  },
+  {
+    "slot": 12,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_12.M_12",
+      "streaming_entries": [
+        {
+          "texture": "T_4ccc13d903079bfe0c1f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4ccc13d903079bfe0c1f_S.T_4ccc13d903079bfe0c1f_S"
+      ]
+    }
+  },
+  {
+    "slot": 13,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_13.M_13",
+      "streaming_entries": [
+        {
+          "texture": "T_78b5b72383b745305839_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_78b5b72383b745305839_S.T_78b5b72383b745305839_S"
+      ]
+    }
+  },
+  {
+    "slot": 14,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_14.M_14",
+      "streaming_entries": [
+        {
+          "texture": "T_4ccc13d903079bfe0c1f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4ccc13d903079bfe0c1f_S.T_4ccc13d903079bfe0c1f_S"
+      ]
+    }
+  },
+  {
+    "slot": 15,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_15.M_15",
+      "streaming_entries": [
+        {
+          "texture": "T_9744f31c0a5b989654e0_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        },
+        {
+          "texture": "T_d8ee67b90ea16e00602e_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_d8ee67b90ea16e00602e_S.T_d8ee67b90ea16e00602e_S",
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_9744f31c0a5b989654e0_S.T_9744f31c0a5b989654e0_S"
+      ]
+    }
+  },
+  {
+    "slot": 16,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_16.M_16",
+      "streaming_entries": [
+        {
+          "texture": "T_4ccc13d903079bfe0c1f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4ccc13d903079bfe0c1f_S.T_4ccc13d903079bfe0c1f_S"
+      ]
+    }
+  },
+  {
+    "slot": 17,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_17.M_17",
+      "streaming_entries": [
+        {
+          "texture": "T_4ccc13d903079bfe0c1f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4ccc13d903079bfe0c1f_S.T_4ccc13d903079bfe0c1f_S"
+      ]
+    }
+  },
+  {
+    "slot": 18,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_18.M_18",
+      "streaming_entries": [
+        {
+          "texture": "T_9744f31c0a5b989654e0_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        },
+        {
+          "texture": "T_d8ee67b90ea16e00602e_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_d8ee67b90ea16e00602e_S.T_d8ee67b90ea16e00602e_S",
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_9744f31c0a5b989654e0_S.T_9744f31c0a5b989654e0_S"
+      ]
+    }
+  },
+  {
+    "slot": 19,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_19.M_19",
+      "streaming_entries": [
+        {
+          "texture": "T_9744f31c0a5b989654e0_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        },
+        {
+          "texture": "T_d8ee67b90ea16e00602e_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_d8ee67b90ea16e00602e_S.T_d8ee67b90ea16e00602e_S",
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_9744f31c0a5b989654e0_S.T_9744f31c0a5b989654e0_S"
+      ]
+    }
+  },
+  {
+    "slot": 20,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_20.M_20",
+      "streaming_entries": [
+        {
+          "texture": "T_9744f31c0a5b989654e0_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        },
+        {
+          "texture": "T_d8ee67b90ea16e00602e_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_d8ee67b90ea16e00602e_S.T_d8ee67b90ea16e00602e_S",
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_9744f31c0a5b989654e0_S.T_9744f31c0a5b989654e0_S"
+      ]
+    }
+  },
+  {
+    "slot": 21,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_21.M_21",
+      "streaming_entries": [
+        {
+          "texture": "T_9744f31c0a5b989654e0_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        },
+        {
+          "texture": "T_d8ee67b90ea16e00602e_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_d8ee67b90ea16e00602e_S.T_d8ee67b90ea16e00602e_S",
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_9744f31c0a5b989654e0_S.T_9744f31c0a5b989654e0_S"
+      ]
+    }
+  },
+  {
+    "slot": 22,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_22.M_22",
+      "streaming_entries": [
+        {
+          "texture": "T_4ccc13d903079bfe0c1f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4ccc13d903079bfe0c1f_S.T_4ccc13d903079bfe0c1f_S"
+      ]
+    }
+  },
+  {
+    "slot": 23,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_23.M_23",
+      "streaming_entries": [
+        {
+          "texture": "T_4ccc13d903079bfe0c1f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4ccc13d903079bfe0c1f_S.T_4ccc13d903079bfe0c1f_S"
+      ]
+    }
+  },
+  {
+    "slot": 24,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_24.M_24",
+      "streaming_entries": [
+        {
+          "texture": "T_8f487b52e528a407ccbd_L",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_8f487b52e528a407ccbd_L.T_8f487b52e528a407ccbd_L"
+      ]
+    }
+  },
+  {
+    "slot": 25,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_25.M_25",
+      "streaming_entries": [
+        {
+          "texture": "T_4a254617fa0b02f1a81f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4a254617fa0b02f1a81f_S.T_4a254617fa0b02f1a81f_S"
+      ]
+    }
+  },
+  {
+    "slot": 26,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_26.M_26",
+      "streaming_entries": [
+        {
+          "texture": "T_4a254617fa0b02f1a81f_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_4a254617fa0b02f1a81f_S.T_4a254617fa0b02f1a81f_S"
+      ]
+    }
+  },
+  {
+    "slot": 27,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_27.M_27",
+      "streaming_entries": [
+        {
+          "texture": "T_9744f31c0a5b989654e0_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        },
+        {
+          "texture": "T_d8ee67b90ea16e00602e_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_d8ee67b90ea16e00602e_S.T_d8ee67b90ea16e00602e_S",
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_9744f31c0a5b989654e0_S.T_9744f31c0a5b989654e0_S"
+      ]
+    }
+  },
+  {
+    "slot": 28,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_28.M_28",
+      "streaming_entries": [
+        {
+          "texture": "T_581c5c6eed22214e6b2a_S",
+          "uv_channel": 0,
+          "sampling_scale": 1
+        }
+      ],
+      "graph_texture_references": [
+        "/Game/VamCharacters/C_b41dfaaabfc8427b0ef4e065/Materials/T_581c5c6eed22214e6b2a_S.T_581c5c6eed22214e6b2a_S"
+      ]
+    }
+  },
+  {
+    "slot": 29,
+    "error": "",
+    "metadata": {
+      "material": "/Game/VamS1S2/StreamingProbeAllV2/M_29.M_29",
+      "streaming_entries": [
+        {
+          "texture": "T_Default_Material_Grid_M",
+          "uv_channel": 0,
+          "sampling_scale": 5
+        },
+        {
+          "texture": "T_Default_Material_Grid_M",
+          "uv_channel": 0,
+          "sampling_scale": 0.5
+        },
+        {
+          "texture": "T_Default_Material_Grid_M",
+          "uv_channel": 0,
+          "sampling_scale": 20
+        },
+        {
+          "texture": "T_Default_Material_Grid_N",
+          "uv_channel": 0,
+          "sampling_scale": 10
+        }
+      ],
+      "graph_texture_references": [
+        "/Engine/EngineMaterials/T_Default_Material_Grid_M.T_Default_Material_Grid_M",
+        "/Engine/EngineMaterials/T_Default_Material_Grid_M.T_Default_Material_Grid_M",
+        "/Engine/EngineMaterials/T_Default_Material_Grid_N.T_Default_Material_Grid_N",
+        "/Engine/EngineMaterials/T_Default_Material_Grid_M.T_Default_Material_Grid_M"
+      ]
+    }
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "detail-half-speed.mp4": {
+    "width": 840,
+    "height": 450,
+    "duration": "31.966667",
+    "nb_read_frames": "480"
+  },
+  "detail-off-on.mp4": {
+    "width": 840,
+    "height": 450,
+    "duration": "16.000000",
+    "nb_read_frames": "480"
+  },
+  "jiggle-off.mp4": {
+    "width": 1280,
+    "height": 720,
+    "duration": "16.000000",
+    "nb_read_frames": "480"
+  },
+  "jiggle-on.mp4": {
+    "width": 1280,
+    "height": 720,
+    "duration": "16.000000",
+    "nb_read_frames": "480"
+  }
+}

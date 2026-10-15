@@ -1,0 +1,50 @@
+{
+  "provenance": [
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\standing\\side-material.png",
+      "sha256": "194a905c6c37144e0be1229731c34b26375f0c7b53693cb92b46d3b990e36aa1",
+      "state": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\standing\\state.json"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\knee-120\\side-material.png",
+      "sha256": "0884711f8b19863a0724540657718a072d67cd4c2694da2d07323d0fc8b00301",
+      "state": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\editor\\knee-120\\state.json"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\Standing-Knee-Audit\\standing-light65-retry\\standing\\side-material.png",
+      "sha256": "68166465d0b9854e1e82ee2e8ea60432487d82e7d0aeb1aa862dbea83ffad336",
+      "state": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\Standing-Knee-Audit\\standing-light65-retry\\standing\\state.json"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\lighting\\knee-120\\side-material.png",
+      "sha256": "e9a1cd7c594c788daf739e7db52d27bbe39427f41aebf753dbd41cec5e46cd32",
+      "state": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\C1.5-S1-S2-R2\\main-regression\\lighting\\knee-120\\state.json"
+    }
+  ],
+  "outline": [
+    {
+      "light": "\u76f8\u540c\u5149\u7167 0\u00b0",
+      "posterior_outline_max_px": 0,
+      "sampled_rows": 85,
+      "roi_pixels": [
+        300,
+        225,
+        450,
+        310
+      ],
+      "scope": "Left visible skin/background boundary at fixed camera, threshold RGB>15. Pixel resolution only, not subpixel geometric accuracy."
+    },
+    {
+      "light": "\u76f8\u540c\u5149\u7167 +65\u00b0",
+      "posterior_outline_max_px": 0,
+      "sampled_rows": 85,
+      "roi_pixels": [
+        300,
+        225,
+        450,
+        310
+      ],
+      "scope": "Left visible skin/background boundary at fixed camera, threshold RGB>15. Pixel resolution only, not subpixel geometric accuracy."
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "old_asset_control": {
+    "same_actual_bones": true,
+    "same_cameras": false,
+    "same_body_transform": true,
+    "camera_max_matrix_difference": 1.4210854715202004e-14
+  },
+  "row_probe_scope": "Gray screenshot columns 403..431, rows 299..312; diagnostic brightness only, not geometry error.",
+  "baseline": {
+    "row_intensity": [
+      117.08045977011494,
+      115.44827586206897,
+      113.42528735632185,
+      110.78160919540231,
+      108.02298850574714,
+      105.1609195402299,
+      102.01149425287358,
+      98.86206896551724,
+      95.35632183908046,
+      92.0919540229885,
+      98.35632183908045,
+      103.60919540229885,
+      105.7241379310345,
+      107.32183908045978
+    ],
+    "rebound_308_to_312": 15.229885057471279
+  },
+  "skin_cache": {
+    "row_intensity": [
+      103.183908045977,
+      101.0574712643678,
+      99.18390804597702,
+      97.35632183908046,
+      95.98850574712641,
+      94.83908045977012,
+      93.83908045977012,
+      93.08045977011493,
+      92.63218390804599,
+      92.80459770114942,
+      92.67816091954025,
+      92.52873563218391,
+      90.52873563218391,
+      88.04597701149426
+    ],
+    "rebound_308_to_312": -4.75862068965516
+  },
+  "no_occlusion": {
+    "row_intensity": [
+      117.08045977011494,
+      115.44827586206897,
+      113.42528735632185,
+      110.78160919540231,
+      108.02298850574714,
+      105.1609195402299,
+      102.01149425287358,
+      98.86206896551724,
+      95.35632183908046,
+      92.0919540229885,
+      98.35632183908045,
+      103.60919540229885,
+      105.7241379310345,
+      107.32183908045978
+    ],
+    "rebound_308_to_312": 15.229885057471279
+  },
+  "new_asset": {
+    "row_intensity": [
+      103.2528735632184,
+      100.7816091954023,
+      98.49425287356323,
+      96.51724137931035,
+      94.89655172413792,
+      93.70114942528734,
+      92.60919540229885,
+      91.74712643678158,
+      91.26436781609196,
+      91.48275862068965,
+      91.85057471264369,
+      92.00000000000001,
+      90.03448275862068,
+      87.47126436781609
+    ],
+    "rebound_308_to_312": -4.011494252873561
+  },
+  "tests": [
+    [
+      "Success",
+      "Vam.Breast.Dynamics"
+    ],
+    [
+      "Success",
+      "Vam.Breast.GPUCoupling"
+    ],
+    [
+      "Success",
+      "Vam.Breast.WeightCompression"
+    ],
+    [
+      "Success",
+      "Vam.Glute.G1.AttachmentDamping"
+    ],
+    [
+      "Success",
+      "Vam.Glute.G1.CharacterCalibration"
+    ],
+    [
+      "Success",
+      "Vam.Glute.G1.FrameRateStability"
+    ],
+    [
+      "Success",
+      "Vam.Glute.G1.Mechanics"
+    ],
+    [
+      "Success",
+      "Vam.Glute.FinalCorrective"
+    ],
+    [
+      "Success",
+      "Vam.Glute.FinalInfluenceBudget"
+    ],
+    [
+      "Success",
+      "Vam.Glute.MorphNormalOrientation"
+    ],
+    [
+      "Success",
+      "Vam.Glute.PoseFunction"
+    ],
+    [
+      "Success",
+      "Vam.Glute.PoseRefinement"
+    ],
+    [
+      "Success",
+      "Vam.Glute.RotationBlendReference"
+    ],
+    [
+      "Success",
+      "Vam.Leg.EquivalentEulerLimits"
+    ],
+    [
+      "Success",
+      "Vam.Leg.PreserveSupportSlots"
+    ],
+    [
+      "Success",
+      "Vam.Material.AffineStreaming"
+    ]
+  ],
+  "new_editor_pie": {
+    "same_actual_bones": false,
+    "worlds": [
+      "PIE",
+      "Editor"
+    ],
+    "max_component_matrix_difference": 1.0408340855860843e-17
+  },
+  "effective_cvars": {
+    "pie-skin-cache": [
+      [
+        "r.SkinCache.CompileShaders",
+        "1"
+      ],
+      [
+        "r.SkinCache.Mode",
+        "1"
+      ],
+      [
+        "r.SkinCache.RecomputeTangents",
+        "2"
+      ]
+    ],
+    "editor-skin-cache": [
+      [
+        "r.SkinCache.CompileShaders",
+        "1"
+      ],
+      [
+        "r.SkinCache.Mode",
+        "1"
+      ],
+      [
+        "r.SkinCache.RecomputeTangents",
+        "2"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "pose": "abducted-jiggle",
+    "before": {
+      "max_deg": 80.0869689441836,
+      "p95_deg": 25.030714669519494,
+      "edges_over_45": 11,
+      "reversed_vs_static_faces": 0
+    },
+    "after": {
+      "max_deg": 48.795324647716114,
+      "p95_deg": 16.888521773250837,
+      "edges_over_45": 1,
+      "reversed_vs_static_faces": 0
+    },
+    "matrix_error": 0.0,
+    "camera_identical": true,
+    "jiggle_enabled": true,
+    "screenshots": 32
+  },
+  {
+    "pose": "seated-jiggle",
+    "before": {
+      "max_deg": 102.77858750263361,
+      "p95_deg": 30.847852759260164,
+      "edges_over_45": 15,
+      "reversed_vs_static_faces": 2
+    },
+    "after": {
+      "max_deg": 46.534382816646776,
+      "p95_deg": 17.243451472485386,
+      "edges_over_45": 1,
+      "reversed_vs_static_faces": 0
+    },
+    "matrix_error": 0.0,
+    "camera_identical": true,
+    "jiggle_enabled": true,
+    "screenshots": 32
+  }
+]

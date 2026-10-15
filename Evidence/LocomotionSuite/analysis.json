@@ -1,0 +1,84 @@
+{
+  "take": "take-2",
+  "frames": 720,
+  "duration": 24.0,
+  "world": "PIE",
+  "finite_matrices": true,
+  "heading_metrics": {
+    "idle": {
+      "pelvis_yaw_mean_deg": 7.522882057742918e-20,
+      "pelvis_yaw_min_deg": 7.522882057742916e-20,
+      "pelvis_yaw_max_deg": 7.522882057742916e-20,
+      "torso_lateral_mean_deg": 0.009853733464520297,
+      "head_neck_lateral_mean_deg": -0.08307142500492312
+    },
+    "walk": {
+      "pelvis_yaw_mean_deg": 2.1283282906796326,
+      "pelvis_yaw_min_deg": -12.891247756214865,
+      "pelvis_yaw_max_deg": 15.46475546534602,
+      "torso_lateral_mean_deg": -0.054122452957861396,
+      "head_neck_lateral_mean_deg": 0.36687162819708163
+    },
+    "turn": {
+      "pelvis_yaw_mean_deg": 0.7005366313461291,
+      "pelvis_yaw_min_deg": -12.508787025912826,
+      "pelvis_yaw_max_deg": 15.517347979728457,
+      "torso_lateral_mean_deg": -0.4372134640283561,
+      "head_neck_lateral_mean_deg": 0.4378474168350752
+    },
+    "run": {
+      "pelvis_yaw_mean_deg": 0.673852844122262,
+      "pelvis_yaw_min_deg": -12.868394530999797,
+      "pelvis_yaw_max_deg": 19.138216589680507,
+      "torso_lateral_mean_deg": 1.5518901567775276,
+      "head_neck_lateral_mean_deg": 0.49006461895456366
+    },
+    "jump": {
+      "pelvis_yaw_mean_deg": -2.3818069680270773,
+      "pelvis_yaw_min_deg": -18.07648550426433,
+      "pelvis_yaw_max_deg": 11.519178937341223,
+      "torso_lateral_mean_deg": -3.222269468320389,
+      "head_neck_lateral_mean_deg": 1.2642825880640365
+    },
+    "crouch": {
+      "pelvis_yaw_mean_deg": 7.522882057742917e-20,
+      "pelvis_yaw_min_deg": 7.522882057742916e-20,
+      "pelvis_yaw_max_deg": 7.522882057742916e-20,
+      "torso_lateral_mean_deg": 0.009853733464522174,
+      "head_neck_lateral_mean_deg": -0.08307142500492126
+    },
+    "final": {
+      "pelvis_yaw_mean_deg": 7.522882057742912e-20,
+      "pelvis_yaw_min_deg": 7.522882057742916e-20,
+      "pelvis_yaw_max_deg": 7.522882057742916e-20,
+      "torso_lateral_mean_deg": 0.009853733464520304,
+      "head_neck_lateral_mean_deg": -0.08307142500492314
+    }
+  },
+  "source_front": [
+    0.0004727585437778265,
+    0.9999998882496736,
+    0
+  ],
+  "target_front": [
+    0.9999999998652935,
+    -1.6413807652929128e-05,
+    0
+  ],
+  "distance_cm": 2691.657152550039,
+  "jump_height_cm": 54.90451388888891,
+  "turn_degrees": 90.00000250447816,
+  "crouch_reached": 1,
+  "retarget_clamp_count": 653,
+  "max_clamp_degrees": 43.83747274666969,
+  "glute_jiggle": true,
+  "leg_jiggle": true,
+  "node_peak_cm": {
+    "leg": 1.5135420887291324,
+    "glute": 5.769699889758065
+  },
+  "limit_corrections": {
+    "leg": 0,
+    "glute": 0
+  }
+}

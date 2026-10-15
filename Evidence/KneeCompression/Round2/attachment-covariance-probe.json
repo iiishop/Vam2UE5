@@ -1,0 +1,26 @@
+[
+  {
+    "pose": "knee-120-soft",
+    "old_invalid": 399,
+    "new_invalid": 403,
+    "max_move_cm": 0.3089071431643065
+  },
+  {
+    "pose": "knee-60-soft",
+    "old_invalid": 1,
+    "new_invalid": 1,
+    "max_move_cm": 0.2015201146353474
+  },
+  {
+    "pose": "standing-soft",
+    "old_invalid": 0,
+    "new_invalid": 0,
+    "max_move_cm": 0.012706805988382294
+  },
+  {
+    "pose": "suspended-seat-soft",
+    "old_invalid": 1738,
+    "new_invalid": 1725,
+    "max_move_cm": 0.3511020582498319
+  }
+]

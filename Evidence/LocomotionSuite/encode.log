@@ -1,0 +1,109 @@
+ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.101 / 61.  1.101
+  libavcodec     63.  1.101 / 63.  1.101
+  libavformat    63.  1.101 / 63.  1.101
+  libavdevice    63.  1.101 / 63.  1.101
+  libavfilter    12.  1.101 / 12.  1.101
+  libswscale     10.  1.101 / 10.  1.101
+  libswresample   7.  1.101 /  7.  1.101
+[png @ 0000021f56210400] chunk too big
+Input #0, image2, from 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Saved\LowerBodyContact\LocomotionSuite\take-2\continuous\video\frame-%04d.png':
+  Duration: 00:00:24.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, rgba64be(pc, gbr/unknown/unknown), 1280x720, 30 fps, 30 tbr, 30 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0000021f562bc580] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 0000021f562bc580] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0000021f562bc580] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=22 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=17.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\LocomotionSuite\media\continuous.mp4':
+  Metadata:
+    encoder         : Lavf63.1.101
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 1280x720, q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc63.1.101 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=   28 fps=0.0 q=23.0 size=       0KiB time=00:00:00.86 bitrate=   0.4kbits/s speed=1.69x elapsed=0:00:00.51    frame=  110 fps=108 q=23.0 size=     256KiB time=00:00:03.60 bitrate= 582.6kbits/s speed=3.52x elapsed=0:00:01.02    frame=  197 fps=128 q=23.0 size=     512KiB time=00:00:06.50 bitrate= 645.3kbits/s speed=4.22x elapsed=0:00:01.53    frame=  285 fps=138 q=23.0 size=     768KiB time=00:00:09.43 bitrate= 667.0kbits/s speed=4.57x elapsed=0:00:02.06    frame=  376 fps=146 q=23.0 size=    1024KiB time=00:00:12.46 bitrate= 672.9kbits/s speed=4.83x elapsed=0:00:02.57    frame=  468 fps=151 q=23.0 size=    1280KiB time=00:00:15.53 bitrate= 675.1kbits/s speed=5.02x elapsed=0:00:03.09    frame=  572 fps=159 q=23.0 size=    1536KiB time=00:00:19.00 bitrate= 662.3kbits/s speed=5.27x elapsed=0:00:03.60    [mp4 @ 0000021f56210400] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0000021f56294900] video:1796KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.515134%
+frame=  720 fps=177 q=-1.0 Lsize=    1805KiB time=00:00:23.93 bitrate= 618.0kbits/s speed=5.89x elapsed=0:00:04.06    
+[libx264 @ 0000021f562bc580] frame I:3     Avg QP: 5.85  size: 68686
+[libx264 @ 0000021f562bc580] frame P:183   Avg QP:11.96  size:  4676
+[libx264 @ 0000021f562bc580] frame B:534   Avg QP:18.25  size:  1455
+[libx264 @ 0000021f562bc580] consecutive B-frames:  0.7%  0.6%  2.1% 96.7%
+[libx264 @ 0000021f562bc580] mb I  I16..4: 33.1% 60.6%  6.3%
+[libx264 @ 0000021f562bc580] mb P  I16..4:  0.5%  1.1%  0.6%  P16..4:  7.3%  3.4%  2.0%  0.0%  0.0%    skip:85.1%
+[libx264 @ 0000021f562bc580] mb B  I16..4:  0.0%  0.0%  0.1%  B16..8:  8.8%  1.9%  0.4%  direct: 0.3%  skip:88.6%  L0:44.7% L1:47.0% BI: 8.3%
+[libx264 @ 0000021f562bc580] 8x8 transform intra:52.0% inter:67.1%
+[libx264 @ 0000021f562bc580] coded y,uvDC,uvAC intra: 60.8% 87.4% 77.7% inter: 2.0% 1.2% 0.3%
+[libx264 @ 0000021f562bc580] i16 v,h,dc,p: 75% 13%  9%  2%
+[libx264 @ 0000021f562bc580] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 30% 17% 32%  2%  4%  5%  4%  4%  2%
+[libx264 @ 0000021f562bc580] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 32% 13% 21%  4%  5%  9%  4%  9%  3%
+[libx264 @ 0000021f562bc580] i8c dc,h,v,p: 35% 15% 46%  5%
+[libx264 @ 0000021f562bc580] Weighted P-Frames: Y:1.1% UV:0.0%
+[libx264 @ 0000021f562bc580] ref P L0: 58.0%  6.5% 18.9% 16.3%  0.3%
+[libx264 @ 0000021f562bc580] ref B L0: 81.6% 13.5%  4.9%
+[libx264 @ 0000021f562bc580] ref B L1: 92.0%  8.0%
+[libx264 @ 0000021f562bc580] kb/s:612.88
+ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 16.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-lcms2 --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-sdl2 --enable-libaribb24 --enable-libaribcaption --enable-libdav1d --enable-libdavs2 --enable-libopenjpeg --enable-libquirc --enable-libuavs3d --enable-libxevd --enable-libzvbi --enable-liboapv --enable-libqrencode --enable-librav1e --enable-libsvtav1 --enable-libvvenc --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxeve --enable-libxvid --enable-libaom --enable-libjxl --enable-libsvtjpegxs --enable-libvpx --enable-mediafoundation --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-liblensfun --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-vulkan --enable-libplacebo --enable-opencl --enable-libcdio --enable-openal --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libcodec2 --enable-libilbc --enable-libgsm --enable-liblc3 --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint --enable-whisper
+  libavutil      61.  1.101 / 61.  1.101
+  libavcodec     63.  1.101 / 63.  1.101
+  libavformat    63.  1.101 / 63.  1.101
+  libavdevice    63.  1.101 / 63.  1.101
+  libavfilter    12.  1.101 / 12.  1.101
+  libswscale     10.  1.101 / 10.  1.101
+  libswresample   7.  1.101 /  7.  1.101
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\LocomotionSuite\media\continuous.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.101
+  Duration: 00:00:24.00, start: 0.000000, bitrate: 616 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1280x720, 613 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.101 libx264
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0000026a105b4440] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 0000026a105b4440] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0000026a105b4440] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=22 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=18.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Evidence\LocomotionSuite\media\half-speed.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.101
+  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 1280x720, q=2-31, 30 fps, 15360 tbn (default)
+    Metadata:
+      encoder         : Lavc63.1.101 libx264
+      handler_name    : VideoHandler
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=  117 fps=0.0 q=22.0 size=     256KiB time=00:00:07.63 bitrate= 274.8kbits/s speed=14.6x elapsed=0:00:00.52    frame=  261 fps=252 q=22.0 size=     768KiB time=00:00:17.23 bitrate= 365.1kbits/s speed=16.7x elapsed=0:00:01.03    frame=  424 fps=272 q=22.0 size=    1536KiB time=00:00:28.10 bitrate= 447.8kbits/s speed=  18x elapsed=0:00:01.55    frame=  628 fps=303 q=22.0 size=    1792KiB time=00:00:41.70 bitrate= 352.0kbits/s speed=20.1x elapsed=0:00:02.07    [mp4 @ 0000026a105b1c00] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0000026a10595800] video:2118KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.437270%
+frame=  720 fps=326 q=-1.0 Lsize=    2127KiB time=00:00:47.83 bitrate= 364.3kbits/s speed=21.6x elapsed=0:00:02.21    
+[libx264 @ 0000026a105b4440] frame I:3     Avg QP: 4.85  size: 85912
+[libx264 @ 0000026a105b4440] frame P:188   Avg QP:10.37  size:  5729
+[libx264 @ 0000026a105b4440] frame B:529   Avg QP:16.33  size:  1575
+[libx264 @ 0000026a105b4440] consecutive B-frames:  0.7%  3.1%  2.9% 93.3%
+[libx264 @ 0000026a105b4440] mb I  I16..4: 40.8% 53.1%  6.1%
+[libx264 @ 0000026a105b4440] mb P  I16..4:  0.4%  1.5%  0.7%  P16..4:  7.8%  3.3%  1.9%  0.0%  0.0%    skip:84.4%
+[libx264 @ 0000026a105b4440] mb B  I16..4:  0.0%  0.1%  0.1%  B16..8:  8.9%  2.0%  0.3%  direct: 0.3%  skip:88.3%  L0:44.7% L1:46.6% BI: 8.6%
+[libx264 @ 0000026a105b4440] 8x8 transform intra:54.3% inter:64.5%
+[libx264 @ 0000026a105b4440] coded y,uvDC,uvAC intra: 61.2% 82.4% 70.4% inter: 2.1% 1.8% 0.6%
+[libx264 @ 0000026a105b4440] i16 v,h,dc,p: 62% 19% 15%  4%
+[libx264 @ 0000026a105b4440] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 28% 17% 34%  2%  4%  5%  4%  4%  2%
+[libx264 @ 0000026a105b4440] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 33% 14% 20%  4%  5%  9%  4%  8%  2%
+[libx264 @ 0000026a105b4440] i8c dc,h,v,p: 44% 18% 33%  5%
+[libx264 @ 0000026a105b4440] Weighted P-Frames: Y:1.1% UV:0.0%
+[libx264 @ 0000026a105b4440] ref P L0: 62.1%  6.6% 19.1% 12.0%  0.1%
+[libx264 @ 0000026a105b4440] ref B L0: 83.3% 12.9%  3.7%
+[libx264 @ 0000026a105b4440] ref B L1: 94.5%  5.5%
+[libx264 @ 0000026a105b4440] kb/s:361.33

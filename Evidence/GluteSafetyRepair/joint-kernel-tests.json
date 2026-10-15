@@ -1,0 +1,23 @@
+{
+  "scope": "Opt-in solver implementation tests; visual acceptance is still pending.",
+  "tests": [
+    [
+      "Success",
+      "FeasibleSafetyGrowth"
+    ],
+    [
+      "Success",
+      "JointFamilySafety"
+    ]
+  ],
+  "files": {
+    "compile-v15.log": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\compile-v15.log",
+      "sha256": "d11afdccae8e9f13a8c4dddf159f6980636f508bd9d5b9d040e96217de83a11a"
+    },
+    "joint-unit-v2.log": {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\GluteSafetyRepair\\joint-unit-v2.log",
+      "sha256": "1a0c8fea30961fe1d58fa2e51a235f4ddb324a4f474f8cea744362cf61bd6ddb"
+    }
+  }
+}

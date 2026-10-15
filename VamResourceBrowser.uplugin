@@ -13,6 +13,21 @@
   ],
   "Plugins": [
     {
+      "Name": "TetMeshing",
+      "Enabled": true,
+      "TargetAllowList": [
+        "Editor"
+      ]
+    },
+    {
+      "Name": "ChaosFlesh",
+      "Enabled": true
+    },
+    {
+      "Name": "DeformerGraph",
+      "Enabled": true
+    },
+    {
       "Name": "PythonScriptPlugin",
       "Enabled": true,
       "TargetAllowList": [
@@ -36,6 +51,11 @@
     }
   ],
   "Modules": [
+    {
+      "Name": "VamContactGPU",
+      "Type": "Runtime",
+      "LoadingPhase": "PostConfigInit"
+    },
     {
       "Name": "VamCharacterRuntime",
       "Type": "Runtime",

@@ -1,0 +1,26 @@
+{
+  "standing": {
+    "max_surface_difference_cm": 0.0,
+    "rms_cm": 0.0,
+    "mapping_and_actual_weights_identical": true,
+    "cameras_identical": true
+  },
+  "suspended-seat": {
+    "max_surface_difference_cm": 0.0,
+    "rms_cm": 0.0,
+    "mapping_and_actual_weights_identical": true,
+    "cameras_identical": true
+  },
+  "abducted": {
+    "max_surface_difference_cm": 0.0,
+    "rms_cm": 0.0,
+    "mapping_and_actual_weights_identical": true,
+    "cameras_identical": true
+  },
+  "knee-120": {
+    "max_surface_difference_cm": 0.0,
+    "rms_cm": 0.0,
+    "mapping_and_actual_weights_identical": true,
+    "cameras_identical": true
+  }
+}

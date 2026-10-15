@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "case": "abducted",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": true
+    },
+    {
+      "case": "heldout-45-75",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 1.4210854715202004e-14,
+      "pose_replay_pass": true
+    },
+    {
+      "case": "hip-60",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": true
+    },
+    {
+      "case": "hip-90",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": true
+    },
+    {
+      "case": "jiggle-motion",
+      "bone_matrix_max_error": 2.10792286345297,
+      "pre_contact_surface_max_cm": 1.5319980402267266,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": false
+    },
+    {
+      "case": "jiggle-seat-contact",
+      "bone_matrix_max_error": 1.5897859761915356,
+      "pre_contact_surface_max_cm": 1.5319980402267266,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": false
+    },
+    {
+      "case": "knee-120",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": true
+    },
+    {
+      "case": "mirror-left",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": true
+    },
+    {
+      "case": "mirror-right",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": true
+    },
+    {
+      "case": "seat-contact",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": true
+    },
+    {
+      "case": "standing",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": true
+    },
+    {
+      "case": "suspended-seat",
+      "bone_matrix_max_error": 1.0408340855860843e-17,
+      "pre_contact_surface_max_cm": 5.684341886080802e-14,
+      "contact_status_equal": false,
+      "camera_matrix_max_error": 0.0,
+      "pose_replay_pass": true
+    }
+  ],
+  "scope": "Pose and pre-contact geometry replay; does not certify a blocked contact solver."
+}

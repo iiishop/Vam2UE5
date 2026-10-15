@@ -1,0 +1,98 @@
+{
+  "after-flexion.mp4": {
+    "width": 768,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "after-hard-stop.mp4": {
+    "width": 768,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "after-seated-stop.mp4": {
+    "width": 768,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "after-step.mp4": {
+    "width": 768,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "before-flexion.mp4": {
+    "width": 768,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "before-hard-stop.mp4": {
+    "width": 768,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "before-seated-stop.mp4": {
+    "width": 768,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "before-step.mp4": {
+    "width": 768,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "flexion-comparison.mp4": {
+    "width": 1536,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "flexion-detail.mp4": {
+    "width": 660,
+    "height": 330,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "hard-stop-comparison.mp4": {
+    "width": 1536,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "hard-stop-detail.mp4": {
+    "width": 660,
+    "height": 330,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "seated-stop-comparison.mp4": {
+    "width": 1536,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "seated-stop-detail.mp4": {
+    "width": 660,
+    "height": 330,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "step-comparison.mp4": {
+    "width": 1536,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  "step-detail.mp4": {
+    "width": 660,
+    "height": 330,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  }
+}

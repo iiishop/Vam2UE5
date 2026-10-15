@@ -1,0 +1,695 @@
+{
+  "abducted": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 27.017424570429338,
+        "p95_deg": 14.688091367428832,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 25.516630880937242,
+        "p95_deg": 15.198140965598991,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 26.27024428238952,
+        "p95_deg": 15.198140965598991,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 25.522684174819055,
+        "p95_deg": 14.123654142372052,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 25.522684174819055,
+        "p95_deg": 14.123654142372052,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.813405830252792,
+          "01-final-weights": 1.8534804756490455,
+          "02-static-helpers": 1.9054804744784073,
+          "03-corrective": 1.993451134545783,
+          "04-jiggle": 1.993451134545783
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.616802562693775,
+          "01-final-weights": 7.720014258085154,
+          "02-static-helpers": 7.584306557748532,
+          "03-corrective": 8.537318280472624,
+          "04-jiggle": 8.537318280472624
+        }
+      }
+    ]
+  },
+  "held-out-asymmetric": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 31.457067885461775,
+        "p95_deg": 14.821465455956506,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 23.14280662941928,
+        "p95_deg": 15.206203086707564,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 30.396368569829082,
+        "p95_deg": 15.507145291376585,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 25.818114926323137,
+        "p95_deg": 14.903539576632372,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 25.818114926323137,
+        "p95_deg": 14.903539576632372,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.6902475884932595,
+          "01-final-weights": 1.745294488020072,
+          "02-static-helpers": 1.6993384116776657,
+          "03-corrective": 2.1297356136901002,
+          "04-jiggle": 2.1297356136901002
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.590361913551899,
+          "01-final-weights": 7.247914548731772,
+          "02-static-helpers": 7.37578225844056,
+          "03-corrective": 7.998323559093223,
+          "04-jiggle": 7.998323559093223
+        }
+      }
+    ]
+  },
+  "held-out-mirrored": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 31.137123648927776,
+        "p95_deg": 14.940877900546951,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 21.907377404670573,
+        "p95_deg": 15.23253863927643,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 25.88923134476059,
+        "p95_deg": 15.432746555926673,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 25.806986315060936,
+        "p95_deg": 14.851343563484726,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 25.806986315060936,
+        "p95_deg": 14.851343563484726,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.811712980921747,
+          "01-final-weights": 1.8841966154148646,
+          "02-static-helpers": 1.868121069224099,
+          "03-corrective": 2.186829050889156,
+          "04-jiggle": 2.186829050889156
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.557792346611348,
+          "01-final-weights": 7.052693877111164,
+          "02-static-helpers": 7.106195488264059,
+          "03-corrective": 8.250091888183256,
+          "04-jiggle": 8.250091888183256
+        }
+      }
+    ]
+  },
+  "hip-30": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 19.639627280449986,
+        "p95_deg": 13.975305053386146,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 24.266461847455613,
+        "p95_deg": 14.277148133110408,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 19.924801987079853,
+        "p95_deg": 14.359508703012954,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 20.69603797427409,
+        "p95_deg": 13.8430202823809,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 20.69603797427409,
+        "p95_deg": 13.8430202823809,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.7915363003044542,
+          "01-final-weights": 1.8239938429935512,
+          "02-static-helpers": 1.821720140618027,
+          "03-corrective": 1.8003549077934915,
+          "04-jiggle": 1.8003549077934915
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.5435577469090065,
+          "01-final-weights": 6.911726688765558,
+          "02-static-helpers": 6.951299268215391,
+          "03-corrective": 7.386270452989854,
+          "04-jiggle": 7.386270452989854
+        }
+      }
+    ]
+  },
+  "hip-60": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 20.475687251369926,
+        "p95_deg": 14.164647474326685,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 24.45096958252888,
+        "p95_deg": 15.045080506777898,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 25.94959225291464,
+        "p95_deg": 15.550170429624808,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 22.422624810548836,
+        "p95_deg": 14.539773259177302,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 22.422624810548836,
+        "p95_deg": 14.539773259177302,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.6826019507035035,
+          "01-final-weights": 1.722249501553067,
+          "02-static-helpers": 1.7463984768968261,
+          "03-corrective": 1.8159417433822331,
+          "04-jiggle": 1.8159417433822331
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.555602098757863,
+          "01-final-weights": 6.772298268773966,
+          "02-static-helpers": 6.711225879117625,
+          "03-corrective": 7.239742277472505,
+          "04-jiggle": 7.239742277472505
+        }
+      }
+    ]
+  },
+  "hip-90": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 23.573687377866058,
+        "p95_deg": 14.517945435299817,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 24.35870836499873,
+        "p95_deg": 15.549490300709582,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 30.246913226734577,
+        "p95_deg": 15.767552523233816,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 24.57997488486473,
+        "p95_deg": 14.975537700567415,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 24.57997488486473,
+        "p95_deg": 14.975537700567415,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.5194795608926948,
+          "01-final-weights": 1.5426535910256776,
+          "02-static-helpers": 1.4959295294475528,
+          "03-corrective": 1.8203780471303532,
+          "04-jiggle": 1.8203780471303532
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.616312968578791,
+          "01-final-weights": 7.020810733404985,
+          "02-static-helpers": 7.142621576487829,
+          "03-corrective": 7.151026421346425,
+          "04-jiggle": 7.151026421346425
+        }
+      }
+    ]
+  },
+  "knee-120": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 18.707038567131587,
+        "p95_deg": 14.39278492672822,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 18.47701618986524,
+        "p95_deg": 13.594110327767797,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 19.05761769131527,
+        "p95_deg": 13.611980650342911,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 20.217471089657998,
+        "p95_deg": 14.226802318340301,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 20.217471089657998,
+        "p95_deg": 14.226802318340301,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.9989438658907175,
+          "01-final-weights": 2.0333744460951366,
+          "02-static-helpers": 2.0221002032970916,
+          "03-corrective": 2.207042950919906,
+          "04-jiggle": 2.207042950919906
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.596390814079449,
+          "01-final-weights": 7.8741813948223705,
+          "02-static-helpers": 7.905873927656118,
+          "03-corrective": 9.201752620433064,
+          "04-jiggle": 9.201752620433064
+        }
+      }
+    ]
+  },
+  "knee-30": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 18.707038567131587,
+        "p95_deg": 14.146360213229357,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 18.48795269625001,
+        "p95_deg": 13.778200417347517,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 19.070341232266095,
+        "p95_deg": 13.778989031058977,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 18.95408014868506,
+        "p95_deg": 13.731287082695044,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 18.95408014868506,
+        "p95_deg": 13.731287082695044,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.8613169542813743,
+          "01-final-weights": 1.870380629356791,
+          "02-static-helpers": 1.8591108957062896,
+          "03-corrective": 1.8828572690134149,
+          "04-jiggle": 1.8828572690134149
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.596390814079449,
+          "01-final-weights": 7.759462424792372,
+          "02-static-helpers": 7.788002966010791,
+          "03-corrective": 7.946304581970597,
+          "04-jiggle": 7.946304581970597
+        }
+      }
+    ]
+  },
+  "knee-90": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 18.707038567131587,
+        "p95_deg": 14.288294477273155,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 18.511314369851835,
+        "p95_deg": 13.593573835087508,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 19.093491606438864,
+        "p95_deg": 13.569505939370254,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 19.545052438321747,
+        "p95_deg": 13.619160817201395,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 19.545052438321747,
+        "p95_deg": 13.619160817201395,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.972680375875144,
+          "01-final-weights": 2.0004744283019953,
+          "02-static-helpers": 1.9891963149220595,
+          "03-corrective": 2.0942273773169577,
+          "04-jiggle": 2.0942273773169577
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.596390814079449,
+          "01-final-weights": 7.9711110663833455,
+          "02-static-helpers": 8.001591829659393,
+          "03-corrective": 8.804450586503389,
+          "04-jiggle": 8.804450586503389
+        }
+      }
+    ]
+  },
+  "seated": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 30.97951473672557,
+        "p95_deg": 14.82488354072991,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 24.149903196367223,
+        "p95_deg": 15.398220891265861,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 30.42273251121054,
+        "p95_deg": 15.776219048447741,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 24.01488687827238,
+        "p95_deg": 15.258490739972027,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 24.01488687827238,
+        "p95_deg": 15.258490739972027,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.6747403045419897,
+          "01-final-weights": 1.7235598807445958,
+          "02-static-helpers": 1.6763317588027185,
+          "03-corrective": 2.123311010009116,
+          "04-jiggle": 2.123311010009116
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.616312968578791,
+          "01-final-weights": 7.417738720672437,
+          "02-static-helpers": 7.548686258362359,
+          "03-corrective": 8.334116870331664,
+          "04-jiggle": 8.334116870331664
+        }
+      }
+    ]
+  },
+  "standing": {
+    "scope": "Fixed bind-space engineering mid-thigh band; retained source topology, no proximity matching. Reversal is relative to static-helper face orientation, not a full intersection test.",
+    "statistics": {
+      "00-source-lbs": {
+        "max_deg": 18.707038567131587,
+        "p95_deg": 13.878521585797978,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "01-final-weights": {
+        "max_deg": 18.433986336533987,
+        "p95_deg": 13.835267276224029,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "02-static-helpers": {
+        "max_deg": 19.0148352428346,
+        "p95_deg": 13.835267276224029,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "03-corrective": {
+        "max_deg": 19.030443966653856,
+        "p95_deg": 13.819062180020731,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      },
+      "04-jiggle": {
+        "max_deg": 19.030443966653856,
+        "p95_deg": 13.819062180020731,
+        "edges_over_45": 0,
+        "reversed_vs_static_faces": 0
+      }
+    },
+    "probe_edges": [
+      {
+        "source_edge": [
+          13855,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 1.8086729519326255,
+          "01-final-weights": 1.8114383834121164,
+          "02-static-helpers": 1.800178581908132,
+          "03-corrective": 1.796040466506691,
+          "04-jiggle": 1.796040466506691
+        }
+      },
+      {
+        "source_edge": [
+          11289,
+          16813
+        ],
+        "angles": {
+          "00-source-lbs": 7.596390814079449,
+          "01-final-weights": 7.506559082087614,
+          "02-static-helpers": 7.534930368830426,
+          "03-corrective": 7.516617099119474,
+          "04-jiggle": 7.516617099119474
+        }
+      }
+    ]
+  }
+}

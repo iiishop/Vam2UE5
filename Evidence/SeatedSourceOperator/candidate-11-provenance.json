@@ -1,0 +1,29 @@
+{
+  "identity": "ecce0c124fceb8f5487125ee0a8c13f7a0567986ecad27fba14fac9f8a7c3cd3",
+  "configuration": "/Game/VamSeatedSourceFieldV2/Runtime/R_ecce0c124fceb8f5487125ee/RC_Runtime",
+  "experimental": true,
+  "visual_acceptance": false,
+  "default_enabled": false,
+  "files": [
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFold\\candidate-11\\bundle.json",
+      "sha256": "7cb79c99a62a7c124119d779902b8ddfa3895dc092547dcff1f8cfeda6379130"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFold\\candidate-11\\regression\\tests.log",
+      "sha256": "d52c4b04115ebc8e70dfc7c8be75c385f3e3be5b1b4895baa024c8e64f0fcc1e"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFold\\candidate-11\\regression\\editor\\process.json",
+      "sha256": "124fd50cb6d223cdd18fedc166d00af7254199b6e6dedf9be82f71db87af6d01"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFold\\candidate-11\\regression\\pie\\process.json",
+      "sha256": "124fd50cb6d223cdd18fedc166d00af7254199b6e6dedf9be82f71db87af6d01"
+    },
+    {
+      "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\LowerBodyContact\\SeatedFold\\source-joint-safety-build.log",
+      "sha256": "0e96286d0c0eed6c947b4957a5e2d9c5c4b3fb9aa5e89678d78f859fbf3eb6bf"
+    }
+  ]
+}
