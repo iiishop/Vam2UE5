@@ -6,7 +6,8 @@ p.add_argument('bundle',type=Path);p.add_argument('out',type=Path)
 p.add_argument('--source',type=Path,help='Existing actual-bone locomotion recording')
 p.add_argument('--quality',choices=['fine','coarse','rest'],default='fine')
 p.add_argument('--benchmark',action='store_true');p.add_argument('--characters',type=int,default=1)
-p.add_argument('--pie',action='store_true');p.add_argument('--diagnostic',choices=['no-collision','no-gravity','both','springs','dense']);
+p.add_argument('--pie',action='store_true');p.add_argument('--diagnostic',choices=['no-collision','no-gravity','both','springs','dense','native-loose','soft-loose']);
+p.add_argument('--body-audit',action='store_true')
 p.add_argument('--orbit',action='store_true');p.add_argument('--local-frame',action='store_true')
 p.add_argument('--preview',action='store_true');p.add_argument('--full-body',action='store_true')
 p.add_argument('--project',default='I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject')
@@ -21,6 +22,7 @@ else:
     if a.preview:command+=' preview'
     if a.full_body:command+=' full-body'
     if a.orbit:command+=' orbit'
+    if a.body_audit:command+=' body-audit'
     if a.local_frame:command+=' local-frame'
 if a.diagnostic:command+=' '+('no-collision no-gravity' if a.diagnostic=='both' else a.diagnostic)
 if a.pie:command=command.replace('vam.HairCapture','vam.HairPIECapture')

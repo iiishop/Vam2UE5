@@ -9,7 +9,7 @@
 #include "NiagaraNodeWithDynamicPins.h"
 
 // Private copies keep the engine's solver assets untouched. The style constraint
-// participates in the solver state, before velocity reconstruction and writeback.
+// participates before rod/collision projection, so retention cannot undo a collision.
 static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& Kind, int32 NodeCount, FString& Error)
 {
     const FString Key=Kind+FString::Printf(TEXT("_%d"),NodeCount);
@@ -23,10 +23,23 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     Copy->SetFlags(RF_Public|RF_Standalone);
     auto* Source=Cast<UNiagaraScriptSource>(Copy->GetLatestSource());auto* Graph=Source?Source->NodeGraph.Get():nullptr;
     if(!Graph){Error=TEXT("Native Groom project graph missing");return nullptr;}
+    int32 RefreshedContacts=0;
+    for(UEdGraphNode* N:Graph->Nodes)
+    {
+        if(auto* Call=Cast<UNiagaraNodeFunctionCall>(N);Call&&Call->Signature.Name==FName(TEXT("GetElementPoint")))
+        {
+            // A multi-sphere head can change its nearest primitive during rod
+            // projection. Query the current position instead of the cached index.
+            Call->Signature.Name=TEXT("GetClosestPoint");
+            Call->Signature.Inputs.RemoveAll([](const FNiagaraVariable& V){return V.GetName()==FName(TEXT("Element Index"));});
+            Call->RefreshFromExternalChanges();++RefreshedContacts;
+        }
+    }
+    if(RefreshedContacts!=1){Error=TEXT("Native Groom closest-contact graph contract changed");return nullptr;}
     UNiagaraNodeWithDynamicPins* Get=nullptr;UEdGraphPin* Destination=nullptr;UEdGraphPin* Position=nullptr;
     for(UEdGraphNode* N:Graph->Nodes)
     {
-        if(auto* Call=Cast<UNiagaraNodeFunctionCall>(N);Call&&Call->FunctionScript==LoadObject<UNiagaraScript>(nullptr,TEXT("/HairStrands/Emitters/ReportSharedPosition.ReportSharedPosition")))
+        if(auto* Call=Cast<UNiagaraNodeFunctionCall>(N);Call&&Call->FunctionScript==LoadObject<UNiagaraScript>(nullptr,TEXT("/HairStrands/Emitters/ExtractSharedPosition.ExtractSharedPosition")))
         {
             Position=Call->FindPin(TEXT("NodePosition"),EGPD_Output);
             if(Position&&Position->LinkedTo.Num()==1)Destination=Position->LinkedTo[0];

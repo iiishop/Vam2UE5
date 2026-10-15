@@ -84,9 +84,24 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
     {
         const FString CollisionPath=AssetRoot/TEXT("PA_Hair");
         auto* PA=DuplicateObject<UPhysicsAsset>(Physics,CreatePackage(*CollisionPath),TEXT("PA_Hair"));PA->SetFlags(RF_Public|RF_Standalone);
+        int32 OtherPrimitives=0;
+        for(const USkeletalBodySetup* S:PA->SkeletalBodySetups)if(S&&S->BoneName!=FName(TEXT("head")))OtherPrimitives+=S->AggGeom.SphereElems.Num()+S->AggGeom.SphylElems.Num()+S->AggGeom.BoxElems.Num();
+        const int32 HeadBudget=FMath::Min(64,99-OtherPrimitives);
         for(USkeletalBodySetup* Setup:PA->SkeletalBodySetups)
         {
             const int32 Bone=Ref.FindBoneIndex(Setup->BoneName);if(Bone<0)continue;
+            const TSharedPtr<FJsonObject>* HeadCollision=nullptr;
+            if(Setup->BoneName==FName(TEXT("head"))&&Input->TryGetObjectField(TEXT("head_collision"),HeadCollision))
+            {
+                if((*HeadCollision)->GetStringField(TEXT("reference_body"))!=Body->GetPathName()){Error=TEXT("Head collision surface belongs to another body mesh");return nullptr;}
+                if(HeadBudget<1){Error=TEXT("Body collision exceeds native Niagara primitive budget");return nullptr;}
+                Setup->AggGeom.EmptyElements();
+                // Input balls are greedy coverage ordered. Retain their prefix within
+                // the native DI's fixed primitive budget; never rely on GPU truncation.
+                for(const auto& V:(*HeadCollision)->GetArrayField(TEXT("spheres"))){if(Setup->AggGeom.SphereElems.Num()>=HeadBudget)break;auto O=V->AsObject();FKSphereElem S;S.Center=Vector(O->TryGetField(TEXT("center")));S.Radius=O->GetNumberField(TEXT("radius_cm"));if(!FMath::IsFinite(S.Radius)||S.Radius<=0||S.Center.ContainsNaN()){Error=TEXT("Invalid head surface proxy");return nullptr;}Setup->AggGeom.SphereElems.Add(S);}
+                if(Setup->AggGeom.SphereElems.IsEmpty()){Error=TEXT("Head surface proxy is empty");return nullptr;}
+                auto Receipt=MakeShared<FJsonObject>();Receipt->SetStringField(TEXT("bone"),TEXT("head"));Receipt->SetStringField(TEXT("method"),TEXT("A1 actual surface medial spheres"));Receipt->SetNumberField(TEXT("sphere_count"),Setup->AggGeom.SphereElems.Num());Receipt->SetStringField(TEXT("surface_sha256"),(*HeadCollision)->GetStringField(TEXT("surface_sha256")));ColliderReport.Add(MakeShared<FJsonValueObject>(Receipt));Setup->InvalidatePhysicsData();continue;
+            }
             TArray<FVector> Points;for(const auto& Group:Curves)for(const auto& Curve:Group)for(const auto& P:Curve.P)Points.Add(Pose[Bone].InverseTransformPosition(HeadFrame.TransformPosition(P)));
             auto Fit=[&](const FVector& A,const FVector& B,float Radius){float Safe=Radius;for(const auto& P:Points)Safe=FMath::Min(Safe,float(FMath::PointDistToSegment(P,A,B))-.17f);return FMath::Max(.01f,Safe);};
             auto Record=[&](float Before,float After){auto R=MakeShared<FJsonObject>();R->SetStringField(TEXT("bone"),Setup->BoneName.ToString());R->SetNumberField(TEXT("before_radius_cm"),Before);R->SetNumberField(TEXT("after_radius_cm"),After);ColliderReport.Add(MakeShared<FJsonValueObject>(R));};
@@ -166,7 +181,7 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
             const float RepresentedFibers=RenderCopies*SourceLength/FMath::Max(GuideLength,1.e-6);
             Physics.StrandsParameters.StrandsSize=Fine?EGroomStrandsSize::Size32:EGroomStrandsSize::Size16;Physics.StrandsParameters.StrandsDensity=1.3;Physics.StrandsParameters.StrandsThickness=.008f*FMath::Sqrt(RepresentedFibers);Physics.StrandsParameters.StrandsSmoothing=0;
             Physics.ExternalForces.GravityVector=FVector(0,0,-981);Physics.ExternalForces.AirDrag=Compact?.3f:.15f;
-            auto& Bend=Physics.MaterialConstraints.BendConstraint;Bend.SolveBend=true;Bend.ProjectBend=true;Bend.BendDamping=.2;Bend.BendStiffness=(Compact?2000.f:(Supported?100.f:5.f))/RepresentedFibers;
+            auto& Bend=Physics.MaterialConstraints.BendConstraint;Bend.SolveBend=true;Bend.ProjectBend=true;Bend.BendDamping=.2;Bend.BendStiffness=(Compact?2000.f:(Supported?100.f:.2f))/RepresentedFibers;
             // Effective bundle area preserves total mass when guide count changes. EI scales
             // with fiber count, not its square: compensate r^4 with the reciprocal count.
             auto* Scale=Bend.BendScale.GetRichCurve();Scale->Reset();for(int32 K=0;K<8;++K){float Rig=0;for(const auto& X:C)Rig+=X.RigidityProfile.IsEmpty()?X.Rigidity:X.RigidityProfile[K*(X.RigidityProfile.Num()-1)/7];Rig/=C.Num();Scale->AddKey(K/7.f,FMath::Lerp(Compact?.8f:(Supported?.6f:.25f),1.f,FMath::Clamp(Rig,0.f,1.f)));}
