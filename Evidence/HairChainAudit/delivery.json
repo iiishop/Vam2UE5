@@ -1,0 +1,160 @@
+{
+  "diagnosis": "COMPLETE",
+  "candidate_acceptance": "PARTIAL: rendered motion improved; facial contact residuals remain",
+  "code_commit": "e3d6f0f",
+  "code_push": "succeeded",
+  "default_character_replaced": false,
+  "main_project_dll_replaced": false,
+  "host_ue_compile": "Succeeded",
+  "existing_hair_tests": 19,
+  "asset_identity": "88938ac455bbaee841b3dd83dbdff2f98d1e545d3f1556a1ac6793154479f42d",
+  "independent_editor_reload": true,
+  "normal_blueprint": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter",
+  "captures": {
+    "baseline-valid": {
+      "frames": 720,
+      "world": "Game",
+      "actor": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C",
+      "command": [
+        "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+        "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject",
+        "/Engine/Maps/Entry",
+        "-game",
+        "-RenderOffscreen",
+        "-unattended",
+        "-nosplash",
+        "-dx12",
+        "-windowed",
+        "-ResX=1280",
+        "-ResY=720",
+        "-ExecCmds=vam.HairCapture I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairChainAudit/baseline-valid /Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairRuntime/qimeng-take-1/fine/locomotion.json fine orbit body-audit",
+        "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairChainAudit\\baseline-valid\\runtime.log"
+      ],
+      "process": {
+        "exit_code": 0
+      }
+    },
+    "soft-loose": {
+      "frames": 720,
+      "world": "Game",
+      "actor": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C",
+      "command": [
+        "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+        "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject",
+        "/Engine/Maps/Entry",
+        "-game",
+        "-RenderOffscreen",
+        "-unattended",
+        "-nosplash",
+        "-dx12",
+        "-windowed",
+        "-ResX=1280",
+        "-ResY=720",
+        "-ExecCmds=vam.HairCapture I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairChainAudit/soft-loose /Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairRuntime/qimeng-take-1/fine/locomotion.json fine orbit soft-loose",
+        "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairChainAudit\\soft-loose\\runtime.log"
+      ],
+      "process": {
+        "exit_code": 0
+      }
+    },
+    "budget-fine": {
+      "frames": 720,
+      "world": "Game",
+      "actor": "/Game/VamHairRuntime/H_7864f79df3ce96a3d6391a3f/BP_VamCharacter.BP_VamCharacter_C",
+      "command": [
+        "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+        "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject",
+        "/Engine/Maps/Entry",
+        "-game",
+        "-RenderOffscreen",
+        "-unattended",
+        "-nosplash",
+        "-dx12",
+        "-windowed",
+        "-ResX=1280",
+        "-ResY=720",
+        "-ExecCmds=vam.HairCapture I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairChainAudit/budget-fine /Game/VamHairRuntime/H_7864f79df3ce96a3d6391a3f/BP_VamCharacter.BP_VamCharacter_C I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairRuntime/qimeng-take-1/fine/locomotion.json fine orbit",
+        "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairChainAudit\\budget-fine\\runtime.log"
+      ],
+      "process": {
+        "exit_code": 0
+      }
+    },
+    "contact-fine": {
+      "frames": 720,
+      "world": "Game",
+      "actor": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter_C",
+      "command": [
+        "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+        "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject",
+        "/Engine/Maps/Entry",
+        "-game",
+        "-RenderOffscreen",
+        "-unattended",
+        "-nosplash",
+        "-dx12",
+        "-windowed",
+        "-ResX=1280",
+        "-ResY=720",
+        "-ExecCmds=vam.HairCapture I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairChainAudit/contact-fine /Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter_C I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairRuntime/qimeng-take-1/fine/locomotion.json fine orbit",
+        "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairChainAudit\\contact-fine\\runtime.log"
+      ],
+      "process": {
+        "exit_code": 0
+      }
+    },
+    "contact-coarse": {
+      "frames": 720,
+      "world": "Game",
+      "actor": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter_C",
+      "command": [
+        "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+        "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject",
+        "/Engine/Maps/Entry",
+        "-game",
+        "-RenderOffscreen",
+        "-unattended",
+        "-nosplash",
+        "-dx12",
+        "-windowed",
+        "-ResX=1280",
+        "-ResY=720",
+        "-ExecCmds=vam.HairCapture I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairChainAudit/contact-coarse /Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter_C I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairRuntime/qimeng-take-1/fine/locomotion.json coarse orbit",
+        "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairChainAudit\\contact-coarse\\runtime.log"
+      ],
+      "process": {
+        "exit_code": 0
+      }
+    },
+    "contact-pie": {
+      "frames": 720,
+      "world": "PIE",
+      "actor": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter_C",
+      "command": [
+        "I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe",
+        "I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject",
+        "/Engine/Maps/Entry",
+        "-RenderOffscreen",
+        "-unattended",
+        "-nosplash",
+        "-dx12",
+        "-windowed",
+        "-ResX=1280",
+        "-ResY=720",
+        "-ExecCmds=vam.HairPIECapture I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairChainAudit/contact-pie /Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter_C I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairRuntime/qimeng-take-1/fine/locomotion.json fine orbit",
+        "-abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairChainAudit\\contact-pie\\runtime.log"
+      ],
+      "process": {
+        "exit_code": 4294967295
+      },
+      "cleanup": {
+        "world": "PIE",
+        "frames": 720,
+        "pid": 389396,
+        "reason": "Capture completed; quit ended PIE but left owned editor running"
+      }
+    }
+  },
+  "sampling": "Guide and active rendered strand GPU readback once per second; video 720 frames at 30 fps; fixed 60 Hz simulation; not a performance benchmark",
+  "surface_distance": "A1 actual-weight CPU surface, head-local; approximate nearest 48 triangles, winding normalized by signed volume. Analytic sphere/capsule distance is recorded separately."
+}

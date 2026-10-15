@@ -1,0 +1,103 @@
+{
+  "local_links_valid": true,
+  "videos": {
+    "baseline-valid.mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 720,
+          "nb_frames": "720"
+        }
+      ],
+      "format": {
+        "duration": "24.000000"
+      }
+    },
+    "budget-fine.mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 720,
+          "nb_frames": "720"
+        }
+      ],
+      "format": {
+        "duration": "24.000000"
+      }
+    },
+    "comparison.mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 2560,
+          "height": 720,
+          "nb_frames": "720"
+        }
+      ],
+      "format": {
+        "duration": "24.000000"
+      }
+    },
+    "contact-coarse.mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 720,
+          "nb_frames": "720"
+        }
+      ],
+      "format": {
+        "duration": "24.000000"
+      }
+    },
+    "contact-fine.mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 720,
+          "nb_frames": "720"
+        }
+      ],
+      "format": {
+        "duration": "24.000000"
+      }
+    },
+    "contact-pie.mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 688,
+          "nb_frames": "720"
+        }
+      ],
+      "format": {
+        "duration": "24.000000"
+      }
+    },
+    "soft-loose.mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 720,
+          "nb_frames": "720"
+        }
+      ],
+      "format": {
+        "duration": "24.000000"
+      }
+    }
+  }
+}

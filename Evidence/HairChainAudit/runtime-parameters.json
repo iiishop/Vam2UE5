@@ -1,0 +1,284 @@
+{
+  "baseline-valid": {
+    "actor": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C",
+    "world": "Game",
+    "frames": 720,
+    "parameters": [
+      {
+        "group": 0,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.11200200766324997,
+        "bend_stiffness": 0.5101858377456665,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/NS_Style_supported_32.NS_Style_supported_32"
+      },
+      {
+        "group": 1,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04328342154622078,
+        "bend_stiffness": 0.17080745100975037,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/NS_Style_loose_32.NS_Style_loose_32"
+      },
+      {
+        "group": 2,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04329004883766174,
+        "bend_stiffness": 0.17075516283512115,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/NS_Style_loose_32.NS_Style_loose_32"
+      },
+      {
+        "group": 3,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.07254620641469955,
+        "bend_stiffness": 24.320951461791992,
+        "air_drag": 0.30000001192092896,
+        "solver": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/NS_Style_compact_32.NS_Style_compact_32"
+      }
+    ]
+  },
+  "soft-loose": {
+    "actor": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C",
+    "world": "Game",
+    "frames": 720,
+    "parameters": [
+      {
+        "group": 0,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.11200200766324997,
+        "bend_stiffness": 0.5101858377456665,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/NS_Style_supported_32.NS_Style_supported_32"
+      },
+      {
+        "group": 1,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04328342154622078,
+        "bend_stiffness": 0.0017080744728446007,
+        "air_drag": 0.15000000596046448,
+        "solver": ""
+      },
+      {
+        "group": 2,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04329004883766174,
+        "bend_stiffness": 0.001707551535218954,
+        "air_drag": 0.15000000596046448,
+        "solver": ""
+      },
+      {
+        "group": 3,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.07254620641469955,
+        "bend_stiffness": 24.320951461791992,
+        "air_drag": 0.30000001192092896,
+        "solver": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/NS_Style_compact_32.NS_Style_compact_32"
+      }
+    ]
+  },
+  "budget-fine": {
+    "actor": "/Game/VamHairRuntime/H_7864f79df3ce96a3d6391a3f/BP_VamCharacter.BP_VamCharacter_C",
+    "world": "Game",
+    "frames": 720,
+    "parameters": [
+      {
+        "group": 0,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.11200200766324997,
+        "bend_stiffness": 0.5101858377456665,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_7864f79df3ce96a3d6391a3f/NS_Style_supported_32.NS_Style_supported_32"
+      },
+      {
+        "group": 1,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04328342154622078,
+        "bend_stiffness": 0.006832297891378403,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_7864f79df3ce96a3d6391a3f/NS_Style_loose_32.NS_Style_loose_32"
+      },
+      {
+        "group": 2,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04329004883766174,
+        "bend_stiffness": 0.006830206606537104,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_7864f79df3ce96a3d6391a3f/NS_Style_loose_32.NS_Style_loose_32"
+      },
+      {
+        "group": 3,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.07254620641469955,
+        "bend_stiffness": 24.320951461791992,
+        "air_drag": 0.30000001192092896,
+        "solver": "/Game/VamHairRuntime/H_7864f79df3ce96a3d6391a3f/NS_Style_compact_32.NS_Style_compact_32"
+      }
+    ]
+  },
+  "contact-fine": {
+    "actor": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter_C",
+    "world": "Game",
+    "frames": 720,
+    "parameters": [
+      {
+        "group": 0,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.11200200766324997,
+        "bend_stiffness": 0.5101858377456665,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_supported_32.NS_Style_supported_32"
+      },
+      {
+        "group": 1,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04328342154622078,
+        "bend_stiffness": 0.006832297891378403,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_loose_32.NS_Style_loose_32"
+      },
+      {
+        "group": 2,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04329004883766174,
+        "bend_stiffness": 0.006830206606537104,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_loose_32.NS_Style_loose_32"
+      },
+      {
+        "group": 3,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.07254620641469955,
+        "bend_stiffness": 24.320951461791992,
+        "air_drag": 0.30000001192092896,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_compact_32.NS_Style_compact_32"
+      }
+    ]
+  },
+  "contact-coarse": {
+    "actor": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter_C",
+    "world": "Game",
+    "frames": 720,
+    "parameters": [
+      {
+        "group": 0,
+        "substeps": 3,
+        "iterations": 4,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.22315385937690735,
+        "bend_stiffness": 0.12852013111114502,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_supported_16.NS_Style_supported_16"
+      },
+      {
+        "group": 1,
+        "substeps": 3,
+        "iterations": 4,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.0592937245965004,
+        "bend_stiffness": 0.0036407646257430315,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_loose_16.NS_Style_loose_16"
+      },
+      {
+        "group": 2,
+        "substeps": 3,
+        "iterations": 4,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.06408293545246124,
+        "bend_stiffness": 0.003116917097941041,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_loose_16.NS_Style_loose_16"
+      },
+      {
+        "group": 3,
+        "substeps": 3,
+        "iterations": 4,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.1450774371623993,
+        "bend_stiffness": 6.081494331359863,
+        "air_drag": 0.30000001192092896,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_compact_16.NS_Style_compact_16"
+      }
+    ]
+  },
+  "contact-pie": {
+    "actor": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/BP_VamCharacter.BP_VamCharacter_C",
+    "world": "PIE",
+    "frames": 720,
+    "parameters": [
+      {
+        "group": 0,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.11200200766324997,
+        "bend_stiffness": 0.5101858377456665,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_supported_32.NS_Style_supported_32"
+      },
+      {
+        "group": 1,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04328342154622078,
+        "bend_stiffness": 0.006832297891378403,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_loose_32.NS_Style_loose_32"
+      },
+      {
+        "group": 2,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.04329004883766174,
+        "bend_stiffness": 0.006830206606537104,
+        "air_drag": 0.15000000596046448,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_loose_32.NS_Style_loose_32"
+      },
+      {
+        "group": 3,
+        "substeps": 5,
+        "iterations": 8,
+        "density": 1.2999999523162842,
+        "thickness_cm": 0.07254620641469955,
+        "bend_stiffness": 24.320951461791992,
+        "air_drag": 0.30000001192092896,
+        "solver": "/Game/VamHairRuntime/H_88938ac455bbaee841b3dd83/NS_Style_compact_32.NS_Style_compact_32"
+      }
+    ]
+  }
+}
