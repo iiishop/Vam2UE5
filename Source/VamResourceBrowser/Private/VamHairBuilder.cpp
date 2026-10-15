@@ -100,7 +100,7 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
                 // the native DI's fixed primitive budget; never rely on GPU truncation.
                 for(const auto& V:(*HeadCollision)->GetArrayField(TEXT("spheres"))){if(Setup->AggGeom.SphereElems.Num()>=HeadBudget)break;auto O=V->AsObject();FKSphereElem S;S.Center=Vector(O->TryGetField(TEXT("center")));S.Radius=O->GetNumberField(TEXT("radius_cm"));if(!FMath::IsFinite(S.Radius)||S.Radius<=0||S.Center.ContainsNaN()){Error=TEXT("Invalid head surface proxy");return nullptr;}Setup->AggGeom.SphereElems.Add(S);}
                 if(Setup->AggGeom.SphereElems.IsEmpty()){Error=TEXT("Head surface proxy is empty");return nullptr;}
-                auto Receipt=MakeShared<FJsonObject>();Receipt->SetStringField(TEXT("bone"),TEXT("head"));Receipt->SetStringField(TEXT("method"),TEXT("A1 actual surface medial spheres"));Receipt->SetNumberField(TEXT("sphere_count"),Setup->AggGeom.SphereElems.Num());Receipt->SetStringField(TEXT("surface_sha256"),(*HeadCollision)->GetStringField(TEXT("surface_sha256")));ColliderReport.Add(MakeShared<FJsonValueObject>(Receipt));Setup->InvalidatePhysicsData();continue;
+                auto Receipt=MakeShared<FJsonObject>();Receipt->SetStringField(TEXT("bone"),TEXT("head"));Receipt->SetStringField(TEXT("method"),(*HeadCollision)->GetStringField(TEXT("version")));Receipt->SetNumberField(TEXT("sphere_count"),Setup->AggGeom.SphereElems.Num());Receipt->SetStringField(TEXT("surface_sha256"),(*HeadCollision)->GetStringField(TEXT("surface_sha256")));ColliderReport.Add(MakeShared<FJsonValueObject>(Receipt));Setup->InvalidatePhysicsData();continue;
             }
             TArray<FVector> Points;for(const auto& Group:Curves)for(const auto& Curve:Group)for(const auto& P:Curve.P)Points.Add(Pose[Bone].InverseTransformPosition(HeadFrame.TransformPosition(P)));
             auto Fit=[&](const FVector& A,const FVector& B,float Radius){float Safe=Radius;for(const auto& P:Points)Safe=FMath::Min(Safe,float(FMath::PointDistToSegment(P,A,B))-.17f);return FMath::Max(.01f,Safe);};
@@ -132,7 +132,7 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
             const auto* Policy=Groups[G]->AsObject()->Values.Find(TEXT("physics_policy"));
             const FString Class=Policy?(*Policy)->AsObject()->GetStringField(TEXT("kind")):TEXT("legacy");
             const bool Compact=Class==TEXT("compact"),Supported=Class==TEXT("supported");
-            auto Selected=Guides(C,Fine?128:32);for(int32 I:Selected)Add(C[I].P,G,true,.008);
+            auto Selected=Guides(C,Fine?128:(Class==TEXT("loose")?64:32));for(int32 I:Selected)Add(C[I].P,G,true,.008);
             // Preserve the source scalp triangle domain. Spatially close guide roots can
             // belong to opposing parts of an updo; nearest-curve mixing bridges those parts.
             const int32 RenderStart=NRender;TMap<int32,int32> SourceToCurve;
@@ -170,7 +170,7 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
                 for(int J=0;J<P.Num();++J)P[J]+=Offset*FMath::Sin(PI*J/(P.Num()-1));Add(P,G,false,.012f);
             }
             }
-            auto& IP=Groom->GetHairGroupsInterpolation()[G].InterpolationSettings;IP.GuideType=EGroomGuideType::Imported;IP.InterpolationQuality=EHairInterpolationQuality::High;IP.InterpolationDistance=EHairInterpolationWeight::Parametric;IP.bRandomizeGuide=false;
+            auto& IP=Groom->GetHairGroupsInterpolation()[G].InterpolationSettings;IP.GuideType=EGroomGuideType::Imported;IP.InterpolationQuality=EHairInterpolationQuality::High;IP.InterpolationDistance=EHairInterpolationWeight::Parametric;IP.bRandomizeGuide=false;IP.bUseUniqueGuide=false;
             auto& L=Groom->GetHairGroupsLOD()[G].LODs;L.SetNum(1);L[0].BindingType=EGroomBindingType::Rigid;L[0].Simulation=Anchor?EGroomOverrideType::Disable:EGroomOverrideType::Enable;
             auto& Physics=Groom->GetHairGroupsPhysics()[G];Physics.SolverSettings.EnableSimulation=!Anchor;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CosseratRods;if(Policy){auto* StyleSolver=BuildHairStyleSolver(AssetRoot,Class,Fine?32:16,Error);if(!StyleSolver)return nullptr;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CustomSolver;Physics.SolverSettings.CustomSystem=StyleSolver;}Physics.SolverSettings.SubSteps=Fine?5:3;Physics.SolverSettings.IterationCount=Fine?8:4;
             auto Length=[](const FCurve& X){double V=0;for(int I=1;I<X.P.Num();++I)V+=FVector::Distance(X.P[I-1],X.P[I]);return V;};
@@ -186,7 +186,7 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
             // with fiber count, not its square: compensate r^4 with the reciprocal count.
             auto* Scale=Bend.BendScale.GetRichCurve();Scale->Reset();for(int32 K=0;K<8;++K){float Rig=0;for(const auto& X:C)Rig+=X.RigidityProfile.IsEmpty()?X.Rigidity:X.RigidityProfile[K*(X.RigidityProfile.Num()-1)/7];Rig/=C.Num();Scale->AddKey(K/7.f,FMath::Lerp(Compact?.8f:(Supported?.6f:.25f),1.f,FMath::Clamp(Rig,0.f,1.f)));}
             auto& Stretch=Physics.MaterialConstraints.StretchConstraint;Stretch.SolveStretch=true;Stretch.ProjectStretch=true;Stretch.StretchStiffness=10;Stretch.StretchDamping=.1;
-            auto& Collision=Physics.MaterialConstraints.CollisionConstraint;Collision.SolveCollision=true;Collision.ProjectCollision=true;Collision.CollisionRadius=.12;Collision.StrandsViscosity=Fine?.1f:.05f;Collision.GridDimension=Fine?FIntVector(24):FIntVector(12);
+            auto& Collision=Physics.MaterialConstraints.CollisionConstraint;Collision.SolveCollision=true;Collision.ProjectCollision=true;Collision.CollisionRadius=(Compact||Supported)?.12f:(Fine?.8f:1.1f);Collision.StrandsViscosity=0.f;Collision.GridDimension=Fine?FIntVector(24):FIntVector(12);
             auto& Rendering=Groom->GetHairGroupsRendering()[G];Rendering.GeometrySettings.HairWidth=RenderWidth;Rendering.GeometrySettings.HairWidth_Override=true;Rendering.ShadowSettings.bUseHairRaytracingGeometry=false;Rendering.AdvancedSettings.bUseStableRasterization=true;Rendering.MaterialSlotName=FName(*FString::Printf(TEXT("Hair_%d"),G));
             FHairGroupsMaterial Slot;Slot.SlotName=Rendering.MaterialSlotName;Slot.Material=Mats[G];Groom->GetHairGroupsMaterials().Add(Slot);
             auto R=MakeShared<FJsonObject>();R->SetStringField(TEXT("name"),Groups[G]->AsObject()->GetStringField(TEXT("name")));R->SetStringField(TEXT("kind"),Kinds[G]);R->SetStringField(TEXT("constraint_class"),Class);R->SetNumberField(TEXT("guides"),Selected.Num());R->SetNumberField(TEXT("source_curves"),C.Num());R->SetBoolField(TEXT("simulation"),!Anchor);R->SetNumberField(TEXT("points_per_guide"),Fine?32:16);GroupReports.Add(MakeShared<FJsonValueObject>(R));
