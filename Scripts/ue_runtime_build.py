@@ -76,12 +76,21 @@ def inputs(recipe_path):
     base=load(recipe['base_animation'],u.AnimSequence) if recipe.get('base_animation') else None
     require(u.VamShapeAnimInstance.supports_base_animation(mesh,base),'Base animation must use exact skeleton and be an in-place non-additive clip')
     files=source_closure([definition,mapping,base])
+    # Hair is generated from the same retained source and body contract as this
+    # runtime. Content-addressed inputs survive the independent reload pass.
+    ir=json.loads(mapping.get_editor_property('source_ir_json'))
+    if any((r.get('data',{}).get('dynamic') or {}).get('hair') for r in ir['records']):
+        from vam_hair_prepare import prepare
+        hair=prepare(ir,contract)
+        hair_path=SCRIPTS.parent/'Saved/HairPrepared'/(hair['identity']+'.json')
+        if not hair_path.exists():write_json(hair_path,hair)
+        files['hair_source']=hair['identity']
     algorithms={}
     for base in ('Source/VamCharacterRuntime','Source/VamResourceBrowser','Source/VamContactGPU','Shaders'):
         for file in sorted((SCRIPTS.parent/base).rglob('*')):
             if file.is_file() and file.suffix in ('.h','.cpp','.cs','.usf','.ush'):
                 algorithms[str(file.relative_to(SCRIPTS.parent))]=hashlib.sha256(file.read_bytes()).hexdigest()
-    for name in ('vam_runtime_recipe.py','ue_runtime_build.py','ue_stage06_materials.py','vam_glute_corrective_source.py','vam_knee_source.py','vam_skin_runtime.py'):
+    for name in ('vam_runtime_recipe.py','ue_runtime_build.py','ue_stage06_materials.py','vam_glute_corrective_source.py','vam_knee_source.py','vam_skin_runtime.py','vam_hair_prepare.py','vam_hair_catalog.py','vam_hair_frames.py','vam_unity.py','vam_fit.py'):
         algorithms['Scripts/'+name]=hashlib.sha256((SCRIPTS/name).read_bytes()).hexdigest()
     identity=build_identity(recipe,family,files,algorithms,u.SystemLibrary.get_engine_version())
     return recipe,family,definition,contract,files,identity,algorithms
@@ -183,6 +192,12 @@ def build(recipe_path,report_path):
     for key,value in [('definition',definition),('breast_jiggle',jiggle),('glute_structure',glute),('glute_corrective',corrective),('glute_jiggle',glute_jiggle),('leg_jiggle',leg_jiggle),('rig',rig),('physics',physics),('physics_shape',physics_shape),('animation_class',animation.generated_class()),('materials',materials)]:config.set_editor_property(key,value)
     if base_animation:config.set_editor_property('base_animation',base_animation)
     config.set_editor_property('breast_contact',contact)
+    if 'hair_source' in source_files:
+        hair_input=SCRIPTS.parent/'Saved/HairPrepared'/(source_files['hair_source']+'.json')
+        hair,error=u.VamHairBuilder.build_hair(str(hair_input),root+'/Hair',mesh,identity)
+        require(hair is not None,'Hair generation rejected: '+str(error))
+        config.set_editor_property('hair',hair)
+        require(u.VamHairBuilder.bind_hairstyle(hair,config,hair.get_editor_property('hairstyle')),'Hairstyle composition binding failed')
     factory=u.BlueprintFactory();factory.set_editor_property('parent_class',u.VamCharacterActor)
     host=create('BP_VamCharacter',root,u.Blueprint,factory)
     defaults=u.get_default_object(host.generated_class());character=defaults.get_editor_property('character')
@@ -216,6 +231,10 @@ def reload_and_publish(recipe_path,report_path):
     require(report['identity']==identity,'Recipe/source/algorithm changed after save; do not commit stale output')
     config=load(report['configuration'],u.VamRuntimeConfiguration)
     require(config.get_editor_property('build_identity')==identity,'Runtime bundle identity mismatch')
+    if 'hair_source' in source_files:
+        hair=config.get_editor_property('hair')
+        require(hair and hair.get_editor_property('fine_groom') and hair.get_editor_property('coarse_groom'),'Hair quality asset missing after reload')
+        require(hair.get_editor_property('build_identity')==identity+'-hair','Hair generation identity mismatch')
     receipt=json.loads(config.get_editor_property('receipt_json'))
     require(receipt['identity']==identity and receipt['recipe']==recipe and receipt['family']==family,'Persisted runtime receipt mismatch')
     require(receipt['source_files']==source_files and receipt['algorithms']==algorithms,'Upstream native dependencies or algorithms changed during build')

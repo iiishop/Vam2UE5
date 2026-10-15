@@ -1,0 +1,35 @@
+{
+  "scope": "Native physics-off particles vs imported source-ID curves, aligned by actual head matrix; not final density-expanded render-strand validation",
+  "prepared_identity": "5ce784dc52f61e7f31da2157822a6af0a480ca10faf4da9543287d2f682a5ade",
+  "capture": "Saved\\HairRestoration\\source-rest-04\\runtime",
+  "resources": [
+    {
+      "resource": "ponybase1_2",
+      "rms_cm": 0.00010546648767548662,
+      "p95_cm": 0.0001778279123931125,
+      "max_cm": 0.000707000983913785,
+      "root_rms_cm": 7.799607340724986e-05
+    },
+    {
+      "resource": "lo_bangs11",
+      "rms_cm": 8.839642085588297e-05,
+      "p95_cm": 0.00013723469050426528,
+      "max_cm": 0.00030590694725064787,
+      "root_rms_cm": 7.744318438671225e-05
+    },
+    {
+      "resource": "lo_bangs12",
+      "rms_cm": 9.117792312196947e-05,
+      "p95_cm": 0.00014172652231148007,
+      "max_cm": 0.00039038422057566735,
+      "root_rms_cm": 7.732630828411994e-05
+    },
+    {
+      "resource": "pony_tail3",
+      "rms_cm": 9.383949740384872e-05,
+      "p95_cm": 0.0001490902239598474,
+      "max_cm": 0.00036745735218681505,
+      "root_rms_cm": 7.731266692665967e-05
+    }
+  ]
+}

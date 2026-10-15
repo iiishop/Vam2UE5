@@ -12,6 +12,7 @@
     "Win64"
   ],
   "Plugins": [
+    { "Name": "HairStrands", "Enabled": true },
     {
       "Name": "TetMeshing",
       "Enabled": true,

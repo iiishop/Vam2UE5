@@ -33,6 +33,9 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UPhysicsAsset> Physics;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamPhysicsShapeProfile> PhysicsShape;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM") TSoftObjectPtr<class UVamMaterialProfile> Materials;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Hair") TSoftObjectPtr<class UVamHairstyle> Hairstyle;
+    /** Derived body-fit cache; source resources are referenced by Hairstyle. */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Hair|Derived") TSoftObjectPtr<class UVamHairProfile> Hair;
 #if WITH_EDITORONLY_DATA
     UPROPERTY(VisibleAnywhere, Category="Build") FString ReceiptJson;
 #endif

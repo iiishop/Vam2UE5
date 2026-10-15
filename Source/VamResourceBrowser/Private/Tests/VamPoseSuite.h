@@ -12,6 +12,7 @@
 
 #include "VamUnsafeMorphDiagnostic.h"
 #include "VamLocomotionCapture.h"
+#include "VamHairComponent.h"
 
 // Explicit opt-in acceptance capture. Never runs during ordinary character play.
 static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,UWorld* World,USceneCaptureComponent2D* Capture,const FString& Directory,TFunctionRef<void()> Tick)
@@ -28,7 +29,7 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
  const int Head=Ref.FindBoneIndex(Rig->BoneForSemantic(TEXT("head")));FVector Feet=FVector::ZeroVector,Pelvis=FVector::ZeroVector;int Sides=0;
  for(const auto& S:Body->LegRest)if(!S.bCalf){Feet+=Neutral[S.Foot].GetLocation();Pelvis+=Neutral[S.Thigh].GetLocation();++Sides;}if(!Sides||Head<0)return false;Feet/=Sides;Pelvis/=Sides;
  const FVector Up=(Neutral[Head].GetLocation()-Feet).GetSafeNormal();FVector Front=Neutral[Body->RestSides[0].AnchorBone].GetUnitAxis(EAxis::X);Front=(Front-Up*FVector::DotProduct(Front,Up)).GetSafeNormal();const FVector Right=FVector::CrossProduct(Up,Front).GetSafeNormal();
- const FVector ViewCenter=Pelvis-Up*25;const FTransform Initial=Actor->GetActorTransform();
+ const bool HairView=FParse::Param(FCommandLine::Get(),TEXT("VamHairView"));const FVector ViewCenter=HairView?Neutral[Head].GetLocation()+Up*5:Pelvis-Up*25;const FTransform Initial=Actor->GetActorTransform();
  TArray<UMaterialInterface*> OriginalMaterials;for(int I=0;I<Body->GetNumMaterials();++I)OriginalMaterials.Add(Body->GetMaterial(I));
  Body->SkinCacheUsage.Init(ESkinCacheUsage::Enabled,Body->GetSkeletalMeshAsset()->GetLODNum());Body->MarkRenderStateDirty();World->SendAllEndOfFrameUpdates();FlushRenderingCommands();
  auto MakeMaterial=[&](bool Silhouette,FLinearColor DebugColor=FLinearColor::White){auto* M=NewObject<UMaterial>(GetTransientPackage());M->SetShadingModel(Silhouette?MSM_Unlit:MSM_DefaultLit);auto* C=NewObject<UMaterialExpressionConstant3Vector>(M);C->Constant=Silhouette?DebugColor:FLinearColor(.45,.45,.45);M->GetExpressionCollection().AddExpression(C);if(Silhouette)M->GetEditorOnlyData()->EmissiveColor.Expression=C;else{M->GetEditorOnlyData()->BaseColor.Expression=C;M->GetEditorOnlyData()->Roughness.UseConstant=true;M->GetEditorOnlyData()->Roughness.Constant=.8;}M->SetUsageByFlag(MATUSAGE_SkeletalMesh,true);M->SetUsageByFlag(MATUSAGE_MorphTargets,true);M->SetUsageByFlag(MATUSAGE_MeshDeformer,true);M->SetFeatureLevelToCompile(World->GetFeatureLevel(),true);M->PostEditChange();M->ForceRecompileForRendering();return M;};
@@ -41,6 +42,7 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
  const auto Flags=Capture->ShowFlags;TArray<TSharedPtr<FJsonValue>> Results;
  int CaseIndex=0;FString Only;FParse::Value(FCommandLine::Get(),TEXT("VamPoseCase="),Only);
  for(const auto& Value:Recipe->GetArrayField(TEXT("cases"))){const auto C=Value->AsObject();const FString Id=C->GetStringField(TEXT("id"));if(!Only.IsEmpty()&&Only!=Id)continue;
+  FString HairQuality;if(C->TryGetStringField(TEXT("hair_quality"),HairQuality)&&Actor->Hair)Actor->Hair->SetHairQuality(HairQuality==TEXT("coarse")?EVamHairQuality::Coarse:EVamHairQuality::Fine);
   bool Dynamic=false;C->TryGetBoolField(TEXT("jiggle"),Dynamic);Actor->BreastContact->SetContactEnabled(false);Actor->BodyContactResponse->bEnabled=false;Body->bJiggleEnabled=Body->bGluteJiggleEnabled=Body->bLegJiggleEnabled=Dynamic;
   C->TryGetBoolField(TEXT("breast_jiggle"),Body->bJiggleEnabled);C->TryGetBoolField(TEXT("glute_jiggle"),Body->bGluteJiggleEnabled);C->TryGetBoolField(TEXT("leg_jiggle"),Body->bLegJiggleEnabled);
   double Coherence=.75;C->TryGetNumberField(TEXT("glute_coherence"),Coherence);Body->GluteCoherence=FMath::Clamp(Coherence,0.,1.);
@@ -76,7 +78,7 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
   TInlineComponentArray<UActorComponent*> Components(Actor);TArray<bool> Enabled;for(auto* Comp:Components){Enabled.Add(Comp->IsComponentTickEnabled());Comp->SetComponentTickEnabled(false);}
   Actor->ExportDeformationAudit();FString Audit=Actor->DeformationAuditStatus;Audit.RemoveFromStart(TEXT("Capturing:"));Report->SetStringField(TEXT("audit_bundle"),Audit);for(int I=0;I<3;++I)Tick();
   TArray<TSharedPtr<FJsonValue>> Cameras;const FVector Directions[]={Right,-Front,Front,(Front+Right).GetSafeNormal()};const TCHAR* Names[]={TEXT("side"),TEXT("rear"),TEXT("front"),TEXT("oblique")};
-  for(int V=0;V<4;++V){const FTransform WorldFrame=Body->GetComponentTransform();const FVector Center=WorldFrame.TransformPosition(ViewCenter),Eye=WorldFrame.TransformPosition(ViewCenter+Directions[V]*230);Capture->FOVAngle=42;Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((Center-Eye).GetSafeNormal(),WorldFrame.TransformVectorNoScale(Up)).Rotator());const bool LightFromBelow=FParse::Param(FCommandLine::Get(),TEXT("VamPoseLightFromBelow"));Light->SetWorldRotation((Center-Eye+WorldFrame.TransformVectorNoScale(LightFromBelow?Up:-Up)*90).Rotation());Report->SetBoolField(TEXT("light_from_below"),LightFromBelow);
+  for(int V=0;V<4;++V){const FTransform WorldFrame=Body->GetComponentTransform();const FVector Center=WorldFrame.TransformPosition(ViewCenter),Eye=WorldFrame.TransformPosition(ViewCenter+Directions[V]*(HairView?100:230));Capture->FOVAngle=42;Capture->SetWorldLocationAndRotation(Eye,FRotationMatrix::MakeFromXZ((Center-Eye).GetSafeNormal(),WorldFrame.TransformVectorNoScale(Up)).Rotator());const bool LightFromBelow=FParse::Param(FCommandLine::Get(),TEXT("VamPoseLightFromBelow"));Light->SetWorldRotation((Center-Eye+WorldFrame.TransformVectorNoScale(LightFromBelow?Up:-Up)*90).Rotation());Report->SetBoolField(TEXT("light_from_below"),LightFromBelow);
    float LightYaw=0;FParse::Value(FCommandLine::Get(),TEXT("VamPoseLightYaw="),LightYaw);Light->AddWorldRotation(FRotator(0,LightYaw,0));Report->SetNumberField(TEXT("light_yaw_offset"),LightYaw);
    for(int I=0;I<OriginalMaterials.Num();++I)Body->SetMaterial(I,OriginalMaterials[I]);World->SendAllEndOfFrameUpdates();FlushRenderingCommands();
    if(FParse::Param(FCommandLine::Get(),TEXT("VamPoseStreaming")))

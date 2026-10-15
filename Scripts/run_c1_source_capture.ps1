@@ -21,7 +21,7 @@ if($game -ne 'F:\Virt A Mate' -or -not $out.StartsWith('I:\Document\UE5\SmartNPC
 }
 if(Test-Path -LiteralPath (Join-Path $out 'runtime')){throw 'Archive the previous runtime evidence before launching another capture'}
 $references=Get-ChildItem -LiteralPath (Join-Path $game 'VaM_Data\Managed') -Filter 'UnityEngine*.dll' | ForEach-Object { '/r:'+$_.FullName }
-& 'C:\Windows\Microsoft.NET\Framework64\v3.5\csc.exe' /nologo /target:library ('/out:'+$dll) ('/r:'+(Join-Path $game 'BepInEx\core\BepInEx.dll')) ('/r:'+(Join-Path $game 'VaM_Data\Managed\Assembly-CSharp.dll')) @references (Join-Path $PSScriptRoot 'VamC1Capture.cs')
+& 'C:\Windows\Microsoft.NET\Framework64\v3.5\csc.exe' /nologo /target:library ('/out:'+$dll) ('/r:'+(Join-Path $game 'BepInEx\core\BepInEx.dll')) ('/r:'+(Join-Path $game 'VaM_Data\Managed\Assembly-CSharp.dll')) @references (Join-Path $PSScriptRoot 'VamC1Capture.cs') (Join-Path $PSScriptRoot 'VamHairRestCapture.cs')
 if($LASTEXITCODE -ne 0){throw 'Diagnostic sampler compilation failed'}
 $inventory=Get-ChildItem -LiteralPath $plugins -File -Recurse | ForEach-Object {
  [PSCustomObject]@{Path=$_.FullName;SHA256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash}

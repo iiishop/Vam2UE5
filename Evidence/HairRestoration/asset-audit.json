@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "checks": [
+    "four distinct persisted source resources; character -> hairstyle -> resources",
+    "same source catalog reuses existing asset objects",
+    "single-resource composition accepted as data; old four-resource render cache rejected",
+    "composition order change invalidates cache",
+    "original composition restored and exact derived cache validates"
+  ],
+  "hairstyle": "/Game/VamHairLibrary/Styles/S_c54c789da579102e26e36223871d88fa701d0a3f219cdb4acdcdd0ed75ea7ec2/HS_Style.HS_Style",
+  "resources": [
+    "/Game/VamHairLibrary/Hair/H_f099580ff40e4ab3cca9f9be93e628637f29a8469e6fbb2eae123dbae16d2752/HA_Hair.HA_Hair",
+    "/Game/VamHairLibrary/Hair/H_00a4b1b38ced167fee48708c93927bbf3aa32303177a0e8a3e5db82fdab56b0a/HA_Hair.HA_Hair",
+    "/Game/VamHairLibrary/Hair/H_219b7d94702e7de4dcf3758d308d66fef87d70923384b61a944e855c97b12824/HA_Hair.HA_Hair",
+    "/Game/VamHairLibrary/Hair/H_df80ede7be72f13d9e85fb3e9db85313f02a62a492840ebf7d83084c6bf21a90/HA_Hair.HA_Hair"
+  ]
+}

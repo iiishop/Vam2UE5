@@ -80,7 +80,10 @@ def builtin_scalp(person, shared, name):
         store=next((o for o in store_bundle.env.objects if o.path_id==store_ref['m_PathID']),None)
         require(store is not None,'scalp_reference','Missing wrap store')
         raw=store_bundle.read(store,'DAZSkinWrapStore')
-        wrap={'name':name,'vertices':[[v[k] for k in fields]for v in raw['wrapVertices']]}
+        wrap={'name':name,'vertices':[[v[k] for k in fields]for v in raw['wrapVertices']],
+              'scalp_settings':{k:data[k] for k in ('surfaceOffset','additionalThicknessMultiplier',
+                  'smoothOuterLoops','laplacianSmoothPasses','laplacianSmoothBeta','springSmoothPasses',
+                  'moveToSurface','moveToSurfaceOffset') if k in data}}
         candidates.append((mesh,wrap))
     require(candidates,'scalp_missing',name)
     # CustomHair and CustomHairCreator duplicate the same scalp. Never resolve

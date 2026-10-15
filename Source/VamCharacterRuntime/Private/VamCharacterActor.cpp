@@ -8,6 +8,7 @@
 #include "VamPhysicsOutputComponent.h"
 #include "VamBreastContactComponent.h"
 #include "VamBodyContactResponseComponent.h"
+#include "VamHairComponent.h"
 AVamCharacterActor::AVamCharacterActor()
 {
     Character = CreateDefaultSubobject<UVamCharacterComponent>(TEXT("Character"));
@@ -20,6 +21,7 @@ AVamCharacterActor::AVamCharacterActor()
     PhysicsOutput = CreateDefaultSubobject<UVamPhysicsOutputComponent>(TEXT("PhysicsOutput"));
     BodyContactResponse = CreateDefaultSubobject<UVamBodyContactResponseComponent>(TEXT("BodyContactResponse"));
     BreastContact = CreateDefaultSubobject<UVamBreastContactComponent>(TEXT("BreastContact"));
+    Hair = CreateDefaultSubobject<UVamHairComponent>(TEXT("Hair"));
 }
 void AVamCharacterActor::LoadCharacter() { Character->LoadCharacter(); }
 
