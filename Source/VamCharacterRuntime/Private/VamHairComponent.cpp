@@ -49,6 +49,10 @@ void UVamHairComponent::TickComponent(float Dt,ELevelTick Type,FActorComponentTi
     Groom->SetGroomAsset(Asset);
     Groom->SimulationSettings.bOverrideSettings=!bSimulate;
     Groom->SimulationSettings.SolverSettings.bEnableSimulation=bSimulate;
+    // Native local-space drag only sees velocity relative to the simulation bone.
+    // World-space nodes include translation and rotation exactly once in air drag;
+    // native root binding still follows the animated head.
+    Groom->SimulationSettings.SimulationSetup.bLocalSimulation=false;
     Groom->SimulationSettings.SimulationSetup.LocalBone=P->AttachmentBone.ToString();
     Groom->SetPhysicsAsset(P->HairCollision.IsNull()?B->GetPhysicsAsset():P->HairCollision.LoadSynchronous());
     for(int32 I=0;I<P->Materials.Num();++I)Groom->SetMaterial(I,P->Materials[I].LoadSynchronous());

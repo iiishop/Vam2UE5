@@ -7,6 +7,7 @@ p.add_argument('--source',type=Path,help='Existing actual-bone locomotion record
 p.add_argument('--quality',choices=['fine','coarse','rest'],default='fine')
 p.add_argument('--benchmark',action='store_true');p.add_argument('--characters',type=int,default=1)
 p.add_argument('--pie',action='store_true');p.add_argument('--diagnostic',choices=['no-collision','no-gravity','both','springs','dense']);
+p.add_argument('--orbit',action='store_true');p.add_argument('--local-frame',action='store_true')
 p.add_argument('--preview',action='store_true');p.add_argument('--full-body',action='store_true')
 p.add_argument('--project',default='I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject')
 p.add_argument('--editor',default='I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe')
@@ -19,6 +20,8 @@ else:
     command=f'vam.HairCapture {out} {bp} {a.source.resolve().as_posix()} {a.quality}'
     if a.preview:command+=' preview'
     if a.full_body:command+=' full-body'
+    if a.orbit:command+=' orbit'
+    if a.local_frame:command+=' local-frame'
 if a.diagnostic:command+=' '+('no-collision no-gravity' if a.diagnostic=='both' else a.diagnostic)
 if a.pie:command=command.replace('vam.HairCapture','vam.HairPIECapture')
 if a.quality=='rest' and not a.benchmark:command='r.HairStrands.Simulation 0,'+command

@@ -10,14 +10,15 @@
 
 // Private copies keep the engine's solver assets untouched. The style constraint
 // participates in the solver state, before velocity reconstruction and writeback.
-static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& Kind, FString& Error)
+static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& Kind, int32 NodeCount, FString& Error)
 {
-    const FString SystemPath=Root/TEXT("NS_Style_")+Kind;
+    const FString Key=Kind+FString::Printf(TEXT("_%d"),NodeCount);
+    const FString SystemPath=Root/TEXT("NS_Style_")+Key;
     if(auto* Existing=FindObject<UNiagaraSystem>(nullptr,*(SystemPath+TEXT(".")+FPackageName::GetLongPackageAssetName(SystemPath))))return Existing;
     auto* Native=LoadObject<UNiagaraSystem>(nullptr,TEXT("/HairStrands/Emitters/StableRodsSystem.StableRodsSystem"));
     auto* Project=LoadObject<UNiagaraScript>(nullptr,TEXT("/HairStrands/Emitters/ProjectGroomState.ProjectGroomState"));
     if(!Native||!Project){Error=TEXT("Native Groom solver missing");return nullptr;}
-    const FString ScriptPath=Root/TEXT("ProjectStyle_")+Kind;
+    const FString ScriptPath=Root/TEXT("ProjectStyle_")+Key;
     auto* Copy=DuplicateObject<UNiagaraScript>(Project,CreatePackage(*ScriptPath),*FPackageName::GetLongPackageAssetName(ScriptPath));
     Copy->SetFlags(RF_Public|RF_Standalone);
     auto* Source=Cast<UNiagaraScriptSource>(Copy->GetLatestSource());auto* Graph=Source?Source->NodeGraph.Get():nullptr;
@@ -46,7 +47,7 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     AddGet(TEXT("Transient.TargetPosition"),TEXT("Rest"));AddGet(TEXT("Emitter.StepTime"),TEXT("Dt"));
     const float Frequency=Kind==TEXT("compact")?35.f:Kind==TEXT("supported")?45.f:3.f;
     const float Limit=Kind==TEXT("compact")?.25f:Kind==TEXT("supported")?.15f:10.f;
-    FindFProperty<FStrProperty>(H->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(H,FString::Printf(TEXT("Result = Current;\n#if GPU_SIMULATION\nfloat3 D = Current - Rest;\nfloat W = 6.283185307 * %.9f;\nfloat A = Dt*Dt*W*W;\nD /= 1.0+A;\nD *= min(1.0, %.9f / max(length(D), 1.e-6));\nResult = Rest+D;\nSharedNodePosition[GGroupThreadId.x]=Result;\nGroupMemoryBarrier();\n#endif\n"),Frequency,Limit));
+    FindFProperty<FStrProperty>(H->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(H,FString::Printf(TEXT("Result = Current;\n#if GPU_SIMULATION\nfloat3 D = Current - Rest;\nfloat U = saturate(((float(GGroupThreadId.x %% %d)-1.0)) / %d.0);\nfloat T = U*U*(3.0-2.0*U);\nfloat W = 6.283185307 * lerp(%.9f, %.9f, T);\nfloat A = Dt*Dt*W*W;\nD /= 1.0+A;\nD *= min(1.0, %.9f / max(length(D), 1.e-6));\nResult = Rest+D;\nSharedNodePosition[GGroupThreadId.x]=Result;\nGroupMemoryBarrier();\n#endif\n"),NodeCount,NodeCount-2,Frequency,Kind==TEXT("loose")?1.2f:Frequency,Limit));
     static_cast<UNiagaraScriptSourceBase*>(Source)->MarkNotSynchronized(TEXT("Style constraint"));
     if(!VamHairBuild::Save(Copy)){Error=TEXT("Style module save failed");return nullptr;}
     auto* System=DuplicateObject<UNiagaraSystem>(Native,CreatePackage(*SystemPath),*FPackageName::GetLongPackageAssetName(SystemPath));System->SetFlags(RF_Public|RF_Standalone);
@@ -60,7 +61,7 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
         TMap<UNiagaraScript*,UNiagaraScript*> Changes;
         for(UEdGraphNode* N:OS->NodeGraph->Nodes)if(auto* Call=Cast<UNiagaraNodeFunctionCall>(N);Call&&Call->FunctionScript){auto* New=Rewrite(Call->FunctionScript);if(New!=Call->FunctionScript)Changes.Add(Call->FunctionScript,New);}
         if(Changes.IsEmpty())return Original;
-        const FString P=Root/FString::Printf(TEXT("Style_%s_%08x_%s"),*Kind,GetTypeHash(Original->GetPathName()),*Original->GetName());
+        const FString P=Root/FString::Printf(TEXT("Style_%s_%08x_%s"),*Key,GetTypeHash(Original->GetPathName()),*Original->GetName());
         auto* New=DuplicateObject<UNiagaraScript>(Original,CreatePackage(*P),*FPackageName::GetLongPackageAssetName(P));New->SetFlags(RF_Public|RF_Standalone);
         auto* NS=Cast<UNiagaraScriptSource>(New->GetLatestSource());
         for(UEdGraphNode* N:NS->NodeGraph->Nodes)if(auto* Call=Cast<UNiagaraNodeFunctionCall>(N);Call&&Changes.Contains(Call->FunctionScript)){Call->FunctionScript=Changes[Call->FunctionScript];Call->RefreshFromExternalChanges();}
@@ -77,6 +78,7 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     System->RequestCompile(true);System->WaitForCompilationComplete(true,false);
     if(!VamHairBuild::Save(System)){Error=TEXT("Style solver save failed");return nullptr;}return System;
 }
+
 
 
 
