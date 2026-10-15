@@ -17,7 +17,6 @@ for name in ['before','fine','coarse','pie']:
   rows.append(f'| {name} | {g} | {max(x["motion_rms_cm"] for x in r):.3f} | {max(x["rest_max_cm"] for x in r):.3f} |')
  if name=='pie':
   assert audit['world']=='PIE'
-  continue
  with (out/'encoding.log').open('a') as log:
   subprocess.run(['ffmpeg','-y','-framerate','30','-c:v','mjpeg','-i',str(take/'video/frame-%04d.png'),'-c:v','libx264','-preset','fast','-crf','19','-pix_fmt','yuv420p','-movflags','+faststart',str(out/(name+'.mp4'))],stdout=log,stderr=subprocess.STDOUT,check=True)
  for f in [0,180,375,540]:shutil.copy2(take/f'video/frame-{f:04d}.png',out/f'{name}-{f}.jpg')
@@ -58,12 +57,15 @@ lang: zh
 
 静态导入的发丝、宽度和资源组合沿用已还原版本，重新生成求解资产身份。精细 128 条/组、32 节点；粗略 32 条/组、16 节点；两档均有分组物理。
 
+编译及 19 项现有头发测试通过；独立 Editor 重载通过。主项目 PIE 完成 720 帧后仍驻留，由本任务关闭该进程，所以启动器的退出码非零；完成文件、读回与 cleanup.json 分别保留，不把清理退出码伪报为零。
+
 依然是保守球/胶囊碰撞，不是精确头皮或完整发丝自碰撞。世界空间求解需要另行验证远离世界原点和原点重置；当前录像不能证明任意发型都通过。
 
 [新资产清单](bundle.json) · [旧版读回](before-audit.json) · [新版精细读回](fine-audit.json) · [新版粗略读回](coarse-audit.json) · [PIE 读回](pie-audit.json)
 '''
 (out/'report.md').write_text(doc,encoding='utf8')
 renderer='C:/Users/Administrator/.codex/plugins/cache/created-by-me-remote/answer-me-with-html-chatgpt/1.0.0/skills/answer-me-with-html/scripts/render.py'
-subprocess.run([sys.executable,renderer,'render',str(out/'report.md'),'--output',str(out/'report.html'),'--no-open'],check=True)
-p=out/'report.html';s=p.read_text(encoding='utf8');media='<section style="max-width:1400px;margin:24px auto"><h2>左：旧版　右：新版精细</h2><video controls style="width:100%" src="comparison.mp4"></video><h2>新版精细 · 环绕完整动作</h2><video controls style="width:100%" src="fine.mp4"></video><h2>正面跳跃 · 半速对比（左旧右新）</h2><video controls style="width:100%" src="jump-slow.mp4"></video><h2>新版粗略 · 环绕完整动作</h2><video controls style="width:100%" src="coarse.mp4"></video></section>';p.write_text(s.replace('</body>',media+'</body>'),encoding='utf8')
+subprocess.run([sys.executable,'-X','utf8',renderer,'render',str(out/'report.md'),'--output',str(out/'report.html'),'--no-open'],check=True)
+p=out/'report.html';s=p.read_text(encoding='utf8');media='<section style="max-width:1400px;margin:24px auto"><h2>左：旧版　右：新版精细</h2><video controls style="width:100%" src="comparison.mp4"></video><h2>新版精细 · 环绕完整动作</h2><video controls style="width:100%" src="fine.mp4"></video><h2>正面跳跃 · 半速对比（左旧右新）</h2><video controls style="width:100%" src="jump-slow.mp4"></video><h2>新版粗略 · 环绕完整动作</h2><video controls style="width:100%" src="coarse.mp4"></video><h2>主项目 PIE · 完整环绕验证</h2><video controls style="width:100%" src="pie.mp4"></video></section>';p.write_text(s.replace('</body>',media+'</body>'),encoding='utf8')
+
 

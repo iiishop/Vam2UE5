@@ -1,0 +1,44 @@
+{
+  "before.mp4": {
+    "width": 1280,
+    "height": 720,
+    "r_frame_rate": "30/1",
+    "duration": "24.000000",
+    "nb_frames": "720"
+  },
+  "coarse.mp4": {
+    "width": 1280,
+    "height": 720,
+    "r_frame_rate": "30/1",
+    "duration": "24.000000",
+    "nb_frames": "720"
+  },
+  "comparison.mp4": {
+    "width": 2560,
+    "height": 720,
+    "r_frame_rate": "30/1",
+    "duration": "24.000000",
+    "nb_frames": "720"
+  },
+  "fine.mp4": {
+    "width": 1280,
+    "height": 720,
+    "r_frame_rate": "30/1",
+    "duration": "24.000000",
+    "nb_frames": "720"
+  },
+  "jump-slow.mp4": {
+    "width": 2560,
+    "height": 720,
+    "r_frame_rate": "15/1",
+    "duration": "6.966667",
+    "nb_frames": "105"
+  },
+  "pie.mp4": {
+    "width": 1280,
+    "height": 688,
+    "r_frame_rate": "30/1",
+    "duration": "24.000000",
+    "nb_frames": "720"
+  }
+}

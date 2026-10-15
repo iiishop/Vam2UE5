@@ -1,0 +1,67 @@
+{
+  "code_commit": "a09eba6",
+  "implementation_hashes_match": {
+    "Scripts/vam_hair_prepare.py": true,
+    "Scripts/vam_hair_catalog.py": true,
+    "Scripts/vam_hair_frames.py": true,
+    "Scripts/prepare_hair_render_reference.py": true,
+    "Scripts/prepare_hair_physics.py": true,
+    "Scripts/vam_unity.py": true,
+    "Scripts/vam_fit.py": true,
+    "Scripts/ue_hair_build.py": true,
+    "Source/VamResourceBrowser/Private/VamHairBuilder.cpp": true,
+    "Source/VamResourceBrowser/Private/VamHairStyleSolver.h": true,
+    "Source/VamCharacterRuntime/Public/VamHairProfile.h": true,
+    "Source/VamResourceBrowser/Private/VamHairCatalogBuilder.cpp": true,
+    "Source/VamCharacterRuntime/Public/VamHairAsset.h": true,
+    "Source/VamCharacterRuntime/Private/VamHairAsset.cpp": true,
+    "Source/VamResourceBrowser/Public/VamHairBuilder.h": true,
+    "Source/VamCharacterRuntime/Private/VamHairComponent.cpp": true,
+    "Source/VamCharacterRuntime/Public/VamHairComponent.h": true
+  },
+  "independent_editor_reload": true,
+  "build": "Succeeded",
+  "captures": {
+    "before": {
+      "world": "Game",
+      "frames": 720,
+      "orbit": true,
+      "actor": "/Game/VamHairRuntime/H_b03f5e72719dcee9894ff7a4/BP_VamCharacter.BP_VamCharacter_C",
+      "local_frame_control": true,
+      "launcher": {
+        "exit_code": 0
+      }
+    },
+    "fine": {
+      "world": "Game",
+      "frames": 720,
+      "orbit": true,
+      "actor": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C",
+      "local_frame_control": false,
+      "launcher": {
+        "exit_code": 0
+      }
+    },
+    "coarse": {
+      "world": "Game",
+      "frames": 720,
+      "orbit": true,
+      "actor": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C",
+      "local_frame_control": false,
+      "launcher": {
+        "exit_code": 0
+      }
+    },
+    "pie": {
+      "world": "PIE",
+      "frames": 720,
+      "orbit": true,
+      "actor": "/Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C",
+      "local_frame_control": false,
+      "launcher": {
+        "exit_code": 4294967295
+      }
+    }
+  },
+  "pie_note": "720 frames and capture.json completed; owned editor was then stopped because quit left it running. Nonzero launcher exit is retained."
+}

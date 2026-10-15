@@ -1,0 +1,5 @@
+{
+  "pid": 392928,
+  "reason": "Capture finished with 720 frames; editor remained after PIE quit",
+  "command": "\"I:/Program/Epic Games/UE_5.8/Engine/Binaries/Win64/UnrealEditor-Cmd.exe\" I:/Document/UE5/SmartNPC/SmartNPC.uproject /Engine/Maps/Entry -RenderOffscreen -unattended -nosplash -dx12 -windowed -ResX=1280 -ResY=720 \"-ExecCmds=vam.HairPIECapture I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairAirflow/pie /Game/VamHairRuntime/H_cb8619b8af206bdd32a9872b/BP_VamCharacter.BP_VamCharacter_C I:/Document/UE5/SmartNPC/Plugins/VamResourceBrowser/Saved/HairRuntime/qimeng-take-1/fine/locomotion.json fine orbit\" -abslog=I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairAirflow\\pie\\runtime.log"
+}

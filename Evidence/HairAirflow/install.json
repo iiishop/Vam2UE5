@@ -1,0 +1,27 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "12DFB57E9C64FF65C78BC2ED487A42DFB525451DB7C82692F1E4B0E46ED641DF",
+    "Path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Binaries\\Win64\\UnrealEditor-VamCharacterRuntime.dll"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "A4A2A203430860FAD5B61AC62C9A455C5B8481EF9CB03D623701206151F0B109",
+    "Path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Binaries\\Win64\\UnrealEditor-VamCharacterRuntime.pdb"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "CABBFD156F83C7BE084435A4A312F5EF1BFC619A9F83094279A8CE6B329E5571",
+    "Path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Binaries\\Win64\\UnrealEditor-VamResourceBrowser.dll"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "5B46ABA4748EAC542F786C3450885C642FAE4423D5CB177806FEEA97A766E480",
+    "Path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Binaries\\Win64\\UnrealEditor-VamResourceBrowser.pdb"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "95CFF1F95B93F156BD38A0438132586F70BC292902228A235957510C25596FF6",
+    "Path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Binaries\\Win64\\UnrealEditor.modules"
+  }
+]
