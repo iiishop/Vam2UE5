@@ -72,7 +72,7 @@ def main(capture, prepared, contract, output):
         lengths=np.array([float(settings['Length'+str(i)]) for i in (1,2,3)])
         spread=float(settings['MaxSpread'])*100
         triangles=np.array(hair['indices'],int).reshape(-1,3)
-        curves=[]
+        curves=[]; bindings=[]
         for tri in triangles:
             assert tri.min()>=0 and tri.max()<count
             for line in range(density):
@@ -87,7 +87,9 @@ def main(capture, prepared, contract, output):
                 mixed=p0*w[0]+p1*w[1]+p2*w[2]
                 mixed+=((p0+p1+p2)/3-mixed)*np.array(interp)[ids,None]
                 curves.append(mixed.tolist())
+                bindings.append(dict(source_curves=tri.tolist(),weights=w.tolist(),length=length))
         group['render_curves']=curves
+        group['render_source_bindings']=bindings
         group['render_width_cm']=source_half_width_to_groom_diameter_cm(item['lod_settings']['FixedWidth'])
         summaries.append(dict(resource=name,render_curves=len(curves),native_samples_per_guide=detail,
                               source_triangles=len(triangles),physics=False,

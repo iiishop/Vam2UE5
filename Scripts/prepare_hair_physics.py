@@ -24,6 +24,7 @@ def main(source,contract,out):
     report=[]
     for g in data['groups']:
         item=next(x for x in manifest['hairs'] if Path(g['source_path']).stem==x['path'].split(':')[-1])
+        g['native_physics']=item['physics_settings']
         n=len(item['root_to_scalp']);detail=int(float(item['tess_factor'][1]))
         points=np.fromfile(capture/(item['prefix']+'-tess.f32'),dtype='<f4').reshape(-1,3)[:n*detail].reshape(n,detail,3)
         p=(np.concatenate([points,np.ones((*points.shape[:2],1))],-1)@np.linalg.inv(head).T)[...,:3]
@@ -32,8 +33,15 @@ def main(source,contract,out):
             assert c['anchor_index']==0,'Split anchor requires matching native sample intervals'
             c['points']=resample(p[c['source_curve']].tolist(),32)
         g['physics_policy']=classify(g['curves']);report.append(dict(source=g['source_path'],**g['physics_policy']))
+    from prepare_hair_constraints import bake_group, fit_visible_guides, ensure_render_bindings
+    assets={a['source_path']:a['source']['dynamic']['hair'] for a in data['catalog']['assets']}
+    for g in data['groups']:
+        item=next(x for x in manifest['hairs'] if Path(g['source_path']).stem==x['path'].split(':')[-1])
+        ensure_render_bindings(g,assets[g['source_path']],item,capture)
+        g['visible_guide_fit']=fit_visible_guides(g,assets[g['source_path']])
+        g['source_constraints']=bake_group(g,assets[g['source_path']])
     assert all(a['render_curves']==b['render_curves'] and a['render_width_cm']==b['render_width_cm'] for a,b in zip(data['groups'],original['groups']))
-    data['physics_policy']={'version':'native-rest-classification-1','render_unchanged':True,'groups':report}
+    data['physics_policy']={'version':'native-rest-source-constraints-2','render_unchanged':True,'groups':report}
     data.pop('identity');data['identity']=hashlib.sha256(json.dumps(data,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
     out.write_text(json.dumps(data,separators=(',',':')));print(json.dumps(report,indent=2))
 

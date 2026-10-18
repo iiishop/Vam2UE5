@@ -7,11 +7,13 @@
 #include "NiagaraGraph.h"
 #include "NiagaraNodeCustomHlsl.h"
 #include "NiagaraNodeWithDynamicPins.h"
+#include "Niagara/NiagaraDataInterfaceHairStrands.h"
+#include "VamHairSourceConstraints.h"
 
 // Tied/support curves may contain an intentionally buried attachment path.
 // A negative rest clearance is not a moving contact: repeatedly ejecting that
 // path fights its attachment and sends impulses down the exposed strand.
-static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported)
+static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported,float AnchorU=-1.f)
 {
     auto* Source=Cast<UNiagaraScriptSource>(Script->GetLatestSource());
     if(!Source||!Source->NodeGraph)return false;
@@ -32,7 +34,7 @@ static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported)
             auto* Parameters=Cast<UNiagaraNodeWithDynamicPins>(Previous->GetOwningNode());if(!Parameters)return false;
             auto* Radius=Parameters->FindPin(TEXT("Emitter.CollisionRadius"),EGPD_Output);auto* RadiusInput=Clamp->FindPin(TEXT("Radius"),EGPD_Input);
             if(!Radius){Radius=Parameters->CreatePin(EGPD_Output,RadiusInput->PinType,TEXT("Emitter.CollisionRadius"));Radius->PersistentGuid=FGuid::NewGuid();}Radius->MakeLinkTo(RadiusInput);
-            FindFProperty<FStrProperty>(Clamp->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(Clamp,TEXT("Result=max(Radius,Clearance);"));++Count;continue;
+            FindFProperty<FStrProperty>(Clamp->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(Clamp,TEXT("Result=max(Radius,Clearance);"));++Count;if(AnchorU<0)continue;
         }
         auto* Enable=Call->FindPin(TEXT("Enable Constraint"),EGPD_Input);
         if(!Enable||Enable->LinkedTo.Num()!=1)return false;
@@ -45,7 +47,7 @@ static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported)
         auto* In=Gate->FindPin(TEXT("RestDistance"),EGPD_Input);auto* Rest=Get->FindPin(TEXT("Particles.RestDistance"),EGPD_Output);
         if(!Rest){Rest=Get->CreatePin(EGPD_Output,In->PinType,TEXT("Particles.RestDistance"));Rest->PersistentGuid=FGuid::NewGuid();}
         Rest->MakeLinkTo(In);
-        FindFProperty<FStrProperty>(Gate->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(Gate,TEXT("Result=Enabled && RestDistance>=0.0;"));++Count;
+        FindFProperty<FStrProperty>(Gate->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(Gate,Supported?TEXT("Result=Enabled && RestDistance>=0.0;"):FString::Printf(TEXT("Result=Enabled;\n#if GPU_SIMULATION\nResult=Enabled && (RestDistance>=0.0 || max(0.0,float(GGroupThreadId.x %% 32)-1.0)/30.0>%.9f);\n#endif\n"),AnchorU));++Count;
     }
     static_cast<UNiagaraScriptSourceBase*>(Source)->MarkNotSynchronized(TEXT("Buried support contact classification"));
     return Count>0;
@@ -54,9 +56,11 @@ static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported)
 // Private copies keep the engine's solver assets untouched. The style constraint
 // participates after rod projection. Loose strands retain final collision priority;
 // tied bundles also enforce their bounded attachment volume at final output.
-static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& Kind, int32 NodeCount, FString& Error)
+static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& Kind, int32 NodeCount, int32 Iterations, int32 GroupIndex, const TSharedPtr<FJsonObject>& SourceConstraints, FString& Error)
 {
-    const FString Key=Kind+FString::Printf(TEXT("_%d"),NodeCount);
+    float AnchorU=-1.f;
+    if(SourceConstraints&&SourceConstraints->HasTypedField<EJson::Object>(TEXT("automatic_bundle_anchor")))AnchorU=SourceConstraints->GetObjectField(TEXT("automatic_bundle_anchor"))->GetNumberField(TEXT("curve_coordinate"));
+    const FString Key=Kind+FString::Printf(TEXT("_%d_G%d"),NodeCount,GroupIndex);
     const FString SystemPath=Root/TEXT("NS_Style_")+Key;
     if(auto* Existing=FindObject<UNiagaraSystem>(nullptr,*(SystemPath+TEXT(".")+FPackageName::GetLongPackageAssetName(SystemPath))))return Existing;
     auto* Native=LoadObject<UNiagaraSystem>(nullptr,TEXT("/HairStrands/Emitters/StableRodsSystem.StableRodsSystem"));
@@ -105,6 +109,7 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     Position=CurrentNode->FindPin(TEXT("Result"),EGPD_Output);Destination=ContactInput;
     auto* H=NewObject<UNiagaraNodeCustomHlsl>(Graph);Graph->AddNode(H,false,false);H->CreateNewGuid();
     H->Signature.Inputs={FNiagaraVariable(FNiagaraTypeDefinition::GetVec3Def(),TEXT("Current")),FNiagaraVariable(FNiagaraTypeDefinition::GetVec3Def(),TEXT("Rest")),FNiagaraVariable(FNiagaraTypeDefinition::GetFloatDef(),TEXT("Dt"))};
+    if(SourceConstraints)H->Signature.Inputs.Add(FNiagaraVariable(FNiagaraTypeDefinition(UNiagaraDataInterfaceHairStrands::StaticClass()),TEXT("Hair")));
     H->Signature.Outputs={FNiagaraVariable(FNiagaraTypeDefinition::GetVec3Def(),TEXT("Result"))};
     H->AllocateDefaultPins();
     Position->BreakLinkTo(Destination);Position->MakeLinkTo(H->FindPin(TEXT("Current"),EGPD_Input));H->FindPin(TEXT("Result"),EGPD_Output)->MakeLinkTo(Destination);
@@ -116,6 +121,15 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     const float Frequency=Kind==TEXT("compact")?35.f:Kind==TEXT("supported")?45.f:3.f;
     const float Limit=Kind==TEXT("compact")?.25f:Kind==TEXT("supported")?.15f:10.f;
     FindFProperty<FStrProperty>(H->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(H,FString::Printf(TEXT("Result = Current;\n#if GPU_SIMULATION\nfloat3 D = Current - Rest;\nfloat U = saturate(((float(GGroupThreadId.x %% %d)-1.0)) / %d.0);\nfloat T = U*U*(3.0-2.0*U);\nfloat W = 6.283185307 * lerp(%.9f, %.9f, T);\nfloat A = Dt*Dt*W*W;\nD /= 1.0+A;\nD *= min(1.0, %.9f / max(length(D), 1.e-6));\nResult = Rest+D;\nSharedNodePosition[GGroupThreadId.x]=Result;\nGroupMemoryBarrier();\n#endif\n"),NodeCount,NodeCount-2,Frequency,Kind==TEXT("loose")?1.2f:Frequency,Limit));
+    if(SourceConstraints)
+    {
+        AddGet(TEXT("Emitter.HairStrands"),TEXT("Hair"));
+        FString Body=HairSourceConstraintHlsl(SourceConstraints,Iterations,Error);if(!Error.IsEmpty())return nullptr;
+        // Source support augments, rather than removes, the established rest-shape
+        // regularizer. Free tips remain mobile; final body projection follows this.
+        Body+=FString::Printf(TEXT("\nfloat U=saturate((float(GGroupThreadId.x %% %d)-1.0)/%d.0);float T=U*U*(3-2*U);float W=6.283185307*lerp(%.9f,%.9f,T);float3 D=(Result-Rest)/(1+Dt*Dt*W*W);Result=Rest+D*min(1.0,%.9f/max(length(D),1.e-6));\n"),NodeCount,NodeCount-2,Frequency,Kind==TEXT("loose")?1.2f:Frequency,Limit);
+        FindFProperty<FStrProperty>(H->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(H,TEXT("Result=Current;\n#if GPU_SIMULATION\n")+Body+TEXT("\nSharedNodePosition[GGroupThreadId.x]=Result;\nGroupMemoryBarrier();\n#endif\n"));
+    }
     if(Kind!=TEXT("loose"))
     {
         // Tied bundles have a bounded attachment volume. Enforce the bound on
@@ -141,7 +155,7 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
         if(!Solve){Error=TEXT("Native solve module missing");return nullptr;}
         const FString SolvePath=Root/TEXT("SolveSupport_")+Key;
         auto* SolveCopy=DuplicateObject<UNiagaraScript>(Solve,CreatePackage(*SolvePath),*FPackageName::GetLongPackageAssetName(SolvePath));SolveCopy->SetFlags(RF_Public|RF_Standalone);
-        if(!ConfigureHairContact(Copy,Kind!=TEXT("loose"))||!ConfigureHairContact(SolveCopy,Kind!=TEXT("loose"))){Error=TEXT("Support contact gating contract changed");return nullptr;}
+        if(!ConfigureHairContact(Copy,Kind!=TEXT("loose"),AnchorU)||!ConfigureHairContact(SolveCopy,Kind!=TEXT("loose"),AnchorU)){Error=TEXT("Support contact gating contract changed");return nullptr;}
         if(!VamHairBuild::Save(Copy)||!VamHairBuild::Save(SolveCopy)){Error=TEXT("Support module save failed");return nullptr;}
         Redirect.Add(Solve,SolveCopy);
     }
@@ -168,9 +182,6 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     }
     if(!Replaced){Error=TEXT("Style solver did not replace a project stage");return nullptr;}
     System->RequestCompile(true);System->WaitForCompilationComplete(true,false);
+    if(!System->IsValid()){Error=TEXT("Generated source constraint Niagara system failed compilation");return nullptr;}
     if(!VamHairBuild::Save(System)){Error=TEXT("Style solver save failed");return nullptr;}return System;
 }
-
-
-
-
