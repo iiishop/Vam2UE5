@@ -233,7 +233,7 @@ def reload_and_publish(recipe_path,report_path):
     require(config.get_editor_property('build_identity')==identity,'Runtime bundle identity mismatch')
     if 'hair_source' in source_files:
         hair=config.get_editor_property('hair')
-        require(hair and hair.get_editor_property('fine_groom') and hair.get_editor_property('coarse_groom'),'Hair quality asset missing after reload')
+        require(hair and hair.get_editor_property('fine_groom'),'Fine hair asset missing after reload')
         require(hair.get_editor_property('build_identity')==identity+'-hair','Hair generation identity mismatch')
     receipt=json.loads(config.get_editor_property('receipt_json'))
     require(receipt['identity']==identity and receipt['recipe']==recipe and receipt['family']==family,'Persisted runtime receipt mismatch')

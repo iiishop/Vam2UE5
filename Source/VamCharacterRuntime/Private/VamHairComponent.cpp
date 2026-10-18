@@ -17,13 +17,14 @@ UVamHairComponent::UVamHairComponent()
 void UVamHairComponent::ReleaseGroom(){if(Groom)Groom->DestroyComponent();Groom=nullptr;BoundBody.Reset();AppliedProfile=nullptr;}
 void UVamHairComponent::EndPlay(const EEndPlayReason::Type Reason){ReleaseGroom();Super::EndPlay(Reason);}
 void UVamHairComponent::SetHairProfile(UVamHairProfile* P){Profile=P;ReleaseGroom();}
-void UVamHairComponent::SetHairQuality(EVamHairQuality Q){Quality=Q;}
+void UVamHairComponent::SetHairQuality(EVamHairQuality Q){Quality=EVamHairQuality::Fine;}
 void UVamHairComponent::ResetHairSimulation(){if(Groom)Groom->ResetSimulation();}
 void UVamHairComponent::SetHairEnabled(bool InEnabled){bEnabled=InEnabled;if(!bEnabled)ReleaseGroom();}
 void UVamHairComponent::SetHairSimulationEnabled(bool InEnabled){bSimulate=InEnabled;if(Groom){Groom->SimulationSettings.bOverrideSettings=!bSimulate;Groom->SimulationSettings.SolverSettings.bEnableSimulation=bSimulate;Groom->UpdateHairSimulation();Groom->ResetSimulation();}}
 void UVamHairComponent::TickComponent(float Dt,ELevelTick Type,FActorComponentTickFunction* Tick)
 {
     Super::TickComponent(Dt,Type,Tick);
+    Quality=EVamHairQuality::Fine; // Legacy serialized Coarse requests migrate to the maintained solver.
     if(!bEnabled){if(Groom)ReleaseGroom();Status=TEXT("Hair disabled");return;}
     auto* A=Cast<AVamCharacterActor>(GetOwner());auto* C=A?A->Character.Get():nullptr;
     auto* B=C?C->Body.Get():nullptr;
@@ -41,7 +42,7 @@ void UVamHairComponent::TickComponent(float Dt,ELevelTick Type,FActorComponentTi
     if(Groom&&BoundBody==B&&AppliedProfile==P&&AppliedQuality==Quality)return;
     ReleaseGroom();
     const int32 Head=B->GetBoneIndex(P->AttachmentBone);
-    auto* Asset=(Quality==EVamHairQuality::Fine?P->FineGroom:P->CoarseGroom).LoadSynchronous();
+    auto* Asset=P->FineGroom.LoadSynchronous();
     if(Head==INDEX_NONE||!Asset){Status=TEXT("Hair rejected: attachment bone or quality asset missing");return;}
     Groom=NewObject<UGroomComponent>(GetOwner(),NAME_None,RF_Transient);
     Groom->SetupAttachment(B,P->AttachmentBone);
@@ -58,7 +59,7 @@ void UVamHairComponent::TickComponent(float Dt,ELevelTick Type,FActorComponentTi
     for(int32 I=0;I<P->Materials.Num();++I)Groom->SetMaterial(I,P->Materials[I].LoadSynchronous());
     Groom->RegisterComponent();Groom->AddTickPrerequisiteComponent(B);Groom->SetForcedLOD(0);
     Groom->ResetSimulation();BoundBody=B;AppliedProfile=P;AppliedQuality=Quality;
-    Status=FString::Printf(TEXT("UE Groom / physics %s / %s / %d groups / %s"),bSimulate?TEXT("on"):TEXT("off"),Quality==EVamHairQuality::Fine?TEXT("Fine"):TEXT("Coarse"),Asset->GetNumHairGroups(),*P->BuildIdentity);
+    Status=FString::Printf(TEXT("UE Groom / physics %s / %s / %d groups / %s"),bSimulate?TEXT("on"):TEXT("off"),TEXT("Fine"),Asset->GetNumHairGroups(),*P->BuildIdentity);
     UE_LOG(LogTemp,Display,TEXT("VAM_HAIR %s"),*Status);
 }
 

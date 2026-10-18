@@ -28,7 +28,7 @@ struct FProbe
  TArray<TWeakObjectPtr<AVamCharacterActor>> Actors;
  FString Directory,CSV=TEXT("phase,frame,frame_ms,niagara_components\n");
  int32 Phase=0,Frame=0;double Last=0,Start=0;
- void SetPhase(){for(auto P:Actors)if(auto* A=P.Get()){A->Hair->SetHairEnabled(Phase==1||Phase==2);A->Hair->SetHairQuality(Phase==1?EVamHairQuality::Fine:EVamHairQuality::Coarse);}}
+ void SetPhase(){for(auto P:Actors)if(auto* A=P.Get()){A->Hair->SetHairEnabled(Phase==1);A->Hair->SetHairQuality(EVamHairQuality::Fine);}}
  bool Tick(float)
  {
   auto* W=World.Get();if(!W)return false;const double Now=FPlatformTime::Seconds(),Ms=1000*(Now-Last);Last=Now;
@@ -39,15 +39,15 @@ struct FProbe
    B->bGluteJiggleEnabled=B->bLegJiggleEnabled=true;
    A->SetActorLocation(FVector(5*FMath::Sin((Now-Start)*2),I*65.,2*FMath::Sin((Now-Start)*8)));
    A->SetActorRotation(FRotator(0,15*FMath::Sin((Now-Start)*1.3),0));
-   if(Phase==1||Phase==2){if(!A->Hair->Groom)Ready=false;else Niagara+=A->Hair->Groom->NiagaraComponents.Num();}
+   if(Phase==1){if(!A->Hair->Groom)Ready=false;else Niagara+=A->Hair->Groom->NiagaraComponents.Num();}
   }
   if(!Ready||(GShaderCompilingManager&&GShaderCompilingManager->IsCompiling())){Frame=0;return true;}
-  const TCHAR* Label=Phase==0?TEXT("off_before"):Phase==1?TEXT("fine"):Phase==2?TEXT("coarse"):TEXT("off_after");
+  const TCHAR* Label=Phase==0?TEXT("off_before"):Phase==1?TEXT("fine"):TEXT("off_after");
   if(Frame==150)FScreenshotRequest::RequestScreenshot(Directory/FString(Label)+TEXT(".png"),false,false);
   if(Frame>=180)CSV+=FString::Printf(TEXT("%s,%d,%.6f,%d\n"),Label,Frame-180,Ms,Niagara);
   if(++Frame<480)return true;
   UE_LOG(LogTemp,Display,TEXT("VAM_HAIR_BENCHMARK finished %s"),Label);Frame=0;
-  if(++Phase==4){FFileHelper::SaveStringToFile(CSV,*(Directory/TEXT("frames.csv")));GEngine->Exec(W,TEXT("quit"));return false;}
+  if(++Phase==3){FFileHelper::SaveStringToFile(CSV,*(Directory/TEXT("frames.csv")));GEngine->Exec(W,TEXT("quit"));return false;}
   SetPhase();return true;
  }
 };

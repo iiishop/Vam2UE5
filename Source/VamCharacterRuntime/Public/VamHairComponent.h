@@ -11,7 +11,7 @@ class VAMCHARACTERRUNTIME_API UVamHairComponent : public UActorComponent
 public:
     UVamHairComponent();
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Hair") bool bEnabled=true;
-    /** Restoration is inspected without physics first. Coarse/Fine are independent of this switch. */
+    /** Restoration is inspected without physics first. Simulation is independent of the restored render asset. */
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Hair") bool bSimulate=false;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Hair") TSoftObjectPtr<UVamHairProfile> Profile;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="VaM|Hair") EVamHairQuality Quality=EVamHairQuality::Fine;

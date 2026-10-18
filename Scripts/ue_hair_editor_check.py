@@ -1,4 +1,4 @@
-"""Instantiate the ordinary BP in the actual Editor world and switch both tiers.
+"""Instantiate the ordinary BP in the actual Editor world and verify the maintained Fine solver.
 
 This checks editor attachment/lifecycle, not a substitute for GPU geometry audits
 or the game/PIE motion recordings.
@@ -17,7 +17,7 @@ actor = u.get_editor_subsystem(u.EditorActorSubsystem).spawn_actor_from_class(
     u.load_class(None, bundle['blueprint']+'_C'), u.Vector())
 actor.get_editor_property('character').load_character()
 hair = actor.get_editor_property('hair')
-qualities = [u.VamHairQuality.FINE, u.VamHairQuality.COARSE]
+qualities = [u.VamHairQuality.FINE]
 hair.set_hair_simulation_enabled(True)
 hair.set_hair_quality(qualities[0])
 started = changed = time.monotonic()
@@ -63,7 +63,7 @@ def tick(dt):
         if phase < len(qualities):
             hair.set_hair_quality(qualities[phase]); changed = now; return
         result = dict(status='passed', world='Editor', identity=bundle['identity'],
-                      scope='Normal BP Editor attachment, tier switching and Niagara asset binding; active simulation recorded separately', rows=rows)
+                      scope='Normal BP Editor attachment, Fine solver and Niagara asset binding; active simulation recorded separately', rows=rows)
     except Exception:
         result = dict(status='failed', rows=rows, error=traceback.format_exc())
     output.parent.mkdir(parents=True, exist_ok=True)

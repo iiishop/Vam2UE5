@@ -4,7 +4,7 @@ from pathlib import Path
 p=argparse.ArgumentParser()
 p.add_argument('bundle',type=Path);p.add_argument('out',type=Path)
 p.add_argument('--source',type=Path,help='Existing actual-bone locomotion recording')
-p.add_argument('--quality',choices=['fine','coarse','rest'],default='fine')
+p.add_argument('--quality',choices=['fine','rest'],default='fine')
 p.add_argument('--benchmark',action='store_true');p.add_argument('--characters',type=int,default=1)
 p.add_argument('--pie',action='store_true');p.add_argument('--diagnostic',choices=['no-collision','no-gravity','both','springs','dense','native-loose','soft-loose','no-viscosity']);
 p.add_argument('--temporal-audit',action='store_true')
