@@ -1,0 +1,4344 @@
+{
+  "scope": "Actual animated PhysicsAsset sphere/capsule union; GPU readback once/sec; root prefix excluded. Proxy penetration is not skin penetration.",
+  "common_reference_proxies": false,
+  "summary": {
+    "guide_head": {
+      "max_depth_cm": 2.779053241024778,
+      "max_count_over_02cm": 71
+    },
+    "guide_body": {
+      "max_depth_cm": 3.5831524961064787,
+      "max_count_over_02cm": 17
+    },
+    "render_head": {
+      "max_depth_cm": 2.709767076089851,
+      "max_count_over_02cm": 229
+    },
+    "render_body": {
+      "max_depth_cm": 5.029854249425979,
+      "max_count_over_02cm": 246
+    }
+  },
+  "rows": [
+    {
+      "time": 0,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 0,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 0,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 21,
+      "max_depth_cm": 0.5194359082977034,
+      "samples": 1991
+    },
+    {
+      "time": 0,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1991
+    },
+    {
+      "time": 0,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 0,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 0,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.04931336978394896,
+      "samples": 2546
+    },
+    {
+      "time": 0,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 0,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 4,
+      "max_depth_cm": 0.54140858501315,
+      "samples": 3712
+    },
+    {
+      "time": 0,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.8496321777213325,
+      "samples": 3712
+    },
+    {
+      "time": 0,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 96,
+      "max_depth_cm": 0.9868355202488743,
+      "samples": 1858
+    },
+    {
+      "time": 0,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 184,
+      "max_depth_cm": 4.183196613589592,
+      "samples": 1858
+    },
+    {
+      "time": 0,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 0,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 0,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.44510884797194983,
+      "samples": 2657
+    },
+    {
+      "time": 0,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2657
+    },
+    {
+      "time": 0,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 0,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 0,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8380544902041884,
+      "samples": 2546
+    },
+    {
+      "time": 0,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 1,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 1,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 1,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 21,
+      "max_depth_cm": 0.5194359082977034,
+      "samples": 1988
+    },
+    {
+      "time": 1,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1988
+    },
+    {
+      "time": 1,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 1,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 1,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.04931336978394896,
+      "samples": 2546
+    },
+    {
+      "time": 1,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 1,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 4,
+      "max_depth_cm": 0.54140858501315,
+      "samples": 3712
+    },
+    {
+      "time": 1,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.8496321777213325,
+      "samples": 3712
+    },
+    {
+      "time": 1,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 97,
+      "max_depth_cm": 0.9868355202488743,
+      "samples": 1853
+    },
+    {
+      "time": 1,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 181,
+      "max_depth_cm": 4.183196613589592,
+      "samples": 1853
+    },
+    {
+      "time": 1,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 1,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 1,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.4426332371811794,
+      "samples": 2647
+    },
+    {
+      "time": 1,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2647
+    },
+    {
+      "time": 1,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 1,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 1,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8380544902041884,
+      "samples": 2546
+    },
+    {
+      "time": 1,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 2,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 2,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 2,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 21,
+      "max_depth_cm": 0.5218150713250775,
+      "samples": 2001
+    },
+    {
+      "time": 2,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2001
+    },
+    {
+      "time": 2,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 2,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 2,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049926548431293405,
+      "samples": 2546
+    },
+    {
+      "time": 2,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 2,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 1.3536944816076288,
+      "samples": 3712
+    },
+    {
+      "time": 2,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.9959477311014577,
+      "samples": 3712
+    },
+    {
+      "time": 2,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 46,
+      "max_depth_cm": 1.369597105004937,
+      "samples": 1854
+    },
+    {
+      "time": 2,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 236,
+      "max_depth_cm": 4.5583408380743435,
+      "samples": 1854
+    },
+    {
+      "time": 2,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 2,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 2,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.46455983285980684,
+      "samples": 2667
+    },
+    {
+      "time": 2,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2667
+    },
+    {
+      "time": 2,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 2,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 2,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8384642060738283,
+      "samples": 2546
+    },
+    {
+      "time": 2,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 3,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 3,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 3,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 21,
+      "max_depth_cm": 0.5199243350653271,
+      "samples": 1998
+    },
+    {
+      "time": 3,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1998
+    },
+    {
+      "time": 3,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 3,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 3,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.05247773312919435,
+      "samples": 2546
+    },
+    {
+      "time": 3,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 3,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 33,
+      "max_depth_cm": 1.498088547118667,
+      "samples": 3712
+    },
+    {
+      "time": 3,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.7965585515022973,
+      "samples": 3712
+    },
+    {
+      "time": 3,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 115,
+      "max_depth_cm": 1.8140731581198257,
+      "samples": 1863
+    },
+    {
+      "time": 3,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 161,
+      "max_depth_cm": 4.13748132223116,
+      "samples": 1863
+    },
+    {
+      "time": 3,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 3,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 3,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.16517105788993014,
+      "samples": 2657
+    },
+    {
+      "time": 3,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2657
+    },
+    {
+      "time": 3,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 3,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 3,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8384172054152188,
+      "samples": 2546
+    },
+    {
+      "time": 3,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 4,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 4,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 4,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 21,
+      "max_depth_cm": 0.5218150713250775,
+      "samples": 2008
+    },
+    {
+      "time": 4,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2008
+    },
+    {
+      "time": 4,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 4,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 4,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.05247773312920767,
+      "samples": 2546
+    },
+    {
+      "time": 4,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 4,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 32,
+      "max_depth_cm": 1.414793209118161,
+      "samples": 3712
+    },
+    {
+      "time": 4,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.12117042398044298,
+      "samples": 3712
+    },
+    {
+      "time": 4,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 49,
+      "max_depth_cm": 1.4133660656667915,
+      "samples": 1862
+    },
+    {
+      "time": 4,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 230,
+      "max_depth_cm": 4.482491951463492,
+      "samples": 1862
+    },
+    {
+      "time": 4,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 4,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 4,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.46762165058016825,
+      "samples": 2677
+    },
+    {
+      "time": 4,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2677
+    },
+    {
+      "time": 4,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 4,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 4,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8388269773040453,
+      "samples": 2546
+    },
+    {
+      "time": 4,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 5,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 5,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 5,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5201237450464475,
+      "samples": 1863
+    },
+    {
+      "time": 5,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1863
+    },
+    {
+      "time": 5,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 5,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 5,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.05008042509553423,
+      "samples": 2546
+    },
+    {
+      "time": 5,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 5,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 42,
+      "max_depth_cm": 1.645466474958594,
+      "samples": 3712
+    },
+    {
+      "time": 5,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.10819588426075022,
+      "samples": 3712
+    },
+    {
+      "time": 5,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 65,
+      "max_depth_cm": 1.131579146334058,
+      "samples": 1849
+    },
+    {
+      "time": 5,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 199,
+      "max_depth_cm": 3.4360703619985973,
+      "samples": 1849
+    },
+    {
+      "time": 5,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 5,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 5,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.463165878330809,
+      "samples": 2707
+    },
+    {
+      "time": 5,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2707
+    },
+    {
+      "time": 5,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 5,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 5,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8380544902041915,
+      "samples": 2546
+    },
+    {
+      "time": 5,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 6,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 6,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 6,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 21,
+      "max_depth_cm": 0.5199243350653582,
+      "samples": 2015
+    },
+    {
+      "time": 6,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2015
+    },
+    {
+      "time": 6,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 6,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 6,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.051710331674303944,
+      "samples": 2546
+    },
+    {
+      "time": 6,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 6,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 59,
+      "max_depth_cm": 1.491268547341166,
+      "samples": 3712
+    },
+    {
+      "time": 6,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.003869445927051629,
+      "samples": 3712
+    },
+    {
+      "time": 6,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 44,
+      "max_depth_cm": 1.006882790537154,
+      "samples": 1857
+    },
+    {
+      "time": 6,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 206,
+      "max_depth_cm": 2.81863967268143,
+      "samples": 1857
+    },
+    {
+      "time": 6,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 6,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 6,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.08652172779840583,
+      "samples": 2687
+    },
+    {
+      "time": 6,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2687
+    },
+    {
+      "time": 6,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 6,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 6,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8380544902041636,
+      "samples": 2546
+    },
+    {
+      "time": 6,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 7,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 7,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 7,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5197487412866861,
+      "samples": 1876
+    },
+    {
+      "time": 7,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1876
+    },
+    {
+      "time": 7,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 7,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 7,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049313369783949845,
+      "samples": 2546
+    },
+    {
+      "time": 7,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 7,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 51,
+      "max_depth_cm": 1.3127246323522317,
+      "samples": 3712
+    },
+    {
+      "time": 7,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.5291401161092519,
+      "samples": 3712
+    },
+    {
+      "time": 7,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 56,
+      "max_depth_cm": 1.4554104414347937,
+      "samples": 1852
+    },
+    {
+      "time": 7,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 227,
+      "max_depth_cm": 3.7292446912531823,
+      "samples": 1852
+    },
+    {
+      "time": 7,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 7,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 7,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.4636410876927237,
+      "samples": 2727
+    },
+    {
+      "time": 7,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2727
+    },
+    {
+      "time": 7,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 7,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 7,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8375552124040238,
+      "samples": 2546
+    },
+    {
+      "time": 7,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 8,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.3625291491563658,
+      "samples": 3016
+    },
+    {
+      "time": 8,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 8,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 26,
+      "max_depth_cm": 0.5217301639305107,
+      "samples": 1882
+    },
+    {
+      "time": 8,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1882
+    },
+    {
+      "time": 8,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 8,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 8,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.04915951532708096,
+      "samples": 2546
+    },
+    {
+      "time": 8,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 8,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 59,
+      "max_depth_cm": 1.3378913188530253,
+      "samples": 3712
+    },
+    {
+      "time": 8,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.6509573741400629,
+      "samples": 3712
+    },
+    {
+      "time": 8,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 58,
+      "max_depth_cm": 1.8476426209576622,
+      "samples": 1861
+    },
+    {
+      "time": 8,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 215,
+      "max_depth_cm": 3.773956741897015,
+      "samples": 1861
+    },
+    {
+      "time": 8,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 8,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 8,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.45944544267887055,
+      "samples": 2736
+    },
+    {
+      "time": 8,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2736
+    },
+    {
+      "time": 8,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 8,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 8,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8379648511882563,
+      "samples": 2546
+    },
+    {
+      "time": 8,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 9,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 9,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 9,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5201895721624465,
+      "samples": 1888
+    },
+    {
+      "time": 9,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1888
+    },
+    {
+      "time": 9,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 9,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 9,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.04915951532701168,
+      "samples": 2546
+    },
+    {
+      "time": 9,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 9,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 71,
+      "max_depth_cm": 1.5638420324919409,
+      "samples": 3712
+    },
+    {
+      "time": 9,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.6702033021141176,
+      "samples": 3712
+    },
+    {
+      "time": 9,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 65,
+      "max_depth_cm": 1.864066485926759,
+      "samples": 1857
+    },
+    {
+      "time": 9,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 208,
+      "max_depth_cm": 2.9299778229005042,
+      "samples": 1857
+    },
+    {
+      "time": 9,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 9,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 9,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.2947956410081578,
+      "samples": 2746
+    },
+    {
+      "time": 9,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2746
+    },
+    {
+      "time": 9,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 9,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 9,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.837964851188258,
+      "samples": 2546
+    },
+    {
+      "time": 9,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 10,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 10,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 10,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5220394342098951,
+      "samples": 1892
+    },
+    {
+      "time": 10,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1892
+    },
+    {
+      "time": 10,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 10,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 10,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.04915951532710228,
+      "samples": 2546
+    },
+    {
+      "time": 10,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 10,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 71,
+      "max_depth_cm": 1.6030438007596,
+      "samples": 3712
+    },
+    {
+      "time": 10,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.591868966502556,
+      "samples": 3712
+    },
+    {
+      "time": 10,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 63,
+      "max_depth_cm": 1.882506941003391,
+      "samples": 1860
+    },
+    {
+      "time": 10,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 202,
+      "max_depth_cm": 2.934362077274354,
+      "samples": 1860
+    },
+    {
+      "time": 10,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 10,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 10,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.43045146454668126,
+      "samples": 2746
+    },
+    {
+      "time": 10,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2746
+    },
+    {
+      "time": 10,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 10,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 10,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.837964851188306,
+      "samples": 2546
+    },
+    {
+      "time": 10,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 11,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 11,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 11,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5198145646573078,
+      "samples": 1892
+    },
+    {
+      "time": 11,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1892
+    },
+    {
+      "time": 11,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 11,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 11,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.051556407800725346,
+      "samples": 2546
+    },
+    {
+      "time": 11,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 11,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 70,
+      "max_depth_cm": 2.030109168730199,
+      "samples": 3712
+    },
+    {
+      "time": 11,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3712
+    },
+    {
+      "time": 11,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 65,
+      "max_depth_cm": 1.9160385566686422,
+      "samples": 1862
+    },
+    {
+      "time": 11,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 188,
+      "max_depth_cm": 2.9300841078753272,
+      "samples": 1862
+    },
+    {
+      "time": 11,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 11,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 11,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.08573122277681211,
+      "samples": 2746
+    },
+    {
+      "time": 11,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2746
+    },
+    {
+      "time": 11,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 11,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 11,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8379178593736722,
+      "samples": 2546
+    },
+    {
+      "time": 11,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 12,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 12,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 12,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5201895721624838,
+      "samples": 1939
+    },
+    {
+      "time": 12,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1939
+    },
+    {
+      "time": 12,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 12,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 12,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049313369783954286,
+      "samples": 2546
+    },
+    {
+      "time": 12,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 12,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 26,
+      "max_depth_cm": 1.4284211078826896,
+      "samples": 3712
+    },
+    {
+      "time": 12,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.36541657463437005,
+      "samples": 3712
+    },
+    {
+      "time": 12,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 32,
+      "max_depth_cm": 0.8644593580874025,
+      "samples": 1852
+    },
+    {
+      "time": 12,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 233,
+      "max_depth_cm": 4.659282256861996,
+      "samples": 1852
+    },
+    {
+      "time": 12,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 12,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 12,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.5355334446433737,
+      "samples": 1779
+    },
+    {
+      "time": 12,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1779
+    },
+    {
+      "time": 12,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 12,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 12,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8375552124040602,
+      "samples": 2546
+    },
+    {
+      "time": 12,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 13,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 13,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 13,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5198145646573407,
+      "samples": 1892
+    },
+    {
+      "time": 13,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1892
+    },
+    {
+      "time": 13,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 13,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 13,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049313369783940963,
+      "samples": 2546
+    },
+    {
+      "time": 13,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 13,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 5,
+      "max_depth_cm": 0.5199339183343228,
+      "samples": 3712
+    },
+    {
+      "time": 13,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3712
+    },
+    {
+      "time": 13,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 33,
+      "max_depth_cm": 1.0381605511075875,
+      "samples": 1860
+    },
+    {
+      "time": 13,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 139,
+      "max_depth_cm": 2.968633162861048,
+      "samples": 1860
+    },
+    {
+      "time": 13,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 13,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 13,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.08573122277671441,
+      "samples": 2746
+    },
+    {
+      "time": 13,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2746
+    },
+    {
+      "time": 13,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 13,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 13,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8375552124040153,
+      "samples": 2546
+    },
+    {
+      "time": 13,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 14,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 14,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 14,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5201895721624838,
+      "samples": 1943
+    },
+    {
+      "time": 14,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1943
+    },
+    {
+      "time": 14,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 14,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 14,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049313369783954286,
+      "samples": 2546
+    },
+    {
+      "time": 14,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 14,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 28,
+      "max_depth_cm": 2.6939598198742574,
+      "samples": 3712
+    },
+    {
+      "time": 14,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 17,
+      "max_depth_cm": 3.5831524961064787,
+      "samples": 3712
+    },
+    {
+      "time": 14,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 34,
+      "max_depth_cm": 1.612479439852442,
+      "samples": 1858
+    },
+    {
+      "time": 14,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 245,
+      "max_depth_cm": 4.821950970063577,
+      "samples": 1858
+    },
+    {
+      "time": 14,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 14,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 14,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.47075794903000023,
+      "samples": 1779
+    },
+    {
+      "time": 14,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1779
+    },
+    {
+      "time": 14,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 14,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 14,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8375552124040602,
+      "samples": 2546
+    },
+    {
+      "time": 14,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 15,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 15,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 15,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5201895721624838,
+      "samples": 1936
+    },
+    {
+      "time": 15,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1936
+    },
+    {
+      "time": 15,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 15,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 15,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049313369783954286,
+      "samples": 2546
+    },
+    {
+      "time": 15,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 15,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 31,
+      "max_depth_cm": 2.7696849280801477,
+      "samples": 3712
+    },
+    {
+      "time": 15,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 16,
+      "max_depth_cm": 3.467817227496215,
+      "samples": 3712
+    },
+    {
+      "time": 15,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 34,
+      "max_depth_cm": 1.2694883147920066,
+      "samples": 1851
+    },
+    {
+      "time": 15,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 242,
+      "max_depth_cm": 5.029854249425979,
+      "samples": 1851
+    },
+    {
+      "time": 15,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 15,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 15,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.49117476350656597,
+      "samples": 1779
+    },
+    {
+      "time": 15,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1779
+    },
+    {
+      "time": 15,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 15,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 15,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8375552124040602,
+      "samples": 2546
+    },
+    {
+      "time": 15,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 16,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 16,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 16,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5221052804654507,
+      "samples": 1930
+    },
+    {
+      "time": 16,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1930
+    },
+    {
+      "time": 16,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 16,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 16,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049159515327048986,
+      "samples": 2546
+    },
+    {
+      "time": 16,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 16,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 30,
+      "max_depth_cm": 2.592266425390074,
+      "samples": 3712
+    },
+    {
+      "time": 16,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 12,
+      "max_depth_cm": 3.2023965470869618,
+      "samples": 3712
+    },
+    {
+      "time": 16,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 33,
+      "max_depth_cm": 2.709767076089851,
+      "samples": 1853
+    },
+    {
+      "time": 16,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 237,
+      "max_depth_cm": 4.173889885156973,
+      "samples": 1853
+    },
+    {
+      "time": 16,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 16,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 16,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.4993678096471248,
+      "samples": 1766
+    },
+    {
+      "time": 16,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1766
+    },
+    {
+      "time": 16,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 16,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 16,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8375552124040602,
+      "samples": 2546
+    },
+    {
+      "time": 16,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 17,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 17,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 17,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5220394342099306,
+      "samples": 1917
+    },
+    {
+      "time": 17,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1917
+    },
+    {
+      "time": 17,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 17,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 17,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049159515327048986,
+      "samples": 2546
+    },
+    {
+      "time": 17,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 17,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 32,
+      "max_depth_cm": 2.779053241024778,
+      "samples": 3712
+    },
+    {
+      "time": 17,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 10,
+      "max_depth_cm": 3.4779101230312537,
+      "samples": 3712
+    },
+    {
+      "time": 17,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 29,
+      "max_depth_cm": 2.4547078790282244,
+      "samples": 1850
+    },
+    {
+      "time": 17,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 244,
+      "max_depth_cm": 3.462251258518714,
+      "samples": 1850
+    },
+    {
+      "time": 17,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 17,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 17,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.4922893633645309,
+      "samples": 1760
+    },
+    {
+      "time": 17,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1760
+    },
+    {
+      "time": 17,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 17,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 17,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.838054490204216,
+      "samples": 2546
+    },
+    {
+      "time": 17,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 18,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 18,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 18,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5221052804654507,
+      "samples": 1901
+    },
+    {
+      "time": 18,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1901
+    },
+    {
+      "time": 18,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 18,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 18,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049313369783954286,
+      "samples": 2546
+    },
+    {
+      "time": 18,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 18,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 26,
+      "max_depth_cm": 2.5741795734673363,
+      "samples": 3712
+    },
+    {
+      "time": 18,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 10,
+      "max_depth_cm": 3.322212081658262,
+      "samples": 3712
+    },
+    {
+      "time": 18,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 30,
+      "max_depth_cm": 2.654506939720295,
+      "samples": 1859
+    },
+    {
+      "time": 18,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 229,
+      "max_depth_cm": 3.6569201370163764,
+      "samples": 1859
+    },
+    {
+      "time": 18,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 18,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 18,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.3771788745951201,
+      "samples": 2766
+    },
+    {
+      "time": 18,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2766
+    },
+    {
+      "time": 18,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 18,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 18,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8375552124040602,
+      "samples": 2546
+    },
+    {
+      "time": 18,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 19,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 19,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 19,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5201895721624838,
+      "samples": 1886
+    },
+    {
+      "time": 19,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1886
+    },
+    {
+      "time": 19,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 19,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 19,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049313369783954286,
+      "samples": 2546
+    },
+    {
+      "time": 19,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 19,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 23,
+      "max_depth_cm": 2.591937527412341,
+      "samples": 3712
+    },
+    {
+      "time": 19,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 12,
+      "max_depth_cm": 3.4848776319185015,
+      "samples": 3712
+    },
+    {
+      "time": 19,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 44,
+      "max_depth_cm": 1.768642697391956,
+      "samples": 1853
+    },
+    {
+      "time": 19,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 243,
+      "max_depth_cm": 2.9630698972731704,
+      "samples": 1853
+    },
+    {
+      "time": 19,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 19,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 19,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.44238321180226237,
+      "samples": 2736
+    },
+    {
+      "time": 19,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2736
+    },
+    {
+      "time": 19,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 19,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 19,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8375552124040602,
+      "samples": 2546
+    },
+    {
+      "time": 19,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 20,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 20,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 20,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5221052804654001,
+      "samples": 1892
+    },
+    {
+      "time": 20,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1892
+    },
+    {
+      "time": 20,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 20,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 20,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.050080425095444525,
+      "samples": 2546
+    },
+    {
+      "time": 20,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 20,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 28,
+      "max_depth_cm": 1.638470089668529,
+      "samples": 3712
+    },
+    {
+      "time": 20,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 4,
+      "max_depth_cm": 1.3708166392959615,
+      "samples": 3712
+    },
+    {
+      "time": 20,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 55,
+      "max_depth_cm": 1.4920507927510425,
+      "samples": 1860
+    },
+    {
+      "time": 20,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 227,
+      "max_depth_cm": 2.974127914627866,
+      "samples": 1860
+    },
+    {
+      "time": 20,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 20,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 20,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.3699952211642916,
+      "samples": 2746
+    },
+    {
+      "time": 20,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2746
+    },
+    {
+      "time": 20,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 20,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 20,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8380544902042764,
+      "samples": 2546
+    },
+    {
+      "time": 20,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 21,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 21,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 21,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 24,
+      "max_depth_cm": 0.5220394342098746,
+      "samples": 1854
+    },
+    {
+      "time": 21,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 1854
+    },
+    {
+      "time": 21,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 21,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 21,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.05232378701820739,
+      "samples": 2546
+    },
+    {
+      "time": 21,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 21,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 33,
+      "max_depth_cm": 1.4967557829629743,
+      "samples": 3712
+    },
+    {
+      "time": 21,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 3,
+      "max_depth_cm": 1.0501842509560273,
+      "samples": 3712
+    },
+    {
+      "time": 21,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 39,
+      "max_depth_cm": 1.7741472706462025,
+      "samples": 1852
+    },
+    {
+      "time": 21,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 208,
+      "max_depth_cm": 3.2257070536731067,
+      "samples": 1852
+    },
+    {
+      "time": 21,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 21,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 21,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.46984235094589044,
+      "samples": 2697
+    },
+    {
+      "time": 21,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2697
+    },
+    {
+      "time": 21,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 21,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 21,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8380544902041893,
+      "samples": 2546
+    },
+    {
+      "time": 21,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 22,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 22,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 22,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 21,
+      "max_depth_cm": 0.5217767039965002,
+      "samples": 2011
+    },
+    {
+      "time": 22,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2011
+    },
+    {
+      "time": 22,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 22,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 22,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049159515327048986,
+      "samples": 2546
+    },
+    {
+      "time": 22,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 22,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 19,
+      "max_depth_cm": 1.4085681082140975,
+      "samples": 3712
+    },
+    {
+      "time": 22,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.3676389067044239,
+      "samples": 3712
+    },
+    {
+      "time": 22,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 34,
+      "max_depth_cm": 0.9508510919471207,
+      "samples": 1852
+    },
+    {
+      "time": 22,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 216,
+      "max_depth_cm": 3.2003561064028965,
+      "samples": 1852
+    },
+    {
+      "time": 22,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 22,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 22,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.4455136977368208,
+      "samples": 2677
+    },
+    {
+      "time": 22,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2677
+    },
+    {
+      "time": 22,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 22,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 22,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8379648511882931,
+      "samples": 2546
+    },
+    {
+      "time": 22,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 23,
+      "group": 0,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 23,
+      "group": 0,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 3016
+    },
+    {
+      "time": 23,
+      "group": 0,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 21,
+      "max_depth_cm": 0.5217767039965002,
+      "samples": 2001
+    },
+    {
+      "time": 23,
+      "group": 0,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2001
+    },
+    {
+      "time": 23,
+      "group": 1,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 23,
+      "group": 1,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 174
+    },
+    {
+      "time": 23,
+      "group": 1,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.049159515327048986,
+      "samples": 2546
+    },
+    {
+      "time": 23,
+      "group": 1,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    },
+    {
+      "time": 23,
+      "group": 2,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 19,
+      "max_depth_cm": 1.4085681082140975,
+      "samples": 3712
+    },
+    {
+      "time": 23,
+      "group": 2,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 1,
+      "max_depth_cm": 0.8488504997824782,
+      "samples": 3712
+    },
+    {
+      "time": 23,
+      "group": 2,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 36,
+      "max_depth_cm": 1.3214832623682304,
+      "samples": 1853
+    },
+    {
+      "time": 23,
+      "group": 2,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 246,
+      "max_depth_cm": 4.540758072205547,
+      "samples": 1853
+    },
+    {
+      "time": 23,
+      "group": 3,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 23,
+      "group": 3,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 551
+    },
+    {
+      "time": 23,
+      "group": 3,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 2,
+      "max_depth_cm": 0.4426332371810844,
+      "samples": 2667
+    },
+    {
+      "time": 23,
+      "group": 3,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2667
+    },
+    {
+      "time": 23,
+      "group": 4,
+      "kind": "guide",
+      "region": "head",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 23,
+      "group": 4,
+      "kind": "guide",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 435
+    },
+    {
+      "time": 23,
+      "group": 4,
+      "kind": "render",
+      "region": "head",
+      "count_over_02cm": 229,
+      "max_depth_cm": 0.8379648511882931,
+      "samples": 2546
+    },
+    {
+      "time": 23,
+      "group": 4,
+      "kind": "render",
+      "region": "body",
+      "count_over_02cm": 0,
+      "max_depth_cm": 0.0,
+      "samples": 2546
+    }
+  ]
+}

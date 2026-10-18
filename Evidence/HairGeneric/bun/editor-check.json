@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "world": "Editor",
+  "identity": "dbd975295103df45d781b0740d4e4e9ccf706f97fc90f27a6c04feb86bb6b280",
+  "scope": "Normal BP Editor attachment, Fine solver and Niagara asset binding; active simulation recorded separately",
+  "rows": [
+    {
+      "quality": "<VamHairQuality.FINE: 1>",
+      "actor": "/Temp/Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0",
+      "parameters": [
+        {
+          "collision_radius_cm": 0.11999999731779099,
+          "self_collision_viscosity": 0.0
+        },
+        {
+          "collision_radius_cm": 0.800000011920929,
+          "self_collision_viscosity": 0.0
+        },
+        {
+          "collision_radius_cm": 0.800000011920929,
+          "self_collision_viscosity": 0.0
+        },
+        {
+          "collision_radius_cm": 0.11999999731779099,
+          "self_collision_viscosity": 0.0
+        }
+      ],
+      "groom": "/Game/VamHairRuntime/H_dbd975295103df45d781b074/Groom_Fine.Groom_Fine",
+      "head_attachment_error_cm": 0.0,
+      "active_niagara": 4,
+      "bound_niagara": 4,
+      "status": "UE Groom / physics on / Fine / 4 groups / dbd975295103df45d781b0740d4e4e9ccf706f97fc90f27a6c04feb86bb6b280-hair"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+BP=/Game/VamHairRuntime/H_c0d88facacc58a35d5967873/BP_VamCharacter.BP_VamCharacter_C
+characters=1
+viewport=1920x1080
+Warmup=180, measured=300 per phase. Root sway and yaw; contact off, glute/leg Jiggle on.

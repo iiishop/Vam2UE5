@@ -1,0 +1,207 @@
+{
+  "summary": {
+    "guide": {
+      "max_inside_over_02cm": 0,
+      "max_depth_cm": 0.0
+    },
+    "render": {
+      "max_inside_over_02cm": 147,
+      "max_depth_cm": 2.482096109430084
+    }
+  },
+  "worst": [
+    {
+      "time": 8,
+      "group": 2,
+      "kind": "render",
+      "free_samples": 1861,
+      "hull_candidates": 59,
+      "winding_inside": 11,
+      "inside_over_02cm": 8,
+      "max_depth_cm": 2.482096109430084,
+      "point": [
+        -2.25187349319458,
+        4.2111310958862305,
+        11.005176544189453
+      ],
+      "winding": 1.0182345994042132
+    },
+    {
+      "time": 12,
+      "group": 0,
+      "kind": "render",
+      "free_samples": 1939,
+      "hull_candidates": 494,
+      "winding_inside": 199,
+      "inside_over_02cm": 98,
+      "max_depth_cm": 1.0797073989157038,
+      "point": [
+        -0.3634653091430664,
+        -5.888362311990932,
+        4.624719858169556
+      ],
+      "winding": 1.0260141227740964
+    },
+    {
+      "time": 8,
+      "group": 0,
+      "kind": "render",
+      "free_samples": 1882,
+      "hull_candidates": 540,
+      "winding_inside": 237,
+      "inside_over_02cm": 147,
+      "max_depth_cm": 1.0695216468044948,
+      "point": [
+        -0.4074106216430664,
+        -6.137385749490932,
+        7.629602670669556
+      ],
+      "winding": 1.0248919879923233
+    },
+    {
+      "time": 2,
+      "group": 0,
+      "kind": "render",
+      "free_samples": 2001,
+      "hull_candidates": 575,
+      "winding_inside": 222,
+      "inside_over_02cm": 111,
+      "max_depth_cm": 0.9754408284983819,
+      "point": [
+        -0.7433481216430664,
+        -5.848323249490932,
+        4.409876108169556
+      ],
+      "winding": 1.02435374793043
+    },
+    {
+      "time": 20,
+      "group": 0,
+      "kind": "render",
+      "free_samples": 1892,
+      "hull_candidates": 472,
+      "winding_inside": 182,
+      "inside_over_02cm": 86,
+      "max_depth_cm": 0.9479925487753811,
+      "point": [
+        -0.0949106216430664,
+        -5.816096686990932,
+        3.9958136081695557
+      ],
+      "winding": 1.0260473232034486
+    },
+    {
+      "time": 20,
+      "group": 2,
+      "kind": "render",
+      "free_samples": 1860,
+      "hull_candidates": 48,
+      "winding_inside": 6,
+      "inside_over_02cm": 3,
+      "max_depth_cm": 0.9418670046674694,
+      "point": [
+        0.9317202568054199,
+        -5.1990251541137695,
+        2.083301544189453
+      ],
+      "winding": 1.0236991848826231
+    },
+    {
+      "time": 23,
+      "group": 0,
+      "kind": "render",
+      "free_samples": 2001,
+      "hull_candidates": 493,
+      "winding_inside": 149,
+      "inside_over_02cm": 61,
+      "max_depth_cm": 0.8518589741837572,
+      "point": [
+        -0.8878793716430664,
+        -6.034846686990932,
+        4.749719858169556
+      ],
+      "winding": 1.0236412607374175
+    },
+    {
+      "time": 2,
+      "group": 2,
+      "kind": "render",
+      "free_samples": 1854,
+      "hull_candidates": 40,
+      "winding_inside": 5,
+      "inside_over_02cm": 4,
+      "max_depth_cm": 0.8025130386921565,
+      "point": [
+        2.75007963180542,
+        -4.7341814041137695,
+        0.5325202941894531
+      ],
+      "winding": 1.0082151999031967
+    },
+    {
+      "time": 16,
+      "group": 0,
+      "kind": "render",
+      "free_samples": 1930,
+      "hull_candidates": 438,
+      "winding_inside": 121,
+      "inside_over_02cm": 39,
+      "max_depth_cm": 0.7680189396152335,
+      "point": [
+        -0.6222543716430664,
+        -6.089534186990932,
+        4.257532358169556
+      ],
+      "winding": 1.0235710301266776
+    },
+    {
+      "time": 12,
+      "group": 2,
+      "kind": "render",
+      "free_samples": 1852,
+      "hull_candidates": 58,
+      "winding_inside": 6,
+      "inside_over_02cm": 2,
+      "max_depth_cm": 0.6585755728472826,
+      "point": [
+        0.9200015068054199,
+        5.1681623458862305,
+        13.208301544189453
+      ],
+      "winding": 1.016111829040867
+    },
+    {
+      "time": 16,
+      "group": 2,
+      "kind": "render",
+      "free_samples": 1853,
+      "hull_candidates": 54,
+      "winding_inside": 3,
+      "inside_over_02cm": 2,
+      "max_depth_cm": 0.6527715290014926,
+      "point": [
+        -6.59562349319458,
+        0.24836254119873047,
+        12.677051544189453
+      ],
+      "winding": 1.0113183402317152
+    },
+    {
+      "time": 0,
+      "group": 0,
+      "kind": "render",
+      "free_samples": 1991,
+      "hull_candidates": 491,
+      "winding_inside": 125,
+      "inside_over_02cm": 49,
+      "max_depth_cm": 0.6364460893248015,
+      "point": [
+        -1.4601449966430664,
+        -6.189143561990932,
+        4.878626108169556
+      ],
+      "winding": 1.02141461707589
+    }
+  ],
+  "scope": "Static A1 head, once/sec geometry, sampled render points; root prefix excluded; winding threshold 0.5; nearest-48 triangle distances"
+}

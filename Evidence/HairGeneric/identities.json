@@ -1,0 +1,26 @@
+[
+  {
+    "style": "ponytail",
+    "identity": "c0d88facacc58a35d5967873f988268162584ab068ad059c4f2a2b84a2bfdb8a",
+    "blueprint": "/Game/VamHairRuntime/H_c0d88facacc58a35d5967873/BP_VamCharacter.BP_VamCharacter",
+    "editor": "passed",
+    "pie_frames": 180,
+    "capture_sha256": "374be67283589b3c0efd530c5da52b58b214159fc6ffb9364f3f89f716a0066d"
+  },
+  {
+    "style": "long",
+    "identity": "404415e0e94b0de4c163f3996167321e7da91221b8ea095417fbd6811b20f179",
+    "blueprint": "/Game/VamHairRuntime/H_404415e0e94b0de4c163f399/BP_VamCharacter.BP_VamCharacter",
+    "editor": "passed",
+    "pie_frames": 180,
+    "capture_sha256": "ac8537f7ffca42ed881b901b8f5ab18c1bf05753fa3ca22e665237bd5a6331d7"
+  },
+  {
+    "style": "bun",
+    "identity": "dbd975295103df45d781b0740d4e4e9ccf706f97fc90f27a6c04feb86bb6b280",
+    "blueprint": "/Game/VamHairRuntime/H_dbd975295103df45d781b074/BP_VamCharacter.BP_VamCharacter",
+    "editor": "passed",
+    "pie_frames": 180,
+    "capture_sha256": "688417d09908c96a99e2edd9b4b9f10ebfee603791d02de1c01c4730cc69dfcb"
+  }
+]

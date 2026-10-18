@@ -1,0 +1,394 @@
+{
+  "hairstyle": "/Game/VamHairLibrary/Styles/S_40c105486869165a6d7db5155ae14d678ddcb2d9b9003b0f27f2e3423941dbbd/HS_Style.HS_Style",
+  "hair_resources": [
+    "/Game/VamHairLibrary/Hair/H_cee501d528a10f4ce6fb1ca7a5d44c2b8aea0e3fa07865e1a3fc1a6b8d8f59dd/HA_Hair.HA_Hair",
+    "/Game/VamHairLibrary/Hair/H_5155b24ebe31a035c110394ce5764106171d94cead661148d11df34deb7ffdd7/HA_Hair.HA_Hair",
+    "/Game/VamHairLibrary/Hair/H_944112c479d50653dc18732c37c3211d6774398b1c3490394f649ab02ad29eb9/HA_Hair.HA_Hair"
+  ],
+  "schema": "vam-hair-runtime/1",
+  "base_configuration": "/Game/VamLegResearchV1/Runtime/R_843374e7df2fa61a960032b3/RC_Runtime",
+  "base_identity": "843374e7df2fa61a960032b3ea36d5df34558ee2d9f3b7fca1f3363615fee5f8",
+  "hair_identity": "c0d88facacc58a35d5967873f988268162584ab068ad059c4f2a2b84a2bfdb8a-hair",
+  "hair_profile": "/Game/VamHairRuntime/H_c0d88facacc58a35d5967873/HP_Hair.HP_Hair",
+  "identity": "c0d88facacc58a35d5967873f988268162584ab068ad059c4f2a2b84a2bfdb8a",
+  "blueprint": "/Game/VamHairRuntime/H_c0d88facacc58a35d5967873/BP_VamCharacter.BP_VamCharacter",
+  "source": [
+    {
+      "source": "AddonPackages/Miki.Swift_Tails.2.var",
+      "path": "Custom/Hair/Female/Miki/Swift Tails/Swift Bangs 3 A.vab",
+      "scalp": "LeytonScalp",
+      "curves": 81,
+      "source_points": 10,
+      "prefix_points_min_max": [
+        0,
+        0
+      ],
+      "free_length_cm_min_max": [
+        26.999954549576188,
+        27.000029793975017
+      ],
+      "rigidity_range": [
+        0.0,
+        1.1
+      ],
+      "untranslated_render_controls": {
+        "curlAllowReverse": "false",
+        "curlAllowFlipAxis": "false",
+        "curlX": "0.8168558",
+        "curlY": "0.07543193",
+        "curlZ": "0.3082797",
+        "curlScale": "0.3205425",
+        "curlScaleRandomness": "0.9120485",
+        "curlFrequency": "0.4084793",
+        "curlFrequencyRandomness": "0.8275977",
+        "curlNormalAdjust": "0.3250195",
+        "curlRoot": "0",
+        "curlMid": "0.03079112",
+        "curlTip": "0.1481914",
+        "curlMidpoint": "0.2177645",
+        "curlCurvePower": "2.266112",
+        "length1": "0.197874",
+        "length2": "0.5553109",
+        "length3": "0.7330059"
+      },
+      "nearby_groups_retained_count": 0
+    },
+    {
+      "source": "AddonPackages/Miki.Swift_Tails.2.var",
+      "path": "Custom/Hair/Female/Miki/Swift Tails/Swift Ponytail Hairline.vab",
+      "scalp": "KrayonScalp",
+      "curves": 60,
+      "source_points": 13,
+      "prefix_points_min_max": [
+        0,
+        0
+      ],
+      "free_length_cm_min_max": [
+        9.348650681985923,
+        16.893968674763293
+      ],
+      "rigidity_range": [
+        1.0,
+        1.1
+      ],
+      "untranslated_render_controls": {
+        "curlAllowReverse": "false",
+        "curlAllowFlipAxis": "false",
+        "curlX": "0",
+        "curlY": "0.1388896",
+        "curlZ": "0",
+        "curlScale": "0.3247567",
+        "curlScaleRandomness": "1.469266",
+        "curlFrequency": "0.2042051",
+        "curlFrequencyRandomness": "1.038667",
+        "curlNormalAdjust": "-0.2489152",
+        "curlRoot": "0",
+        "curlMid": "0",
+        "curlTip": "0.2699513",
+        "curlMidpoint": "0.1956819",
+        "curlCurvePower": "2.113272",
+        "length1": "0",
+        "length2": "0.557348",
+        "length3": "0.896399"
+      },
+      "nearby_groups_retained_count": 1315
+    },
+    {
+      "source": "AddonPackages/Miki.Swift_Tails.2.var",
+      "path": "Custom/Hair/Female/Miki/Swift Tails/Swift Ponytail.vab",
+      "scalp": "UdaneScalp",
+      "curves": 807,
+      "source_points": 25,
+      "prefix_points_min_max": [
+        0,
+        0
+      ],
+      "free_length_cm_min_max": [
+        63.956706851389576,
+        72.45814595693007
+      ],
+      "rigidity_range": [
+        0.0,
+        1.100000023841858
+      ],
+      "untranslated_render_controls": {
+        "curlAllowReverse": "false",
+        "curlAllowFlipAxis": "false",
+        "curlX": "0.2817314",
+        "curlY": "0",
+        "curlZ": "0.1448768",
+        "curlScale": "0.2286305",
+        "curlScaleRandomness": "1.663442",
+        "curlFrequency": "0.1634583",
+        "curlFrequencyRandomness": "0.26189",
+        "curlNormalAdjust": "-0.1692544",
+        "curlRoot": "0",
+        "curlMid": "0.01740132",
+        "curlTip": "0.2829986",
+        "curlMidpoint": "0.2090672",
+        "curlCurvePower": "0.6526304",
+        "length1": "0.6553944",
+        "length2": "0.7146181",
+        "length3": "0.3714862"
+      },
+      "nearby_groups_retained_count": 37284
+    }
+  ],
+  "implementation": {
+    "Scripts/vam_hair_prepare.py": "405af66420644b9af75b3d8afd9df108f7ffef8c9c6946b471a430cf13fbcd1a",
+    "Scripts/vam_hair_catalog.py": "014454efc6f01882298dd5766d19a2d6092e4496f34c7a9e304f3775fe1c5e6b",
+    "Scripts/vam_hair_frames.py": "bc6326d886d2cd2394afae73e208cde5c0ea59db902cc3a3afa5b00034222966",
+    "Scripts/prepare_hair_render_reference.py": "2aa635fe14b808fbf4a11a0524611ce7e1370f8b24ff77d90a3583c4d097851a",
+    "Scripts/prepare_hair_physics.py": "0b4f7bb82a49888771f39eb4219a003f0ef70d74fd6dd0e873b22c805414affe",
+    "Scripts/prepare_hair_head_collision.py": "9cfe07d7ad28c4e1ce87be75548b170c92fbb711571c513c1ebd81ce3dd1bb4a",
+    "Scripts/vam_unity.py": "e361bc8fcc9f05c0f3aa0d67585c35a62c2da5aed9a6730d1874062530e7d58f",
+    "Scripts/vam_fit.py": "fe60a084a224692d99b54ef238fc247997f43a4ea1caca67d40fead3027fe479",
+    "Scripts/ue_hair_build.py": "b2683d54ee18d8c0383dfcec6dd6c7c1d18ff7f13ddee8a786a583feff32da4f",
+    "Scripts/prepare_hair_constraints.py": "666ca6471322ace9a0834fcf6a5db2f58d47bfe50b14dee2df7425487fd8e8ff",
+    "Source/VamResourceBrowser/Private/VamHairSourceConstraints.h": "638eaac6543fdbe3b2f13cb62d5815f41c87015f8bc92f31bf73c02da977516e",
+    "Source/VamResourceBrowser/Private/VamHairBuilder.cpp": "b30a14dc3a6710ca096a1efb486e91caf4487a0971c49d40cc82fd6b9fee53e1",
+    "Source/VamResourceBrowser/Private/VamHairStyleSolver.h": "51d196f2b2c375066573c56556a97969782dee6542aadddbcc073fee563f667e",
+    "Source/VamCharacterRuntime/Public/VamHairProfile.h": "be0989e4dfce852eea0bce23445bf7d0a7a7ac1dbf5215819159c23c169bb84f",
+    "Source/VamResourceBrowser/Private/VamHairCatalogBuilder.cpp": "997be6fd545663045c77472bedcc9498e70e745894d810409e629bdda6a60c1f",
+    "Source/VamCharacterRuntime/Public/VamHairAsset.h": "9dec3e1a2e2e1c21e5a3e61e6345fb895797031586e864c6e3da3e7340c792bf",
+    "Source/VamCharacterRuntime/Private/VamHairAsset.cpp": "a6731350f7507059f4e4d40575753ea286957b69f22538780ead9261eb7107c6",
+    "Source/VamResourceBrowser/Public/VamHairBuilder.h": "c7d63ea4e3cadb5d1ad1bae2c80970c42c5b9564c6305905b5f03fb1a0bc00fe",
+    "Source/VamCharacterRuntime/Private/VamHairComponent.cpp": "cb1b3776a7a980e63208f08a09fae2d23d61637baf1ba2fab455b410c900902e",
+    "Source/VamCharacterRuntime/Public/VamHairComponent.h": "bfb2d66b4dfe5b251cdfa1c3276a26e409f8702c0ce57030a835573c07bb7d46"
+  },
+  "configuration": "/Game/VamHairRuntime/H_c0d88facacc58a35d5967873/RC_Runtime",
+  "status": "committed",
+  "independent_reload_verified": true,
+  "writer_pid": 494792,
+  "build_report": {
+    "quality": [
+      {
+        "quality": "Groom_Fine",
+        "render_curves": 23268,
+        "guides": 269,
+        "groups": [
+          {
+            "name": "Swift Bangs 3 A_native_full",
+            "kind": "native_full",
+            "constraint_class": "loose",
+            "guides": 81,
+            "source_curves": 81,
+            "simulation": true,
+            "points_per_guide": 32,
+            "source_constraint_version": "source-point-support-links-2",
+            "source_links": 0,
+            "retained_directed_links": 0
+          },
+          {
+            "name": "Swift Ponytail Hairline_native_full",
+            "kind": "native_full",
+            "constraint_class": "supported",
+            "guides": 60,
+            "source_curves": 60,
+            "simulation": true,
+            "points_per_guide": 32,
+            "source_constraint_version": "source-point-support-links-2",
+            "source_links": 1315,
+            "retained_directed_links": 475
+          },
+          {
+            "name": "Swift Ponytail_native_full",
+            "kind": "native_full",
+            "constraint_class": "loose",
+            "guides": 128,
+            "source_curves": 128,
+            "simulation": true,
+            "points_per_guide": 32,
+            "source_constraint_version": "source-point-support-links-2",
+            "source_links": 37284,
+            "retained_directed_links": 2483
+          }
+        ]
+      }
+    ],
+    "collision_fit": [
+      {
+        "bone": "hip",
+        "before_radius_cm": 0.5049999952316284,
+        "after_radius_cm": 0.5049999952316284,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "pelvis",
+        "before_radius_cm": 14.69983196258545,
+        "after_radius_cm": 14.69983196258545,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "abdomen",
+        "before_radius_cm": 9.475372314453125,
+        "after_radius_cm": 9.475372314453125,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "abdomen2",
+        "before_radius_cm": 9.300885200500488,
+        "after_radius_cm": 9.300885200500488,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "chest",
+        "before_radius_cm": 13.287601470947266,
+        "after_radius_cm": 13.287601470947266,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "head",
+        "method": "outer-head-convex-envelope-spheres-1",
+        "sphere_count": 64,
+        "surface_sha256": "b3d96a639b34631cae1b0b263f5f1cb84ff4da0280736a930469fd87049202ca"
+      },
+      {
+        "bone": "lThigh",
+        "before_radius_cm": 8.805594444274902,
+        "after_radius_cm": 8.805594444274902,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lShin",
+        "before_radius_cm": 6.272156238555908,
+        "after_radius_cm": 6.272156238555908,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lFoot",
+        "before_radius_cm": 5.006161689758301,
+        "after_radius_cm": 5.006161689758301,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lToe",
+        "before_radius_cm": 3.6308577060699463,
+        "after_radius_cm": 3.6308577060699463,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lCollar",
+        "before_radius_cm": 8.167823791503906,
+        "after_radius_cm": 8.167823791503906,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lShldr",
+        "before_radius_cm": 4.640806674957275,
+        "after_radius_cm": 4.640806674957275,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lForeArm",
+        "before_radius_cm": 3.3046720027923584,
+        "after_radius_cm": 3.3046720027923584,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lHand",
+        "before_radius_cm": 3.288773536682129,
+        "after_radius_cm": 3.288773536682129,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lCarpal1",
+        "before_radius_cm": 2.4159297943115234,
+        "after_radius_cm": 2.4159297943115234,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lCarpal2",
+        "before_radius_cm": 2.05511474609375,
+        "after_radius_cm": 2.05511474609375,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lPectoral",
+        "before_radius_cm": 6.109155178070068,
+        "after_radius_cm": 6.109155178070068,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "lowerJaw",
+        "before_radius_cm": 3.9264519214630127,
+        "after_radius_cm": 3.9264519214630127,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rThigh",
+        "before_radius_cm": 9.017958641052246,
+        "after_radius_cm": 9.017958641052246,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rShin",
+        "before_radius_cm": 6.262009143829346,
+        "after_radius_cm": 6.262009143829346,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rFoot",
+        "before_radius_cm": 5.005756855010986,
+        "after_radius_cm": 5.005756855010986,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rToe",
+        "before_radius_cm": 3.637099027633667,
+        "after_radius_cm": 3.637099027633667,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rCollar",
+        "before_radius_cm": 8.158935546875,
+        "after_radius_cm": 8.158935546875,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rShldr",
+        "before_radius_cm": 4.644318580627441,
+        "after_radius_cm": 4.644318580627441,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rForeArm",
+        "before_radius_cm": 3.302966594696045,
+        "after_radius_cm": 3.302966594696045,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rHand",
+        "before_radius_cm": 3.2874271869659424,
+        "after_radius_cm": 3.2874271869659424,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rCarpal1",
+        "before_radius_cm": 2.3788793087005615,
+        "after_radius_cm": 2.3788793087005615,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rCarpal2",
+        "before_radius_cm": 1.9324913024902344,
+        "after_radius_cm": 1.9324913024902344,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "rPectoral",
+        "before_radius_cm": 6.096402645111084,
+        "after_radius_cm": 6.096402645111084,
+        "method": "preserve-body-physics"
+      },
+      {
+        "bone": "tongue02",
+        "before_radius_cm": 1.722066879272461,
+        "after_radius_cm": 1.722066879272461,
+        "method": "preserve-body-physics"
+      }
+    ]
+  },
+  "published": false,
+  "reloader_pid": 504512
+}
