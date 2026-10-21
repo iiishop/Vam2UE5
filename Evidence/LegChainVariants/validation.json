@@ -1,0 +1,134 @@
+[
+  {
+    "group": "R",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "R-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "R-step",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "R-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  },
+  {
+    "group": "L",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "L-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "L-step",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "L-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  },
+  {
+    "group": "T",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "T-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "T-step",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "T-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  },
+  {
+    "group": "V",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "V-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "V-step",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "V-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  },
+  {
+    "group": "S",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "S-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "S-step",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "S-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  },
+  {
+    "group": "C",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "C-flexion",
+        "valid": true,
+        "contact_active_frames": 31
+      },
+      {
+        "id": "C-step",
+        "valid": true,
+        "contact_active_frames": 15
+      },
+      {
+        "id": "C-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  }
+]

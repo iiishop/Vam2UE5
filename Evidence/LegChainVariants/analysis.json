@@ -1,0 +1,1231 @@
+{
+  "rows": [
+    {
+      "group": "R",
+      "action": "flexion",
+      "method": 0,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 1.040120715073138,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "L",
+      "action": "flexion",
+      "method": 0,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.04874954284883507,
+            "p95_cm": 0.07400495431376163,
+            "max_cm": 0.07644248247084708
+          },
+          "vs_R": {
+            "rms_cm": 0.04874928322468638,
+            "p95_cm": 0.07402120069424019,
+            "max_cm": 0.07643506785522737
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.04595160632544269,
+            "p95_cm": 0.06459563201324982,
+            "max_cm": 0.06865512791148518
+          },
+          "vs_R": {
+            "rms_cm": 0.045928740094583094,
+            "p95_cm": 0.06459563201324982,
+            "max_cm": 0.06864597331032218
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04957886778019912,
+            "p95_cm": 0.07349107748992405,
+            "max_cm": 0.07593196380805359
+          },
+          "vs_R": {
+            "rms_cm": 0.049578562750989534,
+            "p95_cm": 0.07350536600678811,
+            "max_cm": 0.07592468705238313
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.04573648067270661,
+            "p95_cm": 0.06437835347771798,
+            "max_cm": 0.06811934710957607
+          },
+          "vs_R": {
+            "rms_cm": 0.04571396659317135,
+            "p95_cm": 0.06437835347771798,
+            "max_cm": 0.06811023576974704
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 1.040120715073138,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "T",
+      "action": "flexion",
+      "method": 1,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.040602736420764694,
+            "p95_cm": 0.05562905859753416,
+            "max_cm": 0.05754679482353066
+          },
+          "vs_R": {
+            "rms_cm": 0.04060273642076483,
+            "p95_cm": 0.05562905859753444,
+            "max_cm": 0.05754679482353065
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.02842591016974771,
+            "p95_cm": 0.0375546571753903,
+            "max_cm": 0.039799508532955746
+          },
+          "vs_R": {
+            "rms_cm": 0.02842591016974773,
+            "p95_cm": 0.03755465717538908,
+            "max_cm": 0.03979950853295406
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04123791129526031,
+            "p95_cm": 0.05550857424845698,
+            "max_cm": 0.05738164639499756
+          },
+          "vs_R": {
+            "rms_cm": 0.04123791129526039,
+            "p95_cm": 0.05550857424845647,
+            "max_cm": 0.05738164639499705
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.028274151821422306,
+            "p95_cm": 0.03724509391400466,
+            "max_cm": 0.039467203748472394
+          },
+          "vs_R": {
+            "rms_cm": 0.028274151821422323,
+            "p95_cm": 0.037245093914004726,
+            "max_cm": 0.03946720374847208
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 1.040120715073138,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "V",
+      "action": "flexion",
+      "method": 2,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0487475068045599,
+            "p95_cm": 0.0739812035781014,
+            "max_cm": 0.07648214988982431
+          },
+          "vs_R": {
+            "rms_cm": 0.048747186281218026,
+            "p95_cm": 0.07398459239797109,
+            "max_cm": 0.07647461570576733
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.04595369232101672,
+            "p95_cm": 0.06457674492766494,
+            "max_cm": 0.06869960137383513
+          },
+          "vs_R": {
+            "rms_cm": 0.04593102467373362,
+            "p95_cm": 0.06457674492766494,
+            "max_cm": 0.06869055310361136
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04957731110858939,
+            "p95_cm": 0.07348422203681282,
+            "max_cm": 0.07597105679963576
+          },
+          "vs_R": {
+            "rms_cm": 0.04957694499392064,
+            "p95_cm": 0.07346804182485032,
+            "max_cm": 0.07596366334446121
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.04573857298536572,
+            "p95_cm": 0.06435591957567417,
+            "max_cm": 0.06816304990168491
+          },
+          "vs_R": {
+            "rms_cm": 0.045716253818147506,
+            "p95_cm": 0.06435591957567431,
+            "max_cm": 0.06815404020366057
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 1.040120715073138,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "S",
+      "action": "flexion",
+      "method": 3,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.01161457825728286,
+            "p95_cm": 0.016795682025038783,
+            "max_cm": 0.017546662722037896
+          },
+          "vs_R": {
+            "rms_cm": 0.01161530937586932,
+            "p95_cm": 0.01679575887900808,
+            "max_cm": 0.017565828695407678
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.011191322253264746,
+            "p95_cm": 0.014377462365579357,
+            "max_cm": 0.015399285618234233
+          },
+          "vs_R": {
+            "rms_cm": 0.011191154634025193,
+            "p95_cm": 0.01439477086691925,
+            "max_cm": 0.015402597291711008
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.011734093257198942,
+            "p95_cm": 0.016702312986815793,
+            "max_cm": 0.017424332167796742
+          },
+          "vs_R": {
+            "rms_cm": 0.011734848533278613,
+            "p95_cm": 0.016702556107458175,
+            "max_cm": 0.017443189958011588
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.011136989879882351,
+            "p95_cm": 0.014291163439472199,
+            "max_cm": 0.015284479344712342
+          },
+          "vs_R": {
+            "rms_cm": 0.011136830836349707,
+            "p95_cm": 0.014300036588633614,
+            "max_cm": 0.015287751931723341
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 1.040120715073138,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "C",
+      "action": "flexion",
+      "method": 0,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 1.040120715073138,
+      "contact_active_frames": 31
+    },
+    {
+      "group": "R",
+      "action": "step",
+      "method": 0,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.8273601657605798,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "L",
+      "action": "step",
+      "method": 0,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.04874954284883507,
+            "p95_cm": 0.07400495431376163,
+            "max_cm": 0.07644248247084708
+          },
+          "vs_R": {
+            "rms_cm": 0.04874928322468638,
+            "p95_cm": 0.07402120069424019,
+            "max_cm": 0.07643506785522737
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.04595160632544269,
+            "p95_cm": 0.06459563201324982,
+            "max_cm": 0.06865512791148518
+          },
+          "vs_R": {
+            "rms_cm": 0.045928740094583094,
+            "p95_cm": 0.06459563201324982,
+            "max_cm": 0.06864597331032218
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04957886778019912,
+            "p95_cm": 0.07349107748992405,
+            "max_cm": 0.07593196380805359
+          },
+          "vs_R": {
+            "rms_cm": 0.049578562750989534,
+            "p95_cm": 0.07350536600678811,
+            "max_cm": 0.07592468705238313
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.04573648067270661,
+            "p95_cm": 0.06437835347771798,
+            "max_cm": 0.06811934710957607
+          },
+          "vs_R": {
+            "rms_cm": 0.04571396659317135,
+            "p95_cm": 0.06437835347771798,
+            "max_cm": 0.06811023576974704
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.8273601657605798,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "T",
+      "action": "step",
+      "method": 1,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.040602736420764694,
+            "p95_cm": 0.05562905859753416,
+            "max_cm": 0.05754679482353066
+          },
+          "vs_R": {
+            "rms_cm": 0.04060273642076483,
+            "p95_cm": 0.05562905859753444,
+            "max_cm": 0.05754679482353065
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.02842591016974771,
+            "p95_cm": 0.0375546571753903,
+            "max_cm": 0.039799508532955746
+          },
+          "vs_R": {
+            "rms_cm": 0.02842591016974773,
+            "p95_cm": 0.03755465717538908,
+            "max_cm": 0.03979950853295406
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04123791129526031,
+            "p95_cm": 0.05550857424845698,
+            "max_cm": 0.05738164639499756
+          },
+          "vs_R": {
+            "rms_cm": 0.04123791129526039,
+            "p95_cm": 0.05550857424845647,
+            "max_cm": 0.05738164639499705
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.028274151821422306,
+            "p95_cm": 0.03724509391400466,
+            "max_cm": 0.039467203748472394
+          },
+          "vs_R": {
+            "rms_cm": 0.028274151821422323,
+            "p95_cm": 0.037245093914004726,
+            "max_cm": 0.03946720374847208
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.8273601657605798,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "V",
+      "action": "step",
+      "method": 2,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0487475068045599,
+            "p95_cm": 0.0739812035781014,
+            "max_cm": 0.07648214988982431
+          },
+          "vs_R": {
+            "rms_cm": 0.048747186281218026,
+            "p95_cm": 0.07398459239797109,
+            "max_cm": 0.07647461570576733
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.04595369232101672,
+            "p95_cm": 0.06457674492766494,
+            "max_cm": 0.06869960137383513
+          },
+          "vs_R": {
+            "rms_cm": 0.04593102467373362,
+            "p95_cm": 0.06457674492766494,
+            "max_cm": 0.06869055310361136
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04957731110858939,
+            "p95_cm": 0.07348422203681282,
+            "max_cm": 0.07597105679963576
+          },
+          "vs_R": {
+            "rms_cm": 0.04957694499392064,
+            "p95_cm": 0.07346804182485032,
+            "max_cm": 0.07596366334446121
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.04573857298536572,
+            "p95_cm": 0.06435591957567417,
+            "max_cm": 0.06816304990168491
+          },
+          "vs_R": {
+            "rms_cm": 0.045716253818147506,
+            "p95_cm": 0.06435591957567431,
+            "max_cm": 0.06815404020366057
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.8273601657605798,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "S",
+      "action": "step",
+      "method": 3,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.01161457825728286,
+            "p95_cm": 0.016795682025038783,
+            "max_cm": 0.017546662722037896
+          },
+          "vs_R": {
+            "rms_cm": 0.01161530937586932,
+            "p95_cm": 0.01679575887900808,
+            "max_cm": 0.017565828695407678
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.011191322253264746,
+            "p95_cm": 0.014377462365579357,
+            "max_cm": 0.015399285618234233
+          },
+          "vs_R": {
+            "rms_cm": 0.011191154634025193,
+            "p95_cm": 0.01439477086691925,
+            "max_cm": 0.015402597291711008
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.011734093257198942,
+            "p95_cm": 0.016702312986815793,
+            "max_cm": 0.017424332167796742
+          },
+          "vs_R": {
+            "rms_cm": 0.011734848533278613,
+            "p95_cm": 0.016702556107458175,
+            "max_cm": 0.017443189958011588
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.011136989879882351,
+            "p95_cm": 0.014291163439472199,
+            "max_cm": 0.015284479344712342
+          },
+          "vs_R": {
+            "rms_cm": 0.011136830836349707,
+            "p95_cm": 0.014300036588633614,
+            "max_cm": 0.015287751931723341
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.8273601657605798,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "C",
+      "action": "step",
+      "method": 0,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.8273601657605798,
+      "contact_active_frames": 15
+    },
+    {
+      "group": "R",
+      "action": "seated-stop",
+      "method": 0,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.27312930638015354,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "L",
+      "action": "seated-stop",
+      "method": 0,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.821089817833656,
+            "p95_cm": 1.363607606181139,
+            "max_cm": 1.5366745691425845
+          },
+          "vs_R": {
+            "rms_cm": 0.827159496214355,
+            "p95_cm": 1.353450956301149,
+            "max_cm": 1.435243427579121
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 1.2069892468554808,
+            "p95_cm": 1.8472586299253166,
+            "max_cm": 1.932290237616678
+          },
+          "vs_R": {
+            "rms_cm": 1.2024995382520522,
+            "p95_cm": 1.8263026773356708,
+            "max_cm": 1.9252766213922847
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.8357937330530365,
+            "p95_cm": 1.3852426076260749,
+            "max_cm": 1.5363719480695792
+          },
+          "vs_R": {
+            "rms_cm": 0.854736652622934,
+            "p95_cm": 1.3637035856648236,
+            "max_cm": 1.4358247071298438
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 1.208432361943348,
+            "p95_cm": 1.8481836091526052,
+            "max_cm": 1.933599013554496
+          },
+          "vs_R": {
+            "rms_cm": 1.2039138283226294,
+            "p95_cm": 1.827510585724921,
+            "max_cm": 1.9265789411947238
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.27312930638015354,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "T",
+      "action": "seated-stop",
+      "method": 1,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.18378990081722404,
+            "p95_cm": 0.3299405470172894,
+            "max_cm": 0.43364110148781904
+          },
+          "vs_R": {
+            "rms_cm": 0.18378990081722488,
+            "p95_cm": 0.32994054701726505,
+            "max_cm": 0.433641101487833
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 1.147600091018361,
+            "p95_cm": 1.569003631096788,
+            "max_cm": 1.6100524485834278
+          },
+          "vs_R": {
+            "rms_cm": 1.1476000910183604,
+            "p95_cm": 1.5690036310967819,
+            "max_cm": 1.6100524485834349
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.1881359026225209,
+            "p95_cm": 0.3390943372404265,
+            "max_cm": 0.4412911312361382
+          },
+          "vs_R": {
+            "rms_cm": 0.18813590262252214,
+            "p95_cm": 0.3390943372404259,
+            "max_cm": 0.4412911312361372
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 1.1489380852001303,
+            "p95_cm": 1.5696145805362276,
+            "max_cm": 1.6106217241408753
+          },
+          "vs_R": {
+            "rms_cm": 1.148938085200131,
+            "p95_cm": 1.5696145805362387,
+            "max_cm": 1.6106217241408953
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.27312930638015354,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "V",
+      "action": "seated-stop",
+      "method": 2,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.848471210584683,
+            "p95_cm": 1.4204486654071,
+            "max_cm": 1.6561867369015413
+          },
+          "vs_R": {
+            "rms_cm": 0.8593158267421517,
+            "p95_cm": 1.4195026551430654,
+            "max_cm": 1.5504996334701249
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 1.2087692409481068,
+            "p95_cm": 1.85642805431543,
+            "max_cm": 1.9442763836944394
+          },
+          "vs_R": {
+            "rms_cm": 1.2037102272888258,
+            "p95_cm": 1.835963567746277,
+            "max_cm": 1.9365050298802873
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.8667565295051853,
+            "p95_cm": 1.4277229052338352,
+            "max_cm": 1.6549914238039978
+          },
+          "vs_R": {
+            "rms_cm": 0.8896026299037111,
+            "p95_cm": 1.4221088464387601,
+            "max_cm": 1.5512452918104553
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 1.2102149420563963,
+            "p95_cm": 1.857368550637143,
+            "max_cm": 1.9456448970755382
+          },
+          "vs_R": {
+            "rms_cm": 1.2051260287937153,
+            "p95_cm": 1.836687760579522,
+            "max_cm": 1.9378637244975996
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.27312930638015354,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "S",
+      "action": "seated-stop",
+      "method": 3,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.1974285683957294,
+            "p95_cm": 0.34504034633129343,
+            "max_cm": 0.3657945710626334
+          },
+          "vs_R": {
+            "rms_cm": 0.20238201232040007,
+            "p95_cm": 0.34574264536454996,
+            "max_cm": 0.4001216929552353
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.28917334402047756,
+            "p95_cm": 0.44999863075509383,
+            "max_cm": 0.45883347392466856
+          },
+          "vs_R": {
+            "rms_cm": 0.2965762791703099,
+            "p95_cm": 0.4498586916248407,
+            "max_cm": 0.4595629310163284
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.19960536325446424,
+            "p95_cm": 0.3474092116504779,
+            "max_cm": 0.3657845807587172
+          },
+          "vs_R": {
+            "rms_cm": 0.20702013233312871,
+            "p95_cm": 0.34792724051685914,
+            "max_cm": 0.40006114721568864
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.2895026193244449,
+            "p95_cm": 0.45014850496382697,
+            "max_cm": 0.45893263027157966
+          },
+          "vs_R": {
+            "rms_cm": 0.2968882068326362,
+            "p95_cm": 0.45004276187194714,
+            "max_cm": 0.45966869880803907
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.27312930638015354,
+      "contact_active_frames": 0
+    },
+    {
+      "group": "C",
+      "action": "seated-stop",
+      "method": 0,
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "vs_R": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          }
+        }
+      },
+      "raw_jiggle_max_cm": 0.27312930638015354,
+      "contact_active_frames": 0
+    }
+  ],
+  "comparability": [
+    {
+      "group": "R",
+      "action": "flexion",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "L",
+      "action": "flexion",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "T",
+      "action": "flexion",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "V",
+      "action": "flexion",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "S",
+      "action": "flexion",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "C",
+      "action": "flexion",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "R",
+      "action": "step",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "L",
+      "action": "step",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "T",
+      "action": "step",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "V",
+      "action": "step",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "S",
+      "action": "step",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "C",
+      "action": "step",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "R",
+      "action": "seated-stop",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "L",
+      "action": "seated-stop",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "T",
+      "action": "seated-stop",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "V",
+      "action": "seated-stop",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "S",
+      "action": "seated-stop",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    },
+    {
+      "group": "C",
+      "action": "seated-stop",
+      "primary_matrix_error": 0.0,
+      "root_error_cm": 0.0,
+      "camera_equal": true
+    }
+  ],
+  "scope": "04 is final bone/Jiggle skinned surface, not final GPU contact output. Displacement versus R is not anatomical error."
+}
