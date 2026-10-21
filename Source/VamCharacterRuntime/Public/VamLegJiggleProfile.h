@@ -65,7 +65,7 @@ public:
 };
 namespace VamLegDynamics
 {
-    VAMCHARACTERRUNTIME_API FTransform ChainFrame(const FVamLegSegment&,const TArray<FTransform>& Pose,double U,bool bEnabled);
+    VAMCHARACTERRUNTIME_API FTransform ChainFrame(const FVamLegSegment&,const TArray<FTransform>& Pose,double U,bool bEnabled,int32 Method=0);
     VAMCHARACTERRUNTIME_API FVector JointAngles(const FVamLegSegment&,const TArray<FTransform>& Pose,FVector2D& SideAngles);
     VAMCHARACTERRUNTIME_API FVamGluteDynamicSide Evaluate(const UVamLegJiggleProfile&,const FVamLegSegment&,const FVector& Angles,const FVector2D& SideAngles,TArray<double>& Tension);
 }

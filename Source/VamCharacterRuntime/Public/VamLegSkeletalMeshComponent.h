@@ -11,6 +11,8 @@ public:
     UPROPERTY(Transient) TObjectPtr<UVamLegJiggleProfile> LegProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") bool bLegJiggleEnabled=true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Chain") bool bLegChainEnabled=true;
+    // Experimental operator comparison: 0 legacy, 1 translation, 2 local metric, 3 stations only.
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Chain",meta=(ClampMin="0",ClampMax="3")) int32 LegChainMethod=0;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double ThighAmplitude=3;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double CalfAmplitude=3;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double LegSupport=.85;

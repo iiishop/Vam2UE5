@@ -75,7 +75,7 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
             FVamGluteTuning Tuning;Tuning.Support=LegSupport;Tuning.Damping=LegDamping*(S.bCalf?CalfDamping:ThighDamping);
             if(bLegJiggleEnabled && GetWorld()->IsGameWorld()) LegSolvers[I].Advance(*LegIntegration,Dynamics,Input,Dt,FVector(0,0,GetWorld()->GetGravityZ()),Tuning,Revision!=LegLastTeleport || bLegWasEnabled!=bLegJiggleEnabled,Paused,bLegShapeRebase);
             else LegSolvers[I].Reset();
-            for(int K=0;K<S.ChainBones.Num();++K) if(Pose.IsValidIndex(S.ChainBones[K])) Pose[S.ChainBones[K]]=VamLegDynamics::ChainFrame(S,PrimaryPose,K/4.,bLegChainEnabled)*Anchor;
+            for(int K=0;K<S.ChainBones.Num();++K) if(Pose.IsValidIndex(S.ChainBones[K])) Pose[S.ChainBones[K]]=VamLegDynamics::ChainFrame(S,PrimaryPose,K/4.,bLegChainEnabled,LegChainMethod)*Anchor;
             const double Value=S.bCalf?CalfAmplitude:ThighAmplitude,Amplitude=FMath::Clamp(FMath::IsFinite(Value)?Value:3.,0.,10.);
             for(int32 N=0;N<5;++N)
             {
@@ -85,7 +85,7 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
                 const FVector Envelope(FMath::Max(.1,S.Radius*.35),FMath::Max(.1,S.Radius*.35),FMath::Max(.1,S.Radius*.18));
                 Offset/=FMath::Sqrt(1+(Offset/Envelope).SizeSquared());
                 const double U=FMath::Clamp(.5-Node.Rest.Z/S.Length,0.,1.);
-                const FTransform Frame=VamLegDynamics::ChainFrame(S,PrimaryPose,U,bLegChainEnabled);
+                const FTransform Frame=VamLegDynamics::ChainFrame(S,PrimaryPose,U,bLegChainEnabled && LegChainMethod!=3,LegChainMethod);
                 const FVector Radial=Node.Rest-FVector(0,0,S.Length*(.5-U));
                 Pose[Node.BoneIndex]=FTransform(Frame.GetRotation(),Frame.TransformPosition(Radial+Offset),Frame.GetScale3D())*Anchor;
                 const FVector Rest=Input.Pelvis.TransformPosition(Node.Rest),Position=Input.Pelvis.TransformPosition(Node.Rest+Offset);

@@ -48,7 +48,7 @@ FVamGluteDynamicSide VamLegDynamics::Evaluate(const UVamLegJiggleProfile& P,cons
 
 // Continuous Hermite muscle-support path. Anatomical main bones remain unchanged.
 // Neighbor rotations affect endpoint tangents, never endpoint joint positions.
-FTransform VamLegDynamics::ChainFrame(const FVamLegSegment& S,const TArray<FTransform>& Pose,double U,bool Enabled)
+FTransform VamLegDynamics::ChainFrame(const FVamLegSegment& S,const TArray<FTransform>& Pose,double U,bool Enabled,int32 Method)
 {
     U=FMath::Clamp(U,0.,1.);
     const FVector Rest(0,0,S.Length*(.5-U));
@@ -67,6 +67,17 @@ FTransform VamLegDynamics::ChainFrame(const FVamLegSegment& S,const TArray<FTran
     const FVector P0(0,0,S.Length*.5),P1=-P0;
     auto Point=[&](double T){return (2*T*T*T-3*T*T+1)*P0+(T*T*T-2*T*T+T)*A+(-2*T*T*T+3*T*T)*P1+(T*T*T-T*T)*B;};
     const FVector Tangent=(6*U*U-6*U)*P0+(3*U*U-4*U+1)*A+(-6*U*U+6*U)*P1+(3*U*U-2*U)*B;
+    // Translation-only isolates frame rotation/scale from curve displacement.
+    if(Method==1)return FTransform(Point(U));
+    // Local curve metric, rather than whole-arc scale applied uniformly.
+    // This keeps each individual affine station determinant at one; LBS blending
+    // and nonlinear curvature mean this is NOT a mesh volume guarantee.
+    if(Method==2) {
+        const double Stretch=FMath::Clamp(Tangent.Size()/S.Length,.5,2.);
+        const double Radial=1./FMath::Sqrt(Stretch);
+        const FQuat Rotation=FQuat::FindBetweenNormals(FVector::ZAxisVector,(-Tangent).GetSafeNormal());
+        return FTransform(Rotation,Point(U),FVector(Radial,Radial,Stretch));
+    }
     double Arc=0;FVector Last=P0;for(int K=1;K<=12;++K){const FVector Next=Point(K/12.);Arc+=(Next-Last).Size();Last=Next;}
     // Cross-sectional compensation is only an engineering volume approximation.
     const double Radial=FMath::Clamp(FMath::Sqrt(S.Length/FMath::Max(S.Length*.5,Arc)),.85,1.15);
@@ -90,6 +101,14 @@ bool FVamLegChainTest::RunTest(const FString&)
     TestTrue(TEXT("Fixed distal endpoint"),VamLegDynamics::ChainFrame(S,P,1,true).GetLocation().Equals(FVector(0,0,-20),1.e-6));
     const FQuat World(FVector::XAxisVector,.7);auto Rotated=P;for(auto& F:Rotated)F.SetRotation(World*F.GetRotation());
     TestTrue(TEXT("Whole-body rotation invariant"),VamLegDynamics::ChainFrame(S,P,.4,true).Equals(VamLegDynamics::ChainFrame(S,Rotated,.4,true),1.e-6));
+    for(int Method=1;Method<=3;++Method)for(int K=0;K<=40;++K) {
+        const double U=K/40.;const auto F=VamLegDynamics::ChainFrame(S,P,U,true,Method);
+        TestFalse(TEXT("Candidate finite"),F.ContainsNaN());
+        TestTrue(TEXT("Candidate positive scale"),F.GetScale3D().GetMin()>0);
+        TestTrue(TEXT("Candidate world invariance"),F.Equals(VamLegDynamics::ChainFrame(S,Rotated,U,true,Method),1.e-6));
+        if(Method==1){TestTrue(TEXT("Translation preserves orientation"),F.GetRotation().Equals(FQuat::Identity,1.e-6));TestTrue(TEXT("Translation preserves scale"),F.GetScale3D().Equals(FVector::OneVector,1.e-6));}
+        if(Method==2){const auto Scale=F.GetScale3D();TestTrue(TEXT("Local affine determinant one"),FMath::IsNearlyEqual(Scale.X*Scale.Y*Scale.Z,1.,1.e-6));}
+    }
     return !HasAnyErrors();
 }
 #endif

@@ -1,0 +1,738 @@
+{
+  "schema": "vam-pose-suite/1",
+  "limit_policy": "Converted local quaternion checked against actual RigProfile limits; reduce rotation along same axis until admitted; requested angles are never accepted as achieved angles.",
+  "fixed_dt": 0.016666666666666666,
+  "settle_frames": 90,
+  "views": [
+    "side",
+    "rear",
+    "oblique"
+  ],
+  "modes": [
+    "material",
+    "gray",
+    "world-normal"
+  ],
+  "cases": [
+    {
+      "id": "R-flexion",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "flexion",
+      "leg_chain": false,
+      "contact_solver": false,
+      "leg_chain_method": 0
+    },
+    {
+      "id": "R-step",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "step",
+      "leg_chain": false,
+      "contact_solver": false,
+      "leg_chain_method": 0
+    },
+    {
+      "id": "R-seated-stop",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": true,
+      "soft_contact": false,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 2,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "hard-stop",
+      "leg_chain": false,
+      "contact_solver": false,
+      "leg_chain_method": 0
+    },
+    {
+      "id": "L-flexion",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "flexion",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 0
+    },
+    {
+      "id": "L-step",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "step",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 0
+    },
+    {
+      "id": "L-seated-stop",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": true,
+      "soft_contact": false,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 2,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "hard-stop",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 0
+    },
+    {
+      "id": "T-flexion",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "flexion",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 1
+    },
+    {
+      "id": "T-step",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "step",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 1
+    },
+    {
+      "id": "T-seated-stop",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": true,
+      "soft_contact": false,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 2,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "hard-stop",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 1
+    },
+    {
+      "id": "V-flexion",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "flexion",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 2
+    },
+    {
+      "id": "V-step",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "step",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 2
+    },
+    {
+      "id": "V-seated-stop",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": true,
+      "soft_contact": false,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 2,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "hard-stop",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 2
+    },
+    {
+      "id": "S-flexion",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "flexion",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 3
+    },
+    {
+      "id": "S-step",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "step",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 3
+    },
+    {
+      "id": "S-seated-stop",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": true,
+      "soft_contact": false,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 2,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "hard-stop",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 3
+    },
+    {
+      "id": "C-flexion",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "flexion",
+      "leg_chain": false,
+      "contact_solver": true,
+      "leg_chain_method": 0
+    },
+    {
+      "id": "C-step",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "step",
+      "leg_chain": false,
+      "contact_solver": true,
+      "leg_chain_method": 0
+    },
+    {
+      "id": "C-seated-stop",
+      "hip": [
+        90,
+        90
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": true,
+      "soft_contact": false,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 2,
+      "video_frames": 420,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "hard-stop",
+      "leg_chain": false,
+      "contact_solver": true,
+      "leg_chain_method": 0
+    }
+  ]
+}
