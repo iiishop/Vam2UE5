@@ -46,6 +46,45 @@ FVamGluteDynamicSide VamLegDynamics::Evaluate(const UVamLegJiggleProfile& P,cons
     return R;
 }
 
+// Separate regional muscle-tendon paths. Points are inferred from the shaped
+// segment and regional centroid, NOT anatomical landmarks measured in the source.
+// A primary-bone guide keeps the path from becoming a single cross-joint chord.
+FVamLegMusclePath VamLegDynamics::MusclePath(const FVamLegSegment& S,const TArray<FTransform>& Pose,int32 Index)
+{
+    FVamLegMusclePath R;
+    if(!S.Dynamics.Nodes.IsValidIndex(Index) || S.JointRest.Num()!=3 || S.Length<=0)return R;
+    const auto& N=S.Dynamics.Nodes[Index];R.Frame=FTransform(N.Rest);
+    const int Primary=S.bCalf?S.Shin:S.Thigh,Parent=S.bCalf?S.Thigh:S.Pelvis,Distal=S.bCalf?S.Foot:S.Shin,J=S.bCalf?1:0;
+    if(!Pose.IsValidIndex(Parent)||!Pose.IsValidIndex(Primary)||!Pose.IsValidIndex(Distal))return R;
+    const FString Name=N.Semantic.ToString();
+    const bool Biarticular=S.bCalf?Name.StartsWith(TEXT("Gastro")):(Name==TEXT("RectusFemoris")||Name==TEXT("Hamstrings"));
+    R.OriginBone=Biarticular?Parent:Primary;R.InsertionBone=Distal;
+    const FTransform Anchor=S.AnchorLocal*Pose[Primary];
+    // Offset attachments remain on their own anterior/posterior side. No side copy.
+    const FVector Radial(N.Rest.X,N.Rest.Y,0);
+    const FVector A0=Radial+FVector(0,0,S.Length*.40);
+    const FVector Via=Radial+FVector(0,0,-S.Length*.35);
+    const FVector B0=Radial+FVector(0,0,-S.Length*.62);
+    const FTransform ParentRest=S.JointRest[J].Inverse(),DistalRest=S.JointRest[J+1];
+    const FVector OriginLocal=(Biarticular?ParentRest:FTransform::Identity).InverseTransformPosition(S.AnchorLocal.TransformPosition(A0));
+    const FVector InsertionLocal=DistalRest.InverseTransformPosition(S.AnchorLocal.TransformPosition(B0));
+    R.Origin=Anchor.InverseTransformPosition(Pose[R.OriginBone].TransformPosition(OriginLocal));
+    R.Guide=Via;R.Insertion=Anchor.InverseTransformPosition(Pose[Distal].TransformPosition(InsertionLocal));
+    R.RestLength=(Via-A0).Size()+(B0-Via).Size();
+    R.Length=(Via-R.Origin).Size()+(R.Insertion-Via).Size();
+    R.Ratio=R.Length/FMath::Max(R.RestLength,1.e-6);
+    // A bounded constitutive response prevents singular scales at extreme poses;
+    // near rest its derivative is one (not a reduced deformation amplitude).
+    const double Log=FMath::Loge(FMath::Max(R.Ratio,1.e-6));
+    const double Applied=.25*FMath::Tanh(Log/.25);
+    R.AppliedStretch=FMath::Exp(Applied);R.bLimited=FMath::Abs(Log-Applied)>.01;
+    const double RadialScale=1./FMath::Sqrt(R.AppliedStretch);
+    // Keep the validated C/S reference orientation; do not aim the whole skin
+    // towards tendon insertions. Existing smooth regional weights localize bulging.
+    R.Frame=FTransform(FQuat::Identity,N.Rest,FVector(RadialScale,RadialScale,R.AppliedStretch));
+    return R;
+}
+
 // Continuous Hermite muscle-support path. Anatomical main bones remain unchanged.
 // Neighbor rotations affect endpoint tangents, never endpoint joint positions.
 FTransform VamLegDynamics::ChainFrame(const FVamLegSegment& S,const TArray<FTransform>& Pose,double U,bool Enabled,int32 Method)
@@ -109,6 +148,20 @@ bool FVamLegChainTest::RunTest(const FString&)
         if(Method==1){TestTrue(TEXT("Translation preserves orientation"),F.GetRotation().Equals(FQuat::Identity,1.e-6));TestTrue(TEXT("Translation preserves scale"),F.GetScale3D().Equals(FVector::OneVector,1.e-6));}
         if(Method==2){const auto Scale=F.GetScale3D();TestTrue(TEXT("Local affine determinant one"),FMath::IsNearlyEqual(Scale.X*Scale.Y*Scale.Z,1.,1.e-6));}
     }
+    return !HasAnyErrors();
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamLegAttachmentsTest,"Vam.Leg.MuscleAttachments",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FVamLegAttachmentsTest::RunTest(const FString&)
+{
+    FVamLegSegment S;S.Length=40;S.Radius=6;S.Pelvis=0;S.Thigh=1;S.Shin=2;S.Foot=3;S.JointRest.Init(FTransform::Identity,3);S.JointRest[1]=FTransform(FVector(0,0,-20));
+    FVamGluteDynamicNode F;F.Semantic=TEXT("RectusFemoris");F.Rest=FVector(5,0,0);S.Dynamics.Nodes.Add(F);F.Semantic=TEXT("Hamstrings");F.Rest=FVector(-5,0,0);S.Dynamics.Nodes.Add(F);
+    TArray<FTransform> Pose;Pose.Init(FTransform::Identity,4);Pose[2]=S.JointRest[1];
+    for(int N=0;N<2;++N){auto M=VamLegDynamics::MusclePath(S,Pose,N);TestTrue(TEXT("Neutral identity scale and position"),M.Frame.Equals(FTransform(S.Dynamics.Nodes[N].Rest),1.e-6));TestTrue(TEXT("Neutral length"),FMath::IsNearlyEqual(M.Ratio,1.,1.e-6));}
+    Pose[2].SetRotation(FQuat(FVector::YAxisVector,PI/2));
+    const auto Front=VamLegDynamics::MusclePath(S,Pose,0),Back=VamLegDynamics::MusclePath(S,Pose,1);
+    TestTrue(TEXT("Knee flexion extends anterior path"),Front.Ratio>1);TestTrue(TEXT("Knee flexion shortens posterior path"),Back.Ratio<1);
+    auto World=Pose;FTransform W(FQuat(FVector::XAxisVector,.8),FVector(30,20,10));for(auto& P:World)P=P*W;
+    for(int N=0;N<2;++N){auto M=VamLegDynamics::MusclePath(S,Pose,N),R=VamLegDynamics::MusclePath(S,World,N);TestTrue(TEXT("Whole actor invariance"),M.Frame.Equals(R.Frame,1.e-6));TestTrue(TEXT("Finite muscle frame"),!M.Frame.ContainsNaN());const auto V=M.Frame.GetScale3D();TestTrue(TEXT("Affine muscle determinant"),FMath::IsNearlyEqual(V.X*V.Y*V.Z,1.,1.e-6));}
     return !HasAnyErrors();
 }
 #endif

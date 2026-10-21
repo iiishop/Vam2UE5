@@ -66,6 +66,14 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
             const auto& S=LegRest[I];if(!Pose.IsValidIndex(S.AnchorBone) || !Pose.IsValidIndex(S.Foot)) continue;
             FVector2D SideAngles;LegAngles[I]=VamLegDynamics::JointAngles(S,PrimaryPose,SideAngles);
             auto Dynamics=VamLegDynamics::Evaluate(*LegProfile,S,LegAngles[I],SideAngles,LegTension[I]);
+            FVamLegMusclePath MusclePaths[5];
+            if(bLegChainEnabled && LegChainMethod==4)for(int N=0;N<5;++N){
+                MusclePaths[N]=VamLegDynamics::MusclePath(S,PrimaryPose,N);
+                const double Stretch=FMath::Max(0.,MusclePaths[N].Ratio-1-LegProfile->PassiveSlack);
+                const double Passive=1-FMath::Exp(-12*Stretch*Stretch);LegTension[I][N]=Passive;
+                Dynamics.Nodes[N].Support=S.Dynamics.Nodes[N].Support*FVector(1+LegProfile->PassiveGain*Passive,1+LegProfile->PassiveGain*Passive,1+LegProfile->PassiveGain*Passive*1.5);
+                Dynamics.Nodes[N].DampingRatio=S.Dynamics.Nodes[N].DampingRatio+FVector(LegProfile->PassiveDampingGain*Passive);
+            }
             const FTransform Anchor=S.AnchorLocal*PrimaryPose[S.bCalf?S.Shin:S.Thigh];Pose[S.AnchorBone]=Anchor;
             FVamGluteMotion Input;Input.Pelvis=Anchor*GetComponentTransform();Input.Thigh=PrimaryPose[S.bCalf?S.Foot:S.Shin]*GetComponentTransform();
             // The authored, posed skin is the loaded equilibrium. Balance its
@@ -85,9 +93,10 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
                 const FVector Envelope(FMath::Max(.1,S.Radius*.35),FMath::Max(.1,S.Radius*.35),FMath::Max(.1,S.Radius*.18));
                 Offset/=FMath::Sqrt(1+(Offset/Envelope).SizeSquared());
                 const double U=FMath::Clamp(.5-Node.Rest.Z/S.Length,0.,1.);
-                const FTransform Frame=VamLegDynamics::ChainFrame(S,PrimaryPose,U,bLegChainEnabled && LegChainMethod!=3,LegChainMethod);
+                const FTransform Frame=VamLegDynamics::ChainFrame(S,PrimaryPose,U,bLegChainEnabled && LegChainMethod<3,LegChainMethod);
                 const FVector Radial=Node.Rest-FVector(0,0,S.Length*(.5-U));
                 Pose[Node.BoneIndex]=FTransform(Frame.GetRotation(),Frame.TransformPosition(Radial+Offset),Frame.GetScale3D())*Anchor;
+                if(bLegChainEnabled && LegChainMethod==4){auto F=MusclePaths[N].Frame;F.AddToTranslation(Offset);Pose[Node.BoneIndex]=F*Anchor;}
                 const FVector Rest=Input.Pelvis.TransformPosition(Node.Rest),Position=Input.Pelvis.TransformPosition(Node.Rest+Offset);
                 if(bShowLegNodes){DrawDebugPoint(GetWorld(),Position,7,FColor::Orange,false,0);DrawDebugLine(GetWorld(),Rest,Position,FColor::Magenta,false,0);}
                 if(bShowLegTension) DrawDebugString(GetWorld(),Position,FString::Printf(TEXT("%s passive %.3f"),*Node.Semantic.ToString(),LegTension[I][N]),nullptr,FColor::White,0);

@@ -63,8 +63,19 @@ public:
     UPROPERTY(Instanced) TObjectPtr<UVamGluteJiggleProfile> Integration;
     UFUNCTION(BlueprintPure, Category="VaM|Leg Jiggle") bool IsValidProfile() const;
 };
+// Runtime geometry evidence; not persisted into legacy profile identity.
+struct FVamLegMusclePath
+{
+    int32 OriginBone=INDEX_NONE,InsertionBone=INDEX_NONE;
+    FVector Origin=FVector::ZeroVector,Guide=FVector::ZeroVector,Insertion=FVector::ZeroVector;
+    double RestLength=0,Length=0,Ratio=1,AppliedStretch=1;
+    bool bLimited=false;
+    FTransform Frame=FTransform::Identity;
+};
 namespace VamLegDynamics
 {
+    VAMCHARACTERRUNTIME_API FVamLegMusclePath MusclePath(const FVamLegSegment&,const TArray<FTransform>& Pose,int32 Node);
+
     VAMCHARACTERRUNTIME_API FTransform ChainFrame(const FVamLegSegment&,const TArray<FTransform>& Pose,double U,bool bEnabled,int32 Method=0);
     VAMCHARACTERRUNTIME_API FVector JointAngles(const FVamLegSegment&,const TArray<FTransform>& Pose,FVector2D& SideAngles);
     VAMCHARACTERRUNTIME_API FVamGluteDynamicSide Evaluate(const UVamLegJiggleProfile&,const FVamLegSegment&,const FVector& Angles,const FVector2D& SideAngles,TArray<double>& Tension);
