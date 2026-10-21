@@ -66,7 +66,7 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
     TArray<FTransform> CS;P->SourceBoneCount=Input.Bones.Num();P->SourceBoneNames.Reset();P->SourceLocalBind.Reset();
     for(const auto& B:Input.Bones){CS.Add(B.Parent<0?B.LocalBind:B.LocalBind*CS[B.Parent]);P->SourceBoneNames.Add(B.Name);P->SourceLocalBind.Add(B.LocalBind);}
     P->SourceTopologyIdentity=Geometry->TopologyDigest;P->SkeletonFamily=Family->GetStringField(TEXT("family"));P->Segments.Reset();
-    P->SchemaVersion=2;P->Algorithm=TEXT("leg-pose-equilibrium-v4-continuous");
+    P->SchemaVersion=3;P->Algorithm=TEXT("leg-longitudinal-chain-v1");
     P->Integration=NewObject<UVamGluteJiggleProfile>(P,TEXT("Integration"));P->Integration->SchemaVersion=2;P->Integration->bNormalizedAttachmentDamping=true;
     const FVector Up=(CS[Superior].GetLocation()-CS[Pelvis].GetLocation()).GetSafeNormal();
     const FVector Across=(CS[Thigh[0]].GetLocation()-CS[Thigh[1]].GetLocation()).GetSafeNormal();
@@ -315,6 +315,23 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
         }
         UE_LOG(LogTemp,Display,TEXT("HIP_GEODESIC side=%s width=%.3f expanded=%d changed=%d core retention=%.4f max edge gradient %.4f -> %.4f"),*Side.Side.ToString(),Width,Expanded,Changed,CoreAfter/FMath::Max(1.e-8,CoreBefore),Before,After);
     }
+    // Split only remaining primary ownership. Existing glute and regional Jiggle
+    // shares are retained. Two adjacent longitudinal stations suffice per vertex.
+    P->ChainBoneIndices.Reset();
+    for(auto& S:P->Segments)
+    {
+        const int Primary=S.bCalf?S.Shin:S.Thigh;
+        for(int K=0;K<5;++K){FVamBuildBone B;B.Name=FName(*FString::Printf(TEXT("%s_Chain_%d"),*S.Name.ToString(),K));B.Parent=S.AnchorBone;B.LocalBind=FTransform(FVector(0,0,S.Length*(.5-K/4.)));S.ChainBones.Add(Input.Bones.Num());P->ChainBoneIndices.Add(Input.Bones.Num());Input.Bones.Add(B);}
+        for(int V=0;V<Weights.Num();++V)
+        {
+            const double U=FMath::Clamp(.5-S.RegionPoints[V].Z/S.Length,0.,1.);
+            const double Fraction=.6*Smooth(S.RegionWeights[V]/.65);
+            const double W=Weights[V].FindRef(Primary)*Fraction;if(W<1.e-8)continue;
+            const double X=U*4;const int K=FMath::Min(3,FMath::FloorToInt(X));const double T=X-K;
+            Weights[V].FindChecked(Primary)-=W;
+            Weights[V].FindOrAdd(S.ChainBones[K])+=W*(1-T);Weights[V].FindOrAdd(S.ChainBones[K+1])+=W*T;
+        }
+    }
     // Sparsity is a final export operation, never an input constraint for fitting.
     // This avoids zero-support islands being magnified into folds on activation.
     double MaximumDiscarded=0;for(auto& W:Weights)MaximumDiscarded=FMath::Max(MaximumDiscarded,VamBreastWeights::FinalizeBudget(W,MAX_TOTAL_INFLUENCES));
@@ -341,7 +358,7 @@ UVamCharacterDefinition* UVamLegJiggleBuilder::Build(const FString& Root,UVamCha
 FString UVamLegJiggleBuilder::Validate(UVamCharacterDefinition* D,UVamLegJiggleProfile* P)
 {
     if(!D || !P || !P->IsValidProfile()) return TEXT("Invalid Leg Jiggle profile");auto* Mesh=D->Body.LoadSynchronous();if(!Mesh) return TEXT("Missing leg mesh");const auto& Ref=Mesh->GetRefSkeleton();
-    if(Ref.GetRawBoneNum()!=P->SourceBoneCount+24) return TEXT("Leg append count mismatch");
+    if(Ref.GetRawBoneNum()!=P->SourceBoneCount+(P->SchemaVersion==3?44:24)) return TEXT("Leg append count mismatch");
     for(int32 B=0;B<P->SourceBoneCount;++B) if(Ref.GetBoneName(B)!=P->SourceBoneNames[B] || !Ref.GetRefBonePose()[B].Equals(P->SourceLocalBind[B],1.e-6)) return TEXT("Leg build changed existing skeleton");
     for(const auto& S:P->Segments){if(Ref.GetParentIndex(S.AnchorBone)!=(S.bCalf?S.Shin:S.Thigh)) return TEXT("Leg anchor hierarchy mismatch");for(const auto& N:S.Dynamics.Nodes) if(Ref.GetParentIndex(N.BoneIndex)!=S.AnchorBone) return TEXT("Leg helper hierarchy mismatch");}
     auto CS=Ref.GetRefBonePose();for(int32 B=0;B<CS.Num();++B) if(Ref.GetParentIndex(B)>=0) CS[B]=CS[B]*CS[Ref.GetParentIndex(B)];

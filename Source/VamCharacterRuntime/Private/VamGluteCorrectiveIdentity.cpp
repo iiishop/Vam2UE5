@@ -28,7 +28,7 @@ struct FDigest
         if(!O){Text(TEXT("missing"));return;}
         Text(O->GetClass()->GetPathName());
         TArray<FProperty*> Fields;
-        for(TFieldIterator<FProperty> It(O->GetClass());It;++It) if(!It->HasAnyPropertyFlags(CPF_Transient|CPF_EditorOnly)&&(!Only||Only->Contains(It->GetFName())))Fields.Add(*It);
+        for(TFieldIterator<FProperty> It(O->GetClass());It;++It) if(!(Cast<UVamLegJiggleProfile>(O) && Cast<UVamLegJiggleProfile>(O)->SchemaVersion<3 && It->GetFName()==TEXT("ChainBoneIndices")) && !It->HasAnyPropertyFlags(CPF_Transient|CPF_EditorOnly)&&(!Only||Only->Contains(It->GetFName())))Fields.Add(*It);
         Fields.Sort([](const FProperty& A,const FProperty& B){return A.GetName()<B.GetName();});
         FObjectAndNameAsStringProxyArchive Archive(Writer,false);
         for(auto* P:Fields){Text(P->GetName());FStructuredArchiveFromArchive SA(Archive);P->SerializeItem(SA.GetSlot(),P->ContainerPtrToValuePtr<void>(O),nullptr);}

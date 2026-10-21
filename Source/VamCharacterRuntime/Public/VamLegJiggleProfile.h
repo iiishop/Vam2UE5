@@ -23,6 +23,8 @@ struct VAMCHARACTERRUNTIME_API FVamLegSegment
     UPROPERTY() int32 Shin=INDEX_NONE;
     UPROPERTY() int32 Foot=INDEX_NONE;
     UPROPERTY() int32 AnchorBone=INDEX_NONE;
+    /** Longitudinal deformation stations, evaluated together in segment space. */
+    TArray<int32> ChainBones; // Runtime cache; persisted separately to preserve old profile seals.
     UPROPERTY() FTransform AnchorLocal;
     UPROPERTY() TArray<FTransform> JointRest; // thigh/pelvis, shin/thigh, foot/shin
     UPROPERTY() TArray<FQuat> ParentRestRotations;
@@ -48,6 +50,7 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Leg Jiggle") FString SkeletonFamily;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Leg Jiggle") FString SourceTopologyIdentity;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Leg Jiggle") FString Provenance;
+    UPROPERTY() TArray<int32> ChainBoneIndices;
     UPROPERTY() int32 SourceBoneCount=0;
     UPROPERTY() TArray<FName> SourceBoneNames;
     UPROPERTY() TArray<FTransform> SourceLocalBind;
@@ -62,6 +65,7 @@ public:
 };
 namespace VamLegDynamics
 {
+    VAMCHARACTERRUNTIME_API FTransform ChainFrame(const FVamLegSegment&,const TArray<FTransform>& Pose,double U,bool bEnabled);
     VAMCHARACTERRUNTIME_API FVector JointAngles(const FVamLegSegment&,const TArray<FTransform>& Pose,FVector2D& SideAngles);
     VAMCHARACTERRUNTIME_API FVamGluteDynamicSide Evaluate(const UVamLegJiggleProfile&,const FVamLegSegment&,const FVector& Angles,const FVector2D& SideAngles,TArray<double>& Tension);
 }

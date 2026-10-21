@@ -10,6 +10,11 @@ class RuntimeRecipeTests(unittest.TestCase):
           'joints':[{'bone':'root','semantic':'root','pose_control':False,'minimum':[0,0,0],'maximum':[0,0,0],'preferred_bend':[0,0,0]}],
           'solver_root':'root','effectors':[]}
         self.recipe={'schema':'vam-runtime-recipe/1','definition':'/Game/A/CD','source_mapping':'/Game/A/Mapping','destination_root':'/Game/Runtime','family':'family.json'}
+    def test_explicit_hair_input_path(self):
+        self.recipe['hair_source']='prepared/bun.json';validate_recipe(self.recipe)
+        for invalid in [None,False,{},'']:
+            self.recipe['hair_source']=invalid
+            with self.assertRaisesRegex(ValueError,'hair_source'):validate_recipe(self.recipe)
     def test_proportions_do_not_copy_template_lengths(self):
         other=copy.deepcopy(self.bones);other[1]['translation']=[0,0,24]
         validate_family(other,self.family)

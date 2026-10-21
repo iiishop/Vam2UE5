@@ -79,9 +79,17 @@ def inputs(recipe_path):
     # Hair is generated from the same retained source and body contract as this
     # runtime. Content-addressed inputs survive the independent reload pass.
     ir=json.loads(mapping.get_editor_property('source_ir_json'))
-    if any((r.get('data',{}).get('dynamic') or {}).get('hair') for r in ir['records']):
+    hair=None
+    if recipe.get('hair_source'):
+        # Explicit, content-verified restored hair input; never silently fall back
+        # from stale source scalp metadata or reuse a cache on another identity.
+        hair=json.loads((Path(recipe_path).resolve().parent/recipe['hair_source']).resolve().read_text(encoding='utf8'))
+        require(hair.get('schema')=='vam-groom-source/1' and hair.get('identity')==hashlib.sha256(json.dumps({k:v for k,v in hair.items() if k!='identity'},sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest(),'Explicit hair source content identity mismatch')
+        require(hair.get('body_contract')==contract['contract_id'],'Explicit hair source belongs to another body contract')
+    elif any((r.get('data',{}).get('dynamic') or {}).get('hair') for r in ir['records']):
         from vam_hair_prepare import prepare
         hair=prepare(ir,contract)
+    if hair:
         hair_path=SCRIPTS.parent/'Saved/HairPrepared'/(hair['identity']+'.json')
         if not hair_path.exists():write_json(hair_path,hair)
         files['hair_source']=hair['identity']
@@ -194,7 +202,7 @@ def build(recipe_path,report_path):
     config.set_editor_property('breast_contact',contact)
     if 'hair_source' in source_files:
         hair_input=SCRIPTS.parent/'Saved/HairPrepared'/(source_files['hair_source']+'.json')
-        hair,error=u.VamHairBuilder.build_hair(str(hair_input),root+'/Hair',mesh,identity)
+        hair,error=u.VamHairBuilder.build_hair(str(hair_input),root+'/Hair',mesh,identity,physics)
         require(hair is not None,'Hair generation rejected: '+str(error))
         config.set_editor_property('hair',hair)
         require(u.VamHairBuilder.bind_hairstyle(hair,config,hair.get_editor_property('hairstyle')),'Hairstyle composition binding failed')

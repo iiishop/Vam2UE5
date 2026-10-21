@@ -147,13 +147,16 @@ void AVamCharacterActor::ExportDeformationAudit()
  auto ResetBone=[&](int Bone){if(Base.IsValidIndex(Bone)&&Local.IsValidIndex(Bone)){int Parent=Ref.GetParentIndex(Bone);Base[Bone]=Parent>=0?Local[Bone]*Base[Parent]:Local[Bone];}};
  for(const auto& S:B->RestSides){ResetBone(S.AnchorBone);for(const auto& N:S.Nodes)ResetBone(N.BoneIndex);}
  for(const auto& S:B->GluteRest){ResetBone(S.AnchorBone);for(const auto& N:S.Regions)ResetBone(N.BoneIndex);}
- for(const auto& S:B->LegRest){ResetBone(S.AnchorBone);for(const auto& N:S.Dynamics.Nodes)ResetBone(N.BoneIndex);}
+ for(const auto& S:B->LegRest){ResetBone(S.AnchorBone);for(const auto& N:S.Dynamics.Nodes)ResetBone(N.BoneIndex);for(int Bone:S.ChainBones)ResetBone(Bone);}
  auto NonCorrective=AllMorphs;if(B->CorrectiveProfile)for(const auto& X:B->CorrectiveProfile->Bases)NonCorrective.Remove(X.Morph);
  if(B->CorrectiveProfile)for(const auto& K:B->CorrectiveProfile->Knees)for(FName Name:K.Morphs)NonCorrective.Remove(Name);
  auto Stages=Obj();J Meta;Surface(Dir/TEXT("01-final-weights"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Base,NonCorrective,Meta,Inverse);Meta->SetStringField(TEXT("meaning"),TEXT("final weights, shape-reference helpers, current primary pose; NOT source LBS"));Stages->SetObjectField(TEXT("01-final-weights"),Meta);
  auto Static=Base;
  for(const auto& S:B->LegRest){const auto Anchor=S.AnchorLocal*Static[S.bCalf?S.Shin:S.Thigh];Static[S.AnchorBone]=Anchor;for(const auto& N:S.Dynamics.Nodes)Static[N.BoneIndex]=FTransform(N.Rest)*Anchor;}
  if(B->GluteProfile)for(const auto& S:B->GluteRest){const auto Anchor=S.AnchorLocal*Static[S.PelvisBone];auto State=VamGluteStructure::Evaluate(*B->GluteProfile,S,B->bGluteEnabled?Static[S.ThighBone].GetRelativeTransform(Anchor):S.RestThighInAnchor);Static[S.AnchorBone]=Anchor;for(int I=0;I<S.Regions.Num();++I)Static[S.Regions[I].BoneIndex]=State.Regions[I].Transform*Anchor;}
+ Root->SetBoolField(TEXT("leg_chain_enabled"),B->bLegChainEnabled);
+ Surface(Dir/TEXT("02a-chain-disabled"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Static,NonCorrective,Meta,Inverse);Stages->SetObjectField(TEXT("02a-chain-disabled"),Meta);
+ for(const auto& S:B->LegRest){const auto Anchor=S.AnchorLocal*Static[S.bCalf?S.Shin:S.Thigh];for(int K=0;K<S.ChainBones.Num();++K)Static[S.ChainBones[K]]=VamLegDynamics::ChainFrame(S,Base,K/4.,B->bLegChainEnabled)*Anchor;for(const auto& N:S.Dynamics.Nodes){const double U=FMath::Clamp(.5-N.Rest.Z/S.Length,0.,1.);const auto F=VamLegDynamics::ChainFrame(S,Base,U,B->bLegChainEnabled);const auto R=N.Rest-FVector(0,0,S.Length*(.5-U));Static[N.BoneIndex]=FTransform(F.GetRotation(),F.TransformPosition(R),F.GetScale3D())*Anchor;}}
  Surface(Dir/TEXT("02-static-helpers"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Static,NonCorrective,Meta,Inverse);Stages->SetObjectField(TEXT("02-static-helpers"),Meta);
  Surface(Dir/TEXT("03-corrective"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Static,AllMorphs,Meta,Inverse);Stages->SetObjectField(TEXT("03-corrective"),Meta);
  if(!Offline) Surface(Dir/TEXT("04-jiggle"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Final,AllMorphs,Meta,Inverse);if(!Offline) Stages->SetObjectField(TEXT("04-jiggle"),Meta);

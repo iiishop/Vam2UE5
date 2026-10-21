@@ -19,6 +19,7 @@ def validate_recipe(recipe):
         require(isinstance(recipe.get(key),str) and re.fullmatch(r'/Game(?:/[A-Za-z_][A-Za-z0-9_]*)+(?:\.[A-Za-z_][A-Za-z0-9_]*)?',recipe[key]),'Explicit /Game asset path required: '+key)
     require('.' not in recipe['destination_root'],'destination_root must be a package directory')
     require(recipe.get('family'),'Explicit skeleton family policy file required')
+    require('hair_source' not in recipe or isinstance(recipe['hair_source'],str) and bool(recipe['hair_source']),'hair_source must be an explicit prepared input path')
     require(recipe.get('skin_shading','source') in ('source','subsurface'),'Unsupported skin_shading policy')
     require(2 <= recipe.get('minimum_bone_size_cm',8) <= 30,'minimum_bone_size_cm must be in [2,30]')
 

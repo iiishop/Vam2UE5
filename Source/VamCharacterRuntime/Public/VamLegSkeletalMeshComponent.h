@@ -10,6 +10,7 @@ class VAMCHARACTERRUNTIME_API UVamLegSkeletalMeshComponent : public UVamGluteSke
 public:
     UPROPERTY(Transient) TObjectPtr<UVamLegJiggleProfile> LegProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") bool bLegJiggleEnabled=true;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Chain") bool bLegChainEnabled=true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double ThighAmplitude=3;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double CalfAmplitude=3;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double LegSupport=.85;

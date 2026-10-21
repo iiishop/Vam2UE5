@@ -62,6 +62,7 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
         const bool Paused=GetWorld()->IsPaused() || (Motion && Motion->GetClock().bPaused);
         for(int32 I=0;I<4;++I)
         {
+            if(LegProfile->SchemaVersion==3 && LegRest[I].ChainBones.Num()!=5)for(int K=0;K<5;++K)LegRest[I].ChainBones.Add(LegProfile->ChainBoneIndices[I*5+K]);
             const auto& S=LegRest[I];if(!Pose.IsValidIndex(S.AnchorBone) || !Pose.IsValidIndex(S.Foot)) continue;
             FVector2D SideAngles;LegAngles[I]=VamLegDynamics::JointAngles(S,PrimaryPose,SideAngles);
             auto Dynamics=VamLegDynamics::Evaluate(*LegProfile,S,LegAngles[I],SideAngles,LegTension[I]);
@@ -74,6 +75,7 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
             FVamGluteTuning Tuning;Tuning.Support=LegSupport;Tuning.Damping=LegDamping*(S.bCalf?CalfDamping:ThighDamping);
             if(bLegJiggleEnabled && GetWorld()->IsGameWorld()) LegSolvers[I].Advance(*LegIntegration,Dynamics,Input,Dt,FVector(0,0,GetWorld()->GetGravityZ()),Tuning,Revision!=LegLastTeleport || bLegWasEnabled!=bLegJiggleEnabled,Paused,bLegShapeRebase);
             else LegSolvers[I].Reset();
+            for(int K=0;K<S.ChainBones.Num();++K) if(Pose.IsValidIndex(S.ChainBones[K])) Pose[S.ChainBones[K]]=VamLegDynamics::ChainFrame(S,PrimaryPose,K/4.,bLegChainEnabled)*Anchor;
             const double Value=S.bCalf?CalfAmplitude:ThighAmplitude,Amplitude=FMath::Clamp(FMath::IsFinite(Value)?Value:3.,0.,10.);
             for(int32 N=0;N<5;++N)
             {
@@ -82,7 +84,10 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
                 // prevents the reference-gravity residual becoming a large static bulge.
                 const FVector Envelope(FMath::Max(.1,S.Radius*.35),FMath::Max(.1,S.Radius*.35),FMath::Max(.1,S.Radius*.18));
                 Offset/=FMath::Sqrt(1+(Offset/Envelope).SizeSquared());
-                Pose[Node.BoneIndex]=FTransform(Node.Rest+Offset)*Anchor;
+                const double U=FMath::Clamp(.5-Node.Rest.Z/S.Length,0.,1.);
+                const FTransform Frame=VamLegDynamics::ChainFrame(S,PrimaryPose,U,bLegChainEnabled);
+                const FVector Radial=Node.Rest-FVector(0,0,S.Length*(.5-U));
+                Pose[Node.BoneIndex]=FTransform(Frame.GetRotation(),Frame.TransformPosition(Radial+Offset),Frame.GetScale3D())*Anchor;
                 const FVector Rest=Input.Pelvis.TransformPosition(Node.Rest),Position=Input.Pelvis.TransformPosition(Node.Rest+Offset);
                 if(bShowLegNodes){DrawDebugPoint(GetWorld(),Position,7,FColor::Orange,false,0);DrawDebugLine(GetWorld(),Rest,Position,FColor::Magenta,false,0);}
                 if(bShowLegTension) DrawDebugString(GetWorld(),Position,FString::Printf(TEXT("%s passive %.3f"),*Node.Semantic.ToString(),LegTension[I][N]),nullptr,FColor::White,0);
