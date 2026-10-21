@@ -1,0 +1,622 @@
+{
+  "layers": [
+    {
+      "group": "A",
+      "action": "flexion",
+      "chain_enabled": true,
+      "contact_active": true,
+      "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 1\nGPU resident corotated + skin | batch 1 instances / 8822 particles / 8822 GPU pair slots | scene upload prep 0.001 ms | soft rounds 12 active / 12 searched, peak 95 contacts | async diagnostic batch 62 | no synchronous readback\nSteps 90 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 1.7891 cm\nLeftBreast cage V 3426.20 / 3426.20 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.000 surface stretch 1.000..1.000 worst edge rest 0.695605 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 136\nRightBreast cage V 3420.09 / 3420.09 cm3 error -0.00% min J 1.0000 inverted 0 max J 1.001 surface stretch 1.000..1.000 worst edge rest 0.554476 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 153\nLeftLowerBody cage V 7617.08 / 7617.13 cm3 error -0.00% min J 0.3500 inverted 0 max J 3.078 surface stretch 0.602..1.438 worst edge rest 0.110377 cm extension max 0.1565 cm nipple RMS strain 0.00000 pairs 0\nRightLowerBody cage V 7608.48 / 7608.52 cm3 error -0.00% min J 0.3500 inverted 0 max J 1.703 surface stretch 0.622..1.331 worst edge rest 0.273413 cm extension max 0.1187 cm nipple RMS strain 0.00000 pairs 0\nGPU async cage diagnostics; surface penetration not measured | component CPU 3.787 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.04874954284883507,
+            "p95_cm": 0.07400495431376163,
+            "max_cm": 0.07644248247084708
+          },
+          "jiggle": {
+            "rms_cm": 1.653448286082828e-10,
+            "p95_cm": 4.1863447697377775e-10,
+            "max_cm": 5.914178607909074e-10
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.04595160632544269,
+            "p95_cm": 0.06459563201324982,
+            "max_cm": 0.06865512791148518
+          },
+          "jiggle": {
+            "rms_cm": 7.743611614354371e-16,
+            "p95_cm": 1.7763568394002505e-15,
+            "max_cm": 2.6645352591003757e-15
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04957886778019912,
+            "p95_cm": 0.07349107748992405,
+            "max_cm": 0.07593196380805359
+          },
+          "jiggle": {
+            "rms_cm": 1.8566811117883174e-10,
+            "p95_cm": 5.036205870875386e-10,
+            "max_cm": 6.96347812175615e-10
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.04573648067270661,
+            "p95_cm": 0.06437835347771798,
+            "max_cm": 0.06811934710957607
+          },
+          "jiggle": {
+            "rms_cm": 5.033717474526627e-16,
+            "p95_cm": 8.881784197001252e-16,
+            "max_cm": 1.7763568394002505e-15
+          }
+        }
+      },
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261021-130635-32E700CA4703C7EF59D17DAF1E558331",
+      "video_raw_jiggle_max_cm": 1.040120715073138
+    },
+    {
+      "group": "A",
+      "action": "seated-stop",
+      "chain_enabled": true,
+      "contact_active": false,
+      "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 13.517 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.821089817833656,
+            "p95_cm": 1.363607606181139,
+            "max_cm": 1.5366745691425845
+          },
+          "jiggle": {
+            "rms_cm": 0.11608000184900301,
+            "p95_cm": 0.2632069250777249,
+            "max_cm": 0.3807425277311268
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 1.2069892468554808,
+            "p95_cm": 1.8472586299253166,
+            "max_cm": 1.932290237616678
+          },
+          "jiggle": {
+            "rms_cm": 0.008359033545132854,
+            "p95_cm": 0.01358538302821031,
+            "max_cm": 0.014257273416915826
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.8357937330530365,
+            "p95_cm": 1.3852426076260749,
+            "max_cm": 1.5363719480695792
+          },
+          "jiggle": {
+            "rms_cm": 0.141573126853251,
+            "p95_cm": 0.3613432138786017,
+            "max_cm": 0.4663483235265785
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 1.208432361943348,
+            "p95_cm": 1.8481836091526052,
+            "max_cm": 1.933599013554496
+          },
+          "jiggle": {
+            "rms_cm": 0.008370175374318844,
+            "p95_cm": 0.013592175549005325,
+            "max_cm": 0.014256057799425592
+          }
+        }
+      },
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261021-130813-16575CE443C340F4D125D8B5CEE86DAF",
+      "video_raw_jiggle_max_cm": 0.27312930638015354
+    },
+    {
+      "group": "A",
+      "action": "step",
+      "chain_enabled": true,
+      "contact_active": true,
+      "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 1\nGPU resident corotated + skin | batch 1 instances / 8822 particles / 8822 GPU pair slots | scene upload prep 0.002 ms | soft rounds 12 active / 12 searched, peak 110 contacts | async diagnostic batch 333 | no synchronous readback\nSteps 90 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.8080 cm\nLeftBreast cage V 3426.20 / 3426.20 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.000 surface stretch 1.000..1.000 worst edge rest 0.695605 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 136\nRightBreast cage V 3420.09 / 3420.09 cm3 error -0.00% min J 1.0000 inverted 0 max J 1.001 surface stretch 1.000..1.000 worst edge rest 1.000711 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 153\nLeftLowerBody cage V 7617.04 / 7617.13 cm3 error -0.00% min J 0.5308 inverted 0 max J 1.206 surface stretch 0.640..1.300 worst edge rest 0.258591 cm extension max 0.1423 cm nipple RMS strain 0.00000 pairs 0\nRightLowerBody cage V 7608.47 / 7608.52 cm3 error -0.00% min J 0.3500 inverted 0 max J 1.480 surface stretch 0.650..1.367 worst edge rest 0.175156 cm extension max 0.1140 cm nipple RMS strain 0.00000 pairs 0\nGPU async cage diagnostics; surface penetration not measured | component CPU 2.501 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.04874954284883507,
+            "p95_cm": 0.07400495431376163,
+            "max_cm": 0.07644248247084708
+          },
+          "jiggle": {
+            "rms_cm": 1.653448286082828e-10,
+            "p95_cm": 4.1863447697377775e-10,
+            "max_cm": 5.914178607909074e-10
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.04595160632544269,
+            "p95_cm": 0.06459563201324982,
+            "max_cm": 0.06865512791148518
+          },
+          "jiggle": {
+            "rms_cm": 7.743611614354371e-16,
+            "p95_cm": 1.7763568394002505e-15,
+            "max_cm": 2.6645352591003757e-15
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04957886778019912,
+            "p95_cm": 0.07349107748992405,
+            "max_cm": 0.07593196380805359
+          },
+          "jiggle": {
+            "rms_cm": 1.8566811117883174e-10,
+            "p95_cm": 5.036205870875386e-10,
+            "max_cm": 6.96347812175615e-10
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.04573648067270661,
+            "p95_cm": 0.06437835347771798,
+            "max_cm": 0.06811934710957607
+          },
+          "jiggle": {
+            "rms_cm": 5.033717474526627e-16,
+            "p95_cm": 8.881784197001252e-16,
+            "max_cm": 1.7763568394002505e-15
+          }
+        }
+      },
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261021-130725-74109B2F442B499587D49FA2B557486D",
+      "video_raw_jiggle_max_cm": 0.8273601657605798
+    },
+    {
+      "group": "B",
+      "action": "flexion",
+      "chain_enabled": true,
+      "contact_active": false,
+      "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nContact disabled\nSteps 0 | residual from final animated skin | no additional gravity\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 0.002 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.04874954284883507,
+            "p95_cm": 0.07400495431376163,
+            "max_cm": 0.07644248247084708
+          },
+          "jiggle": {
+            "rms_cm": 1.653448286082828e-10,
+            "p95_cm": 4.1863447697377775e-10,
+            "max_cm": 5.914178607909074e-10
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.04595160632544269,
+            "p95_cm": 0.06459563201324982,
+            "max_cm": 0.06865512791148518
+          },
+          "jiggle": {
+            "rms_cm": 7.743611614354371e-16,
+            "p95_cm": 1.7763568394002505e-15,
+            "max_cm": 2.6645352591003757e-15
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04957886778019912,
+            "p95_cm": 0.07349107748992405,
+            "max_cm": 0.07593196380805359
+          },
+          "jiggle": {
+            "rms_cm": 1.8566811117883174e-10,
+            "p95_cm": 5.036205870875386e-10,
+            "max_cm": 6.96347812175615e-10
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.04573648067270661,
+            "p95_cm": 0.06437835347771798,
+            "max_cm": 0.06811934710957607
+          },
+          "jiggle": {
+            "rms_cm": 5.033717474526627e-16,
+            "p95_cm": 8.881784197001252e-16,
+            "max_cm": 1.7763568394002505e-15
+          }
+        }
+      },
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261021-130944-3A9D07CA4445DA1C122DE18FD093245F",
+      "video_raw_jiggle_max_cm": 1.040120715073138
+    },
+    {
+      "group": "B",
+      "action": "seated-stop",
+      "chain_enabled": true,
+      "contact_active": false,
+      "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nContact disabled\nSteps 0 | residual from final animated skin | no additional gravity\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 0.002 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.821089817833656,
+            "p95_cm": 1.363607606181139,
+            "max_cm": 1.5366745691425845
+          },
+          "jiggle": {
+            "rms_cm": 0.11608000184900301,
+            "p95_cm": 0.2632069250777249,
+            "max_cm": 0.3807425277311268
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 1.2069892468554808,
+            "p95_cm": 1.8472586299253166,
+            "max_cm": 1.932290237616678
+          },
+          "jiggle": {
+            "rms_cm": 0.008359033545132854,
+            "p95_cm": 0.01358538302821031,
+            "max_cm": 0.014257273416915826
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.8357937330530365,
+            "p95_cm": 1.3852426076260749,
+            "max_cm": 1.5363719480695792
+          },
+          "jiggle": {
+            "rms_cm": 0.141573126853251,
+            "p95_cm": 0.3613432138786017,
+            "max_cm": 0.4663483235265785
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 1.208432361943348,
+            "p95_cm": 1.8481836091526052,
+            "max_cm": 1.933599013554496
+          },
+          "jiggle": {
+            "rms_cm": 0.008370175374318844,
+            "p95_cm": 0.013592175549005325,
+            "max_cm": 0.014256057799425592
+          }
+        }
+      },
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261021-131110-8ADA4AAA4A365B7495D0DAA1F6812334",
+      "video_raw_jiggle_max_cm": 0.27312930638015354
+    },
+    {
+      "group": "B",
+      "action": "step",
+      "chain_enabled": true,
+      "contact_active": false,
+      "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nContact disabled\nSteps 0 | residual from final animated skin | no additional gravity\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 0.002 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.04874954284883507,
+            "p95_cm": 0.07400495431376163,
+            "max_cm": 0.07644248247084708
+          },
+          "jiggle": {
+            "rms_cm": 1.653448286082828e-10,
+            "p95_cm": 4.1863447697377775e-10,
+            "max_cm": 5.914178607909074e-10
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.04595160632544269,
+            "p95_cm": 0.06459563201324982,
+            "max_cm": 0.06865512791148518
+          },
+          "jiggle": {
+            "rms_cm": 7.743611614354371e-16,
+            "p95_cm": 1.7763568394002505e-15,
+            "max_cm": 2.6645352591003757e-15
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.04957886778019912,
+            "p95_cm": 0.07349107748992405,
+            "max_cm": 0.07593196380805359
+          },
+          "jiggle": {
+            "rms_cm": 1.8566811117883174e-10,
+            "p95_cm": 5.036205870875386e-10,
+            "max_cm": 6.96347812175615e-10
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.04573648067270661,
+            "p95_cm": 0.06437835347771798,
+            "max_cm": 0.06811934710957607
+          },
+          "jiggle": {
+            "rms_cm": 5.033717474526627e-16,
+            "p95_cm": 8.881784197001252e-16,
+            "max_cm": 1.7763568394002505e-15
+          }
+        }
+      },
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261021-131027-5250D9E84F3C18AA06E2D49355638574",
+      "video_raw_jiggle_max_cm": 0.8273601657605798
+    },
+    {
+      "group": "C",
+      "action": "flexion",
+      "chain_enabled": false,
+      "contact_active": true,
+      "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 1\nGPU resident corotated + skin | batch 1 instances / 8822 particles / 8822 GPU pair slots | scene upload prep 0.003 ms | soft rounds 12 active / 12 searched, peak 88 contacts | async diagnostic batch 63 | no synchronous readback\nSteps 90 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 1.7068 cm\nLeftBreast cage V 3426.20 / 3426.20 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.000 surface stretch 1.000..1.000 worst edge rest 0.695605 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 136\nRightBreast cage V 3420.09 / 3420.09 cm3 error -0.00% min J 1.0000 inverted 0 max J 1.001 surface stretch 1.000..1.000 worst edge rest 0.554476 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 153\nLeftLowerBody cage V 7616.03 / 7616.08 cm3 error -0.00% min J 0.3496 inverted 0 max J 3.312 surface stretch 0.648..1.417 worst edge rest 0.191949 cm extension max 0.1303 cm nipple RMS strain 0.00000 pairs 0\nRightLowerBody cage V 7607.38 / 7607.42 cm3 error -0.00% min J 0.3499 inverted 0 max J 1.410 surface stretch 0.627..1.298 worst edge rest 0.368242 cm extension max 0.1183 cm nipple RMS strain 0.00000 pairs 0\nGPU async cage diagnostics; surface penetration not measured | component CPU 2.989 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 1.6534487085307778e-10,
+            "p95_cm": 4.186352022839623e-10,
+            "max_cm": 5.914177752006107e-10
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 4.3160420067579957e-16,
+            "p95_cm": 8.881784197001252e-16,
+            "max_cm": 1.7763568394002505e-15
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 1.8566806146146822e-10,
+            "p95_cm": 5.036205863938509e-10,
+            "max_cm": 6.96347812175615e-10
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 4.599804065267693e-16,
+            "p95_cm": 8.881784197001252e-16,
+            "max_cm": 1.7763568394002505e-15
+          }
+        }
+      },
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261021-131231-A8D50560493724A24B25F4B56B1F5E50",
+      "video_raw_jiggle_max_cm": 1.040120715073138
+    },
+    {
+      "group": "C",
+      "action": "seated-stop",
+      "chain_enabled": false,
+      "contact_active": false,
+      "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 14.322 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 0.11613401806764313,
+            "p95_cm": 0.2631873293727204,
+            "max_cm": 0.38073613510121
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 0.008361105716601619,
+            "p95_cm": 0.013588165266300016,
+            "max_cm": 0.014259494088270047
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 0.1416088977071887,
+            "p95_cm": 0.3612938680759819,
+            "max_cm": 0.46634250642259356
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 0.008372250275937828,
+            "p95_cm": 0.013594904338526236,
+            "max_cm": 0.014258281626289308
+          }
+        }
+      },
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261021-131410-E25AF1E643FD40AFD5EB12B711D0FA43",
+      "video_raw_jiggle_max_cm": 0.27312930638015354
+    },
+    {
+      "group": "C",
+      "action": "step",
+      "chain_enabled": false,
+      "contact_active": true,
+      "contact_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 1\nGPU resident corotated + skin | batch 1 instances / 8822 particles / 8822 GPU pair slots | scene upload prep 0.002 ms | soft rounds 12 active / 12 searched, peak 134 contacts | async diagnostic batch 333 | no synchronous readback\nSteps 90 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 1.1565 cm\nLeftBreast cage V 3426.20 / 3426.20 cm3 error 0.00% min J 1.0000 inverted 0 max J 1.000 surface stretch 1.000..1.000 worst edge rest 0.695605 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 136\nRightBreast cage V 3420.09 / 3420.09 cm3 error -0.00% min J 1.0000 inverted 0 max J 1.001 surface stretch 1.000..1.000 worst edge rest 1.000711 cm extension max 0.0000 cm nipple RMS strain 0.00000 pairs 153\nLeftLowerBody cage V 7615.96 / 7616.08 cm3 error -0.00% min J 0.3500 inverted 0 max J 2.141 surface stretch 0.620..1.754 worst edge rest 0.112979 cm extension max 0.1523 cm nipple RMS strain 0.00000 pairs 0\nRightLowerBody cage V 7607.35 / 7607.42 cm3 error -0.00% min J 0.3500 inverted 0 max J 2.549 surface stretch 0.484..1.507 worst edge rest 0.453902 cm extension max 0.2630 cm nipple RMS strain 0.00000 pairs 0\nGPU async cage diagnostics; surface penetration not measured | component CPU 2.427 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000",
+      "regions": {
+        "L_Thigh": {
+          "vertices": 495,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 1.6534487085307778e-10,
+            "p95_cm": 4.186352022839623e-10,
+            "max_cm": 5.914177752006107e-10
+          }
+        },
+        "L_Calf": {
+          "vertices": 469,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 4.3160420067579957e-16,
+            "p95_cm": 8.881784197001252e-16,
+            "max_cm": 1.7763568394002505e-15
+          }
+        },
+        "R_Thigh": {
+          "vertices": 460,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 1.8566806146146822e-10,
+            "p95_cm": 5.036205863938509e-10,
+            "max_cm": 6.96347812175615e-10
+          }
+        },
+        "R_Calf": {
+          "vertices": 468,
+          "chain": {
+            "rms_cm": 0.0,
+            "p95_cm": 0.0,
+            "max_cm": 0.0
+          },
+          "jiggle": {
+            "rms_cm": 4.599804065267693e-16,
+            "p95_cm": 8.881784197001252e-16,
+            "max_cm": 1.7763568394002505e-15
+          }
+        }
+      },
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261021-131322-A1E6E96048FBDE834BA71C84AC99FB9D",
+      "video_raw_jiggle_max_cm": 0.8273601657605798
+    }
+  ],
+  "comparability": [
+    {
+      "action": "flexion",
+      "group": "B",
+      "primary_matrix_max_error": 0.0,
+      "video_primary_matrix_max_error": 0.0,
+      "video_root_max_error_cm": 0.0,
+      "seat_matrix_max_error": 0.0
+    },
+    {
+      "action": "flexion",
+      "group": "C",
+      "primary_matrix_max_error": 0.0,
+      "video_primary_matrix_max_error": 0.0,
+      "video_root_max_error_cm": 0.0,
+      "seat_matrix_max_error": 0.0
+    },
+    {
+      "action": "seated-stop",
+      "group": "B",
+      "primary_matrix_max_error": 0.0,
+      "video_primary_matrix_max_error": 0.0,
+      "video_root_max_error_cm": 0.0,
+      "seat_matrix_max_error": 0.0
+    },
+    {
+      "action": "seated-stop",
+      "group": "C",
+      "primary_matrix_max_error": 0.0,
+      "video_primary_matrix_max_error": 0.0,
+      "video_root_max_error_cm": 0.0,
+      "seat_matrix_max_error": 0.0
+    },
+    {
+      "action": "step",
+      "group": "B",
+      "primary_matrix_max_error": 0.0,
+      "video_primary_matrix_max_error": 0.0,
+      "video_root_max_error_cm": 0.0,
+      "seat_matrix_max_error": 0.0
+    },
+    {
+      "action": "step",
+      "group": "C",
+      "primary_matrix_max_error": 0.0,
+      "video_primary_matrix_max_error": 0.0,
+      "video_root_max_error_cm": 0.0,
+      "seat_matrix_max_error": 0.0
+    }
+  ],
+  "scope": "Displacements are differences, not accuracy versus an anatomical target. Contact solver active does not prove a particular tissue pair touched."
+}

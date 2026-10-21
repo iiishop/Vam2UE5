@@ -33,7 +33,7 @@ for group in 'ABC':
 b=read(bundle);current={k:hashlib.sha256((repo/k).read_bytes()).hexdigest() for k in b['algorithms']}
 assert all(r['first_inactive_frame']==31 for r in rows if r['action']=='flexion' and r['group'] in 'AC'),'Update the written interpretation for the observed stop frame'
 changed={k:dict(asset_build=v,current=current[k]) for k,v in b['algorithms'].items() if v!=current[k]}
-assert set(changed)<= {'Source/VamResourceBrowser/Private/Tests/VamPoseSuite.h'},'Unexpected post-build production implementation change'
+assert {k.replace('\\','/') for k in changed}<= {'Source/VamResourceBrowser/Private/Tests/VamPoseSuite.h'},'Unexpected post-build production implementation change'
 manifest=dict(asset_identity=b['identity'],asset_configuration=b['configuration'],post_build_source_changes=changed,post_build_change_scope='Capture-only subject/seat whitelist and disable unrelated PIE pawn collision; production deformation data and code unchanged.',installed_binaries=read(a.base/'installed-binaries.json'),source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip(),editor=editor,contact_frames=rows,chain_status='IMPLEMENTED_AND_REPLAYED',combined_contact_status='FAIL',visual_acceptance='USER_REVIEW_REQUIRED')
 manifest['validation_identity']=hashlib.sha256(json.dumps(manifest,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 (a.out/'checks.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')

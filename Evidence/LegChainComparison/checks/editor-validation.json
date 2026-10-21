@@ -1,0 +1,20 @@
+[
+  {
+    "group": "A",
+    "returncode": 0,
+    "valid": true,
+    "states": 1
+  },
+  {
+    "group": "B",
+    "returncode": 0,
+    "valid": true,
+    "states": 1
+  },
+  {
+    "group": "C",
+    "returncode": 0,
+    "valid": true,
+    "states": 1
+  }
+]

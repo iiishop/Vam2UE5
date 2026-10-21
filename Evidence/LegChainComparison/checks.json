@@ -1,0 +1,115 @@
+{
+  "asset_identity": "61a28e74d78cb1d91207a8ccbb419e730e64917a5139c739af44186bc82b57b7",
+  "asset_configuration": "/Game/VamLegChainV1/Runtime/R_61a28e74d78cb1d91207a8cc/RC_Runtime",
+  "post_build_source_changes": {
+    "Source\\VamResourceBrowser\\Private\\Tests\\VamPoseSuite.h": {
+      "asset_build": "ac275b85eaf4a6ca1f0fbe102df02f7734cc1e538fb27d6478008e24bf25438f",
+      "current": "b0393aa0e7fe0aa3e1896f1c03ee51acc878bcae4255129ee03dd4be6427d24d"
+    }
+  },
+  "post_build_change_scope": "Capture-only subject/seat whitelist and disable unrelated PIE pawn collision; production deformation data and code unchanged.",
+  "installed_binaries": {
+    "UnrealEditor-VamCharacterRuntime.dll": "cc4c29df2d1281a8ae6aae95a5eb3862f09117c467c0c6e127152feb2deffce1",
+    "UnrealEditor-VamContactGPU.dll": "4b81d199471003e5468313c62a1cbdfc0e5e275d572fe443ff254f82db4114e6",
+    "UnrealEditor-VamResourceBrowser.dll": "1f9f9f398dceb636393fa5962eb9d814392af480c4fbf7a3c868c64a9278eb6f"
+  },
+  "source_commit": "86e6cc470397b6963169d58b6fd64a39ef2730b8",
+  "editor": [
+    {
+      "group": "A",
+      "returncode": 0,
+      "valid": true,
+      "states": 1
+    },
+    {
+      "group": "B",
+      "returncode": 0,
+      "valid": true,
+      "states": 1
+    },
+    {
+      "group": "C",
+      "returncode": 0,
+      "valid": true,
+      "states": 1
+    }
+  ],
+  "contact_frames": [
+    {
+      "group": "A",
+      "action": "flexion",
+      "frames": 210,
+      "active_frames": 31,
+      "first_inactive_frame": 31,
+      "first_inactive_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nGPU numerical safety rejected output; Reset to retry (lower-body has no CPU fallback)\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 5.705 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+    },
+    {
+      "group": "A",
+      "action": "step",
+      "frames": 210,
+      "active_frames": 15,
+      "first_inactive_frame": 15,
+      "first_inactive_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nGPU numerical safety rejected output; Reset to retry (lower-body has no CPU fallback)\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 5.567 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+    },
+    {
+      "group": "A",
+      "action": "seated-stop",
+      "frames": 210,
+      "active_frames": 0,
+      "first_inactive_frame": 0,
+      "first_inactive_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 14.870 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+    },
+    {
+      "group": "B",
+      "action": "flexion",
+      "frames": 210,
+      "active_frames": 0,
+      "first_inactive_frame": 0,
+      "first_inactive_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nContact disabled\nSteps 0 | residual from final animated skin | no additional gravity\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 0.003 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+    },
+    {
+      "group": "B",
+      "action": "step",
+      "frames": 210,
+      "active_frames": 0,
+      "first_inactive_frame": 0,
+      "first_inactive_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nContact disabled\nSteps 0 | residual from final animated skin | no additional gravity\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 0.002 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+    },
+    {
+      "group": "B",
+      "action": "seated-stop",
+      "frames": 210,
+      "active_frames": 0,
+      "first_inactive_frame": 0,
+      "first_inactive_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nContact disabled\nSteps 0 | residual from final animated skin | no additional gravity\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 0.002 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+    },
+    {
+      "group": "C",
+      "action": "flexion",
+      "frames": 210,
+      "active_frames": 31,
+      "first_inactive_frame": 31,
+      "first_inactive_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nGPU numerical safety rejected output; Reset to retry (lower-body has no CPU fallback)\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 5.939 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+    },
+    {
+      "group": "C",
+      "action": "step",
+      "frames": 210,
+      "active_frames": 15,
+      "first_inactive_frame": 15,
+      "first_inactive_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nGPU numerical safety rejected output; Reset to retry (lower-body has no CPU fallback)\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 6.403 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+    },
+    {
+      "group": "C",
+      "action": "seated-stop",
+      "frames": 210,
+      "active_frames": 0,
+      "first_inactive_frame": 0,
+      "first_inactive_status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nCurrent pose invalidates contact rest volume\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nGPU async cage diagnostics; surface penetration not measured | component CPU 18.247 ms\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+    }
+  ],
+  "chain_status": "IMPLEMENTED_AND_REPLAYED",
+  "combined_contact_status": "FAIL",
+  "visual_acceptance": "USER_REVIEW_REQUIRED",
+  "validation_identity": "e6e3b73a039b2fb2a32d52580d6ca3ab85859cc3010a3c86a3db2a9081ee1daf"
+}

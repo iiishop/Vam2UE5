@@ -1,0 +1,23 @@
+[
+  {
+    "file": "flexion-three-way.mp4",
+    "width": 2304,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  {
+    "file": "seated-stop-three-way.mp4",
+    "width": 2304,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  },
+  {
+    "file": "step-three-way.mp4",
+    "width": 2304,
+    "height": 768,
+    "duration": "7.000000",
+    "nb_read_frames": "210"
+  }
+]

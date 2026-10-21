@@ -1,0 +1,11 @@
+{
+  "configuration": "/Game/VamLegResearchV1/Runtime/R_843374e7df2fa61a960032b3/RC_Runtime",
+  "frames": 210,
+  "active_frames": 31,
+  "first_stop": {
+    "frame": 31,
+    "time_seconds": 1.0333333333333334,
+    "status": "/Temp/UEDPIE_0_Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0 | world Untitled | solvers 0 | deformer 0\nGPU numerical safety rejected output; Reset to retry (lower-body has no CPU fallback)\nSteps 0 | residual from final animated skin | no additional gravity\nContact schema 5 particles 8822 tetrahedra 27756\nPress spheres 0 | selected side -1 | max contact residual 0.0000 cm\nBound surface prediction L 0.0000 R 0.0000 cm (CPU binding check)\nCPU ms total 5.971 init 0.000 solve 0.000 publish 0.000 | movable 0 inside 0 -> 0 penetration 0.000 -> 0.000 cm\nSolver detail ms native 0.000 volume 0.000 post-contact 0.000"
+  },
+  "audit_bundle": "I:/Document/UE5/SmartNPC/Saved/VamDeformationAudit/20261021-125442-332309BF4CE48A77E7A6F1AD95B6B4C3"
+}

@@ -1,0 +1,324 @@
+Using bundled DotNet SDK version: 10.0 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" UnrealEditor Win64 Development -Project=I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject -WaitMutex -NoHotReloadFromIDE -NoUBA -Rebuild
+Log file: C:\Users\Administrator\AppData\Local\UnrealBuildTool\Log.txt
+Cleaning UnrealEditor binaries...
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+  Requested 1.5 GB memory per action, 5.57 GB available: limiting max parallel actions to 3
+Creating makefile for UnrealEditor (no existing makefile)
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+Building UnrealEditor...
+===== Toolchain Information =====
+Using ISPC compiler (I:\Program\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (E:\Windows Kits\10).
+[Adaptive Build] Excluded from VamContactGPU unity file: VamContactGPUModule.cpp, VamGPUContact.cpp, VamGPUContactDataInterface.cpp
+[Adaptive Build] Excluded from VamResourceBrowser unity file: VamBreastContactBuilder.cpp, VamBreastContactDeformer.cpp, VamBreastContactRemesh.cpp, VamBreastContactSurfaceRefinement.cpp, VamBreastJiggleBuilder.cpp, VamDebugPanel.cpp, VamGluteCorrectiveBuilder.cpp, VamGluteFinalCorrective.cpp, VamGluteJiggleBuilder.cpp, VamGluteSpatialAudit.cpp, VamGluteStructureBuilder.cpp, VamGluteSurfaceSnapshot.cpp, VamHairBuilder.cpp, VamHairCatalogBuilder.cpp, VamKneeCorrectiveBuilder.cpp, VamLegJiggleBuilder.cpp, VamLowerBodyContactBuilder.cpp, VamNativeBuilder.cpp, VamNativeBuildWindow.cpp, VamResourceBrowserModule.cpp, VamStage06AssetEditor.cpp, VamSurfaceTransferAudit.cpp, VamBreastContactTests.cpp, VamBreastNativeTests.cpp, VamBreastWeightTests.cpp, VamContactKernelTests.cpp, VamContactMeshingTests.cpp, VamFeasibleSafetyTests.cpp, VamFinalCorrectiveTests.cpp, VamGluteCorrectiveTests.cpp, VamGluteFidelityTests.cpp, VamGluteJiggleTests.cpp, VamGluteRefinementTests.cpp, VamGluteRotationBlendTests.cpp, VamGluteStructureTests.cpp, VamGPUContactTests.cpp, VamHairNiagaraAudit.cpp, VamHairPIECapture.cpp, VamKneeCorrectiveTests.cpp, VamMaterialStreamingTests.cpp, VamPoseLimitTests.cpp, VamResidualOnlySafetyTests.cpp
+[Adaptive Build] Excluded from VamCharacterRuntime unity file: VamActivePoseComponent.cpp, VamBodyContactResponseComponent.cpp, VamBreastCalibratedSolver.cpp, VamBreastCalibration.cpp, VamBreastContactBackend.cpp, VamBreastContactComponent.cpp, VamBreastContactProfile.cpp, VamBreastDebugTrajectory.cpp, VamBreastSkeletalMeshComponent.cpp, VamBreastSolver.cpp, VamCharacterActor.cpp, VamCharacterComponent.cpp, VamCharacterDefinition.cpp, VamCharacterRuntime.cpp, VamContactNativeExperiment.cpp, VamContactRigidSources.cpp, VamDeformationAudit.cpp, VamGluteCorrectiveIdentity.cpp, VamGluteCorrectiveProfile.cpp, VamGluteCorrectiveRuntime.cpp, VamGluteJiggleProfile.cpp, VamGluteJiggleRuntime.cpp, VamGlutePoseRefinement.cpp, VamGluteSkeletalMeshComponent.cpp, VamGluteSolver.cpp, VamGluteStructure.cpp, VamHairAsset.cpp, VamHairComponent.cpp, VamInteractionComponent.cpp, VamKneeCorrective.cpp, VamLegJiggleProfile.cpp, VamLegSkeletalMeshComponent.cpp, VamMotionComponent.cpp, VamPhysicsOutputComponent.cpp, VamPhysicsShapeProfile.cpp, VamPreviewTool.cpp, VamShapeAnimInstance.cpp, VamShapeTestPanel.cpp, VamStage06AcceptanceActor.cpp, VamStage07CompositionProbe.cpp, VamBreastCalibrationTests.cpp, VamBreastSolverTests.cpp, VamContactFrameProbe.cpp, VamGluteSolverTests.cpp, VamHairFrameProbe.cpp, VamHairPlaybackCapture.cpp, VamHairRestCapture.cpp, VamSecondaryGravityTests.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 107 action(s)
+  CPU 10 physical cores, 16 logical cores
+  Memory 39.82 GB physical, 74.11 GB/95.96 GB committed
+  UBA Storage capacity 40 GB
+[1/107] Compile Resource [x64] Default.rc2 [NoUba]
+[2/107] Compile Resource [x64] Default.rc2 [NoUba]
+[3/107] Compile Resource [x64] Default.rc2 [NoUba]
+[4/107] Compile [x64] SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.cpp [NoUba]
+[5/107] Compile [x64] Module.VamContactGPU.cpp [NoUba]
+[6/107] Compile [x64] VamContactGPUModule.cpp [NoUba]
+[7/107] Compile [x64] VamGPUContactDataInterface.cpp [NoUba]
+[8/107] Compile [x64] VamGPUContact.cpp [NoUba]
+[9/107] Link [x64] UnrealEditor-VamContactGPU.lib [NoUba]
+  ￕ�ￔￚﾴﾴﾽﾨ﾿￢ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamContactGPU/UnrealEditor-VamContactGPU.lib ﾺￍﾶￔￏ￳ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamContactGPU/UnrealEditor-VamContactGPU.exp
+[10/107] Compile [x64] VamActivePoseComponent.cpp [NoUba]
+[11/107] Compile [x64] Module.VamCharacterRuntime.cpp [NoUba]
+[12/107] Compile [x64] VamBreastCalibratedSolver.cpp [NoUba]
+[13/107] Compile [x64] VamBodyContactResponseComponent.cpp [NoUba]
+[14/107] Compile [x64] VamBreastCalibration.cpp [NoUba]
+[15/107] Compile [x64] VamBreastCalibrationTests.cpp [NoUba]
+[16/107] Compile [x64] VamBreastContactBackend.cpp [NoUba]
+[17/107] Compile [x64] VamBreastContactComponent.cpp [NoUba]
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamBreastContactComponent.cpp(282,34): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰconst Chaos::Softs::FSolverRealﾡﾱﾽ￘ﾶￏ
+        E->SetCollisionThickness(.1,E->ParticleGroupIds()[Start]);
+                                 ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamBreastContactComponent.cpp(341,30): warning C4457: ﾡﾰFﾡﾱﾵￄ￉￹ￃ￷ￒ￾ﾲ￘￁ￋﾺﾯￊ�ﾲￎￊ�
+    if(CacheStatic)for(int32 F=0;F<FaceIncident.Num();++F)for(int32 J=0;J<3;++J)
+                             ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamBreastContactComponent.cpp(268,113): note: ﾲￎﾼ￻ﾡﾰFﾡﾱﾵￄ￉￹ￃ￷
+void UVamBreastContactComponent::AddVolumeConstraint(UDeformableSolverComponent* Solver,UVamBreastContactFlesh* F)
+                                                                                                                ^
+[18/107] Compile [x64] VamBreastDebugTrajectory.cpp [NoUba]
+[19/107] Compile [x64] VamBreastContactProfile.cpp [NoUba]
+[20/107] Compile [x64] VamBreastSkeletalMeshComponent.cpp [NoUba]
+[21/107] Compile [x64] VamBreastSolver.cpp [NoUba]
+[22/107] Compile [x64] VamBreastSolverTests.cpp [NoUba]
+[23/107] Compile [x64] VamCharacterActor.cpp [NoUba]
+[24/107] Compile [x64] VamCharacterDefinition.cpp [NoUba]
+[25/107] Compile [x64] VamCharacterComponent.cpp [NoUba]
+[26/107] Compile [x64] VamCharacterRuntime.cpp [NoUba]
+[27/107] Compile [x64] VamContactFrameProbe.cpp [NoUba]
+[28/107] Compile [x64] VamContactNativeExperiment.cpp [NoUba]
+[29/107] Compile [x64] VamContactRigidSources.cpp [NoUba]
+[30/107] Compile [x64] VamGluteCorrectiveIdentity.cpp [NoUba]
+[31/107] Compile [x64] VamDeformationAudit.cpp [NoUba]
+[32/107] Compile [x64] VamGluteCorrectiveProfile.cpp [NoUba]
+[33/107] Compile [x64] VamGluteCorrectiveRuntime.cpp [NoUba]
+[34/107] Compile [x64] VamGluteJiggleProfile.cpp [NoUba]
+[35/107] Compile [x64] VamGlutePoseRefinement.cpp [NoUba]
+[36/107] Compile [x64] VamGluteJiggleRuntime.cpp [NoUba]
+[37/107] Compile [x64] VamGluteSkeletalMeshComponent.cpp [NoUba]
+[38/107] Compile [x64] VamGluteSolver.cpp [NoUba]
+[39/107] Compile [x64] VamGluteStructure.cpp [NoUba]
+[40/107] Compile [x64] VamGluteSolverTests.cpp [NoUba]
+[41/107] Compile [x64] VamHairAsset.cpp [NoUba]
+[42/107] Compile [x64] VamHairComponent.cpp [NoUba]
+[43/107] Compile [x64] VamHairFrameProbe.cpp [NoUba]
+[44/107] Compile [x64] VamInteractionComponent.cpp [NoUba]
+[45/107] Compile [x64] VamHairRestCapture.cpp [NoUba]
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\Tests\VamHairRestCapture.cpp(62,218): warning C4996: 'FImageUtils::CompressImageArray': Please use PNGCompressImageArray or ThumbnailCompressImageArray - Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+ P->Handle=UGameViewportClient::OnScreenshotCaptured().AddLambda([P](int Width,int Height,const TArray<FColor>& Pixels){if(!P->Pending)return;const auto O=P->Views[P->Index]->AsObject();TArray<uint8> PNG;FImageUtils::CompressImageArray(Width,Height,Pixels,PNG);FFileHelper::SaveArrayToFile(PNG,*(P->Directory/(O->GetStringField(TEXT("name"))+TEXT(".png"))));P->Results.Add(P->Views[P->Index]);++P->Index;P->Pending=false;});
+                                                                                                                                                                                                                         ^
+[46/107] Compile [x64] VamHairPlaybackCapture.cpp [NoUba]
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\Tests\VamHairPlaybackCapture.cpp(71,203): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* Material=NewObject<UMaterial>(GetTransientPackage());Material->SetShadingModel(MSM_Unlit);auto* Color=NewObject<UMaterialExpressionConstant3Vector>(Material);Color->Constant=FLinearColor(.22,.25,.3);Material->GetExpressionCollection().AddExpression(Color);Material->GetEditorOnlyData()->EmissiveColor.Expression=Color;Material->PostEditChange();Material->ForceRecompileForRendering();
+                                                                                                                                                                                                          ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\Tests\VamHairPlaybackCapture.cpp(71,195): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* Material=NewObject<UMaterial>(GetTransientPackage());Material->SetShadingModel(MSM_Unlit);auto* Color=NewObject<UMaterialExpressionConstant3Vector>(Material);Color->Constant=FLinearColor(.22,.25,.3);Material->GetExpressionCollection().AddExpression(Color);Material->GetEditorOnlyData()->EmissiveColor.Expression=Color;Material->PostEditChange();Material->ForceRecompileForRendering();
+                                                                                                                                                                                                  ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\Tests\VamHairPlaybackCapture.cpp(74,184): warning C4996: 'FImageUtils::CompressImageArray': Please use PNGCompressImageArray or ThumbnailCompressImageArray - Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+ P->ScreenshotHandle=UGameViewportClient::OnScreenshotCaptured().AddLambda([P](int Width,int Height,const TArray<FColor>& Pixels){if(!P->Pending)return;TArray<uint8> PNG;FImageUtils::CompressImageArray(Width,Height,Pixels,PNG);FFileHelper::SaveArrayToFile(PNG,*(P->Directory/TEXT("video")/FString::Printf(TEXT("frame-%04d.png"),P->Written)));if(P->TemporalAudit||P->Written%30==0){auto R=VamCaptureHairAudit(P->Actor.Get());R->SetNumberField(TEXT("time"),P->Written/30.);if(P->TemporalAudit){if(P->PreviousAudit.IsValid()){auto D=VamHairFrameDifference(R,P->PreviousAudit);D->SetNumberField(TEXT("time"),P->Written/30.);P->TemporalSamples.Add(MakeShared<FJsonValueObject>(D));}P->PreviousAudit=R;}if(P->Written%30==0)P->Audits.Add(MakeShared<FJsonValueObject>(R));}++P->Written;P->Pending=false;});
+                                                                                                                                                                                       ^
+[47/107] Compile [x64] VamKneeCorrective.cpp [NoUba]
+[48/107] Compile [x64] VamLegJiggleProfile.cpp [NoUba]
+[49/107] Compile [x64] VamMotionComponent.cpp [NoUba]
+[50/107] Compile [x64] VamLegSkeletalMeshComponent.cpp [NoUba]
+[51/107] Compile [x64] VamPhysicsShapeProfile.cpp [NoUba]
+[52/107] Compile [x64] VamPhysicsOutputComponent.cpp [NoUba]
+[53/107] Compile [x64] VamSecondaryGravityTests.cpp [NoUba]
+[54/107] Compile [x64] VamPreviewTool.cpp [NoUba]
+[55/107] Compile [x64] VamShapeAnimInstance.cpp [NoUba]
+[56/107] Compile [x64] VamShapeTestPanel.cpp [NoUba]
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(125,43): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    DrawRect(FLinearColor(0.015,0.02,0.03,.92),8,8,410,110+32*Definition->Parameters.Num());
+                                          ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(125,38): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    DrawRect(FLinearColor(0.015,0.02,0.03,.92),8,8,410,110+32*Definition->Parameters.Num());
+                                     ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(125,33): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    DrawRect(FLinearColor(0.015,0.02,0.03,.92),8,8,410,110+32*Definition->Parameters.Num());
+                                ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(125,27): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    DrawRect(FLinearColor(0.015,0.02,0.03,.92),8,8,410,110+32*Definition->Parameters.Num());
+                          ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(133,39): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+        DrawRect(FLinearColor(.15,.18,.22,1),250,Y+4,125,12);
+                                      ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(133,35): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+        DrawRect(FLinearColor(.15,.18,.22,1),250,Y+4,125,12);
+                                  ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(133,31): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+        DrawRect(FLinearColor(.15,.18,.22,1),250,Y+4,125,12);
+                              ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(135,37): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+        DrawRect(FLinearColor(.2,.7,.9,1),250,Y+4,125*Alpha,12);
+                                    ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(135,34): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+        DrawRect(FLinearColor(.2,.7,.9,1),250,Y+4,125*Alpha,12);
+                                 ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(135,31): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+        DrawRect(FLinearColor(.2,.7,.9,1),250,Y+4,125*Alpha,12);
+                              ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(143,37): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+        DrawRect(FLinearColor(.1,.2,.3,1),18+i*78,Y,72,26);
+                                    ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(143,34): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+        DrawRect(FLinearColor(.1,.2,.3,1),18+i*78,Y,72,26);
+                                 ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(143,31): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+        DrawRect(FLinearColor(.1,.2,.3,1),18+i*78,Y,72,26);
+                              ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(147,104): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    DrawText(TEXT("Preview edits; Commit publishes Shape, Cancel restores commit."),FLinearColor(.7,.8,.9,1),18,Y+34);
+                                                                                                       ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(147,101): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    DrawText(TEXT("Preview edits; Commit publishes Shape, Cancel restores commit."),FLinearColor(.7,.8,.9,1),18,Y+34);
+                                                                                                    ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamCharacterRuntime\Private\VamShapeTestPanel.cpp(147,98): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    DrawText(TEXT("Preview edits; Commit publishes Shape, Cancel restores commit."),FLinearColor(.7,.8,.9,1),18,Y+34);
+                                                                                                 ^
+[57/107] Compile [x64] VamStage06AcceptanceActor.cpp [NoUba]
+[58/107] Compile [x64] Module.VamResourceBrowser.cpp [NoUba]
+[59/107] Compile [x64] VamStage07CompositionProbe.cpp [NoUba]
+[60/107] Link [x64] UnrealEditor-VamCharacterRuntime.lib [NoUba]
+  ￕ�ￔￚﾴﾴﾽﾨ﾿￢ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamCharacterRuntime/UnrealEditor-VamCharacterRuntime.lib ﾺￍﾶￔￏ￳ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamCharacterRuntime/UnrealEditor-VamCharacterRuntime.exp
+[61/107] Compile [x64] VamBreastContactDeformer.cpp [NoUba]
+[62/107] Compile [x64] VamBreastContactRemesh.cpp [NoUba]
+[63/107] Compile [x64] VamBreastContactBuilder.cpp [NoUba]
+[64/107] Compile [x64] VamBreastContactSurfaceRefinement.cpp [NoUba]
+[65/107] Compile [x64] VamBreastJiggleBuilder.cpp [NoUba]
+[66/107] Compile [x64] VamBreastContactTests.cpp [NoUba]
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(54,238): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* GroundMaterial=NewObject<UMaterial>(GetTransientPackage());GroundMaterial->SetShadingModel(MSM_DefaultLit);auto* GroundColor=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundColor->Constant=FLinearColor(.16,.19,.23);auto* GroundEmission=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundEmission->Constant=FLinearColor(.035,.045,.06);GroundMaterial->GetExpressionCollection().AddExpression(GroundColor);GroundMaterial->GetExpressionCollection().AddExpression(GroundEmission);GroundMaterial->GetEditorOnlyData()->BaseColor.Expression=GroundColor;GroundMaterial->GetEditorOnlyData()->EmissiveColor.Expression=GroundEmission;GroundMaterial->GetEditorOnlyData()->Roughness.UseConstant=true;GroundMaterial->GetEditorOnlyData()->Roughness.Constant=.9;GroundMaterial->PostEditChange();GroundMaterial->ForceRecompileForRendering();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
+                                                                                                                                                                                                                                             ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(54,234): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* GroundMaterial=NewObject<UMaterial>(GetTransientPackage());GroundMaterial->SetShadingModel(MSM_DefaultLit);auto* GroundColor=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundColor->Constant=FLinearColor(.16,.19,.23);auto* GroundEmission=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundEmission->Constant=FLinearColor(.035,.045,.06);GroundMaterial->GetExpressionCollection().AddExpression(GroundColor);GroundMaterial->GetExpressionCollection().AddExpression(GroundEmission);GroundMaterial->GetEditorOnlyData()->BaseColor.Expression=GroundColor;GroundMaterial->GetEditorOnlyData()->EmissiveColor.Expression=GroundEmission;GroundMaterial->GetEditorOnlyData()->Roughness.UseConstant=true;GroundMaterial->GetEditorOnlyData()->Roughness.Constant=.9;GroundMaterial->PostEditChange();GroundMaterial->ForceRecompileForRendering();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
+                                                                                                                                                                                                                                         ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(54,230): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* GroundMaterial=NewObject<UMaterial>(GetTransientPackage());GroundMaterial->SetShadingModel(MSM_DefaultLit);auto* GroundColor=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundColor->Constant=FLinearColor(.16,.19,.23);auto* GroundEmission=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundEmission->Constant=FLinearColor(.035,.045,.06);GroundMaterial->GetExpressionCollection().AddExpression(GroundColor);GroundMaterial->GetExpressionCollection().AddExpression(GroundEmission);GroundMaterial->GetEditorOnlyData()->BaseColor.Expression=GroundColor;GroundMaterial->GetEditorOnlyData()->EmissiveColor.Expression=GroundEmission;GroundMaterial->GetEditorOnlyData()->Roughness.UseConstant=true;GroundMaterial->GetEditorOnlyData()->Roughness.Constant=.9;GroundMaterial->PostEditChange();GroundMaterial->ForceRecompileForRendering();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
+                                                                                                                                                                                                                                     ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(54,374): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* GroundMaterial=NewObject<UMaterial>(GetTransientPackage());GroundMaterial->SetShadingModel(MSM_DefaultLit);auto* GroundColor=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundColor->Constant=FLinearColor(.16,.19,.23);auto* GroundEmission=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundEmission->Constant=FLinearColor(.035,.045,.06);GroundMaterial->GetExpressionCollection().AddExpression(GroundColor);GroundMaterial->GetExpressionCollection().AddExpression(GroundEmission);GroundMaterial->GetEditorOnlyData()->BaseColor.Expression=GroundColor;GroundMaterial->GetEditorOnlyData()->EmissiveColor.Expression=GroundEmission;GroundMaterial->GetEditorOnlyData()->Roughness.UseConstant=true;GroundMaterial->GetEditorOnlyData()->Roughness.Constant=.9;GroundMaterial->PostEditChange();GroundMaterial->ForceRecompileForRendering();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
+                                                                                                                                                                                                                                                                                                                                                                                     ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(54,369): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* GroundMaterial=NewObject<UMaterial>(GetTransientPackage());GroundMaterial->SetShadingModel(MSM_DefaultLit);auto* GroundColor=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundColor->Constant=FLinearColor(.16,.19,.23);auto* GroundEmission=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundEmission->Constant=FLinearColor(.035,.045,.06);GroundMaterial->GetExpressionCollection().AddExpression(GroundColor);GroundMaterial->GetExpressionCollection().AddExpression(GroundEmission);GroundMaterial->GetEditorOnlyData()->BaseColor.Expression=GroundColor;GroundMaterial->GetEditorOnlyData()->EmissiveColor.Expression=GroundEmission;GroundMaterial->GetEditorOnlyData()->Roughness.UseConstant=true;GroundMaterial->GetEditorOnlyData()->Roughness.Constant=.9;GroundMaterial->PostEditChange();GroundMaterial->ForceRecompileForRendering();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
+                                                                                                                                                                                                                                                                                                                                                                                ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(54,364): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* GroundMaterial=NewObject<UMaterial>(GetTransientPackage());GroundMaterial->SetShadingModel(MSM_DefaultLit);auto* GroundColor=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundColor->Constant=FLinearColor(.16,.19,.23);auto* GroundEmission=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundEmission->Constant=FLinearColor(.035,.045,.06);GroundMaterial->GetExpressionCollection().AddExpression(GroundColor);GroundMaterial->GetExpressionCollection().AddExpression(GroundEmission);GroundMaterial->GetEditorOnlyData()->BaseColor.Expression=GroundColor;GroundMaterial->GetEditorOnlyData()->EmissiveColor.Expression=GroundEmission;GroundMaterial->GetEditorOnlyData()->Roughness.UseConstant=true;GroundMaterial->GetEditorOnlyData()->Roughness.Constant=.9;GroundMaterial->PostEditChange();GroundMaterial->ForceRecompileForRendering();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
+                                                                                                                                                                                                                                                                                                                                                                           ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(54,787): warning C4305: ﾡﾰ=ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰInputTypeﾡﾱﾽ￘ﾶￏ
+        with
+        [
+            InputType=float
+        ]
+ auto* GroundMaterial=NewObject<UMaterial>(GetTransientPackage());GroundMaterial->SetShadingModel(MSM_DefaultLit);auto* GroundColor=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundColor->Constant=FLinearColor(.16,.19,.23);auto* GroundEmission=NewObject<UMaterialExpressionConstant3Vector>(GroundMaterial);GroundEmission->Constant=FLinearColor(.035,.045,.06);GroundMaterial->GetExpressionCollection().AddExpression(GroundColor);GroundMaterial->GetExpressionCollection().AddExpression(GroundEmission);GroundMaterial->GetEditorOnlyData()->BaseColor.Expression=GroundColor;GroundMaterial->GetEditorOnlyData()->EmissiveColor.Expression=GroundEmission;GroundMaterial->GetEditorOnlyData()->Roughness.UseConstant=true;GroundMaterial->GetEditorOnlyData()->Roughness.Constant=.9;GroundMaterial->PostEditChange();GroundMaterial->ForceRecompileForRendering();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(58,384): warning C4305: ﾡﾰ=ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ for(TActorIterator<APawn> It(World);It;++It)Capture->HideActorComponents(*It);TArray<UPointLightComponent*> Points;Actor->GetComponents(Points);for(auto* P:Points)P->SetIntensity(0);TArray<UDirectionalLightComponent*> ExistingSuns;Actor->GetComponents(ExistingSuns);for(auto* L:ExistingSuns)L->SetIntensity(0);auto* Fill=NewObject<UDirectionalLightComponent>(Actor);Fill->Intensity=.7;Fill->RegisterComponent();Fill->SetWorldRotation((-WF+WR-WU*.3).Rotation());auto* Sun=NewObject<UDirectionalLightComponent>(Actor);Sun->Intensity=3;Sun->RegisterComponent();Sun->SetWorldRotation((WF-WR-WU).Rotation());
+                                                                                                                                                                                                                                                                                                                                                                                               ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(61,243): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* BackdropMaterial=NewObject<UMaterial>(GetTransientPackage());BackdropMaterial->SetShadingModel(MSM_Unlit);auto* BackdropColor=NewObject<UMaterialExpressionConstant3Vector>(BackdropMaterial);BackdropColor->Constant=FLinearColor(.22,.25,.3);BackdropMaterial->GetExpressionCollection().AddExpression(BackdropColor);BackdropMaterial->GetEditorOnlyData()->EmissiveColor.Expression=BackdropColor;BackdropMaterial->PostEditChange();BackdropMaterial->ForceRecompileForRendering();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();Box(Start,FVector(3000,5,3000));auto* Backdrop=Props.Last();CastChecked<UStaticMeshComponent>(Backdrop->GetRootComponent())->SetMaterial(0,BackdropMaterial);
+                                                                                                                                                                                                                                                  ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamLocomotionCapture.h(61,235): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto* BackdropMaterial=NewObject<UMaterial>(GetTransientPackage());BackdropMaterial->SetShadingModel(MSM_Unlit);auto* BackdropColor=NewObject<UMaterialExpressionConstant3Vector>(BackdropMaterial);BackdropColor->Constant=FLinearColor(.22,.25,.3);BackdropMaterial->GetExpressionCollection().AddExpression(BackdropColor);BackdropMaterial->GetEditorOnlyData()->EmissiveColor.Expression=BackdropColor;BackdropMaterial->PostEditChange();BackdropMaterial->ForceRecompileForRendering();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();Box(Start,FVector(3000,5,3000));auto* Backdrop=Props.Last();CastChecked<UStaticMeshComponent>(Backdrop->GetRootComponent())->SetMaterial(0,BackdropMaterial);
+                                                                                                                                                                                                                                          ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(35,305): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto MakeMaterial=[&](bool Silhouette,FLinearColor DebugColor=FLinearColor::White){auto* M=NewObject<UMaterial>(GetTransientPackage());M->SetShadingModel(Silhouette?MSM_Unlit:MSM_DefaultLit);auto* C=NewObject<UMaterialExpressionConstant3Vector>(M);C->Constant=Silhouette?DebugColor:FLinearColor(.45,.45,.45);M->GetExpressionCollection().AddExpression(C);if(Silhouette)M->GetEditorOnlyData()->EmissiveColor.Expression=C;else{M->GetEditorOnlyData()->BaseColor.Expression=C;M->GetEditorOnlyData()->Roughness.UseConstant=true;M->GetEditorOnlyData()->Roughness.Constant=.8;}M->SetUsageByFlag(MATUSAGE_SkeletalMesh,true);M->SetUsageByFlag(MATUSAGE_MorphTargets,true);M->SetUsageByFlag(MATUSAGE_MeshDeformer,true);M->SetFeatureLevelToCompile(World->GetFeatureLevel(),true);M->PostEditChange();M->ForceRecompileForRendering();return M;};
+                                                                                                                                                                                                                                                                                                                ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(35,301): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto MakeMaterial=[&](bool Silhouette,FLinearColor DebugColor=FLinearColor::White){auto* M=NewObject<UMaterial>(GetTransientPackage());M->SetShadingModel(Silhouette?MSM_Unlit:MSM_DefaultLit);auto* C=NewObject<UMaterialExpressionConstant3Vector>(M);C->Constant=Silhouette?DebugColor:FLinearColor(.45,.45,.45);M->GetExpressionCollection().AddExpression(C);if(Silhouette)M->GetEditorOnlyData()->EmissiveColor.Expression=C;else{M->GetEditorOnlyData()->BaseColor.Expression=C;M->GetEditorOnlyData()->Roughness.UseConstant=true;M->GetEditorOnlyData()->Roughness.Constant=.8;}M->SetUsageByFlag(MATUSAGE_SkeletalMesh,true);M->SetUsageByFlag(MATUSAGE_MorphTargets,true);M->SetUsageByFlag(MATUSAGE_MeshDeformer,true);M->SetFeatureLevelToCompile(World->GetFeatureLevel(),true);M->PostEditChange();M->ForceRecompileForRendering();return M;};
+                                                                                                                                                                                                                                                                                                            ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(35,297): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ auto MakeMaterial=[&](bool Silhouette,FLinearColor DebugColor=FLinearColor::White){auto* M=NewObject<UMaterial>(GetTransientPackage());M->SetShadingModel(Silhouette?MSM_Unlit:MSM_DefaultLit);auto* C=NewObject<UMaterialExpressionConstant3Vector>(M);C->Constant=Silhouette?DebugColor:FLinearColor(.45,.45,.45);M->GetExpressionCollection().AddExpression(C);if(Silhouette)M->GetEditorOnlyData()->EmissiveColor.Expression=C;else{M->GetEditorOnlyData()->BaseColor.Expression=C;M->GetEditorOnlyData()->Roughness.UseConstant=true;M->GetEditorOnlyData()->Roughness.Constant=.8;}M->SetUsageByFlag(MATUSAGE_SkeletalMesh,true);M->SetUsageByFlag(MATUSAGE_MorphTargets,true);M->SetUsageByFlag(MATUSAGE_MeshDeformer,true);M->SetFeatureLevelToCompile(World->GetFeatureLevel(),true);M->PostEditChange();M->ForceRecompileForRendering();return M;};
+                                                                                                                                                                                                                                                                                                        ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(35,567): warning C4305: ﾡﾰ=ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰInputTypeﾡﾱﾽ￘ﾶￏ
+        with
+        [
+            InputType=float
+        ]
+ auto MakeMaterial=[&](bool Silhouette,FLinearColor DebugColor=FLinearColor::White){auto* M=NewObject<UMaterial>(GetTransientPackage());M->SetShadingModel(Silhouette?MSM_Unlit:MSM_DefaultLit);auto* C=NewObject<UMaterialExpressionConstant3Vector>(M);C->Constant=Silhouette?DebugColor:FLinearColor(.45,.45,.45);M->GetExpressionCollection().AddExpression(C);if(Silhouette)M->GetEditorOnlyData()->EmissiveColor.Expression=C;else{M->GetEditorOnlyData()->BaseColor.Expression=C;M->GetEditorOnlyData()->Roughness.UseConstant=true;M->GetEditorOnlyData()->Roughness.Constant=.8;}M->SetUsageByFlag(MATUSAGE_SkeletalMesh,true);M->SetUsageByFlag(MATUSAGE_MorphTargets,true);M->SetUsageByFlag(MATUSAGE_MeshDeformer,true);M->SetFeatureLevelToCompile(World->GetFeatureLevel(),true);M->PostEditChange();M->ForceRecompileForRendering();return M;};
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(37,95): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ TArray<TStrongObjectPtr<UMaterial>> SectionColors;for(const auto& Color:{FLinearColor(.8,.15,.1),FLinearColor(.1,.7,.25),FLinearColor(.1,.25,.8)})SectionColors.Emplace(MakeMaterial(true,Color));
+                                                                                              ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(37,91): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ TArray<TStrongObjectPtr<UMaterial>> SectionColors;for(const auto& Color:{FLinearColor(.8,.15,.1),FLinearColor(.1,.7,.25),FLinearColor(.1,.25,.8)})SectionColors.Emplace(MakeMaterial(true,Color));
+                                                                                          ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(37,88): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ TArray<TStrongObjectPtr<UMaterial>> SectionColors;for(const auto& Color:{FLinearColor(.8,.15,.1),FLinearColor(.1,.7,.25),FLinearColor(.1,.25,.8)})SectionColors.Emplace(MakeMaterial(true,Color));
+                                                                                       ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(37,115): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ TArray<TStrongObjectPtr<UMaterial>> SectionColors;for(const auto& Color:{FLinearColor(.8,.15,.1),FLinearColor(.1,.7,.25),FLinearColor(.1,.25,.8)})SectionColors.Emplace(MakeMaterial(true,Color));
+                                                                                                                  ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(37,112): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ TArray<TStrongObjectPtr<UMaterial>> SectionColors;for(const auto& Color:{FLinearColor(.8,.15,.1),FLinearColor(.1,.7,.25),FLinearColor(.1,.25,.8)})SectionColors.Emplace(MakeMaterial(true,Color));
+                                                                                                               ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(37,143): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ TArray<TStrongObjectPtr<UMaterial>> SectionColors;for(const auto& Color:{FLinearColor(.8,.15,.1),FLinearColor(.1,.7,.25),FLinearColor(.1,.25,.8)})SectionColors.Emplace(MakeMaterial(true,Color));
+                                                                                                                                              ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamPoseSuite.h(37,136): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+ TArray<TStrongObjectPtr<UMaterial>> SectionColors;for(const auto& Color:{FLinearColor(.8,.15,.1),FLinearColor(.1,.7,.25),FLinearColor(.1,.25,.8)})SectionColors.Emplace(MakeMaterial(true,Color));
+                                                                                                                                       ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamBreastContactTests.cpp(422,146): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+  IFileManager::Get().MakeDirectory(*EvidenceDir,true);auto* Target=NewObject<UTextureRenderTarget2D>(A);Target->ClearColor=FLinearColor(.03,.04,.05,1);Target->InitAutoFormat(960,720);
+                                                                                                                                                 ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamBreastContactTests.cpp(422,142): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+  IFileManager::Get().MakeDirectory(*EvidenceDir,true);auto* Target=NewObject<UTextureRenderTarget2D>(A);Target->ClearColor=FLinearColor(.03,.04,.05,1);Target->InitAutoFormat(960,720);
+                                                                                                                                             ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\Tests\VamBreastContactTests.cpp(422,138): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+  IFileManager::Get().MakeDirectory(*EvidenceDir,true);auto* Target=NewObject<UTextureRenderTarget2D>(A);Target->ClearColor=FLinearColor(.03,.04,.05,1);Target->InitAutoFormat(960,720);
+                                                                                                                                         ^
+[67/107] Compile [x64] VamBreastWeightTests.cpp [NoUba]
+[68/107] Compile [x64] VamBreastNativeTests.cpp [NoUba]
+[69/107] Compile [x64] VamContactMeshingTests.cpp [NoUba]
+[70/107] Compile [x64] VamContactKernelTests.cpp [NoUba]
+[71/107] Compile [x64] VamFeasibleSafetyTests.cpp [NoUba]
+[72/107] Compile [x64] VamDebugPanel.cpp [NoUba]
+[73/107] Compile [x64] VamFinalCorrectiveTests.cpp [NoUba]
+[74/107] Compile [x64] VamGPUContactTests.cpp [NoUba]
+[75/107] Compile [x64] VamGluteCorrectiveTests.cpp [NoUba]
+[76/107] Compile [x64] VamGluteFidelityTests.cpp [NoUba]
+[77/107] Compile [x64] VamGluteFinalCorrective.cpp [NoUba]
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamGluteFinalCorrective.cpp(169,116): warning C4457: ﾡﾰDﾡﾱﾵￄ￉￹ￃ￷ￒ￾ﾲ￘￁ￋﾺﾯￊ�ﾲￎￊ�
+    for(int S=0;S<2;++S){const auto& Side=G->Sides[S];TArray<double> Region,Front,Lateral,Transition;const FVector D=Side.Dimensions,Thigh=Side.RestThighInAnchor.GetLocation();
+                                                                                                                   ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamGluteFinalCorrective.cpp(151,89): note: ﾲￎﾼ￻ﾡﾰDﾡﾱﾵￄ￉￹ￃ￷
+FString UVamGluteStructureBuilder::ExportCorrectiveDiagnostics(UVamCharacterDefinition* D,UVamGluteStructureProfile* G,UVamLegJiggleProfile* L,UVamBreastJiggleProfile* B,UVamGluteCorrectiveProfile* P,const FString& Directory)
+                                                                                        ^
+[78/107] Compile [x64] VamGluteJiggleBuilder.cpp [NoUba]
+[79/107] Compile [x64] VamGluteJiggleTests.cpp [NoUba]
+[80/107] Compile [x64] VamGluteCorrectiveBuilder.cpp [NoUba]
+[81/107] Compile [x64] VamGluteRefinementTests.cpp [NoUba]
+[82/107] Compile [x64] VamGluteRotationBlendTests.cpp [NoUba]
+[83/107] Compile [x64] VamGluteSpatialAudit.cpp [NoUba]
+[84/107] Compile [x64] VamGluteStructureTests.cpp [NoUba]
+[85/107] Compile [x64] VamGluteStructureBuilder.cpp [NoUba]
+[86/107] Compile [x64] VamGluteSurfaceSnapshot.cpp [NoUba]
+[87/107] Compile [x64] VamHairCatalogBuilder.cpp [NoUba]
+[88/107] Compile [x64] VamHairBuilder.cpp [NoUba]
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(34,114): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    const TSharedPtr<FJsonObject>* C=nullptr;if(!Settings->TryGetObjectField(Key,C))return FLinearColor(.06,.025,.012);
+                                                                                                                 ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(34,109): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    const TSharedPtr<FJsonObject>* C=nullptr;if(!Settings->TryGetObjectField(Key,C))return FLinearColor(.06,.025,.012);
+                                                                                                            ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(34,105): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    const TSharedPtr<FJsonObject>* C=nullptr;if(!Settings->TryGetObjectField(Key,C))return FLinearColor(.06,.025,.012);
+                                                                                                        ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(65,39): warning C4996: 'UMaterial::bUsedWithHairStrands': Always use the GetUsageByFlag() accessor. - Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+        M->SetShadingModel(MSM_Hair);M->bUsedWithHairStrands=true;M->TwoSided=true;
+                                      ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(143,52): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+            for(int32 I:Selected)Add(C[I].P,G,true,.008);
+                                                   ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(183,44): warning C4457: ﾡﾰPhysicsﾡﾱﾵￄ￉￹ￃ￷ￒ￾ﾲ￘￁ￋﾺﾯￊ�ﾲￎￊ�
+            const int32 Iterations=8;auto& Physics=Groom->GetHairGroupsPhysics()[G];Physics.SolverSettings.EnableSimulation=!Anchor;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CosseratRods;if(Policy){auto* StyleSolver=BuildHairStyleSolver(AssetRoot,Class,32,Iterations,G,SourceConstraints?*SourceConstraints:nullptr,Error);if(!StyleSolver)return nullptr;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CustomSolver;Physics.SolverSettings.CustomSystem=StyleSolver;}Physics.SolverSettings.SubSteps=5;Physics.SolverSettings.IterationCount=Iterations;
+                                           ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(49,179): note: ﾲￎﾼ￻ﾡﾰPhysicsﾡﾱﾵￄ￉￹ￃ￷
+UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FString& AssetRoot,USkeletalMesh* Body,const FString& GenerationIdentity,FString& Error,UPhysicsAsset* Physics)
+                                                                                                                                                                                  ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(190,118): warning C4305: ﾡﾰ=ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+            Physics.StrandsParameters.StrandsSize=EGroomStrandsSize::Size32;Physics.StrandsParameters.StrandsDensity=1.3;Physics.StrandsParameters.StrandsThickness=.008f*FMath::Sqrt(RepresentedFibers);Physics.StrandsParameters.StrandsSmoothing=0;
+                                                                                                                     ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(192,126): warning C4305: ﾡﾰ=ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+            auto& Bend=Physics.MaterialConstraints.BendConstraint;Bend.SolveBend=true;Bend.ProjectBend=true;Bend.BendDamping=.2;Bend.BendStiffness=(Compact?2000.f:(Supported?100.f:.2f))/RepresentedFibers;
+                                                                                                                             ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(196,178): warning C4305: ﾡﾰ=ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+            auto& Stretch=Physics.MaterialConstraints.StretchConstraint;Stretch.SolveStretch=true;Stretch.ProjectStretch=true;Stretch.StretchStiffness=10;Stretch.StretchDamping=.1;
+                                                                                                                                                                                 ^
+[89/107] Compile [x64] VamHairPIECapture.cpp [NoUba]
+[90/107] Compile [x64] VamKneeCorrectiveBuilder.cpp [NoUba]
+[91/107] Compile [x64] VamHairNiagaraAudit.cpp [NoUba]
+[92/107] Compile [x64] VamKneeCorrectiveTests.cpp [NoUba]
+[93/107] Compile [x64] VamLowerBodyContactBuilder.cpp [NoUba]
+[94/107] Compile [x64] VamMaterialStreamingTests.cpp [NoUba]
+[95/107] Compile [x64] VamNativeBuildWindow.cpp [NoUba]
+[96/107] Compile [x64] VamLegJiggleBuilder.cpp [NoUba]
+[97/107] Compile [x64] VamPoseLimitTests.cpp [NoUba]
+[98/107] Compile [x64] VamNativeBuilder.cpp [NoUba]
+[99/107] Compile [x64] VamResourceBrowserModule.cpp [NoUba]
+[100/107] Compile [x64] VamResidualOnlySafetyTests.cpp [NoUba]
+[101/107] Link [x64] UnrealEditor-VamCharacterRuntime.dll [NoUba]
+[102/107] Compile [x64] VamStage06AssetEditor.cpp [NoUba]
+[103/107] Compile [x64] VamSurfaceTransferAudit.cpp [NoUba]
+[104/107] Link [x64] UnrealEditor-VamResourceBrowser.lib [NoUba]
+  ￕ�ￔￚﾴﾴﾽﾨ﾿￢ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamResourceBrowser/UnrealEditor-VamResourceBrowser.lib ﾺￍﾶￔￏ￳ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamResourceBrowser/UnrealEditor-VamResourceBrowser.exp
+[105/107] Link [x64] UnrealEditor-VamContactGPU.dll [NoUba]
+[106/107] Link [x64] UnrealEditor-VamResourceBrowser.dll [NoUba]
+[107/107] WriteMetadata UnrealEditor.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 391.21 seconds
+Output binary: I:\Program\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+
+Result: Succeeded
+Total execution time: 430.70 seconds
+Trace written to file C:\Users\Administrator\AppData\Local\UnrealBuildTool\Trace.uba with size 58.7kb
