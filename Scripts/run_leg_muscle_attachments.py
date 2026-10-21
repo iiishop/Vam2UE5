@@ -1,7 +1,7 @@
 """Run explicit chain-operator experiments without overwriting production assets."""
 import argparse,hashlib,json,subprocess,sys
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('out',type=Path);p.add_argument('--world',choices=['Editor','PIE'],default='PIE');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('out',type=Path);p.add_argument('--world',choices=['Editor','PIE'],default='PIE');p.add_argument('--groups',nargs='+',choices=['M','R','S','C'],default=['M','R','S','C']);a=p.parse_args()
 assert not a.out.exists();a.out.mkdir(parents=True)
 recipe=json.loads(Path('Config/LegMuscleAttachments/'+('motion' if a.world=='PIE' else 'editor')+'.json').read_text())
 bundle=Path('Saved/LegChainComparison/candidate-5/bundle.json');asset=json.loads(bundle.read_text())
@@ -13,7 +13,7 @@ editor_ret=None
 if a.world=='Editor':
  sub=a.out/'all-recipe.json';sub.write_text(json.dumps(recipe,indent=2))
  editor_ret=subprocess.run([sys.executable,'-X','utf8','Scripts/run_s1s2_pose_suite.py',str(bundle),str(a.out/'all'),'--world','Editor','--recipe',str(sub),'--project','I:/Document/UE5/SmartNPC/SmartNPC.uproject']).returncode
-for group in ['M','R','S','C']:
+for group in a.groups:
  cases=[c for c in recipe['cases'] if c['id'].startswith(group+'-')];sub=a.out/(group+'-recipe.json');sub.write_text(json.dumps(dict(recipe,cases=cases),indent=2))
  cmd=[sys.executable,'-X','utf8','Scripts/run_s1s2_pose_suite.py',str(bundle),str(a.out/group),'--world',a.world,'--recipe',str(sub),'--project','I:/Document/UE5/SmartNPC/SmartNPC.uproject']
  ret=subprocess.run(cmd).returncode if editor_ret is None else editor_ret

@@ -10,7 +10,10 @@ for action in a.actions:
  videos={g:read(a.run/g/(g+'-'+action)/'video.json')['samples'] for g in a.groups}
  state=read(a.run/'R'/('R-'+action)/'state.json');ids=[i for i,b in enumerate(state['actual_bones']) if not b['bone'].startswith(('L_','R_'))]
  for g,frames in videos.items():
-  gs=read(a.run/g/(g+'-'+action)/'state.json');assert gs['cameras']==state['cameras']
+  gs=read(a.run/g/(g+'-'+action)/'state.json')
+  for key in ['cameras','body_to_world','light_from_below','light_yaw_offset','exposure_bias','width','height','temporal_aa','motion_blur','fixed_dt','settle_frames']:assert gs[key]==state[key],(g,action,key)
+  assert len(frames)==len(videos['R'])==210
+  assert all(x['root_offset_cm']==y['root_offset_cm'] and x['time_seconds']==y['time_seconds'] for x,y in zip(frames,videos['R']))
   error=max(float(np.max(np.abs(np.array(x['bone_matrices'])[ids]-np.array(y['bone_matrices'])[ids]))) for x,y in zip(frames,videos['R']))
   assert error<1e-6;checks.append(dict(group=g,action=action,primary_error=error,contact_frames=sum(f['contact_solver_active'] for f in frames)))
  for frame in [45,135]:
@@ -32,11 +35,17 @@ for action in a.actions:
    ang=np.degrees(np.arccos(np.clip((norm[adjacent[:,0]]*norm[adjacent[:,1]]).sum(axis=1),-1,1)))
    return area,norm,ang
   ra,rn,re=geometry(baseline)
+  s_surface=np.array(read(Path(videos['S'][frame]['audit_bundle'])/'04-jiggle/surface.json')['positions']) if 'S' in videos else None
   for g,video in videos.items():
    d=Path(video[frame]['audit_bundle']);pos=np.array(read(d/'04-jiggle/surface.json')['positions']);assert np.isfinite(pos).all()
    inputs=read(d/'04-jiggle/inputs.json');assert inputs['triangle_indices']==data['triangle_indices'] and inputs['render_vertex_influences']==data['render_vertex_influences']
+   assert [b['name'] for b in inputs['bones']]==[b['bone'] for b in state['actual_bones']]
+   snapshot_error=float(np.max(np.abs(np.array([b['component_matrix_row_major'] for b in inputs['bones']])-np.array(video[frame]['bone_matrices']))))
+   assert snapshot_error<1e-6,('A1 snapshot not same video pose',g,action,frame,snapshot_error)
    ar,norm,angles=geometry(pos);delta=np.linalg.norm(pos-baseline,axis=1)[mask];seam=np.linalg.norm(pos[pairs[:,0]]-pos[pairs[:,1]],axis=1)
    rows.append(dict(group=g,action=action,frame=frame,leg_vertices=int(mask.sum()),rms_vs_R_cm=float(np.sqrt(np.mean(delta**2))),max_vs_R_cm=float(delta.max()),seam_pairs=len(pairs),seam_max_cm=float(seam.max()),seam_over_001cm=int((seam>.01).sum()),edge_p95_deg=float(np.percentile(angles,95)),edge_max_deg=float(angles.max()),new_sharp_edges=int(((angles>45)&(angles-re>15)).sum()),opposed_normals_vs_R=int(((norm*rn).sum(axis=1)[tm]<0).sum()),area_below_tenth_R=int((ar[tm]/np.maximum(ra[tm],1e-12)<.1).sum()),audit=str(d)))
+   if s_surface is not None:
+    sd=np.linalg.norm(pos-s_surface,axis=1)[mask];rows[-1].update(rms_vs_S_cm=float(np.sqrt(np.mean(sd**2))),max_vs_S_cm=float(sd.max()))
  for frame in videos['M']:
   for seg in frame['leg_pipeline']:
    for node in seg['nodes']:

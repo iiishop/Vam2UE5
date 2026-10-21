@@ -1,0 +1,90 @@
+[
+  {
+    "group": "M",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "M-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "M-knee-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "M-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  },
+  {
+    "group": "R",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "R-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "R-knee-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "R-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  },
+  {
+    "group": "S",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "S-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "S-knee-flexion",
+        "valid": true,
+        "contact_active_frames": 0
+      },
+      {
+        "id": "S-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  },
+  {
+    "group": "C",
+    "valid": true,
+    "process_exit": 0,
+    "states": [
+      {
+        "id": "C-flexion",
+        "valid": true,
+        "contact_active_frames": 31
+      },
+      {
+        "id": "C-knee-flexion",
+        "valid": true,
+        "contact_active_frames": 45
+      },
+      {
+        "id": "C-seated-stop",
+        "valid": true,
+        "contact_active_frames": 0
+      }
+    ]
+  }
+]

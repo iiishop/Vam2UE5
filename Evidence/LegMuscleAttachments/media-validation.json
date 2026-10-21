@@ -1,0 +1,149 @@
+{
+  "samples": [
+    {
+      "clip": "C-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 48.72142834379978,
+      "source_first_png_trailing_bytes": 68357
+    },
+    {
+      "clip": "C-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 49.48410666380505,
+      "source_first_png_trailing_bytes": 68357
+    },
+    {
+      "clip": "M-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 48.373700759473806,
+      "source_first_png_trailing_bytes": 65847
+    },
+    {
+      "clip": "M-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 49.32486932405001,
+      "source_first_png_trailing_bytes": 65847
+    },
+    {
+      "clip": "S-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 48.44922388941258,
+      "source_first_png_trailing_bytes": 65626
+    },
+    {
+      "clip": "S-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 49.453539322233595,
+      "source_first_png_trailing_bytes": 65626
+    },
+    {
+      "clip": "R-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 48.71505501418633,
+      "source_first_png_trailing_bytes": 66077
+    },
+    {
+      "clip": "R-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 49.4175534277402,
+      "source_first_png_trailing_bytes": 66077
+    },
+    {
+      "clip": "C-knee-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 49.83983552876182,
+      "source_first_png_trailing_bytes": 68108
+    },
+    {
+      "clip": "C-knee-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 49.956043232456906,
+      "source_first_png_trailing_bytes": 68108
+    },
+    {
+      "clip": "M-knee-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 49.47199094558332,
+      "source_first_png_trailing_bytes": 65847
+    },
+    {
+      "clip": "M-knee-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 50.030567911679505,
+      "source_first_png_trailing_bytes": 65847
+    },
+    {
+      "clip": "S-knee-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 49.58933673518024,
+      "source_first_png_trailing_bytes": 65626
+    },
+    {
+      "clip": "S-knee-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 50.04397281225883,
+      "source_first_png_trailing_bytes": 65626
+    },
+    {
+      "clip": "R-knee-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 49.73451040109566,
+      "source_first_png_trailing_bytes": 66077
+    },
+    {
+      "clip": "R-knee-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 49.98858190706892,
+      "source_first_png_trailing_bytes": 66077
+    },
+    {
+      "clip": "C-seated-stop",
+      "frame": 45,
+      "decoded_psnr_db": 47.88511774015255,
+      "source_first_png_trailing_bytes": 113704
+    },
+    {
+      "clip": "C-seated-stop",
+      "frame": 135,
+      "decoded_psnr_db": 49.639340573815375,
+      "source_first_png_trailing_bytes": 113704
+    },
+    {
+      "clip": "M-seated-stop",
+      "frame": 45,
+      "decoded_psnr_db": 47.7721130100078,
+      "source_first_png_trailing_bytes": 113024
+    },
+    {
+      "clip": "M-seated-stop",
+      "frame": 135,
+      "decoded_psnr_db": 49.694133803963574,
+      "source_first_png_trailing_bytes": 113024
+    },
+    {
+      "clip": "S-seated-stop",
+      "frame": 45,
+      "decoded_psnr_db": 47.71743637513424,
+      "source_first_png_trailing_bytes": 112442
+    },
+    {
+      "clip": "S-seated-stop",
+      "frame": 135,
+      "decoded_psnr_db": 49.631634117192945,
+      "source_first_png_trailing_bytes": 112442
+    },
+    {
+      "clip": "R-seated-stop",
+      "frame": 45,
+      "decoded_psnr_db": 47.92409290778541,
+      "source_first_png_trailing_bytes": 113704
+    },
+    {
+      "clip": "R-seated-stop",
+      "frame": 135,
+      "decoded_psnr_db": 49.73183822476461,
+      "source_first_png_trailing_bytes": 113704
+    }
+  ],
+  "scope": "Frame count/duration and decoded pixel comparison outside status label. Source UE PNG files have trailing bytes after IEND; ffmpeg warnings did not prevent decoding these verified frames."
+}

@@ -1,0 +1,429 @@
+{
+  "editor": [
+    {
+      "group": "M",
+      "valid": true,
+      "process_exit": 0,
+      "states": [
+        {
+          "id": "M-seated-stop",
+          "valid": true,
+          "contact_active_frames": null
+        }
+      ]
+    },
+    {
+      "group": "R",
+      "valid": true,
+      "process_exit": 0,
+      "states": [
+        {
+          "id": "R-seated-stop",
+          "valid": true,
+          "contact_active_frames": null
+        }
+      ]
+    },
+    {
+      "group": "S",
+      "valid": true,
+      "process_exit": 0,
+      "states": [
+        {
+          "id": "S-seated-stop",
+          "valid": true,
+          "contact_active_frames": null
+        }
+      ]
+    },
+    {
+      "group": "C",
+      "valid": true,
+      "process_exit": 0,
+      "states": [
+        {
+          "id": "C-seated-stop",
+          "valid": true,
+          "contact_active_frames": null
+        }
+      ]
+    }
+  ],
+  "pie": [
+    {
+      "group": "M",
+      "valid": true,
+      "process_exit": 0,
+      "states": [
+        {
+          "id": "M-flexion",
+          "valid": true,
+          "contact_active_frames": 0
+        },
+        {
+          "id": "M-knee-flexion",
+          "valid": true,
+          "contact_active_frames": 0
+        },
+        {
+          "id": "M-seated-stop",
+          "valid": true,
+          "contact_active_frames": 0
+        }
+      ]
+    },
+    {
+      "group": "R",
+      "valid": true,
+      "process_exit": 0,
+      "states": [
+        {
+          "id": "R-flexion",
+          "valid": true,
+          "contact_active_frames": 0
+        },
+        {
+          "id": "R-knee-flexion",
+          "valid": true,
+          "contact_active_frames": 0
+        },
+        {
+          "id": "R-seated-stop",
+          "valid": true,
+          "contact_active_frames": 0
+        }
+      ]
+    },
+    {
+      "group": "S",
+      "valid": true,
+      "process_exit": 0,
+      "states": [
+        {
+          "id": "S-flexion",
+          "valid": true,
+          "contact_active_frames": 0
+        },
+        {
+          "id": "S-knee-flexion",
+          "valid": true,
+          "contact_active_frames": 0
+        },
+        {
+          "id": "S-seated-stop",
+          "valid": true,
+          "contact_active_frames": 0
+        }
+      ]
+    },
+    {
+      "group": "C",
+      "valid": true,
+      "process_exit": 0,
+      "states": [
+        {
+          "id": "C-flexion",
+          "valid": true,
+          "contact_active_frames": 31
+        },
+        {
+          "id": "C-knee-flexion",
+          "valid": true,
+          "contact_active_frames": 45
+        },
+        {
+          "id": "C-seated-stop",
+          "valid": true,
+          "contact_active_frames": 0
+        }
+      ]
+    }
+  ],
+  "unit_tests": [
+    [
+      "Success",
+      "EquivalentEulerLimits"
+    ],
+    [
+      "Success",
+      "LongitudinalChain"
+    ],
+    [
+      "Success",
+      "MuscleAttachments"
+    ],
+    [
+      "Success",
+      "PreserveSupportSlots"
+    ]
+  ],
+  "build": "compile-3.log: Succeeded",
+  "scope": "Normal BP_VamCharacter in real UE Editor/PIE, fixed-step motion capture. No real-time performance or full anatomical validation claim.",
+  "muscle_ranges": [
+    {
+      "action": "flexion",
+      "side": "L",
+      "muscle": "RectusFemoris",
+      "min_ratio": 0.9927491580692508,
+      "max_ratio": 1.0657699504481313,
+      "limited_frames": 0
+    },
+    {
+      "action": "flexion",
+      "side": "L",
+      "muscle": "Hamstrings",
+      "min_ratio": 1.0033133904562128,
+      "max_ratio": 1.0120881428859165,
+      "limited_frames": 0
+    },
+    {
+      "action": "flexion",
+      "side": "L",
+      "muscle": "VastusLateral",
+      "min_ratio": 0.9914910741723746,
+      "max_ratio": 1.1011590081036755,
+      "limited_frames": 0
+    },
+    {
+      "action": "flexion",
+      "side": "L",
+      "muscle": "VastiCore",
+      "min_ratio": 0.9913925213080301,
+      "max_ratio": 1.1023306612835058,
+      "limited_frames": 0
+    },
+    {
+      "action": "flexion",
+      "side": "L",
+      "muscle": "Adductors",
+      "min_ratio": 0.9955594182203217,
+      "max_ratio": 1.0998185735839237,
+      "limited_frames": 0
+    },
+    {
+      "action": "flexion",
+      "side": "R",
+      "muscle": "RectusFemoris",
+      "min_ratio": 0.9927621834498565,
+      "max_ratio": 1.065910399964795,
+      "limited_frames": 0
+    },
+    {
+      "action": "flexion",
+      "side": "R",
+      "muscle": "Hamstrings",
+      "min_ratio": 1.0038863090414054,
+      "max_ratio": 1.0120604529825166,
+      "limited_frames": 0
+    },
+    {
+      "action": "flexion",
+      "side": "R",
+      "muscle": "VastusLateral",
+      "min_ratio": 0.9915384512613474,
+      "max_ratio": 1.1015071998051942,
+      "limited_frames": 0
+    },
+    {
+      "action": "flexion",
+      "side": "R",
+      "muscle": "VastiCore",
+      "min_ratio": 0.9914409027790659,
+      "max_ratio": 1.1026774197717146,
+      "limited_frames": 0
+    },
+    {
+      "action": "flexion",
+      "side": "R",
+      "muscle": "Adductors",
+      "min_ratio": 0.995621896473737,
+      "max_ratio": 1.098411036112287,
+      "limited_frames": 0
+    },
+    {
+      "action": "knee-flexion",
+      "side": "L",
+      "muscle": "RectusFemoris",
+      "min_ratio": 0.9927491580692508,
+      "max_ratio": 1.1040380096239304,
+      "limited_frames": 0
+    },
+    {
+      "action": "knee-flexion",
+      "side": "L",
+      "muscle": "Hamstrings",
+      "min_ratio": 0.8233870725447233,
+      "max_ratio": 1.007005458149062,
+      "limited_frames": 42
+    },
+    {
+      "action": "knee-flexion",
+      "side": "L",
+      "muscle": "VastusLateral",
+      "min_ratio": 0.9914910741723746,
+      "max_ratio": 1.1007785593624446,
+      "limited_frames": 0
+    },
+    {
+      "action": "knee-flexion",
+      "side": "L",
+      "muscle": "VastiCore",
+      "min_ratio": 0.9913925213080301,
+      "max_ratio": 1.1019458060738274,
+      "limited_frames": 0
+    },
+    {
+      "action": "knee-flexion",
+      "side": "L",
+      "muscle": "Adductors",
+      "min_ratio": 0.9955594182203217,
+      "max_ratio": 0.9955594182203217,
+      "limited_frames": 0
+    },
+    {
+      "action": "knee-flexion",
+      "side": "R",
+      "muscle": "RectusFemoris",
+      "min_ratio": 0.9927621834498565,
+      "max_ratio": 1.1043559952605535,
+      "limited_frames": 0
+    },
+    {
+      "action": "knee-flexion",
+      "side": "R",
+      "muscle": "Hamstrings",
+      "min_ratio": 0.8276631226991301,
+      "max_ratio": 1.006773980099032,
+      "limited_frames": 42
+    },
+    {
+      "action": "knee-flexion",
+      "side": "R",
+      "muscle": "VastusLateral",
+      "min_ratio": 0.9915384512613474,
+      "max_ratio": 1.1011313597501264,
+      "limited_frames": 0
+    },
+    {
+      "action": "knee-flexion",
+      "side": "R",
+      "muscle": "VastiCore",
+      "min_ratio": 0.9914409027790659,
+      "max_ratio": 1.102297246865997,
+      "limited_frames": 0
+    },
+    {
+      "action": "knee-flexion",
+      "side": "R",
+      "muscle": "Adductors",
+      "min_ratio": 0.995621896473737,
+      "max_ratio": 0.995621896473737,
+      "limited_frames": 0
+    },
+    {
+      "action": "seated-stop",
+      "side": "L",
+      "muscle": "RectusFemoris",
+      "min_ratio": 1.1128254598024099,
+      "max_ratio": 1.1128254598024099,
+      "limited_frames": 0
+    },
+    {
+      "action": "seated-stop",
+      "side": "L",
+      "muscle": "Hamstrings",
+      "min_ratio": 0.9884681739678127,
+      "max_ratio": 0.9884681739678127,
+      "limited_frames": 0
+    },
+    {
+      "action": "seated-stop",
+      "side": "L",
+      "muscle": "VastusLateral",
+      "min_ratio": 1.1094062173072783,
+      "max_ratio": 1.1094062173072783,
+      "limited_frames": 0
+    },
+    {
+      "action": "seated-stop",
+      "side": "L",
+      "muscle": "VastiCore",
+      "min_ratio": 1.1106733920730671,
+      "max_ratio": 1.1106733920730671,
+      "limited_frames": 0
+    },
+    {
+      "action": "seated-stop",
+      "side": "L",
+      "muscle": "Adductors",
+      "min_ratio": 1.1448783815494619,
+      "max_ratio": 1.1448783815494619,
+      "limited_frames": 210
+    },
+    {
+      "action": "seated-stop",
+      "side": "R",
+      "muscle": "RectusFemoris",
+      "min_ratio": 1.1130732983088507,
+      "max_ratio": 1.1130732983088507,
+      "limited_frames": 0
+    },
+    {
+      "action": "seated-stop",
+      "side": "R",
+      "muscle": "Hamstrings",
+      "min_ratio": 0.9887801243411255,
+      "max_ratio": 0.9887801243411255,
+      "limited_frames": 0
+    },
+    {
+      "action": "seated-stop",
+      "side": "R",
+      "muscle": "VastusLateral",
+      "min_ratio": 1.1098172585394037,
+      "max_ratio": 1.1098172585394037,
+      "limited_frames": 0
+    },
+    {
+      "action": "seated-stop",
+      "side": "R",
+      "muscle": "VastiCore",
+      "min_ratio": 1.1110832805443254,
+      "max_ratio": 1.1110832805443254,
+      "limited_frames": 0
+    },
+    {
+      "action": "seated-stop",
+      "side": "R",
+      "muscle": "Adductors",
+      "min_ratio": 1.1434061896677061,
+      "max_ratio": 1.1434061896677061,
+      "limited_frames": 210
+    }
+  ],
+  "first_round_knee_left": [
+    {
+      "muscle": "RectusFemoris",
+      "min_ratio": 0.9927491580692508,
+      "max_ratio": 1.1040380096239304
+    },
+    {
+      "muscle": "Hamstrings",
+      "min_ratio": 0.8233870725447233,
+      "max_ratio": 1.007005458149062
+    },
+    {
+      "muscle": "VastusLateral",
+      "min_ratio": 0.9720570798387702,
+      "max_ratio": 0.9996224693588404
+    }
+  ],
+  "M_sampled_geometry": {
+    "snapshot_count": 6,
+    "source_pairs_per_snapshot": 180,
+    "max_seam_cm": 0.0,
+    "new_sharp_flags": 0,
+    "opposed_normals": 0,
+    "max_change_vs_R_cm": 0.9127538216833824
+  }
+}
