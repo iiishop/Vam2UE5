@@ -58,18 +58,25 @@ FVamLegMusclePath VamLegDynamics::MusclePath(const FVamLegSegment& S,const TArra
     if(!Pose.IsValidIndex(Parent)||!Pose.IsValidIndex(Primary)||!Pose.IsValidIndex(Distal))return R;
     const FString Name=N.Semantic.ToString();
     const bool Biarticular=S.bCalf?Name.StartsWith(TEXT("Gastro")):(Name==TEXT("RectusFemoris")||Name==TEXT("Hamstrings"));
-    R.OriginBone=Biarticular?Parent:Primary;R.InsertionBone=Distal;
+    const bool Adductor=!S.bCalf && Name==TEXT("Adductors");
+    R.OriginBone=(Biarticular||Adductor)?Parent:Primary;R.InsertionBone=Adductor?Primary:Distal;
     const FTransform Anchor=S.AnchorLocal*Pose[Primary];
     // Offset attachments remain on their own anterior/posterior side. No side copy.
     const FVector Radial(N.Rest.X,N.Rest.Y,0);
     const FVector A0=Radial+FVector(0,0,S.Length*.40);
-    const FVector Via=Radial+FVector(0,0,-S.Length*.35);
-    const FVector B0=Radial+FVector(0,0,-S.Length*.62);
+    // Knee extensors share an anterior tendon corridor, not the lateral skin
+    // centroid. Their origins remain independent. This is a fixed-guide proxy,
+    // not a patellar articulation or bone wrapping solver.
+    FVector Tendon=Radial;
+    if(!S.bCalf && (Name.StartsWith(TEXT("Vast")) || Name==TEXT("RectusFemoris")))
+        for(const auto& Other:S.Dynamics.Nodes)if(Other.Semantic==TEXT("RectusFemoris")){Tendon=FVector(Other.Rest.X,Other.Rest.Y,0);break;}
+    const FVector Via=Tendon+FVector(0,0,-S.Length*.35);
+    const FVector B0=Tendon+FVector(0,0,-S.Length*(Adductor?.40:.62));
     const FTransform ParentRest=S.JointRest[J].Inverse(),DistalRest=S.JointRest[J+1];
-    const FVector OriginLocal=(Biarticular?ParentRest:FTransform::Identity).InverseTransformPosition(S.AnchorLocal.TransformPosition(A0));
-    const FVector InsertionLocal=DistalRest.InverseTransformPosition(S.AnchorLocal.TransformPosition(B0));
+    const FVector OriginLocal=((Biarticular||Adductor)?ParentRest:FTransform::Identity).InverseTransformPosition(S.AnchorLocal.TransformPosition(A0));
+    const FVector InsertionLocal=(Adductor?FTransform::Identity:DistalRest).InverseTransformPosition(S.AnchorLocal.TransformPosition(B0));
     R.Origin=Anchor.InverseTransformPosition(Pose[R.OriginBone].TransformPosition(OriginLocal));
-    R.Guide=Via;R.Insertion=Anchor.InverseTransformPosition(Pose[Distal].TransformPosition(InsertionLocal));
+    R.Guide=Via;R.Insertion=Anchor.InverseTransformPosition(Pose[R.InsertionBone].TransformPosition(InsertionLocal));
     R.RestLength=(Via-A0).Size()+(B0-Via).Size();
     R.Length=(Via-R.Origin).Size()+(R.Insertion-Via).Size();
     R.Ratio=R.Length/FMath::Max(R.RestLength,1.e-6);
@@ -155,11 +162,14 @@ bool FVamLegAttachmentsTest::RunTest(const FString&)
 {
     FVamLegSegment S;S.Length=40;S.Radius=6;S.Pelvis=0;S.Thigh=1;S.Shin=2;S.Foot=3;S.JointRest.Init(FTransform::Identity,3);S.JointRest[1]=FTransform(FVector(0,0,-20));
     FVamGluteDynamicNode F;F.Semantic=TEXT("RectusFemoris");F.Rest=FVector(5,0,0);S.Dynamics.Nodes.Add(F);F.Semantic=TEXT("Hamstrings");F.Rest=FVector(-5,0,0);S.Dynamics.Nodes.Add(F);
+    F.Semantic=TEXT("VastusLateral");F.Rest=FVector(0,5,0);S.Dynamics.Nodes.Add(F);F.Semantic=TEXT("Adductors");F.Rest=FVector(0,-5,0);S.Dynamics.Nodes.Add(F);
     TArray<FTransform> Pose;Pose.Init(FTransform::Identity,4);Pose[2]=S.JointRest[1];
-    for(int N=0;N<2;++N){auto M=VamLegDynamics::MusclePath(S,Pose,N);TestTrue(TEXT("Neutral identity scale and position"),M.Frame.Equals(FTransform(S.Dynamics.Nodes[N].Rest),1.e-6));TestTrue(TEXT("Neutral length"),FMath::IsNearlyEqual(M.Ratio,1.,1.e-6));}
+    for(int N=0;N<S.Dynamics.Nodes.Num();++N){auto M=VamLegDynamics::MusclePath(S,Pose,N);TestTrue(TEXT("Neutral identity scale and position"),M.Frame.Equals(FTransform(S.Dynamics.Nodes[N].Rest),1.e-6));TestTrue(TEXT("Neutral length"),FMath::IsNearlyEqual(M.Ratio,1.,1.e-6));}
     Pose[2].SetRotation(FQuat(FVector::YAxisVector,PI/2));
     const auto Front=VamLegDynamics::MusclePath(S,Pose,0),Back=VamLegDynamics::MusclePath(S,Pose,1);
     TestTrue(TEXT("Knee flexion extends anterior path"),Front.Ratio>1);TestTrue(TEXT("Knee flexion shortens posterior path"),Back.Ratio<1);
+    TestTrue(TEXT("Vasti follows anterior knee corridor"),VamLegDynamics::MusclePath(S,Pose,2).Ratio>1);
+    TestTrue(TEXT("Adductor does not cross knee"),FMath::IsNearlyEqual(VamLegDynamics::MusclePath(S,Pose,3).Ratio,1.,1.e-6));
     auto World=Pose;FTransform W(FQuat(FVector::XAxisVector,.8),FVector(30,20,10));for(auto& P:World)P=P*W;
     for(int N=0;N<2;++N){auto M=VamLegDynamics::MusclePath(S,Pose,N),R=VamLegDynamics::MusclePath(S,World,N);TestTrue(TEXT("Whole actor invariance"),M.Frame.Equals(R.Frame,1.e-6));TestTrue(TEXT("Finite muscle frame"),!M.Frame.ContainsNaN());const auto V=M.Frame.GetScale3D();TestTrue(TEXT("Affine muscle determinant"),FMath::IsNearlyEqual(V.X*V.Y*V.Z,1.,1.e-6));}
     return !HasAnyErrors();
