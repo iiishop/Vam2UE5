@@ -1,4 +1,6 @@
 #pragma once
+#include "EngineUtils.h"
+#include "GameFramework/Pawn.h"
 #include "VamRigProfile.h"
 #include "Engine/SkinnedAssetCommon.h"
 #include "Materials/MaterialExpressionConstant3Vector.h"
@@ -36,6 +38,12 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
  TStrongObjectPtr<UMaterial> GrayOwner(MakeMaterial(false)),SilhouetteOwner(MakeMaterial(true));auto* Gray=GrayOwner.Get();auto* Silhouette=SilhouetteOwner.Get();Capture->PostProcessSettings.AutoExposureBias=2;FAssetCompilingManager::Get().FinishAllCompilation();if(GShaderCompilingManager)GShaderCompilingManager->FinishAllCompilation();
  TArray<TStrongObjectPtr<UMaterial>> SectionColors;for(const auto& Color:{FLinearColor(.8,.15,.1),FLinearColor(.1,.7,.25),FLinearColor(.1,.25,.8)})SectionColors.Emplace(MakeMaterial(true,Color));
  auto* SeatActor=World->SpawnActor<AActor>();auto* Seat=NewObject<UStaticMeshComponent>(SeatActor);SeatActor->SetRootComponent(Seat);Seat->SetStaticMesh(LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube")));Seat->SetMobility(EComponentMobility::Movable);Seat->SetCollisionResponseToAllChannels(ECR_Block);Seat->RegisterComponent();Seat->SetWorldScale3D(FVector(1.1,1.1,.1));
+ // Capture the subject and the explicit test collider only. PIE may spawn a
+ // project pawn or spectator; neither may contaminate these controlled trials.
+ for(TActorIterator<APawn> It(World);It;++It)It->SetActorEnableCollision(false);
+ Capture->PrimitiveRenderMode=ESceneCapturePrimitiveRenderMode::PRM_UseShowOnlyList;
+ Capture->ShowOnlyActorComponents(Actor,true);Capture->ShowOnlyComponent(Seat);
+ UE_LOG(LogTemp,Display,TEXT("LEG_CHAIN_CAPTURE_ISOLATION subject=%s seat=%s"),*Actor->GetPathName(),*SeatActor->GetPathName());
  auto* Light=NewObject<UDirectionalLightComponent>(Actor);Light->Intensity=3;Light->RegisterComponent();
  Capture->ShowFlags.SetTemporalAA(false);Capture->ShowFlags.SetMotionBlur(false);
 

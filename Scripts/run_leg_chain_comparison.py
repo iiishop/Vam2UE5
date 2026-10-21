@@ -9,12 +9,12 @@ for group,chain,contact in [('A',True,True),('B',True,False),('C',False,True)]:
  cases=[c for c in recipe['cases'] if c['id'].startswith(group+'-')]
  assert cases and all(c['leg_chain']==chain and c['contact_solver']==contact and c['leg_jiggle'] for c in cases)
  sub=a.out/(group+'-recipe.json');sub.write_text(json.dumps(dict(recipe,cases=cases),indent=2))
- cmd=[sys.executable,'-X','utf8',str(Path(__file__).with_name('run_s1s2_pose_suite.py')),str(a.bundle),str(a.out/group),'--recipe',str(sub),'--world',a.world,'--project',a.project,'--setup-script',str(Path(__file__).with_name('ue_leg_chain_capture_setup.py'))]
+ cmd=[sys.executable,'-X','utf8',str(Path(__file__).with_name('run_s1s2_pose_suite.py')),str(a.bundle),str(a.out/group),'--recipe',str(sub),'--world',a.world,'--project',a.project]
  result=subprocess.run(cmd)
  suite=a.out/group/'suite.json'
  states=json.loads(suite.read_text())['states'] if suite.exists() else []
  log=(a.out/group/'runtime.log').read_text(errors='replace')
- valid=result.returncode==0 and 'LEG_CHAIN_CAPTURE_SETUP:' in log and 'Python script executed with errors' not in log and 'Result={Success} Name={ContactRuntime}' in log and len(states)==len(cases) and all(s['leg_chain_enabled']==chain and s['world_type']==a.world for s in states)
+ valid=result.returncode==0 and 'LEG_CHAIN_CAPTURE_ISOLATION' in log and 'Python script executed with errors' not in log and 'Result={Success} Name={ContactRuntime}' in log and len(states)==len(cases) and all(s['leg_chain_enabled']==chain and s['world_type']==a.world for s in states)
  if a.world=='PIE':
   valid=valid and all(s['contact_solver_active']==contact for s in states)
   for case in cases:

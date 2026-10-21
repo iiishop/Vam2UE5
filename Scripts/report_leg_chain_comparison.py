@@ -1,5 +1,5 @@
 """Publish actual three-way UE leg recordings, without substituting offline renders."""
-import argparse,json,shutil,subprocess,html
+import argparse,json,shutil,subprocess,html,gzip
 from pathlib import Path
 p=argparse.ArgumentParser();p.add_argument('run',type=Path);p.add_argument('bundle',type=Path);p.add_argument('out',type=Path);a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
 read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
@@ -14,7 +14,8 @@ for action,name in [('flexion','屈伸'),('step','交替迈步'),('seated-stop',
   state=read(src/'state.json');v=read(src/'video.json');assert len(v['samples'])==210
   active=sum(s['contact_solver_active'] for s in v['samples'])
   warning=f'接触实际运行 {active}/210 帧。'+('该组合未通过：部分帧被安全检查停算。' if g!='B' and active!=210 else 'B 组按设计关闭接触。' if g=='B' else '全片接触求解保持运行。')
-  shutil.copy2(src/'state.json',dst/'state.json');shutil.copy2(src/'video.json',dst/'video.json')
+  shutil.copy2(src/'state.json',dst/'state.json')
+  with gzip.open(dst/'video.json.gz','wb') as f:f.write((src/'video.json').read_bytes())
   for view in ['side','rear','front','oblique']:
    for mode in ['material','gray']:
     shutil.copy2(src/(view+'-'+mode+'.png'),dst/(view+'-'+mode+'.png'))
@@ -33,7 +34,12 @@ for action,name in [('flexion','屈伸'),('step','交替迈步'),('seated-stop',
   assert int(probe['streams'][0]['nb_read_frames'])==210 and abs(float(probe['streams'][0]['duration'])-7)<.01
   (dst/'video-check.json').write_text(json.dumps(probe,indent=2))
   cards.append(f'<section><h3>{label}</h3><p><strong>{warning}</strong></p><video controls preload="metadata" src="{dst.name}/motion.mp4"></video><p>骨链 {state["leg_chain_enabled"]}；静态截图时接触求解 {state["contact_solver_active"]}</p><details><summary>同条件静态截图</summary>'+''.join(f'<p>{view}</p><img src="{dst.name}/{view}-material.png"><img src="{dst.name}/{view}-gray.png">' for view in ['side','rear','front','oblique'])+'</details></section>')
- panels.append(f'<h2>{name}</h2><button onclick="sync(\'{action}\')">三组从头同步播放</button><div class="grid" id="{action}">'+''.join(cards)+'</div>')
+ combined=a.out/(action+'-three-way.mp4')
+ if not combined.exists():
+  command=['ffmpeg','-y','-v','error']
+  for g in labels:command+=['-i',str(a.out/(g+'-'+action)/'motion.mp4')]
+  subprocess.run(command+['-filter_complex','hstack=inputs=3','-c:v','libx264','-crf','19','-pix_fmt','yuv420p','-movflags','+faststart',str(combined)],check=True)
+ panels.append(f'<h2>{name}</h2><p>左 A / 中 B / 右 C；以下为同一个视频内的逐帧同步对比。</p><video controls preload="metadata" src="{combined.name}"></video><details><summary>单组放大视频和静态截图</summary><button onclick="sync(\'{action}\')">三组从头同步播放</button><div class="grid" id="{action}">'+''.join(cards)+'</div></details>')
 metrics=[]
 for row in analysis['layers']:
  peak=max(r['chain']['max_cm'] for r in row['regions'].values());jiggle=max(r['jiggle']['max_cm'] for r in row['regions'].values())
