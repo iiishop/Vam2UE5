@@ -1,0 +1,92 @@
+[
+  {
+    "frame": 45,
+    "stages": {
+      "02-static-helpers/surface.json": {
+        "rms_cm": 0.0,
+        "max_cm": 0.0,
+        "worst_render_vertex": 0
+      },
+      "03-corrective/surface.json": {
+        "rms_cm": 0.0,
+        "max_cm": 0.0,
+        "worst_render_vertex": 0
+      },
+      "04-jiggle/surface.json": {
+        "rms_cm": 0.0524190351543646,
+        "max_cm": 0.6400861416580895,
+        "worst_render_vertex": 15229
+      },
+      "04a-operator-corrected/surface.json": {
+        "rms_cm": 0.0524190351543646,
+        "max_cm": 0.6400861416580895,
+        "worst_render_vertex": 15229
+      },
+      "04a-operator-corrected/postskin-correction.json": {
+        "rms_cm": 0.0,
+        "max_cm": 0.0,
+        "worst_render_vertex": 0
+      }
+    }
+  },
+  {
+    "frame": 135,
+    "stages": {
+      "02-static-helpers/surface.json": {
+        "rms_cm": 0.0,
+        "max_cm": 0.0,
+        "worst_render_vertex": 0
+      },
+      "03-corrective/surface.json": {
+        "rms_cm": 0.0,
+        "max_cm": 0.0,
+        "worst_render_vertex": 0
+      },
+      "04-jiggle/surface.json": {
+        "rms_cm": 0.027612199105470366,
+        "max_cm": 0.3523332509028849,
+        "worst_render_vertex": 14756
+      },
+      "04a-operator-corrected/surface.json": {
+        "rms_cm": 0.027612199105470366,
+        "max_cm": 0.3523332509028849,
+        "worst_render_vertex": 14756
+      },
+      "04a-operator-corrected/postskin-correction.json": {
+        "rms_cm": 0.0,
+        "max_cm": 0.0,
+        "worst_render_vertex": 0
+      }
+    }
+  },
+  {
+    "frame": 165,
+    "stages": {
+      "02-static-helpers/surface.json": {
+        "rms_cm": 0.0,
+        "max_cm": 0.0,
+        "worst_render_vertex": 0
+      },
+      "03-corrective/surface.json": {
+        "rms_cm": 0.0,
+        "max_cm": 0.0,
+        "worst_render_vertex": 0
+      },
+      "04-jiggle/surface.json": {
+        "rms_cm": 0.006538177935576384,
+        "max_cm": 0.11148774484834625,
+        "worst_render_vertex": 14669
+      },
+      "04a-operator-corrected/surface.json": {
+        "rms_cm": 0.006538177935576384,
+        "max_cm": 0.11148774484834625,
+        "worst_render_vertex": 14669
+      },
+      "04a-operator-corrected/postskin-correction.json": {
+        "rms_cm": 0.0,
+        "max_cm": 0.0,
+        "worst_render_vertex": 0
+      }
+    }
+  }
+]

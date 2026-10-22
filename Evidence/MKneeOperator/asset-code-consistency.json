@@ -1,0 +1,18 @@
+{
+  "asset_identity": "47a819cbfcc538a4a9029cd0f2b88a6772c6569f82bde6b5a81fc1bd7db220c2",
+  "checked": 186,
+  "production_skinning_build_and_shader_code_unchanged": true,
+  "diagnostic_only_changes": [
+    {
+      "path": "Source/VamCharacterRuntime/Private/VamDeformationAudit.cpp",
+      "built": "827f04354a115e330982a84a6986523ad3d5a2e75be5017fd0c1504e7828a9f7",
+      "current": "64a77c5ec0db5f76d53e5b9a0d731701595d365c5b344c492aa412ee812089cc"
+    },
+    {
+      "path": "Source/VamResourceBrowser/Private/Tests/VamPoseSuite.h",
+      "built": "0123f053195463861d0620955d7da40a4c29ac4b9d33ab309cbf1c4aa8c0b6ea",
+      "current": "514fd0c5bb6fb005289ded61695ae978e4def34b7eb35742d9826f8bb0f61040"
+    }
+  ],
+  "scope": "Only immutable-readback completion and diagnostic wait changed after asset publication. Bind/weights/morph/skin operator unchanged; each replay has a new validation identity."
+}

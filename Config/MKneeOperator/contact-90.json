@@ -1,0 +1,56 @@
+{
+  "schema": "vam-pose-suite/1",
+  "limit_policy": "Static setup, hip and foot retain production limits. Explicit diagnostic_deep_flexion bypasses only the animated knee input; production RigProfile is unchanged. Recorded geometric angles define the achieved pose.",
+  "fixed_dt": 0.016666666666666666,
+  "settle_frames": 90,
+  "views": [
+    "side"
+  ],
+  "modes": [
+    "gray"
+  ],
+  "cases": [
+    {
+      "id": "M-contact-90",
+      "hip": [
+        30,
+        30
+      ],
+      "knee": [
+        90,
+        90
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 0,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "deep-kneel",
+      "leg_chain": true,
+      "contact_solver": true,
+      "leg_chain_method": 4,
+      "video_audit": false,
+      "diagnostic_deep_flexion": true
+    }
+  ]
+}

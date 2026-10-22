@@ -1,0 +1,22 @@
+{
+  "operator_repair": "PASS",
+  "asset_identity": "47a819cbfcc538a4a9029cd0f2b88a6772c6569f82bde6b5a81fc1bd7db220c2",
+  "configuration": "/Game/VamMKneeOperator/Runtime/R_47a819cbfcc538a4a9029cd0/RC_Runtime",
+  "blueprint": "/Game/VamMKneeOperator/Runtime/R_47a819cbfcc538a4a9029cd0/BP_VamCharacter.BP_VamCharacter",
+  "pie": "PASS",
+  "editor": "PASS",
+  "source_operator_unit": "PASS",
+  "algebra_tests": 4,
+  "gpu_max_difference_cm": 0.008668537138746614,
+  "new_triangle_orientation_reversals": 0,
+  "logical_duplicate_max_gap_cm": 0,
+  "contact_10": "active GPU; smoke regression PASS",
+  "contact_90": "BLOCKED by existing rest-volume protection",
+  "editor_pie_static_and_correction_exact": true,
+  "editor_pie_jiggle_difference_unchanged_from_baseline": true,
+  "visual_scope": "Visible improvement; residual local shape differences documented, final user visual acceptance pending",
+  "implementation_commits": [
+    "a341556",
+    "91934ff"
+  ]
+}

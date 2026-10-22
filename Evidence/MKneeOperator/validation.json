@@ -1,0 +1,26 @@
+[
+  {
+    "case": "M-deep-kneel",
+    "world": "PIE",
+    "frames": 270,
+    "actual_knee_at_hold": [
+      155.00000000000014,
+      155.00000000000014
+    ],
+    "production_clamp_difference_deg": 36.37337492313229,
+    "contact_active_frames": 0,
+    "capture_valid": true
+  },
+  {
+    "case": "M-single-flexion",
+    "world": "PIE",
+    "frames": 180,
+    "actual_knee_at_hold": [
+      155.00000000000014,
+      8.537736462515939e-07
+    ],
+    "production_clamp_difference_deg": 36.34609991733776,
+    "contact_active_frames": 0,
+    "capture_valid": true
+  }
+]

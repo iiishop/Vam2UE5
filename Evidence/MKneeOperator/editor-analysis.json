@@ -1,0 +1,3216 @@
+{
+  "actions": [
+    {
+      "action": "deep-kneel",
+      "pose_camera_gates": [
+        {
+          "frame": 0,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 1,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 2,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 3,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 4,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 5,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 6,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 7,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 8,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 9,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 10,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 11,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 12,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 13,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 14,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 15,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 16,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 17,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 18,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 19,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 20,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 21,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 22,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 23,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 24,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 25,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 26,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 27,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 28,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 29,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 30,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 31,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 32,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 33,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 34,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 35,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 36,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 37,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 38,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 39,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 40,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 41,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 42,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 43,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 44,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 45,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 46,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 47,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 48,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 49,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 50,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 51,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 52,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 53,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 54,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 55,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 56,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 57,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 58,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 59,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 60,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 61,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 62,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 63,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 64,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 65,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 66,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 67,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 68,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 69,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 70,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 71,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 72,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 73,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 74,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 75,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 76,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 77,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 78,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 79,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 80,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 81,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 82,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 83,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 84,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 85,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 86,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 87,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 88,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 89,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 90,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 91,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 92,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 93,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 94,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 95,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 96,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 97,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 98,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 99,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 100,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 101,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 102,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 103,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 104,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 105,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 106,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 107,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 108,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 109,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 110,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 111,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 112,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 113,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 114,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 115,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 116,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 117,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 118,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 119,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 120,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 121,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 122,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 123,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 124,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 125,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 126,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 127,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 128,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 129,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 130,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 131,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 132,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 133,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 134,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 135,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 136,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 137,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 138,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 139,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 140,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 141,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 142,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 143,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 144,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 145,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 146,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 147,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 148,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 149,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 150,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 151,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 152,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 153,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 154,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 155,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 156,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 157,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 158,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 159,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 160,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 161,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 162,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 163,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 164,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 165,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 166,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 167,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 168,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 169,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 170,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 171,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 172,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 173,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 174,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 175,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 176,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 177,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 178,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 179,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 180,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 181,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 182,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 183,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 184,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 185,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 186,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 187,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 188,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 189,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 190,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 191,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 192,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 193,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 194,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 195,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 196,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 197,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 198,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 199,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 200,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 201,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 202,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 203,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 204,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 205,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 206,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 207,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 208,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 209,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 210,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 211,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 212,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 213,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 214,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 215,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 216,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 217,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 218,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 219,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 220,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 221,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 222,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 223,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 224,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 225,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 226,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 227,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 228,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 229,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 230,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 231,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 232,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 233,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 234,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 235,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 236,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 237,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 238,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 239,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 240,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 241,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 242,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 243,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 244,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 245,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 246,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 247,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 248,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 249,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 250,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 251,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 252,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 253,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 254,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 255,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 256,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 257,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 258,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 259,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 260,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 261,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 262,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 263,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 264,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 265,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 266,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 267,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 268,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        },
+        {
+          "frame": 269,
+          "knee_max_deg": 0.0,
+          "camera_max": 0.0
+        }
+      ],
+      "cpu_us": {
+        "rms": 533.1932915506057,
+        "mean": 496.65771700717784,
+        "median": 455.5992782115936,
+        "p95": 785.8153432607648,
+        "max": 1520.8013355731964
+      },
+      "solver_active_frames": 0,
+      "frames": [
+        {
+          "frame": 45,
+          "audit_bundle": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-151206-BB3F54684303D45FDBF232BACAE649C2",
+          "preskin_max_cm": 0.0,
+          "bind_matrix_max": 0.0,
+          "primary_matrix_max": 1.0408340855860843e-17,
+          "gpu_status": {
+            "lod": 0,
+            "status": "native_render_readback",
+            "timing": "actor frozen until immutable native arrays arrive; JSON serialization completes asynchronously"
+          },
+          "replay": {
+            "max_error_cm": 0.003104734345465738,
+            "p95_cm": 3.314183327442802e-05,
+            "cage_same_frame": false
+          },
+          "regions": [
+            {
+              "region": "0_anterior_hip",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.1506698298723482,
+              "mean": 0.07514138882899508,
+              "median": 0.009566710654494125,
+              "p95": 0.37030002137125356,
+              "max": 0.6819203456268838
+            },
+            {
+              "region": "0_anterior_hip",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.1811600858636997,
+              "mean": 0.12944378742798482,
+              "median": 0.0891647283862085,
+              "p95": 0.3948416821807246,
+              "max": 0.7443792601776094
+            },
+            {
+              "region": "0_anterior_hip",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.058668670602004334,
+              "mean": 0.0318097049216965,
+              "median": 0.008483240479608944,
+              "p95": 0.14792378021032868,
+              "max": 0.3313903695145352
+            },
+            {
+              "region": "0_anterior_hip",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.11744640311284439,
+              "mean": 0.09309436863837436,
+              "median": 0.07954813617978043,
+              "p95": 0.2204210120687146,
+              "max": 0.6075742418125778
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.3374616009027839,
+              "mean": 0.27437001043907805,
+              "median": 0.22623499249914672,
+              "p95": 0.6670885112296251,
+              "max": 0.7396652445076206
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.355754062872573,
+              "mean": 0.29577331173515886,
+              "median": 0.2529316671947061,
+              "p95": 0.6884623001194561,
+              "max": 0.8128404447064697
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.0894032379235392,
+              "mean": 0.07783663435703582,
+              "median": 0.0723461939298781,
+              "p95": 0.1567746704683294,
+              "max": 0.18264405935464742
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.139045936249316,
+              "mean": 0.11942403687228642,
+              "median": 0.10320748181870867,
+              "p95": 0.2574488009602062,
+              "max": 0.48295277463896724
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.4542933643955813,
+              "mean": 0.2517692908090005,
+              "median": 0.025391061794782413,
+              "p95": 1.2984030668101034,
+              "max": 1.3636851901788785
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.4604672369227803,
+              "mean": 0.2736699032154562,
+              "median": 0.08591855038832209,
+              "p95": 1.3071472799842678,
+              "max": 1.3727523295016433
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.41149832902593525,
+              "mean": 0.18013571114326654,
+              "median": 0.019810516385633914,
+              "p95": 1.2984030668101034,
+              "max": 1.3636851901788785
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.41840197068218005,
+              "mean": 0.21273704508981206,
+              "median": 0.06303415019916217,
+              "p95": 1.3071447435466226,
+              "max": 1.3727523295016433
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.1417827989943136,
+              "mean": 0.0669335266566402,
+              "median": 0.006404990629306552,
+              "p95": 0.3610774842837453,
+              "max": 0.6858735466728868
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.17307056841718182,
+              "mean": 0.1182127490895325,
+              "median": 0.07493561379709657,
+              "p95": 0.3979558160775523,
+              "max": 0.7831622007598863
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.056550664455666276,
+              "mean": 0.028949836052573615,
+              "median": 0.004841770253564041,
+              "p95": 0.14382571496975635,
+              "max": 0.32950381558243175
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.11441770030439068,
+              "mean": 0.08684864108498079,
+              "median": 0.06769621740500903,
+              "p95": 0.2248553895480023,
+              "max": 0.6083859212124652
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.37107366519983703,
+              "mean": 0.3136661620397834,
+              "median": 0.2763867132674249,
+              "p95": 0.662905461434748,
+              "max": 0.7294953935010426
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.39791686215632976,
+              "mean": 0.33705633387683903,
+              "median": 0.2934861367486401,
+              "p95": 0.7172182084128116,
+              "max": 0.822095800532862
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.09477686634459402,
+              "mean": 0.08452579479354735,
+              "median": 0.08324523748179619,
+              "p95": 0.15408560319022369,
+              "max": 0.18296350546499698
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.1587790847410874,
+              "mean": 0.13361164621603622,
+              "median": 0.11352327779952175,
+              "p95": 0.2751301131801767,
+              "max": 0.6962617710805424
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.39665582627890233,
+              "mean": 0.2017493470459954,
+              "median": 0.004689920850209086,
+              "p95": 1.1253792993945941,
+              "max": 1.3636851901788785
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.40611276903506244,
+              "mean": 0.22654247084937784,
+              "median": 0.04424386442219464,
+              "p95": 1.1281023153644887,
+              "max": 1.3727523295016433
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.3467369561463444,
+              "mean": 0.131854474909277,
+              "median": 0.003178433600255095,
+              "p95": 1.122853358110684,
+              "max": 1.3636851901788785
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.3574045840762645,
+              "mean": 0.16947826731638096,
+              "median": 0.04358848692010698,
+              "p95": 1.1264229060171855,
+              "max": 1.3727523295016433
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.04720781964942932,
+              "mean": 0.03841621583792464,
+              "median": 0.03290038490067024,
+              "p95": 0.09340284705619621,
+              "max": 0.1291346600344934
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.11567171514612375,
+              "mean": 0.10160191943174982,
+              "median": 0.09178015674451001,
+              "p95": 0.19679036577441864,
+              "max": 0.34450881038360726
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.05071749888616777,
+              "mean": 0.03943266378371111,
+              "median": 0.03303834772754144,
+              "p95": 0.11129585020151495,
+              "max": 0.1652043263562948
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.11760875622803262,
+              "mean": 0.10311968387376441,
+              "median": 0.09241461696761843,
+              "p95": 0.2022178217415114,
+              "max": 0.33899840644856843
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.06853602920946728,
+              "mean": 0.05529203851952207,
+              "median": 0.04488855897212632,
+              "p95": 0.1340362177199303,
+              "max": 0.1958865967136086
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.10275977039088394,
+              "mean": 0.09032249611107816,
+              "median": 0.07710942967746126,
+              "p95": 0.19335180201328048,
+              "max": 0.24970480785918595
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.0682934682807791,
+              "mean": 0.05371660936618486,
+              "median": 0.04242185393726205,
+              "p95": 0.1350490943985104,
+              "max": 0.20683305310398625
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.10284229743052296,
+              "mean": 0.09054358009226726,
+              "median": 0.07757993979391262,
+              "p95": 0.18376837298114782,
+              "max": 0.24970976255398972
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.05190142519519161,
+              "mean": 0.043249818184175046,
+              "median": 0.040743906062376475,
+              "p95": 0.10750987451363021,
+              "max": 0.139043158912741
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.10877793999996145,
+              "mean": 0.09354249471675509,
+              "median": 0.08124935328150838,
+              "p95": 0.19672193826814768,
+              "max": 0.34450881038360726
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.050977344723343136,
+              "mean": 0.041852429115030024,
+              "median": 0.03928363113121989,
+              "p95": 0.11311706512776265,
+              "max": 0.14207052207222517
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.10960167887446126,
+              "mean": 0.09412057171226292,
+              "median": 0.0799465479143264,
+              "p95": 0.20230944491619496,
+              "max": 0.33899840644856843
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.06264289005006167,
+              "mean": 0.047475970804282036,
+              "median": 0.03624460769682061,
+              "p95": 0.1269752237468825,
+              "max": 0.1958865967136086
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.10155092015281268,
+              "mean": 0.08995877047060097,
+              "median": 0.0804178544945097,
+              "p95": 0.1859008379734556,
+              "max": 0.24970480785918595
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.0667243154767882,
+              "mean": 0.04911996109453572,
+              "median": 0.035177371964872445,
+              "p95": 0.1526532330340754,
+              "max": 0.20683305310398625
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.10277862820241934,
+              "mean": 0.0910161170544671,
+              "median": 0.08019390576052307,
+              "p95": 0.17466869200232196,
+              "max": 0.24970976255398972
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.04732710512145955,
+              "mean": 0.03847836169438983,
+              "median": 0.03304761523870438,
+              "p95": 0.09396650423958539,
+              "max": 0.1298631676057524
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.11543231926455727,
+              "mean": 0.10142663643609068,
+              "median": 0.09189706271997151,
+              "p95": 0.1968664654671346,
+              "max": 0.3423135438345742
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.05088627125444082,
+              "mean": 0.03952383283811033,
+              "median": 0.03291120008968252,
+              "p95": 0.11197520547307044,
+              "max": 0.16606208619826338
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.11740443012530534,
+              "mean": 0.10295576413323673,
+              "median": 0.09243737105687862,
+              "p95": 0.20225394946472638,
+              "max": 0.33673248306593545
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.06853674838064704,
+              "mean": 0.05526303325959137,
+              "median": 0.04492428832533249,
+              "p95": 0.13472486821485424,
+              "max": 0.19562377487658225
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.10256597822696363,
+              "mean": 0.09010575307812659,
+              "median": 0.07663922285304889,
+              "p95": 0.19160104128599104,
+              "max": 0.24974255175396595
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.06828886450764066,
+              "mean": 0.05369552298520482,
+              "median": 0.04198539519075327,
+              "p95": 0.13532477135261978,
+              "max": 0.20637118920629902
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.10271210187236424,
+              "mean": 0.09038200603358233,
+              "median": 0.07710735534522375,
+              "p95": 0.18277245279679405,
+              "max": 0.24974750091151193
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.05179626578148243,
+              "mean": 0.04305699341417791,
+              "median": 0.04008429761862562,
+              "p95": 0.10752540324267479,
+              "max": 0.13948849013147369
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.10842993894804029,
+              "mean": 0.09318638659246764,
+              "median": 0.08103025134119671,
+              "p95": 0.19662911021632842,
+              "max": 0.3423135438345742
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.0508923456282812,
+              "mean": 0.041670280719630304,
+              "median": 0.03868192106476042,
+              "p95": 0.11313851620318813,
+              "max": 0.1428562791676497
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.10928093799305282,
+              "mean": 0.09379731149171901,
+              "median": 0.08072436201147819,
+              "p95": 0.20231688113892765,
+              "max": 0.33673248306593545
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.06278874280582329,
+              "mean": 0.04768786120896384,
+              "median": 0.03611267040720718,
+              "p95": 0.12764092605146152,
+              "max": 0.19562377487658225
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.10145166326644858,
+              "mean": 0.08989249635957236,
+              "median": 0.08047735877641851,
+              "p95": 0.1853975479204573,
+              "max": 0.24974255175396595
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.06688685345386386,
+              "mean": 0.049344354072888445,
+              "median": 0.03498783953270619,
+              "p95": 0.15346950004268506,
+              "max": 0.20637118920629902
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.1027430505558355,
+              "mean": 0.09098800806303119,
+              "median": 0.08021420407926239,
+              "p95": 0.17486897037569948,
+              "max": 0.24974750091151193
+            }
+          ],
+          "gpu_vs_cpu_cm": {
+            "rms": 0.00038356415324809805,
+            "mean": 8.765177001088915e-05,
+            "median": 9.520899034393672e-06,
+            "p95": 3.314183327442802e-05,
+            "max": 0.003104734345465738
+          },
+          "new_triangle_orientation_reversals": 0,
+          "logical_duplicate_max_gap_cm": 0.0,
+          "gpu_normals_finite": true,
+          "edges": [
+            {
+              "triangles": [
+                901,
+                903
+              ],
+              "before_deg": 0.10745083948293103,
+              "after_deg": 0.24405281202578066
+            },
+            {
+              "triangles": [
+                50,
+                51
+              ],
+              "before_deg": 0.5164194918399252,
+              "after_deg": 0.3521060540466062
+            },
+            {
+              "triangles": [
+                35,
+                37
+              ],
+              "before_deg": 1.2124875451249713,
+              "after_deg": 1.1249528809020815
+            }
+          ]
+        },
+        {
+          "frame": 135,
+          "audit_bundle": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-151301-232A92C9409EE27EA14E1090AF1A1B79",
+          "preskin_max_cm": 0.0,
+          "bind_matrix_max": 0.0,
+          "primary_matrix_max": 1.0408340855860843e-17,
+          "gpu_status": {
+            "lod": 0,
+            "status": "native_render_readback",
+            "timing": "actor frozen until immutable native arrays arrive; JSON serialization completes asynchronously"
+          },
+          "replay": {
+            "max_error_cm": 0.008668537138746614,
+            "p95_cm": 0.002492036929696649,
+            "cage_same_frame": false
+          },
+          "regions": [
+            {
+              "region": "0_anterior_hip",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.315090457504096,
+              "mean": 0.22305231939526113,
+              "median": 0.15536568763184525,
+              "p95": 0.6895705919358198,
+              "max": 0.8148449705044397
+            },
+            {
+              "region": "0_anterior_hip",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.34971057786106535,
+              "mean": 0.2763161513140159,
+              "median": 0.214830264615817,
+              "p95": 0.7108053038742119,
+              "max": 1.0161720694063745
+            },
+            {
+              "region": "0_anterior_hip",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.32124690350980006,
+              "mean": 0.22524723458446663,
+              "median": 0.14566140071258477,
+              "p95": 0.7062642077012121,
+              "max": 0.8316584467571242
+            },
+            {
+              "region": "0_anterior_hip",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.3551604286278543,
+              "mean": 0.2778982669102664,
+              "median": 0.20833818013912966,
+              "p95": 0.7325044803930951,
+              "max": 1.016281191748312
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.4118690573280959,
+              "mean": 0.34582671289449246,
+              "median": 0.3089962722688143,
+              "p95": 0.7220373245402089,
+              "max": 0.7989214548238106
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.43078144672628077,
+              "mean": 0.3672360223365927,
+              "median": 0.3227109825971616,
+              "p95": 0.7470552692840042,
+              "max": 0.911666442644213
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4294057194865181,
+              "mean": 0.35346130157169786,
+              "median": 0.3185466093861067,
+              "p95": 0.7547093996770864,
+              "max": 0.849598474558517
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.4481271724704968,
+              "mean": 0.37415963464288865,
+              "median": 0.3351881810014255,
+              "p95": 0.7976891085106699,
+              "max": 0.9720630073813393
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.862160185858706,
+              "mean": 0.7751794588763605,
+              "median": 0.7162175459020247,
+              "p95": 1.8357958297914452,
+              "max": 1.9385665696692949
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.8703575153260609,
+              "mean": 0.7863150674325198,
+              "median": 0.7105593760385973,
+              "p95": 1.842177297775184,
+              "max": 1.948886159519551
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.8671210041221179,
+              "mean": 0.7826870964809509,
+              "median": 0.7177977745274137,
+              "p95": 1.836089010356792,
+              "max": 1.9385665696692949
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.8751353123216047,
+              "mean": 0.7923928707831885,
+              "median": 0.71567210091548,
+              "p95": 1.8424432673586852,
+              "max": 1.948886159519551
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.3205927384783111,
+              "mean": 0.23804215854089883,
+              "median": 0.20856735664311885,
+              "p95": 0.6767398284002784,
+              "max": 0.798344213683862
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.3495885392033184,
+              "mean": 0.2832616774128164,
+              "median": 0.227566449859515,
+              "p95": 0.6987870881462891,
+              "max": 1.007925647186407
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.32569220300417256,
+              "mean": 0.23937283414366564,
+              "median": 0.20072733001817075,
+              "p95": 0.6928683942612867,
+              "max": 0.8432477140192135
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.35405766285713375,
+              "mean": 0.2839532887430705,
+              "median": 0.22742442662598922,
+              "p95": 0.7122769634238184,
+              "max": 1.0079587529685856
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.44329489921168747,
+              "mean": 0.3773092254435436,
+              "median": 0.34587598684066795,
+              "p95": 0.7411509689397915,
+              "max": 0.8139571602825266
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.4685211545197104,
+              "mean": 0.4002218629093038,
+              "median": 0.37798833723380926,
+              "p95": 0.8247983563371963,
+              "max": 0.9618803048733788
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.46278373521217686,
+              "mean": 0.38264702634358155,
+              "median": 0.33826769109050414,
+              "p95": 0.7972142761412726,
+              "max": 0.8716467655833685
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.4895696683392448,
+              "mean": 0.40586388426435716,
+              "median": 0.3687866945984192,
+              "p95": 0.9139848185011811,
+              "max": 1.1055401352897944
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.7891068607828747,
+              "mean": 0.7123321772143232,
+              "median": 0.6632090996962222,
+              "p95": 1.63591413588076,
+              "max": 1.9385665696692949
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.7986499541638508,
+              "mean": 0.7234897478201703,
+              "median": 0.6786864402015788,
+              "p95": 1.6587290064677664,
+              "max": 1.948886159519551
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.7946834387718942,
+              "mean": 0.7198504089618516,
+              "median": 0.6749676284557719,
+              "p95": 1.635914710986189,
+              "max": 1.9385665696692949
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.8038608692489255,
+              "mean": 0.7289788648640714,
+              "median": 0.6809675881807108,
+              "p95": 1.6587518539778696,
+              "max": 1.948886159519551
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.38015200895136236,
+              "mean": 0.2915852689869479,
+              "median": 0.2116416846288649,
+              "p95": 0.7460812807590019,
+              "max": 0.9372577149623734
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.4236674691448995,
+              "mean": 0.35262997260938017,
+              "median": 0.26835429082951784,
+              "p95": 0.782006455427517,
+              "max": 1.050625294338933
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.3473647849772338,
+              "mean": 0.2690170942125254,
+              "median": 0.20945179900151378,
+              "p95": 0.68637006201437,
+              "max": 0.86288631983461
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.3914877836070875,
+              "mean": 0.3300409404366469,
+              "median": 0.26128345463271463,
+              "p95": 0.7326155922006369,
+              "max": 1.004860478827767
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5877772057435074,
+              "mean": 0.45184504800833114,
+              "median": 0.34372796938956435,
+              "p95": 1.1917963810173369,
+              "max": 1.3286155404608808
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.6035503358674056,
+              "mean": 0.4793940616858355,
+              "median": 0.3764712101400568,
+              "p95": 1.2066048978984802,
+              "max": 1.3666884014495104
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.508377401910162,
+              "mean": 0.3914794584490633,
+              "median": 0.3063822825261513,
+              "p95": 0.9982851205936667,
+              "max": 1.1601237562012123
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.523552272110248,
+              "mean": 0.4198905234294039,
+              "median": 0.3385928672818281,
+              "p95": 1.0124246004586843,
+              "max": 1.1653342745297663
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5257640308522087,
+              "mean": 0.4057023836740375,
+              "median": 0.3227865505841848,
+              "p95": 1.0440955212793306,
+              "max": 1.2627100044976487
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.5595364891802882,
+              "mean": 0.4576345111522147,
+              "median": 0.3837006288973774,
+              "p95": 1.0984893584794149,
+              "max": 1.2821566234355886
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.46899701715745346,
+              "mean": 0.36340157180318144,
+              "median": 0.28070832532584433,
+              "p95": 0.994309874467757,
+              "max": 1.1601237562012123
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.5011137427663929,
+              "mean": 0.41353591533301504,
+              "median": 0.34391278714249435,
+              "p95": 1.0060321904442169,
+              "max": 1.1653342745297663
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5243797808049719,
+              "mean": 0.3948124155334654,
+              "median": 0.30743510079687386,
+              "p95": 1.1701717272670875,
+              "max": 1.271696911715607
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.5457535553057827,
+              "mean": 0.4299306579934857,
+              "median": 0.3319495172181105,
+              "p95": 1.160917606213815,
+              "max": 1.3422834399950985
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4690960798709501,
+              "mean": 0.35489922567746884,
+              "median": 0.2989804807824201,
+              "p95": 0.9949129914994537,
+              "max": 1.1601237562012123
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.4893454062878679,
+              "mean": 0.3903742212139678,
+              "median": 0.3203933946859939,
+              "p95": 1.008180328407708,
+              "max": 1.1653342745297663
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.38061347040085797,
+              "mean": 0.29187426835917196,
+              "median": 0.21129167431570473,
+              "p95": 0.7468309996463929,
+              "max": 0.9397233876025596
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.4239268237823691,
+              "mean": 0.35268168596230437,
+              "median": 0.2683144393112289,
+              "p95": 0.783425756995542,
+              "max": 1.052971229336574
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.3477944111778911,
+              "mean": 0.26926565452463075,
+              "median": 0.20922957053510483,
+              "p95": 0.6879563710871298,
+              "max": 0.8651706637801433
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.39169399685921624,
+              "mean": 0.3300305590468133,
+              "median": 0.2607667976211139,
+              "p95": 0.7354784764485542,
+              "max": 1.0070484871098373
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5906111966507674,
+              "mean": 0.45551012542323105,
+              "median": 0.3598121661483318,
+              "p95": 1.1971354944753256,
+              "max": 1.3304376979792802
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.606140319886862,
+              "mean": 0.4828821841369131,
+              "median": 0.3800799130716557,
+              "p95": 1.2118259246123957,
+              "max": 1.3658884225080363
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.5117463454140363,
+              "mean": 0.39523550671870955,
+              "median": 0.3142055880260809,
+              "p95": 0.9995115636053972,
+              "max": 1.1672006135283655
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.5267540327416725,
+              "mean": 0.4235046236022291,
+              "median": 0.344625884400929,
+              "p95": 1.0143840560030322,
+              "max": 1.1725207039654006
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5279179672515104,
+              "mean": 0.4084154111109933,
+              "median": 0.3221799313440419,
+              "p95": 1.0463154535052508,
+              "max": 1.2649748823740037
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.5614981313919191,
+              "mean": 0.46022796682613076,
+              "median": 0.39567184056105587,
+              "p95": 1.1022018922246153,
+              "max": 1.290504797765745
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4716143599537975,
+              "mean": 0.36622422031878094,
+              "median": 0.2804232291497848,
+              "p95": 0.9959129688280468,
+              "max": 1.1672006135283655
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.503529273247697,
+              "mean": 0.41623744701384335,
+              "median": 0.3501068686785417,
+              "p95": 1.0090916329510808,
+              "max": 1.1725207039654006
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5259132753498448,
+              "mean": 0.3960047188024467,
+              "median": 0.30923738965861514,
+              "p95": 1.17714461675598,
+              "max": 1.275476093749166
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.5470355226137505,
+              "mean": 0.4308519057994512,
+              "median": 0.3321114510018106,
+              "p95": 1.1709894990771617,
+              "max": 1.3436860621849238
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4707900346772929,
+              "mean": 0.3561000372118344,
+              "median": 0.29745940651312486,
+              "p95": 0.9975054176338204,
+              "max": 1.1672006135283655
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.49084388142503727,
+              "mean": 0.39134657706971476,
+              "median": 0.3193183348500486,
+              "p95": 1.0138157148834543,
+              "max": 1.1725207039654006
+            }
+          ],
+          "gpu_vs_cpu_cm": {
+            "rms": 0.0009324844708678519,
+            "mean": 0.0002995834350388543,
+            "median": 1.0397668887395952e-05,
+            "p95": 0.002492036929696649,
+            "max": 0.008668537138746614
+          },
+          "new_triangle_orientation_reversals": 0,
+          "logical_duplicate_max_gap_cm": 0.0,
+          "gpu_normals_finite": true,
+          "edges": [
+            {
+              "triangles": [
+                901,
+                903
+              ],
+              "before_deg": 28.796634541711548,
+              "after_deg": 7.361121186349397
+            },
+            {
+              "triangles": [
+                50,
+                51
+              ],
+              "before_deg": 66.31978138790971,
+              "after_deg": 60.30552703683649
+            },
+            {
+              "triangles": [
+                35,
+                37
+              ],
+              "before_deg": 37.54549856059172,
+              "after_deg": 27.99978461674283
+            }
+          ]
+        },
+        {
+          "frame": 165,
+          "audit_bundle": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-151350-C288B8344928AAC312AAF0988EA5B3C5",
+          "preskin_max_cm": 0.0,
+          "bind_matrix_max": 0.0,
+          "primary_matrix_max": 1.0408340855860843e-17,
+          "gpu_status": {
+            "lod": 0,
+            "status": "native_render_readback",
+            "timing": "actor frozen until immutable native arrays arrive; JSON serialization completes asynchronously"
+          },
+          "replay": {
+            "max_error_cm": 0.006752333418045272,
+            "p95_cm": 0.0018206238530014932,
+            "cage_same_frame": false
+          },
+          "regions": [
+            {
+              "region": "0_anterior_hip",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.3261630143662742,
+              "mean": 0.2255820595166611,
+              "median": 0.13656369037518354,
+              "p95": 0.7256887171328614,
+              "max": 0.9488808478697689
+            },
+            {
+              "region": "0_anterior_hip",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.37355892427260934,
+              "mean": 0.2857058848226478,
+              "median": 0.20230316286459968,
+              "p95": 0.7849295625803069,
+              "max": 1.179133640365469
+            },
+            {
+              "region": "0_anterior_hip",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.32604989374590776,
+              "mean": 0.22563131608089154,
+              "median": 0.13633601144021978,
+              "p95": 0.725250664072103,
+              "max": 0.9488911311025344
+            },
+            {
+              "region": "0_anterior_hip",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.37343439394254324,
+              "mean": 0.28570828096030887,
+              "median": 0.20234188404810113,
+              "p95": 0.7842154945319834,
+              "max": 1.179150116047791
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.4158534031709901,
+              "mean": 0.33883446259261235,
+              "median": 0.29916053524006303,
+              "p95": 0.7102399986058467,
+              "max": 0.8581499570547312
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.43421855433401163,
+              "mean": 0.3607915796753577,
+              "median": 0.32401261481314986,
+              "p95": 0.7663114800694012,
+              "max": 0.8834240280996355
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4180306785044113,
+              "mean": 0.34106547931968323,
+              "median": 0.3011917360545353,
+              "p95": 0.7108073835036453,
+              "max": 0.8622561292893585
+            },
+            {
+              "region": "0_lateral_glute",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.43631745544581,
+              "mean": 0.3628271016214455,
+              "median": 0.32945625759239194,
+              "p95": 0.7659623626451707,
+              "max": 0.8849600987520813
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.9382468405219571,
+              "mean": 0.8596154737042322,
+              "median": 0.8274151555853306,
+              "p95": 1.8486811043931166,
+              "max": 1.961743238838411
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.9488833658844964,
+              "mean": 0.8744414481538272,
+              "median": 0.8274379494691331,
+              "p95": 1.8665381675362622,
+              "max": 1.9724479652470988
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.9387550293766002,
+              "mean": 0.8604470614227604,
+              "median": 0.8276401563993598,
+              "p95": 1.8487629033388098,
+              "max": 1.961743238838411
+            },
+            {
+              "region": "0_glute_thigh",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.9493785695246805,
+              "mean": 0.8752133470780622,
+              "median": 0.8276903833935221,
+              "p95": 1.8665634290271735,
+              "max": 1.9724479652470988
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.3418133031156034,
+              "mean": 0.25120412117965446,
+              "median": 0.20162639596879026,
+              "p95": 0.7122642885802467,
+              "max": 0.9283520549525563
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.38069405401396245,
+              "mean": 0.30139955361726384,
+              "median": 0.2536390323226376,
+              "p95": 0.7740172848854685,
+              "max": 1.1694097297451802
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.3441856400087201,
+              "mean": 0.2542121952427922,
+              "median": 0.21155235404146797,
+              "p95": 0.7095314368967414,
+              "max": 0.9283521431785606
+            },
+            {
+              "region": "1_anterior_hip",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.38297485090230377,
+              "mean": 0.30354348445356605,
+              "median": 0.2536390323226376,
+              "p95": 0.7740173047955407,
+              "max": 1.169410022403364
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.39881579605162826,
+              "mean": 0.33273685119785323,
+              "median": 0.2992220349086133,
+              "p95": 0.6959457234861783,
+              "max": 0.8407735442497691
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.42751822760396146,
+              "mean": 0.3585470323649606,
+              "median": 0.31733519575092867,
+              "p95": 0.7778238574804076,
+              "max": 1.0014222648890732
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4126602229040327,
+              "mean": 0.3468756021009327,
+              "median": 0.31803353763421927,
+              "p95": 0.7194701537025197,
+              "max": 0.8595572638823862
+            },
+            {
+              "region": "1_lateral_glute",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.4410316710306862,
+              "mean": 0.37166837883637216,
+              "median": 0.33491518195033715,
+              "p95": 0.8042260367397392,
+              "max": 1.0516151247104046
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.8649773912080627,
+              "mean": 0.7947702828509435,
+              "median": 0.7543688317138351,
+              "p95": 1.6958267273233334,
+              "max": 1.961743238838411
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.8767965285322157,
+              "mean": 0.808946135372653,
+              "median": 0.78116799639463,
+              "p95": 1.6938434331990837,
+              "max": 1.9724479652470988
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.8678458672013626,
+              "mean": 0.7995538901915715,
+              "median": 0.759987987905431,
+              "p95": 1.6959779422560506,
+              "max": 1.961743238838411
+            },
+            {
+              "region": "1_glute_thigh",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.8796331992028399,
+              "mean": 0.8130691883169985,
+              "median": 0.7830591623128543,
+              "p95": 1.6939770545940143,
+              "max": 1.9724479652470988
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.37263813044794386,
+              "mean": 0.27823226558574293,
+              "median": 0.18793947779546605,
+              "p95": 0.7392043867689846,
+              "max": 0.9110177580508335
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.42134108584636126,
+              "mean": 0.34928905654071013,
+              "median": 0.26325755823106534,
+              "p95": 0.7955367664448978,
+              "max": 1.0809344815219037
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.34220859622683203,
+              "mean": 0.25575541389983397,
+              "median": 0.18175352802972916,
+              "p95": 0.7054083046021327,
+              "max": 0.882471559855866
+            },
+            {
+              "region": "0_knee_anterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.39116971683131696,
+              "mean": 0.3263369101867534,
+              "median": 0.2554793050045581,
+              "p95": 0.7530014274090576,
+              "max": 1.0455244144946574
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5914646074574934,
+              "mean": 0.4398115168678593,
+              "median": 0.28941243490857715,
+              "p95": 1.2287439641512976,
+              "max": 1.426809541484018
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.6095111697170928,
+              "mean": 0.47158928844097203,
+              "median": 0.32309850187595135,
+              "p95": 1.2241058892642844,
+              "max": 1.4773461395343421
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4704799604604671,
+              "mean": 0.35558945232526373,
+              "median": 0.24738716209513043,
+              "p95": 0.9209008979992358,
+              "max": 1.120519526406029
+            },
+            {
+              "region": "0_knee_posterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.4893934473599718,
+              "mean": 0.38914530616044074,
+              "median": 0.2901004842632619,
+              "p95": 0.9198820020983061,
+              "max": 1.1253225960654962
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5199534582169993,
+              "mean": 0.384141728581022,
+              "median": 0.24880265613812264,
+              "p95": 1.0801352161790738,
+              "max": 1.3325400154383458
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.5580042638529982,
+              "mean": 0.44501579303189226,
+              "median": 0.31178264264692823,
+              "p95": 1.1313320021546096,
+              "max": 1.3633884921147508
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.43827866952131506,
+              "mean": 0.3289388914313959,
+              "median": 0.24019975969144464,
+              "p95": 0.8949729918918408,
+              "max": 1.120519526406029
+            },
+            {
+              "region": "0_knee_medial",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.47633531260270306,
+              "mean": 0.3882157852309649,
+              "median": 0.2985541458364207,
+              "p95": 0.9197928063100792,
+              "max": 1.1253225960654962
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5204055342817364,
+              "mean": 0.3763016401862422,
+              "median": 0.2473237031003465,
+              "p95": 1.193731760688572,
+              "max": 1.368849044487585
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.5447948657565242,
+              "mean": 0.4191038810018464,
+              "median": 0.26618182003936275,
+              "p95": 1.1777422557245159,
+              "max": 1.4472849474459915
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4409387771233549,
+              "mean": 0.32398205210156544,
+              "median": 0.24488245561286515,
+              "p95": 0.8963179081606751,
+              "max": 1.120519526406029
+            },
+            {
+              "region": "0_knee_lateral",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.46488328635680093,
+              "mean": 0.36747181688115876,
+              "median": 0.26415400493281627,
+              "p95": 0.9136652419807518,
+              "max": 1.1253225960654962
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.3733522467836561,
+              "mean": 0.2787984747090016,
+              "median": 0.1875004723841522,
+              "p95": 0.739350432959729,
+              "max": 0.913861873708935
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.4217959006256896,
+              "mean": 0.3495075622816954,
+              "median": 0.26569394495840015,
+              "p95": 0.7938719653528388,
+              "max": 1.0834261292971925
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.34301172163124927,
+              "mean": 0.25635052387271257,
+              "median": 0.1838055381312076,
+              "p95": 0.7086430871937383,
+              "max": 0.8851969443257304
+            },
+            {
+              "region": "1_knee_anterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.3916816793636382,
+              "mean": 0.3265626869650596,
+              "median": 0.2545208291294654,
+              "p95": 0.7568367398166049,
+              "max": 1.0479468158093492
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5993997899397238,
+              "mean": 0.4527645220459608,
+              "median": 0.31628590043980387,
+              "p95": 1.2361974033510557,
+              "max": 1.4293343838302919
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.6177959911846043,
+              "mean": 0.4841695851494044,
+              "median": 0.3678977057168556,
+              "p95": 1.2313950417092914,
+              "max": 1.4769983727536424
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.48036365735986813,
+              "mean": 0.3686578434570755,
+              "median": 0.2678539286486728,
+              "p95": 0.9114369176736603,
+              "max": 1.1311991697013246
+            },
+            {
+              "region": "1_knee_posterior",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.4997524885317185,
+              "mean": 0.40188080413403876,
+              "median": 0.31285234853223304,
+              "p95": 0.9172557193182651,
+              "max": 1.1361385636109549
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5275684370348709,
+              "mean": 0.3955604948094623,
+              "median": 0.2943449403089117,
+              "p95": 1.0848797888141883,
+              "max": 1.3343908253256047
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.5657964921620128,
+              "mean": 0.45608552165289573,
+              "median": 0.39684847649707083,
+              "p95": 1.135665766374415,
+              "max": 1.36518268750555
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4474935434550996,
+              "mean": 0.3404934759026043,
+              "median": 0.24804623188397348,
+              "p95": 0.8925541459242085,
+              "max": 1.1311991697013246
+            },
+            {
+              "region": "1_knee_medial",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.48566826611874153,
+              "mean": 0.39943600298072224,
+              "median": 0.320305461946333,
+              "p95": 0.914916186122761,
+              "max": 1.1361385636109549
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "before",
+              "target": "raw",
+              "rms": 0.5220266881879084,
+              "mean": 0.3775942580298276,
+              "median": 0.24493995894366472,
+              "p95": 1.203928832382104,
+              "max": 1.373494792149758
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "before",
+              "target": "smoothed",
+              "rms": 0.5461491109892213,
+              "mean": 0.4200423163498689,
+              "median": 0.26748544455110124,
+              "p95": 1.193286342711688,
+              "max": 1.4492531584188848
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "after",
+              "target": "raw",
+              "rms": 0.4427987189646481,
+              "mean": 0.32536594061424734,
+              "median": 0.24333784991026025,
+              "p95": 0.8959867181031979,
+              "max": 1.1311991697013246
+            },
+            {
+              "region": "1_knee_lateral",
+              "state": "after",
+              "target": "smoothed",
+              "rms": 0.4665086768071719,
+              "mean": 0.36853093541994364,
+              "median": 0.26416127558794794,
+              "p95": 0.9110478639859978,
+              "max": 1.1361385636109549
+            }
+          ],
+          "gpu_vs_cpu_cm": {
+            "rms": 0.0006833497193648464,
+            "mean": 0.00022558020777005834,
+            "median": 1.0432559851928068e-05,
+            "p95": 0.0018206238530014932,
+            "max": 0.006752333418045272
+          },
+          "new_triangle_orientation_reversals": 0,
+          "logical_duplicate_max_gap_cm": 0.0,
+          "gpu_normals_finite": true,
+          "edges": [
+            {
+              "triangles": [
+                901,
+                903
+              ],
+              "before_deg": 48.73796617423966,
+              "after_deg": 5.048408921894068
+            },
+            {
+              "triangles": [
+                50,
+                51
+              ],
+              "before_deg": 84.37397854284835,
+              "after_deg": 72.02167502713463
+            },
+            {
+              "triangles": [
+                35,
+                37
+              ],
+              "before_deg": 45.850655817314994,
+              "after_deg": 23.790541226227884
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "gpu_tolerance_cm": 0.02,
+  "gpu_matches_frozen_cpu": true
+}
