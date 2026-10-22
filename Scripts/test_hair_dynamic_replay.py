@@ -44,6 +44,26 @@ class HairDynamicReplayTests(unittest.TestCase):
                       base_identity="body1", base_configuration="/body1")
         self.assertIn("hair-only", validate_identity(manifest, bundle, dict(bundle, identity="audit")))
 
+    def test_direct_base_identity_and_actual_object_path(self):
+        manifest = {"configuration": {"BuildIdentity": "body", "path": "/Game/M/RC_Runtime.RC_Runtime"}}
+        bundle = dict(identity="hair", status="committed", independent_reload_verified=True,
+                      base_identity="body", base_configuration="/Game/M/RC_Runtime")
+        self.assertIn("audited base", validate_identity(manifest, bundle))
+
+    def test_direct_base_requires_configuration_path(self):
+        bundle = dict(identity="hair", status="committed", independent_reload_verified=True,
+                      base_identity="body", base_configuration="/Game/M/RC_Runtime")
+        for path in (None, "", "/Game/Other/RC_Runtime", "/Game/M/RC_Runtime.OtherObject"):
+            with self.subTest(path=path), self.assertRaisesRegex(ValueError, "actual audit configuration"):
+                validate_identity({"configuration": {"BuildIdentity": "body", "path": path}}, bundle)
+
+    def test_direct_base_still_requires_independent_reload(self):
+        manifest = {"configuration": {"BuildIdentity": "body", "path": "/Game/M/RC_Runtime"}}
+        bundle = dict(identity="hair", status="saved_pending_reload", independent_reload_verified=False,
+                      base_identity="body", base_configuration="/Game/M/RC_Runtime")
+        with self.assertRaisesRegex(ValueError, "independent reload"):
+            validate_identity(manifest, bundle)
+
     def test_whole_chain_and_head_descendants(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

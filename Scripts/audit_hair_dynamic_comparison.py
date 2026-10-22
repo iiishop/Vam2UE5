@@ -8,8 +8,11 @@ Example::
 
 The recorded guide buffer contains *interpolated Groom control points*, not raw
 Niagara solver particles. VamHairCaptureAudit adds each resource's position offset;
-UE NiagaraInterpolateGroomGuides.usf writes component-local positions after its
-WorldToLocal transform. VamHairComponent rigidly attaches that component to head.
+The runtime NiagaraDataInterfaceHairStrandsTemplate.ush::UpdatePointPosition
+interpolates node displacements and UpdateDeformedPositions writes the Groom
+component-local guide buffer. NiagaraInterpolateGroomGuides.usf is the separate
+SimCache readback path and is not evidence of this live simulation's ordering.
+VamHairComponent rigidly attaches the component to head.
 Do not inverse-transform these points by the head again. Both collision proxies
 and strand points are already in that same component space, in centimetres.
 """

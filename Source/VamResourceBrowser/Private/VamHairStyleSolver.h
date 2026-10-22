@@ -10,12 +10,22 @@
 #include "Niagara/NiagaraDataInterfaceHairStrands.h"
 #include "VamHairSourceConstraints.h"
 #include "VamHairPredictionSupport.h"
+#include "VamHairUnionContact.h"
 
 // Tied/support curves may contain an intentionally buried attachment path.
 // A negative rest clearance is not a moving contact: repeatedly ejecting that
 // path fights its attachment and sends impulses down the exposed strand.
-static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported,float AnchorU=-1.f)
+static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported,float AnchorU,const TSharedPtr<FJsonObject>& Constraints,FString& Error)
 {
+    FString RadiusCode;
+    if(Constraints&&Constraints->HasTypedField<EJson::Object>(TEXT("source_collision")))
+    {
+        const auto& Rows=Constraints->GetObjectField(TEXT("source_collision"))->GetArrayField(TEXT("node_radii_cm"));int32 Count=0;
+        if(Rows.Num()!=Constraints->GetArrayField(TEXT("rigidity")).Num()){Error=TEXT("Source collision radius guide count mismatch");return false;}
+        RadiusCode=TEXT("const float SourceRadius[]={");
+        for(const auto& Row:Rows){if(Row->AsArray().Num()!=32){Error=TEXT("Source collision radius node layout mismatch");return false;}for(const auto& Value:Row->AsArray()){double R=Value->AsNumber();if(!FMath::IsFinite(R)||R<0){Error=TEXT("Invalid source collision radius");return false;}RadiusCode+=FString::Printf(TEXT("%.9ff,"),R);++Count;}}
+        RadiusCode.RemoveFromEnd(TEXT(","));RadiusCode+=FString::Printf(TEXT("};float R=SourceRadius[min(ExecIndex(),%d)];Result="),Count-1);RadiusCode+=Supported?TEXT("min(Clearance,R);"):TEXT("R;");
+    }
     auto* Source=Cast<UNiagaraScriptSource>(Script->GetLatestSource());
     if(!Source||!Source->NodeGraph)return false;
     auto* Graph=Source->NodeGraph.Get();const auto Nodes=Graph->Nodes;int32 Count=0;
@@ -23,7 +33,7 @@ static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported,float Anc
     {
         auto* Call=Cast<UNiagaraNodeFunctionCall>(Node);
         if(!Call||!Call->Signature.Name.ToString().Contains(TEXT("CollisionConstraint")))continue;
-        if(!Supported)
+        if(!Supported||!RadiusCode.IsEmpty())
         {
             // Visible mobile strands may not inherit a negative clearance from
             // an intersecting import. Native root nodes remain pinned/exempt.
@@ -35,7 +45,7 @@ static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported,float Anc
             auto* Parameters=Cast<UNiagaraNodeWithDynamicPins>(Previous->GetOwningNode());if(!Parameters)return false;
             auto* Radius=Parameters->FindPin(TEXT("Emitter.CollisionRadius"),EGPD_Output);auto* RadiusInput=Clamp->FindPin(TEXT("Radius"),EGPD_Input);
             if(!Radius){Radius=Parameters->CreatePin(EGPD_Output,RadiusInput->PinType,TEXT("Emitter.CollisionRadius"));Radius->PersistentGuid=FGuid::NewGuid();}Radius->MakeLinkTo(RadiusInput);
-            FindFProperty<FStrProperty>(Clamp->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(Clamp,TEXT("Result=max(Radius,Clearance);"));++Count;if(AnchorU<0)continue;
+            FindFProperty<FStrProperty>(Clamp->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(Clamp,RadiusCode.IsEmpty()?TEXT("Result=max(Radius,Clearance);"):TEXT("Result=Clearance;\n#if GPU_SIMULATION\n")+RadiusCode+TEXT("\n#endif\n"));++Count;if(!Supported&&AnchorU<0)continue;
         }
         auto* Enable=Call->FindPin(TEXT("Enable Constraint"),EGPD_Input);
         if(!Enable||Enable->LinkedTo.Num()!=1)return false;
@@ -169,7 +179,8 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
         if(!Solve){Error=TEXT("Native solve module missing");return nullptr;}
         const FString SolvePath=Root/TEXT("SolveSupport_")+Key;
         auto* SolveCopy=DuplicateObject<UNiagaraScript>(Solve,CreatePackage(*SolvePath),*FPackageName::GetLongPackageAssetName(SolvePath));SolveCopy->SetFlags(RF_Public|RF_Standalone);
-        if(!ConfigureHairContact(Copy,Kind!=TEXT("loose"),AnchorU)||!ConfigureHairContact(SolveCopy,Kind!=TEXT("loose"),AnchorU)){Error=TEXT("Support contact gating contract changed");return nullptr;}
+        if(!ConfigureHairContact(Copy,Kind!=TEXT("loose"),AnchorU,SourceConstraints,Error)||!ConfigureHairContact(SolveCopy,Kind!=TEXT("loose"),AnchorU,SourceConstraints,Error)){if(Error.IsEmpty())Error=TEXT("Support contact gating contract changed");return nullptr;}
+        if(PredictionSupport&&!AddHairUnionContact(Copy,Error))return nullptr;
         if(!VamHairBuild::Save(Copy)||!VamHairBuild::Save(SolveCopy)){Error=TEXT("Support module save failed");return nullptr;}
         Redirect.Add(Solve,SolveCopy);
     }

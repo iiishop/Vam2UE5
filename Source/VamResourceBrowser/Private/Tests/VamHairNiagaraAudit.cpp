@@ -4,11 +4,26 @@
 #include "LevelEditor.h"
 #include "Editor/EditorPerformanceSettings.h"
 #include "NiagaraScript.h"
+#include "NiagaraSystem.h"
+#include "NiagaraEmitter.h"
+#include "NiagaraEmitterHandle.h"
 #include "NiagaraScriptSource.h"
 #include "NiagaraGraph.h"
 #include "NiagaraNodeFunctionCall.h"
 #include "Misc/FileHelper.h"
 #include "HAL/IConsoleManager.h"
+static FAutoConsoleCommand HairCompiledAudit(TEXT("vam.HairCompiledAudit"),TEXT("Dump the compiled GPU code of the specified hair system without changing it"),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
+{
+ if(Args.Num()!=2)return;
+ auto* System=LoadObject<UNiagaraSystem>(nullptr,*Args[1]);if(!System){UE_LOG(LogTemp,Error,TEXT("Hair compiled audit: system missing"));return;}
+ System->WaitForCompilationComplete(true,false);FString Out;
+ for(const auto& Handle:System->GetEmitterHandles())if(auto* Data=Handle.GetEmitterData())if(auto* Script=Data->GetGPUComputeScript())
+ {
+  Out+=TEXT("// ")+Script->GetPathName()+TEXT("\n")+Script->GetVMExecutableData().LastHlslTranslationGPU+TEXT("\n");
+ }
+ if(Out.Len()<1000){UE_LOG(LogTemp,Error,TEXT("Hair compiled audit: compiled GPU code unavailable"));return;}
+ FFileHelper::SaveStringToFile(Out,*Args[0]);
+}));
 static FAutoConsoleCommand HairGraphAudit(TEXT("vam.HairGraphAudit"),TEXT("Inspect native hair modules without changing them"),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 {
  if(Args.IsEmpty())return;FString Out;

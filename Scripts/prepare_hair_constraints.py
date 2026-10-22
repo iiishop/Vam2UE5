@@ -9,6 +9,36 @@ from pathlib import Path
 import numpy as np
 
 
+def collision_radii(group, hair, guide_ids):
+    """Transfer authored particle radii through the same visible-guide provenance.
+
+    VaM BuildParticles uses radius 0 at root, StandRootRadius at point 1,
+    StandRadius afterwards. WorldScale is the captured source scale; metres
+    become UE centimetres. This does not infer radius from render hair width.
+    """
+    native=group['native_physics']
+    scale=float(native['WorldScale'])
+    body=float(native['StandRadius'])*scale*100
+    root=float(native['StandRootRadius'])*scale*100 if str(native['UseSeparateRootRadius']).lower()=='true' else body
+    if not np.isfinite([scale,body,root]).all() or scale<=0 or min(body,root)<0:raise ValueError('Invalid source collision radii')
+    n=int(hair['segments']);profile=np.full(n,body);profile[0]=0;profile[1]=root
+    curves={c['source_curve']:c for c in group['curves']}
+    source=np.asarray(hair['vertices']).reshape(-1,n,3)
+    u=np.maximum(0,np.arange(32)-1)/30
+    result=[]
+    for sid in guide_ids:
+        c=curves[sid];binding=c.get('visible_binding')
+        if binding:
+            result.append(np.interp(u*binding['length'],np.linspace(0,1,n),profile).tolist())
+        else:
+            arc=np.r_[0,np.linalg.norm(np.diff(source[sid],axis=0),axis=1).cumsum()]
+            if arc[-1]<=0:raise ValueError('Degenerate source radius guide')
+            result.append(np.interp(u,arc/arc[-1],profile).tolist())
+    return dict(node_radii_cm=result,body_radius_cm=body,root_radius_cm=root,
+                source_scale=scale,source_segments=n,
+                method='VaM BuildParticles root/first/mobile radius, transferred by source coordinate; m to cm')
+
+
 def fit_visible_guides(group, hair, budget=128):
     """UE simulates representative visible strands, not buried VaM control paths.
 
@@ -181,7 +211,7 @@ def bake_group(group, hair, budget=128):
     for neighbours in adjacency:
         chosen = sorted(neighbours, key=lambda x: (x[1], x[0]))[:2]
         links.append([list(x) for x in chosen]+[[-1, 0]]*(2-len(chosen)))
-    return dict(version='source-point-support-links-3', source_owns_shape=True, prediction_support=True,
+    result=dict(version='source-point-support-links-3', source_owns_shape=True, prediction_support=True,
                 support_passes_per_second=60*max(1,int(float(native.get('Iterations',2)))),
                 guide_source_ids=[ids[i] for i in selected],
                 rigidity=np.clip(rig, 0, 1).tolist(), links=links,
@@ -189,6 +219,9 @@ def bake_group(group, hair, budget=128):
                 nearby_rate_per_second=60*power,source_edges=source_edges, mapped_edges=len(edges),
                 retained_directed_links=sum(x[0]>=0 for row in links for x in row),
                 node_layout='virtual root + 31 physical nodes; imported guide order')
+    if 'StandRadius' in native:
+        result['source_collision']=collision_radii(group,hair,result['guide_source_ids'])
+    return result
 
 
 def main(source, output):

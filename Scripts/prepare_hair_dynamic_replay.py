@@ -67,6 +67,20 @@ def validate_identity(manifest, bundle, audit_bundle=None):
     audit_id = manifest["configuration"]["BuildIdentity"]
     if bundle["identity"] == audit_id:
         return "same runtime identity"
+    if bundle.get("base_identity") == audit_id:
+        # A1 can come directly from the verified body configuration. Keep both
+        # its identity and actual configuration path; never invent hair-bundle
+        # metadata for that base just to satisfy the sibling-hair branch below.
+        def config_path(value):
+            if not isinstance(value, str) or not value:
+                return None
+            package, separator, obj = value.partition(".")
+            return package if not separator or obj == package.rsplit("/", 1)[-1] else value
+        base_path = config_path(bundle.get("base_configuration"))
+        audit_path = config_path(manifest["configuration"].get("path"))
+        if not base_path or audit_path != base_path:
+            raise ValueError("Direct base identity matches, but actual audit configuration path differs")
+        return "hair runtime explicitly references the audited base identity and configuration"
     if not audit_bundle or audit_bundle["identity"] != audit_id:
         raise ValueError("Different runtime: supply the exact audit's --audit-bundle")
     if audit_bundle.get("status") != "committed" or not audit_bundle.get("independent_reload_verified"):
