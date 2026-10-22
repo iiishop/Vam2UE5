@@ -1,0 +1,36 @@
+2026-10-22T13:28:15.7171185Z loaded
+2026-10-22T13:30:14.6438782Z loading default create scene
+2026-10-22T13:31:25.5020866Z cleared runtime scene/session plugins; loading appearance
+2026-10-22T13:31:25.5064396Z preset manager rescale2 folder= appearance=True
+2026-10-22T13:31:25.5064396Z preset manager geometry folder=General appearance=True
+2026-10-22T13:31:25.5064396Z preset manager NoStage3:Top Bun folder=Long Upswept Top Bun appearance=True
+2026-10-22T13:31:25.5064396Z preset manager NoStage3:Long Upswept folder=Long Upswept Top Bun appearance=True
+2026-10-22T13:31:25.5074182Z preset manager HeatUpSkirtSim folder=HeatUp appearance=True
+2026-10-22T13:31:25.5074182Z preset manager HeatUpPantySim folder=HeatUp appearance=True
+2026-10-22T13:31:25.5074182Z preset manager HeatUpTop folder=HeatUp appearance=True
+2026-10-22T13:31:25.5074182Z preset manager AppearancePresets folder=Appearance appearance=True
+2026-10-22T13:31:25.5074182Z preset manager PosePresets folder=Pose appearance=False
+2026-10-22T13:31:25.5074182Z preset manager AnimationPresets folder=AnimationPresets appearance=True
+2026-10-22T13:31:25.5074182Z preset manager FemaleGlutePhysicsPresets folder=GlutePhysics appearance=True
+2026-10-22T13:31:25.5074182Z preset manager FemaleBreastPhysicsPresets folder=BreastPhysics appearance=True
+2026-10-22T13:31:25.5074182Z preset manager PluginPresets folder=Plugins appearance=True
+2026-10-22T13:31:25.5074182Z preset manager SkinPresets folder=Skin appearance=True
+2026-10-22T13:31:25.5074182Z preset manager HairPresets folder=Hair appearance=True
+2026-10-22T13:31:25.5084174Z preset manager MorphPresets folder=Morphs appearance=True
+2026-10-22T13:31:25.5084174Z preset manager ClothingPresets folder=Clothing appearance=True
+2026-10-22T13:32:09.1544864Z captured loaded-appearance
+2026-10-22T13:32:39.5759015Z captured deep-kneel-0000-ue-reference
+2026-10-22T13:32:43.4201931Z captured deep-kneel-0045-ue-reference
+2026-10-22T13:32:56.0690758Z captured deep-kneel-0090-ue-reference
+2026-10-22T13:33:01.1780133Z captured deep-kneel-0120-ue-reference
+2026-10-22T13:33:07.2036141Z captured deep-kneel-0135-ue-reference
+2026-10-22T13:33:10.7421047Z captured deep-kneel-0150-ue-reference
+2026-10-22T13:33:12.5520610Z captured deep-kneel-0165-ue-reference
+2026-10-22T13:33:14.3743589Z captured deep-kneel-0225-ue-reference
+2026-10-22T13:33:16.3384119Z captured deep-kneel-0269-ue-reference
+2026-10-22T13:33:18.6533453Z captured single-flexion-0000-ue-reference
+2026-10-22T13:33:20.7377861Z captured single-flexion-0045-ue-reference
+2026-10-22T13:33:23.4072699Z captured single-flexion-0090-ue-reference
+2026-10-22T13:33:25.2294001Z captured single-flexion-0135-ue-reference
+2026-10-22T13:33:27.0516913Z captured single-flexion-0165-ue-reference
+2026-10-22T13:33:29.0134389Z captured single-flexion-0179-ue-reference

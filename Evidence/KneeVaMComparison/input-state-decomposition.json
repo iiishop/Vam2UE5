@@ -1,0 +1,254 @@
+[
+  {
+    "region": "0_anterior_hip",
+    "kind": "standing-body-input",
+    "count": 629,
+    "rms_cm": 0.02522805628460577,
+    "p95_cm": 0.0028827865094981156,
+    "max_cm": 0.3301304374020708,
+    "worst_source": 21661
+  },
+  {
+    "region": "0_anterior_hip",
+    "kind": "vam-pose-input-change",
+    "count": 629,
+    "rms_cm": 0.2432650915934344,
+    "p95_cm": 0.6468350194260836,
+    "max_cm": 0.8502604586097667,
+    "worst_source": 22143
+  },
+  {
+    "region": "0_lateral_glute",
+    "kind": "standing-body-input",
+    "count": 313,
+    "rms_cm": 0.012091364487548327,
+    "p95_cm": 0.03364750175546377,
+    "max_cm": 0.054732463912622605,
+    "worst_source": 4042
+  },
+  {
+    "region": "0_lateral_glute",
+    "kind": "vam-pose-input-change",
+    "count": 313,
+    "rms_cm": 0.1676452563221488,
+    "p95_cm": 0.4405684964023218,
+    "max_cm": 0.7953396078318593,
+    "worst_source": 7851
+  },
+  {
+    "region": "0_glute_thigh",
+    "kind": "standing-body-input",
+    "count": 958,
+    "rms_cm": 0.40844686996638585,
+    "p95_cm": 1.2981573711350503,
+    "max_cm": 1.363468517096547,
+    "worst_source": 22229
+  },
+  {
+    "region": "0_glute_thigh",
+    "kind": "vam-pose-input-change",
+    "count": 958,
+    "rms_cm": 0.6749637340413622,
+    "p95_cm": 0.9513606568159728,
+    "max_cm": 1.2108740800739162,
+    "worst_source": 22230
+  },
+  {
+    "region": "1_anterior_hip",
+    "kind": "standing-body-input",
+    "count": 735,
+    "rms_cm": 0.027205809098533387,
+    "p95_cm": 0.0020289888744029713,
+    "max_cm": 0.3301316070417923,
+    "worst_source": 22259
+  },
+  {
+    "region": "1_anterior_hip",
+    "kind": "vam-pose-input-change",
+    "count": 735,
+    "rms_cm": 0.2699267775258608,
+    "p95_cm": 0.6481498083061401,
+    "max_cm": 0.8616786863147485,
+    "worst_source": 22727
+  },
+  {
+    "region": "1_lateral_glute",
+    "kind": "standing-body-input",
+    "count": 295,
+    "rms_cm": 0.012478772433527007,
+    "p95_cm": 0.03431610643140275,
+    "max_cm": 0.05473971901818701,
+    "worst_source": 14818
+  },
+  {
+    "region": "1_lateral_glute",
+    "kind": "vam-pose-input-change",
+    "count": 295,
+    "rms_cm": 0.19215691670839757,
+    "p95_cm": 0.5307011214874927,
+    "max_cm": 0.8389471710802134,
+    "worst_source": 18505
+  },
+  {
+    "region": "1_glute_thigh",
+    "kind": "standing-body-input",
+    "count": 1359,
+    "rms_cm": 0.34408133900622934,
+    "p95_cm": 1.120034544731572,
+    "max_cm": 1.363468517096547,
+    "worst_source": 22229
+  },
+  {
+    "region": "1_glute_thigh",
+    "kind": "vam-pose-input-change",
+    "count": 1359,
+    "rms_cm": 0.6561988106369303,
+    "p95_cm": 0.9443569612483441,
+    "max_cm": 1.2108740800739162,
+    "worst_source": 22230
+  },
+  {
+    "region": "0_knee_anterior",
+    "kind": "standing-body-input",
+    "count": 176,
+    "rms_cm": 2.082952054735566e-06,
+    "p95_cm": 3.892016891450751e-06,
+    "max_cm": 4.77788486547526e-06,
+    "worst_source": 8121
+  },
+  {
+    "region": "0_knee_anterior",
+    "kind": "vam-pose-input-change",
+    "count": 176,
+    "rms_cm": 0.0007249278294941508,
+    "p95_cm": 0.0,
+    "max_cm": 0.006276583359505877,
+    "worst_source": 8472
+  },
+  {
+    "region": "0_knee_posterior",
+    "kind": "standing-body-input",
+    "count": 180,
+    "rms_cm": 2.030281888081015e-06,
+    "p95_cm": 3.4172680043543468e-06,
+    "max_cm": 4.32965284130158e-06,
+    "worst_source": 457
+  },
+  {
+    "region": "0_knee_posterior",
+    "kind": "vam-pose-input-change",
+    "count": 180,
+    "rms_cm": 5.969835012684946e-07,
+    "p95_cm": 0.0,
+    "max_cm": 8.009374141693115e-06,
+    "worst_source": 8735
+  },
+  {
+    "region": "0_knee_medial",
+    "kind": "standing-body-input",
+    "count": 195,
+    "rms_cm": 2.114078449388018e-06,
+    "p95_cm": 4.082607773372867e-06,
+    "max_cm": 4.772560693507177e-06,
+    "worst_source": 8516
+  },
+  {
+    "region": "0_knee_medial",
+    "kind": "vam-pose-input-change",
+    "count": 195,
+    "rms_cm": 0.0002740243238345672,
+    "p95_cm": 0.0,
+    "max_cm": 0.0031445953910767305,
+    "worst_source": 8473
+  },
+  {
+    "region": "0_knee_lateral",
+    "kind": "standing-body-input",
+    "count": 184,
+    "rms_cm": 2.0983870946587054e-06,
+    "p95_cm": 3.830788065567919e-06,
+    "max_cm": 4.77788486547526e-06,
+    "worst_source": 8121
+  },
+  {
+    "region": "0_knee_lateral",
+    "kind": "vam-pose-input-change",
+    "count": 184,
+    "rms_cm": 0.0007089936497603481,
+    "p95_cm": 0.0,
+    "max_cm": 0.006276583359505877,
+    "worst_source": 8472
+  },
+  {
+    "region": "1_knee_anterior",
+    "kind": "standing-body-input",
+    "count": 176,
+    "rms_cm": 2.2327878474179257e-06,
+    "p95_cm": 3.8345001032022456e-06,
+    "max_cm": 9.585524480307945e-06,
+    "worst_source": 19143
+  },
+  {
+    "region": "1_knee_anterior",
+    "kind": "vam-pose-input-change",
+    "count": 176,
+    "rms_cm": 0.0007077334066981904,
+    "p95_cm": 0.0,
+    "max_cm": 0.006101898147199383,
+    "worst_source": 19143
+  },
+  {
+    "region": "1_knee_posterior",
+    "kind": "standing-body-input",
+    "count": 180,
+    "rms_cm": 2.0427701394696145e-06,
+    "p95_cm": 3.6180959097167347e-06,
+    "max_cm": 4.0577424251677e-06,
+    "worst_source": 10975
+  },
+  {
+    "region": "1_knee_posterior",
+    "kind": "vam-pose-input-change",
+    "count": 180,
+    "rms_cm": 5.55333489552088e-07,
+    "p95_cm": 0.0,
+    "max_cm": 7.450580596923828e-06,
+    "worst_source": 19406
+  },
+  {
+    "region": "1_knee_medial",
+    "kind": "standing-body-input",
+    "count": 195,
+    "rms_cm": 2.072127919153315e-06,
+    "p95_cm": 3.828835890169142e-06,
+    "max_cm": 4.1586788994103454e-06,
+    "worst_source": 19160
+  },
+  {
+    "region": "1_knee_medial",
+    "kind": "vam-pose-input-change",
+    "count": 195,
+    "rms_cm": 0.00026953591724719996,
+    "p95_cm": 0.0,
+    "max_cm": 0.003102262957496698,
+    "worst_source": 19144
+  },
+  {
+    "region": "1_knee_lateral",
+    "kind": "standing-body-input",
+    "count": 184,
+    "rms_cm": 2.28592891318663e-06,
+    "p95_cm": 3.829138893407779e-06,
+    "max_cm": 9.585524480307945e-06,
+    "worst_source": 19143
+  },
+  {
+    "region": "1_knee_lateral",
+    "kind": "vam-pose-input-change",
+    "count": 184,
+    "rms_cm": 0.0006921771445776277,
+    "p95_cm": 0.0,
+    "max_cm": 0.006101898147199383,
+    "worst_source": 19143
+  }
+]

@@ -6,6 +6,17 @@ import argparse, hashlib, json
 from pathlib import Path
 import numpy as np
 
+def skin_snapshot(data, vertices, component_matrices=None):
+    """Exact A1 LBS replay, also usable for explicitly labelled ablations."""
+    matrices=[np.array(b['inverse_bind_matrix_row_major']).reshape(4,4)@
+              np.array(component_matrices[i] if component_matrices is not None else b['component_matrix_row_major']).reshape(4,4)
+              for i,b in enumerate(data['bones'])]
+    output=np.zeros_like(vertices,dtype=float)
+    for i,row in enumerate(data['render_vertex_influences']):
+        point=np.r_[vertices[i],1.]
+        for bone,weight in row:output[i]+=(point@matrices[int(bone)])[:3]*weight
+    return output
+
 def run(root):
     manifest=json.loads((root/'manifest.json').read_text(encoding='utf-8-sig'))
     result={'schema':'vam-audit-replay/1','actor':manifest['actor'],'configuration':manifest['configuration'],'stages':{}}
@@ -15,11 +26,7 @@ def run(root):
             result['stages'][stage]={'status':'unavailable','detail':meta};continue
         data=json.loads((folder/'inputs.json').read_text(encoding='utf-8-sig'))
         v=np.array(json.loads((folder/'preskin.json').read_text())['positions'],dtype=float)
-        matrices=[np.array(b['inverse_bind_matrix_row_major']).reshape(4,4)@np.array(b['component_matrix_row_major']).reshape(4,4) for b in data['bones']]
-        output=np.zeros_like(v)
-        for i,row in enumerate(data['render_vertex_influences']):
-            point=np.r_[v[i],1.]
-            for bone,weight in row: output[i]+=(point@matrices[int(bone)])[:3]*weight
+        output=skin_snapshot(data,v)
         expected=np.array(json.loads((folder/'surface.json').read_text())['positions'])
         errors=np.linalg.norm(output-expected,axis=1)
         result['stages'][stage]={'status':'replayed','max_error_cm':float(errors.max()),'rms_cm':float(np.sqrt(np.mean(errors**2))),'vertices':len(v)}

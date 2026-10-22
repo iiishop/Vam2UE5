@@ -2,7 +2,7 @@
 import argparse,json
 from pathlib import Path
 import numpy as np
-p=argparse.ArgumentParser();p.add_argument('run',type=Path);a=p.parse_args();read=lambda p:json.loads(p.read_text());data=read(a.run/'analysis.json');rows=[]
+p=argparse.ArgumentParser();p.add_argument('run',type=Path);p.add_argument('--output',type=Path);a=p.parse_args();read=lambda p:json.loads(p.read_text());data=read(a.run/'analysis.json');rows=[]
 for r in data['surfaces']:
  if r['group']!='M' or r['frame']!=165:continue
  for detail in r['new_sharp_edge_details']:
@@ -14,4 +14,4 @@ for r in data['surfaces']:
     st.append(dict(stage=name,angle_deg=angle,center_cm=q.mean(axis=(0,1)).tolist()))
    item['stages'][g]=st
   rows.append(item)
-(a.run/'deep-edge-stages.json').write_text(json.dumps(rows,indent=2));print(json.dumps(rows,indent=2))
+(a.output or (a.run/'deep-edge-stages.json')).write_text(json.dumps(rows,indent=2));print(json.dumps(rows,indent=2))

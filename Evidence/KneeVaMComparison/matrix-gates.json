@@ -1,0 +1,6767 @@
+[
+  {
+    "pose": "deep-kneel-0000",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.010569024018082e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.629226805459458e-06,
+        "rotation_matrix_max": 1.606694985945012e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 7.985071740284912e-06,
+        "rotation_matrix_max": 9.667030043125635e-08
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.970176305354992e-06,
+        "rotation_matrix_max": 8.683011287757836e-08
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 9.357224607069848e-06,
+        "rotation_matrix_max": 8.806930318350226e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.8239883514880093e-06,
+        "rotation_matrix_max": 1.4929759506454587e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 7.077391752922537e-06,
+        "rotation_matrix_max": 1.1086306750396346e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 2.1617182483469646e-05,
+        "rotation_matrix_max": 1.5101810335593768e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 3.662497694012501e-08
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 2.7867625518539777e-06,
+        "rotation_matrix_max": 8.544667273735485e-08
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 1.3172800606830931e-05,
+        "rotation_matrix_max": 9.306443210510551e-08
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 9.695415252742171e-06,
+        "rotation_matrix_max": 7.594013040623793e-08
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 3.066476222395131e-06,
+        "rotation_matrix_max": 1.1107489406025906e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 2.559808935430424e-06,
+        "rotation_matrix_max": 1.5659434804415895e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.4957902568811672e-05,
+        "rotation_matrix_max": 1.164307805723297e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 5.907315646427091e-06,
+        "rotation_matrix_max": 1.3370398010970064e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 2.777779865590226e-06,
+        "rotation_matrix_max": 1.1897677654193473e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.040694393374012865
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040873960822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 2.809841233020194e-07
+  },
+  {
+    "pose": "deep-kneel-0045",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.1593341242566169e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 9.451237034785566e-06,
+        "rotation_matrix_max": 5.5929927689213343e-08
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 6.375020904854106e-07,
+        "rotation_matrix_max": 6.087269166510367e-08
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.157756857655166e-05,
+        "rotation_matrix_max": 1.0154336571588374e-07
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 2.151010445708245e-05,
+        "rotation_matrix_max": 9.099313591498515e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 1.1536359059870743e-05,
+        "rotation_matrix_max": 9.375924603371999e-08
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 3.510260954148826e-06,
+        "rotation_matrix_max": 1.1601606686451049e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 5.4984749495978134e-06,
+        "rotation_matrix_max": 1.4584672836104318e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 3.662497694012501e-08
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 2.7867625518539777e-06,
+        "rotation_matrix_max": 6.524612500280469e-08
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 8.884974658902316e-06,
+        "rotation_matrix_max": 1.5326822822014918e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 2.22966978582121e-05,
+        "rotation_matrix_max": 3.0291576724739144e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 2.4970551485624955e-05,
+        "rotation_matrix_max": 1.3229319562046982e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 5.246382892356022e-06,
+        "rotation_matrix_max": 1.4816973470388461e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.5083509545554062e-05,
+        "rotation_matrix_max": 1.5033498002026136e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 2.302079761209864e-05,
+        "rotation_matrix_max": 1.5695326904818785e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 6.191950913055834e-06,
+        "rotation_matrix_max": 1.5950145126897297e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.040693403374012865
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.0408729508222765
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.0291576724739144e-07
+  },
+  {
+    "pose": "deep-kneel-0090",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.0924877513751596e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.67836289121482e-06,
+        "rotation_matrix_max": 1.1816099843020567e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 2.1147700189962406e-05,
+        "rotation_matrix_max": 1.1434270963395221e-07
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 1.0696197906811496e-05,
+        "rotation_matrix_max": 1.8706239734989083e-07
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 7.88391126577836e-06,
+        "rotation_matrix_max": 7.572726179461142e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.6624909983046757e-06,
+        "rotation_matrix_max": 1.198061398977046e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 9.65576906542416e-06,
+        "rotation_matrix_max": 1.0264792693615021e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 9.081349440903676e-06,
+        "rotation_matrix_max": 1.238418382287776e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 3.662497694012501e-08
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 2.7867625518539777e-06,
+        "rotation_matrix_max": 2.1662223606295355e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 4.1066924504423955e-06,
+        "rotation_matrix_max": 3.0147798554813754e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 2.2155004515275578e-05,
+        "rotation_matrix_max": 3.076984228800317e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 2.4691036480588337e-05,
+        "rotation_matrix_max": 3.854133678871108e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 1.8650537834658123e-05,
+        "rotation_matrix_max": 3.4475630784902567e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.957334717756688e-05,
+        "rotation_matrix_max": 3.20747347379996e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 2.4799404858487122e-05,
+        "rotation_matrix_max": 3.7476894628515195e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 1.0005930209799564e-05,
+        "rotation_matrix_max": 3.988771943019831e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069474337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040874250822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.988771943019831e-07
+  },
+  {
+    "pose": "deep-kneel-0120",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 8.067718393345302e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.1326484775599212e-05,
+        "rotation_matrix_max": 2.7381873135556845e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 1.1857369456965355e-05,
+        "rotation_matrix_max": 3.2251940385030764e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 1.497875113544697e-05,
+        "rotation_matrix_max": 4.0502951503817997e-07
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.0768425572256375e-05,
+        "rotation_matrix_max": 2.8240024774195405e-07
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 1.504331087979967e-05,
+        "rotation_matrix_max": 2.580811546692985e-07
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 1.5499711894169535e-05,
+        "rotation_matrix_max": 2.825776194148588e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 1.1765845731167183e-05,
+        "rotation_matrix_max": 2.4586242575175277e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 1.3422298954711072e-05,
+        "rotation_matrix_max": 2.935444739504689e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 1.005989567204324e-07
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 1.0289100112130961e-05,
+        "rotation_matrix_max": 2.6723759594116103e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 4.906979255563032e-06,
+        "rotation_matrix_max": 2.423432797771241e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 6.227400177994264e-06,
+        "rotation_matrix_max": 2.1506515168745466e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 1.0196090307600806e-05,
+        "rotation_matrix_max": 2.3385622793803407e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 8.346627686571877e-06,
+        "rotation_matrix_max": 1.81311314517707e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 5.498250351524883e-06,
+        "rotation_matrix_max": 1.7408181518518973e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 9.606283153071617e-06,
+        "rotation_matrix_max": 1.4810933683662153e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 1.0782717700841226e-05,
+        "rotation_matrix_max": 1.7088834902700967e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069474337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040874250822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 4.0502951503817997e-07
+  },
+  {
+    "pose": "deep-kneel-0135",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 1.6169683153544057e-07
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 7.145108292447191e-06,
+        "rotation_matrix_max": 3.430268062931674e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 1.2341004751130754e-05,
+        "rotation_matrix_max": 3.7259597296390723e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 1.1761764981186852e-05,
+        "rotation_matrix_max": 4.1812432316490344e-07
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 1.4978553015116159e-05,
+        "rotation_matrix_max": 4.6938770847937406e-07
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 1.3391924170138272e-05,
+        "rotation_matrix_max": 5.608292168446383e-07
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.2326385772112723e-05,
+        "rotation_matrix_max": 4.996617397612368e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 2.4627475756818012e-05,
+        "rotation_matrix_max": 4.2566806068844443e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 2.1769806111748023e-05,
+        "rotation_matrix_max": 4.2306343417397585e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 1.2267131033194545e-07
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 2.2735802642550794e-06,
+        "rotation_matrix_max": 1.9898432834786206e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 5.392878674374418e-06,
+        "rotation_matrix_max": 2.2914429831377703e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 4.713253349771234e-06,
+        "rotation_matrix_max": 2.498188874100471e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 1.5005890648952057e-05,
+        "rotation_matrix_max": 2.2946506383902943e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 7.429860916916447e-06,
+        "rotation_matrix_max": 3.807964078506032e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.0471017419296901e-05,
+        "rotation_matrix_max": 2.6278131348700384e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 1.7974873068217766e-05,
+        "rotation_matrix_max": 2.979746585307641e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 3.148695957491781e-06,
+        "rotation_matrix_max": 2.884724187857124e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04033996337401286
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.04051878082227651
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 5.608292168446383e-07
+  },
+  {
+    "pose": "deep-kneel-0150",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 5.53678476400421e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.2786971342549998e-06,
+        "rotation_matrix_max": 1.0046158405163652e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 3.4486386998591284e-06,
+        "rotation_matrix_max": 1.4974225137631691e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 8.725606931245166e-06,
+        "rotation_matrix_max": 1.5982385992430181e-07
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 1.3395966705892552e-05,
+        "rotation_matrix_max": 1.9564166642282999e-07
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 2.0630818232882173e-05,
+        "rotation_matrix_max": 1.1156385451571715e-07
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 4.588969465908576e-06,
+        "rotation_matrix_max": 1.7336690905089824e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 9.234438237995863e-06,
+        "rotation_matrix_max": 1.3956766220513117e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 7.632959628172918e-06,
+        "rotation_matrix_max": 1.4232244882617096e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 1.467078084016471e-07
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 8.173524706900246e-06,
+        "rotation_matrix_max": 1.6992589224607002e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 1.2248736214053553e-06,
+        "rotation_matrix_max": 3.483797459402638e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 4.131768124687995e-06,
+        "rotation_matrix_max": 3.382563542597694e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 7.0084987130010865e-06,
+        "rotation_matrix_max": 2.572254884647407e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 1.0558020829210631e-05,
+        "rotation_matrix_max": 2.507494835102264e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.0514263501805465e-05,
+        "rotation_matrix_max": 3.1547060375114455e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 1.2984608994465978e-06,
+        "rotation_matrix_max": 1.8986114380670216e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 2.901348923816556e-06,
+        "rotation_matrix_max": 2.6167330346993367e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069474337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040874250822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.483797459402638e-07
+  },
+  {
+    "pose": "deep-kneel-0165",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 5.53678476400421e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.2786971342549998e-06,
+        "rotation_matrix_max": 1.0046158405163652e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 3.4486386998591284e-06,
+        "rotation_matrix_max": 1.4974225137631691e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 8.725606931245166e-06,
+        "rotation_matrix_max": 1.5982385992430181e-07
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 1.3395966705892552e-05,
+        "rotation_matrix_max": 1.9564166642282999e-07
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 2.0630818232882173e-05,
+        "rotation_matrix_max": 1.1156385451571715e-07
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 4.588969465908576e-06,
+        "rotation_matrix_max": 1.7336690905089824e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 9.234438237995863e-06,
+        "rotation_matrix_max": 1.3956766220513117e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 7.632959628172918e-06,
+        "rotation_matrix_max": 1.4232244882617096e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 1.467078084016471e-07
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 8.173524706900246e-06,
+        "rotation_matrix_max": 1.6992589224607002e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 1.2248736214053553e-06,
+        "rotation_matrix_max": 3.483797459402638e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 4.131768124687995e-06,
+        "rotation_matrix_max": 3.382563542597694e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 7.0084987130010865e-06,
+        "rotation_matrix_max": 2.572254884647407e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 1.0558020829210631e-05,
+        "rotation_matrix_max": 2.507494835102264e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.0514263501805465e-05,
+        "rotation_matrix_max": 3.1547060375114455e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 1.2984608994465978e-06,
+        "rotation_matrix_max": 1.8986114380670216e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 2.901348923816556e-06,
+        "rotation_matrix_max": 2.6167330346993367e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069474337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040874250822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.483797459402638e-07
+  },
+  {
+    "pose": "deep-kneel-0225",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.323937711856132e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 2.0454783825375926e-06,
+        "rotation_matrix_max": 8.111776939045967e-08
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.459880186038634e-06,
+        "rotation_matrix_max": 7.719526895488826e-08
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 1.4759488086688263e-05,
+        "rotation_matrix_max": 1.1862095372627834e-07
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.388460301023149e-05,
+        "rotation_matrix_max": 1.3368594131701883e-07
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 2.449080832219214e-05,
+        "rotation_matrix_max": 8.005226956320222e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 3.3254719812220773e-06,
+        "rotation_matrix_max": 8.596632172785945e-08
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 1.6532815839313228e-05,
+        "rotation_matrix_max": 1.9157449049345132e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 1.7610743319159282e-05,
+        "rotation_matrix_max": 9.850432913793838e-08
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 7.458493406220512e-08
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 8.730221673354194e-06,
+        "rotation_matrix_max": 1.3387809780218696e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 4.569713684974009e-06,
+        "rotation_matrix_max": 2.467317717913531e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 1.3559450510390715e-05,
+        "rotation_matrix_max": 1.4322140684530638e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 2.7181274302041333e-05,
+        "rotation_matrix_max": 1.890896846878931e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 6.896743722090864e-06,
+        "rotation_matrix_max": 1.2224802287130743e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.7323936612123508e-05,
+        "rotation_matrix_max": 1.6846273420689784e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 6.787064306798911e-06,
+        "rotation_matrix_max": 8.567818299276553e-08
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 8.219424612322401e-06,
+        "rotation_matrix_max": 3.251642854973369e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069474337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040874250822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.251642854973369e-07
+  },
+  {
+    "pose": "deep-kneel-0269",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.010569024018082e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.629226805459458e-06,
+        "rotation_matrix_max": 1.606694985945012e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 7.985071740284912e-06,
+        "rotation_matrix_max": 9.667030043125635e-08
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.970176305354992e-06,
+        "rotation_matrix_max": 8.683011287757836e-08
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 9.357224607069848e-06,
+        "rotation_matrix_max": 8.806930318350226e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.8239883514880093e-06,
+        "rotation_matrix_max": 1.4929759506454587e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 7.077391752922537e-06,
+        "rotation_matrix_max": 1.1086306750396346e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 2.1617182483469646e-05,
+        "rotation_matrix_max": 1.5101810335593768e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 3.662497694012501e-08
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 2.7867625518539777e-06,
+        "rotation_matrix_max": 8.544667273735485e-08
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 1.3172800606830931e-05,
+        "rotation_matrix_max": 9.306443210510551e-08
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 9.695415252742171e-06,
+        "rotation_matrix_max": 7.594013040623793e-08
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 3.066476222395131e-06,
+        "rotation_matrix_max": 1.1107489406025906e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 2.559808935430424e-06,
+        "rotation_matrix_max": 1.5659434804415895e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.4957902568811672e-05,
+        "rotation_matrix_max": 1.164307805723297e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 5.907315646427091e-06,
+        "rotation_matrix_max": 1.3370398010970064e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 2.777779865590226e-06,
+        "rotation_matrix_max": 1.1897677654193473e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069474337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040874250822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 2.809841233020194e-07
+  },
+  {
+    "pose": "single-flexion-0000",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.010569024018082e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.629226805459458e-06,
+        "rotation_matrix_max": 1.606694985945012e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 7.985071740284912e-06,
+        "rotation_matrix_max": 9.667030043125635e-08
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.970176305354992e-06,
+        "rotation_matrix_max": 8.683011287757836e-08
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 9.357224607069848e-06,
+        "rotation_matrix_max": 8.806930318350226e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.8239883514880093e-06,
+        "rotation_matrix_max": 1.4929759506454587e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 7.077391752922537e-06,
+        "rotation_matrix_max": 1.1086306750396346e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 2.1617182483469646e-05,
+        "rotation_matrix_max": 1.5101810335593768e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 3.662497694012501e-08
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 2.7867625518539777e-06,
+        "rotation_matrix_max": 8.544667273735485e-08
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 1.3172800606830931e-05,
+        "rotation_matrix_max": 9.306443210510551e-08
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 9.695415252742171e-06,
+        "rotation_matrix_max": 7.594013040623793e-08
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 3.066476222395131e-06,
+        "rotation_matrix_max": 1.1107489406025906e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 2.559808935430424e-06,
+        "rotation_matrix_max": 1.5659434804415895e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.4957902568811672e-05,
+        "rotation_matrix_max": 1.164307805723297e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 5.907315646427091e-06,
+        "rotation_matrix_max": 1.3370398010970064e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 2.777779865590226e-06,
+        "rotation_matrix_max": 1.1897677654193473e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069474337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040874250822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 2.809841233020194e-07
+  },
+  {
+    "pose": "single-flexion-0045",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.010569024018082e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.629226805459458e-06,
+        "rotation_matrix_max": 1.606694985945012e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 7.985071740284912e-06,
+        "rotation_matrix_max": 9.667030043125635e-08
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.970176305354992e-06,
+        "rotation_matrix_max": 8.683011287757836e-08
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 9.357224607069848e-06,
+        "rotation_matrix_max": 8.806930318350226e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.8239883514880093e-06,
+        "rotation_matrix_max": 1.4929759506454587e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 7.077391752922537e-06,
+        "rotation_matrix_max": 1.1086306750396346e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 2.1617182483469646e-05,
+        "rotation_matrix_max": 1.5101810335593768e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 3.662497694012501e-08
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 2.7867625518539777e-06,
+        "rotation_matrix_max": 6.524612500280469e-08
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 8.884974658902316e-06,
+        "rotation_matrix_max": 1.5326822822014918e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 2.22966978582121e-05,
+        "rotation_matrix_max": 3.0291576724739144e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 2.4970551485624955e-05,
+        "rotation_matrix_max": 1.3229319562046982e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 5.246382892356022e-06,
+        "rotation_matrix_max": 1.4816973470388461e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.5083509545554062e-05,
+        "rotation_matrix_max": 1.5033498002026136e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 2.302079761209864e-05,
+        "rotation_matrix_max": 1.5695326904818785e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 6.191950913055834e-06,
+        "rotation_matrix_max": 1.5950145126897297e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069474337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040874250822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.0291576724739144e-07
+  },
+  {
+    "pose": "single-flexion-0090",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.010569024018082e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.629226805459458e-06,
+        "rotation_matrix_max": 1.606694985945012e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 7.985071740284912e-06,
+        "rotation_matrix_max": 9.667030043125635e-08
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.970176305354992e-06,
+        "rotation_matrix_max": 8.683011287757836e-08
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 9.357224607069848e-06,
+        "rotation_matrix_max": 8.806930318350226e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.8239883514880093e-06,
+        "rotation_matrix_max": 1.4929759506454587e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 7.077391752922537e-06,
+        "rotation_matrix_max": 1.1086306750396346e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 2.1617182483469646e-05,
+        "rotation_matrix_max": 1.5101810335593768e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 3.662497694012501e-08
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 2.7867625518539777e-06,
+        "rotation_matrix_max": 2.1662223606295355e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 4.1066924504423955e-06,
+        "rotation_matrix_max": 3.0147798554813754e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 2.2155004515275578e-05,
+        "rotation_matrix_max": 3.076984228800317e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 2.4691036480588337e-05,
+        "rotation_matrix_max": 3.854133678871108e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 1.8650537834658123e-05,
+        "rotation_matrix_max": 3.4475630784902567e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.957334717756688e-05,
+        "rotation_matrix_max": 3.20747347379996e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 2.4799404858487122e-05,
+        "rotation_matrix_max": 3.7476894628515195e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 1.0005930209799564e-05,
+        "rotation_matrix_max": 3.988771943019831e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.03869901337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.0388742108222765
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.988771943019831e-07
+  },
+  {
+    "pose": "single-flexion-0135",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.010569024018082e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.629226805459458e-06,
+        "rotation_matrix_max": 1.606694985945012e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 7.985071740284912e-06,
+        "rotation_matrix_max": 9.667030043125635e-08
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.970176305354992e-06,
+        "rotation_matrix_max": 8.683011287757836e-08
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 9.357224607069848e-06,
+        "rotation_matrix_max": 8.806930318350226e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.8239883514880093e-06,
+        "rotation_matrix_max": 1.4929759506454587e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 7.077391752922537e-06,
+        "rotation_matrix_max": 1.1086306750396346e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 2.1617182483469646e-05,
+        "rotation_matrix_max": 1.5101810335593768e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 1.2267131033194545e-07
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 2.2735802642550794e-06,
+        "rotation_matrix_max": 1.9898432834786206e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 5.392878674374418e-06,
+        "rotation_matrix_max": 2.2914429831377703e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 4.713253349771234e-06,
+        "rotation_matrix_max": 2.498188874100471e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 1.5005890648952057e-05,
+        "rotation_matrix_max": 2.2946506383902943e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 7.429860916916447e-06,
+        "rotation_matrix_max": 3.807964078506032e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.0471017419296901e-05,
+        "rotation_matrix_max": 2.6278131348700384e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 1.7974873068217766e-05,
+        "rotation_matrix_max": 2.979746585307641e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 3.148695957491781e-06,
+        "rotation_matrix_max": 2.884724187857124e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.040694683374012865
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.04087419082227651
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.807964078506032e-07
+  },
+  {
+    "pose": "single-flexion-0165",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.010569024018082e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.629226805459458e-06,
+        "rotation_matrix_max": 1.606694985945012e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 7.985071740284912e-06,
+        "rotation_matrix_max": 9.667030043125635e-08
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.970176305354992e-06,
+        "rotation_matrix_max": 8.683011287757836e-08
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 9.357224607069848e-06,
+        "rotation_matrix_max": 8.806930318350226e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.8239883514880093e-06,
+        "rotation_matrix_max": 1.4929759506454587e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 7.077391752922537e-06,
+        "rotation_matrix_max": 1.1086306750396346e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 2.1617182483469646e-05,
+        "rotation_matrix_max": 1.5101810335593768e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 1.467078084016471e-07
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 8.173524706900246e-06,
+        "rotation_matrix_max": 1.6992589224607002e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 1.2248736214053553e-06,
+        "rotation_matrix_max": 3.483797459402638e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 4.131768124687995e-06,
+        "rotation_matrix_max": 3.382563542597694e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 7.0084987130010865e-06,
+        "rotation_matrix_max": 2.572254884647407e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 1.0558020829210631e-05,
+        "rotation_matrix_max": 2.507494835102264e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.0514263501805465e-05,
+        "rotation_matrix_max": 3.1547060375114455e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 1.2984608994465978e-06,
+        "rotation_matrix_max": 1.8986114380670216e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 2.901348923816556e-06,
+        "rotation_matrix_max": 2.6167330346993367e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069474337401287
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040874250822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.483797459402638e-07
+  },
+  {
+    "pose": "single-flexion-0179",
+    "bones": [
+      {
+        "bone": "hip",
+        "position_cm": 4.344971128721432e-05,
+        "rotation_matrix_max": 6.278028430450888e-08
+      },
+      {
+        "bone": "pelvis",
+        "position_cm": 1.3481947553431501e-05,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Testes",
+        "position_cm": 1.5146764539821626e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "rThigh",
+        "position_cm": 2.204341762374461e-06,
+        "rotation_matrix_max": 7.11709842171615e-08
+      },
+      {
+        "bone": "rShin",
+        "position_cm": 1.8404848182253412e-06,
+        "rotation_matrix_max": 1.010569024018082e-07
+      },
+      {
+        "bone": "rFoot",
+        "position_cm": 6.629226805459458e-06,
+        "rotation_matrix_max": 1.606694985945012e-07
+      },
+      {
+        "bone": "rToe",
+        "position_cm": 7.985071740284912e-06,
+        "rotation_matrix_max": 9.667030043125635e-08
+      },
+      {
+        "bone": "rBigToe",
+        "position_cm": 2.970176305354992e-06,
+        "rotation_matrix_max": 8.683011287757836e-08
+      },
+      {
+        "bone": "rSmallToe1",
+        "position_cm": 9.357224607069848e-06,
+        "rotation_matrix_max": 8.806930318350226e-08
+      },
+      {
+        "bone": "rSmallToe2",
+        "position_cm": 2.8239883514880093e-06,
+        "rotation_matrix_max": 1.4929759506454587e-07
+      },
+      {
+        "bone": "rSmallToe3",
+        "position_cm": 7.077391752922537e-06,
+        "rotation_matrix_max": 1.1086306750396346e-07
+      },
+      {
+        "bone": "rSmallToe4",
+        "position_cm": 2.1617182483469646e-05,
+        "rotation_matrix_max": 1.5101810335593768e-07
+      },
+      {
+        "bone": "LGlute",
+        "position_cm": 2.437015265665307e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "Gen1",
+        "position_cm": 4.026994728173884e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen2",
+        "position_cm": 6.673472912272809e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "Gen3",
+        "position_cm": 6.678162000140518e-06,
+        "rotation_matrix_max": 6.773414940042244e-08
+      },
+      {
+        "bone": "RGlute",
+        "position_cm": 2.281943099174707e-06,
+        "rotation_matrix_max": 5.821780993727207e-11
+      },
+      {
+        "bone": "lThigh",
+        "position_cm": 5.561910293891602e-06,
+        "rotation_matrix_max": 1.467078084016471e-07
+      },
+      {
+        "bone": "lShin",
+        "position_cm": 8.173524706900246e-06,
+        "rotation_matrix_max": 1.6992589224607002e-07
+      },
+      {
+        "bone": "lFoot",
+        "position_cm": 1.2248736214053553e-06,
+        "rotation_matrix_max": 3.483797459402638e-07
+      },
+      {
+        "bone": "lToe",
+        "position_cm": 4.131768124687995e-06,
+        "rotation_matrix_max": 3.382563542597694e-07
+      },
+      {
+        "bone": "lBigToe",
+        "position_cm": 7.0084987130010865e-06,
+        "rotation_matrix_max": 2.572254884647407e-07
+      },
+      {
+        "bone": "lSmallToe1",
+        "position_cm": 1.0558020829210631e-05,
+        "rotation_matrix_max": 2.507494835102264e-07
+      },
+      {
+        "bone": "lSmallToe2",
+        "position_cm": 1.0514263501805465e-05,
+        "rotation_matrix_max": 3.1547060375114455e-07
+      },
+      {
+        "bone": "lSmallToe3",
+        "position_cm": 1.2984608994465978e-06,
+        "rotation_matrix_max": 1.8986114380670216e-07
+      },
+      {
+        "bone": "lSmallToe4",
+        "position_cm": 2.901348923816556e-06,
+        "rotation_matrix_max": 2.6167330346993367e-07
+      },
+      {
+        "bone": "abdomen",
+        "position_cm": 2.0014788007368205e-05,
+        "rotation_matrix_max": 2.947630883820551e-08
+      },
+      {
+        "bone": "abdomen2",
+        "position_cm": 4.475103471353842e-05,
+        "rotation_matrix_max": 3.460157327328517e-08
+      },
+      {
+        "bone": "chest",
+        "position_cm": 4.559635396130317e-05,
+        "rotation_matrix_max": 1.1153687851095384e-07
+      },
+      {
+        "bone": "rCollar",
+        "position_cm": 4.964697261706408e-05,
+        "rotation_matrix_max": 1.449282600596291e-07
+      },
+      {
+        "bone": "rShldr",
+        "position_cm": 3.0251764811411148e-05,
+        "rotation_matrix_max": 1.2204853105934887e-07
+      },
+      {
+        "bone": "rForeArm",
+        "position_cm": 1.77598107460383e-05,
+        "rotation_matrix_max": 2.0621004648280206e-07
+      },
+      {
+        "bone": "rHand",
+        "position_cm": 8.25842885412067e-06,
+        "rotation_matrix_max": 1.6185225815146254e-07
+      },
+      {
+        "bone": "rCarpal2",
+        "position_cm": 3.469964169514035e-05,
+        "rotation_matrix_max": 1.4994305594373536e-07
+      },
+      {
+        "bone": "rRing1",
+        "position_cm": 3.850551107889603e-05,
+        "rotation_matrix_max": 1.515185852896117e-07
+      },
+      {
+        "bone": "rRing2",
+        "position_cm": 2.6508089909305103e-05,
+        "rotation_matrix_max": 1.786343820087133e-07
+      },
+      {
+        "bone": "rRing3",
+        "position_cm": 3.209812173402489e-05,
+        "rotation_matrix_max": 2.625828719460266e-07
+      },
+      {
+        "bone": "rPinky1",
+        "position_cm": 1.8554005180181312e-05,
+        "rotation_matrix_max": 1.4057936148503813e-07
+      },
+      {
+        "bone": "rPinky2",
+        "position_cm": 9.59350797647218e-06,
+        "rotation_matrix_max": 2.593832009734065e-07
+      },
+      {
+        "bone": "rPinky3",
+        "position_cm": 5.360817965883006e-05,
+        "rotation_matrix_max": 1.878660501053453e-07
+      },
+      {
+        "bone": "rCarpal1",
+        "position_cm": 3.776648465919989e-05,
+        "rotation_matrix_max": 1.746563126348022e-07
+      },
+      {
+        "bone": "rIndex1",
+        "position_cm": 1.543930771183615e-05,
+        "rotation_matrix_max": 1.5418810363210245e-07
+      },
+      {
+        "bone": "rIndex2",
+        "position_cm": 4.281821195792253e-05,
+        "rotation_matrix_max": 2.6020337562382423e-07
+      },
+      {
+        "bone": "rIndex3",
+        "position_cm": 3.301469928124414e-05,
+        "rotation_matrix_max": 1.6207046193983388e-07
+      },
+      {
+        "bone": "rMid1",
+        "position_cm": 3.5102958508995214e-05,
+        "rotation_matrix_max": 1.6461681651147586e-07
+      },
+      {
+        "bone": "rMid2",
+        "position_cm": 1.1611095959896502e-05,
+        "rotation_matrix_max": 2.545570481071735e-07
+      },
+      {
+        "bone": "rMid3",
+        "position_cm": 4.4647673892152626e-05,
+        "rotation_matrix_max": 1.7149130593363537e-07
+      },
+      {
+        "bone": "rThumb1",
+        "position_cm": 2.9949723756855314e-05,
+        "rotation_matrix_max": 2.6084548920835005e-07
+      },
+      {
+        "bone": "rThumb2",
+        "position_cm": 3.0033011629051694e-05,
+        "rotation_matrix_max": 2.2700620971871643e-07
+      },
+      {
+        "bone": "rThumb3",
+        "position_cm": 1.0981334342389195e-05,
+        "rotation_matrix_max": 2.472159533750684e-07
+      },
+      {
+        "bone": "lPectoral",
+        "position_cm": 2.2538348745198454e-05,
+        "rotation_matrix_max": 1.1601801636063058e-07
+      },
+      {
+        "bone": "lNipple",
+        "position_cm": 3.960419505972596e-06,
+        "rotation_matrix_max": 1.9962076291957231e-07
+      },
+      {
+        "bone": "rPectoral",
+        "position_cm": 3.1918609733498393e-05,
+        "rotation_matrix_max": 6.520000508936086e-08
+      },
+      {
+        "bone": "rNipple",
+        "position_cm": 3.878550407403761e-06,
+        "rotation_matrix_max": 2.467660698002305e-07
+      },
+      {
+        "bone": "neck",
+        "position_cm": 3.5855652597044e-06,
+        "rotation_matrix_max": 8.599154355248828e-08
+      },
+      {
+        "bone": "head",
+        "position_cm": 2.3730992598012303e-05,
+        "rotation_matrix_max": 7.3123476163061696e-09
+      },
+      {
+        "bone": "rEye",
+        "position_cm": 4.647290092190417e-05,
+        "rotation_matrix_max": 0.04069268337401286
+      },
+      {
+        "bone": "lEye",
+        "position_cm": 9.345968710059824e-06,
+        "rotation_matrix_max": 0.040872220822276505
+      },
+      {
+        "bone": "upperJaw",
+        "position_cm": 4.735823421081356e-05,
+        "rotation_matrix_max": 9.393322653039604e-08
+      },
+      {
+        "bone": "lowerJaw",
+        "position_cm": 2.0603409050760433e-05,
+        "rotation_matrix_max": 7.303910742884057e-08
+      },
+      {
+        "bone": "tongueBase",
+        "position_cm": 1.8513021224123167e-05,
+        "rotation_matrix_max": 7.783783489978546e-08
+      },
+      {
+        "bone": "tongue01",
+        "position_cm": 1.5682616337323273e-05,
+        "rotation_matrix_max": 1.918365318820392e-07
+      },
+      {
+        "bone": "tongue02",
+        "position_cm": 2.6268812865543014e-05,
+        "rotation_matrix_max": 2.809841233020194e-07
+      },
+      {
+        "bone": "tongue03",
+        "position_cm": 3.2091286393403996e-05,
+        "rotation_matrix_max": 2.4649857783068385e-07
+      },
+      {
+        "bone": "tongue04",
+        "position_cm": 4.082354328490958e-06,
+        "rotation_matrix_max": 1.9446944692080859e-07
+      },
+      {
+        "bone": "tongue05",
+        "position_cm": 3.7330082386544645e-05,
+        "rotation_matrix_max": 2.5509224947390524e-07
+      },
+      {
+        "bone": "tongueTip",
+        "position_cm": 5.5083446607255654e-05,
+        "rotation_matrix_max": 2.4403145026941075e-07
+      },
+      {
+        "bone": "lCollar",
+        "position_cm": 5.766807432098223e-05,
+        "rotation_matrix_max": 1.5795090935188938e-07
+      },
+      {
+        "bone": "lShldr",
+        "position_cm": 5.344537624880892e-05,
+        "rotation_matrix_max": 5.5839359927589705e-08
+      },
+      {
+        "bone": "lForeArm",
+        "position_cm": 5.6882718346114724e-05,
+        "rotation_matrix_max": 1.563233672507991e-07
+      },
+      {
+        "bone": "lHand",
+        "position_cm": 5.705151465794221e-05,
+        "rotation_matrix_max": 8.224992142924492e-08
+      },
+      {
+        "bone": "lCarpal2",
+        "position_cm": 1.6099614426521156e-05,
+        "rotation_matrix_max": 2.226047172149137e-07
+      },
+      {
+        "bone": "lRing1",
+        "position_cm": 2.418922911273717e-05,
+        "rotation_matrix_max": 1.2211760114233527e-07
+      },
+      {
+        "bone": "lRing2",
+        "position_cm": 3.9493336541067423e-05,
+        "rotation_matrix_max": 1.0749106094110061e-07
+      },
+      {
+        "bone": "lRing3",
+        "position_cm": 3.62310062125512e-05,
+        "rotation_matrix_max": 1.6498525512442797e-07
+      },
+      {
+        "bone": "lPinky1",
+        "position_cm": 1.595265138889569e-05,
+        "rotation_matrix_max": 9.740253964496404e-08
+      },
+      {
+        "bone": "lPinky2",
+        "position_cm": 1.6586054400762005e-05,
+        "rotation_matrix_max": 2.0291347424539197e-07
+      },
+      {
+        "bone": "lPinky3",
+        "position_cm": 3.8824189093130456e-05,
+        "rotation_matrix_max": 1.7084867043326568e-07
+      },
+      {
+        "bone": "lCarpal1",
+        "position_cm": 3.1481017311615275e-05,
+        "rotation_matrix_max": 1.2603842802771936e-07
+      },
+      {
+        "bone": "lIndex1",
+        "position_cm": 2.6762579883284114e-05,
+        "rotation_matrix_max": 1.5347473847349136e-07
+      },
+      {
+        "bone": "lIndex2",
+        "position_cm": 4.1504590204752544e-05,
+        "rotation_matrix_max": 1.2508406244116088e-07
+      },
+      {
+        "bone": "lIndex3",
+        "position_cm": 4.8209589907825644e-05,
+        "rotation_matrix_max": 1.748920934740994e-07
+      },
+      {
+        "bone": "lMid1",
+        "position_cm": 3.344035313643293e-05,
+        "rotation_matrix_max": 1.7367306215376743e-07
+      },
+      {
+        "bone": "lMid2",
+        "position_cm": 3.3067291063775594e-05,
+        "rotation_matrix_max": 2.1344362410857798e-07
+      },
+      {
+        "bone": "lMid3",
+        "position_cm": 6.17949394221592e-05,
+        "rotation_matrix_max": 1.6346601106054237e-07
+      },
+      {
+        "bone": "lThumb1",
+        "position_cm": 6.754199070890362e-06,
+        "rotation_matrix_max": 1.5489788329769993e-07
+      },
+      {
+        "bone": "lThumb2",
+        "position_cm": 3.6944471667329675e-05,
+        "rotation_matrix_max": 1.86746760610923e-07
+      },
+      {
+        "bone": "lThumb3",
+        "position_cm": 2.2160653481470906e-05,
+        "rotation_matrix_max": 2.0717112947377103e-07
+      }
+    ],
+    "excluded_bones": [
+      "lEye",
+      "rEye"
+    ],
+    "position_max_cm": 6.17949394221592e-05,
+    "rotation_max": 3.483797459402638e-07
+  }
+]

@@ -1,0 +1,1 @@
+Exact UE matrix keyframes captured; dynamics OFF; core drivers ON; verify matrix/morph gates
