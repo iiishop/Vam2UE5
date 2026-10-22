@@ -1,0 +1,21 @@
+{
+  "selection": "be1c79fea334698861f8d49c82752b7ee988a81df02c9b69aecda7bc15aec393",
+  "plan_id": "fb9ac6e9d2490865e65fd441b887f30061c9d895b53e06f8a131e239f6855810",
+  "body_contract": "8dc812aa2ab4cfdefb293e47b9b6160d47364968ab440497c7cf40a7628cbc55",
+  "prepared_identity": "bfb1042ef9fbaa8a3adeddd855cd3a510a31bf873ca9e49e27ab2b3eba590297",
+  "groups": [
+    {
+      "name": "Swift Twintails Hairline_native_full",
+      "curves": 122
+    },
+    {
+      "name": "Swift Bangs C_native_full",
+      "curves": 81
+    },
+    {
+      "name": "Swift Twintails High_native_full",
+      "curves": 807
+    }
+  ],
+  "source_guide_policy": "Whole guides and painted rigidity profiles preserved for native render binding; no anchor triangle loss"
+}

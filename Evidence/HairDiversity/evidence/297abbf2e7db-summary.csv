@@ -1,0 +1,49 @@
+﻿phase,group,name,region,scope,anchor_u,point_samples,over_threshold_samples,over_threshold_and_authored_rest_inside_samples,over_threshold_but_authored_rest_outside_samples,max_depth_cm,fraction_over_threshold
+settle,0,Short Hair 1 Detail_native_full,head,all_points,,16800,0,0,0,0,0.0
+settle,0,Short Hair 1 Detail_native_full,head,historical_nonroot_j_ge_3,,15225,0,0,0,0,0.0
+settle,0,Short Hair 1 Detail_native_full,head,root_prefix_j_lt_3,,1575,0,0,0,0,0.0
+settle,0,Short Hair 1 Detail_native_full,head,nonroot_without_automatic_anchor,,15225,0,0,0,0,0.0
+settle,0,Short Hair 1 Detail_native_full,body,all_points,,16800,0,0,0,0,0.0
+settle,0,Short Hair 1 Detail_native_full,body,historical_nonroot_j_ge_3,,15225,0,0,0,0,0.0
+settle,0,Short Hair 1 Detail_native_full,body,root_prefix_j_lt_3,,1575,0,0,0,0,0.0
+settle,0,Short Hair 1 Detail_native_full,body,nonroot_without_automatic_anchor,,15225,0,0,0,0,0.0
+settle,1,Short Hair 1_native_full,head,all_points,,102400,1100,1100,0,0.949629703818692,0.0107421875
+settle,1,Short Hair 1_native_full,head,historical_nonroot_j_ge_3,,92800,750,750,0,0.8560984176733184,0.008081896551724138
+settle,1,Short Hair 1_native_full,head,root_prefix_j_lt_3,,9600,350,350,0,0.949629703818692,0.036458333333333336
+settle,1,Short Hair 1_native_full,head,nonroot_without_automatic_anchor,,92800,750,750,0,0.8560984176733184,0.008081896551724138
+settle,1,Short Hair 1_native_full,body,all_points,,102400,22157,22157,0,8.765593414447949,0.216376953125
+settle,1,Short Hair 1_native_full,body,historical_nonroot_j_ge_3,,92800,22007,22007,0,8.765593414447949,0.23714439655172415
+settle,1,Short Hair 1_native_full,body,root_prefix_j_lt_3,,9600,150,150,0,1.7660770734421138,0.015625
+settle,1,Short Hair 1_native_full,body,nonroot_without_automatic_anchor,,92800,22007,22007,0,8.765593414447949,0.23714439655172415
+motion,0,Short Hair 1 Detail_native_full,head,all_points,,16128,0,0,0,0,0.0
+motion,0,Short Hair 1 Detail_native_full,head,historical_nonroot_j_ge_3,,14616,0,0,0,0,0.0
+motion,0,Short Hair 1 Detail_native_full,head,root_prefix_j_lt_3,,1512,0,0,0,0,0.0
+motion,0,Short Hair 1 Detail_native_full,head,nonroot_without_automatic_anchor,,14616,0,0,0,0,0.0
+motion,0,Short Hair 1 Detail_native_full,body,all_points,,16128,0,0,0,0,0.0
+motion,0,Short Hair 1 Detail_native_full,body,historical_nonroot_j_ge_3,,14616,0,0,0,0,0.0
+motion,0,Short Hair 1 Detail_native_full,body,root_prefix_j_lt_3,,1512,0,0,0,0,0.0
+motion,0,Short Hair 1 Detail_native_full,body,nonroot_without_automatic_anchor,,14616,0,0,0,0,0.0
+motion,1,Short Hair 1_native_full,head,all_points,,98304,1056,1056,0,0.9519359687058704,0.0107421875
+motion,1,Short Hair 1_native_full,head,historical_nonroot_j_ge_3,,89088,720,720,0,0.8581668366223649,0.008081896551724138
+motion,1,Short Hair 1_native_full,head,root_prefix_j_lt_3,,9216,336,336,0,0.9519359687058704,0.036458333333333336
+motion,1,Short Hair 1_native_full,head,nonroot_without_automatic_anchor,,89088,720,720,0,0.8581668366223649,0.008081896551724138
+motion,1,Short Hair 1_native_full,body,all_points,,98304,22269,22269,0,10.567559797267403,0.226531982421875
+motion,1,Short Hair 1_native_full,body,historical_nonroot_j_ge_3,,89088,22105,22105,0,10.567559797267403,0.24812544899425287
+motion,1,Short Hair 1_native_full,body,root_prefix_j_lt_3,,9216,164,164,0,2.883937602934914,0.017795138888888888
+motion,1,Short Hair 1_native_full,body,nonroot_without_automatic_anchor,,89088,22105,22105,0,10.567559797267403,0.24812544899425287
+recovery,0,Short Hair 1 Detail_native_full,head,all_points,,15456,0,0,0,0,0.0
+recovery,0,Short Hair 1 Detail_native_full,head,historical_nonroot_j_ge_3,,14007,0,0,0,0,0.0
+recovery,0,Short Hair 1 Detail_native_full,head,root_prefix_j_lt_3,,1449,0,0,0,0,0.0
+recovery,0,Short Hair 1 Detail_native_full,head,nonroot_without_automatic_anchor,,14007,0,0,0,0,0.0
+recovery,0,Short Hair 1 Detail_native_full,body,all_points,,15456,0,0,0,0,0.0
+recovery,0,Short Hair 1 Detail_native_full,body,historical_nonroot_j_ge_3,,14007,0,0,0,0,0.0
+recovery,0,Short Hair 1 Detail_native_full,body,root_prefix_j_lt_3,,1449,0,0,0,0,0.0
+recovery,0,Short Hair 1 Detail_native_full,body,nonroot_without_automatic_anchor,,14007,0,0,0,0,0.0
+recovery,1,Short Hair 1_native_full,head,all_points,,94208,1012,1012,0,0.9468272675647018,0.0107421875
+recovery,1,Short Hair 1_native_full,head,historical_nonroot_j_ge_3,,85376,690,690,0,0.8560984176733184,0.008081896551724138
+recovery,1,Short Hair 1_native_full,head,root_prefix_j_lt_3,,8832,322,322,0,0.9468272675647018,0.036458333333333336
+recovery,1,Short Hair 1_native_full,head,nonroot_without_automatic_anchor,,85376,690,690,0,0.8560984176733184,0.008081896551724138
+recovery,1,Short Hair 1_native_full,body,all_points,,94208,20355,20355,0,8.765593414447949,0.216064453125
+recovery,1,Short Hair 1_native_full,body,historical_nonroot_j_ge_3,,85376,20217,20217,0,8.765593414447949,0.23679956896551724
+recovery,1,Short Hair 1_native_full,body,root_prefix_j_lt_3,,8832,138,138,0,1.7660770734421138,0.015625
+recovery,1,Short Hair 1_native_full,body,nonroot_without_automatic_anchor,,85376,20217,20217,0,8.765593414447949,0.23679956896551724

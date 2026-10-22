@@ -1,0 +1,12 @@
+[
+  {
+    "resource": "Custom/Hair/Female/BooMoon/Short Hair 1/Short Hair 1.vab",
+    "particle_reconstruction_max_cm": 1.999187903134363e-05,
+    "particle_reconstruction_rms_cm": 7.082749867480011e-06
+  },
+  {
+    "resource": "Custom/Hair/Female/BooMoon/Short Hair 1/Short Hair 1 Detail.vab",
+    "particle_reconstruction_max_cm": 1.9450866655905435e-05,
+    "particle_reconstruction_rms_cm": 8.17612126194239e-06
+  }
+]

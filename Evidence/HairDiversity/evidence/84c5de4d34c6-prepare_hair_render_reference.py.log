@@ -1,0 +1,29 @@
+[
+  {
+    "resource": "Swift Twintails Hairline",
+    "render_curves": 1314,
+    "native_samples_per_guide": 64,
+    "source_triangles": 146,
+    "physics": false,
+    "source_half_width_m": 7.328223e-05,
+    "groom_diameter_cm": 0.014656446
+  },
+  {
+    "resource": "Swift Twintails High",
+    "render_curves": 17988,
+    "native_samples_per_guide": 64,
+    "source_triangles": 1499,
+    "physics": false,
+    "source_half_width_m": 0.0001120908,
+    "groom_diameter_cm": 0.02241816
+  },
+  {
+    "resource": "Swift Bangs C",
+    "render_curves": 1760,
+    "native_samples_per_guide": 64,
+    "source_triangles": 110,
+    "physics": false,
+    "source_half_width_m": 0.00015703,
+    "groom_diameter_cm": 0.031406
+  }
+]

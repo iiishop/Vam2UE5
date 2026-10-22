@@ -1,0 +1,20 @@
+[
+  {
+    "resource": "Short Hair 1",
+    "render_curves": 35675,
+    "native_samples_per_guide": 40,
+    "source_triangles": 1427,
+    "physics": false,
+    "source_half_width_m": 9.429679e-05,
+    "groom_diameter_cm": 0.018859358
+  },
+  {
+    "resource": "Short Hair 1 Detail",
+    "render_curves": 150,
+    "native_samples_per_guide": 40,
+    "source_triangles": 6,
+    "physics": false,
+    "source_half_width_m": 6.85201e-05,
+    "groom_diameter_cm": 0.013704019999999999
+  }
+]

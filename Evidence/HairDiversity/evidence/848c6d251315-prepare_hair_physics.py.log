@@ -1,0 +1,16 @@
+[
+  {
+    "source": "Custom/Hair/Female/BooMoon/Short Hair 1/Short Hair 1 Detail.vab",
+    "kind": "loose",
+    "median_length_cm": 23.501439233237864,
+    "median_chord_ratio": 0.7864240427877468,
+    "median_rigidity": 0.1262247396633029
+  },
+  {
+    "source": "Custom/Hair/Female/BooMoon/Short Hair 1/Short Hair 1.vab",
+    "kind": "supported",
+    "median_length_cm": 20.728723718335573,
+    "median_chord_ratio": 0.9539132713613433,
+    "median_rigidity": 0.27461260692216455
+  }
+]

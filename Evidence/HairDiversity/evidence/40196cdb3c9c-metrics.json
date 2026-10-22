@@ -1,0 +1,2924 @@
+{
+  "schema": "vam-ue-hair-dynamic-comparison-v1",
+  "coordinate_space": "Groom component local / rigid head local, cm",
+  "actor": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/BP_VamCharacter.BP_VamCharacter_C",
+  "hair": "UE Groom / physics on / Fine / 3 groups / 5cf7336ae2091fa4395712b34f22e7c82cf8ff7ad517957b18ca3d0268948673-hair",
+  "world": "PIE",
+  "simulation_dt": 0.016666666666666666,
+  "video_fps": 30,
+  "geometry_samples": 72,
+  "phase_origin": "replay protocol labels at round(capture time * 30)",
+  "layout_fallback_points_per_guide": 32,
+  "limitations": [
+    "Head-local means the current rigid head-attached Groom component. Legacy captures do not export its world matrix; an independently measured bone-to-Groom transform error cannot be recovered.",
+    "Guide points are GPU-interpolated Groom control points, not Niagara simulation particles. Polyline length change is a geometric diagnostic, not a solver constraint residual.",
+    "Geometry samples may be only once per second. Their finite-difference speeds and extrema miss motion between samples; dense temporal summaries are separately labelled.",
+    "Collision results measure the captured sphere/capsule proxy union, not the skin surface. Roots/prefix are excluded; rendered strands are a deterministic subset. Captured radii assume unit component scale.",
+    "Rest points are imported authored geometry, not a settled physical equilibrium. First-sample excursion and rest displacement answer different questions.",
+    "VaM reference summaries are side-by-side observations only: different topology, guide selection, phase timing or movement invalidate pointwise RMS and direct solver-quality rankings.",
+    "Capture GPU readback blocks rendering. Recorded simulation/video rates and this report are not a performance benchmark."
+  ],
+  "phases": {
+    "settle": [
+      {
+        "group": 0,
+        "geometry_samples": 25,
+        "guide_curves": 122,
+        "guide_points": 3904,
+        "all_samples_simulation_enabled": true,
+        "first_time": 0.0,
+        "last_time": 8.0,
+        "sampled_dt_seconds": {
+          "count": 24,
+          "rms": 0.33333333333333337,
+          "median": 0.33333333333333326,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339,
+          "min": 0.33333333333333304
+        },
+        "tip_excursion_from_phase_first_cm": {
+          "count": 3050,
+          "rms": 0.002230985371946085,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.08005430285905936,
+          "min": 0.0
+        },
+        "guide_excursion_from_phase_first_cm": {
+          "count": 97600,
+          "rms": 0.0023511575224843943,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.1129440023031325,
+          "min": 0.0
+        },
+        "guide_displacement_from_authored_rest_cm": {
+          "count": 97600,
+          "rms": 0.10227196641576891,
+          "median": 0.07909704124810296,
+          "p95": 0.1495639821802863,
+          "max": 0.15344466493740963,
+          "min": 0.0
+        },
+        "root_displacement_from_authored_rest_cm": {
+          "count": 3050,
+          "rms": 0.0042833215245860565,
+          "median": 0.001953125,
+          "p95": 0.008052940675034493,
+          "max": 0.008950343154210625,
+          "min": 0.0
+        },
+        "root_motion_from_phase_first_cm": {
+          "count": 3050,
+          "rms": 0.001050286540573968,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.008950343154210625,
+          "min": 0.0
+        },
+        "polyline_length_ratio_to_rest": {
+          "count": 3050,
+          "rms": 1.0055120914593632,
+          "median": 1.0036068357740382,
+          "p95": 1.020426963578402,
+          "max": 1.1656482570540503,
+          "min": 0.8975073815676335
+        },
+        "polyline_length_abs_change_cm": {
+          "count": 3050,
+          "rms": 0.053886432243749526,
+          "median": 0.024024566446930073,
+          "p95": 0.12676675569777318,
+          "max": 0.21340568780774394,
+          "min": 1.1095949573380892e-05
+        },
+        "segment_abs_relative_length_change": {
+          "count": 94550,
+          "rms": 0.13388272905150056,
+          "median": 0.013234300304790558,
+          "p95": 0.10726063210775727,
+          "max": 6.63223446084628,
+          "min": 0.0
+        },
+        "degenerate_rest_segments": 0,
+        "collision_root_prefix_excluded_points": 366,
+        "parameters": {
+          "solver": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/NS_Style_supported_32_G0.NS_Style_supported_32_G0",
+          "substeps": 5,
+          "iterations": 8,
+          "density": 1.2999999523162842,
+          "thickness_cm": 0.026254743337631226,
+          "bend_stiffness": 9.284626960754395,
+          "air_drag": 0.15000000596046448,
+          "self_collision_viscosity": 0
+        },
+        "sampled_tip_speed_cm_s": {
+          "count": 2928,
+          "rms": 0.0068309697311015665,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.24016290857717829,
+          "min": 0.0
+        },
+        "sampled_tip_speed_final_median_cm_s": 0.0,
+        "proxy_penetration": {
+          "head": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 88450,
+              "rms": 0.8358368477398517,
+              "median": 0.0,
+              "p95": 2.070304357376403,
+              "max": 5.219322791131742,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 1152,
+            "max_fraction_over_threshold": 0.32560768795929906,
+            "threshold_cm": 0.2
+          },
+          "body": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 88450,
+              "rms": 0.11790143686274493,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 1.2017905528278785,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 90,
+            "max_fraction_over_threshold": 0.025438100621820236,
+            "threshold_cm": 0.2
+          }
+        },
+        "render_matched_points": 136,
+        "render_excursion_from_phase_first_cm": {
+          "count": 3400,
+          "rms": 0.001638974056485878,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.016774788463185433,
+          "min": 0.0
+        }
+      },
+      {
+        "group": 1,
+        "geometry_samples": 25,
+        "guide_curves": 81,
+        "guide_points": 2592,
+        "all_samples_simulation_enabled": true,
+        "first_time": 0.0,
+        "last_time": 8.0,
+        "sampled_dt_seconds": {
+          "count": 24,
+          "rms": 0.33333333333333337,
+          "median": 0.33333333333333326,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339,
+          "min": 0.33333333333333304
+        },
+        "tip_excursion_from_phase_first_cm": {
+          "count": 2025,
+          "rms": 0.017952645958969643,
+          "median": 0.0,
+          "p95": 0.01790068630842125,
+          "max": 0.2441015593744999,
+          "min": 0.0
+        },
+        "guide_excursion_from_phase_first_cm": {
+          "count": 64800,
+          "rms": 0.009433402988731928,
+          "median": 0.0,
+          "p95": 0.004367320268554277,
+          "max": 0.2441015593744999,
+          "min": 0.0
+        },
+        "guide_displacement_from_authored_rest_cm": {
+          "count": 64800,
+          "rms": 0.8700777304808778,
+          "median": 0.39200075118323774,
+          "p95": 1.871736621566141,
+          "max": 6.086677398560761,
+          "min": 0.0
+        },
+        "root_displacement_from_authored_rest_cm": {
+          "count": 2025,
+          "rms": 0.002554811862988072,
+          "median": 0.0,
+          "p95": 0.004026470337517247,
+          "max": 0.007827743916934277,
+          "min": 0.0
+        },
+        "root_motion_from_phase_first_cm": {
+          "count": 2025,
+          "rms": 0.0006771041997318878,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.0078125,
+          "min": 0.0
+        },
+        "polyline_length_ratio_to_rest": {
+          "count": 2025,
+          "rms": 1.0094982030820268,
+          "median": 1.0091672132982719,
+          "p95": 1.0252480486715059,
+          "max": 1.054362918934825,
+          "min": 0.9784320383649728
+        },
+        "polyline_length_abs_change_cm": {
+          "count": 2025,
+          "rms": 0.21209305202561554,
+          "median": 0.17068445122872689,
+          "p95": 0.38081953080475905,
+          "max": 0.5615434088816897,
+          "min": 0.003604251785132462
+        },
+        "segment_abs_relative_length_change": {
+          "count": 62775,
+          "rms": 0.049484836976727065,
+          "median": 0.014850627091355983,
+          "p95": 0.09625757701834427,
+          "max": 0.5653058827462081,
+          "min": 0.0
+        },
+        "degenerate_rest_segments": 0,
+        "collision_root_prefix_excluded_points": 243,
+        "parameters": {
+          "solver": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/NS_Style_loose_32_G1.NS_Style_loose_32_G1",
+          "substeps": 5,
+          "iterations": 8,
+          "density": 1.2999999523162842,
+          "thickness_cm": 0.03729098290205002,
+          "bend_stiffness": 0.009204545058310032,
+          "air_drag": 0.15000000596046448,
+          "self_collision_viscosity": 0
+        },
+        "sampled_tip_speed_cm_s": {
+          "count": 1944,
+          "rms": 0.054309092885652575,
+          "median": 0.0,
+          "p95": 0.057409915846480725,
+          "max": 0.7323046781235003,
+          "min": 0.0
+        },
+        "sampled_tip_speed_final_median_cm_s": 0.0,
+        "proxy_penetration": {
+          "head": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 58725,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          },
+          "body": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 58725,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          }
+        },
+        "render_matched_points": 2064,
+        "render_excursion_from_phase_first_cm": {
+          "count": 51600,
+          "rms": 0.007985643423291238,
+          "median": 0.0,
+          "p95": 0.00390625,
+          "max": 0.20263437476583407,
+          "min": 0.0
+        }
+      },
+      {
+        "group": 2,
+        "geometry_samples": 25,
+        "guide_curves": 128,
+        "guide_points": 4096,
+        "all_samples_simulation_enabled": true,
+        "first_time": 0.0,
+        "last_time": 8.0,
+        "sampled_dt_seconds": {
+          "count": 24,
+          "rms": 0.33333333333333337,
+          "median": 0.33333333333333326,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339,
+          "min": 0.33333333333333304
+        },
+        "tip_excursion_from_phase_first_cm": {
+          "count": 3200,
+          "rms": 0.9285559253085914,
+          "median": 0.001953125,
+          "p95": 0.49479560662118677,
+          "max": 8.687947872335668,
+          "min": 0.0
+        },
+        "guide_excursion_from_phase_first_cm": {
+          "count": 102400,
+          "rms": 0.31848123122092,
+          "median": 0.0,
+          "p95": 0.12228574734840815,
+          "max": 8.687947872335668,
+          "min": 0.0
+        },
+        "guide_displacement_from_authored_rest_cm": {
+          "count": 102400,
+          "rms": 3.416662109123835,
+          "median": 1.0314275415352743,
+          "p95": 7.560515340366294,
+          "max": 16.28392665775118,
+          "min": 0.0
+        },
+        "root_displacement_from_authored_rest_cm": {
+          "count": 3200,
+          "rms": 0.002627274592759288,
+          "median": 0.0,
+          "p95": 0.005524271728019903,
+          "max": 0.008067730293876125,
+          "min": 0.0
+        },
+        "root_motion_from_phase_first_cm": {
+          "count": 3200,
+          "rms": 0.0007455640265029112,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.008052940675034493,
+          "min": 0.0
+        },
+        "polyline_length_ratio_to_rest": {
+          "count": 3200,
+          "rms": 1.0013656273042038,
+          "median": 0.9993814642153434,
+          "p95": 1.018397181838338,
+          "max": 1.1477781260279774,
+          "min": 0.9366402577658656
+        },
+        "polyline_length_abs_change_cm": {
+          "count": 3200,
+          "rms": 0.15890994008622517,
+          "median": 0.06166211593213511,
+          "p95": 0.2899735635984253,
+          "max": 1.6799949690230207,
+          "min": 0.00019872827863309794
+        },
+        "segment_abs_relative_length_change": {
+          "count": 99200,
+          "rms": 0.22943939779778846,
+          "median": 0.00480472449625946,
+          "p95": 0.09508832270804646,
+          "max": 9.899109671237026,
+          "min": 0.0
+        },
+        "degenerate_rest_segments": 0,
+        "collision_root_prefix_excluded_points": 384,
+        "parameters": {
+          "solver": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/NS_Style_loose_32_G2.NS_Style_loose_32_G2",
+          "substeps": 5,
+          "iterations": 8,
+          "density": 1.2999999523162842,
+          "thickness_cm": 0.09483670443296432,
+          "bend_stiffness": 0.0014231710229068995,
+          "air_drag": 0.15000000596046448,
+          "self_collision_viscosity": 0
+        },
+        "sampled_tip_speed_cm_s": {
+          "count": 3072,
+          "rms": 3.2628832581915566,
+          "median": 0.0,
+          "p95": 1.3091114395257515,
+          "max": 28.16259687422278,
+          "min": 0.0
+        },
+        "sampled_tip_speed_final_median_cm_s": 0.00585937499999999,
+        "proxy_penetration": {
+          "head": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 92800,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          },
+          "body": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 92800,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          }
+        },
+        "render_matched_points": 1,
+        "render_excursion_from_phase_first_cm": {
+          "count": 25,
+          "rms": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        }
+      }
+    ],
+    "motion": [
+      {
+        "group": 0,
+        "geometry_samples": 24,
+        "guide_curves": 122,
+        "guide_points": 3904,
+        "all_samples_simulation_enabled": true,
+        "first_time": 8.333333333333334,
+        "last_time": 16.0,
+        "sampled_dt_seconds": {
+          "count": 23,
+          "rms": 0.3333333333333333,
+          "median": 0.3333333333333339,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339,
+          "min": 0.33333333333333215
+        },
+        "tip_excursion_from_phase_first_cm": {
+          "count": 2928,
+          "rms": 0.025960959805533028,
+          "median": 0.005524271728019903,
+          "p95": 0.02734375,
+          "max": 0.15390079701634304,
+          "min": 0.0
+        },
+        "guide_excursion_from_phase_first_cm": {
+          "count": 93696,
+          "rms": 0.034867214634040605,
+          "median": 0.005609924459509794,
+          "p95": 0.03173452501810922,
+          "max": 0.28833107240042744,
+          "min": 0.0
+        },
+        "guide_displacement_from_authored_rest_cm": {
+          "count": 93696,
+          "rms": 0.10244423543609053,
+          "median": 0.07824488016917765,
+          "p95": 0.14960354277931212,
+          "max": 0.15385199040565653,
+          "min": 0.0
+        },
+        "root_displacement_from_authored_rest_cm": {
+          "count": 2928,
+          "rms": 0.004719767210414695,
+          "median": 0.00390625,
+          "p95": 0.008734640537108554,
+          "max": 0.009568319307746789,
+          "min": 0.0
+        },
+        "root_motion_from_phase_first_cm": {
+          "count": 2928,
+          "rms": 0.005049128141572651,
+          "median": 0.00390625,
+          "p95": 0.008052940675034493,
+          "max": 0.009568319307746789,
+          "min": 0.0
+        },
+        "polyline_length_ratio_to_rest": {
+          "count": 2928,
+          "rms": 1.0053961258978463,
+          "median": 1.002949883639162,
+          "p95": 1.0260207612770367,
+          "max": 1.165751989222936,
+          "min": 0.8794030767108548
+        },
+        "polyline_length_abs_change_cm": {
+          "count": 2928,
+          "rms": 0.054601646688192215,
+          "median": 0.02370680626199695,
+          "p95": 0.12969811197470715,
+          "max": 0.18035097515040732,
+          "min": 0.0
+        },
+        "segment_abs_relative_length_change": {
+          "count": 90768,
+          "rms": 0.1437434231781848,
+          "median": 0.01111810919606715,
+          "p95": 0.09392146398580925,
+          "max": 6.7154256976705495,
+          "min": 0.0
+        },
+        "degenerate_rest_segments": 0,
+        "collision_root_prefix_excluded_points": 366,
+        "parameters": {
+          "solver": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/NS_Style_supported_32_G0.NS_Style_supported_32_G0",
+          "substeps": 5,
+          "iterations": 8,
+          "density": 1.2999999523162842,
+          "thickness_cm": 0.026254743337631226,
+          "bend_stiffness": 9.284626960754395,
+          "air_drag": 0.15000000596046448,
+          "self_collision_viscosity": 0
+        },
+        "sampled_tip_speed_cm_s": {
+          "count": 2806,
+          "rms": 0.08749480707004584,
+          "median": 0.026851029462631827,
+          "p95": 0.08847462228832895,
+          "max": 0.46110945258295677,
+          "min": 0.0
+        },
+        "sampled_tip_speed_final_median_cm_s": 0.026469470899486824,
+        "proxy_penetration": {
+          "head": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 84912,
+              "rms": 0.8360592227995024,
+              "median": 0.0,
+              "p95": 2.069190855529106,
+              "max": 5.22016839205525,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 1166,
+            "max_fraction_over_threshold": 0.3295647258338044,
+            "threshold_cm": 0.2
+          },
+          "body": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 84912,
+              "rms": 0.19433716684524135,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 2.150282582597505,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 274,
+            "max_fraction_over_threshold": 0.07744488411531938,
+            "threshold_cm": 0.2
+          }
+        },
+        "render_matched_points": 137,
+        "render_excursion_from_phase_first_cm": {
+          "count": 3288,
+          "rms": 0.02901874385379389,
+          "median": 0.005859375,
+          "p95": 0.026746891077369724,
+          "max": 0.2712317739243639,
+          "min": 0.0
+        }
+      },
+      {
+        "group": 1,
+        "geometry_samples": 24,
+        "guide_curves": 81,
+        "guide_points": 2592,
+        "all_samples_simulation_enabled": true,
+        "first_time": 8.333333333333334,
+        "last_time": 16.0,
+        "sampled_dt_seconds": {
+          "count": 23,
+          "rms": 0.3333333333333333,
+          "median": 0.3333333333333339,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339,
+          "min": 0.33333333333333215
+        },
+        "tip_excursion_from_phase_first_cm": {
+          "count": 1944,
+          "rms": 1.0377244593979098,
+          "median": 0.4255795909755537,
+          "p95": 2.4034802964921442,
+          "max": 5.485907794173347,
+          "min": 0.0
+        },
+        "guide_excursion_from_phase_first_cm": {
+          "count": 62208,
+          "rms": 0.44441917482677523,
+          "median": 0.06984752985817017,
+          "p95": 0.9546657608932111,
+          "max": 5.485907794173347,
+          "min": 0.0
+        },
+        "guide_displacement_from_authored_rest_cm": {
+          "count": 62208,
+          "rms": 0.9421730195986766,
+          "median": 0.4054311044325599,
+          "p95": 1.9800255967037697,
+          "max": 8.197775413398176,
+          "min": 0.0
+        },
+        "root_displacement_from_authored_rest_cm": {
+          "count": 1944,
+          "rms": 0.004713871889793588,
+          "median": 0.00390625,
+          "p95": 0.008734640537108554,
+          "max": 0.01109161786289116,
+          "min": 0.0
+        },
+        "root_motion_from_phase_first_cm": {
+          "count": 1944,
+          "rms": 0.0063959992119034074,
+          "median": 0.0067658234670659265,
+          "p95": 0.008950343154210625,
+          "max": 0.011219848919019587,
+          "min": 0.0
+        },
+        "polyline_length_ratio_to_rest": {
+          "count": 1944,
+          "rms": 1.0088552436029015,
+          "median": 1.009190236657711,
+          "p95": 1.0260947185711373,
+          "max": 1.05681668429817,
+          "min": 0.9472796871036014
+        },
+        "polyline_length_abs_change_cm": {
+          "count": 1944,
+          "rms": 0.22649153617643558,
+          "median": 0.1647337114709062,
+          "p95": 0.42515165571190505,
+          "max": 0.980170581507604,
+          "min": 4.7365999893855815e-05
+        },
+        "segment_abs_relative_length_change": {
+          "count": 60264,
+          "rms": 0.04821381665077463,
+          "median": 0.014845106007842446,
+          "p95": 0.09682623477880292,
+          "max": 0.5912033569847939,
+          "min": 0.0
+        },
+        "degenerate_rest_segments": 0,
+        "collision_root_prefix_excluded_points": 243,
+        "parameters": {
+          "solver": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/NS_Style_loose_32_G1.NS_Style_loose_32_G1",
+          "substeps": 5,
+          "iterations": 8,
+          "density": 1.2999999523162842,
+          "thickness_cm": 0.03729098290205002,
+          "bend_stiffness": 0.009204545058310032,
+          "air_drag": 0.15000000596046448,
+          "self_collision_viscosity": 0
+        },
+        "sampled_tip_speed_cm_s": {
+          "count": 1863,
+          "rms": 2.975380665186511,
+          "median": 1.387336185167035,
+          "p95": 6.741315433511132,
+          "max": 12.582139790163671,
+          "min": 0.028704957923240314
+        },
+        "sampled_tip_speed_final_median_cm_s": 1.2724021025586663,
+        "proxy_penetration": {
+          "head": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 56376,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          },
+          "body": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 56376,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          }
+        },
+        "render_matched_points": 2074,
+        "render_excursion_from_phase_first_cm": {
+          "count": 49776,
+          "rms": 0.37921772114837105,
+          "median": 0.05137869702330432,
+          "p95": 0.8703051319232127,
+          "max": 2.9252388098626345,
+          "min": 0.0
+        }
+      },
+      {
+        "group": 2,
+        "geometry_samples": 24,
+        "guide_curves": 128,
+        "guide_points": 4096,
+        "all_samples_simulation_enabled": true,
+        "first_time": 8.333333333333334,
+        "last_time": 16.0,
+        "sampled_dt_seconds": {
+          "count": 23,
+          "rms": 0.3333333333333333,
+          "median": 0.3333333333333339,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339,
+          "min": 0.33333333333333215
+        },
+        "tip_excursion_from_phase_first_cm": {
+          "count": 3072,
+          "rms": 4.789307209193924,
+          "median": 2.0096407964897596,
+          "p95": 10.105811932522744,
+          "max": 19.69862346971388,
+          "min": 0.0
+        },
+        "guide_excursion_from_phase_first_cm": {
+          "count": 98304,
+          "rms": 2.0689986369724513,
+          "median": 0.11495264819970438,
+          "p95": 4.882173331031406,
+          "max": 19.69862346971388,
+          "min": 0.0
+        },
+        "guide_displacement_from_authored_rest_cm": {
+          "count": 98304,
+          "rms": 3.4813972220769256,
+          "median": 1.0030414698841943,
+          "p95": 7.713735297665415,
+          "max": 17.066195356795223,
+          "min": 0.0
+        },
+        "root_displacement_from_authored_rest_cm": {
+          "count": 3072,
+          "rms": 0.0036666562622613237,
+          "median": 0.001953125,
+          "p95": 0.007827743916934277,
+          "max": 0.008950343154210625,
+          "min": 0.0
+        },
+        "root_motion_from_phase_first_cm": {
+          "count": 3072,
+          "rms": 0.004367751695811612,
+          "median": 0.00390625,
+          "p95": 0.008052940675034493,
+          "max": 0.008950343154210625,
+          "min": 0.0
+        },
+        "polyline_length_ratio_to_rest": {
+          "count": 3072,
+          "rms": 1.001509412714619,
+          "median": 0.9994514380409321,
+          "p95": 1.0167653880173588,
+          "max": 1.4030084606689455,
+          "min": 0.9380943820339228
+        },
+        "polyline_length_abs_change_cm": {
+          "count": 3072,
+          "rms": 0.16189213300550837,
+          "median": 0.060308985925917824,
+          "p95": 0.2888016527489625,
+          "max": 1.831998118834818,
+          "min": 8.63515105464785e-06
+        },
+        "segment_abs_relative_length_change": {
+          "count": 95232,
+          "rms": 0.25879792648013317,
+          "median": 0.004673189077437745,
+          "p95": 0.09311080654245849,
+          "max": 17.234261581680176,
+          "min": 0.0
+        },
+        "degenerate_rest_segments": 0,
+        "collision_root_prefix_excluded_points": 384,
+        "parameters": {
+          "solver": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/NS_Style_loose_32_G2.NS_Style_loose_32_G2",
+          "substeps": 5,
+          "iterations": 8,
+          "density": 1.2999999523162842,
+          "thickness_cm": 0.09483670443296432,
+          "bend_stiffness": 0.0014231710229068995,
+          "air_drag": 0.15000000596046448,
+          "self_collision_viscosity": 0
+        },
+        "sampled_tip_speed_cm_s": {
+          "count": 2944,
+          "rms": 13.524644847886263,
+          "median": 6.659884347743567,
+          "p95": 28.666506031456443,
+          "max": 55.906948300601734,
+          "min": 0.011962065596802244
+        },
+        "sampled_tip_speed_final_median_cm_s": 6.7120699330959495,
+        "proxy_penetration": {
+          "head": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 89088,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          },
+          "body": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 89088,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          }
+        },
+        "render_matched_points": 1,
+        "render_excursion_from_phase_first_cm": {
+          "count": 24,
+          "rms": 0.0049293840237330105,
+          "median": 0.00390625,
+          "p95": 0.008734640537108554,
+          "max": 0.008748277767172323,
+          "min": 0.0
+        }
+      }
+    ],
+    "recovery": [
+      {
+        "group": 0,
+        "geometry_samples": 23,
+        "guide_curves": 122,
+        "guide_points": 3904,
+        "all_samples_simulation_enabled": true,
+        "first_time": 16.333333333333332,
+        "last_time": 23.666666666666668,
+        "sampled_dt_seconds": {
+          "count": 22,
+          "rms": 0.3333333333333334,
+          "median": 0.33333333333333215,
+          "p95": 0.3333333333333357,
+          "max": 0.3333333333333357,
+          "min": 0.33333333333333215
+        },
+        "tip_excursion_from_phase_first_cm": {
+          "count": 2806,
+          "rms": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        },
+        "guide_excursion_from_phase_first_cm": {
+          "count": 89792,
+          "rms": 0.0004319700931793817,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.010517900013934578,
+          "min": 0.0
+        },
+        "guide_displacement_from_authored_rest_cm": {
+          "count": 89792,
+          "rms": 0.1023611018112547,
+          "median": 0.0785821598766589,
+          "p95": 0.1495639821802863,
+          "max": 0.1533918274693114,
+          "min": 0.0
+        },
+        "root_displacement_from_authored_rest_cm": {
+          "count": 2806,
+          "rms": 0.004227471559147969,
+          "median": 0.001953125,
+          "p95": 0.008052940675034493,
+          "max": 0.008734640537108554,
+          "min": 0.0
+        },
+        "root_motion_from_phase_first_cm": {
+          "count": 2806,
+          "rms": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        },
+        "polyline_length_ratio_to_rest": {
+          "count": 2806,
+          "rms": 1.0056091584238125,
+          "median": 1.0041933938527094,
+          "p95": 1.022141624681556,
+          "max": 1.1583391605910631,
+          "min": 0.9168419571194186
+        },
+        "polyline_length_abs_change_cm": {
+          "count": 2806,
+          "rms": 0.053927462091860674,
+          "median": 0.0238438136573218,
+          "p95": 0.12676675569777318,
+          "max": 0.17041250566070154,
+          "min": 6.6895224597463e-05
+        },
+        "segment_abs_relative_length_change": {
+          "count": 86986,
+          "rms": 0.13390283694256347,
+          "median": 0.013802904281264183,
+          "p95": 0.10537353815189476,
+          "max": 6.393019242796227,
+          "min": 0.0
+        },
+        "degenerate_rest_segments": 0,
+        "collision_root_prefix_excluded_points": 366,
+        "parameters": {
+          "solver": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/NS_Style_supported_32_G0.NS_Style_supported_32_G0",
+          "substeps": 5,
+          "iterations": 8,
+          "density": 1.2999999523162842,
+          "thickness_cm": 0.026254743337631226,
+          "bend_stiffness": 9.284626960754395,
+          "air_drag": 0.15000000596046448,
+          "self_collision_viscosity": 0
+        },
+        "sampled_tip_speed_cm_s": {
+          "count": 2684,
+          "rms": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        },
+        "sampled_tip_speed_final_median_cm_s": 0.0,
+        "proxy_penetration": {
+          "head": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 81374,
+              "rms": 0.8358342872503652,
+              "median": 0.0,
+              "p95": 2.070304357376403,
+              "max": 5.218451710312376,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 1152,
+            "max_fraction_over_threshold": 0.32560768795929906,
+            "threshold_cm": 0.2
+          },
+          "body": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 81374,
+              "rms": 0.11849229629821424,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 1.2017905528278785,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 90,
+            "max_fraction_over_threshold": 0.025438100621820236,
+            "threshold_cm": 0.2
+          }
+        },
+        "render_matched_points": 136,
+        "render_excursion_from_phase_first_cm": {
+          "count": 3128,
+          "rms": 0.0004596563757654401,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.005859375,
+          "min": 0.0
+        }
+      },
+      {
+        "group": 1,
+        "geometry_samples": 23,
+        "guide_curves": 81,
+        "guide_points": 2592,
+        "all_samples_simulation_enabled": true,
+        "first_time": 16.333333333333332,
+        "last_time": 23.666666666666668,
+        "sampled_dt_seconds": {
+          "count": 22,
+          "rms": 0.3333333333333334,
+          "median": 0.33333333333333215,
+          "p95": 0.3333333333333357,
+          "max": 0.3333333333333357,
+          "min": 0.33333333333333215
+        },
+        "tip_excursion_from_phase_first_cm": {
+          "count": 1863,
+          "rms": 0.032093296115359084,
+          "median": 0.013531646934131853,
+          "p95": 0.06441057129808964,
+          "max": 0.17845460612647102,
+          "min": 0.0
+        },
+        "guide_excursion_from_phase_first_cm": {
+          "count": 59616,
+          "rms": 0.0156271043376631,
+          "median": 0.0,
+          "p95": 0.02870495792324037,
+          "max": 0.17845460612647102,
+          "min": 0.0
+        },
+        "guide_displacement_from_authored_rest_cm": {
+          "count": 59616,
+          "rms": 0.9110508556445504,
+          "median": 0.3973829488136255,
+          "p95": 1.919654618033948,
+          "max": 6.058437598729173,
+          "min": 0.0
+        },
+        "root_displacement_from_authored_rest_cm": {
+          "count": 1863,
+          "rms": 0.0024642161350432873,
+          "median": 0.0,
+          "p95": 0.0039067268080579245,
+          "max": 0.004367320268554277,
+          "min": 0.0
+        },
+        "root_motion_from_phase_first_cm": {
+          "count": 1863,
+          "rms": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        },
+        "polyline_length_ratio_to_rest": {
+          "count": 1863,
+          "rms": 1.009115858902657,
+          "median": 1.0093488394376,
+          "p95": 1.0255298524291547,
+          "max": 1.0432841390349774,
+          "min": 0.9794851163094004
+        },
+        "polyline_length_abs_change_cm": {
+          "count": 1863,
+          "rms": 0.21659685305478407,
+          "median": 0.16269018546689828,
+          "p95": 0.38435635262363377,
+          "max": 0.6444871977483224,
+          "min": 0.008180773574242295
+        },
+        "segment_abs_relative_length_change": {
+          "count": 57753,
+          "rms": 0.04668333318660436,
+          "median": 0.014996639194212014,
+          "p95": 0.09475717923988478,
+          "max": 0.5430740081729115,
+          "min": 0.0
+        },
+        "degenerate_rest_segments": 0,
+        "collision_root_prefix_excluded_points": 243,
+        "parameters": {
+          "solver": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/NS_Style_loose_32_G1.NS_Style_loose_32_G1",
+          "substeps": 5,
+          "iterations": 8,
+          "density": 1.2999999523162842,
+          "thickness_cm": 0.03729098290205002,
+          "bend_stiffness": 0.009204545058310032,
+          "air_drag": 0.15000000596046448,
+          "self_collision_viscosity": 0
+        },
+        "sampled_tip_speed_cm_s": {
+          "count": 1782,
+          "rms": 0.025812576231602512,
+          "median": 0.0,
+          "p95": 0.042252554009343773,
+          "max": 0.5353638183794093,
+          "min": 0.0
+        },
+        "sampled_tip_speed_final_median_cm_s": 0.0,
+        "proxy_penetration": {
+          "head": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 54027,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          },
+          "body": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 54027,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          }
+        },
+        "render_matched_points": 2064,
+        "render_excursion_from_phase_first_cm": {
+          "count": 47472,
+          "rms": 0.012523743134580224,
+          "median": 0.0,
+          "p95": 0.023109686652732876,
+          "max": 0.17512899821453043,
+          "min": 0.0
+        }
+      },
+      {
+        "group": 2,
+        "geometry_samples": 23,
+        "guide_curves": 128,
+        "guide_points": 4096,
+        "all_samples_simulation_enabled": true,
+        "first_time": 16.333333333333332,
+        "last_time": 23.666666666666668,
+        "sampled_dt_seconds": {
+          "count": 22,
+          "rms": 0.3333333333333334,
+          "median": 0.33333333333333215,
+          "p95": 0.3333333333333357,
+          "max": 0.3333333333333357,
+          "min": 0.33333333333333215
+        },
+        "tip_excursion_from_phase_first_cm": {
+          "count": 2944,
+          "rms": 2.805886227968034,
+          "median": 0.30094216735298746,
+          "p95": 5.553556794722238,
+          "max": 14.758719792503523,
+          "min": 0.0
+        },
+        "guide_excursion_from_phase_first_cm": {
+          "count": 94208,
+          "rms": 0.9921283877496286,
+          "median": 0.014385663928375229,
+          "p95": 1.528911436730523,
+          "max": 14.758719792503523,
+          "min": 0.0
+        },
+        "guide_displacement_from_authored_rest_cm": {
+          "count": 94208,
+          "rms": 3.40978873530987,
+          "median": 1.0317011915437593,
+          "p95": 7.556695484014907,
+          "max": 16.404388265790047,
+          "min": 0.0
+        },
+        "root_displacement_from_authored_rest_cm": {
+          "count": 2944,
+          "rms": 0.0025484747385903835,
+          "median": 0.0,
+          "p95": 0.005524271728019903,
+          "max": 0.007873298582322802,
+          "min": 0.0
+        },
+        "root_motion_from_phase_first_cm": {
+          "count": 2944,
+          "rms": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        },
+        "polyline_length_ratio_to_rest": {
+          "count": 2944,
+          "rms": 1.0011235298433827,
+          "median": 0.999325441938205,
+          "p95": 1.0184800558644773,
+          "max": 1.1378449072447419,
+          "min": 0.938287147240739
+        },
+        "polyline_length_abs_change_cm": {
+          "count": 2944,
+          "rms": 0.16182941073140672,
+          "median": 0.06003989524084652,
+          "p95": 0.2875580600998573,
+          "max": 1.8942822223761269,
+          "min": 1.9626587302923326e-05
+        },
+        "segment_abs_relative_length_change": {
+          "count": 91264,
+          "rms": 0.2310061993286581,
+          "median": 0.004746184640796791,
+          "p95": 0.09143572463164129,
+          "max": 10.030567167652409,
+          "min": 0.0
+        },
+        "degenerate_rest_segments": 0,
+        "collision_root_prefix_excluded_points": 384,
+        "parameters": {
+          "solver": "/Game/VamHairRuntime/H_5cf7336ae2091fa4395712b3/NS_Style_loose_32_G2.NS_Style_loose_32_G2",
+          "substeps": 5,
+          "iterations": 8,
+          "density": 1.2999999523162842,
+          "thickness_cm": 0.09483670443296432,
+          "bend_stiffness": 0.0014231710229068995,
+          "air_drag": 0.15000000596046448,
+          "self_collision_viscosity": 0
+        },
+        "sampled_tip_speed_cm_s": {
+          "count": 2816,
+          "rms": 3.8338385481555113,
+          "median": 0.005859375000000021,
+          "p95": 6.643375558394972,
+          "max": 27.953109988554623,
+          "min": 0.0
+        },
+        "sampled_tip_speed_final_median_cm_s": 0.0,
+        "proxy_penetration": {
+          "head": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 85376,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          },
+          "body": {
+            "samples_missing_proxies": 0,
+            "depth_cm": {
+              "count": 85376,
+              "rms": 0.0,
+              "median": 0.0,
+              "p95": 0.0,
+              "max": 0.0,
+              "min": 0.0
+            },
+            "max_points_over_threshold": 0,
+            "max_fraction_over_threshold": 0.0,
+            "threshold_cm": 0.2
+          }
+        },
+        "render_matched_points": 1,
+        "render_excursion_from_phase_first_cm": {
+          "count": 23,
+          "rms": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "max": 0.0,
+          "min": 0.0
+        }
+      }
+    ]
+  },
+  "dense_temporal": {
+    "intervals": 0,
+    "note": "All-guide/render RMS and max step only; no tip positions or collision geometry in these rows.",
+    "groups": {}
+  },
+  "head_replay_validation": {
+    "status": "PASS",
+    "replay_identity": "cb38df5a7b70a95ecbc1dd940174156013318583c7731a74580daef9f7e81c96",
+    "runtime_identity": "5cf7336ae2091fa4395712b34f22e7c82cf8ff7ad517957b18ca3d0268948673",
+    "matching_rule": "replay_index = round(capture time * 30); no offset correction or clamping",
+    "position_tolerance_cm": 0.01,
+    "rotation_tolerance_deg": 0.05,
+    "scale_tolerance": 0.0001,
+    "compared_samples": 72,
+    "missing_samples": [],
+    "rows": [
+      {
+        "geometry_sample": 0,
+        "time": 0.0,
+        "replay_index": 0,
+        "replay_time": 0.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 1,
+        "time": 0.3333333333333333,
+        "replay_index": 10,
+        "replay_time": 0.3333333333333333,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 2,
+        "time": 0.6666666666666666,
+        "replay_index": 20,
+        "replay_time": 0.6666666666666666,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 3,
+        "time": 1.0,
+        "replay_index": 30,
+        "replay_time": 1.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 4,
+        "time": 1.3333333333333333,
+        "replay_index": 40,
+        "replay_time": 1.3333333333333333,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 5,
+        "time": 1.6666666666666667,
+        "replay_index": 50,
+        "replay_time": 1.6666666666666667,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 6,
+        "time": 2.0,
+        "replay_index": 60,
+        "replay_time": 2.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 7,
+        "time": 2.3333333333333335,
+        "replay_index": 70,
+        "replay_time": 2.3333333333333335,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 8,
+        "time": 2.6666666666666665,
+        "replay_index": 80,
+        "replay_time": 2.6666666666666665,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 9,
+        "time": 3.0,
+        "replay_index": 90,
+        "replay_time": 3.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 10,
+        "time": 3.3333333333333335,
+        "replay_index": 100,
+        "replay_time": 3.3333333333333335,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 11,
+        "time": 3.6666666666666665,
+        "replay_index": 110,
+        "replay_time": 3.6666666666666665,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 12,
+        "time": 4.0,
+        "replay_index": 120,
+        "replay_time": 4.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 13,
+        "time": 4.333333333333333,
+        "replay_index": 130,
+        "replay_time": 4.333333333333333,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 14,
+        "time": 4.666666666666667,
+        "replay_index": 140,
+        "replay_time": 4.666666666666667,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 15,
+        "time": 5.0,
+        "replay_index": 150,
+        "replay_time": 5.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 16,
+        "time": 5.333333333333333,
+        "replay_index": 160,
+        "replay_time": 5.333333333333333,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 17,
+        "time": 5.666666666666667,
+        "replay_index": 170,
+        "replay_time": 5.666666666666667,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 18,
+        "time": 6.0,
+        "replay_index": 180,
+        "replay_time": 6.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 19,
+        "time": 6.333333333333333,
+        "replay_index": 190,
+        "replay_time": 6.333333333333333,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 20,
+        "time": 6.666666666666667,
+        "replay_index": 200,
+        "replay_time": 6.666666666666667,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 21,
+        "time": 7.0,
+        "replay_index": 210,
+        "replay_time": 7.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 22,
+        "time": 7.333333333333333,
+        "replay_index": 220,
+        "replay_time": 7.333333333333333,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 23,
+        "time": 7.666666666666667,
+        "replay_index": 230,
+        "replay_time": 7.666666666666667,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 24,
+        "time": 8.0,
+        "replay_index": 240,
+        "replay_time": 8.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "settle",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528638959e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 0.0,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 25,
+        "time": 8.333333333333334,
+        "replay_index": 250,
+        "replay_time": 8.333333333333334,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528677812e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 26,
+        "time": 8.666666666666666,
+        "replay_index": 260,
+        "replay_time": 8.666666666666666,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528675923e-06,
+        "rotation_error_deg": 1.7075472925031877e-06,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 1.7075472925031877e-06,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 27,
+        "time": 9.0,
+        "replay_index": 270,
+        "replay_time": 9.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528638963e-06,
+        "rotation_error_deg": 1.7075472925031877e-06,
+        "scale_error_max": 2.220446049250313e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 1.7075472925031877e-06,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 28,
+        "time": 9.333333333333334,
+        "replay_index": 280,
+        "replay_time": 9.333333333333334,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756529294463e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 0.0,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 29,
+        "time": 9.666666666666666,
+        "replay_index": 290,
+        "replay_time": 9.666666666666666,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528677812e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 0.0,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 30,
+        "time": 10.0,
+        "replay_index": 300,
+        "replay_time": 10.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528638975e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 2.220446049250313e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 31,
+        "time": 10.333333333333334,
+        "replay_index": 310,
+        "replay_time": 10.333333333333334,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756529294463e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 32,
+        "time": 10.666666666666666,
+        "replay_index": 320,
+        "replay_time": 10.666666666666666,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528061161e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 33,
+        "time": 11.0,
+        "replay_index": 330,
+        "replay_time": 11.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756812851763e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 1.2074182697257333e-06,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 34,
+        "time": 11.333333333333334,
+        "replay_index": 340,
+        "replay_time": 11.333333333333334,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756529294463e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 0.0,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 35,
+        "time": 11.666666666666666,
+        "replay_index": 350,
+        "replay_time": 11.666666666666666,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528675923e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 3.3306690738754696e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 36,
+        "time": 12.0,
+        "replay_index": 360,
+        "replay_time": 12.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528638954e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 2.220446049250313e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 37,
+        "time": 12.333333333333334,
+        "replay_index": 370,
+        "replay_time": 12.333333333333334,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528677812e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 0.0,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 38,
+        "time": 12.666666666666666,
+        "replay_index": 380,
+        "replay_time": 12.666666666666666,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756529294463e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 2.220446049250313e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 1.7075472925031877e-06,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 39,
+        "time": 13.0,
+        "replay_index": 390,
+        "replay_time": 13.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.761375652879311e-06,
+        "rotation_error_deg": 1.2074182697257333e-06,
+        "scale_error_max": 2.220446049250313e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 1.7075472925031877e-06,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 40,
+        "time": 13.333333333333334,
+        "replay_index": 400,
+        "replay_time": 13.333333333333334,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756245081646e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 2.220446049250313e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 41,
+        "time": 13.666666666666666,
+        "replay_index": 410,
+        "replay_time": 13.666666666666666,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528677812e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 3.3306690738754696e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 1.7075472925031877e-06,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 42,
+        "time": 14.0,
+        "replay_index": 420,
+        "replay_time": 14.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528870163e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 0.0,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 43,
+        "time": 14.333333333333334,
+        "replay_index": 430,
+        "replay_time": 14.333333333333334,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528679703e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 2.220446049250313e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 44,
+        "time": 14.666666666666666,
+        "replay_index": 440,
+        "replay_time": 14.666666666666666,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528677812e-06,
+        "rotation_error_deg": 1.7075472925031877e-06,
+        "scale_error_max": 2.220446049250313e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 1.7075472925031877e-06,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 45,
+        "time": 15.0,
+        "replay_index": 450,
+        "replay_time": 15.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528716043e-06,
+        "rotation_error_deg": 1.2074182697257333e-06,
+        "scale_error_max": 3.3306690738754696e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 1.2074182697257333e-06,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 46,
+        "time": 15.333333333333334,
+        "replay_index": 460,
+        "replay_time": 15.333333333333334,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528061161e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 47,
+        "time": 15.666666666666666,
+        "replay_index": 470,
+        "replay_time": 15.666666666666666,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528677812e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 3.3306690738754696e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 48,
+        "time": 16.0,
+        "replay_index": 480,
+        "replay_time": 16.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "motion",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756528561866e-06,
+        "rotation_error_deg": 1.7075472925031877e-06,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 1.7075472925031877e-06,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 49,
+        "time": 16.333333333333332,
+        "replay_index": 490,
+        "replay_time": 16.333333333333332,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 50,
+        "time": 16.666666666666668,
+        "replay_index": 500,
+        "replay_time": 16.666666666666668,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 51,
+        "time": 17.0,
+        "replay_index": 510,
+        "replay_time": 17.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 52,
+        "time": 17.333333333333332,
+        "replay_index": 520,
+        "replay_time": 17.333333333333332,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 53,
+        "time": 17.666666666666668,
+        "replay_index": 530,
+        "replay_time": 17.666666666666668,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 54,
+        "time": 18.0,
+        "replay_index": 540,
+        "replay_time": 18.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 55,
+        "time": 18.333333333333332,
+        "replay_index": 550,
+        "replay_time": 18.333333333333332,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 56,
+        "time": 18.666666666666668,
+        "replay_index": 560,
+        "replay_time": 18.666666666666668,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 57,
+        "time": 19.0,
+        "replay_index": 570,
+        "replay_time": 19.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 58,
+        "time": 19.333333333333332,
+        "replay_index": 580,
+        "replay_time": 19.333333333333332,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 59,
+        "time": 19.666666666666668,
+        "replay_index": 590,
+        "replay_time": 19.666666666666668,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 60,
+        "time": 20.0,
+        "replay_index": 600,
+        "replay_time": 20.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 61,
+        "time": 20.333333333333332,
+        "replay_index": 610,
+        "replay_time": 20.333333333333332,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 62,
+        "time": 20.666666666666668,
+        "replay_index": 620,
+        "replay_time": 20.666666666666668,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 63,
+        "time": 21.0,
+        "replay_index": 630,
+        "replay_time": 21.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 64,
+        "time": 21.333333333333332,
+        "replay_index": 640,
+        "replay_time": 21.333333333333332,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 65,
+        "time": 21.666666666666668,
+        "replay_index": 650,
+        "replay_time": 21.666666666666668,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 66,
+        "time": 22.0,
+        "replay_index": 660,
+        "replay_time": 22.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 67,
+        "time": 22.333333333333332,
+        "replay_index": 670,
+        "replay_time": 22.333333333333332,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 68,
+        "time": 22.666666666666668,
+        "replay_index": 680,
+        "replay_time": 22.666666666666668,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 69,
+        "time": 23.0,
+        "replay_index": 690,
+        "replay_time": 23.0,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 70,
+        "time": 23.333333333333332,
+        "replay_index": 700,
+        "replay_time": 23.333333333333332,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "geometry_sample": 71,
+        "time": 23.666666666666668,
+        "replay_index": 710,
+        "replay_time": 23.666666666666668,
+        "time_quantization_error_seconds": 0.0,
+        "phase": "recovery",
+        "expected_source": "expected_head_world",
+        "position_error_cm": 1.7613756244503215e-06,
+        "rotation_error_deg": 0.0,
+        "scale_error_max": 1.1102230246251565e-16,
+        "groom_vs_head": {
+          "position_error_cm": 0.0,
+          "rotation_error_deg": 0.0,
+          "scale_error_max": 0.0
+        },
+        "logged_head_attachment_error_cm": 0.0,
+        "attachment_log_matrix_difference_cm": 0.0,
+        "within_tolerance": true
+      }
+    ],
+    "position_error_cm": {
+      "count": 72,
+      "rms": 1.7613756343201114e-06,
+      "median": 1.7613756244503215e-06,
+      "p95": 1.7613756529294463e-06,
+      "max": 1.7613756812851763e-06,
+      "min": 1.7613756244503215e-06
+    },
+    "rotation_error_deg": {
+      "count": 72,
+      "rms": 4.49978221396986e-07,
+      "median": 0.0,
+      "p95": 1.4324763299755893e-06,
+      "max": 1.7075472925031877e-06,
+      "min": 0.0
+    },
+    "scale_error": {
+      "count": 72,
+      "rms": 1.445186503043789e-16,
+      "median": 1.1102230246251565e-16,
+      "p95": 2.7200464103316367e-16,
+      "max": 3.3306690738754696e-16,
+      "min": 0.0
+    },
+    "attachment": {
+      "status": "PASS",
+      "compared_samples": 72,
+      "position_error_cm": {
+        "count": 72,
+        "rms": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "min": 0.0
+      },
+      "rotation_error_deg": {
+        "count": 72,
+        "rms": 5.69182430834396e-07,
+        "median": 0.0,
+        "p95": 1.7075472925031877e-06,
+        "max": 1.7075472925031877e-06,
+        "min": 0.0
+      },
+      "logged_position_error_cm": {
+        "count": 72,
+        "rms": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "min": 0.0
+      },
+      "log_matrix_difference_cm": {
+        "count": 72,
+        "rms": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "min": 0.0
+      }
+    },
+    "nearby_frame_offsets_diagnostic_only": [
+      {
+        "replay_index_offset": -2,
+        "compared_samples": 71,
+        "position_error_cm": {
+          "count": 71,
+          "rms": 1.7613756344591222e-06,
+          "median": 1.7613756244503215e-06,
+          "p95": 1.7613756529294463e-06,
+          "max": 1.7613756812851763e-06,
+          "min": 1.7613756244503215e-06
+        },
+        "rotation_error_deg": {
+          "count": 71,
+          "rms": 2.9645142499230333,
+          "median": 0.0,
+          "p95": 7.089098210103825,
+          "max": 7.475758133905049,
+          "min": 0.0
+        }
+      },
+      {
+        "replay_index_offset": -1,
+        "compared_samples": 71,
+        "position_error_cm": {
+          "count": 71,
+          "rms": 1.7613756344591222e-06,
+          "median": 1.7613756244503215e-06,
+          "p95": 1.7613756529294463e-06,
+          "max": 1.7613756812851763e-06,
+          "min": 1.7613756244503215e-06
+        },
+        "rotation_error_deg": {
+          "count": 71,
+          "rms": 1.490819257472919,
+          "median": 0.0,
+          "p95": 3.5916686671294435,
+          "max": 3.7065594741179746,
+          "min": 0.0
+        }
+      },
+      {
+        "replay_index_offset": 0,
+        "compared_samples": 72,
+        "position_error_cm": {
+          "count": 72,
+          "rms": 1.7613756343201114e-06,
+          "median": 1.7613756244503215e-06,
+          "p95": 1.7613756529294463e-06,
+          "max": 1.7613756812851763e-06,
+          "min": 1.7613756244503215e-06
+        },
+        "rotation_error_deg": {
+          "count": 72,
+          "rms": 4.49978221396986e-07,
+          "median": 0.0,
+          "p95": 1.4324763299755893e-06,
+          "max": 1.7075472925031877e-06,
+          "min": 0.0
+        }
+      },
+      {
+        "replay_index_offset": 1,
+        "compared_samples": 72,
+        "position_error_cm": {
+          "count": 72,
+          "rms": 1.7613756343201114e-06,
+          "median": 1.7613756244503215e-06,
+          "p95": 1.7613756529294463e-06,
+          "max": 1.7613756812851763e-06,
+          "min": 1.7613756244503215e-06
+        },
+        "rotation_error_deg": {
+          "count": 72,
+          "rms": 1.4202321473235908,
+          "median": 0.0,
+          "p95": 3.5817490440581223,
+          "max": 3.878480583920689,
+          "min": 0.0
+        }
+      },
+      {
+        "replay_index_offset": 2,
+        "compared_samples": 72,
+        "position_error_cm": {
+          "count": 72,
+          "rms": 1.7613756343201114e-06,
+          "median": 1.7613756244503215e-06,
+          "p95": 1.7613756529294463e-06,
+          "max": 1.7613756812851763e-06,
+          "min": 1.7613756244503215e-06
+        },
+        "rotation_error_deg": {
+          "count": 72,
+          "rms": 2.859973388222796,
+          "median": 0.0,
+          "p95": 7.108132957477586,
+          "max": 7.386412542708269,
+          "min": 0.0
+        }
+      }
+    ],
+    "interpretation": "Recorded head agrees with declared replay indices within stated tolerances."
+  },
+  "replay_file": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDiversity\\twintails\\orbit.json",
+  "replay_sha256": "64c95668d89a2961974ff3db6b504ffedab354dc282f1df4d37c52e1657be229",
+  "capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDiversity\\twintails\\pie\\capture.json",
+  "capture_sha256": "96214936e0e855cfecdd87f17e35107bc47cfe34150192c78a9ecbf82776b30f",
+  "vam_references_unpaired": []
+}

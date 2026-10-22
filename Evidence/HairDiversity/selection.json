@@ -1,0 +1,26 @@
+[
+  {
+    "id": "768a5c48dd6684a6a475d90a430a535798e06a44515c1e93831b03ba1a607081",
+    "name": "Short 1 brown",
+    "source": "AddonPackages/BooMoon.[Hair]_Short_Hair_1.1.var",
+    "path": "Custom/Atom/Person/Hair/Preset_Short 1 brown.vap",
+    "thumb": "Custom/Atom/Person/Hair/Preset_Short 1 brown.jpg",
+    "key": "short"
+  },
+  {
+    "id": "1a3b121ea147acfc8d1d8d420c8fde0bd95b2ac997881024194372f0bb0c6615",
+    "name": "NoStage3 Long Wavy 7",
+    "source": "AddonPackages/vamX.Base.1.var",
+    "path": "Custom/Atom/Person/Hair/vamX/Female/Preset_NoStage3 Long Wavy 7.vap",
+    "thumb": "Custom/Atom/Person/Hair/vamX/Female/Preset_NoStage3 Long Wavy 7.jpg",
+    "key": "wavy"
+  },
+  {
+    "id": "be1c79fea334698861f8d49c82752b7ee988a81df02c9b69aecda7bc15aec393",
+    "name": "Swift Twintails High + Bangs",
+    "source": "AddonPackages/Miki.Swift_Tails.2.var",
+    "path": "Custom/Atom/Person/Hair/SwiftTails/Preset_Swift Twintails High + Bangs.vap",
+    "thumb": "Custom/Atom/Person/Hair/SwiftTails/Preset_Swift Twintails High + Bangs.jpg",
+    "key": "twintails"
+  }
+]

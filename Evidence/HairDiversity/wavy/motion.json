@@ -1,0 +1,52 @@
+{
+  "status": "ENCODED",
+  "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Evidence\\HairDiversity\\wavy\\motion.mp4",
+  "frames": 719,
+  "command": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.1-full_build\\bin\\ffmpeg.EXE",
+    "-n",
+    "-loglevel",
+    "error",
+    "-threads",
+    "2",
+    "-filter_threads",
+    "1",
+    "-framerate",
+    "30",
+    "-c:v",
+    "mjpeg",
+    "-i",
+    "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDiversity\\wavy\\pie\\video\\frame-%04d.png",
+    "-frames:v",
+    "719",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "fast",
+    "-crf",
+    "19",
+    "-threads",
+    "2",
+    "-pix_fmt",
+    "yuv420p",
+    "-movflags",
+    "+faststart",
+    "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Evidence\\HairDiversity\\wavy\\motion.mp4"
+  ],
+  "video_probe": {
+    "width": 1280,
+    "height": 688,
+    "r_frame_rate": "30/1",
+    "duration": "23.966667",
+    "nb_frames": "719"
+  },
+  "source_dimensions": [
+    1280,
+    688
+  ],
+  "square_viewport_crop": null,
+  "source_capture_sha256": "0179ca3ee03b1b099330bdcf40b636f4d454fbc5df04438bc78630d33084bcff",
+  "source_first_frame_sha256": "85dbdab802627a5fa529b746eea72fbbbcf4de0d77aaa38c9b79bdc31a8ff770",
+  "source_last_frame_sha256": "4b63b20129dd319fe6cf4ed285876adff7a1d9ca75ec3b7c2f63a268cdbda708",
+  "source_note": "\u53ea\u7f16\u7801\u771f\u5b9e UE \u622a\u56fe\uff1b\u5982\u8bb0\u5f55crop\uff0c\u4ec5\u53bb\u9664\u5b9e\u56fe\u786e\u8ba4\u7684\u76f8\u673a\u9ed1\u8fb9\uff0c\u539f\u59cb\u622a\u56fe\u4fdd\u7559"
+}

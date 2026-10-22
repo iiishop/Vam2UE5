@@ -1,0 +1,23 @@
+[
+  {
+    "source": "Custom/Hair/Female/Miki/Swift Tails/Swift Twintails Hairline.vab",
+    "kind": "supported",
+    "median_length_cm": 9.167392218140112,
+    "median_chord_ratio": 0.9263205922804358,
+    "median_rigidity": 1.0
+  },
+  {
+    "source": "Custom/Hair/Female/Miki/Swift Tails/Swift Bangs C.vab",
+    "kind": "loose",
+    "median_length_cm": 20.22372354159442,
+    "median_chord_ratio": 0.8773429769765988,
+    "median_rigidity": 0.03763222233909699
+  },
+  {
+    "source": "Custom/Hair/Female/Miki/Swift Tails/Swift Twintails High.vab",
+    "kind": "loose",
+    "median_length_cm": 63.75079347191602,
+    "median_chord_ratio": 0.5476853370660748,
+    "median_rigidity": 0.05449787970731753
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "selection": "768a5c48dd6684a6a475d90a430a535798e06a44515c1e93831b03ba1a607081",
+  "plan_id": "8ba47f91dcd5f569a0900aa66070b88fc67c1a49f29835e9950cd2d450f37440",
+  "body_contract": "8dc812aa2ab4cfdefb293e47b9b6160d47364968ab440497c7cf40a7628cbc55",
+  "prepared_identity": "5d04d07bb3bccf8ac01322c58756a1f19e5678280d203f782a895e2c8d63b98c",
+  "groups": [
+    {
+      "name": "Short Hair 1 Detail_native_full",
+      "curves": 21
+    },
+    {
+      "name": "Short Hair 1_native_full",
+      "curves": 771
+    }
+  ],
+  "source_guide_policy": "Whole guides and painted rigidity profiles preserved for native render binding; no anchor triangle loss"
+}

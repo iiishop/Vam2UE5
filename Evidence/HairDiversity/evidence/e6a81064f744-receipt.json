@@ -1,0 +1,13 @@
+{
+  "selection": "1a3b121ea147acfc8d1d8d420c8fde0bd95b2ac997881024194372f0bb0c6615",
+  "plan_id": "b64ae895aa8a5154f15bcb38b1d14f38079e7da4128cc1aaa0ed9baafc8d4eb3",
+  "body_contract": "8dc812aa2ab4cfdefb293e47b9b6160d47364968ab440497c7cf40a7628cbc55",
+  "prepared_identity": "4a0f1c610ccdcc9490abb3bec6255dd5ea5a3e4b5c72dfb301e403024870c853",
+  "groups": [
+    {
+      "name": "Long Wavy 7_native_full",
+      "curves": 739
+    }
+  ],
+  "source_guide_policy": "Whole guides and painted rigidity profiles preserved for native render binding; no anchor triangle loss"
+}

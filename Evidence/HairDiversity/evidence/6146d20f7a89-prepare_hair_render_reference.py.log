@@ -1,0 +1,11 @@
+[
+  {
+    "resource": "Long Wavy 7",
+    "render_curves": 21936,
+    "native_samples_per_guide": 21,
+    "source_triangles": 1371,
+    "physics": false,
+    "source_half_width_m": 0.00012,
+    "groom_diameter_cm": 0.024
+  }
+]
