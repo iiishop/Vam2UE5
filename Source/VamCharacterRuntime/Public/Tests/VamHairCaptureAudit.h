@@ -46,6 +46,9 @@ static TSharedPtr<FJsonObject> VamCaptureHairAudit(AVamCharacterActor* Actor)
     auto Vec=[](const FVector& V){return MakeShared<FJsonValueArray>(TArray<TSharedPtr<FJsonValue>>{MakeShared<FJsonValueNumber>(V.X),MakeShared<FJsonValueNumber>(V.Y),MakeShared<FJsonValueNumber>(V.Z)});};
     TArray<TSharedPtr<FJsonValue>> Proxies;
     auto* Body=Actor->Character->Body.Get();
+    auto Matrix=[](const FTransform& T){TArray<TSharedPtr<FJsonValue>> V;const FMatrix M=T.ToMatrixWithScale();for(int I=0;I<4;++I)for(int J=0;J<4;++J)V.Add(MakeShared<FJsonValueNumber>(M.M[I][J]));return V;};
+    Out->SetArrayField(TEXT("groom_world_matrix"),Matrix(G->GetComponentTransform()));
+    if(Body){Out->SetArrayField(TEXT("head_world_matrix"),Matrix(Body->GetSocketTransform(TEXT("head"))));Out->SetNumberField(TEXT("head_attachment_error_cm"),FVector::Distance(G->GetComponentLocation(),Body->GetSocketLocation(TEXT("head"))));}
     if(G->PhysicsAsset&&Body)for(USkeletalBodySetup* Setup:G->PhysicsAsset->SkeletalBodySetups)
     {
         const int32 Bone=Body->GetBoneIndex(Setup->BoneName);if(Bone<0)continue;
