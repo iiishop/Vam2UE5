@@ -1,4 +1,5 @@
 #include "VamBreastContactComponent.h"
+#include "VamLegSkeletalMeshComponent.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "VamBodyContactResponseComponent.h"
@@ -729,6 +730,12 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
     // Lower-body targets follow current pose correctives in canonical space;
     // never re-skin an already blended, posed particle from initialization.
     TArray<FVector> LowerTarget=LowerCanonicalRest;
+    const auto* LegBody=Cast<UVamLegSkeletalMeshComponent>(Body);
+    TArray<FVector> KneeDelta;
+    if(LegBody&&!LegBody->KneeHelperDifference.IsEmpty()&&LowerTarget.Num()==N){
+        KneeDelta.Init(FVector::ZeroVector,N);
+        for(const auto& M:Profile->Morphs)if(M.bPoseCorrective&&M.Parameter.ToString().StartsWith(TEXT("Knee_"))){const double W=Body->GetMorphTarget(M.Parameter);if(FMath::Abs(W)>1.e-8)for(int I=0;I<N;++I)KneeDelta[I]+=M.ParticleDeltas[I]*W;}
+    }
     if(LowerTarget.Num()==N)for(const auto& M:Profile->Morphs)if(M.bPoseCorrective){const double W=Body->GetMorphTarget(M.Parameter);if(FMath::Abs(W)>1.e-8)for(int I=0;I<N;++I)LowerTarget[I]+=M.ParticleDeltas[I]*W;}
     for(int32 I=0;I<N;++I)
     {
@@ -738,6 +745,8 @@ void UVamBreastContactComponent::TickComponent(float Dt,ELevelTick TickType,FAct
             const int32 B=Particle.Bones[J];
             const bool Lower=Particle.Side>=2&&LowerTarget.Num()==N;
             P+=FinalPose[B].TransformPosition((Lower?LowerReferenceCS[B]:ReferenceCS[B]).InverseTransformPosition(Lower?LowerTarget[I]:ShapedRest[I]))*Particle.Weights[J];
+            if(Lower&&KneeDelta.IsValidIndex(I)&&LegBody->KneeHelperDifference.IsValidIndex(B))
+                P+=FVector(LegBody->KneeHelperDifference[B].TransformVector(LowerReferenceCS[B].InverseTransformVector(KneeDelta[I])))*Particle.Weights[J];
         }
         AnimatedRest[I]=P;
     }

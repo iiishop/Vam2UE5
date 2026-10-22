@@ -11,8 +11,8 @@ public:
     UPROPERTY(Transient) TObjectPtr<UVamLegJiggleProfile> LegProfile;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") bool bLegJiggleEnabled=true;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Chain") bool bLegChainEnabled=true;
-    // Experimental operator comparison: 0 legacy, 1 translation, 2 local metric, 3 stations only, 4 independent muscle attachments.
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Chain",meta=(ClampMin="0",ClampMax="4")) int32 LegChainMethod=0;
+    // Operator selection: 0 legacy, 1 translation, 2 local metric, 3 stations, 4 independent muscle attachments (M).
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Chain",meta=(ClampMin="0",ClampMax="4")) int32 LegChainMethod=4;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double ThighAmplitude=3;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double CalfAmplitude=3;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="VaM|Leg Jiggle") double LegSupport=.85;
@@ -29,6 +29,12 @@ public:
     void UpdateLegShape(const TMap<FName,float>& Values,TArray<FTransform>& Reference);
     virtual void FinalizeBoneTransform() override;
     TArray<FVamLegSegment> LegRest;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="VaM|Leg Chain") bool bKneeOperatorCompensation=true;
+    TArray<FVector4f> KneeSkinCorrection;
+    // Reference minus M helper linear operator; also used by contact targets.
+    TArray<FMatrix> KneeHelperDifference;
+    double KneeOperatorMicroseconds=0;
+    void UpdateKneeOperatorCorrection();
     FVamGluteSolver LegSolvers[4];
     TArray<double> LegTension[4];
     FVector LegAngles[4]={};

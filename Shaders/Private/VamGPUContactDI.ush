@@ -5,11 +5,13 @@ StructuredBuffer<float4> DI_NAME_Rest;
 StructuredBuffer<int4> DI_NAME_Parents;
 StructuredBuffer<float4> DI_NAME_Weights;
 StructuredBuffer<float> DI_NAME_Mask;
+uint DI_NAME_CorrectionVertices;
+StructuredBuffer<float4> DI_NAME_SkinCorrection;
 uint ReadNumVertices_DI_NAME(){return DI_NAME_NumVertices;}
 float ReadMask_DI_NAME(uint I){return I<DI_NAME_NumVertices?DI_NAME_Mask[I]:0;}
 int4 ReadParents_DI_NAME(uint I){return DI_NAME_Parents[I];}
 float4 ReadWeights_DI_NAME(uint I){return DI_NAME_Weights[I];}
-float3 ReadOffset_DI_NAME(uint I){return 0;}
+float3 ReadOffset_DI_NAME(uint I){return I<DI_NAME_CorrectionVertices?DI_NAME_SkinCorrection[I].xyz:0;}
 float3 GetEmbeddedPos_DI_NAME(uint I)
 {
  if(I>=DI_NAME_NumVertices||DI_NAME_Mask[I]<=0)return 0;

@@ -199,7 +199,17 @@ FString UVamBreastContactBuilder::BuildGPUDeformer(UVamBreastContactProfile* Pro
    Links.Add(Pin->GetDirection()==EOptimusNodePinDirection::Input?FLink{Peer,Replacement}:FLink{Replacement,Peer});
   }
   if(!G->RemoveNode(Node))return TEXT("GPU old data interface removal failed");
-  for(auto L:Links)if(!G->AddLink(L.A,L.B))return TEXT("GPU binding reconnect failed");++Replaced;
+  for(auto L:Links)if(!G->AddLink(L.A,L.B))return TEXT("GPU binding reconnect failed");
+  for(auto* Kernel:G->GetAllNodes())if(auto* Shader=Cast<IOptimusShaderTextProvider>(Kernel))if(Shader->GetShaderText().Contains(TEXT("ReadEmbeddedPos(Index)"))){
+   auto* Adder=Cast<IOptimusNodeAdderPinProvider>(Kernel);auto* Output=New->FindPin(TEXT("Offset"));
+   if(!Adder||!Output)return TEXT("Skin correction input absent");
+   const auto Actions=Adder->GetAvailableAdderPinActions(Output,EOptimusNodePinDirection::Input);
+   if(Actions.IsEmpty())return TEXT("Skin correction input rejected");
+   auto Pins=Adder->TryAddPinFromPin(Actions[0],Output,FName(TEXT("SkinCorrection")));
+   if(Pins.IsEmpty()||!G->AddLink(Output,Pins.Last()))return TEXT("Skin correction link failed");
+   Shader->SetShaderText(Shader->GetShaderText().Replace(TEXT("WriteOutPosition(Index,P);"),TEXT("P += ReadSkinCorrection(Index);\nWriteOutPosition(Index,P);")));
+  }
+  ++Replaced;
  }
  if(Replaced!=1||!D->Compile())return TEXT("GPU deformer compilation failed");
  D->SetFlags(RF_Public|RF_Standalone);FAssetRegistryModule::AssetCreated(D);D->MarkPackageDirty();Profile->GPUSurfaceDeformer=D;Profile->MarkPackageDirty();return FString();

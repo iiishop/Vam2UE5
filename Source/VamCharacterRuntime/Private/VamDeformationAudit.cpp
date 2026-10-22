@@ -49,7 +49,7 @@ TMap<FName,float> Morphs(USkeletalMeshComponent* B){TMap<FName,float> R;for(cons
 J MorphJson(const TMap<FName,float>& M){auto O=Obj();for(const auto& P:M)O->SetNumberField(P.Key.ToString(),P.Value);return O;}
 // Evaluates the exact stored LOD0 render weights and morph deltas, without changing
 // the live component's skinning mode, material, animation or solver state.
-bool Surface(const FString& Dir,USkeletalMesh* Mesh,FSkinWeightVertexBuffer* Override,const TArray<FTransform>& Pose,const TMap<FName,float>& Morph,J& Metadata,const TArray<FMatrix44f>* InverseOverride=nullptr)
+bool Surface(const FString& Dir,USkeletalMesh* Mesh,FSkinWeightVertexBuffer* Override,const TArray<FTransform>& Pose,const TMap<FName,float>& Morph,J& Metadata,const TArray<FMatrix44f>* InverseOverride=nullptr,const TArray<FVector4f>* PostSkin=nullptr)
 {
  Metadata=Obj();Metadata->SetStringField(TEXT("mesh"),GetPathNameSafe(Mesh));
  if(!Mesh||!Mesh->GetResourceForRendering()||Mesh->GetResourceForRendering()->LODRenderData.IsEmpty()){Metadata->SetStringField(TEXT("error"),TEXT("render data unavailable"));return false;}
@@ -63,7 +63,9 @@ bool Surface(const FString& Dir,USkeletalMesh* Mesh,FSkinWeightVertexBuffer* Ove
   for(uint32 K=0;K<W->GetMaxBoneInfluences();++K){const uint16 Raw=W->GetBoneWeight(I,K);if(!Raw)continue;const int B=S.BoneMap[W->GetBoneIndex(I,K)];const double Weight=Raw/65535.;
    Row.Add(MakeShared<FJsonValueArray>(A{Num(B),Num(Weight)}));const FVector BindPoint=FVector(Inverse[B].TransformPosition(FVector3f(V[I])));Out[I]+=Pose[B].TransformPosition(BindPoint)*Weight;}
   Weights[I]=MakeShared<FJsonValueArray>(Row);}
- IFileManager::Get().MakeDirectory(*Dir,true);Points(Dir/TEXT("preskin.json"),V);Points(Dir/TEXT("surface.json"),Out);auto Data=Obj();Data->SetArrayField(TEXT("render_vertex_influences"),Weights);
+ if(PostSkin&&PostSkin->Num()==Out.Num())for(int Vtx=0;Vtx<Out.Num();++Vtx)Out[Vtx]+=FVector(FVector3f((*PostSkin)[Vtx]));
+ IFileManager::Get().MakeDirectory(*Dir,true);if(PostSkin){TArray<FVector> D;for(auto X:*PostSkin)D.Add(FVector(FVector3f(X)));Points(Dir/TEXT("postskin-correction.json"),D);}
+ Points(Dir/TEXT("preskin.json"),V);Points(Dir/TEXT("surface.json"),Out);auto Data=Obj();Data->SetArrayField(TEXT("render_vertex_influences"),Weights);
  A Bones;for(int B=0;B<Pose.Num();++B){auto O=Obj();O->SetStringField(TEXT("name"),Mesh->GetRefSkeleton().GetBoneName(B).ToString());O->SetNumberField(TEXT("parent"),Mesh->GetRefSkeleton().GetParentIndex(B));A Inv;const auto& M=Inverse[B];for(int R=0;R<4;++R)for(int C=0;C<4;++C)Inv.Add(Num(M.M[R][C]));O->SetArrayField(TEXT("inverse_bind_matrix_row_major"),Inv);O->SetArrayField(TEXT("component_matrix_row_major"),Matrix(Pose[B]));Bones.Add(MakeShared<FJsonValueObject>(O));}
  if(FParse::Param(FCommandLine::Get(),TEXT("VamSeamAudit")))
  {
@@ -160,6 +162,7 @@ void AVamCharacterActor::ExportDeformationAudit()
  Surface(Dir/TEXT("02-static-helpers"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Static,NonCorrective,Meta,Inverse);Stages->SetObjectField(TEXT("02-static-helpers"),Meta);
  Surface(Dir/TEXT("03-corrective"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Static,AllMorphs,Meta,Inverse);Stages->SetObjectField(TEXT("03-corrective"),Meta);
  if(!Offline) Surface(Dir/TEXT("04-jiggle"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Final,AllMorphs,Meta,Inverse);if(!Offline) Stages->SetObjectField(TEXT("04-jiggle"),Meta);
+ if(!Offline&&!B->KneeSkinCorrection.IsEmpty()){Surface(Dir/TEXT("04a-operator-corrected"),B->GetSkeletalMeshAsset(),B->GetSkinWeightBuffer(0),Final,AllMorphs,Meta,Inverse,&B->KneeSkinCorrection);Meta->SetStringField(TEXT("meaning"),TEXT("native skin plus explicit knee operator compensation; verify GPU output separately"));Stages->SetObjectField(TEXT("04a-operator-corrected"),Meta);}
  UVamCharacterDefinition* Source=Config?Config->DiagnosticSourceDefinition.LoadSynchronous():nullptr;
 #if WITH_EDITORONLY_DATA
  if(!Source&&Config){auto* C=Config;TSet<FString> Seen;while(C&&!Source&&!Seen.Contains(C->GetPathName())){Seen.Add(C->GetPathName());TSharedPtr<FJsonObject> Receipt;FString Path;if(!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(C->ReceiptJson),Receipt))break;if(Receipt->TryGetStringField(TEXT("source_definition"),Path)){Source=LoadObject<UVamCharacterDefinition>(nullptr,*Path);break;}if(!Receipt->TryGetStringField(TEXT("source_configuration"),Path))break;C=LoadObject<UVamRuntimeConfiguration>(nullptr,*Path);}}

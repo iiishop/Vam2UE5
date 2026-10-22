@@ -7,6 +7,15 @@
 #include "ShaderParameterStruct.h"
 #include "ShaderCompilerCore.h"
 #include "RenderGraphBuilder.h"
+#include "RenderGraphUtils.h"
+namespace { TMap<TWeakObjectPtr<UObject>,TSharedPtr<TArray<FVector4f>,ESPMode::ThreadSafe>> SkinCorrections; }
+void VamGPUSetSkinCorrection(UObject* B,TArray<FVector4f>&& V)
+{
+ check(IsInGameThread());
+ for(auto It=SkinCorrections.CreateIterator();It;++It)if(!It.Key().IsValid())It.RemoveCurrent();
+ if(V.IsEmpty()){SkinCorrections.Remove(B);return;}
+ SkinCorrections.Add(B,MakeShared<TArray<FVector4f>,ESPMode::ThreadSafe>(MoveTemp(V)));
+}
 BEGIN_SHADER_PARAMETER_STRUCT(FVamContactDIParameters,)
  SHADER_PARAMETER(uint32,NumVertices)
  SHADER_PARAMETER(uint32,ParticleOffset)
@@ -15,6 +24,8 @@ BEGIN_SHADER_PARAMETER_STRUCT(FVamContactDIParameters,)
  SHADER_PARAMETER_RDG_BUFFER_SRV(StructuredBuffer<int4>,Parents)
  SHADER_PARAMETER_RDG_BUFFER_SRV(StructuredBuffer<float4>,Weights)
  SHADER_PARAMETER_RDG_BUFFER_SRV(StructuredBuffer<float>,Mask)
+ SHADER_PARAMETER(uint32,CorrectionVertices)
+ SHADER_PARAMETER_RDG_BUFFER_SRV(StructuredBuffer<float4>,SkinCorrection)
 END_SHADER_PARAMETER_STRUCT()
 TArray<FOptimusCDIPinDefinition> UVamGPUContactDataInterface::GetPinDefinitions() const
 {
@@ -38,19 +49,29 @@ void UVamGPUContactDataInterface::GetHLSL(FString& H,FString const& Name)const
  H+=Source.Replace(TEXT("DI_NAME"),*Name);
 }
 UComputeDataProvider* UVamGPUContactDataInterface::CreateDataProvider(TObjectPtr<UObject> B,uint64,uint64)const
-{auto* P=NewObject<UVamGPUContactDataProvider>();P->Handle=VamGPUFind(B);return P;}
+{auto* P=NewObject<UVamGPUContactDataProvider>();P->Handle=VamGPUFind(B);P->SkinBinding=B;return P;}
 class FVamContactDIProxy : public FComputeDataProviderRenderProxy
 {
  FVamGPUContactHandlePtr H;FVamContactDIParameters Params;
+ TSharedPtr<TArray<FVector4f>,ESPMode::ThreadSafe> Correction;
 public:
- explicit FVamContactDIProxy(FVamGPUContactHandlePtr In):H(In){}
- bool IsValid(FValidationData const& D)const override{return H&&H->Positions&&H->Rest&&D.ParameterStructSize==sizeof(FVamContactDIParameters);}
+ explicit FVamContactDIProxy(FVamGPUContactHandlePtr In,TSharedPtr<TArray<FVector4f>,ESPMode::ThreadSafe> C):H(In),Correction(C){}
+ bool IsValid(FValidationData const& D)const override{return D.ParameterStructSize==sizeof(FVamContactDIParameters);}
  void AllocateResources(FRDGBuilder& G,FAllocationData const&)override
  {
+  Params.CorrectionVertices=Correction?Correction->Num():0;
+  const FVector4f Zero(0,0,0,0);const FIntVector4 ZeroInt(0,0,0,0);const float ZeroFloat=0;
+  Params.SkinCorrection=G.CreateSRV(CreateStructuredBuffer(G,TEXT("Vam.SkinCorrection"),sizeof(FVector4f),FMath::Max(1u,Params.CorrectionVertices),Correction?Correction->GetData():&Zero,Correction?Correction->Num()*sizeof(FVector4f):sizeof(FVector4f)));
+  if(!H||!H->Positions||!H->Rest){
+   Params.NumVertices=0;Params.ParticleOffset=0;
+   Params.Positions=Params.Rest=Params.Weights=G.CreateSRV(CreateStructuredBuffer(G,TEXT("Vam.SkinZero"),sizeof(FVector4f),1,&Zero,sizeof(Zero)));
+   Params.Parents=G.CreateSRV(CreateStructuredBuffer(G,TEXT("Vam.SkinZeroParents"),sizeof(FIntVector4),1,&ZeroInt,sizeof(ZeroInt)));
+   Params.Mask=G.CreateSRV(CreateStructuredBuffer(G,TEXT("Vam.SkinZeroMask"),sizeof(float),1,&ZeroFloat,sizeof(float)));return;
+  }
   Params.NumVertices=H->Topology.Parents.Num();Params.ParticleOffset=H->Offset;
   Params.Positions=G.CreateSRV(G.RegisterExternalBuffer(H->Positions));Params.Rest=G.CreateSRV(G.RegisterExternalBuffer(H->Rest));
   Params.Parents=G.CreateSRV(G.RegisterExternalBuffer(H->Parents));Params.Weights=G.CreateSRV(G.RegisterExternalBuffer(H->Weights));Params.Mask=G.CreateSRV(G.RegisterExternalBuffer(H->Mask));
  }
  void GatherDispatchData(FDispatchData const& D)override{for(auto& P:MakeStridedParameterView<FVamContactDIParameters>(D))P=Params;}
 };
-FComputeDataProviderRenderProxy* UVamGPUContactDataProvider::GetRenderProxy(){return new FVamContactDIProxy(Handle);}
+FComputeDataProviderRenderProxy* UVamGPUContactDataProvider::GetRenderProxy(){return new FVamContactDIProxy(VamGPUFind(SkinBinding),SkinCorrections.FindRef(SkinBinding));}

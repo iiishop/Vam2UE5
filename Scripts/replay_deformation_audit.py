@@ -27,6 +27,7 @@ def run(root):
         data=json.loads((folder/'inputs.json').read_text(encoding='utf-8-sig'))
         v=np.array(json.loads((folder/'preskin.json').read_text())['positions'],dtype=float)
         output=skin_snapshot(data,v)
+        if (folder/"postskin-correction.json").exists():output+=np.array(json.loads((folder/"postskin-correction.json").read_text())["positions"])
         expected=np.array(json.loads((folder/'surface.json').read_text())['positions'])
         errors=np.linalg.norm(output-expected,axis=1)
         result['stages'][stage]={'status':'replayed','max_error_cm':float(errors.max()),'rms_cm':float(np.sqrt(np.mean(errors**2))),'vertices':len(v)}
@@ -37,7 +38,9 @@ def run(root):
     surface=root/'05-gpu-surface.json'
     if surface.exists() and (root/'04-jiggle/surface.json').exists():
         rendered=np.array(json.loads(surface.read_text())['positions'])
-        expected=np.array(json.loads((root/'04-jiggle/surface.json').read_text())['positions'])
+        reference=root/'04a-operator-corrected/surface.json'
+        if not reference.exists():reference=root/'04-jiggle/surface.json'
+        expected=np.array(json.loads(reference.read_text())['positions'])
         if (root/'cage-current.json').exists():
             topology=json.loads((root/'cage-topology.json').read_text())
             residual=np.array(json.loads((root/'cage-current.json').read_text())['positions'])-np.array(json.loads((root/'cage-animated-target.json').read_text())['positions'])

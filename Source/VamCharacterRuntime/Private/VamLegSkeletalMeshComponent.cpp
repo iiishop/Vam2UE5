@@ -107,6 +107,7 @@ void UVamLegSkeletalMeshComponent::FinalizeBoneTransform()
     }
     // Helpers are disjoint. Hip and Breast retain their existing final-pose writes.
     Super::FinalizeBoneTransform();
+    UpdateKneeOperatorCorrection();
 }
 FString UVamLegSkeletalMeshComponent::LegDiagnostics() const
 {

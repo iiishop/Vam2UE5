@@ -3,6 +3,8 @@
 #include "ComputeFramework/ComputeDataProvider.h"
 #include "VamGPUContact.h"
 #include "VamGPUContactDataInterface.generated.h"
+// Independent from contact activation: posed skin-operator compensation.
+VAMCONTACTGPU_API void VamGPUSetSkinCorrection(UObject* Binding,TArray<FVector4f>&& Values);
 UCLASS(Category=ComputeFramework)
 class VAMCONTACTGPU_API UVamGPUContactDataInterface : public UOptimusComputeDataInterface
 {
@@ -24,5 +26,6 @@ class UVamGPUContactDataProvider : public UComputeDataProvider
  GENERATED_BODY()
 public:
  FVamGPUContactHandlePtr Handle;
+ UPROPERTY() TObjectPtr<UObject> SkinBinding;
  FComputeDataProviderRenderProxy* GetRenderProxy() override;
 };
