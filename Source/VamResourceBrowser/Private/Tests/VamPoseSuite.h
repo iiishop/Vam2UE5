@@ -27,10 +27,12 @@ static bool VamRunPoseSuite(FAutomationTestBase& Test,AVamCharacterActor* Actor,
  // SetDebugBoneOffset explicitly refreshes bones even while component ticks are
  // frozen. Drain native readback BEFORE the next animation input is submitted.
  auto FinishAudit=[&](){
-  for(int N=0;N<60&&Actor->DeformationAuditStatus.StartsWith(TEXT("Capturing:"));++N){
+  const double Deadline=FPlatformTime::Seconds()+10.;
+  while(Actor->DeformationAuditStatus.StartsWith(TEXT("Capturing:"))&&FPlatformTime::Seconds()<Deadline){
    ++GFrameCounter;ComputeFramework::TickCompilation(0);World->SendAllEndOfFrameUpdates();Capture->CaptureScene();
    ENQUEUE_RENDER_COMMAND(VamAuditFrozenFence)([](FRHICommandListImmediate& Cmd){Cmd.SubmitAndBlockUntilGPUIdle();});FlushRenderingCommands();
    FTaskGraphInterface::Get().ProcessThreadUntilIdle(ENamedThreads::GameThread);
+   FPlatformProcess::SleepNoStats(.001f); // allow async JSON/readback completion under memory pressure
   }
   Test.TestFalse(TEXT("Audit finishes before next bone input"),Actor->DeformationAuditStatus.StartsWith(TEXT("Capturing:")));
  };
