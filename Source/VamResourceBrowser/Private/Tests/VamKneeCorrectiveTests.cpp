@@ -5,8 +5,8 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FVamKneeDriverTest,"Vam.Knee.SourceOperatorDriv
 bool FVamKneeDriverTest::RunTest(const FString&)
 {
     auto* P=NewObject<UVamGluteCorrectiveProfile>();FVamKneeCorrective K;K.Bone=1;K.Parent=0;K.ReferenceRotation=FQuat(FVector::XAxisVector,.04);
-    K.Angles={0,30,60,90,120};for(int I=0;I<K.Angles.Num();++I)K.Morphs.Add(FName(*FString::Printf(TEXT("K%d"),I)));P->Knees.Add(K);
-    for(double Angle:{0.,15.,30.,45.,90.,105.,120.})
+    K.Angles={0,30,60,90,120,150,155,160,165};for(int I=0;I<K.Angles.Num();++I)K.Morphs.Add(FName(*FString::Printf(TEXT("K%d"),I)));P->Knees.Add(K);
+    for(double Angle:{0.,15.,30.,45.,90.,105.,120.,144.8,155.,162.5,165.})
     {
         TArray<FTransform> Pose={FTransform(FQuat(FVector::ZAxisVector,.7),FVector(11,12,13)),FTransform::Identity};
         Pose[1]=FTransform(K.ReferenceRotation*FQuat(FVector::YAxisVector,Angle*PI/180.),FVector(0,0,-30))*Pose[0];

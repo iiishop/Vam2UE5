@@ -1,9 +1,9 @@
 """Explicit deep-flexion input on normal BP; production Rig assets remain unchanged."""
 import argparse,hashlib,json,subprocess,sys
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('out',type=Path);p.add_argument('--world',default='PIE',choices=['PIE','Editor']);p.add_argument('--groups',nargs='+',default=['M','C']);a=p.parse_args();assert not a.out.exists();a.out.mkdir(parents=True)
+p=argparse.ArgumentParser();p.add_argument('out',type=Path);p.add_argument('--bundle',type=Path,default=Path('Saved/LegChainComparison/candidate-5/bundle.json'));p.add_argument('--world',default='PIE',choices=['PIE','Editor']);p.add_argument('--groups',nargs='+',default=['M','C']);a=p.parse_args();assert not a.out.exists();a.out.mkdir(parents=True)
 read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
-recipe=read(Path('Config/LegDeepKneel/motion.json'));bundle=Path('Saved/LegChainComparison/candidate-5/bundle.json')
+recipe=read(Path('Config/LegDeepKneel/motion.json'));bundle=a.bundle
 manifest=dict(bundle=read(bundle),recipe=recipe,world=a.world,source_hashes={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in Path('Source').rglob('*') if p.suffix in ('.h','.cpp')},scope='Capture-only input bypasses pose limits explicitly; no production RigProfile changes. Actual normal character/skin/jiggle/deformer. Not a production kneeling controller or certified contact simulation.')
 manifest['validation_identity']=hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest();(a.out/'identity.json').write_text(json.dumps(manifest,indent=2));checks=[]
 for g in a.groups:

@@ -9,10 +9,11 @@ TMap<FName,float> VamGluteCorrective::KneeWeights(const UVamGluteCorrectiveProfi
         if(!Pose.IsValidIndex(K.Bone)||!Pose.IsValidIndex(K.Parent)||K.Angles.Num()!=K.Morphs.Num()||K.Angles.Num()<2)continue;
         const FQuat Local=Pose[K.Bone].GetRelativeTransform(Pose[K.Parent]).GetRotation();
         const FQuat Reference=ShapeReference && ShapeReference->IsValidIndex(K.Bone)?(*ShapeReference)[K.Bone].GetRotation():K.ReferenceRotation;
-        const FQuat Delta=(Reference.Inverse()*Local).GetNormalized();
+        FQuat Delta=(Reference.Inverse()*Local).GetNormalized();
+        if(Delta.W<0 || (Delta.W==0 && Delta.Y<0))Delta=Delta*-1.;
         // Signed twist around source X, cyclically converted to UE Y. A quaternion
         // sign flip must not change the driving angle. Swing is not knee flexion.
-        const double Angle=FMath::UnwindDegrees(2*FMath::Atan2(Delta.Y,Delta.W)*180./PI);
+        const double Angle=FMath::UnwindDegrees(FMath::RadiansToDegrees(2*FMath::Atan2(Delta.Y,Delta.W)));
         if(!FMath::IsFinite(Angle))continue;
         const double A=FMath::Clamp(Angle,K.Angles[0],K.Angles.Last());
         for(int I=1;I<K.Angles.Num();++I)if(A<=K.Angles[I])
