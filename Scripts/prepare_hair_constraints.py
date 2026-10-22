@@ -181,7 +181,9 @@ def bake_group(group, hair, budget=128):
     for neighbours in adjacency:
         chosen = sorted(neighbours, key=lambda x: (x[1], x[0]))[:2]
         links.append([list(x) for x in chosen]+[[-1, 0]]*(2-len(chosen)))
-    return dict(version='source-point-support-links-2', guide_source_ids=[ids[i] for i in selected],
+    return dict(version='source-point-support-links-3', source_owns_shape=True, prediction_support=True,
+                support_passes_per_second=60*max(1,int(float(native.get('Iterations',2)))),
+                guide_source_ids=[ids[i] for i in selected],
                 rigidity=np.clip(rig, 0, 1).tolist(), links=links,
                 authored_rigidity=raw_rig.tolist(),automatic_bundle_anchor=anchor,
                 nearby_rate_per_second=60*power,source_edges=source_edges, mapped_edges=len(edges),

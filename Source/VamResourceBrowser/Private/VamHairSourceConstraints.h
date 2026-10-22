@@ -26,14 +26,19 @@ static FString HairSourceConstraintHlsl(const TSharedPtr<FJsonObject>& Data, int
         Code.RemoveFromEnd(TEXT(","));Code+=TEXT("),");
     }
     Code.RemoveFromEnd(TEXT(","));Code+=TEXT("};\n");
-    Code+=FString::Printf(TEXT("int SI=min(ExecIndex(),%d); int SolverIterations=%d;\n"),L.Num()-1,Iterations);
+    // Source material response must not change with the UE solver quality setting.
+    // The legacy cache lacked a source clock; keep it only for historical ablation.
+    const double SourcePasses=Data->HasField(TEXT("support_passes_per_second"))?Data->GetNumberField(TEXT("support_passes_per_second")):60.0*Iterations;
+    if(!FMath::IsFinite(SourcePasses)||SourcePasses<=0){Error=TEXT("Invalid source support clock");return {};}
+    Code+=FString::Printf(TEXT("int SI=min(ExecIndex(),%d); float SupportPassesPerSecond=%.9ff;\n"),L.Num()-1,SourcePasses);
     Code+=FString::Printf(TEXT("float NearbyRate=%.9ff;\n"),Data->GetNumberField(TEXT("nearby_rate_per_second")));
     Code+=TEXT(R"HLSL(
 float Support=SourceSupport[SI];
 // Interpret painted rigidity as point support, not as a bend modulus.
-// VaM executes point support on every internal iteration. Account for that
-// repeated action when folding it into the native final projection stage.
-float Keep=pow(max(0.0,1.0-Support),max(Dt,0.0)*60.0*max(1,SolverIterations));
+// The adapter uses an explicit material response clock. New caches apply this
+// before rod/contact solving; old cache data retains its historical placement.
+// Frozen-target exponential decay is not full dynamic timestep invariance.
+float Keep=pow(max(0.0,1.0-Support),max(Dt,0.0)*SupportPassesPerSecond);
 Result=Rest+(Current-Rest)*Keep;
 float4 Links=SourceLinks[SI];
 float3 Correction=0; float Count=0;

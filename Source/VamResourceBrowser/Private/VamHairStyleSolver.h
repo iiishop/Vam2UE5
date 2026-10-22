@@ -9,6 +9,7 @@
 #include "NiagaraNodeWithDynamicPins.h"
 #include "Niagara/NiagaraDataInterfaceHairStrands.h"
 #include "VamHairSourceConstraints.h"
+#include "VamHairPredictionSupport.h"
 
 // Tied/support curves may contain an intentionally buried attachment path.
 // A negative rest clearance is not a moving contact: repeatedly ejecting that
@@ -53,12 +54,16 @@ static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported,float Anc
     return Count>0;
 }
 
-// Private copies keep the engine's solver assets untouched. The style constraint
-// participates after rod projection. Loose strands retain final collision priority;
-// tied bundles also enforce their bounded attachment volume at final output.
+// Private copies keep the engine assets untouched. New source caches apply
+// support in prediction, then let native rods and final collision constrain it.
+// Historical caches retain the former post-rod regularizer for reproducibility.
 static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& Kind, int32 NodeCount, int32 Iterations, int32 GroupIndex, const TSharedPtr<FJsonObject>& SourceConstraints, FString& Error)
 {
     float AnchorU=-1.f;
+    // Authored point support already owns style retention. A second group-wide
+    // shape spring/cap suppresses free tails and can undo collision projection.
+    const bool SourceOwnsShape=SourceConstraints&&SourceConstraints->HasField(TEXT("source_owns_shape"))&&SourceConstraints->GetBoolField(TEXT("source_owns_shape"));
+    const bool PredictionSupport=SourceOwnsShape&&SourceConstraints->HasField(TEXT("prediction_support"))&&SourceConstraints->GetBoolField(TEXT("prediction_support"));
     if(SourceConstraints&&SourceConstraints->HasTypedField<EJson::Object>(TEXT("automatic_bundle_anchor")))AnchorU=SourceConstraints->GetObjectField(TEXT("automatic_bundle_anchor"))->GetNumberField(TEXT("curve_coordinate"));
     const FString Key=Kind+FString::Printf(TEXT("_%d_G%d"),NodeCount,GroupIndex);
     const FString SystemPath=Root/TEXT("NS_Style_")+Key;
@@ -125,12 +130,13 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     {
         AddGet(TEXT("Emitter.HairStrands"),TEXT("Hair"));
         FString Body=HairSourceConstraintHlsl(SourceConstraints,Iterations,Error);if(!Error.IsEmpty())return nullptr;
-        // Source support augments, rather than removes, the established rest-shape
-        // regularizer. Free tips remain mobile; final body projection follows this.
-        Body+=FString::Printf(TEXT("\nfloat U=saturate((float(GGroupThreadId.x %% %d)-1.0)/%d.0);float T=U*U*(3-2*U);float W=6.283185307*lerp(%.9f,%.9f,T);float3 D=(Result-Rest)/(1+Dt*Dt*W*W);Result=Rest+D*min(1.0,%.9f/max(length(D),1.e-6));\n"),NodeCount,NodeCount-2,Frequency,Kind==TEXT("loose")?1.2f:Frequency,Limit);
+        // Only historical caches keep the extra group spring/cap. New source
+        // support must not be followed by a second whole-strand shape clamp.
+        if(!SourceOwnsShape)Body+=FString::Printf(TEXT("\nfloat U=saturate((float(GGroupThreadId.x %% %d)-1.0)/%d.0);float T=U*U*(3-2*U);float W=6.283185307*lerp(%.9f,%.9f,T);float3 D=(Result-Rest)/(1+Dt*Dt*W*W);Result=Rest+D*min(1.0,%.9f/max(length(D),1.e-6));\n"),NodeCount,NodeCount-2,Frequency,Kind==TEXT("loose")?1.2f:Frequency,Limit);
         FindFProperty<FStrProperty>(H->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(H,TEXT("Result=Current;\n#if GPU_SIMULATION\n")+Body+TEXT("\nSharedNodePosition[GGroupThreadId.x]=Result;\nGroupMemoryBarrier();\n#endif\n"));
     }
-    if(Kind!=TEXT("loose"))
+    if(PredictionSupport)FindFProperty<FStrProperty>(H->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(H,TEXT("Result=Current;"));
+    if(Kind!=TEXT("loose")&&!SourceOwnsShape)
     {
         // Tied bundles have a bounded attachment volume. Enforce the bound on
         // the final shared position too: native hard contact otherwise ejects
@@ -150,6 +156,14 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     auto* System=DuplicateObject<UNiagaraSystem>(Native,CreatePackage(*SystemPath),*FPackageName::GetLongPackageAssetName(SystemPath));System->SetFlags(RF_Public|RF_Standalone);
     int32 Replaced=0;
     TMap<UNiagaraScript*,UNiagaraScript*> Redirect;Redirect.Add(Project,Copy);
+    if(PredictionSupport)
+    {
+        auto* Prediction=BuildHairPredictionSupport(Root,Key,SourceConstraints,Iterations,Error);
+        if(!Prediction)return nullptr;
+        auto* NativePrediction=LoadObject<UNiagaraScript>(nullptr,TEXT("/HairStrands/Emitters/AdvectGroomState.AdvectGroomState"));
+        if(!NativePrediction){Error=TEXT("Native prediction module missing");return nullptr;}
+        Redirect.Add(NativePrediction,Prediction);
+    }
     {
         auto* Solve=LoadObject<UNiagaraScript>(nullptr,TEXT("/HairStrands/Emitters/SolveRodConstraints.SolveRodConstraints"));
         if(!Solve){Error=TEXT("Native solve module missing");return nullptr;}

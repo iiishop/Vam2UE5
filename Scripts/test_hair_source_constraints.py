@@ -62,6 +62,19 @@ class SourceConstraintsTests(unittest.TestCase):
         g,h=self.fixture();g['native_physics']={'NearbyJointPower':'0'}
         self.assertEqual(bake_group(g,h)['retained_directed_links'],0)
 
+    def test_source_material_clock_has_composable_position_decay(self):
+        g,h=self.fixture();g['native_physics']={'Iterations':'2'}
+        result=bake_group(g,h)
+        self.assertTrue(result['source_owns_shape'])
+        self.assertTrue(result['prediction_support'])
+        self.assertEqual(result['support_passes_per_second'],120)
+        # This tests frozen-target position decay only, not dynamic timestep
+        # invariance: subsequent velocity reconstruction still depends on h.
+        # UE quality iterations must not multiply this source support rate.
+        keep=(1-.2)**(result['support_passes_per_second']/60)
+        for substeps in (1,5,10):
+            self.assertAlmostEqual(((1-.2)**(result['support_passes_per_second']/60/substeps))**substeps,keep)
+
     def test_bundle_detection_is_not_a_name_rule(self):
         radius=np.interp(np.arange(32),[0,8,14,31],[5,1,3,3])
         t=np.arange(16)*2*np.pi/16
