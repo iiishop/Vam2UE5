@@ -64,16 +64,20 @@ static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported,float Anc
     return Count>0;
 }
 
-// Private copies keep the engine assets untouched. New source caches apply
+// Private copies keep the engine assets untouched. Free source strands apply
 // support in prediction, then let native rods and final collision constrain it.
-// Historical caches retain the former post-rod regularizer for reproducibility.
+// Compact/support groups retain their attachment-volume constraint: sampled
+// point rigidity alone does not encode the whole tied bundle's shape.
 static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& Kind, int32 NodeCount, int32 Iterations, int32 GroupIndex, const TSharedPtr<FJsonObject>& SourceConstraints, FString& Error)
 {
     float AnchorU=-1.f;
-    // Authored point support already owns style retention. A second group-wide
-    // shape spring/cap suppresses free tails and can undo collision projection.
-    const bool SourceOwnsShape=SourceConstraints&&SourceConstraints->HasField(TEXT("source_owns_shape"))&&SourceConstraints->GetBoolField(TEXT("source_owns_shape"));
+    // The free-strand mapping is validated for loose groups. Removing the
+    // aggregate constraint from compact/support groups released the bun by
+    // ~17 cm despite valid per-node rigidity. Keep those existing constraints;
+    // this is a structural class policy, never a hairstyle/name exception.
+    const bool SourceOwnsShape=Kind==TEXT("loose")&&SourceConstraints&&SourceConstraints->HasField(TEXT("source_owns_shape"))&&SourceConstraints->GetBoolField(TEXT("source_owns_shape"));
     const bool PredictionSupport=SourceOwnsShape&&SourceConstraints->HasField(TEXT("prediction_support"))&&SourceConstraints->GetBoolField(TEXT("prediction_support"));
+    UE_LOG(LogTemp,Display,TEXT("VAM_HAIR_STYLE group=%d kind=%s prediction_support=%d attachment_volume=%d"),GroupIndex,*Kind,PredictionSupport,!SourceOwnsShape&&Kind!=TEXT("loose"));
     if(SourceConstraints&&SourceConstraints->HasTypedField<EJson::Object>(TEXT("automatic_bundle_anchor")))AnchorU=SourceConstraints->GetObjectField(TEXT("automatic_bundle_anchor"))->GetNumberField(TEXT("curve_coordinate"));
     const FString Key=Kind+FString::Printf(TEXT("_%d_G%d"),NodeCount,GroupIndex);
     const FString SystemPath=Root/TEXT("NS_Style_")+Key;
@@ -140,8 +144,8 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     {
         AddGet(TEXT("Emitter.HairStrands"),TEXT("Hair"));
         FString Body=HairSourceConstraintHlsl(SourceConstraints,Iterations,Error);if(!Error.IsEmpty())return nullptr;
-        // Only historical caches keep the extra group spring/cap. New source
-        // support must not be followed by a second whole-strand shape clamp.
+        // Historical caches and tied/support groups keep the aggregate shape
+        // constraint. New loose strands must not receive a second shape clamp.
         if(!SourceOwnsShape)Body+=FString::Printf(TEXT("\nfloat U=saturate((float(GGroupThreadId.x %% %d)-1.0)/%d.0);float T=U*U*(3-2*U);float W=6.283185307*lerp(%.9f,%.9f,T);float3 D=(Result-Rest)/(1+Dt*Dt*W*W);Result=Rest+D*min(1.0,%.9f/max(length(D),1.e-6));\n"),NodeCount,NodeCount-2,Frequency,Kind==TEXT("loose")?1.2f:Frequency,Limit);
         FindFProperty<FStrProperty>(H->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(H,TEXT("Result=Current;\n#if GPU_SIMULATION\n")+Body+TEXT("\nSharedNodePosition[GGroupThreadId.x]=Result;\nGroupMemoryBarrier();\n#endif\n"));
     }

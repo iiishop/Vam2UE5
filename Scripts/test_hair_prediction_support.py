@@ -114,6 +114,16 @@ class HairPredictionSupportTests(unittest.TestCase):
         self.assertNotIn('SharedNodePosition', header)
         self.assertNotIn('GroupMemoryBarrier', header)
 
+    def test_tied_groups_keep_aggregate_shape_constraint(self):
+        root = Path(__file__).resolve().parents[1]
+        code = (root/'Source/VamResourceBrowser/Private/VamHairStyleSolver.h').read_text()
+        self.assertIn('const bool SourceOwnsShape=Kind==TEXT("loose")&&SourceConstraints', code)
+        self.assertIn('const bool PredictionSupport=SourceOwnsShape&&', code)
+        self.assertIn('if(Kind!=TEXT("loose")&&!SourceOwnsShape)', code)
+        # Group classification is geometry/source based. No fixture name may
+        # route the solver; real bun regression remains a separate UE check.
+        self.assertNotIn('pony_tail3', code)
+
 
 if __name__ == '__main__':
     unittest.main()
