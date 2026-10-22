@@ -1,0 +1,38 @@
+{
+  "long\\view-0.mp4": {
+    "format": {
+      "duration": "24.333333"
+    }
+  },
+  "long\\view-1.mp4": {
+    "format": {
+      "duration": "24.333333"
+    }
+  },
+  "long\\view-2.mp4": {
+    "format": {
+      "duration": "24.133333"
+    }
+  },
+  "ponytail\\view-0.mp4": {
+    "format": {
+      "duration": "24.266667"
+    }
+  },
+  "ponytail\\view-1.mp4": {
+    "format": {
+      "duration": "24.266667"
+    }
+  },
+  "ponytail\\view-2.mp4": {
+    "format": {
+      "duration": "24.066667"
+    }
+  },
+  "source_assembly_sha256": "6817470f0f82d668461fba2e58ce2a954ab5ae68f0f9da693330ab2cb50fe6bb",
+  "source_constraint_tests": "8 passed",
+  "native_capture_complete": {
+    "long": "Original plugins restored and hashes verified\n",
+    "ponytail": "Original plugins restored and hashes verified\n"
+  }
+}

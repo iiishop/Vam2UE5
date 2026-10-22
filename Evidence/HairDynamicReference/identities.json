@@ -1,0 +1,16 @@
+[
+  {
+    "style": "ponytail",
+    "preset": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairVariants\\ponytail\\resolved-preset.vap",
+    "preset_sha256": "3f79963b92a66a253f7a4c5d7fe9ae24a90c68eebe0b76d3048a365138e6a33e",
+    "capture_manifest_sha256": "6b1e55e1cc575e38ecd7b3d2b95cd91898baf339e5b5586f272bbc22a3a2d96b",
+    "raw_capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairRestoration\\dynamic-ponytail-01\\runtime"
+  },
+  {
+    "style": "long",
+    "preset": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairVariants\\long\\resolved-preset.vap",
+    "preset_sha256": "c5d0f4462f51850837cba353b216e04908c378fbcd5c8b18a401e225d75aa3a6",
+    "capture_manifest_sha256": "255970b365921901adb4563ce96a2f434f6761d1bb403ca9b25f8221e961dd64",
+    "raw_capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairRestoration\\dynamic-long-01\\runtime"
+  }
+]

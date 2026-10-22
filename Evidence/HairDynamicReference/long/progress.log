@@ -1,0 +1,33 @@
+2026-10-22T15:42:02.9109551Z loaded
+2026-10-22T15:43:29.9459384Z loading default create scene
+2026-10-22T15:44:36.8810257Z cleared runtime scene/session plugins; loading appearance
+2026-10-22T15:44:36.8896398Z preset manager rescale2 folder= appearance=True
+2026-10-22T15:44:36.8896398Z preset manager geometry folder=General appearance=True
+2026-10-22T15:44:36.8901571Z preset manager NoStage3:Top Bun folder=Long Upswept Top Bun appearance=True
+2026-10-22T15:44:36.8901571Z preset manager NoStage3:Long Upswept folder=Long Upswept Top Bun appearance=True
+2026-10-22T15:44:36.8901571Z preset manager HeatUpSkirtSim folder=HeatUp appearance=True
+2026-10-22T15:44:36.8901571Z preset manager HeatUpPantySim folder=HeatUp appearance=True
+2026-10-22T15:44:36.8901571Z preset manager HeatUpTop folder=HeatUp appearance=True
+2026-10-22T15:44:36.8901571Z preset manager AppearancePresets folder=Appearance appearance=True
+2026-10-22T15:44:36.8901571Z preset manager PosePresets folder=Pose appearance=False
+2026-10-22T15:44:36.8901571Z preset manager AnimationPresets folder=AnimationPresets appearance=True
+2026-10-22T15:44:36.8901571Z preset manager FemaleGlutePhysicsPresets folder=GlutePhysics appearance=True
+2026-10-22T15:44:36.8911496Z preset manager FemaleBreastPhysicsPresets folder=BreastPhysics appearance=True
+2026-10-22T15:44:36.8911496Z preset manager PluginPresets folder=Plugins appearance=True
+2026-10-22T15:44:36.8911496Z preset manager SkinPresets folder=Skin appearance=True
+2026-10-22T15:44:36.8911496Z preset manager HairPresets folder=Hair appearance=True
+2026-10-22T15:44:36.8911496Z preset manager MorphPresets folder=Morphs appearance=True
+2026-10-22T15:44:36.8911496Z preset manager ClothingPresets folder=Clothing appearance=True
+2026-10-22T15:45:16.5075686Z hair-only preset loaded: I:\Document\UE5\SmartNPC\Plugins\VamResourceBrowser\Saved\HairVariants\long\resolved-preset.vap
+2026-10-22T15:45:16.6021028Z Dynamic hair audit: original hair parameters, kinematic body driver, live hair physics
+2026-10-22T15:45:25.9172344Z dynamic samples 30 t=2.038681
+2026-10-22T15:45:32.8697340Z dynamic samples 60 t=4.117249
+2026-10-22T15:45:35.8620578Z dynamic samples 90 t=6.206352
+2026-10-22T15:45:39.4520463Z dynamic samples 120 t=8.302628
+2026-10-22T15:45:43.3311272Z dynamic samples 150 t=10.39065
+2026-10-22T15:45:47.2382936Z dynamic samples 180 t=12.50108
+2026-10-22T15:45:52.2432611Z dynamic samples 210 t=14.6062
+2026-10-22T15:45:55.0996773Z dynamic samples 240 t=16.71944
+2026-10-22T15:45:58.5660821Z dynamic samples 270 t=18.80265
+2026-10-22T15:46:02.2266581Z dynamic samples 300 t=20.92547
+2026-10-22T15:46:06.7388219Z dynamic samples 330 t=23.00822

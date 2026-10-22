@@ -24,6 +24,9 @@ public partial class C1Capture {
    yield return new WaitForSecondsRealtime(15);while(SuperController.singleton.isLoading)yield return null;
    Log("hair-only preset loaded: "+variant);
   }
+  if(Environment.GetEnvironmentVariable("VAM_HAIR_DYNAMIC_AUDIT")=="1"){
+   var dynamicRun=CaptureHairDynamics();while(dynamicRun.MoveNext())yield return dynamicRun.Current;yield break;
+  }
   Log("hair restoration baseline; physics disabled before capture");
   foreach(var ctrl in person.GetComponentsInChildren<FreeControllerV3>(true))ctrl.enabled=false;
   SuperController.singleton.SetFreezeAnimation(true);person.SetFreezePhysics(true);

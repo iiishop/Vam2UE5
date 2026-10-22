@@ -1,0 +1,74 @@
+{
+  "complete": true,
+  "samples": 344,
+  "duration_seconds": 23.94671,
+  "groups": [
+    {
+      "path": "SceneAtoms/Person/rescale2/geometry/FemaleHair/CustomHairItem/Miki:Swift Ponytail Hairline",
+      "particles": 780,
+      "strands": 60,
+      "phases": {
+        "settle": {
+          "tip_excursion_max_cm": 5.258019284403731,
+          "tip_speed_p95_cm_s": 0.0,
+          "tip_speed_final_median_cm_s": 0.0
+        },
+        "motion": {
+          "tip_excursion_max_cm": 1.0906549198579527,
+          "tip_speed_p95_cm_s": 4.076907965728597,
+          "tip_speed_final_median_cm_s": 2.0535132999727366
+        },
+        "recovery": {
+          "tip_excursion_max_cm": 0.0,
+          "tip_speed_p95_cm_s": 0.0,
+          "tip_speed_final_median_cm_s": 0.0
+        }
+      }
+    },
+    {
+      "path": "SceneAtoms/Person/rescale2/geometry/FemaleHair/CustomHairItem/Miki:Swift Ponytail",
+      "particles": 20175,
+      "strands": 807,
+      "phases": {
+        "settle": {
+          "tip_excursion_max_cm": 49.8321449561242,
+          "tip_speed_p95_cm_s": 62.60333269378044,
+          "tip_speed_final_median_cm_s": 0.0012076908610957281
+        },
+        "motion": {
+          "tip_excursion_max_cm": 16.474808548980793,
+          "tip_speed_p95_cm_s": 52.7753620612315,
+          "tip_speed_final_median_cm_s": 30.930857674775908
+        },
+        "recovery": {
+          "tip_excursion_max_cm": 14.237803239012862,
+          "tip_speed_p95_cm_s": 22.656382024542527,
+          "tip_speed_final_median_cm_s": 0.0010057212894532452
+        }
+      }
+    },
+    {
+      "path": "SceneAtoms/Person/rescale2/geometry/FemaleHair/CustomHairItem/Miki:Swift Bangs 3 A",
+      "particles": 810,
+      "strands": 81,
+      "phases": {
+        "settle": {
+          "tip_excursion_max_cm": 15.825917961682668,
+          "tip_speed_p95_cm_s": 15.454459261633337,
+          "tip_speed_final_median_cm_s": 0.00023285215485584928
+        },
+        "motion": {
+          "tip_excursion_max_cm": 7.937585172621502,
+          "tip_speed_p95_cm_s": 22.50816417982919,
+          "tip_speed_final_median_cm_s": 15.624686486991612
+        },
+        "recovery": {
+          "tip_excursion_max_cm": 5.267658998943072,
+          "tip_speed_p95_cm_s": 1.6459821907652434,
+          "tip_speed_final_median_cm_s": 0.0002239870364058537
+        }
+      }
+    }
+  ],
+  "note": "Head-space centimetres. Diagnostic readback affects timing; not a performance benchmark."
+}

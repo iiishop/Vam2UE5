@@ -1,0 +1,118 @@
+{
+  "complete": true,
+  "samples": 344,
+  "duration_seconds": 23.99788,
+  "groups": [
+    {
+      "path": "SceneAtoms/Person/rescale2/geometry/FemaleHair/CustomHairItem/ddaamm:long9 base",
+      "particles": 12012,
+      "strands": 572,
+      "phases": {
+        "settle": {
+          "tip_excursion_max_cm": 23.14733415257509,
+          "tip_speed_p95_cm_s": 16.21605152530592,
+          "tip_speed_final_median_cm_s": 0.0002104433259711596
+        },
+        "motion": {
+          "tip_excursion_max_cm": 22.273846862482827,
+          "tip_speed_p95_cm_s": 46.14499846002772,
+          "tip_speed_final_median_cm_s": 22.42407541976082
+        },
+        "recovery": {
+          "tip_excursion_max_cm": 11.615292103454207,
+          "tip_speed_p95_cm_s": 0.29046840760336745,
+          "tip_speed_final_median_cm_s": 0.00017483430285891125
+        }
+      }
+    },
+    {
+      "path": "SceneAtoms/Person/rescale2/geometry/FemaleHair/CustomHairItem/ddaamm:long9 side",
+      "particles": 2496,
+      "strands": 104,
+      "phases": {
+        "settle": {
+          "tip_excursion_max_cm": 29.620422456334218,
+          "tip_speed_p95_cm_s": 12.487365168276277,
+          "tip_speed_final_median_cm_s": 0.00022347565632482288
+        },
+        "motion": {
+          "tip_excursion_max_cm": 12.312367192789644,
+          "tip_speed_p95_cm_s": 44.213381636850556,
+          "tip_speed_final_median_cm_s": 21.270318908964896
+        },
+        "recovery": {
+          "tip_excursion_max_cm": 3.4698680421919708,
+          "tip_speed_p95_cm_s": 0.5564604182118376,
+          "tip_speed_final_median_cm_s": 0.0001757587782840662
+        }
+      }
+    },
+    {
+      "path": "SceneAtoms/Person/rescale2/geometry/FemaleHair/CustomHairItem/ddaamm:long9 bang",
+      "particles": 266,
+      "strands": 19,
+      "phases": {
+        "settle": {
+          "tip_excursion_max_cm": 7.703071751052639,
+          "tip_speed_p95_cm_s": 3.0121629887615624,
+          "tip_speed_final_median_cm_s": 0.0005594558252483108
+        },
+        "motion": {
+          "tip_excursion_max_cm": 1.7259984443020833,
+          "tip_speed_p95_cm_s": 7.965306567654138,
+          "tip_speed_final_median_cm_s": 3.1803878346110177
+        },
+        "recovery": {
+          "tip_excursion_max_cm": 1.3305741370818194,
+          "tip_speed_p95_cm_s": 0.9987469881897759,
+          "tip_speed_final_median_cm_s": 0.0005184771975755976
+        }
+      }
+    },
+    {
+      "path": "SceneAtoms/Person/rescale2/geometry/FemaleHair/CustomHairItem/ddaamm:long9 extra",
+      "particles": 114,
+      "strands": 6,
+      "phases": {
+        "settle": {
+          "tip_excursion_max_cm": 6.665828197623748,
+          "tip_speed_p95_cm_s": 5.3061246094483865,
+          "tip_speed_final_median_cm_s": 0.0005416484347800677
+        },
+        "motion": {
+          "tip_excursion_max_cm": 0.9854288681806925,
+          "tip_speed_p95_cm_s": 3.815117269233497,
+          "tip_speed_final_median_cm_s": 1.794592964912725
+        },
+        "recovery": {
+          "tip_excursion_max_cm": 0.3446742213699784,
+          "tip_speed_p95_cm_s": 0.6880320143196801,
+          "tip_speed_final_median_cm_s": 0.00047248736733818754
+        }
+      }
+    },
+    {
+      "path": "SceneAtoms/Person/rescale2/geometry/FemaleHair/CustomHairItem/ddaamm:long9 extra2",
+      "particles": 210,
+      "strands": 15,
+      "phases": {
+        "settle": {
+          "tip_excursion_max_cm": 9.81024734723339,
+          "tip_speed_p95_cm_s": 4.600640133502336,
+          "tip_speed_final_median_cm_s": 0.00024927320878621135
+        },
+        "motion": {
+          "tip_excursion_max_cm": 1.8995472674553646,
+          "tip_speed_p95_cm_s": 8.764825072528522,
+          "tip_speed_final_median_cm_s": 4.715839371354259
+        },
+        "recovery": {
+          "tip_excursion_max_cm": 1.4041988846100335,
+          "tip_speed_p95_cm_s": 2.300630346457333,
+          "tip_speed_final_median_cm_s": 0.00020038636410781406
+        }
+      }
+    }
+  ],
+  "note": "Head-space centimetres. Diagnostic readback affects timing; not a performance benchmark."
+}
