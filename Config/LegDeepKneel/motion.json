@@ -1,0 +1,188 @@
+{
+  "schema": "vam-pose-suite/1",
+  "limit_policy": "Static setup, hip and foot retain production limits. Explicit diagnostic_deep_flexion bypasses only the animated knee input; production RigProfile is unchanged. Recorded geometric angles define the achieved pose.",
+  "fixed_dt": 0.016666666666666666,
+  "settle_frames": 90,
+  "views": [
+    "side",
+    "rear",
+    "oblique"
+  ],
+  "modes": [
+    "material",
+    "gray",
+    "world-normal"
+  ],
+  "cases": [
+    {
+      "id": "M-deep-kneel",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 540,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "deep-kneel",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 4,
+      "video_audit": true,
+      "diagnostic_deep_flexion": true
+    },
+    {
+      "id": "M-single-flexion",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 360,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "deep-kneel",
+      "leg_chain": true,
+      "contact_solver": false,
+      "leg_chain_method": 4,
+      "video_audit": true,
+      "diagnostic_deep_flexion": true,
+      "deep_single_leg": true
+    },
+    {
+      "id": "C-deep-kneel",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 540,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "deep-kneel",
+      "leg_chain": false,
+      "contact_solver": true,
+      "leg_chain_method": 0,
+      "video_audit": true,
+      "diagnostic_deep_flexion": true
+    },
+    {
+      "id": "C-single-flexion",
+      "hip": [
+        0,
+        0
+      ],
+      "knee": [
+        0,
+        0
+      ],
+      "abduction": [
+        0,
+        0
+      ],
+      "twist": [
+        0,
+        0
+      ],
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "contact": false,
+      "soft_contact": true,
+      "structure": true,
+      "corrective": true,
+      "jiggle": true,
+      "glute_jiggle": true,
+      "leg_jiggle": true,
+      "breast_jiggle": false,
+      "motion_amplitude_cm": 0,
+      "video_frames": 360,
+      "leg_pipeline": true,
+      "video_direction": "front",
+      "video_action": "deep-kneel",
+      "leg_chain": false,
+      "contact_solver": true,
+      "leg_chain_method": 0,
+      "video_audit": true,
+      "diagnostic_deep_flexion": true,
+      "deep_single_leg": true
+    }
+  ]
+}

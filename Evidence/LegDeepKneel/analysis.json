@@ -1,0 +1,415 @@
+{
+  "reference_group": "C",
+  "comparability": [
+    {
+      "group": "C",
+      "action": "deep-kneel",
+      "primary_error": 0.0,
+      "contact_frames": 49
+    },
+    {
+      "group": "M",
+      "action": "deep-kneel",
+      "primary_error": 0.0,
+      "contact_frames": 0
+    },
+    {
+      "group": "C",
+      "action": "single-flexion",
+      "primary_error": 0.0,
+      "contact_frames": 78
+    },
+    {
+      "group": "M",
+      "action": "single-flexion",
+      "primary_error": 0.0,
+      "contact_frames": 0
+    }
+  ],
+  "surfaces": [
+    {
+      "group": "C",
+      "action": "deep-kneel",
+      "frame": 45,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 19.696130674771425,
+      "edge_max_deg": 161.28967922011515,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-112247-C5DD44674D37A974284EFC8A1FBEAEE7",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "deep-kneel",
+      "frame": 45,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 19.630981202536283,
+      "edge_max_deg": 161.29087650744614,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-111835-31EE741F49F9C82B1E2F1DA808052DA9",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.07254440221943272,
+      "max_vs_reference_cm": 0.19316279549399853,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "C",
+      "action": "deep-kneel",
+      "frame": 135,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 28.756488087206172,
+      "edge_max_deg": 175.97938094536582,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-112315-50C23EF24564EA4E4792DAB6276E6FE1",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "deep-kneel",
+      "frame": 135,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 28.22513142147907,
+      "edge_max_deg": 175.37296019542939,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-111902-0A8BDE0346A19FF484AAD381B8327E3B",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.4459854438518555,
+      "max_vs_reference_cm": 1.0310965252777695,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "C",
+      "action": "deep-kneel",
+      "frame": 165,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 32.10494934071753,
+      "edge_max_deg": 178.28175516275428,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-112337-A5A8A4904EFE3119EA5D2BBD0BB7C7AD",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "deep-kneel",
+      "frame": 165,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 32.343798536056454,
+      "edge_max_deg": 178.3913739197595,
+      "new_sharp_edges": 2,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-111922-12165F8A48143DD0B8060A81BC132DBF",
+      "new_sharp_edge_details": [
+        {
+          "triangles": [
+            1322,
+            1326
+          ],
+          "render_vertices": [
+            [
+              725,
+              711,
+              706
+            ],
+            [
+              706,
+              727,
+              725
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                428
+              ],
+              [
+                "source",
+                482
+              ],
+              [
+                "source",
+                481
+              ]
+            ],
+            [
+              [
+                "source",
+                481
+              ],
+              [
+                "source",
+                474
+              ],
+              [
+                "source",
+                428
+              ]
+            ]
+          ],
+          "reference_angle_deg": 43.89187217300696,
+          "current_angle_deg": 60.739952397321915,
+          "center_cm": [
+            39.88282208421904,
+            -12.072809229698324,
+            87.04071722030305
+          ]
+        },
+        {
+          "triangles": [
+            2630,
+            2631
+          ],
+          "render_vertices": [
+            [
+              1427,
+              1429,
+              1424
+            ],
+            [
+              1428,
+              1424,
+              1429
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                11410
+              ],
+              [
+                "source",
+                11356
+              ],
+              [
+                "source",
+                11409
+              ]
+            ],
+            [
+              [
+                "source",
+                11402
+              ],
+              [
+                "source",
+                11409
+              ],
+              [
+                "source",
+                11356
+              ]
+            ]
+          ],
+          "reference_angle_deg": 45.30639731977413,
+          "current_angle_deg": 60.82551342250247,
+          "center_cm": [
+            39.88944529360701,
+            12.093264174609379,
+            87.03119865118892
+          ]
+        }
+      ],
+      "rms_vs_reference_cm": 0.4646291788953589,
+      "max_vs_reference_cm": 1.1470307863042146,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "C",
+      "action": "single-flexion",
+      "frame": 45,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 19.49351184479022,
+      "edge_max_deg": 158.27493919882542,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-112443-E2A57179447EB07A8914CAB5F06B79FE",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "single-flexion",
+      "frame": 45,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 19.495569716179617,
+      "edge_max_deg": 158.2818924332678,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-112018-EF7A10E34CF022E6B57D10A43570BB45",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.05271504516478443,
+      "max_vs_reference_cm": 0.19613545897397583,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "C",
+      "action": "single-flexion",
+      "frame": 135,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 23.52402859001233,
+      "edge_max_deg": 166.84731180397674,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-112512-424220A94B2A969C48F2D4ADBF8AF1BE",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "single-flexion",
+      "frame": 135,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 23.490037982957894,
+      "edge_max_deg": 170.9867316396857,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-112045-5A25B4CF49A79DDE1C7D1FAA62A08345",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.3107434830595001,
+      "max_vs_reference_cm": 1.0107122640059625,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "C",
+      "action": "single-flexion",
+      "frame": 165,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 24.70791534477416,
+      "edge_max_deg": 172.12827834298977,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-112535-19529A1D464E7A83F44C89B8CBD53869",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "single-flexion",
+      "frame": 165,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 24.654126545881276,
+      "edge_max_deg": 165.16081151660404,
+      "new_sharp_edges": 1,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-112105-FD93EF8141C1B5CEF50C2A9B768E5B98",
+      "new_sharp_edge_details": [
+        {
+          "triangles": [
+            1322,
+            1326
+          ],
+          "render_vertices": [
+            [
+              725,
+              711,
+              706
+            ],
+            [
+              706,
+              727,
+              725
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                428
+              ],
+              [
+                "source",
+                482
+              ],
+              [
+                "source",
+                481
+              ]
+            ],
+            [
+              [
+                "source",
+                481
+              ],
+              [
+                "source",
+                474
+              ],
+              [
+                "source",
+                428
+              ]
+            ]
+          ],
+          "reference_angle_deg": 43.888012351228184,
+          "current_angle_deg": 60.71785666181021,
+          "center_cm": [
+            39.88278304748538,
+            -12.072808943008619,
+            87.0409366260982
+          ]
+        }
+      ],
+      "rms_vs_reference_cm": 0.32843027141944664,
+      "max_vs_reference_cm": 1.1438070732329002,
+      "opposed_normals_vs_reference": 0
+    }
+  ],
+  "scope": "A1 bone/morph surface, not GPU contact surface or rendered shading normals. Source-ID seams only; no nearest-neighbor matching. Sharp-edge flags require visual review, not anatomical truth."
+}

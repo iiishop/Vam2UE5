@@ -1,0 +1,12 @@
+{
+  "frames": 270,
+  "all_bone_matrix_max_error": 2.100611182612184,
+  "primary_bone_matrix_max_error": 0.0,
+  "worst_frame": 143,
+  "worst_bone": "R_Glute_Lower",
+  "hold_max_error": 0.1952339908442582,
+  "strict_all_bones_equal": false,
+  "scope": "Recorded Editor versus PIE M matrices. Nonzero helper differences retained; no claim of identical dynamics.",
+  "leg_helper_max_error": 0.8543384482853611,
+  "translation_max_difference_cm": 2.100611182612184
+}

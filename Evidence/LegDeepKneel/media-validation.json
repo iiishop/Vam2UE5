@@ -1,0 +1,77 @@
+{
+  "samples": [
+    {
+      "clip": "C-deep-kneel",
+      "frame": 45,
+      "decoded_psnr_db": 50.59815092139768,
+      "source_first_png_trailing_bytes": 238945
+    },
+    {
+      "clip": "C-deep-kneel",
+      "frame": 135,
+      "decoded_psnr_db": 47.7392551486943,
+      "source_first_png_trailing_bytes": 238945
+    },
+    {
+      "clip": "C-deep-kneel",
+      "frame": 165,
+      "decoded_psnr_db": 50.84029507783637,
+      "source_first_png_trailing_bytes": 238945
+    },
+    {
+      "clip": "M-deep-kneel",
+      "frame": 45,
+      "decoded_psnr_db": 50.278585704559944,
+      "source_first_png_trailing_bytes": 238174
+    },
+    {
+      "clip": "M-deep-kneel",
+      "frame": 135,
+      "decoded_psnr_db": 47.652289131329994,
+      "source_first_png_trailing_bytes": 238174
+    },
+    {
+      "clip": "M-deep-kneel",
+      "frame": 165,
+      "decoded_psnr_db": 50.74873045052179,
+      "source_first_png_trailing_bytes": 238174
+    },
+    {
+      "clip": "C-single-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 48.94512126227875,
+      "source_first_png_trailing_bytes": 68587
+    },
+    {
+      "clip": "C-single-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 49.02927473764987,
+      "source_first_png_trailing_bytes": 68587
+    },
+    {
+      "clip": "C-single-flexion",
+      "frame": 165,
+      "decoded_psnr_db": 49.5736086585044,
+      "source_first_png_trailing_bytes": 68587
+    },
+    {
+      "clip": "M-single-flexion",
+      "frame": 45,
+      "decoded_psnr_db": 49.03328758285549,
+      "source_first_png_trailing_bytes": 65847
+    },
+    {
+      "clip": "M-single-flexion",
+      "frame": 135,
+      "decoded_psnr_db": 48.99398101496347,
+      "source_first_png_trailing_bytes": 65847
+    },
+    {
+      "clip": "M-single-flexion",
+      "frame": 165,
+      "decoded_psnr_db": 49.64692106421705,
+      "source_first_png_trailing_bytes": 65847
+    }
+  ],
+  "scope": "Frame count/duration and decoded pixel comparison outside status label. Source UE PNG files have trailing bytes after IEND; ffmpeg warnings did not prevent decoding these verified frames."
+}
