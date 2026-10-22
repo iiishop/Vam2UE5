@@ -1,0 +1,109 @@
+{
+  "schema": "vam-hair-base-compatibility/1",
+  "scope": "Offline comparison of existing actual UE A1 exports; no new UE runtime certification.",
+  "old_audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261018-122255-C67B30C944C4F8CA68AE92B9C25D4162",
+  "m_audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-150339-E7DA082641FF201D31BB66B5863EC41E",
+  "old_base_identity": "843374e7df2fa61a960032b3ea36d5df34558ee2d9f3b7fca1f3363615fee5f8",
+  "m_base_identity": "47a819cbfcc538a4a9029cd0f2b88a6772c6569f82bde6b5a81fc1bd7db220c2",
+  "shared_source_definition": "/Game/VamC15/S_8dc812aa2ab4cfdefb293e47/CD_Character.CD_Character",
+  "source_digest_equal": true,
+  "bind_signature_equal": true,
+  "morph_lock_equal": true,
+  "bone_count": [
+    136,
+    156
+  ],
+  "head_index": [
+    12,
+    12
+  ],
+  "added_bones": [
+    "L_Calf_Chain_0",
+    "L_Calf_Chain_1",
+    "L_Calf_Chain_2",
+    "L_Calf_Chain_3",
+    "L_Calf_Chain_4",
+    "L_Thigh_Chain_0",
+    "L_Thigh_Chain_1",
+    "L_Thigh_Chain_2",
+    "L_Thigh_Chain_3",
+    "L_Thigh_Chain_4",
+    "R_Calf_Chain_0",
+    "R_Calf_Chain_1",
+    "R_Calf_Chain_2",
+    "R_Calf_Chain_3",
+    "R_Calf_Chain_4",
+    "R_Thigh_Chain_0",
+    "R_Thigh_Chain_1",
+    "R_Thigh_Chain_2",
+    "R_Thigh_Chain_3",
+    "R_Thigh_Chain_4"
+  ],
+  "removed_bones": [],
+  "common_inverse_bind_max_abs": 0.0,
+  "render_vertex_count": [
+    34002,
+    33995
+  ],
+  "canonical_input_count": [
+    33343,
+    33336
+  ],
+  "all_canonical_preskin_max_cm": 0.0,
+  "head_canonical_count": 9003,
+  "head_preskin_max_cm": 0.0,
+  "head_influence_set_mismatch_count": 0,
+  "head_input_set_equal": true,
+  "input_to_source_equal": true,
+  "refinement_parents_equal": true,
+  "head_mask_render_count": [
+    9140,
+    9140
+  ],
+  "head_rigid_descendant_render_count": [
+    8943,
+    8943
+  ],
+  "head_mixed_render_count": [
+    197,
+    197
+  ],
+  "head_knee_operator_max_cm": 0.0,
+  "bun_source": {
+    "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairGeneric\\bun\\source-v4-budget.json",
+    "source_identity": "d75b04c79b96d94529098205be0a7e4e30593fb2936c646d321e836204e06eae",
+    "sha256": "fb2b04c4a7b37f5bde8c6cf2b6bd408fd9355ca7b19e09c3ddbe20debe135445",
+    "old_runtime_identity": "dbd975295103df45d781b0740d4e4e9ccf706f97fc90f27a6c04feb86bb6b280",
+    "recomputed_runtime_identity": "dbd975295103df45d781b0740d4e4e9ccf706f97fc90f27a6c04feb86bb6b280",
+    "exact_old_identity_reproduced": true,
+    "native_config_iterations": [
+      "2",
+      "5",
+      "5",
+      "4"
+    ],
+    "scope": "Exact prior r8 source provenance; original native physics fields came from rest capture, not a new bun dynamic reference."
+  },
+  "requirements": [
+    "Build a new hair profile against the M body; ReferenceBody path differs and runtime rejects old profile reuse.",
+    "Preserve recorded source curves and head-local collision geometry because source/body head bind, pre-skin, and influences match.",
+    "Regenerate replay against the M A1 final bone order; do not reuse the 136-bone array or render indices.",
+    "Independent build/reload, Editor and PIE validation remain required. This offline comparison does not mark them passed."
+  ],
+  "source_files": {
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261018-122255-C67B30C944C4F8CA68AE92B9C25D4162\\manifest.json": "2275aed87a88ddd4d0466c3cc48aef1edf48054e63a99748651545c5b3322848",
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261018-122255-C67B30C944C4F8CA68AE92B9C25D4162\\01-final-weights\\inputs.json": "6e781630518fa772247fe98545724743e5d0be887bd7720a51c60981e335a5b8",
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261018-122255-C67B30C944C4F8CA68AE92B9C25D4162\\mapping.json": "b8a49c06e16d45c7ae5b30c7e1a5d2ff7571170762bcdb93353485fa78e6bc27",
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261018-122255-C67B30C944C4F8CA68AE92B9C25D4162\\01-final-weights\\preskin.json": "86b5b13325e9c53bca76cec32872fbe65d0ed9f3f236e45665f7d937b8b5f856",
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-150339-E7DA082641FF201D31BB66B5863EC41E\\manifest.json": "df00f3ffeb39259c820b61b122011ad127c426e5f4e45074f2d20077a79ac79f",
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-150339-E7DA082641FF201D31BB66B5863EC41E\\01-final-weights\\inputs.json": "9789b92a86ffd32c2c85dabb0146842c0720f529390044cc1cc77efa4c002e9f",
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-150339-E7DA082641FF201D31BB66B5863EC41E\\mapping.json": "e4225b2ce5b837002c142f6a11354fd8d79bf5b21dc6f27d45be1c34dea06157",
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-150339-E7DA082641FF201D31BB66B5863EC41E\\01-final-weights\\preskin.json": "7162853fcf1fd1b01adaaa10f93a2cbe2256e86ed0cd66d784f1f3a87512417f",
+    "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Evidence\\MKneeOperator\\asset-bundle.json": "5d704b74dfb9c2c4a19c70d464c8813b825caf89181b3e0c35cbced65e869630",
+    "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairGeneric\\long-r8\\bundle.json": "4e36165fe569e0dd30ce4d4557e54a11d32756f2423397766805e41d25a98886",
+    "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairGeneric\\bun-r8\\bundle.json": "a9a938c0bbf1d66d0ba759e5efecce206e4b8cdf6d6826e546dd215876b6eeb6",
+    "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairGeneric\\bun\\source-v4-budget.json": "fb2b04c4a7b37f5bde8c6cf2b6bd408fd9355ca7b19e09c3ddbe20debe135445",
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-150339-E7DA082641FF201D31BB66B5863EC41E\\04-jiggle\\surface.json": "973657242bd52e668f024b2519637bc8ec29b2df939a9a6ba7f3e045f5fb6b43",
+    "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-150339-E7DA082641FF201D31BB66B5863EC41E\\04a-operator-corrected\\surface.json": "0cb363b5dfe8c314a4530edf8320129f829420b689c97037bceef2d251ee5a23"
+  }
+}

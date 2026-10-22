@@ -1,0 +1,62 @@
+Using bundled DotNet SDK version: 10.0 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" UnrealEditor Win64 Development -Project=I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/HostProject.uproject -WaitMutex -NoHotReloadFromIDE -NoUBA
+Log file: C:\Users\Administrator\AppData\Local\UnrealBuildTool\Log.txt
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+  Requested 1.5 GB memory per action, 5.18 GB available: limiting max parallel actions to 3
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+Building UnrealEditor...
+===== Toolchain Information =====
+Using ISPC compiler (I:\Program\Epic Games\UE_5.8\Engine\Source\ThirdParty\Intel\ISPC\bin\Windows\ispc.exe)
+  Intel(r) Implicit SPMD Program Compiler (Intel(r) ISPC), 1.24.0 (build commit  @ 20250404, LLVM 18.1.2) 
+Using Visual Studio 14.44.35229 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (E:\Windows Kits\10).
+[Adaptive Build] Excluded from VamContactGPU unity file: VamContactGPUModule.cpp, VamGPUContact.cpp, VamGPUContactDataInterface.cpp
+[Adaptive Build] Excluded from VamCharacterRuntime unity file: VamActivePoseComponent.cpp, VamBodyContactResponseComponent.cpp, VamBreastCalibratedSolver.cpp, VamBreastCalibration.cpp, VamBreastContactBackend.cpp, VamBreastContactComponent.cpp, VamBreastContactProfile.cpp, VamBreastDebugTrajectory.cpp, VamBreastSkeletalMeshComponent.cpp, VamBreastSolver.cpp, VamCharacterActor.cpp, VamCharacterComponent.cpp, VamCharacterDefinition.cpp, VamCharacterRuntime.cpp, VamContactNativeExperiment.cpp, VamContactRigidSources.cpp, VamDeformationAudit.cpp, VamGluteCorrectiveIdentity.cpp, VamGluteCorrectiveProfile.cpp, VamGluteCorrectiveRuntime.cpp, VamGluteJiggleProfile.cpp, VamGluteJiggleRuntime.cpp, VamGlutePoseRefinement.cpp, VamGluteSkeletalMeshComponent.cpp, VamGluteSolver.cpp, VamGluteStructure.cpp, VamHairAsset.cpp, VamHairComponent.cpp, VamInteractionComponent.cpp, VamKneeCorrective.cpp, VamKneeOperatorCorrection.cpp, VamLegJiggleProfile.cpp, VamLegSkeletalMeshComponent.cpp, VamMotionComponent.cpp, VamPhysicsOutputComponent.cpp, VamPhysicsShapeProfile.cpp, VamPreviewTool.cpp, VamShapeAnimInstance.cpp, VamShapeTestPanel.cpp, VamStage06AcceptanceActor.cpp, VamStage07CompositionProbe.cpp, VamBreastCalibrationTests.cpp, VamBreastSolverTests.cpp, VamContactFrameProbe.cpp, VamGluteSolverTests.cpp, VamHairFrameProbe.cpp, VamHairPlaybackCapture.cpp, VamHairRestCapture.cpp, VamSecondaryGravityTests.cpp
+[Adaptive Build] Excluded from VamResourceBrowser unity file: VamBreastContactBuilder.cpp, VamBreastContactDeformer.cpp, VamBreastContactRemesh.cpp, VamBreastContactSurfaceRefinement.cpp, VamBreastJiggleBuilder.cpp, VamDebugPanel.cpp, VamGluteCorrectiveBuilder.cpp, VamGluteFinalCorrective.cpp, VamGluteJiggleBuilder.cpp, VamGluteSpatialAudit.cpp, VamGluteStructureBuilder.cpp, VamGluteSurfaceSnapshot.cpp, VamHairBuilder.cpp, VamHairCatalogBuilder.cpp, VamKneeCorrectiveBuilder.cpp, VamLegJiggleBuilder.cpp, VamLowerBodyContactBuilder.cpp, VamNativeBuilder.cpp, VamNativeBuildWindow.cpp, VamResourceBrowserModule.cpp, VamStage06AssetEditor.cpp, VamSurfaceTransferAudit.cpp, VamBreastContactTests.cpp, VamBreastNativeTests.cpp, VamBreastWeightTests.cpp, VamContactKernelTests.cpp, VamContactMeshingTests.cpp, VamFeasibleSafetyTests.cpp, VamFinalCorrectiveTests.cpp, VamGluteCorrectiveTests.cpp, VamGluteFidelityTests.cpp, VamGluteJiggleTests.cpp, VamGluteRefinementTests.cpp, VamGluteRotationBlendTests.cpp, VamGluteStructureTests.cpp, VamGPUContactTests.cpp, VamHairNiagaraAudit.cpp, VamHairPIECapture.cpp, VamKneeCorrectiveTests.cpp, VamMaterialStreamingTests.cpp, VamPoseLimitTests.cpp, VamResidualOnlySafetyTests.cpp
+=================================
+Using Unreal Build Accelerator local executor to run 4 action(s)
+  CPU 10 physical cores, 16 logical cores
+  Memory 39.82 GB physical, 84.52 GB/102.19 GB committed
+  UBA Storage capacity 40 GB
+[1/4] Compile [x64] VamHairBuilder.cpp [NoUba]
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(34,114): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    const TSharedPtr<FJsonObject>* C=nullptr;if(!Settings->TryGetObjectField(Key,C))return FLinearColor(.06,.025,.012);
+                                                                                                                 ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(34,109): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    const TSharedPtr<FJsonObject>* C=nullptr;if(!Settings->TryGetObjectField(Key,C))return FLinearColor(.06,.025,.012);
+                                                                                                            ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(34,105): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+    const TSharedPtr<FJsonObject>* C=nullptr;if(!Settings->TryGetObjectField(Key,C))return FLinearColor(.06,.025,.012);
+                                                                                                        ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(65,39): warning C4996: 'UMaterial::bUsedWithHairStrands': Always use the GetUsageByFlag() accessor. - Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+        M->SetShadingModel(MSM_Hair);M->bUsedWithHairStrands=true;M->TwoSided=true;
+                                      ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(143,52): warning C4305: ﾡﾰﾲￎￊ�ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+            for(int32 I:Selected)Add(C[I].P,G,true,.008);
+                                                   ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(183,44): warning C4457: ﾡﾰPhysicsﾡﾱﾵￄ￉￹ￃ￷ￒ￾ﾲ￘￁ￋﾺﾯￊ�ﾲￎￊ�
+            const int32 Iterations=8;auto& Physics=Groom->GetHairGroupsPhysics()[G];Physics.SolverSettings.EnableSimulation=!Anchor;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CosseratRods;if(Policy){auto* StyleSolver=BuildHairStyleSolver(AssetRoot,Class,32,Iterations,G,SourceConstraints?*SourceConstraints:nullptr,Error);if(!StyleSolver)return nullptr;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CustomSolver;Physics.SolverSettings.CustomSystem=StyleSolver;}Physics.SolverSettings.SubSteps=5;Physics.SolverSettings.IterationCount=Iterations;
+                                           ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(49,179): note: ﾲￎﾼ￻ﾡﾰPhysicsﾡﾱﾵￄ￉￹ￃ￷
+UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FString& AssetRoot,USkeletalMesh* Body,const FString& GenerationIdentity,FString& Error,UPhysicsAsset* Physics)
+                                                                                                                                                                                  ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(190,118): warning C4305: ﾡﾰ=ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+            Physics.StrandsParameters.StrandsSize=EGroomStrandsSize::Size32;Physics.StrandsParameters.StrandsDensity=1.3;Physics.StrandsParameters.StrandsThickness=.008f*FMath::Sqrt(RepresentedFibers);Physics.StrandsParameters.StrandsSmoothing=0;
+                                                                                                                     ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(192,126): warning C4305: ﾡﾰ=ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+            auto& Bend=Physics.MaterialConstraints.BendConstraint;Bend.SolveBend=true;Bend.ProjectBend=true;Bend.BendDamping=.2;Bend.BendStiffness=(Compact?2000.f:(Supported?100.f:.2f))/RepresentedFibers;
+                                                                                                                             ^
+I:\Document\UE5\SmartNPC\Saved\VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc\HostProject\Plugins\VamResourceBrowser\Source\VamResourceBrowser\Private\VamHairBuilder.cpp(196,178): warning C4305: ﾡﾰ=ﾡﾱ: ﾴￓﾡﾰdoubleﾡﾱﾵﾽﾡﾰfloatﾡﾱﾽ￘ﾶￏ
+            auto& Stretch=Physics.MaterialConstraints.StretchConstraint;Stretch.SolveStretch=true;Stretch.ProjectStretch=true;Stretch.StretchStiffness=10;Stretch.StretchDamping=.1;
+                                                                                                                                                                                 ^
+[2/4] Link [x64] UnrealEditor-VamResourceBrowser.lib [NoUba]
+  ￕ�ￔￚﾴﾴﾽﾨ﾿￢ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamResourceBrowser/UnrealEditor-VamResourceBrowser.lib ﾺￍﾶￔￏ￳ I:/Document/UE5/SmartNPC/Saved/VamBrowserBuild-7a653870e8e9470da44a4fa2a8dbffdc/HostProject/Plugins/VamResourceBrowser/Intermediate/Build/Win64/x64/UnrealEditor/Development/VamResourceBrowser/UnrealEditor-VamResourceBrowser.exp
+[3/4] Link [x64] UnrealEditor-VamResourceBrowser.dll [NoUba]
+[4/4] WriteMetadata UnrealEditor.target [NoUba]
+
+Total time in Unreal Build Accelerator local executor: 38.65 seconds
+Output binary: I:\Program\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe
+
+Result: Succeeded
+Total execution time: 42.20 seconds
+Trace written to file C:\Users\Administrator\AppData\Local\UnrealBuildTool\Trace.uba with size 7.7kb

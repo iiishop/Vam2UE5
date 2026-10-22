@@ -1,0 +1,91 @@
+﻿phase,group,name,region,scope,anchor_u,point_samples,over_threshold_samples,over_threshold_and_authored_rest_inside_samples,over_threshold_but_authored_rest_outside_samples,max_depth_cm,fraction_over_threshold
+settle,0,Swift Bangs 3 A_native_full,head,all_points,,64800,25,25,0,0.21761867554119707,0.00038580246913580245
+settle,0,Swift Bangs 3 A_native_full,head,historical_nonroot_j_ge_3,,58725,0,0,0,0,0.0
+settle,0,Swift Bangs 3 A_native_full,head,root_prefix_j_lt_3,,6075,25,25,0,0.21761867554119707,0.00411522633744856
+settle,0,Swift Bangs 3 A_native_full,head,nonroot_without_automatic_anchor,,58725,0,0,0,0,0.0
+settle,0,Swift Bangs 3 A_native_full,body,all_points,,64800,0,0,0,0,0.0
+settle,0,Swift Bangs 3 A_native_full,body,historical_nonroot_j_ge_3,,58725,0,0,0,0,0.0
+settle,0,Swift Bangs 3 A_native_full,body,root_prefix_j_lt_3,,6075,0,0,0,0,0.0
+settle,0,Swift Bangs 3 A_native_full,body,nonroot_without_automatic_anchor,,58725,0,0,0,0,0.0
+settle,1,Swift Ponytail Hairline_native_full,head,all_points,,48000,1025,1025,0,0.5754043584548238,0.021354166666666667
+settle,1,Swift Ponytail Hairline_native_full,head,historical_nonroot_j_ge_3,,43500,1025,1025,0,0.5754043584548238,0.023563218390804597
+settle,1,Swift Ponytail Hairline_native_full,head,root_prefix_j_lt_3,,4500,0,0,0,0.10007653954492568,0.0
+settle,1,Swift Ponytail Hairline_native_full,head,nonroot_without_automatic_anchor,,43500,1025,1025,0,0.5754043584548238,0.023563218390804597
+settle,1,Swift Ponytail Hairline_native_full,body,all_points,,48000,0,0,0,0,0.0
+settle,1,Swift Ponytail Hairline_native_full,body,historical_nonroot_j_ge_3,,43500,0,0,0,0,0.0
+settle,1,Swift Ponytail Hairline_native_full,body,root_prefix_j_lt_3,,4500,0,0,0,0,0.0
+settle,1,Swift Ponytail Hairline_native_full,body,nonroot_without_automatic_anchor,,43500,0,0,0,0,0.0
+settle,2,Swift Ponytail_native_full,head,all_points,0.41904878889293623,102400,1275,1275,0,1.147027620469598,0.012451171875
+settle,2,Swift Ponytail_native_full,head,historical_nonroot_j_ge_3,0.41904878889293623,92800,100,100,0,0.4111307139261262,0.0010775862068965517
+settle,2,Swift Ponytail_native_full,head,root_prefix_j_lt_3,0.41904878889293623,9600,1175,1175,0,1.147027620469598,0.12239583333333333
+settle,2,Swift Ponytail_native_full,head,nonroot_attachment_prefix,0.41904878889293623,32000,100,100,0,0.4111307139261262,0.003125
+settle,2,Swift Ponytail_native_full,head,nonroot_after_anchor,0.41904878889293623,60800,0,0,0,0,0.0
+settle,2,Swift Ponytail_native_full,head,nonroot_straddling_solver_interval,0.41904878889293623,3200,0,0,0,0,0.0
+settle,2,Swift Ponytail_native_full,head,nonroot_both_solver_nodes_after_anchor,0.41904878889293623,57600,0,0,0,0,0.0
+settle,2,Swift Ponytail_native_full,body,all_points,0.41904878889293623,102400,125,125,0,1.8584018022443267,0.001220703125
+settle,2,Swift Ponytail_native_full,body,historical_nonroot_j_ge_3,0.41904878889293623,92800,0,0,0,0,0.0
+settle,2,Swift Ponytail_native_full,body,root_prefix_j_lt_3,0.41904878889293623,9600,125,125,0,1.8584018022443267,0.013020833333333334
+settle,2,Swift Ponytail_native_full,body,nonroot_attachment_prefix,0.41904878889293623,32000,0,0,0,0,0.0
+settle,2,Swift Ponytail_native_full,body,nonroot_after_anchor,0.41904878889293623,60800,0,0,0,0,0.0
+settle,2,Swift Ponytail_native_full,body,nonroot_straddling_solver_interval,0.41904878889293623,3200,0,0,0,0,0.0
+settle,2,Swift Ponytail_native_full,body,nonroot_both_solver_nodes_after_anchor,0.41904878889293623,57600,0,0,0,0,0.0
+motion,0,Swift Bangs 3 A_native_full,head,all_points,,62208,25,25,0,0.2176186755412015,0.0004018775720164609
+motion,0,Swift Bangs 3 A_native_full,head,historical_nonroot_j_ge_3,,56376,0,0,0,0,0.0
+motion,0,Swift Bangs 3 A_native_full,head,root_prefix_j_lt_3,,5832,25,25,0,0.2176186755412015,0.0042866941015089165
+motion,0,Swift Bangs 3 A_native_full,head,nonroot_without_automatic_anchor,,56376,0,0,0,0,0.0
+motion,0,Swift Bangs 3 A_native_full,body,all_points,,62208,0,0,0,0,0.0
+motion,0,Swift Bangs 3 A_native_full,body,historical_nonroot_j_ge_3,,56376,0,0,0,0,0.0
+motion,0,Swift Bangs 3 A_native_full,body,root_prefix_j_lt_3,,5832,0,0,0,0,0.0
+motion,0,Swift Bangs 3 A_native_full,body,nonroot_without_automatic_anchor,,56376,0,0,0,0,0.0
+motion,1,Swift Ponytail Hairline_native_full,head,all_points,,46080,998,998,0,0.5767760841668492,0.02165798611111111
+motion,1,Swift Ponytail Hairline_native_full,head,historical_nonroot_j_ge_3,,41760,998,998,0,0.5767760841668492,0.023898467432950193
+motion,1,Swift Ponytail Hairline_native_full,head,root_prefix_j_lt_3,,4320,0,0,0,0.10010871944083988,0.0
+motion,1,Swift Ponytail Hairline_native_full,head,nonroot_without_automatic_anchor,,41760,998,998,0,0.5767760841668492,0.023898467432950193
+motion,1,Swift Ponytail Hairline_native_full,body,all_points,,46080,0,0,0,0,0.0
+motion,1,Swift Ponytail Hairline_native_full,body,historical_nonroot_j_ge_3,,41760,0,0,0,0,0.0
+motion,1,Swift Ponytail Hairline_native_full,body,root_prefix_j_lt_3,,4320,0,0,0,0,0.0
+motion,1,Swift Ponytail Hairline_native_full,body,nonroot_without_automatic_anchor,,41760,0,0,0,0,0.0
+motion,2,Swift Ponytail_native_full,head,all_points,0.41904878889293623,98304,1224,1224,0,1.1465520521798926,0.012451171875
+motion,2,Swift Ponytail_native_full,head,historical_nonroot_j_ge_3,0.41904878889293623,89088,96,96,0,0.4125850635710737,0.0010775862068965517
+motion,2,Swift Ponytail_native_full,head,root_prefix_j_lt_3,0.41904878889293623,9216,1128,1128,0,1.1465520521798926,0.12239583333333333
+motion,2,Swift Ponytail_native_full,head,nonroot_attachment_prefix,0.41904878889293623,30720,96,96,0,0.4125850635710737,0.003125
+motion,2,Swift Ponytail_native_full,head,nonroot_after_anchor,0.41904878889293623,58368,0,0,0,0,0.0
+motion,2,Swift Ponytail_native_full,head,nonroot_straddling_solver_interval,0.41904878889293623,3072,0,0,0,0,0.0
+motion,2,Swift Ponytail_native_full,head,nonroot_both_solver_nodes_after_anchor,0.41904878889293623,55296,0,0,0,0,0.0
+motion,2,Swift Ponytail_native_full,body,all_points,0.41904878889293623,98304,122,122,0,2.876415790229869,0.0012410481770833333
+motion,2,Swift Ponytail_native_full,body,historical_nonroot_j_ge_3,0.41904878889293623,89088,0,0,0,0,0.0
+motion,2,Swift Ponytail_native_full,body,root_prefix_j_lt_3,0.41904878889293623,9216,122,122,0,2.876415790229869,0.013237847222222222
+motion,2,Swift Ponytail_native_full,body,nonroot_attachment_prefix,0.41904878889293623,30720,0,0,0,0,0.0
+motion,2,Swift Ponytail_native_full,body,nonroot_after_anchor,0.41904878889293623,58368,0,0,0,0,0.0
+motion,2,Swift Ponytail_native_full,body,nonroot_straddling_solver_interval,0.41904878889293623,3072,0,0,0,0,0.0
+motion,2,Swift Ponytail_native_full,body,nonroot_both_solver_nodes_after_anchor,0.41904878889293623,55296,0,0,0,0,0.0
+recovery,0,Swift Bangs 3 A_native_full,head,all_points,,59616,23,23,0,0.21337101605789144,0.00038580246913580245
+recovery,0,Swift Bangs 3 A_native_full,head,historical_nonroot_j_ge_3,,54027,0,0,0,0,0.0
+recovery,0,Swift Bangs 3 A_native_full,head,root_prefix_j_lt_3,,5589,23,23,0,0.21337101605789144,0.00411522633744856
+recovery,0,Swift Bangs 3 A_native_full,head,nonroot_without_automatic_anchor,,54027,0,0,0,0,0.0
+recovery,0,Swift Bangs 3 A_native_full,body,all_points,,59616,0,0,0,0,0.0
+recovery,0,Swift Bangs 3 A_native_full,body,historical_nonroot_j_ge_3,,54027,0,0,0,0,0.0
+recovery,0,Swift Bangs 3 A_native_full,body,root_prefix_j_lt_3,,5589,0,0,0,0,0.0
+recovery,0,Swift Bangs 3 A_native_full,body,nonroot_without_automatic_anchor,,54027,0,0,0,0,0.0
+recovery,1,Swift Ponytail Hairline_native_full,head,all_points,,44160,943,943,0,0.5752868739110149,0.021354166666666667
+recovery,1,Swift Ponytail Hairline_native_full,head,historical_nonroot_j_ge_3,,40020,943,943,0,0.5752868739110149,0.023563218390804597
+recovery,1,Swift Ponytail Hairline_native_full,head,root_prefix_j_lt_3,,4140,0,0,0,0.09864918326277827,0.0
+recovery,1,Swift Ponytail Hairline_native_full,head,nonroot_without_automatic_anchor,,40020,943,943,0,0.5752868739110149,0.023563218390804597
+recovery,1,Swift Ponytail Hairline_native_full,body,all_points,,44160,0,0,0,0,0.0
+recovery,1,Swift Ponytail Hairline_native_full,body,historical_nonroot_j_ge_3,,40020,0,0,0,0,0.0
+recovery,1,Swift Ponytail Hairline_native_full,body,root_prefix_j_lt_3,,4140,0,0,0,0,0.0
+recovery,1,Swift Ponytail Hairline_native_full,body,nonroot_without_automatic_anchor,,40020,0,0,0,0,0.0
+recovery,2,Swift Ponytail_native_full,head,all_points,0.41904878889293623,94208,1173,1173,0,1.147027620469598,0.012451171875
+recovery,2,Swift Ponytail_native_full,head,historical_nonroot_j_ge_3,0.41904878889293623,85376,92,92,0,0.4111307139261262,0.0010775862068965517
+recovery,2,Swift Ponytail_native_full,head,root_prefix_j_lt_3,0.41904878889293623,8832,1081,1081,0,1.147027620469598,0.12239583333333333
+recovery,2,Swift Ponytail_native_full,head,nonroot_attachment_prefix,0.41904878889293623,29440,92,92,0,0.4111307139261262,0.003125
+recovery,2,Swift Ponytail_native_full,head,nonroot_after_anchor,0.41904878889293623,55936,0,0,0,0,0.0
+recovery,2,Swift Ponytail_native_full,head,nonroot_straddling_solver_interval,0.41904878889293623,2944,0,0,0,0,0.0
+recovery,2,Swift Ponytail_native_full,head,nonroot_both_solver_nodes_after_anchor,0.41904878889293623,52992,0,0,0,0,0.0
+recovery,2,Swift Ponytail_native_full,body,all_points,0.41904878889293623,94208,115,115,0,1.8584018022443267,0.001220703125
+recovery,2,Swift Ponytail_native_full,body,historical_nonroot_j_ge_3,0.41904878889293623,85376,0,0,0,0,0.0
+recovery,2,Swift Ponytail_native_full,body,root_prefix_j_lt_3,0.41904878889293623,8832,115,115,0,1.8584018022443267,0.013020833333333334
+recovery,2,Swift Ponytail_native_full,body,nonroot_attachment_prefix,0.41904878889293623,29440,0,0,0,0,0.0
+recovery,2,Swift Ponytail_native_full,body,nonroot_after_anchor,0.41904878889293623,55936,0,0,0,0,0.0
+recovery,2,Swift Ponytail_native_full,body,nonroot_straddling_solver_interval,0.41904878889293623,2944,0,0,0,0,0.0
+recovery,2,Swift Ponytail_native_full,body,nonroot_both_solver_nodes_after_anchor,0.41904878889293623,52992,0,0,0,0,0.0

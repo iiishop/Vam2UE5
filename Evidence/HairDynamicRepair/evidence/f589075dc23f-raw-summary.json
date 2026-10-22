@@ -1,0 +1,6488 @@
+{
+  "schema": "vam-hair-raw-particle-audit/1",
+  "capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDynamicRepair\\long-prediction-radius\\capture\\capture.json",
+  "sha256": "b241a498ebe42db82c2341806b3628598cf2559acf45a3b4e6825461ba8ffc84",
+  "rows": [
+    {
+      "time": 0,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102635204767721,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006348482638806
+    },
+    {
+      "time": 0,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825309334101704,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105021849945,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982235420242365
+    },
+    {
+      "time": 0,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018232307983453044,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143954699405673,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98103830065304
+    },
+    {
+      "time": 0,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0049487390098431295,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200019198902464,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.49177562150924
+    },
+    {
+      "time": 0,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003918714831334291,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037925663923807,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.37801256233576
+    },
+    {
+      "time": 0.3333333333333333,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102633599927696,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006347325354229
+    },
+    {
+      "time": 0.3333333333333333,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105486344834,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223625167469
+    },
+    {
+      "time": 0.3333333333333333,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018171906138146617,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.014379382395807,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98034079465736
+    },
+    {
+      "time": 0.3333333333333333,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0049482968894063,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200015648320484,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.491771969368127
+    },
+    {
+      "time": 0.3333333333333333,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038933537990663977,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037906151176309,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.3779995195503165
+    },
+    {
+      "time": 0.6666666666666666,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102633583581991,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.00634731356699
+    },
+    {
+      "time": 0.6666666666666666,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105453506393,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982236192894838
+    },
+    {
+      "time": 0.6666666666666666,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.020745971257882332,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0142269330309845,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.973731063490526
+    },
+    {
+      "time": 0.6666666666666666,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004948964189538924,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200016531233935,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.491772877536008
+    },
+    {
+      "time": 0.6666666666666666,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003895026990798285,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037906560959645,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.377999793459265
+    },
+    {
+      "time": 1,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102634336479007,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006347856497182
+    },
+    {
+      "time": 1,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825214049711182,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105435193955,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982236160116106
+    },
+    {
+      "time": 1,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01809751684110401,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143825360347518,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98047752665128
+    },
+    {
+      "time": 1,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004948230487138135,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200014734071199,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.491771028968097
+    },
+    {
+      "time": 1,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0039091431798157,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037926594924865,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.3780131846390535
+    },
+    {
+      "time": 1.3333333333333333,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102631936299034,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006346125675902
+    },
+    {
+      "time": 1.3333333333333333,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825214049711182,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105718412408,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223666706889
+    },
+    {
+      "time": 1.3333333333333333,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01975828681595391,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143930963287415,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98093538821335
+    },
+    {
+      "time": 1.3333333333333333,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004949253535339307,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200017435762998,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.491773807937784
+    },
+    {
+      "time": 1.3333333333333333,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038886102447376206,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.103792767348078,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378013905571532
+    },
+    {
+      "time": 1.6666666666666667,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102631459547347,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.00634578188003
+    },
+    {
+      "time": 1.6666666666666667,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105217152332,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982235769827952
+    },
+    {
+      "time": 1.6666666666666667,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018338961927576582,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143790513277409,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98032644057385
+    },
+    {
+      "time": 1.6666666666666667,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0049509361678290904,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.020003109857469,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.491787861553941
+    },
+    {
+      "time": 1.6666666666666667,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038879689354345136,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.103792759772356,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.3780138549336005
+    },
+    {
+      "time": 2,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102629971655817,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006344708929522
+    },
+    {
+      "time": 2,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105206706495,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982235751130204
+    },
+    {
+      "time": 2,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.021319772619102638,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143573300538573,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.979384673573776
+    },
+    {
+      "time": 2,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.00495129698132304,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200071359505878,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.49182927408936
+    },
+    {
+      "time": 2,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003909148352611067,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037927688626745,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378013915695456
+    },
+    {
+      "time": 2.3333333333333335,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.110262910384655,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006344083133639
+    },
+    {
+      "time": 2.3333333333333335,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105591538446,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223643996819
+    },
+    {
+      "time": 2.3333333333333335,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.020184048111917555,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0144442055640917,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98315132598521
+    },
+    {
+      "time": 2.3333333333333335,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004950948194676584,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200115364014612,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.49187453728181
+    },
+    {
+      "time": 2.3333333333333335,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003887093795045061,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037926510194194,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378013128003054
+    },
+    {
+      "time": 2.6666666666666665,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.11026287793259,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006343849114835
+    },
+    {
+      "time": 2.6666666666666665,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825214049711182,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105434732637,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223615929036
+    },
+    {
+      "time": 2.6666666666666665,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01985557749842786,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143635431827112,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.9796540555517
+    },
+    {
+      "time": 2.6666666666666665,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004951735739419861,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200164883084268,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.491925472771015
+    },
+    {
+      "time": 2.6666666666666665,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003887222480450983,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.10379057032206,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.377999220126046
+    },
+    {
+      "time": 3,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102630850548982,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006345342718243
+    },
+    {
+      "time": 3,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.004610550714653,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223628890912
+    },
+    {
+      "time": 3,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01959900779813457,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0144473674851118,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.9832884170642
+    },
+    {
+      "time": 3,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0051518588233258784,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200219342697932,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.491981490121164
+    },
+    {
+      "time": 3,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.00390915779006089,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037906345215196,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.377999649250534
+    },
+    {
+      "time": 3.3333333333333335,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102630807361442,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.00634531157478
+    },
+    {
+      "time": 3.3333333333333335,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.004610565355325,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982236550972885
+    },
+    {
+      "time": 3.3333333333333335,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019694106632298963,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143646825738657,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.979703456014825
+    },
+    {
+      "time": 3.3333333333333335,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.00495088516427027,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200283099413672,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492047070503206
+    },
+    {
+      "time": 3.3333333333333335,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038873418987290906,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037928186775794,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378014248670151
+    },
+    {
+      "time": 3.6666666666666665,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102630356957044,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006344986778505
+    },
+    {
+      "time": 3.6666666666666665,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825214049711182,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105487000265,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223625284789
+    },
+    {
+      "time": 3.6666666666666665,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019383893728747728,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143861395142848,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.980633762336524
+    },
+    {
+      "time": 3.6666666666666665,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005503068652142637,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.020034283361807,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492108513315937
+    },
+    {
+      "time": 3.6666666666666665,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038872348711554297,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037906195655276,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.377999549281119
+    },
+    {
+      "time": 4,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102630765483343,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006345281375586
+    },
+    {
+      "time": 4,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825214049711182,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105772906395,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223676461154
+    },
+    {
+      "time": 4,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019305712841689485,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.014367209926964,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.97981303419879
+    },
+    {
+      "time": 4,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005401489795592013,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200402368150787,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492169750745672
+    },
+    {
+      "time": 4,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003909152638740943,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037927768216949,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378013968895443
+    },
+    {
+      "time": 4.333333333333333,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102628926469866,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006343955223505
+    },
+    {
+      "time": 4.333333333333333,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105550299262,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982236366151252
+    },
+    {
+      "time": 4.333333333333333,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019301120359617428,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143836744391463,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98052688433155
+    },
+    {
+      "time": 4.333333333333333,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005300232970767498,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200457622742403,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.49222658581294
+    },
+    {
+      "time": 4.333333333333333,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038872614204683714,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037927531590819,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378013810728899
+    },
+    {
+      "time": 4.666666666666667,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102628762583133,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006343837041266
+    },
+    {
+      "time": 4.666666666666667,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105685228581,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982236607670806
+    },
+    {
+      "time": 4.666666666666667,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01960719196332948,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143750465007637,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98015280370944
+    },
+    {
+      "time": 4.666666666666667,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005200968209885302,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200517077347235,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492287741028573
+    },
+    {
+      "time": 4.666666666666667,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038872395649982077,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037926070372222,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378012834015567
+    },
+    {
+      "time": 5,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.110263041097253,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.00634502573023
+    },
+    {
+      "time": 5,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825214049711182,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105513718935,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982236300673534
+    },
+    {
+      "time": 5,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019147552809842778,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0144612894378993,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98389202971519
+    },
+    {
+      "time": 5,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005101801765897801,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200580450596055,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492352926975192
+    },
+    {
+      "time": 5,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003909150419335744,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037927310129165,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.3780136626986526
+    },
+    {
+      "time": 5.333333333333333,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102630669437525,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006345212114885
+    },
+    {
+      "time": 5.333333333333333,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105757594876,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982236737204367
+    },
+    {
+      "time": 5.333333333333333,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019721441640332883,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143652781144061,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.979729276803745
+    },
+    {
+      "time": 5.333333333333333,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005004847396296149,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200640220195203,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492414406195085
+    },
+    {
+      "time": 5.333333333333333,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038872852703730944,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037906484632143,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.377999742440144
+    },
+    {
+      "time": 5.666666666666667,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102628447535334,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006343609853538
+    },
+    {
+      "time": 5.666666666666667,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105404063,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.9822361043926
+    },
+    {
+      "time": 5.666666666666667,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.020672169692752648,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0144444966036354,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.983163944556274
+    },
+    {
+      "time": 5.666666666666667,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004952571287975009,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200695878865194,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.49247165689879
+    },
+    {
+      "time": 5.666666666666667,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038872569037500687,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.103792638504454,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378013044350044
+    },
+    {
+      "time": 6,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.110263105863489,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006345492773455
+    },
+    {
+      "time": 6,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825214049711182,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105313980713,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982235943147934
+    },
+    {
+      "time": 6,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019273676305319114,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143745990071242,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.980133401774516
+    },
+    {
+      "time": 6,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0049525089283343985,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.020075892287035,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.49253650418422
+    },
+    {
+      "time": 6,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003909147543088939,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.103792606423378,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378012829912486
+    },
+    {
+      "time": 6.333333333333333,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102628614244552,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006343730071132
+    },
+    {
+      "time": 6.333333333333333,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825309334101704,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.004610567470223,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982236588828943
+    },
+    {
+      "time": 6.333333333333333,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019140340354894782,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143902278050834,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98081101793311
+    },
+    {
+      "time": 6.333333333333333,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.00495330482525543,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200814408726855,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492593577131364
+    },
+    {
+      "time": 6.333333333333333,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038872332465958756,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037927829175525,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378014009641609
+    },
+    {
+      "time": 6.666666666666667,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.110262890540418,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006343940032586
+    },
+    {
+      "time": 6.666666666666667,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825214049711182,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105769655251,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.982236758792084
+    },
+    {
+      "time": 6.666666666666667,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.020396381065112764,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143796026876613,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98035034582825
+    },
+    {
+      "time": 6.666666666666667,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0049536656066432256,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200873556072723,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492654416299345
+    },
+    {
+      "time": 6.666666666666667,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038872174291992995,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037925665315713,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378012563266143
+    },
+    {
+      "time": 7,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102631156261835,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.00634556317434
+    },
+    {
+      "time": 7,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.004610544933591,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223618542979
+    },
+    {
+      "time": 7,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01911556578351248,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.014226252967914,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.9737015780671
+    },
+    {
+      "time": 7,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004954023831458198,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200933404986987,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492715977103048
+    },
+    {
+      "time": 7,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003909152427869977,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037926353543397,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378013023293929
+    },
+    {
+      "time": 7.333333333333333,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102628785235689,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.00634385337651
+    },
+    {
+      "time": 7.333333333333333,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007825214049711182,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105142190733,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223563564887
+    },
+    {
+      "time": 7.333333333333333,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019098427230709675,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143818710457415,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.9804486947923
+    },
+    {
+      "time": 7.333333333333333,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004953638982075309,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0200995782098945,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492780138419787
+    },
+    {
+      "time": 7.333333333333333,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.00388724594228498,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037927152315121,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378013557211985
+    },
+    {
+      "time": 7.666666666666667,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1102628254283389,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.006343470495413
+    },
+    {
+      "time": 7.666666666666667,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00782526167752334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0046105477511946,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98223623586408
+    },
+    {
+      "time": 7.666666666666667,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019977529676229493,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0143866879396244,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98065754035661
+    },
+    {
+      "time": 7.666666666666667,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004953261036743738,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.020105624174882,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492842327428287
+    },
+    {
+      "time": 7.666666666666667,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003887262319704576,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.1037926906210296,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378013392709654
+    },
+    {
+      "time": 8,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005369996584680503,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913120735322158,
+        0.11160230375442973,
+        16.330139214035853
+      ],
+      "raw_length_ratio_max": 1.112569449056277,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.022977028423742
+    },
+    {
+      "time": 8,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00712870935715452,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.04234889387775,
+        0.15594412408131672,
+        13.623265931587127
+      ],
+      "raw_length_ratio_max": 1.0055970811979487,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.999894897256617
+    },
+    {
+      "time": 8,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.017254965440155402,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112637568909708,
+        -0.7153567775975748,
+        3.9153833386440056
+      ],
+      "raw_length_ratio_max": 1.0123569374227748,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.892653859477036
+    },
+    {
+      "time": 8,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004934414628568707,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039654174409045,
+        0.47832942483436525,
+        15.280149624607844
+      ],
+      "raw_length_ratio_max": 1.0200680516984506,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.492455855614287
+    },
+    {
+      "time": 8,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003646380175506174,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293089891976361,
+        -7.37599130468253,
+        7.4337915452373124
+      ],
+      "raw_length_ratio_max": 1.1039217626525841,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.378876140928161
+    },
+    {
+      "time": 8.333333333333334,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005845169749166628,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913131666391763,
+        0.11160234471764818,
+        16.330133575790796
+      ],
+      "raw_length_ratio_max": 1.1127111604915567,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.023998939991491
+    },
+    {
+      "time": 8.333333333333334,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.0078055865281772985,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042350187096414,
+        0.15594394043183923,
+        13.623269444398943
+      ],
+      "raw_length_ratio_max": 1.004794520262093,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.985529290231547
+    },
+    {
+      "time": 8.333333333333334,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.020696475118465958,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112636754812783,
+        -0.715356619954479,
+        3.9153831193742406
+      ],
+      "raw_length_ratio_max": 1.0159109582771315,
+      "worst_length_curve": 22,
+      "worst_length_rest_cm": 39.36049362311371,
+      "worst_length_current_cm": 39.98675679491837
+    },
+    {
+      "time": 8.333333333333334,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004969515017630375,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.0396547969770005,
+        0.4783295991793479,
+        15.280145029651152
+      ],
+      "raw_length_ratio_max": 1.0174529439229578,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.465556765062098
+    },
+    {
+      "time": 8.333333333333334,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.004052572266724508,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293102937571064,
+        -7.375991356820034,
+        7.433785652425655
+      ],
+      "raw_length_ratio_max": 1.0965131860631883,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.329355449441497
+    },
+    {
+      "time": 8.666666666666666,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005849883882233058,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913111281778903,
+        0.11160228349641965,
+        16.330133850262825
+      ],
+      "raw_length_ratio_max": 1.106845743669933,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.981702160710042
+    },
+    {
+      "time": 8.666666666666666,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00780510641711591,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042347622077479,
+        0.15594436125595945,
+        13.623271019144681
+      ],
+      "raw_length_ratio_max": 1.0055630821536297,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.99928632426472
+    },
+    {
+      "time": 8.666666666666666,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.029806126514306964,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112637671965421,
+        -0.7153568443670357,
+        3.9153893813289926
+      ],
+      "raw_length_ratio_max": 1.054833132095506,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 45.734289789571285
+    },
+    {
+      "time": 8.666666666666666,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005148948743436853,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039652409857997,
+        0.47832940404814317,
+        15.280143370193798
+      ],
+      "raw_length_ratio_max": 1.0203320919149452,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.495171782567459
+    },
+    {
+      "time": 8.666666666666666,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0036005135991494627,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293071374757865,
+        -7.375991248484027,
+        7.433780556238531
+      ],
+      "raw_length_ratio_max": 1.1045089984511092,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.382801364951668
+    },
+    {
+      "time": 9,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.00544052637225046,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913120956218675,
+        0.11160229286543015,
+        16.330138715795925
+      ],
+      "raw_length_ratio_max": 1.1037786437192985,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.959584644838387
+    },
+    {
+      "time": 9,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.0078032860071436515,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348817271652,
+        0.15594412936716912,
+        13.623265792243217
+      ],
+      "raw_length_ratio_max": 1.0048942535691152,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.987314487382296
+    },
+    {
+      "time": 9,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.02008506256341303,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112638140447116,
+        -0.7153567850236329,
+        3.9153782613793453
+      ],
+      "raw_length_ratio_max": 1.0207737132042378,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 39.43037528520594
+    },
+    {
+      "time": 9,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004591540230147559,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653777536342,
+        0.4783293469278001,
+        15.280145165540148
+      ],
+      "raw_length_ratio_max": 1.0188930863612542,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.480370120832294
+    },
+    {
+      "time": 9,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003895913124352378,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293090382338188,
+        -7.375991599599362,
+        7.433785741455949
+      ],
+      "raw_length_ratio_max": 1.1051955739306945,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.387390599077358
+    },
+    {
+      "time": 9.333333333333334,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005841453603998983,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.691313242276287,
+        0.11160218121622223,
+        16.330131776443352
+      ],
+      "raw_length_ratio_max": 1.1022874208631896,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.948831116841577
+    },
+    {
+      "time": 9.333333333333334,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007799978844403934,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042350393875445,
+        0.1559438759366203,
+        13.623265537253104
+      ],
+      "raw_length_ratio_max": 1.0061353257645584,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 18.009529318248028
+    },
+    {
+      "time": 9.333333333333334,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.021906629323466154,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112637293203775,
+        -0.715357076891064,
+        3.915386322208917
+      ],
+      "raw_length_ratio_max": 1.0131079656976305,
+      "worst_length_curve": 22,
+      "worst_length_rest_cm": 39.36049362311371,
+      "worst_length_current_cm": 39.876429623367294
+    },
+    {
+      "time": 9.333333333333334,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005300978074249765,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039655549540818,
+        0.47832939709787614,
+        15.280141864120424
+      ],
+      "raw_length_ratio_max": 1.017913654992891,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.470295655330663
+    },
+    {
+      "time": 9.333333333333334,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038164177404095383,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293096871940222,
+        -7.3759913853311945,
+        7.433789047750594
+      ],
+      "raw_length_ratio_max": 1.0991060312286518,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.346686644437226
+    },
+    {
+      "time": 9.666666666666666,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005843844212283514,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913104995450468,
+        0.11160233583727774,
+        16.330128736044543
+      ],
+      "raw_length_ratio_max": 1.1067205461028087,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.980799334189049
+    },
+    {
+      "time": 9.666666666666666,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.008049902479110103,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348040362093,
+        0.15594397917119318,
+        13.623271837387847
+      ],
+      "raw_length_ratio_max": 1.0053110598857686,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.994775199065487
+    },
+    {
+      "time": 9.666666666666666,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.021419154641551023,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112637855807781,
+        -0.7153566910901039,
+        3.9153883290357214
+      ],
+      "raw_length_ratio_max": 1.0715578982713285,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 41.3920632184336
+    },
+    {
+      "time": 9.666666666666666,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005264197150901202,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.0396523432128255,
+        0.47832931944298496,
+        15.280142591112849
+      ],
+      "raw_length_ratio_max": 1.0181081920303012,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.47229667013934
+    },
+    {
+      "time": 9.666666666666666,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.004051488169526369,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293073612200487,
+        -7.375991359201217,
+        7.433781692258606
+      ],
+      "raw_length_ratio_max": 1.1027889013698111,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.371303826138072
+    },
+    {
+      "time": 10,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005386035037439158,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913120496017666,
+        0.11160230349498311,
+        16.3301371997716
+      ],
+      "raw_length_ratio_max": 1.1142039831257835,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.034764004331583
+    },
+    {
+      "time": 10,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.005159894819022347,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348769373955,
+        0.1559441263453819,
+        13.623278097666343
+      ],
+      "raw_length_ratio_max": 1.0050255674273927,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98966496720343
+    },
+    {
+      "time": 10,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.017206488621093596,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112638281424811,
+        -0.7153567476380834,
+        3.9153826849827453
+      ],
+      "raw_length_ratio_max": 1.024353679071378,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 39.568661955232415
+    },
+    {
+      "time": 10,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004827058633887574,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.0396540944145585,
+        0.47832942937850376,
+        15.280139005385621
+      ],
+      "raw_length_ratio_max": 1.020887881629922,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.50088865512286
+    },
+    {
+      "time": 10,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038354370655852127,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293090703615553,
+        -7.375991180056375,
+        7.4337950421692085
+      ],
+      "raw_length_ratio_max": 1.0993571279573962,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.348365034811871
+    },
+    {
+      "time": 10.333333333333334,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005805578728205953,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913136375272693,
+        0.11160218619005047,
+        16.33013175981165
+      ],
+      "raw_length_ratio_max": 1.1127626042435437,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.02436991192569
+    },
+    {
+      "time": 10.333333333333334,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007690461921519938,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042350343501614,
+        0.15594440189484282,
+        13.623264624464724
+      ],
+      "raw_length_ratio_max": 1.0048378766666801,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98630535724714
+    },
+    {
+      "time": 10.333333333333334,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.02107462063857796,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263587048093,
+        -0.7153566428771334,
+        3.915380627242655
+      ],
+      "raw_length_ratio_max": 1.01587261504269,
+      "worst_length_curve": 22,
+      "worst_length_rest_cm": 39.36049362311371,
+      "worst_length_current_cm": 39.98524758628365
+    },
+    {
+      "time": 10.333333333333334,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005314510990578616,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039655734231271,
+        0.47832924568078816,
+        15.280141703274467
+      ],
+      "raw_length_ratio_max": 1.0169821754264428,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.460714423749993
+    },
+    {
+      "time": 10.333333333333334,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003794988334662043,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293089867241392,
+        -7.375991252146319,
+        7.433794366849668
+      ],
+      "raw_length_ratio_max": 1.0923606084163968,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.301598630835409
+    },
+    {
+      "time": 10.666666666666666,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.00578643993446546,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913113222798337,
+        0.11160230342992672,
+        16.330135426460032
+      ],
+      "raw_length_ratio_max": 1.1068404067715338,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.981663675190513
+    },
+    {
+      "time": 10.666666666666666,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006993466139604202,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348788763146,
+        0.15594400926973195,
+        13.62327537600234
+      ],
+      "raw_length_ratio_max": 1.0055708304020026,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.9994250156541
+    },
+    {
+      "time": 10.666666666666666,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019020351781536767,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263898621879,
+        -0.7153569996673201,
+        3.9153777915936985
+      ],
+      "raw_length_ratio_max": 1.0526941318580627,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 45.64154937998171
+    },
+    {
+      "time": 10.666666666666666,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.00452820245210641,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039652464839772,
+        0.4783293857832909,
+        15.280143916972037
+      ],
+      "raw_length_ratio_max": 1.0205282628501577,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.497189603706396
+    },
+    {
+      "time": 10.666666666666666,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0031082448540741487,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293072608260054,
+        -7.375991279190219,
+        7.433780767066281
+      ],
+      "raw_length_ratio_max": 1.1013712003514335,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.3618275746740744
+    },
+    {
+      "time": 11,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005435787174798034,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913120880401147,
+        0.11160230030536702,
+        16.330140146689615
+      ],
+      "raw_length_ratio_max": 1.1036816601510522,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.958885275517366
+    },
+    {
+      "time": 11,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.005402762819370657,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348374003002,
+        0.15594413044146502,
+        13.62327353625065
+      ],
+      "raw_length_ratio_max": 1.004957020313622,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98843799382965
+    },
+    {
+      "time": 11,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.02139434244047764,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112637305182199,
+        -0.7153567880422267,
+        3.9153802606272734
+      ],
+      "raw_length_ratio_max": 1.0208539216311079,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 39.43347357068451
+    },
+    {
+      "time": 11,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004818897807594429,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653838314535,
+        0.47832936709356044,
+        15.280139997654231
+      ],
+      "raw_length_ratio_max": 1.0190123253908259,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.481596617684112
+    },
+    {
+      "time": 11,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038474401050645974,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293089777625406,
+        -7.375991659409077,
+        7.433788147928851
+      ],
+      "raw_length_ratio_max": 1.1016587049173912,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.363749323709128
+    },
+    {
+      "time": 11.333333333333334,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005841861037446665,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913135526306746,
+        0.11160232764266542,
+        16.33013194178878
+      ],
+      "raw_length_ratio_max": 1.1022944142495095,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.948881547650946
+    },
+    {
+      "time": 11.333333333333334,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00786059019053245,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042350460480765,
+        0.15594385086536455,
+        13.623264824260701
+      ],
+      "raw_length_ratio_max": 1.0059966907672648,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 18.007047792170614
+    },
+    {
+      "time": 11.333333333333334,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.02109201452860877,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112635366417692,
+        -0.7153567172614439,
+        3.915378426437286
+      ],
+      "raw_length_ratio_max": 1.0130456849171732,
+      "worst_length_curve": 22,
+      "worst_length_rest_cm": 39.36049362311371,
+      "worst_length_current_cm": 39.87397822110526
+    },
+    {
+      "time": 11.333333333333334,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005312118160510806,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.0396547539186045,
+        0.4783292637170149,
+        15.280144885035213
+      ],
+      "raw_length_ratio_max": 1.017370076887575,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.464704391821714
+    },
+    {
+      "time": 11.333333333333334,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0035234792945293405,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293082227663106,
+        -7.375990982910682,
+        7.4337939985034325
+      ],
+      "raw_length_ratio_max": 1.0970660785597244,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.33305111465004
+    },
+    {
+      "time": 11.666666666666666,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057693871989382296,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913123115407025,
+        0.11160236793252465,
+        16.33014041164097
+      ],
+      "raw_length_ratio_max": 1.1063855629792954,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.9783836990058825
+    },
+    {
+      "time": 11.666666666666666,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006713645214830844,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.04234876490652,
+        0.15594411177910672,
+        13.623278284285789
+      ],
+      "raw_length_ratio_max": 1.00534437193361,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.995371475020505
+    },
+    {
+      "time": 11.666666666666666,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.02692250563362482,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112639633527062,
+        -0.7153567904591731,
+        3.915377819549235
+      ],
+      "raw_length_ratio_max": 1.0782670379932038,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 41.65122339629908
+    },
+    {
+      "time": 11.666666666666666,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005418037330765626,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653021297614,
+        0.4783294618606464,
+        15.280147013289138
+      ],
+      "raw_length_ratio_max": 1.0186098757416064,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.477457006438067
+    },
+    {
+      "time": 11.666666666666666,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003290062484610641,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293074279196048,
+        -7.3759913930101195,
+        7.433781588375808
+      ],
+      "raw_length_ratio_max": 1.1024782928865227,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.369227645013606
+    },
+    {
+      "time": 12,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005349880313091672,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913121473628558,
+        0.1116023010853367,
+        16.33013044233985
+      ],
+      "raw_length_ratio_max": 1.1142514821617788,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.035106530072325
+    },
+    {
+      "time": 12,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006313836852861544,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042349196708738,
+        0.15594411305186306,
+        13.623278213484724
+      ],
+      "raw_length_ratio_max": 1.00507007321713,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.99046160787848
+    },
+    {
+      "time": 12,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.017543816158262313,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112637718204937,
+        -0.7153567904123408,
+        3.9153902088517327
+      ],
+      "raw_length_ratio_max": 1.0253515213203117,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 39.607206535526686
+    },
+    {
+      "time": 12,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004505022971412863,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039654043482413,
+        0.4783293660856756,
+        15.28014408716001
+      ],
+      "raw_length_ratio_max": 1.0211167672126185,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.503242980276394
+    },
+    {
+      "time": 12,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0039019071307211544,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293090380236736,
+        -7.375991089913303,
+        7.433790316616609
+      ],
+      "raw_length_ratio_max": 1.0992853048250255,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.347884951878689
+    },
+    {
+      "time": 12.333333333333334,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005804427920417636,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913123240120456,
+        0.11160238840033032,
+        16.33013610782561
+      ],
+      "raw_length_ratio_max": 1.1125352554970878,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.022730451331293
+    },
+    {
+      "time": 12.333333333333334,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007564294702184977,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042350570913875,
+        0.1559442605692123,
+        13.623267092588293
+      ],
+      "raw_length_ratio_max": 1.0048110663185357,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98582545982323
+    },
+    {
+      "time": 12.333333333333334,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01770337492120419,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263576948528,
+        -0.715356662571976,
+        3.915378913445437
+      ],
+      "raw_length_ratio_max": 1.0165573724090713,
+      "worst_length_curve": 22,
+      "worst_length_rest_cm": 39.36049362311371,
+      "worst_length_current_cm": 40.01219997423648
+    },
+    {
+      "time": 12.333333333333334,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004366152253656894,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039654861595391,
+        0.4783294656367878,
+        15.280143682993838
+      ],
+      "raw_length_ratio_max": 1.0175396009997482,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.466448122801696
+    },
+    {
+      "time": 12.333333333333334,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003839749676440317,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293096076036079,
+        -7.37599129513373,
+        7.433789349515536
+      ],
+      "raw_length_ratio_max": 1.092256710485234,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.300904152303248
+    },
+    {
+      "time": 12.666666666666666,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.00583796620424776,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.691310481693158,
+        0.11160222216817517,
+        16.330129370986498
+      ],
+      "raw_length_ratio_max": 1.1069178556491293,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.982222175665563
+    },
+    {
+      "time": 12.666666666666666,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007801975024471583,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348614411726,
+        0.15594398442248059,
+        13.62327420811863
+      ],
+      "raw_length_ratio_max": 1.0055576842025704,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.999189702512783
+    },
+    {
+      "time": 12.666666666666666,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.02486212548188974,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263812370694,
+        -0.7153568517919924,
+        3.915386045432655
+      ],
+      "raw_length_ratio_max": 1.0511349429530716,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 45.573947789694266
+    },
+    {
+      "time": 12.666666666666666,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0043880736943431396,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.0396522929441545,
+        0.4783294236737461,
+        15.280141758772373
+      ],
+      "raw_length_ratio_max": 1.019023793515768,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.4817145792206
+    },
+    {
+      "time": 12.666666666666666,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.00402588719198931,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293074923576278,
+        -7.375991501056567,
+        7.43378329709671
+      ],
+      "raw_length_ratio_max": 1.101534274947464,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.362917604136804
+    },
+    {
+      "time": 13,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005428680922277644,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913121360120253,
+        0.11160228736512037,
+        16.330127778254024
+      ],
+      "raw_length_ratio_max": 1.103647760556933,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.958640818270116
+    },
+    {
+      "time": 13,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00790640853797589,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348772059011,
+        0.15594412117880774,
+        13.623270224580068
+      ],
+      "raw_length_ratio_max": 1.0050621270781195,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.990319374304313
+    },
+    {
+      "time": 13,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.020096557727958108,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112638178518889,
+        -0.715356735458659,
+        3.9153859719558
+      ],
+      "raw_length_ratio_max": 1.021444511775776,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 39.45628684530431
+    },
+    {
+      "time": 13,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005249875429707062,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.0396539754366545,
+        0.47832938095852373,
+        15.280146403849926
+      ],
+      "raw_length_ratio_max": 1.0183428443043891,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.47471031168334
+    },
+    {
+      "time": 13,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003805230143062648,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293089720773265,
+        -7.3759910470182035,
+        7.433789486043395
+      ],
+      "raw_length_ratio_max": 1.1017586178609777,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.364417165634655
+    },
+    {
+      "time": 13.333333333333334,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005839730859249905,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913128838590872,
+        0.11160228177482678,
+        16.330134669288867
+      ],
+      "raw_length_ratio_max": 1.1022514066587654,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.9485714106856715
+    },
+    {
+      "time": 13.333333333333334,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007804851944601269,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042349891883521,
+        0.15594417189561005,
+        13.62327084779264
+      ],
+      "raw_length_ratio_max": 1.0060249427641963,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 18.007553494687965
+    },
+    {
+      "time": 13.333333333333334,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.021896586123739476,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112637334139606,
+        -0.715357105910253,
+        3.915386802298684
+      ],
+      "raw_length_ratio_max": 1.0130833740317553,
+      "worst_length_curve": 22,
+      "worst_length_rest_cm": 39.36049362311371,
+      "worst_length_current_cm": 39.87546168325943
+    },
+    {
+      "time": 13.333333333333334,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005023961233741592,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039654027204506,
+        0.4783294170422996,
+        15.280150740633559
+      ],
+      "raw_length_ratio_max": 1.0179809769909585,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.470988131770502
+    },
+    {
+      "time": 13.333333333333334,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003937747736767867,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293101134970257,
+        -7.375991401701559,
+        7.43378538218542
+      ],
+      "raw_length_ratio_max": 1.0971322149272265,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.333493185891608
+    },
+    {
+      "time": 13.666666666666666,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005769598471828926,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913101683849874,
+        0.11160228665785676,
+        16.330128576428763
+      ],
+      "raw_length_ratio_max": 1.1066113954774355,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.980012225608322
+    },
+    {
+      "time": 13.666666666666666,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007633187995574147,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348594861117,
+        0.15594394401948963,
+        13.623276436710881
+      ],
+      "raw_length_ratio_max": 1.0053380953411273,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.995259125842974
+    },
+    {
+      "time": 13.666666666666666,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.020039546771784038,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112639076705813,
+        -0.7153567120950142,
+        3.915378914855552
+      ],
+      "raw_length_ratio_max": 1.0764473582940122,
+      "worst_length_curve": 19,
+      "worst_length_rest_cm": 41.29511221593183,
+      "worst_length_current_cm": 44.45201445529461
+    },
+    {
+      "time": 13.666666666666666,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004819151504347074,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653939023456,
+        0.47832945553547335,
+        15.280152493322333
+      ],
+      "raw_length_ratio_max": 1.017938521957227,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.470551437800394
+    },
+    {
+      "time": 13.666666666666666,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003930983824599855,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293071347126208,
+        -7.375991321104734,
+        7.433781040484149
+      ],
+      "raw_length_ratio_max": 1.1026551792540742,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.370409995648713
+    },
+    {
+      "time": 14,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005383945078016347,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119779638803,
+        0.11160229451388505,
+        16.330138526659226
+      ],
+      "raw_length_ratio_max": 1.1142226641691957,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.034898717344142
+    },
+    {
+      "time": 14,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007167687463938093,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348066641393,
+        0.1559441259001439,
+        13.623277301367182
+      ],
+      "raw_length_ratio_max": 1.0050359553159873,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98985090738405
+    },
+    {
+      "time": 14,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01845671196793463,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112637760192436,
+        -0.7153567680766243,
+        3.9153921405547862
+      ],
+      "raw_length_ratio_max": 1.0251316841019018,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 39.59871467889732
+    },
+    {
+      "time": 14,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004835806823396102,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653611489485,
+        0.4783293694211954,
+        15.280153429507209
+      ],
+      "raw_length_ratio_max": 1.0205250802635755,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.49715686750888
+    },
+    {
+      "time": 14,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038721113854105673,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293090128088962,
+        -7.375991405693619,
+        7.433788269609124
+      ],
+      "raw_length_ratio_max": 1.0990469101844613,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.34629146528852
+    },
+    {
+      "time": 14.333333333333334,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.00580911093757097,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.691313677976865,
+        0.11160228192072363,
+        16.330130601125433
+      ],
+      "raw_length_ratio_max": 1.1127471920770484,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.024258771486004
+    },
+    {
+      "time": 14.333333333333334,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006387586950006633,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042349650358702,
+        0.15594435385862493,
+        13.62326919779565
+      ],
+      "raw_length_ratio_max": 1.0048207690977282,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.985999136745072
+    },
+    {
+      "time": 14.333333333333334,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.02102154598607788,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112635989078584,
+        -0.7153570698514383,
+        3.915383275568388
+      ],
+      "raw_length_ratio_max": 1.015879863425604,
+      "worst_length_curve": 22,
+      "worst_length_rest_cm": 39.36049362311371,
+      "worst_length_current_cm": 39.98553288621312
+    },
+    {
+      "time": 14.333333333333334,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.00503302064778933,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039656248374708,
+        0.47832929265517854,
+        15.280140551689982
+      ],
+      "raw_length_ratio_max": 1.0180274826437283,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.471466490550497
+    },
+    {
+      "time": 14.333333333333334,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0037879415174385633,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293100524522103,
+        -7.375991423993633,
+        7.433787821882589
+      ],
+      "raw_length_ratio_max": 1.092292843454838,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.301145673683051
+    },
+    {
+      "time": 14.666666666666666,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005827318305228879,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913107139102586,
+        0.11160222256882979,
+        16.330130326894107
+      ],
+      "raw_length_ratio_max": 1.106815268731088,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.981482399386824
+    },
+    {
+      "time": 14.666666666666666,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007138897348513571,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348483878541,
+        0.15594393635871762,
+        13.623270196276394
+      ],
+      "raw_length_ratio_max": 1.0055755490340201,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.999509477793026
+    },
+    {
+      "time": 14.666666666666666,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.020581700061272253,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112639174078517,
+        -0.7153565523321883,
+        3.9153841731942407
+      ],
+      "raw_length_ratio_max": 1.0919382897926686,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 42.1793155504155
+    },
+    {
+      "time": 14.666666666666666,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0053162288749537285,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653739401693,
+        0.4783292820579874,
+        15.280150673480222
+      ],
+      "raw_length_ratio_max": 1.0211772441614084,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.503865048298625
+    },
+    {
+      "time": 14.666666666666666,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003830391428470259,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293092988034935,
+        -7.37599154216336,
+        7.4337938328028486
+      ],
+      "raw_length_ratio_max": 1.101902247950965,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.365377223385106
+    },
+    {
+      "time": 15,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005452856579991002,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.69131210567977,
+        0.11160229229586693,
+        16.33014211951283
+      ],
+      "raw_length_ratio_max": 1.103578374656117,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.958140461650746
+    },
+    {
+      "time": 15,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007584456238733432,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042349478260965,
+        0.1559440806495881,
+        13.62326741018316
+      ],
+      "raw_length_ratio_max": 1.004918831008699,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.98775441639325
+    },
+    {
+      "time": 15,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.017772748167944503,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112638412945138,
+        -0.7153567538474757,
+        3.915383285400196
+      ],
+      "raw_length_ratio_max": 1.0218452063102867,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 39.471764845634965
+    },
+    {
+      "time": 15,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0049290953685775935,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039654148273698,
+        0.47832937490615973,
+        15.280149172491207
+      ],
+      "raw_length_ratio_max": 1.018420346990511,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.475507507038564
+    },
+    {
+      "time": 15,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0037900061742355672,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293090008316896,
+        -7.37599123134665,
+        7.4337817913067
+      ],
+      "raw_length_ratio_max": 1.1018728028252782,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.365180405147847
+    },
+    {
+      "time": 15.333333333333334,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0058411209340599205,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913117407981986,
+        0.11160234558699322,
+        16.330140397375573
+      ],
+      "raw_length_ratio_max": 1.1022834072071832,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.948802173506879
+    },
+    {
+      "time": 15.333333333333334,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.005742556617926431,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348636293884,
+        0.1559440264850993,
+        13.62327291622853
+      ],
+      "raw_length_ratio_max": 1.0058617330875457,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 18.004632089006847
+    },
+    {
+      "time": 15.333333333333334,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.021531922576481167,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112636495164665,
+        -0.7153569530482975,
+        3.915383640458174
+      ],
+      "raw_length_ratio_max": 1.0130272141570353,
+      "worst_length_curve": 22,
+      "worst_length_rest_cm": 39.36049362311371,
+      "worst_length_current_cm": 39.87325120286864
+    },
+    {
+      "time": 15.333333333333334,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005104148497239921,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653837335571,
+        0.4783295229848854,
+        15.280151119847432
+      ],
+      "raw_length_ratio_max": 1.0178406110721143,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.469544322992594
+    },
+    {
+      "time": 15.333333333333334,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.00392846240152293,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293089061593292,
+        -7.37599131285628,
+        7.43379047190524
+      ],
+      "raw_length_ratio_max": 1.0969199347011374,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.332074254271204
+    },
+    {
+      "time": 15.666666666666666,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005840182601777582,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913112297178863,
+        0.11160233382641982,
+        16.330134295731114
+      ],
+      "raw_length_ratio_max": 1.1065145350107253,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 7.979313743998894
+    },
+    {
+      "time": 15.666666666666666,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00781053968488487,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042347802780661,
+        0.15594384817537232,
+        13.62327228914046
+      ],
+      "raw_length_ratio_max": 1.0053480230364409,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.995436828697883
+    },
+    {
+      "time": 15.666666666666666,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.02444621793771975,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112638195766227,
+        -0.7153572016335634,
+        3.915388130655799
+      ],
+      "raw_length_ratio_max": 1.0966040138010207,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 42.35954280964716
+    },
+    {
+      "time": 15.666666666666666,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005293455978221334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039652815144414,
+        0.4783293410490488,
+        15.280146073164332
+      ],
+      "raw_length_ratio_max": 1.0186341489858026,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.477706681881559
+    },
+    {
+      "time": 15.666666666666666,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003904950866657677,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293074124286186,
+        -7.37599107534841,
+        7.433784003145007
+      ],
+      "raw_length_ratio_max": 1.102672150133504,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.3705234330512095
+    },
+    {
+      "time": 16,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005324343144635408,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119930952556,
+        0.11160230763930294,
+        16.33013143231966
+      ],
+      "raw_length_ratio_max": 1.1142199842055187,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.03487939155101
+    },
+    {
+      "time": 16,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.004202344787644715,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348890678054,
+        0.1559441427384484,
+        13.623266506000192
+      ],
+      "raw_length_ratio_max": 1.0049436874949316,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.988199340257957
+    },
+    {
+      "time": 16,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018002289988318144,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.112637771378013,
+        -0.7153567991464992,
+        3.9153852657763935
+      ],
+      "raw_length_ratio_max": 1.0264056306837022,
+      "worst_length_curve": 105,
+      "worst_length_rest_cm": 38.62792975088756,
+      "worst_length_current_cm": 39.647924597965485
+    },
+    {
+      "time": 16,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005443491366141652,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653406583296,
+        0.47832941669337203,
+        15.280138808263246
+      ],
+      "raw_length_ratio_max": 1.020271318156972,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.494546661555528
+    },
+    {
+      "time": 16,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003924291349410251,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293090526054772,
+        -7.3759911566359415,
+        7.433793218764919
+      ],
+      "raw_length_ratio_max": 1.0987464759346972,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.344283291165586
+    },
+    {
+      "time": 16.333333333333332,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.005792465058006755,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115622123131141,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.01571362813944
+    },
+    {
+      "time": 16.333333333333332,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.007025440416855028,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051275526734493,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.991490473407072
+    },
+    {
+      "time": 16.333333333333332,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.017509964892308116,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0146983392478786,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.994169773534836
+    },
+    {
+      "time": 16.333333333333332,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.00474436027503611,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0217020349363142,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.509263064666223
+    },
+    {
+      "time": 16.333333333333332,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003881944682735698,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0984946596675824,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.342600091224997
+    },
+    {
+      "time": 16.666666666666668,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.111559649572285,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015695147665419
+    },
+    {
+      "time": 16.666666666666668,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.0068570210383859026,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051884264295297,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.99258009591288
+    },
+    {
+      "time": 16.666666666666668,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.017742914266349472,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.014597365779136,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98979187741078
+    },
+    {
+      "time": 16.666666666666668,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.005075396238084023,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0205648728120666,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.497566175062165
+    },
+    {
+      "time": 16.666666666666668,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038183069239021462,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.098348745458602,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.341624765878859
+    },
+    {
+      "time": 17,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115594316707866,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015693576330957
+    },
+    {
+      "time": 17,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006672117472370875,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051975364626604,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.99274316285284
+    },
+    {
+      "time": 17,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01860238347664728,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.01459187611684,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.989553862696745
+    },
+    {
+      "time": 17,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004801019493667876,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201846800646097,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493655499090424
+    },
+    {
+      "time": 17,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.00385098871825409,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.098265166274172,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.34106610269209
+    },
+    {
+      "time": 17.333333333333332,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115593262522485,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015692816135259
+    },
+    {
+      "time": 17.333333333333332,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.0066613140062803024,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.00519889713344,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992767518463534
+    },
+    {
+      "time": 17.333333333333332,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018156224937974377,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145983093105828,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98983278600504
+    },
+    {
+      "time": 17.333333333333332,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0048071536401420485,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201783837428295,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493590734903153
+    },
+    {
+      "time": 17.333333333333332,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003850087069707588,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982314357663883,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.34084063993963
+    },
+    {
+      "time": 17.666666666666668,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115593977540295,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015693331749944
+    },
+    {
+      "time": 17.666666666666668,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661811271274446,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0052053581243192,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.99288316831866
+    },
+    {
+      "time": 17.666666666666668,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.0183231996548979,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145137472995227,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98616643973534
+    },
+    {
+      "time": 17.666666666666668,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004801061583920293,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201758427369132,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493564598026929
+    },
+    {
+      "time": 17.666666666666668,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003849653184746714,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982141853115264,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340725333788319
+    },
+    {
+      "time": 18,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.111559036328889,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015690725435702
+    },
+    {
+      "time": 18,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661959220687206,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0052056492828274,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992888379971163
+    },
+    {
+      "time": 18,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018296388987389237,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0146126566448639,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.99045484187696
+    },
+    {
+      "time": 18,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0048135622749704236,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201749854759103,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493555780210103
+    },
+    {
+      "time": 18,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003876372602471674,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.098206973715204,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.3406771297598805
+    },
+    {
+      "time": 18.333333333333332,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115591399401832,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015691472598977
+    },
+    {
+      "time": 18.333333333333332,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661246114623399,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.005191750585524,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992639597337096
+    },
+    {
+      "time": 18.333333333333332,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019639638311490366,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145655547908219,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98841265171737
+    },
+    {
+      "time": 18.333333333333332,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004816492248455244,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.020174627831642,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.49355210146858
+    },
+    {
+      "time": 18.333333333333332,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003849569730921859,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982033653776535,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340653010771777
+    },
+    {
+      "time": 18.666666666666668,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115590427785964,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015690771945927
+    },
+    {
+      "time": 18.666666666666668,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661233631678081,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051927552435749,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992657580423625
+    },
+    {
+      "time": 18.666666666666668,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.017487544705440516,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145875731983052,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98936730150785
+    },
+    {
+      "time": 18.666666666666668,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0048183763859330235,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201744959105785,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493550744523882
+    },
+    {
+      "time": 18.666666666666668,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003914705910013384,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982026387471189,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340648153800117
+    },
+    {
+      "time": 19,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.111559127814993,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.01569138516163
+    },
+    {
+      "time": 19,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.0066612484685266695,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051928342888168,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992658995310435
+    },
+    {
+      "time": 19,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018579776562999178,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0146015747655808,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98997436599588
+    },
+    {
+      "time": 19,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004820600707592218,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201746259496136,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493552082109971
+    },
+    {
+      "time": 19,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.00389481692423495,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.098202689503425,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340648493067363
+    },
+    {
+      "time": 19.333333333333332,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115591349883378,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015691436890158
+    },
+    {
+      "time": 19.333333333333332,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661324595813232,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051950198520965,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992698116256648
+    },
+    {
+      "time": 19.333333333333332,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.020549665517272456,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145660046103797,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98843215449689
+    },
+    {
+      "time": 19.333333333333332,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004812857019556701,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201744663041061,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493550439990667
+    },
+    {
+      "time": 19.333333333333332,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003900044346990148,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982026413825634,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340648171416057
+    },
+    {
+      "time": 19.666666666666668,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115592199142454,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.0156920493091
+    },
+    {
+      "time": 19.666666666666668,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661424887987991,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051949495456975,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992696857792584
+    },
+    {
+      "time": 19.666666666666668,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01842666013344782,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0146013112620944,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98996294130278
+    },
+    {
+      "time": 19.666666666666668,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004814942356465334,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201746096542692,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493551914495486
+    },
+    {
+      "time": 19.666666666666668,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038829363774474583,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982026740924091,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340648390056461
+    },
+    {
+      "time": 20,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115591941742529,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.01569186369249
+    },
+    {
+      "time": 20,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661536557004888,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051990872064342,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992770920714776
+    },
+    {
+      "time": 20,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018977284309513343,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0146019886620223,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.9899923112606
+    },
+    {
+      "time": 20,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004813768595262737,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201745789045689,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493551598202986
+    },
+    {
+      "time": 20,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038823755071560966,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982026605002653,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340648299203332
+    },
+    {
+      "time": 20.333333333333332,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.111559292411611,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.01569257210316
+    },
+    {
+      "time": 20.333333333333332,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.0066615814968100815,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.005199258802529,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992773992234895
+    },
+    {
+      "time": 20.333333333333332,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.017485531081775117,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0146093451881335,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.990311267393835
+    },
+    {
+      "time": 20.333333333333332,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004826858852561696,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201744748278554,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493550527666251
+    },
+    {
+      "time": 20.333333333333332,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003881965829864916,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982027769385303,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340649077504445
+    },
+    {
+      "time": 20.666666666666668,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115593720592705,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015693146459522
+    },
+    {
+      "time": 20.666666666666668,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661649191249727,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0052052483695697,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.99288120374061
+    },
+    {
+      "time": 20.666666666666668,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019159043405646458,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.014525712089439,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.986685195880426
+    },
+    {
+      "time": 20.666666666666668,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004824700345106525,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.020174445748285,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493550228552769
+    },
+    {
+      "time": 20.666666666666668,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038818327989804703,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.098202724303452,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340648725679038
+    },
+    {
+      "time": 21,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115594710533565,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015693860327119
+    },
+    {
+      "time": 21,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661674221328922,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0052055856867395,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992887241619712
+    },
+    {
+      "time": 21,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018828310567304076,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145880606526085,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.989388436013094
+    },
+    {
+      "time": 21,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0048323202897739195,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201745480812656,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493551281153405
+    },
+    {
+      "time": 21,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003881870024957632,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982027844952926,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340649128015644
+    },
+    {
+      "time": 21.333333333333332,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.111559407147822,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015693399490598
+    },
+    {
+      "time": 21.333333333333332,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00666180543660632,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051917035700806,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992638755774355
+    },
+    {
+      "time": 21.333333333333332,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.0187069061583386,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145894910873756,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98945045522369
+    },
+    {
+      "time": 21.333333333333332,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004828650448790488,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.020174431684783,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.49355008389509
+    },
+    {
+      "time": 21.333333333333332,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038818756371264296,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982027414317728,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340648840168816
+    },
+    {
+      "time": 21.666666666666668,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115593168694842,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015692748474132
+    },
+    {
+      "time": 21.666666666666668,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661897263041387,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051926528422541,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992655747469804
+    },
+    {
+      "time": 21.666666666666668,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018652875761086814,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145939201569971,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98964248593206
+    },
+    {
+      "time": 21.666666666666668,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004827634047956471,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201745883838538,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493551695707245
+    },
+    {
+      "time": 21.666666666666668,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003881866443048229,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982027568857557,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.34064894346692
+    },
+    {
+      "time": 22,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115594530432455,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015693730452345
+    },
+    {
+      "time": 22,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006661971139926094,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051928045670795,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992658463299993
+    },
+    {
+      "time": 22,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018982908757943978,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145933127098303,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98961614890878
+    },
+    {
+      "time": 22,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0048399257664612306,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201744777766344,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493550557997496
+    },
+    {
+      "time": 22,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038818805563101814,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982028162555244,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340649340308603
+    },
+    {
+      "time": 22.333333333333332,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.111559467048886,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015693831450022
+    },
+    {
+      "time": 22.333333333333332,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.0066620054296912985,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051950728632753,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992699065141313
+    },
+    {
+      "time": 22.333333333333332,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01923294680490588,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145951482370736,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.9896957316715
+    },
+    {
+      "time": 22.333333333333332,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004838677291768878,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201746230616917,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493552052404706
+    },
+    {
+      "time": 22.333333333333332,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.003881903260873832,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.098202792873375,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340649184016745
+    },
+    {
+      "time": 22.666666666666668,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115593791455003,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015693197559846
+    },
+    {
+      "time": 22.666666666666668,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.0066620157171486324,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051951449018328,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992700354610513
+    },
+    {
+      "time": 22.666666666666668,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018567003757029597,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.014549840643357,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.987731335069185
+    },
+    {
+      "time": 22.666666666666668,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004831401511726703,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201746262244034,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493552084936468
+    },
+    {
+      "time": 22.666666666666668,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038818698311696527,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982027911649463,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.3406491725972005
+    },
+    {
+      "time": 23,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924747598646275,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115593682464378,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015693118964368
+    },
+    {
+      "time": 23,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.00666213903055267,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0051991511496527,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.992772065279766
+    },
+    {
+      "time": 23,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.01767230450668632,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145636719715847,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98833101852061
+    },
+    {
+      "time": 23,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0048255879286524675,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201746366988096,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493552192676578
+    },
+    {
+      "time": 23,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038818249554363176,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982027990355623,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340649225206272
+    },
+    {
+      "time": 23.333333333333332,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.1115597654597937,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.01569598335511
+    },
+    {
+      "time": 23.333333333333332,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006662185140879928,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.005199184168802,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.99277265631292
+    },
+    {
+      "time": 23.333333333333332,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.019013700133646862,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0145825168671523,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.98914807468686
+    },
+    {
+      "time": 23.333333333333332,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.004829933308588358,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.020174655003865,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493552380963024
+    },
+    {
+      "time": 23.333333333333332,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038819028540772404,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982027426269896,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.3406488481579295
+    },
+    {
+      "time": 23.666666666666668,
+      "group": 0,
+      "count": 3328,
+      "guide_reprojection_max_cm": 0.0057924941639255646,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        1.6913119830306633,
+        0.11160229420439295,
+        16.330141778005697
+      ],
+      "raw_length_ratio_max": 1.111559893222641,
+      "worst_length_curve": 8,
+      "worst_length_rest_cm": 7.211214576518465,
+      "worst_length_current_cm": 8.015696904680416
+    },
+    {
+      "time": 23.666666666666668,
+      "group": 1,
+      "count": 192,
+      "guide_reprojection_max_cm": 0.006662289731854288,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        8.042348262358159,
+        0.15594411958864288,
+        13.6232679944614
+      ],
+      "raw_length_ratio_max": 1.0052052903527144,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 17.899708773829857,
+      "worst_length_current_cm": 17.99288195522667
+    },
+    {
+      "time": 23.666666666666668,
+      "group": 2,
+      "count": 4096,
+      "guide_reprojection_max_cm": 0.018125264798247387,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        -8.11263802170868,
+        -0.7153568144548844,
+        3.9153813277083884
+      ],
+      "raw_length_ratio_max": 1.0146338058372608,
+      "worst_length_curve": 65,
+      "worst_length_rest_cm": 43.356895415976034,
+      "worst_length_current_cm": 43.991371805199854
+    },
+    {
+      "time": 23.666666666666668,
+      "group": 3,
+      "count": 608,
+      "guide_reprojection_max_cm": 0.0054973211689024705,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        5.039653906026722,
+        0.478329370362018,
+        15.28013981919105
+      ],
+      "raw_length_ratio_max": 1.0201746147643744,
+      "worst_length_curve": 4,
+      "worst_length_rest_cm": 10.286035170049649,
+      "worst_length_current_cm": 10.493551967058208
+    },
+    {
+      "time": 23.666666666666668,
+      "group": 4,
+      "count": 480,
+      "guide_reprojection_max_cm": 0.0038818705569615697,
+      "raw_head_depth_max_cm": 0.0,
+      "worst_head_curve": 0,
+      "worst_head_slot": 0,
+      "worst_head_local_cm": [
+        0.5293091715100582,
+        -7.375991174588238,
+        7.4337820447307195
+      ],
+      "raw_length_ratio_max": 1.0982027578318048,
+      "worst_length_curve": 14,
+      "worst_length_rest_cm": 6.684238313408784,
+      "worst_length_current_cm": 7.340648949790538
+    }
+  ],
+  "scope": "Direct Niagara float-buffer readback; head proxy depth excludes virtual node and root; published guide comparison checks same-frame mapping. Not a skin test."
+}

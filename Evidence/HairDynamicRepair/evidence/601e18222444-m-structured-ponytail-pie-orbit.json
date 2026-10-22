@@ -1,0 +1,52 @@
+{
+  "status": "ENCODED",
+  "path": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDynamicRepair\\media\\m-structured-ponytail-pie-orbit.mp4",
+  "frames": 719,
+  "command": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.1-full_build\\bin\\ffmpeg.EXE",
+    "-n",
+    "-loglevel",
+    "error",
+    "-threads",
+    "2",
+    "-filter_threads",
+    "1",
+    "-framerate",
+    "30",
+    "-c:v",
+    "mjpeg",
+    "-i",
+    "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDynamicRepair\\ponytail-prediction-m-structured\\pie\\video\\frame-%04d.png",
+    "-frames:v",
+    "719",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "fast",
+    "-crf",
+    "19",
+    "-threads",
+    "2",
+    "-pix_fmt",
+    "yuv420p",
+    "-movflags",
+    "+faststart",
+    "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDynamicRepair\\media\\m-structured-ponytail-pie-orbit.mp4"
+  ],
+  "video_probe": {
+    "width": 1280,
+    "height": 688,
+    "r_frame_rate": "30/1",
+    "duration": "23.966667",
+    "nb_frames": "719"
+  },
+  "source_dimensions": [
+    1280,
+    688
+  ],
+  "square_viewport_crop": null,
+  "source_capture_sha256": "436d3d7bbeaee4fa4c8775b42148b7dc636a313a22b13d5630f817557ebfe2f8",
+  "source_first_frame_sha256": "894330cf4fb59a6018b27211017495c96942c93107066ec569ca0a8b74602383",
+  "source_last_frame_sha256": "957648dd415fc922bd63922171b1e0c26bb3c95e3c6a5b57f6bca82c22ad4f1b",
+  "source_note": "\u53ea\u7f16\u7801\u771f\u5b9e UE \u622a\u56fe\uff1b\u5982\u8bb0\u5f55crop\uff0c\u4ec5\u53bb\u9664\u5b9e\u56fe\u786e\u8ba4\u7684\u76f8\u673a\u9ed1\u8fb9\uff0c\u539f\u59cb\u622a\u56fe\u4fdd\u7559"
+}
