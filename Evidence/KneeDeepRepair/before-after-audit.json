@@ -1,0 +1,722 @@
+[
+  {
+    "group": "C",
+    "action": "deep-kneel",
+    "frame": 45,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          17.904078462689416,
+          17.758110185850292
+        ],
+        "tracked_edge_angles_after": [
+          17.904078462689416,
+          17.758110185850292
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          17.904078462689416,
+          17.758110185850292
+        ],
+        "tracked_edge_angles_after": [
+          17.904078462689416,
+          17.758110185850292
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.003175852131167203,
+        "max_change_cm": 0.012616344690489174,
+        "tracked_edge_angles_before": [
+          16.777721253217234,
+          16.632820299696046
+        ],
+        "tracked_edge_angles_after": [
+          16.815528649385588,
+          16.67011349035666
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.0031758521311671607,
+        "max_change_cm": 0.012616344690487708,
+        "tracked_edge_angles_before": [
+          16.765346701925086,
+          16.62054021844382
+        ],
+        "tracked_edge_angles_after": [
+          16.80299187985749,
+          16.657672493348414
+        ]
+      }
+    ]
+  },
+  {
+    "group": "C",
+    "action": "deep-kneel",
+    "frame": 135,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          125.77635139630334,
+          127.80785636631808
+        ],
+        "tracked_edge_angles_after": [
+          125.77635139630334,
+          127.80785636631808
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          125.77635139630334,
+          127.80785636631808
+        ],
+        "tracked_edge_angles_after": [
+          125.77635139630334,
+          127.80785636631808
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.7439509757582239,
+        "max_change_cm": 5.187525359624253,
+        "tracked_edge_angles_before": [
+          58.3058059610825,
+          56.67072434427723
+        ],
+        "tracked_edge_angles_after": [
+          2.059973079753337,
+          0.5077320267942773
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.743950975758224,
+        "max_change_cm": 5.187525359624253,
+        "tracked_edge_angles_before": [
+          58.441726282046865,
+          56.8079296181674
+        ],
+        "tracked_edge_angles_after": [
+          2.0828704919583916,
+          0.5311524399039919
+        ]
+      }
+    ]
+  },
+  {
+    "group": "C",
+    "action": "deep-kneel",
+    "frame": 165,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          129.3424078639317,
+          131.26970895511687
+        ],
+        "tracked_edge_angles_after": [
+          129.3424078639317,
+          131.26970895511687
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          129.3424078639317,
+          131.26970895511687
+        ],
+        "tracked_edge_angles_after": [
+          129.3424078639317,
+          131.26970895511687
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.99682092029293,
+        "max_change_cm": 6.6138431568098035,
+        "tracked_edge_angles_before": [
+          43.89193016951495,
+          45.30645487498903
+        ],
+        "tracked_edge_angles_after": [
+          2.610113437051574,
+          0.15637687409384868
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.9968209202929303,
+        "max_change_cm": 6.613843156809806,
+        "tracked_edge_angles_before": [
+          43.89187217300696,
+          45.30639731977413
+        ],
+        "tracked_edge_angles_after": [
+          2.6101115542416236,
+          0.15637514775556033
+        ]
+      }
+    ]
+  },
+  {
+    "group": "C",
+    "action": "single-flexion",
+    "frame": 45,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          17.904078462689416,
+          17.24724112394457
+        ],
+        "tracked_edge_angles_after": [
+          17.904078462689416,
+          17.24724112394457
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          17.904078462689416,
+          17.24724112394457
+        ],
+        "tracked_edge_angles_after": [
+          17.904078462689416,
+          17.24724112394457
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.002809009183439526,
+        "max_change_cm": 0.012616344690489174,
+        "tracked_edge_angles_before": [
+          16.777721253217234,
+          17.441804604707773
+        ],
+        "tracked_edge_angles_after": [
+          16.815528649385588,
+          17.460557172502774
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.002809009183439607,
+        "max_change_cm": 0.012616344690487648,
+        "tracked_edge_angles_before": [
+          16.776187109599686,
+          17.441804604707773
+        ],
+        "tracked_edge_angles_after": [
+          16.81382574722661,
+          17.460557172502774
+        ]
+      }
+    ]
+  },
+  {
+    "group": "C",
+    "action": "single-flexion",
+    "frame": 135,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          125.77635139630334,
+          17.24724112394457
+        ],
+        "tracked_edge_angles_after": [
+          125.77635139630334,
+          17.24724112394457
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          125.77635139630334,
+          17.24724112394457
+        ],
+        "tracked_edge_angles_after": [
+          125.77635139630334,
+          17.24724112394457
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.5240300919878715,
+        "max_change_cm": 5.162167001174252,
+        "tracked_edge_angles_before": [
+          58.3058059610825,
+          17.441804604707773
+        ],
+        "tracked_edge_angles_after": [
+          2.059973079753337,
+          17.460557172502774
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.5240300919878714,
+        "max_change_cm": 5.1621670011742635,
+        "tracked_edge_angles_before": [
+          59.059136046893954,
+          17.441804604707773
+        ],
+        "tracked_edge_angles_after": [
+          2.061294538737586,
+          17.460557172502774
+        ]
+      }
+    ]
+  },
+  {
+    "group": "C",
+    "action": "single-flexion",
+    "frame": 165,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          129.3424078639317,
+          17.24724112394457
+        ],
+        "tracked_edge_angles_after": [
+          129.3424078639317,
+          17.24724112394457
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          129.3424078639317,
+          17.24724112394457
+        ],
+        "tracked_edge_angles_after": [
+          129.3424078639317,
+          17.24724112394457
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.702560833364291,
+        "max_change_cm": 6.578162288988993,
+        "tracked_edge_angles_before": [
+          43.89193016951495,
+          17.441804604707773
+        ],
+        "tracked_edge_angles_after": [
+          2.610113437051574,
+          17.460557172502774
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.7025608333642914,
+        "max_change_cm": 6.578162288988993,
+        "tracked_edge_angles_before": [
+          43.888012351228184,
+          17.441804604707773
+        ],
+        "tracked_edge_angles_after": [
+          2.609970087505253,
+          17.460557172502774
+        ]
+      }
+    ]
+  },
+  {
+    "group": "M",
+    "action": "deep-kneel",
+    "frame": 45,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          17.904078462689416,
+          17.758110185850292
+        ],
+        "tracked_edge_angles_after": [
+          17.904078462689416,
+          17.758110185850292
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          17.89315135156955,
+          17.74837428604428
+        ],
+        "tracked_edge_angles_after": [
+          17.89315135156955,
+          17.74837428604428
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.0031599537052669473,
+        "max_change_cm": 0.01258914464230816,
+        "tracked_edge_angles_before": [
+          16.773075718127753,
+          16.628988270276942
+        ],
+        "tracked_edge_angles_after": [
+          16.810734734772485,
+          16.666148821214573
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.003159953705267011,
+        "max_change_cm": 0.012589144642311602,
+        "tracked_edge_angles_before": [
+          16.76064655039572,
+          16.616640894928242
+        ],
+        "tracked_edge_angles_after": [
+          16.798144836290916,
+          16.653641824671244
+        ]
+      }
+    ]
+  },
+  {
+    "group": "M",
+    "action": "deep-kneel",
+    "frame": 135,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          125.77635139630334,
+          127.80785636631808
+        ],
+        "tracked_edge_angles_after": [
+          125.77635139630334,
+          127.80785636631808
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          121.48526957263238,
+          123.57158552690728
+        ],
+        "tracked_edge_angles_after": [
+          121.48526957263238,
+          123.57158552690728
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.7504221902367643,
+        "max_change_cm": 5.221598059112852,
+        "tracked_edge_angles_before": [
+          3.2495804172194505,
+          3.472004534414165
+        ],
+        "tracked_edge_angles_after": [
+          3.8452097937327836,
+          2.5481246798189185
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.7504221902367643,
+        "max_change_cm": 5.2215980591128615,
+        "tracked_edge_angles_before": [
+          3.221443215718637,
+          3.419727266201316
+        ],
+        "tracked_edge_angles_after": [
+          3.859721701595109,
+          2.5662573361462937
+        ]
+      }
+    ]
+  },
+  {
+    "group": "M",
+    "action": "deep-kneel",
+    "frame": 165,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          129.3424078639317,
+          131.26970895511687
+        ],
+        "tracked_edge_angles_after": [
+          129.3424078639317,
+          131.26970895511687
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          125.96946770682918,
+          127.95597126575838
+        ],
+        "tracked_edge_angles_after": [
+          125.96946770682918,
+          127.95597126575838
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 1.008393880361628,
+        "max_change_cm": 6.676100248997344,
+        "tracked_edge_angles_before": [
+          60.74345677303976,
+          60.82777162134897
+        ],
+        "tracked_edge_angles_after": [
+          3.4445904142279224,
+          1.483535128945175
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 1.0083938803616277,
+        "max_change_cm": 6.67610024899734,
+        "tracked_edge_angles_before": [
+          60.739952397321915,
+          60.82551342250247
+        ],
+        "tracked_edge_angles_after": [
+          3.443948923250153,
+          1.4830625570535403
+        ]
+      }
+    ]
+  },
+  {
+    "group": "M",
+    "action": "single-flexion",
+    "frame": 45,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          17.904078462689416,
+          17.24724112394457
+        ],
+        "tracked_edge_angles_after": [
+          17.904078462689416,
+          17.24724112394457
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          17.89315135156955,
+          17.290926415818284
+        ],
+        "tracked_edge_angles_after": [
+          17.89315135156955,
+          17.290926415818284
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.0027999670653853677,
+        "max_change_cm": 0.01258914464230816,
+        "tracked_edge_angles_before": [
+          16.773075718127753,
+          17.486251360462294
+        ],
+        "tracked_edge_angles_after": [
+          16.810734734772485,
+          17.505055394892047
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.0027999670653855017,
+        "max_change_cm": 0.012589144642310195,
+        "tracked_edge_angles_before": [
+          16.771823408662254,
+          17.486251360462294
+        ],
+        "tracked_edge_angles_after": [
+          16.809315845685497,
+          17.505055394892047
+        ]
+      }
+    ]
+  },
+  {
+    "group": "M",
+    "action": "single-flexion",
+    "frame": 135,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          125.77635139630334,
+          17.24724112394457
+        ],
+        "tracked_edge_angles_after": [
+          125.77635139630334,
+          17.24724112394457
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          121.48526957263238,
+          17.290926415818284
+        ],
+        "tracked_edge_angles_after": [
+          121.48526957263238,
+          17.290926415818284
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.5285496164820465,
+        "max_change_cm": 5.196898813261953,
+        "tracked_edge_angles_before": [
+          3.2495804172194505,
+          17.486251360462294
+        ],
+        "tracked_edge_angles_after": [
+          3.8452097937327836,
+          17.505055394892047
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.5285496164820465,
+        "max_change_cm": 5.196898813261958,
+        "tracked_edge_angles_before": [
+          1.4108534095663525,
+          17.486251360462294
+        ],
+        "tracked_edge_angles_after": [
+          3.8090891957370037,
+          17.505055394892047
+        ]
+      }
+    ]
+  },
+  {
+    "group": "M",
+    "action": "single-flexion",
+    "frame": 165,
+    "primary_matrix_max_error": 0.0,
+    "stages": [
+      {
+        "stage": "01-final-weights",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          129.3424078639317,
+          17.24724112394457
+        ],
+        "tracked_edge_angles_after": [
+          129.3424078639317,
+          17.24724112394457
+        ]
+      },
+      {
+        "stage": "02-static-helpers",
+        "rms_change_cm": 0.0,
+        "max_change_cm": 0.0,
+        "tracked_edge_angles_before": [
+          125.96946770682918,
+          17.290926415818284
+        ],
+        "tracked_edge_angles_after": [
+          125.96946770682918,
+          17.290926415818284
+        ]
+      },
+      {
+        "stage": "03-corrective",
+        "rms_change_cm": 0.7106516151783573,
+        "max_change_cm": 6.641764264941153,
+        "tracked_edge_angles_before": [
+          60.74345677303976,
+          17.486251360462294
+        ],
+        "tracked_edge_angles_after": [
+          3.4445904142279224,
+          17.505055394892047
+        ]
+      },
+      {
+        "stage": "04-jiggle",
+        "rms_change_cm": 0.710651615178357,
+        "max_change_cm": 6.641764264941142,
+        "tracked_edge_angles_before": [
+          60.71785666181021,
+          17.486251360462294
+        ],
+        "tracked_edge_angles_after": [
+          3.437791859596512,
+          17.505055394892047
+        ]
+      }
+    ]
+  }
+]

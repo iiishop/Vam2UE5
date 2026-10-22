@@ -1,0 +1,14 @@
+[
+  {
+    "case": "M-deep-kneel",
+    "world": "Editor",
+    "frames": 270,
+    "actual_knee_at_hold": [
+      155.00000000000014,
+      155.00000000000014
+    ],
+    "production_clamp_difference_deg": 36.37337492313229,
+    "contact_active_frames": 0,
+    "capture_valid": true
+  }
+]

@@ -1,0 +1,3717 @@
+{
+  "reference_group": "C",
+  "comparability": [
+    {
+      "group": "C",
+      "action": "deep-kneel",
+      "primary_error": 0.0,
+      "contact_frames": 49
+    },
+    {
+      "group": "M",
+      "action": "deep-kneel",
+      "primary_error": 0.0,
+      "contact_frames": 0
+    },
+    {
+      "group": "C",
+      "action": "single-flexion",
+      "primary_error": 0.0,
+      "contact_frames": 78
+    },
+    {
+      "group": "M",
+      "action": "single-flexion",
+      "primary_error": 0.0,
+      "contact_frames": 0
+    }
+  ],
+  "surfaces": [
+    {
+      "group": "C",
+      "action": "deep-kneel",
+      "frame": 45,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 19.696708127185843,
+      "edge_max_deg": 161.28967922011515,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-115856-A21671704F2E00EEB4A859BA308FCAEF",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "deep-kneel",
+      "frame": 45,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 19.63166627417094,
+      "edge_max_deg": 161.29087650744614,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-120348-8BDD0B75427D192397FF7C83D34575BB",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.07255221862165662,
+      "max_vs_reference_cm": 0.19331847142898304,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "C",
+      "action": "deep-kneel",
+      "frame": 135,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 25.822099204939676,
+      "edge_max_deg": 175.97938094536582,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-115928-061E25824621955C88695AB787FFDA83",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "deep-kneel",
+      "frame": 135,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 25.62784540795604,
+      "edge_max_deg": 176.1723812775362,
+      "new_sharp_edges": 15,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-120415-D53E7E8C44EF261139A4F48BAE87280B",
+      "new_sharp_edge_details": [
+        {
+          "triangles": [
+            50,
+            51
+          ],
+          "render_vertices": [
+            [
+              36,
+              33,
+              39
+            ],
+            [
+              33,
+              37,
+              39
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                8812
+              ],
+              [
+                "source",
+                2356
+              ],
+              [
+                "source",
+                8811
+              ]
+            ],
+            [
+              [
+                "source",
+                2356
+              ],
+              [
+                "source",
+                8810
+              ],
+              [
+                "source",
+                8811
+              ]
+            ]
+          ],
+          "reference_angle_deg": 50.41076587565578,
+          "current_angle_deg": 66.3197693618409,
+          "center_cm": [
+            32.342149680120635,
+            -4.1206717865434435,
+            80.8094712297705
+          ]
+        },
+        {
+          "triangles": [
+            939,
+            940
+          ],
+          "render_vertices": [
+            [
+              541,
+              536,
+              542
+            ],
+            [
+              539,
+              542,
+              536
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4105
+              ],
+              [
+                "source",
+                2627
+              ],
+              [
+                "source",
+                4095
+              ]
+            ],
+            [
+              [
+                "source",
+                2398
+              ],
+              [
+                "source",
+                4095
+              ],
+              [
+                "source",
+                2627
+              ]
+            ]
+          ],
+          "reference_angle_deg": 24.79364205168556,
+          "current_angle_deg": 52.635480245102336,
+          "center_cm": [
+            30.00862774621199,
+            -7.914193128788653,
+            81.41638224833264
+          ]
+        },
+        {
+          "triangles": [
+            946,
+            947
+          ],
+          "render_vertices": [
+            [
+              544,
+              546,
+              542
+            ],
+            [
+              545,
+              542,
+              546
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4093
+              ],
+              [
+                "source",
+                4094
+              ],
+              [
+                "source",
+                4095
+              ]
+            ],
+            [
+              [
+                "source",
+                4104
+              ],
+              [
+                "source",
+                4095
+              ],
+              [
+                "source",
+                4094
+              ]
+            ]
+          ],
+          "reference_angle_deg": 19.990341437856937,
+          "current_angle_deg": 47.761084942503125,
+          "center_cm": [
+            30.13308814920369,
+            -8.637436665353427,
+            81.3769764409676
+          ]
+        },
+        {
+          "triangles": [
+            953,
+            954
+          ],
+          "render_vertices": [
+            [
+              548,
+              546,
+              550
+            ],
+            [
+              549,
+              550,
+              546
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                456
+              ],
+              [
+                "source",
+                4094
+              ],
+              [
+                "source",
+                457
+              ]
+            ],
+            [
+              [
+                "source",
+                4092
+              ],
+              [
+                "source",
+                457
+              ],
+              [
+                "source",
+                4094
+              ]
+            ]
+          ],
+          "reference_angle_deg": 18.20480694750013,
+          "current_angle_deg": 49.007486310950306,
+          "center_cm": [
+            30.482056952861356,
+            -9.241661682621022,
+            81.32461589300905
+          ]
+        },
+        {
+          "triangles": [
+            967,
+            972
+          ],
+          "render_vertices": [
+            [
+              555,
+              558,
+              550
+            ],
+            [
+              562,
+              550,
+              558
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                51
+              ],
+              [
+                "source",
+                2635
+              ],
+              [
+                "source",
+                457
+              ]
+            ],
+            [
+              [
+                "source",
+                2637
+              ],
+              [
+                "source",
+                457
+              ],
+              [
+                "source",
+                2635
+              ]
+            ]
+          ],
+          "reference_angle_deg": 22.00417087995699,
+          "current_angle_deg": 55.78914439398509,
+          "center_cm": [
+            31.05226156718051,
+            -9.84921799105694,
+            81.18992651330153
+          ]
+        },
+        {
+          "triangles": [
+            974,
+            975
+          ],
+          "render_vertices": [
+            [
+              560,
+              563,
+              558
+            ],
+            [
+              563,
+              562,
+              558
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2636
+              ],
+              [
+                "source",
+                2642
+              ],
+              [
+                "source",
+                2635
+              ]
+            ],
+            [
+              [
+                "source",
+                2642
+              ],
+              [
+                "source",
+                2637
+              ],
+              [
+                "source",
+                2635
+              ]
+            ]
+          ],
+          "reference_angle_deg": 44.634630943197585,
+          "current_angle_deg": 76.05741534003201,
+          "center_cm": [
+            31.787687089795472,
+            -10.377841087629138,
+            81.06313126971706
+          ]
+        },
+        {
+          "triangles": [
+            1291,
+            1300
+          ],
+          "render_vertices": [
+            [
+              547,
+              714,
+              716
+            ],
+            [
+              714,
+              719,
+              716
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4103
+              ],
+              [
+                "source",
+                2639
+              ],
+              [
+                "source",
+                4099
+              ]
+            ],
+            [
+              [
+                "source",
+                2639
+              ],
+              [
+                "source",
+                4107
+              ],
+              [
+                "source",
+                4099
+              ]
+            ]
+          ],
+          "reference_angle_deg": 46.46255617450826,
+          "current_angle_deg": 61.78687821977888,
+          "center_cm": [
+            29.981529623356447,
+            -8.430525935920782,
+            81.85953634523446
+          ]
+        },
+        {
+          "triangles": [
+            1659,
+            1676
+          ],
+          "render_vertices": [
+            [
+              905,
+              900,
+              903
+            ],
+            [
+              914,
+              905,
+              903
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13186
+              ],
+              [
+                "source",
+                19483
+              ],
+              [
+                "source",
+                19482
+              ]
+            ],
+            [
+              [
+                "source",
+                19481
+              ],
+              [
+                "source",
+                13186
+              ],
+              [
+                "source",
+                19482
+              ]
+            ]
+          ],
+          "reference_angle_deg": 56.588919021461294,
+          "current_angle_deg": 71.86323043360889,
+          "center_cm": [
+            32.321080604519025,
+            4.140153404337856,
+            80.8395960843328
+          ]
+        },
+        {
+          "triangles": [
+            1667,
+            1670
+          ],
+          "render_vertices": [
+            [
+              906,
+              905,
+              908
+            ],
+            [
+              905,
+              910,
+              908
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13201
+              ],
+              [
+                "source",
+                13186
+              ],
+              [
+                "source",
+                13202
+              ]
+            ],
+            [
+              [
+                "source",
+                13186
+              ],
+              [
+                "source",
+                13203
+              ],
+              [
+                "source",
+                13202
+              ]
+            ]
+          ],
+          "reference_angle_deg": 34.363356959369185,
+          "current_angle_deg": 49.60772580259725,
+          "center_cm": [
+            31.649153533067842,
+            4.793403527528345,
+            81.05665327183438
+          ]
+        },
+        {
+          "triangles": [
+            2494,
+            2495
+          ],
+          "render_vertices": [
+            [
+              1365,
+              1369,
+              1367
+            ],
+            [
+              1369,
+              1368,
+              1367
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                14883
+              ],
+              [
+                "source",
+                13452
+              ],
+              [
+                "source",
+                14875
+              ]
+            ],
+            [
+              [
+                "source",
+                13452
+              ],
+              [
+                "source",
+                14879
+              ],
+              [
+                "source",
+                14875
+              ]
+            ]
+          ],
+          "reference_angle_deg": 48.57034581654595,
+          "current_angle_deg": 64.32550301924597,
+          "center_cm": [
+            29.95409571017976,
+            8.45537232310047,
+            81.90554332711092
+          ]
+        },
+        {
+          "triangles": [
+            2553,
+            2554
+          ],
+          "render_vertices": [
+            [
+              1208,
+              1215,
+              1398
+            ],
+            [
+              1398,
+              1202,
+              1208
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13440
+              ],
+              [
+                "source",
+                14881
+              ],
+              [
+                "source",
+                14871
+              ]
+            ],
+            [
+              [
+                "source",
+                14871
+              ],
+              [
+                "source",
+                13228
+              ],
+              [
+                "source",
+                13440
+              ]
+            ]
+          ],
+          "reference_angle_deg": 27.59716163538148,
+          "current_angle_deg": 56.154872085539246,
+          "center_cm": [
+            29.962898269925073,
+            7.935869931316283,
+            81.42566482773115
+          ]
+        },
+        {
+          "triangles": [
+            2555,
+            2558
+          ],
+          "render_vertices": [
+            [
+              1398,
+              1396,
+              1399
+            ],
+            [
+              1399,
+              1400,
+              1398
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                14871
+              ],
+              [
+                "source",
+                14880
+              ],
+              [
+                "source",
+                14870
+              ]
+            ],
+            [
+              [
+                "source",
+                14870
+              ],
+              [
+                "source",
+                14869
+              ],
+              [
+                "source",
+                14871
+              ]
+            ]
+          ],
+          "reference_angle_deg": 22.48768430181711,
+          "current_angle_deg": 51.20072718753574,
+          "center_cm": [
+            30.087898969309702,
+            8.658513193583842,
+            81.38632630984472
+          ]
+        },
+        {
+          "triangles": [
+            2560,
+            2563
+          ],
+          "render_vertices": [
+            [
+              1399,
+              1392,
+              1401
+            ],
+            [
+              1401,
+              1402,
+              1399
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                14870
+              ],
+              [
+                "source",
+                11384
+              ],
+              [
+                "source",
+                11385
+              ]
+            ],
+            [
+              [
+                "source",
+                11385
+              ],
+              [
+                "source",
+                14868
+              ],
+              [
+                "source",
+                14870
+              ]
+            ]
+          ],
+          "reference_angle_deg": 20.508330347480168,
+          "current_angle_deg": 52.33269776632234,
+          "center_cm": [
+            30.438260431200266,
+            9.262243191944446,
+            81.33319535171808
+          ]
+        },
+        {
+          "triangles": [
+            2577,
+            2578
+          ],
+          "render_vertices": [
+            [
+              1407,
+              1405,
+              1401
+            ],
+            [
+              1401,
+              1394,
+              1407
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13448
+              ],
+              [
+                "source",
+                10979
+              ],
+              [
+                "source",
+                11385
+              ]
+            ],
+            [
+              [
+                "source",
+                11385
+              ],
+              [
+                "source",
+                13450
+              ],
+              [
+                "source",
+                13448
+              ]
+            ]
+          ],
+          "reference_angle_deg": 23.83526340786565,
+          "current_angle_deg": 58.9353844421663,
+          "center_cm": [
+            31.01112918179726,
+            9.869592571884459,
+            81.1972407124771
+          ]
+        },
+        {
+          "triangles": [
+            2584,
+            2586
+          ],
+          "render_vertices": [
+            [
+              1410,
+              1408,
+              1407
+            ],
+            [
+              1394,
+              1410,
+              1407
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13455
+              ],
+              [
+                "source",
+                13449
+              ],
+              [
+                "source",
+                13448
+              ]
+            ],
+            [
+              [
+                "source",
+                13450
+              ],
+              [
+                "source",
+                13455
+              ],
+              [
+                "source",
+                13448
+              ]
+            ]
+          ],
+          "reference_angle_deg": 47.09469799131069,
+          "current_angle_deg": 79.63704892527248,
+          "center_cm": [
+            31.750254895498042,
+            10.39823830685188,
+            81.06887394217748
+          ]
+        }
+      ],
+      "rms_vs_reference_cm": 0.4495014834255916,
+      "max_vs_reference_cm": 1.0939566211268954,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "C",
+      "action": "deep-kneel",
+      "frame": 165,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 28.78357931059419,
+      "edge_max_deg": 179.96013537439296,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-115950-D8EB6862438291913F8805B204EB2B0C",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "deep-kneel",
+      "frame": 165,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 28.96280470928908,
+      "edge_max_deg": 178.3913739197595,
+      "new_sharp_edges": 28,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-120437-9FED87B7404850CDFFE8A296900CBDFB",
+      "new_sharp_edge_details": [
+        {
+          "triangles": [
+            35,
+            37
+          ],
+          "render_vertices": [
+            [
+              28,
+              26,
+              29
+            ],
+            [
+              29,
+              31,
+              28
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2372
+              ],
+              [
+                "source",
+                2632
+              ],
+              [
+                "source",
+                2633
+              ]
+            ],
+            [
+              [
+                "source",
+                2633
+              ],
+              [
+                "source",
+                2373
+              ],
+              [
+                "source",
+                2372
+              ]
+            ]
+          ],
+          "reference_angle_deg": 15.364793597683157,
+          "current_angle_deg": 45.850328464804115,
+          "center_cm": [
+            34.113957712786636,
+            -5.271854490992117,
+            88.80099269243016
+          ]
+        },
+        {
+          "triangles": [
+            50,
+            51
+          ],
+          "render_vertices": [
+            [
+              36,
+              33,
+              39
+            ],
+            [
+              33,
+              37,
+              39
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                8812
+              ],
+              [
+                "source",
+                2356
+              ],
+              [
+                "source",
+                8811
+              ]
+            ],
+            [
+              [
+                "source",
+                2356
+              ],
+              [
+                "source",
+                8810
+              ],
+              [
+                "source",
+                8811
+              ]
+            ]
+          ],
+          "reference_angle_deg": 51.248590685310766,
+          "current_angle_deg": 84.37402838377771,
+          "center_cm": [
+            35.30594240805868,
+            -4.184867625550551,
+            88.53962592709017
+          ]
+        },
+        {
+          "triangles": [
+            901,
+            903
+          ],
+          "render_vertices": [
+            [
+              481,
+              479,
+              516
+            ],
+            [
+              479,
+              517,
+              516
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                460
+              ],
+              [
+                "source",
+                450
+              ],
+              [
+                "source",
+                453
+              ]
+            ],
+            [
+              [
+                "source",
+                450
+              ],
+              [
+                "source",
+                452
+              ],
+              [
+                "source",
+                453
+              ]
+            ]
+          ],
+          "reference_angle_deg": 4.533060236211002,
+          "current_angle_deg": 48.737517147534405,
+          "center_cm": [
+            31.386006552970183,
+            -6.60622642143251,
+            89.22653914319606
+          ]
+        },
+        {
+          "triangles": [
+            928,
+            934
+          ],
+          "render_vertices": [
+            [
+              536,
+              527,
+              530
+            ],
+            [
+              530,
+              539,
+              536
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2627
+              ],
+              [
+                "source",
+                2628
+              ],
+              [
+                "source",
+                449
+              ]
+            ],
+            [
+              [
+                "source",
+                449
+              ],
+              [
+                "source",
+                2398
+              ],
+              [
+                "source",
+                2627
+              ]
+            ]
+          ],
+          "reference_angle_deg": 7.454789149744,
+          "current_angle_deg": 45.86114693041305,
+          "center_cm": [
+            33.021099813611215,
+            -7.297004887033516,
+            88.41227798568521
+          ]
+        },
+        {
+          "triangles": [
+            939,
+            940
+          ],
+          "render_vertices": [
+            [
+              541,
+              536,
+              542
+            ],
+            [
+              539,
+              542,
+              536
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4105
+              ],
+              [
+                "source",
+                2627
+              ],
+              [
+                "source",
+                4095
+              ]
+            ],
+            [
+              [
+                "source",
+                2398
+              ],
+              [
+                "source",
+                4095
+              ],
+              [
+                "source",
+                2627
+              ]
+            ]
+          ],
+          "reference_angle_deg": 32.39199871718493,
+          "current_angle_deg": 69.66989243978398,
+          "center_cm": [
+            32.80477280586681,
+            -8.016197447514996,
+            88.4178350464194
+          ]
+        },
+        {
+          "triangles": [
+            946,
+            947
+          ],
+          "render_vertices": [
+            [
+              544,
+              546,
+              542
+            ],
+            [
+              545,
+              542,
+              546
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4093
+              ],
+              [
+                "source",
+                4094
+              ],
+              [
+                "source",
+                4095
+              ]
+            ],
+            [
+              [
+                "source",
+                4104
+              ],
+              [
+                "source",
+                4095
+              ],
+              [
+                "source",
+                4094
+              ]
+            ]
+          ],
+          "reference_angle_deg": 26.431008488855888,
+          "current_angle_deg": 61.9109484581822,
+          "center_cm": [
+            32.93930012902118,
+            -8.734546472933706,
+            88.39065701334044
+          ]
+        },
+        {
+          "triangles": [
+            953,
+            954
+          ],
+          "render_vertices": [
+            [
+              548,
+              546,
+              550
+            ],
+            [
+              549,
+              550,
+              546
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                456
+              ],
+              [
+                "source",
+                4094
+              ],
+              [
+                "source",
+                457
+              ]
+            ],
+            [
+              [
+                "source",
+                4092
+              ],
+              [
+                "source",
+                457
+              ],
+              [
+                "source",
+                4094
+              ]
+            ]
+          ],
+          "reference_angle_deg": 22.875643982259202,
+          "current_angle_deg": 62.13720838341819,
+          "center_cm": [
+            33.306128263287825,
+            -9.328340352960499,
+            88.37656595136366
+          ]
+        },
+        {
+          "triangles": [
+            967,
+            972
+          ],
+          "render_vertices": [
+            [
+              555,
+              558,
+              550
+            ],
+            [
+              562,
+              550,
+              558
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                51
+              ],
+              [
+                "source",
+                2635
+              ],
+              [
+                "source",
+                457
+              ]
+            ],
+            [
+              [
+                "source",
+                2637
+              ],
+              [
+                "source",
+                457
+              ],
+              [
+                "source",
+                2635
+              ]
+            ]
+          ],
+          "reference_angle_deg": 22.850574010166724,
+          "current_angle_deg": 57.09430639111144,
+          "center_cm": [
+            33.914311032361475,
+            -9.922886010519301,
+            88.30746010769612
+          ]
+        },
+        {
+          "triangles": [
+            974,
+            975
+          ],
+          "render_vertices": [
+            [
+              560,
+              563,
+              558
+            ],
+            [
+              563,
+              562,
+              558
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2636
+              ],
+              [
+                "source",
+                2642
+              ],
+              [
+                "source",
+                2635
+              ]
+            ],
+            [
+              [
+                "source",
+                2642
+              ],
+              [
+                "source",
+                2637
+              ],
+              [
+                "source",
+                2635
+              ]
+            ]
+          ],
+          "reference_angle_deg": 44.21428159461406,
+          "current_angle_deg": 88.35984531077966,
+          "center_cm": [
+            34.69114355349013,
+            -10.440193163460554,
+            88.27361364218223
+          ]
+        },
+        {
+          "triangles": [
+            1285,
+            1289
+          ],
+          "render_vertices": [
+            [
+              707,
+              713,
+              710
+            ],
+            [
+              713,
+              707,
+              715
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2644
+              ],
+              [
+                "source",
+                459
+              ],
+              [
+                "source",
+                2638
+              ]
+            ],
+            [
+              [
+                "source",
+                459
+              ],
+              [
+                "source",
+                2644
+              ],
+              [
+                "source",
+                2641
+              ]
+            ]
+          ],
+          "reference_angle_deg": 111.11950819547243,
+          "current_angle_deg": 129.12101399393663,
+          "center_cm": [
+            34.62371539520279,
+            -10.169844240557373,
+            88.92419116831017
+          ]
+        },
+        {
+          "triangles": [
+            1287,
+            1305
+          ],
+          "render_vertices": [
+            [
+              712,
+              713,
+              714
+            ],
+            [
+              713,
+              720,
+              714
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                458
+              ],
+              [
+                "source",
+                459
+              ],
+              [
+                "source",
+                2639
+              ]
+            ],
+            [
+              [
+                "source",
+                459
+              ],
+              [
+                "source",
+                463
+              ],
+              [
+                "source",
+                2639
+              ]
+            ]
+          ],
+          "reference_angle_deg": 55.37195116359548,
+          "current_angle_deg": 83.09893112921692,
+          "center_cm": [
+            33.20230379527377,
+            -9.200664659054153,
+            89.34596293557458
+          ]
+        },
+        {
+          "triangles": [
+            1291,
+            1300
+          ],
+          "render_vertices": [
+            [
+              547,
+              714,
+              716
+            ],
+            [
+              714,
+              719,
+              716
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4103
+              ],
+              [
+                "source",
+                2639
+              ],
+              [
+                "source",
+                4099
+              ]
+            ],
+            [
+              [
+                "source",
+                2639
+              ],
+              [
+                "source",
+                4107
+              ],
+              [
+                "source",
+                4099
+              ]
+            ]
+          ],
+          "reference_angle_deg": 52.359689788582486,
+          "current_angle_deg": 80.11330978757144,
+          "center_cm": [
+            32.78498763560919,
+            -8.56043346339622,
+            89.3816898306486
+          ]
+        },
+        {
+          "triangles": [
+            1295,
+            1298
+          ],
+          "render_vertices": [
+            [
+              529,
+              716,
+              718
+            ],
+            [
+              719,
+              718,
+              716
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4102
+              ],
+              [
+                "source",
+                4099
+              ],
+              [
+                "source",
+                4098
+              ]
+            ],
+            [
+              [
+                "source",
+                4107
+              ],
+              [
+                "source",
+                4098
+              ],
+              [
+                "source",
+                4099
+              ]
+            ]
+          ],
+          "reference_angle_deg": 39.9762825275492,
+          "current_angle_deg": 63.79995159646238,
+          "center_cm": [
+            32.581789541872034,
+            -8.010247109311969,
+            89.35108717475941
+          ]
+        },
+        {
+          "triangles": [
+            1659,
+            1676
+          ],
+          "render_vertices": [
+            [
+              905,
+              900,
+              903
+            ],
+            [
+              914,
+              905,
+              903
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13186
+              ],
+              [
+                "source",
+                19483
+              ],
+              [
+                "source",
+                19482
+              ]
+            ],
+            [
+              [
+                "source",
+                19481
+              ],
+              [
+                "source",
+                13186
+              ],
+              [
+                "source",
+                19482
+              ]
+            ]
+          ],
+          "reference_angle_deg": 54.923436894256916,
+          "current_angle_deg": 86.56868225858095,
+          "center_cm": [
+            35.281876314778465,
+            4.206035761922183,
+            88.57563553120299
+          ]
+        },
+        {
+          "triangles": [
+            1667,
+            1670
+          ],
+          "render_vertices": [
+            [
+              906,
+              905,
+              908
+            ],
+            [
+              905,
+              910,
+              908
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13201
+              ],
+              [
+                "source",
+                13186
+              ],
+              [
+                "source",
+                13202
+              ]
+            ],
+            [
+              [
+                "source",
+                13186
+              ],
+              [
+                "source",
+                13203
+              ],
+              [
+                "source",
+                13202
+              ]
+            ]
+          ],
+          "reference_angle_deg": 38.96139421876923,
+          "current_angle_deg": 67.20397511091124,
+          "center_cm": [
+            34.57451766099939,
+            4.860231739427884,
+            88.64701064599006
+          ]
+        },
+        {
+          "triangles": [
+            1668,
+            1669
+          ],
+          "render_vertices": [
+            [
+              907,
+              908,
+              909
+            ],
+            [
+              910,
+              909,
+              908
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13445
+              ],
+              [
+                "source",
+                13202
+              ],
+              [
+                "source",
+                13446
+              ]
+            ],
+            [
+              [
+                "source",
+                13203
+              ],
+              [
+                "source",
+                13446
+              ],
+              [
+                "source",
+                13202
+              ]
+            ]
+          ],
+          "reference_angle_deg": 16.541823329731642,
+          "current_angle_deg": 45.973631549982215,
+          "center_cm": [
+            34.07972678262493,
+            5.297937709207476,
+            88.84560600588696
+          ]
+        },
+        {
+          "triangles": [
+            2219,
+            2220
+          ],
+          "render_vertices": [
+            [
+              1202,
+              1203,
+              1208
+            ],
+            [
+              1206,
+              1208,
+              1203
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13228
+              ],
+              [
+                "source",
+                11377
+              ],
+              [
+                "source",
+                13440
+              ]
+            ],
+            [
+              [
+                "source",
+                13441
+              ],
+              [
+                "source",
+                13440
+              ],
+              [
+                "source",
+                11377
+              ]
+            ]
+          ],
+          "reference_angle_deg": 9.28060778431711,
+          "current_angle_deg": 48.84735828807857,
+          "center_cm": [
+            32.973429086514166,
+            7.320583339571127,
+            88.41459853506971
+          ]
+        },
+        {
+          "triangles": [
+            2243,
+            2247
+          ],
+          "render_vertices": [
+            [
+              1221,
+              1219,
+              1225
+            ],
+            [
+              1219,
+              1228,
+              1225
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                11380
+              ],
+              [
+                "source",
+                11378
+              ],
+              [
+                "source",
+                11381
+              ]
+            ],
+            [
+              [
+                "source",
+                11378
+              ],
+              [
+                "source",
+                11388
+              ],
+              [
+                "source",
+                11381
+              ]
+            ]
+          ],
+          "reference_angle_deg": 5.116319499313153,
+          "current_angle_deg": 50.31046909764368,
+          "center_cm": [
+            31.37274306701495,
+            6.617611790591301,
+            89.26043233353967
+          ]
+        },
+        {
+          "triangles": [
+            2490,
+            2491
+          ],
+          "render_vertices": [
+            [
+              1367,
+              1222,
+              1364
+            ],
+            [
+              1364,
+              1365,
+              1367
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                14875
+              ],
+              [
+                "source",
+                14878
+              ],
+              [
+                "source",
+                14874
+              ]
+            ],
+            [
+              [
+                "source",
+                14874
+              ],
+              [
+                "source",
+                14883
+              ],
+              [
+                "source",
+                14875
+              ]
+            ]
+          ],
+          "reference_angle_deg": 40.73944077891847,
+          "current_angle_deg": 65.11787370044884,
+          "center_cm": [
+            32.54940820044481,
+            8.039414166473147,
+            89.39724981639976
+          ]
+        },
+        {
+          "triangles": [
+            2494,
+            2495
+          ],
+          "render_vertices": [
+            [
+              1365,
+              1369,
+              1367
+            ],
+            [
+              1369,
+              1368,
+              1367
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                14883
+              ],
+              [
+                "source",
+                13452
+              ],
+              [
+                "source",
+                14875
+              ]
+            ],
+            [
+              [
+                "source",
+                13452
+              ],
+              [
+                "source",
+                14879
+              ],
+              [
+                "source",
+                14875
+              ]
+            ]
+          ],
+          "reference_angle_deg": 53.534068792869604,
+          "current_angle_deg": 82.33090986509882,
+          "center_cm": [
+            32.7537182843893,
+            8.588361956157469,
+            89.42793543690264
+          ]
+        },
+        {
+          "triangles": [
+            2533,
+            2538
+          ],
+          "render_vertices": [
+            [
+              1370,
+              1387,
+              1369
+            ],
+            [
+              1387,
+              1390,
+              1369
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                11391
+              ],
+              [
+                "source",
+                11387
+              ],
+              [
+                "source",
+                13452
+              ]
+            ],
+            [
+              [
+                "source",
+                11387
+              ],
+              [
+                "source",
+                11386
+              ],
+              [
+                "source",
+                13452
+              ]
+            ]
+          ],
+          "reference_angle_deg": 55.25725104829135,
+          "current_angle_deg": 84.05475126159209,
+          "center_cm": [
+            33.17208493251459,
+            9.229521636967954,
+            89.39292429303994
+          ]
+        },
+        {
+          "triangles": [
+            2542,
+            2543
+          ],
+          "render_vertices": [
+            [
+              1387,
+              1393,
+              1391
+            ],
+            [
+              1393,
+              1387,
+              1388
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                11387
+              ],
+              [
+                "source",
+                13457
+              ],
+              [
+                "source",
+                13451
+              ]
+            ],
+            [
+              [
+                "source",
+                13457
+              ],
+              [
+                "source",
+                11387
+              ],
+              [
+                "source",
+                13454
+              ]
+            ]
+          ],
+          "reference_angle_deg": 101.28625451011968,
+          "current_angle_deg": 120.93028985370984,
+          "center_cm": [
+            34.58967105727921,
+            10.199478677438247,
+            88.96338746137157
+          ]
+        },
+        {
+          "triangles": [
+            2543,
+            2547
+          ],
+          "render_vertices": [
+            [
+              1393,
+              1387,
+              1388
+            ],
+            [
+              1388,
+              1395,
+              1393
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13457
+              ],
+              [
+                "source",
+                11387
+              ],
+              [
+                "source",
+                13454
+              ]
+            ],
+            [
+              [
+                "source",
+                13454
+              ],
+              [
+                "source",
+                19412
+              ],
+              [
+                "source",
+                13457
+              ]
+            ]
+          ],
+          "reference_angle_deg": 90.19891671234942,
+          "current_angle_deg": 106.93907590117324,
+          "center_cm": [
+            35.192287350189964,
+            10.518958489276693,
+            88.75644589950986
+          ]
+        },
+        {
+          "triangles": [
+            2553,
+            2554
+          ],
+          "render_vertices": [
+            [
+              1208,
+              1215,
+              1398
+            ],
+            [
+              1398,
+              1202,
+              1208
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13440
+              ],
+              [
+                "source",
+                14881
+              ],
+              [
+                "source",
+                14871
+              ]
+            ],
+            [
+              [
+                "source",
+                14871
+              ],
+              [
+                "source",
+                13228
+              ],
+              [
+                "source",
+                13440
+              ]
+            ]
+          ],
+          "reference_angle_deg": 34.09686936758508,
+          "current_angle_deg": 72.73204179810791,
+          "center_cm": [
+            32.7567284019511,
+            8.039030228118563,
+            88.42098995910884
+          ]
+        },
+        {
+          "triangles": [
+            2555,
+            2558
+          ],
+          "render_vertices": [
+            [
+              1398,
+              1396,
+              1399
+            ],
+            [
+              1399,
+              1400,
+              1398
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                14871
+              ],
+              [
+                "source",
+                14880
+              ],
+              [
+                "source",
+                14870
+              ]
+            ],
+            [
+              [
+                "source",
+                14870
+              ],
+              [
+                "source",
+                14869
+              ],
+              [
+                "source",
+                14871
+              ]
+            ]
+          ],
+          "reference_angle_deg": 27.860084341325344,
+          "current_angle_deg": 64.77528478337717,
+          "center_cm": [
+            32.89178906432219,
+            8.756744297966225,
+            88.39394006571398
+          ]
+        },
+        {
+          "triangles": [
+            2560,
+            2563
+          ],
+          "render_vertices": [
+            [
+              1399,
+              1392,
+              1401
+            ],
+            [
+              1401,
+              1402,
+              1399
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                14870
+              ],
+              [
+                "source",
+                11384
+              ],
+              [
+                "source",
+                11385
+              ]
+            ],
+            [
+              [
+                "source",
+                11385
+              ],
+              [
+                "source",
+                14868
+              ],
+              [
+                "source",
+                14870
+              ]
+            ]
+          ],
+          "reference_angle_deg": 24.2058029020977,
+          "current_angle_deg": 65.07516091772753,
+          "center_cm": [
+            33.260143809508925,
+            9.350032738011764,
+            88.37917962609428
+          ]
+        },
+        {
+          "triangles": [
+            2577,
+            2578
+          ],
+          "render_vertices": [
+            [
+              1407,
+              1405,
+              1401
+            ],
+            [
+              1401,
+              1394,
+              1407
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13448
+              ],
+              [
+                "source",
+                10979
+              ],
+              [
+                "source",
+                11385
+              ]
+            ],
+            [
+              [
+                "source",
+                11385
+              ],
+              [
+                "source",
+                13450
+              ],
+              [
+                "source",
+                13448
+              ]
+            ]
+          ],
+          "reference_angle_deg": 23.630594276086626,
+          "current_angle_deg": 59.05969543694008,
+          "center_cm": [
+            33.87124810515679,
+            9.944305289453009,
+            88.30906479027495
+          ]
+        },
+        {
+          "triangles": [
+            2584,
+            2586
+          ],
+          "render_vertices": [
+            [
+              1410,
+              1408,
+              1407
+            ],
+            [
+              1394,
+              1410,
+              1407
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                13455
+              ],
+              [
+                "source",
+                13449
+              ],
+              [
+                "source",
+                13448
+              ]
+            ],
+            [
+              [
+                "source",
+                13450
+              ],
+              [
+                "source",
+                13455
+              ],
+              [
+                "source",
+                13448
+              ]
+            ]
+          ],
+          "reference_angle_deg": 45.08805423460412,
+          "current_angle_deg": 90.63465244624675,
+          "center_cm": [
+            34.652108417855395,
+            10.461530719768765,
+            88.27407636987351
+          ]
+        }
+      ],
+      "rms_vs_reference_cm": 0.47259241970222715,
+      "max_vs_reference_cm": 1.294323786170568,
+      "opposed_normals_vs_reference": 4
+    },
+    {
+      "group": "C",
+      "action": "single-flexion",
+      "frame": 45,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 19.500772295475883,
+      "edge_max_deg": 158.27493919882542,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-120057-EA62B4074EF87D9B5AC9589656E60AC6",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "single-flexion",
+      "frame": 45,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 19.49392498644459,
+      "edge_max_deg": 158.2818924332678,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-120536-97780C2A44F573EAE825888E12EC364E",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.052720726298412283,
+      "max_vs_reference_cm": 0.19629112399464171,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "C",
+      "action": "single-flexion",
+      "frame": 135,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 22.71547560201126,
+      "edge_max_deg": 172.8888146991692,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-120130-A149F9FE4DF3B9198BBC8D86C800E8D9",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "single-flexion",
+      "frame": 135,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 22.837223855536898,
+      "edge_max_deg": 176.2985416363098,
+      "new_sharp_edges": 7,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-120606-8D13DF7F4342CBE333696A93A2F016DB",
+      "new_sharp_edge_details": [
+        {
+          "triangles": [
+            50,
+            51
+          ],
+          "render_vertices": [
+            [
+              36,
+              33,
+              39
+            ],
+            [
+              33,
+              37,
+              39
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                8812
+              ],
+              [
+                "source",
+                2356
+              ],
+              [
+                "source",
+                8811
+              ]
+            ],
+            [
+              [
+                "source",
+                2356
+              ],
+              [
+                "source",
+                8810
+              ],
+              [
+                "source",
+                8811
+              ]
+            ]
+          ],
+          "reference_angle_deg": 50.338659877007345,
+          "current_angle_deg": 66.13281704361773,
+          "center_cm": [
+            32.34208288189124,
+            -4.120669502178934,
+            80.81060368756928
+          ]
+        },
+        {
+          "triangles": [
+            939,
+            940
+          ],
+          "render_vertices": [
+            [
+              541,
+              536,
+              542
+            ],
+            [
+              539,
+              542,
+              536
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4105
+              ],
+              [
+                "source",
+                2627
+              ],
+              [
+                "source",
+                4095
+              ]
+            ],
+            [
+              [
+                "source",
+                2398
+              ],
+              [
+                "source",
+                4095
+              ],
+              [
+                "source",
+                2627
+              ]
+            ]
+          ],
+          "reference_angle_deg": 25.25544299050692,
+          "current_angle_deg": 53.167321316354325,
+          "center_cm": [
+            30.00926831002678,
+            -7.914194438029213,
+            81.41908916890063
+          ]
+        },
+        {
+          "triangles": [
+            946,
+            947
+          ],
+          "render_vertices": [
+            [
+              544,
+              546,
+              542
+            ],
+            [
+              545,
+              542,
+              546
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4093
+              ],
+              [
+                "source",
+                4094
+              ],
+              [
+                "source",
+                4095
+              ]
+            ],
+            [
+              [
+                "source",
+                4104
+              ],
+              [
+                "source",
+                4095
+              ],
+              [
+                "source",
+                4094
+              ]
+            ]
+          ],
+          "reference_angle_deg": 20.435346766613538,
+          "current_angle_deg": 48.399024667273274,
+          "center_cm": [
+            30.133736608658825,
+            -8.637437990763178,
+            81.37971951351494
+          ]
+        },
+        {
+          "triangles": [
+            953,
+            954
+          ],
+          "render_vertices": [
+            [
+              548,
+              546,
+              550
+            ],
+            [
+              549,
+              550,
+              546
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                456
+              ],
+              [
+                "source",
+                4094
+              ],
+              [
+                "source",
+                457
+              ]
+            ],
+            [
+              [
+                "source",
+                4092
+              ],
+              [
+                "source",
+                457
+              ],
+              [
+                "source",
+                4094
+              ]
+            ]
+          ],
+          "reference_angle_deg": 18.736673306279233,
+          "current_angle_deg": 49.73415824212402,
+          "center_cm": [
+            30.482747424312283,
+            -9.2416630950537,
+            81.32753387284238
+          ]
+        },
+        {
+          "triangles": [
+            967,
+            972
+          ],
+          "render_vertices": [
+            [
+              555,
+              558,
+              550
+            ],
+            [
+              562,
+              550,
+              558
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                51
+              ],
+              [
+                "source",
+                2635
+              ],
+              [
+                "source",
+                457
+              ]
+            ],
+            [
+              [
+                "source",
+                2637
+              ],
+              [
+                "source",
+                457
+              ],
+              [
+                "source",
+                2635
+              ]
+            ]
+          ],
+          "reference_angle_deg": 22.54018915305481,
+          "current_angle_deg": 56.86358949139002,
+          "center_cm": [
+            31.05297720731336,
+            -9.84921945634436,
+            81.19294522016203
+          ]
+        },
+        {
+          "triangles": [
+            974,
+            975
+          ],
+          "render_vertices": [
+            [
+              560,
+              563,
+              558
+            ],
+            [
+              563,
+              562,
+              558
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2636
+              ],
+              [
+                "source",
+                2642
+              ],
+              [
+                "source",
+                2635
+              ]
+            ],
+            [
+              [
+                "source",
+                2642
+              ],
+              [
+                "source",
+                2637
+              ],
+              [
+                "source",
+                2635
+              ]
+            ]
+          ],
+          "reference_angle_deg": 45.409097387405005,
+          "current_angle_deg": 76.79140859965823,
+          "center_cm": [
+            31.78841328692997,
+            -10.377842577591794,
+            81.06618155904202
+          ]
+        },
+        {
+          "triangles": [
+            1291,
+            1300
+          ],
+          "render_vertices": [
+            [
+              547,
+              714,
+              716
+            ],
+            [
+              714,
+              719,
+              716
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4103
+              ],
+              [
+                "source",
+                2639
+              ],
+              [
+                "source",
+                4099
+              ]
+            ],
+            [
+              [
+                "source",
+                2639
+              ],
+              [
+                "source",
+                4107
+              ],
+              [
+                "source",
+                4099
+              ]
+            ]
+          ],
+          "reference_angle_deg": 46.42741338061844,
+          "current_angle_deg": 61.60150674978151,
+          "center_cm": [
+            29.981479783238758,
+            -8.430524263060187,
+            81.86037919065191
+          ]
+        }
+      ],
+      "rms_vs_reference_cm": 0.3131957154913618,
+      "max_vs_reference_cm": 1.0721776394487297,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "C",
+      "action": "single-flexion",
+      "frame": 165,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 23.60286422831982,
+      "edge_max_deg": 172.47341032246467,
+      "new_sharp_edges": 0,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-120155-07C24EB44BFFB31F0405AEABDA4EF3DB",
+      "new_sharp_edge_details": [],
+      "rms_vs_reference_cm": 0.0,
+      "max_vs_reference_cm": 0.0,
+      "opposed_normals_vs_reference": 0
+    },
+    {
+      "group": "M",
+      "action": "single-flexion",
+      "frame": 165,
+      "leg_vertices": 3149,
+      "seam_pairs": 275,
+      "seam_max_cm": 0.0,
+      "seam_over_001cm": 0,
+      "edge_p95_deg": 23.730206527812562,
+      "edge_max_deg": 176.5914318782057,
+      "new_sharp_edges": 13,
+      "area_below_tenth_R": 0,
+      "audit": "I:\\Document\\UE5\\SmartNPC\\Saved\\VamDeformationAudit\\20261022-120628-39BF95B944AFE98366F2DEBEF9C9D3AA",
+      "new_sharp_edge_details": [
+        {
+          "triangles": [
+            35,
+            37
+          ],
+          "render_vertices": [
+            [
+              28,
+              26,
+              29
+            ],
+            [
+              29,
+              31,
+              28
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2372
+              ],
+              [
+                "source",
+                2632
+              ],
+              [
+                "source",
+                2633
+              ]
+            ],
+            [
+              [
+                "source",
+                2633
+              ],
+              [
+                "source",
+                2373
+              ],
+              [
+                "source",
+                2372
+              ]
+            ]
+          ],
+          "reference_angle_deg": 15.36476957129752,
+          "current_angle_deg": 45.827310565091636,
+          "center_cm": [
+            34.11394573734611,
+            -5.27185438696701,
+            88.80106190944544
+          ]
+        },
+        {
+          "triangles": [
+            50,
+            51
+          ],
+          "render_vertices": [
+            [
+              36,
+              33,
+              39
+            ],
+            [
+              33,
+              37,
+              39
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                8812
+              ],
+              [
+                "source",
+                2356
+              ],
+              [
+                "source",
+                8811
+              ]
+            ],
+            [
+              [
+                "source",
+                2356
+              ],
+              [
+                "source",
+                8810
+              ],
+              [
+                "source",
+                8811
+              ]
+            ]
+          ],
+          "reference_angle_deg": 51.2485001186039,
+          "current_angle_deg": 84.34951227814325,
+          "center_cm": [
+            35.30592043923053,
+            -4.184867431987942,
+            88.5397532518323
+          ]
+        },
+        {
+          "triangles": [
+            901,
+            903
+          ],
+          "render_vertices": [
+            [
+              481,
+              479,
+              516
+            ],
+            [
+              479,
+              517,
+              516
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                460
+              ],
+              [
+                "source",
+                450
+              ],
+              [
+                "source",
+                453
+              ]
+            ],
+            [
+              [
+                "source",
+                450
+              ],
+              [
+                "source",
+                452
+              ],
+              [
+                "source",
+                453
+              ]
+            ]
+          ],
+          "reference_angle_deg": 4.533032323188879,
+          "current_angle_deg": 48.78620422266437,
+          "center_cm": [
+            31.385745913913137,
+            -6.606224219208158,
+            89.2280376270863
+          ]
+        },
+        {
+          "triangles": [
+            928,
+            934
+          ],
+          "render_vertices": [
+            [
+              536,
+              527,
+              530
+            ],
+            [
+              530,
+              539,
+              536
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2627
+              ],
+              [
+                "source",
+                2628
+              ],
+              [
+                "source",
+                449
+              ]
+            ],
+            [
+              [
+                "source",
+                449
+              ],
+              [
+                "source",
+                2398
+              ],
+              [
+                "source",
+                2627
+              ]
+            ]
+          ],
+          "reference_angle_deg": 7.493200318757053,
+          "current_angle_deg": 45.92468460304194,
+          "center_cm": [
+            33.021154718607754,
+            -7.2970049027812784,
+            88.41246242121025
+          ]
+        },
+        {
+          "triangles": [
+            939,
+            940
+          ],
+          "render_vertices": [
+            [
+              541,
+              536,
+              542
+            ],
+            [
+              539,
+              542,
+              536
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4105
+              ],
+              [
+                "source",
+                2627
+              ],
+              [
+                "source",
+                4095
+              ]
+            ],
+            [
+              [
+                "source",
+                2398
+              ],
+              [
+                "source",
+                4095
+              ],
+              [
+                "source",
+                2627
+              ]
+            ]
+          ],
+          "reference_angle_deg": 32.42763316608602,
+          "current_angle_deg": 69.73640843673999,
+          "center_cm": [
+            32.80482783171896,
+            -8.016197463562799,
+            88.41802007873247
+          ]
+        },
+        {
+          "triangles": [
+            946,
+            947
+          ],
+          "render_vertices": [
+            [
+              544,
+              546,
+              542
+            ],
+            [
+              545,
+              542,
+              546
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4093
+              ],
+              [
+                "source",
+                4094
+              ],
+              [
+                "source",
+                4095
+              ]
+            ],
+            [
+              [
+                "source",
+                4104
+              ],
+              [
+                "source",
+                4095
+              ],
+              [
+                "source",
+                4094
+              ]
+            ]
+          ],
+          "reference_angle_deg": 26.461778396935973,
+          "current_angle_deg": 61.98873918935724,
+          "center_cm": [
+            32.939356877448596,
+            -8.734546490203124,
+            88.39084849051439
+          ]
+        },
+        {
+          "triangles": [
+            953,
+            954
+          ],
+          "render_vertices": [
+            [
+              548,
+              546,
+              550
+            ],
+            [
+              549,
+              550,
+              546
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                456
+              ],
+              [
+                "source",
+                4094
+              ],
+              [
+                "source",
+                457
+              ]
+            ],
+            [
+              [
+                "source",
+                4092
+              ],
+              [
+                "source",
+                457
+              ],
+              [
+                "source",
+                4094
+              ]
+            ]
+          ],
+          "reference_angle_deg": 22.912328753518103,
+          "current_angle_deg": 62.23125556006008,
+          "center_cm": [
+            33.306189837410585,
+            -9.328340371767972,
+            88.37677407184852
+          ]
+        },
+        {
+          "triangles": [
+            967,
+            972
+          ],
+          "render_vertices": [
+            [
+              555,
+              558,
+              550
+            ],
+            [
+              562,
+              550,
+              558
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                51
+              ],
+              [
+                "source",
+                2635
+              ],
+              [
+                "source",
+                457
+              ]
+            ],
+            [
+              [
+                "source",
+                2637
+              ],
+              [
+                "source",
+                457
+              ],
+              [
+                "source",
+                2635
+              ]
+            ]
+          ],
+          "reference_angle_deg": 22.88276412337623,
+          "current_angle_deg": 57.20824247354014,
+          "center_cm": [
+            33.914376022962664,
+            -9.922886030336992,
+            88.30768021519337
+          ]
+        },
+        {
+          "triangles": [
+            974,
+            975
+          ],
+          "render_vertices": [
+            [
+              560,
+              563,
+              558
+            ],
+            [
+              563,
+              562,
+              558
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2636
+              ],
+              [
+                "source",
+                2642
+              ],
+              [
+                "source",
+                2635
+              ]
+            ],
+            [
+              [
+                "source",
+                2642
+              ],
+              [
+                "source",
+                2637
+              ],
+              [
+                "source",
+                2635
+              ]
+            ]
+          ],
+          "reference_angle_deg": 44.283262388552444,
+          "current_angle_deg": 88.4668635292457,
+          "center_cm": [
+            34.691211395605066,
+            -10.440193183527956,
+            88.27384376923112
+          ]
+        },
+        {
+          "triangles": [
+            1285,
+            1289
+          ],
+          "render_vertices": [
+            [
+              707,
+              713,
+              710
+            ],
+            [
+              713,
+              707,
+              715
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                2644
+              ],
+              [
+                "source",
+                459
+              ],
+              [
+                "source",
+                2638
+              ]
+            ],
+            [
+              [
+                "source",
+                459
+              ],
+              [
+                "source",
+                2644
+              ],
+              [
+                "source",
+                2641
+              ]
+            ]
+          ],
+          "reference_angle_deg": 111.11944619849501,
+          "current_angle_deg": 129.0902716006603,
+          "center_cm": [
+            34.62370997851172,
+            -10.169844199251223,
+            88.92422175181026
+          ]
+        },
+        {
+          "triangles": [
+            1287,
+            1305
+          ],
+          "render_vertices": [
+            [
+              712,
+              713,
+              714
+            ],
+            [
+              713,
+              720,
+              714
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                458
+              ],
+              [
+                "source",
+                459
+              ],
+              [
+                "source",
+                2639
+              ]
+            ],
+            [
+              [
+                "source",
+                459
+              ],
+              [
+                "source",
+                463
+              ],
+              [
+                "source",
+                2639
+              ]
+            ]
+          ],
+          "reference_angle_deg": 55.37192354844415,
+          "current_angle_deg": 83.06975716056402,
+          "center_cm": [
+            33.202284535535334,
+            -9.200664509382296,
+            89.34607202406521
+          ]
+        },
+        {
+          "triangles": [
+            1291,
+            1300
+          ],
+          "render_vertices": [
+            [
+              547,
+              714,
+              716
+            ],
+            [
+              714,
+              719,
+              716
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4103
+              ],
+              [
+                "source",
+                2639
+              ],
+              [
+                "source",
+                4099
+              ]
+            ],
+            [
+              [
+                "source",
+                2639
+              ],
+              [
+                "source",
+                4107
+              ],
+              [
+                "source",
+                4099
+              ]
+            ]
+          ],
+          "reference_angle_deg": 52.359658120231465,
+          "current_angle_deg": 80.08712597612895,
+          "center_cm": [
+            32.784969059406514,
+            -8.560433316145938,
+            89.38179541018282
+          ]
+        },
+        {
+          "triangles": [
+            1295,
+            1298
+          ],
+          "render_vertices": [
+            [
+              529,
+              716,
+              718
+            ],
+            [
+              719,
+              718,
+              716
+            ]
+          ],
+          "source_keys": [
+            [
+              [
+                "source",
+                4102
+              ],
+              [
+                "source",
+                4099
+              ],
+              [
+                "source",
+                4098
+              ]
+            ],
+            [
+              [
+                "source",
+                4107
+              ],
+              [
+                "source",
+                4098
+              ],
+              [
+                "source",
+                4099
+              ]
+            ]
+          ],
+          "reference_angle_deg": 39.976259763530706,
+          "current_angle_deg": 63.777410913238484,
+          "center_cm": [
+            32.581771153651864,
+            -8.010246962263231,
+            89.35119184885953
+          ]
+        }
+      ],
+      "rms_vs_reference_cm": 0.33396714520367266,
+      "max_vs_reference_cm": 1.2889561182503826,
+      "opposed_normals_vs_reference": 2
+    }
+  ],
+  "scope": "A1 bone/morph surface, not GPU contact surface or rendered shading normals. Source-ID seams only; no nearest-neighbor matching. Sharp-edge flags require visual review, not anatomical truth."
+}

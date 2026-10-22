@@ -1,0 +1,146 @@
+[
+  {
+    "clip": "C-deep-kneel",
+    "video": "after.mp4",
+    "frame": 45,
+    "psnr_db": 50.47908090197961
+  },
+  {
+    "clip": "C-deep-kneel",
+    "video": "after.mp4",
+    "frame": 135,
+    "psnr_db": 48.17028440141904
+  },
+  {
+    "clip": "C-deep-kneel",
+    "video": "after.mp4",
+    "frame": 165,
+    "psnr_db": 51.1370165031446
+  },
+  {
+    "clip": "C-deep-kneel",
+    "video": "before-after.mp4",
+    "frame": 45,
+    "psnr_db": 49.53742587513319
+  },
+  {
+    "clip": "C-deep-kneel",
+    "video": "before-after.mp4",
+    "frame": 135,
+    "psnr_db": 47.31856854155106
+  },
+  {
+    "clip": "C-deep-kneel",
+    "video": "before-after.mp4",
+    "frame": 165,
+    "psnr_db": 50.2643958569752
+  },
+  {
+    "clip": "C-single-flexion",
+    "video": "after.mp4",
+    "frame": 45,
+    "psnr_db": 48.84211042643984
+  },
+  {
+    "clip": "C-single-flexion",
+    "video": "after.mp4",
+    "frame": 135,
+    "psnr_db": 48.72337520123921
+  },
+  {
+    "clip": "C-single-flexion",
+    "video": "after.mp4",
+    "frame": 165,
+    "psnr_db": 49.40818888961874
+  },
+  {
+    "clip": "C-single-flexion",
+    "video": "before-after.mp4",
+    "frame": 45,
+    "psnr_db": 48.32146035269901
+  },
+  {
+    "clip": "C-single-flexion",
+    "video": "before-after.mp4",
+    "frame": 135,
+    "psnr_db": 48.01126454920595
+  },
+  {
+    "clip": "C-single-flexion",
+    "video": "before-after.mp4",
+    "frame": 165,
+    "psnr_db": 48.76922650685847
+  },
+  {
+    "clip": "M-deep-kneel",
+    "video": "after.mp4",
+    "frame": 45,
+    "psnr_db": 50.240637046971266
+  },
+  {
+    "clip": "M-deep-kneel",
+    "video": "after.mp4",
+    "frame": 135,
+    "psnr_db": 48.1306563487782
+  },
+  {
+    "clip": "M-deep-kneel",
+    "video": "after.mp4",
+    "frame": 165,
+    "psnr_db": 51.15183752188197
+  },
+  {
+    "clip": "M-deep-kneel",
+    "video": "before-after.mp4",
+    "frame": 45,
+    "psnr_db": 49.30945910793649
+  },
+  {
+    "clip": "M-deep-kneel",
+    "video": "before-after.mp4",
+    "frame": 135,
+    "psnr_db": 47.11472650886711
+  },
+  {
+    "clip": "M-deep-kneel",
+    "video": "before-after.mp4",
+    "frame": 165,
+    "psnr_db": 50.216118787410736
+  },
+  {
+    "clip": "M-single-flexion",
+    "video": "after.mp4",
+    "frame": 45,
+    "psnr_db": 48.74954332690075
+  },
+  {
+    "clip": "M-single-flexion",
+    "video": "after.mp4",
+    "frame": 135,
+    "psnr_db": 48.60329067875084
+  },
+  {
+    "clip": "M-single-flexion",
+    "video": "after.mp4",
+    "frame": 165,
+    "psnr_db": 49.42594835169706
+  },
+  {
+    "clip": "M-single-flexion",
+    "video": "before-after.mp4",
+    "frame": 45,
+    "psnr_db": 48.30586276786532
+  },
+  {
+    "clip": "M-single-flexion",
+    "video": "before-after.mp4",
+    "frame": 135,
+    "psnr_db": 47.76917445369942
+  },
+  {
+    "clip": "M-single-flexion",
+    "video": "before-after.mp4",
+    "frame": 165,
+    "psnr_db": 48.850534742485934
+  }
+]

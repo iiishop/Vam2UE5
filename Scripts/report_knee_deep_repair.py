@@ -1,8 +1,11 @@
 """Publish actual before/after UE knee repair footage without replacing baseline evidence."""
-import argparse,json,shutil,subprocess,gzip
+import argparse,json,shutil,subprocess,gzip,hashlib
 from pathlib import Path
 from PIL import Image,ImageDraw
 p=argparse.ArgumentParser();p.add_argument('run',type=Path);p.add_argument('out',type=Path);p.add_argument('--groups',nargs='+',default=['C','M']);a=p.parse_args();a.out.mkdir(exist_ok=True,parents=True)
+origin=dict(run=str(a.run.resolve()),identity_sha256=hashlib.sha256((a.run/'identity.json').read_bytes()).hexdigest());stamp=a.out/'run-origin.json'
+if stamp.exists():assert json.loads(stamp.read_text())==origin,'Do not reuse media from another capture identity'
+else:stamp.write_text(json.dumps(origin,indent=2))
 old=Path('Saved/LegDeepKneel/pie-2');sections=[]
 for action in ['deep-kneel','single-flexion']:
  for g in a.groups:
@@ -10,7 +13,7 @@ for action in ['deep-kneel','single-flexion']:
   v=json.loads((src/'video.json').read_text())['samples'];b=json.loads((old/g/stem/'video.json').read_text())['samples'];assert len(v)==len(b)
   for x,y in zip(v,b):
    assert x['actual_knee_deg']==y['actual_knee_deg'] and x['camera_matrix']==y['camera_matrix']
-  clean=a.run.parent/'encode'/stem;clean.mkdir(exist_ok=True,parents=True)
+  clean=a.run/'encoded-source'/stem;clean.mkdir(exist_ok=True,parents=True)
   for i in range(len(v)):
    f='frame-%04d.png'%i
    if not (clean/f).exists():Image.open(src/'video'/f).save(clean/f,compress_level=1)
