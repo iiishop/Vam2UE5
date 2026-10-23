@@ -1,5 +1,6 @@
 """Real viewport hair recording/benchmark. Never treats encoded FPS as runtime FPS."""
 import argparse,json,subprocess,time
+from hair_runtime_validation import shader_failures
 from pathlib import Path
 p=argparse.ArgumentParser()
 p.add_argument('bundle',type=Path);p.add_argument('out',type=Path)
@@ -35,28 +36,34 @@ if a.pie:cmd.remove('-game')
 try:
     cleanup=False
     with (a.out/'stdout.log').open('w') as log:
-        if a.pie:
-            process=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT)
-            started=time.monotonic()
-            while process.poll() is None:
-                capture=a.out/'capture.json'
-                if capture.exists():
-                    try:
-                        complete=json.loads(capture.read_text())
-                        expected=180 if a.preview else len(json.loads(a.source.read_text())['samples'])
-                        if complete.get('world')=='PIE' and complete.get('frames')==expected:
-                            # The in-world quit ends PIE, not its isolated editor.
-                            # Only terminate this runner's own child after evidence is complete.
-                            time.sleep(2)
-                            if process.poll() is None:process.terminate();cleanup=True
-                            break
-                    except (ValueError,OSError):pass
-                if time.monotonic()-started>1200:
-                    process.kill();process.wait();raise subprocess.TimeoutExpired(cmd,1200)
-                time.sleep(1)
-            code=process.wait(timeout=30)
-        else:
-            code=subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT,timeout=1200).returncode
+        process=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT)
+        started=time.monotonic()
+        while process.poll() is None:
+            runtime=a.out/'runtime.log'
+            failures=shader_failures(runtime.read_text(encoding='utf8',errors='replace')) if runtime.exists() else []
+            if failures:
+                (a.out/'shader-validation.json').write_text(json.dumps({'passed':False,'errors':failures},indent=2))
+                process.terminate();process.wait(timeout=30)
+                raise RuntimeError('GPU shader compilation failed; capture is invalid. See shader-validation.json')
+            capture=a.out/'capture.json'
+            if capture.exists():
+                try:
+                    complete=json.loads(capture.read_text())
+                    expected=180 if a.preview else len(json.loads(a.source.read_text())['samples'])
+                    if a.pie and complete.get('world')=='PIE' and complete.get('frames')==expected:
+                        # The in-world quit ends PIE, not its isolated editor.
+                        # Only terminate this runner's own child after evidence is complete.
+                        time.sleep(2)
+                        if process.poll() is None:process.terminate();cleanup=True
+                        break
+                except (ValueError,OSError):pass
+            if time.monotonic()-started>1200:
+                process.kill();process.wait();raise subprocess.TimeoutExpired(cmd,1200)
+            time.sleep(1)
+        code=process.wait(timeout=30)
+    failures=shader_failures((a.out/'runtime.log').read_text(encoding='utf8',errors='replace'))
+    (a.out/'shader-validation.json').write_text(json.dumps({'passed':not failures,'errors':failures},indent=2))
+    assert not failures,'GPU shader failed; process exit alone is not sufficient'
     (a.out/'process.json').write_text(json.dumps({'exit_code':code,'owned_pie_editor_cleanup_after_complete_capture':cleanup}))
     assert code==0 or cleanup
     assert (a.out/('frames.csv' if a.benchmark else 'capture.json')).exists(),'Missing completion evidence'

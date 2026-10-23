@@ -13,6 +13,10 @@ u.EditorPythonScripting.set_keep_python_script_alive(True)
 # Session-only: the editor otherwise overrides realtime when automation is backgrounded.
 u.EditorLoadingAndSavingUtils.new_blank_map(False)
 u.SystemLibrary.execute_console_command(u.get_editor_subsystem(u.UnrealEditorSubsystem).get_editor_world(),'vam.HairEditorRealtime')
+# An audit reads every strand buffer, including off-screen groups. Request
+# interpolation for those groups too; their culled buffers can be uninitialized.
+# Session-only diagnostic setting; production and performance runs keep culling.
+u.SystemLibrary.execute_console_command(u.get_editor_subsystem(u.UnrealEditorSubsystem).get_editor_world(),'r.HairStrands.Interoplation.FrustumCulling 0')
 actor = u.get_editor_subsystem(u.EditorActorSubsystem).spawn_actor_from_class(
     u.load_class(None, bundle['blueprint']+'_C'), u.Vector())
 actor.get_editor_property('character').load_character()
@@ -25,9 +29,11 @@ phase = 0
 rows = []
 errors = []
 last_progress = 0
+gpu_samples = []
+gpu_request_time = 0
 
 def tick(dt):
-    global phase, changed, last_progress
+    global phase, changed, last_progress, gpu_request_time
     try:
         now = time.monotonic()
         if now-last_progress>5:
@@ -49,6 +55,23 @@ def tick(dt):
         u.log('HAIR_EDITOR_NIAGARA '+str([(str(n),n.is_active() if n else None,str(n.get_asset()) if n else None) for n in niagara]))
         if active != len(physics_groups) or not all(n and n.get_asset() for n in niagara):
             return  # Wait for native systems to bind; Editor activation is recorded separately.
+        gpu_path=output.with_name('gpu-'+str(len(gpu_samples))+'.json')
+        if not gpu_path.exists():
+            if now-gpu_request_time>2:
+                gpu_request_time=now
+                u.SystemLibrary.execute_console_command(u.get_editor_subsystem(u.UnrealEditorSubsystem).get_editor_world(),
+                    'vam.HairEditorGpuAudit '+gpu_path.as_posix()+' '+actor.get_path_name())
+            return  # Console dispatch/file publication can complete after this Slate callback.
+        try:gpu=json.loads(gpu_path.read_text(encoding='utf-8-sig'))
+        except json.JSONDecodeError:
+            text=gpu_path.read_text(encoding='utf-8-sig')
+            assert not (text.rstrip().endswith('}') and ('\tnan' in text or '\tinf' in text)), 'Nonfinite GPU capture; retain raw evidence'
+            return  # A capture still being published is not an invalid solver result.
+        assert gpu['world']=='Editor' and len(gpu['groups'])==len(physics_groups)
+        assert all(g['readback_ready'] and g['render_readback_ready'] and g['guide_points'] for g in gpu['groups'])
+        assert all(math.isfinite(x) for g in gpu['groups'] for key in ['guide_points','render_points','render_rest_points'] for p in g[key] for x in p)
+        gpu_samples.append(str(gpu_path))
+        if len(gpu_samples)<2:changed=now;return
         parameters=[]
         for physics in groom.get_editor_property('groom_asset').get_editor_property('hair_groups_physics'):
             contact=physics.get_editor_property('material_constraints').get_editor_property('collision_constraint')
@@ -63,7 +86,7 @@ def tick(dt):
         if phase < len(qualities):
             hair.set_hair_quality(qualities[phase]); changed = now; return
         result = dict(status='passed', world='Editor', identity=bundle['identity'],
-                      scope='Normal BP Editor attachment, Fine solver and Niagara asset binding; active simulation recorded separately', rows=rows)
+                      scope='Normal BP Editor attachment and two live GPU guide/render snapshots during rotation, after shader compilation; frustum interpolation culling disabled only for all-group readback', gpu_samples=gpu_samples,rows=rows)
     except Exception:
         result = dict(status='failed', rows=rows, error=traceback.format_exc())
     output.parent.mkdir(parents=True, exist_ok=True)

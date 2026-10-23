@@ -106,12 +106,14 @@ static UNiagaraScript* BuildHairPredictionSupport(
         FNiagaraVariable(FNiagaraTypeDefinition::GetVec3Def(), TEXT("Rest")),
         FNiagaraVariable(FNiagaraTypeDefinition::GetFloatDef(), TEXT("Dt")),
         FNiagaraVariable(FNiagaraTypeDefinition(UNiagaraDataInterfaceHairStrands::StaticClass()), TEXT("Hair")),
+        FNiagaraVariable(FNiagaraTypeDefinition(UNiagaraDataInterfaceArrayFloat4::StaticClass()), TEXT("SourceData")),
         FNiagaraVariable(FNiagaraTypeDefinition::GetBoolDef(), TEXT("Mobile"))
     };
     Hlsl->Signature.Outputs = {
         FNiagaraVariable(FNiagaraTypeDefinition::GetVec3Def(), TEXT("Result"))
     };
     Hlsl->AllocateDefaultPins();
+    BindHairSourceTable(Hlsl,Get);
     auto* Current = Hlsl->FindPin(TEXT("Current"), EGPD_Input);
     auto* Result = Hlsl->FindPin(TEXT("Result"), EGPD_Output);
     auto* CodeProperty = FindFProperty<FStrProperty>(Hlsl->GetClass(), TEXT("CustomHlsl"));

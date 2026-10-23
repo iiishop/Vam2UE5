@@ -22,9 +22,9 @@ static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported,float Anc
     {
         const auto& Rows=Constraints->GetObjectField(TEXT("source_collision"))->GetArrayField(TEXT("node_radii_cm"));int32 Count=0;
         if(Rows.Num()!=Constraints->GetArrayField(TEXT("rigidity")).Num()){Error=TEXT("Source collision radius guide count mismatch");return false;}
-        RadiusCode=TEXT("const float SourceRadius[]={");
-        for(const auto& Row:Rows){if(Row->AsArray().Num()!=32){Error=TEXT("Source collision radius node layout mismatch");return false;}for(const auto& Value:Row->AsArray()){double R=Value->AsNumber();if(!FMath::IsFinite(R)||R<0){Error=TEXT("Invalid source collision radius");return false;}RadiusCode+=FString::Printf(TEXT("%.9ff,"),R);++Count;}}
-        RadiusCode.RemoveFromEnd(TEXT(","));RadiusCode+=FString::Printf(TEXT("};float R=SourceRadius[min(ExecIndex(),%d)];Result="),Count-1);RadiusCode+=Supported?TEXT("min(Clearance,R);"):TEXT("R;");
+        RadiusCode=TEXT("float4 NodeData; SourceData.Get(min(ExecIndex(),");
+        for(const auto& Row:Rows){if(Row->AsArray().Num()!=32){Error=TEXT("Source collision radius node layout mismatch");return false;}for(const auto& Value:Row->AsArray()){double R=Value->AsNumber();if(!FMath::IsFinite(R)||R<0){Error=TEXT("Invalid source collision radius");return false;}++Count;}}
+        RadiusCode+=FString::Printf(TEXT("%d),NodeData);float R=NodeData.y;Result="),Count-1);RadiusCode+=Supported?TEXT("min(Clearance,R);"):TEXT("R;");
     }
     auto* Source=Cast<UNiagaraScriptSource>(Script->GetLatestSource());
     if(!Source||!Source->NodeGraph)return false;
@@ -40,9 +40,12 @@ static bool ConfigureHairContact(UNiagaraScript* Script,bool Supported,float Anc
             auto* Depth=Call->FindPin(TEXT("Penetration Depth"),EGPD_Input);
             if(!Depth||Depth->LinkedTo.Num()!=1)return false;
             auto* Previous=Depth->LinkedTo[0];auto* Clamp=NewObject<UNiagaraNodeCustomHlsl>(Graph);Graph->AddNode(Clamp,false,false);Clamp->CreateNewGuid();
-            Clamp->Signature.Inputs={FNiagaraVariable(FNiagaraTypeDefinition::GetFloatDef(),TEXT("Clearance")),FNiagaraVariable(FNiagaraTypeDefinition::GetFloatDef(),TEXT("Radius"))};Clamp->Signature.Outputs={FNiagaraVariable(FNiagaraTypeDefinition::GetFloatDef(),TEXT("Result"))};Clamp->AllocateDefaultPins();
+            Clamp->Signature.Inputs={FNiagaraVariable(FNiagaraTypeDefinition::GetFloatDef(),TEXT("Clearance")),FNiagaraVariable(FNiagaraTypeDefinition::GetFloatDef(),TEXT("Radius"))};
+            if(!RadiusCode.IsEmpty())Clamp->Signature.Inputs.Add(FNiagaraVariable(FNiagaraTypeDefinition(UNiagaraDataInterfaceArrayFloat4::StaticClass()),TEXT("SourceData")));
+            Clamp->Signature.Outputs={FNiagaraVariable(FNiagaraTypeDefinition::GetFloatDef(),TEXT("Result"))};Clamp->AllocateDefaultPins();
             Depth->BreakLinkTo(Previous);Previous->MakeLinkTo(Clamp->FindPin(TEXT("Clearance"),EGPD_Input));Clamp->FindPin(TEXT("Result"),EGPD_Output)->MakeLinkTo(Depth);
             auto* Parameters=Cast<UNiagaraNodeWithDynamicPins>(Previous->GetOwningNode());if(!Parameters)return false;
+            if(!RadiusCode.IsEmpty())BindHairSourceTable(Clamp,Parameters);
             auto* Radius=Parameters->FindPin(TEXT("Emitter.CollisionRadius"),EGPD_Output);auto* RadiusInput=Clamp->FindPin(TEXT("Radius"),EGPD_Input);
             if(!Radius){Radius=Parameters->CreatePin(EGPD_Output,RadiusInput->PinType,TEXT("Emitter.CollisionRadius"));Radius->PersistentGuid=FGuid::NewGuid();}Radius->MakeLinkTo(RadiusInput);
             FindFProperty<FStrProperty>(Clamp->GetClass(),TEXT("CustomHlsl"))->SetPropertyValue_InContainer(Clamp,RadiusCode.IsEmpty()?TEXT("Result=max(Radius,Clearance);"):TEXT("Result=Clearance;\n#if GPU_SIMULATION\n")+RadiusCode+TEXT("\n#endif\n"));++Count;if(!Supported&&AnchorU<0)continue;
@@ -128,9 +131,10 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     Position=CurrentNode->FindPin(TEXT("Result"),EGPD_Output);Destination=ContactInput;
     auto* H=NewObject<UNiagaraNodeCustomHlsl>(Graph);Graph->AddNode(H,false,false);H->CreateNewGuid();
     H->Signature.Inputs={FNiagaraVariable(FNiagaraTypeDefinition::GetVec3Def(),TEXT("Current")),FNiagaraVariable(FNiagaraTypeDefinition::GetVec3Def(),TEXT("Rest")),FNiagaraVariable(FNiagaraTypeDefinition::GetFloatDef(),TEXT("Dt"))};
-    if(SourceConstraints)H->Signature.Inputs.Add(FNiagaraVariable(FNiagaraTypeDefinition(UNiagaraDataInterfaceHairStrands::StaticClass()),TEXT("Hair")));
+    if(SourceConstraints){H->Signature.Inputs.Add(FNiagaraVariable(FNiagaraTypeDefinition(UNiagaraDataInterfaceHairStrands::StaticClass()),TEXT("Hair")));H->Signature.Inputs.Add(FNiagaraVariable(FNiagaraTypeDefinition(UNiagaraDataInterfaceArrayFloat4::StaticClass()),TEXT("SourceData")));}
     H->Signature.Outputs={FNiagaraVariable(FNiagaraTypeDefinition::GetVec3Def(),TEXT("Result"))};
     H->AllocateDefaultPins();
+    if(SourceConstraints)BindHairSourceTable(H,Get);
     Position->BreakLinkTo(Destination);Position->MakeLinkTo(H->FindPin(TEXT("Current"),EGPD_Input));H->FindPin(TEXT("Result"),EGPD_Output)->MakeLinkTo(Destination);
     auto AddGet=[&](FName Name,FName Input){
         auto* InputPin=H->FindPin(Input,EGPD_Input);
@@ -168,6 +172,7 @@ static UNiagaraSystem* BuildHairStyleSolver(const FString& Root, const FString& 
     static_cast<UNiagaraScriptSourceBase*>(Source)->MarkNotSynchronized(TEXT("Style constraint"));
     if(!VamHairBuild::Save(Copy)){Error=TEXT("Style module save failed");return nullptr;}
     auto* System=DuplicateObject<UNiagaraSystem>(Native,CreatePackage(*SystemPath),*FPackageName::GetLongPackageAssetName(SystemPath));System->SetFlags(RF_Public|RF_Standalone);
+    if(SourceConstraints&&!InstallHairSourceTable(System,SourceConstraints,Error))return nullptr;
     int32 Replaced=0;
     TMap<UNiagaraScript*,UNiagaraScript*> Redirect;Redirect.Add(Project,Copy);
     if(PredictionSupport)

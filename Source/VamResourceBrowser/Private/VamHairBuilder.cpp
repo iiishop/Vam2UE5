@@ -52,6 +52,8 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
     FString Text;TSharedPtr<FJsonObject> Input;
     if(GenerationIdentity.Len()!=64||!Body||!FFileHelper::LoadFileToString(Text,*InputFile)||!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Text),Input)||Input->GetStringField(TEXT("schema"))!=TEXT("vam-groom-source/1")){Error=TEXT("Invalid hair input/body");return nullptr;}
     if(FPackageName::DoesPackageExist(AssetRoot/TEXT("HP_Hair"))){Error=TEXT("Refusing to overwrite hair identity");return nullptr;}
+    FString GuideInterpolation=TEXT("single");Input->TryGetStringField(TEXT("guide_interpolation"),GuideInterpolation);
+    if(GuideInterpolation!=TEXT("single")&&GuideInterpolation!=TEXT("multi")){Error=TEXT("Invalid guide interpolation mode");return nullptr;}
     const auto& Ref=Body->GetRefSkeleton();const int32 Head=Ref.FindBoneIndex(TEXT("head"));if(Head<0){Error=TEXT("Body requires semantic head bone");return nullptr;}
     auto Pose=Ref.GetRefBonePose();for(int32 I=0;I<Pose.Num();++I)if(Ref.GetParentIndex(I)>=0)Pose[I]*=Pose[Ref.GetParentIndex(I)];const FTransform HeadFrame=Pose[Head];
     const auto& Groups=Input->GetArrayField(TEXT("groups"));if(Groups.IsEmpty()||Groups.Num()>32){Error=TEXT("Invalid groom group count");return nullptr;}
@@ -178,7 +180,7 @@ UVamHairProfile* UVamHairBuilder::BuildHair(const FString& InputFile,const FStri
                 for(int J=0;J<P.Num();++J)P[J]+=Offset*FMath::Sin(PI*J/(P.Num()-1));Add(P,G,false,.012f);
             }
             }
-            auto& IP=Groom->GetHairGroupsInterpolation()[G].InterpolationSettings;IP.GuideType=EGroomGuideType::Imported;IP.InterpolationQuality=EHairInterpolationQuality::High;IP.InterpolationDistance=EHairInterpolationWeight::Parametric;IP.bRandomizeGuide=false;IP.bUseUniqueGuide=true;
+            auto& IP=Groom->GetHairGroupsInterpolation()[G].InterpolationSettings;IP.GuideType=EGroomGuideType::Imported;IP.InterpolationQuality=EHairInterpolationQuality::High;IP.InterpolationDistance=EHairInterpolationWeight::Parametric;IP.bRandomizeGuide=false;IP.bUseUniqueGuide=GuideInterpolation==TEXT("single");
             auto& L=Groom->GetHairGroupsLOD()[G].LODs;L.SetNum(1);L[0].BindingType=EGroomBindingType::Rigid;L[0].Simulation=Anchor?EGroomOverrideType::Disable:EGroomOverrideType::Enable;
             const int32 Iterations=8;auto& Physics=Groom->GetHairGroupsPhysics()[G];Physics.SolverSettings.EnableSimulation=!Anchor;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CosseratRods;if(Policy){auto* StyleSolver=BuildHairStyleSolver(AssetRoot,Class,32,Iterations,G,SourceConstraints?*SourceConstraints:nullptr,Error);if(!StyleSolver)return nullptr;Physics.SolverSettings.NiagaraSolver=EGroomNiagaraSolvers::CustomSolver;Physics.SolverSettings.CustomSystem=StyleSolver;}Physics.SolverSettings.SubSteps=5;Physics.SolverSettings.IterationCount=Iterations;
             auto Length=[](const FCurve& X){double V=0;for(int I=1;I<X.P.Num();++I)V+=FVector::Distance(X.P[I-1],X.P[I]);return V;};

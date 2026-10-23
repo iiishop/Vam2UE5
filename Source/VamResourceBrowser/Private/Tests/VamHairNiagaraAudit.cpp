@@ -12,6 +12,21 @@
 #include "NiagaraNodeFunctionCall.h"
 #include "Misc/FileHelper.h"
 #include "HAL/IConsoleManager.h"
+#include "VamCharacterActor.h"
+#include "VamCharacterComponent.h"
+#include "VamLegSkeletalMeshComponent.h"
+#include "Tests/VamHairCaptureAudit.h"
+#include "ShaderCompiler.h"
+#include "Serialization/JsonSerializer.h"
+
+static FAutoConsoleCommand HairEditorGpuAudit(TEXT("vam.HairEditorGpuAudit"),TEXT("Read existing hair GPU diagnostics in the actual Editor world after shader compilation"),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
+{
+ if(Args.Num()!=2||(GShaderCompilingManager&&GShaderCompilingManager->IsCompiling()))return;
+ auto* Actor=FindObject<AVamCharacterActor>(nullptr,*Args[1]);
+ if(!Actor||!Actor->GetWorld()||Actor->GetWorld()->WorldType!=EWorldType::Editor)return;
+ auto Result=VamCaptureHairAudit(Actor);Result->SetStringField(TEXT("world"),TEXT("Editor"));Result->SetStringField(TEXT("actor"),Actor->GetPathName());
+ FString Text;FJsonSerializer::Serialize(Result.ToSharedRef(),TJsonWriterFactory<>::Create(&Text));FFileHelper::SaveStringToFile(Text,*Args[0]);
+}));
 static FAutoConsoleCommand HairCompiledAudit(TEXT("vam.HairCompiledAudit"),TEXT("Dump the compiled GPU code of the specified hair system without changing it"),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 {
  if(Args.Num()!=2)return;
