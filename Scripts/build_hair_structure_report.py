@@ -1,4 +1,4 @@
-import json,subprocess,shutil
+import json,subprocess,shutil,re
 from pathlib import Path
 R=Path(__file__).resolve().parents[1];O=R/'Evidence/HairStructureRepair';D=json.loads((O/'metrics.json').read_text());names={'wavy':'波浪长发','long':'直长发','ponytail':'高马尾','bun':'发髻＋侧发'}
 perf='| 发型 | 整帧均值 ms / FPS | P95 ms | 头发增量 ms | 关闭基线漂移 ms |\n|---|---|---|---|---|\n'
@@ -106,5 +106,9 @@ subprocess.run(['F:/Program/Python311/python.exe','-X','utf8',str(skill),'render
 page=(O/'report.html').read_text();video=lambda key:f'<video controls preload="metadata" playsinline style="width:100%;border-radius:12px" src="{key}-comparison.mp4"></video>'
 for marker,html in {'WAVY':video('wavy'),'GUIDES':'<img src="guide-boundary.png" style="width:100%" alt="真实 GPU 导线与第 64 条边界的变化">','REGRESSION':''.join(f'<h3>{names[k]}</h3>'+video(k) for k in ['long','ponytail','bun']),'INTERPOLATION':video('interpolation')}.items():page=page.replace('<p>[['+marker+']]</p>',html)
 assert '[[WAVY]]' not in page and '[[REGRESSION]]' not in page
+# The bundled renderer handles web links only. These trusted, already escaped
+# relative evidence links must remain clickable in the offline report as well.
+page=re.sub(r'\[([^\]]+)\]\(((?:\.\.?/|[A-Za-z0-9_-])[^\s():]*)\)',lambda m:f'<a href="{m.group(2)}">{m.group(1)}</a>',page)
+page=page.replace('class="panel wide"','class="panel full"').replace('class="panel "','class="panel full"')
 (O/'report.html').write_text(page,encoding='utf8');shutil.copyfile(R/'Saved/HairStructureRepair/wavy-multi-guide/bundle.json',O/'interpolation-bundle.json')
 print(O/'report.html')

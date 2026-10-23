@@ -1,0 +1,8 @@
+{
+  "branch": "feature/hair",
+  "implementation_commit": "d569a5a3469c3395405423667f483d1bf04c491e",
+  "implementation_push_verified": true,
+  "remote_head_at_verification": "d569a5a3469c3395405423667f483d1bf04c491e",
+  "evidence_commit": "Report and evidence are committed in the following publication commit; see repository history.",
+  "binary_assets": "Generated uassets are present locally under /Game/VamHairRuntime; not included in this source repository."
+}

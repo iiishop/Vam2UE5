@@ -1,0 +1,738 @@
+{
+  "wavy": {
+    "identity": "5432ebfcb98117a5ddfa4f141ca2df8be7ca5eb34d17148b0281cae5de6b56aa",
+    "blueprint": "/Game/VamHairRuntime/H_5432ebfcb98117a5ddfa4f14/BP_VamCharacter.BP_VamCharacter",
+    "configuration": "/Game/VamHairRuntime/H_5432ebfcb98117a5ddfa4f14/RC_Runtime",
+    "frames": 719,
+    "matrix_validation": "PASS",
+    "source_groups_unchanged": true,
+    "groups": [
+      {
+        "phase": "settle",
+        "group": 0,
+        "tip_max_cm": 5.84832943269446,
+        "length_p95": 1.009433529922319,
+        "length_max": 1.0150384536056813,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      },
+      {
+        "phase": "motion",
+        "group": 0,
+        "tip_max_cm": 27.81883404217043,
+        "length_p95": 1.008604199746564,
+        "length_max": 1.030191842636025,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      },
+      {
+        "phase": "recovery",
+        "group": 0,
+        "tip_max_cm": 6.7647273148687415,
+        "length_p95": 1.0093798828005958,
+        "length_max": 1.0178524971926801,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      }
+    ],
+    "capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\wavy-buffered\\pie\\capture.json",
+    "capture_sha256": "aa7dd42b19fa07f16142821d61f00d1a9fc54c755d757c6d2479152eaf492af0",
+    "baseline_capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDiversity\\wavy\\pie\\capture.json",
+    "baseline_is_fresh": false,
+    "shader_validation": {
+      "passed": true,
+      "errors": []
+    },
+    "guide_boundary": {
+      "before_tip_above_origin": 64,
+      "after_tip_above_origin": 0,
+      "first_64_rms_change_cm": 0.0663107432529709,
+      "last_64_rms_change_cm": 15.876866517782515
+    },
+    "editor": {
+      "status": "passed",
+      "world": "Editor",
+      "identity": "5432ebfcb98117a5ddfa4f141ca2df8be7ca5eb34d17148b0281cae5de6b56aa",
+      "scope": "Normal BP Editor attachment and two live GPU guide/render snapshots during rotation, after shader compilation; frustum interpolation culling disabled only for all-group readback",
+      "gpu_samples": [
+        "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\wavy-buffered\\editor-final\\gpu-0.json",
+        "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\wavy-buffered\\editor-final\\gpu-1.json"
+      ],
+      "rows": [
+        {
+          "quality": "<VamHairQuality.FINE: 1>",
+          "actor": "/Temp/Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0",
+          "parameters": [
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            }
+          ],
+          "groom": "/Game/VamHairRuntime/H_5432ebfcb98117a5ddfa4f14/Groom_Fine.Groom_Fine",
+          "head_attachment_error_cm": 0.0,
+          "active_niagara": 1,
+          "bound_niagara": 1,
+          "status": "UE Groom / physics on / Fine / 1 groups / 5432ebfcb98117a5ddfa4f141ca2df8be7ca5eb34d17148b0281cae5de6b56aa-hair"
+        }
+      ]
+    },
+    "performance": {
+      "protocol": "BP=/Game/VamHairRuntime/H_5432ebfcb98117a5ddfa4f14/BP_VamCharacter.BP_VamCharacter_C\ncharacters=1\nviewport=1920x1080\nWarmup=180, measured=300 per phase. Root sway and yaw; contact off, glute/leg Jiggle on.\n",
+      "scope": "Whole-frame wall time; hair rendering plus simulation delta, not isolated solver/GPU timing; no audit GPU readback.",
+      "phases": {
+        "off_before": {
+          "frames": 300,
+          "mean_ms": 3.380111323333333,
+          "median_ms": 3.3528510000000002,
+          "p95_ms": 4.517091000000001,
+          "mean_fps": 295.848244138255
+        },
+        "fine": {
+          "frames": 300,
+          "mean_ms": 5.102609976666667,
+          "median_ms": 5.0174,
+          "p95_ms": 6.52000515,
+          "mean_fps": 195.97813757524546
+        },
+        "off_after": {
+          "frames": 300,
+          "mean_ms": 3.646474006666667,
+          "median_ms": 3.5640004999999997,
+          "p95_ms": 5.238564900000001,
+          "mean_fps": 274.2375231996032
+        }
+      },
+      "off_drift_ms": 0.26636268333333435,
+      "hair_delta_ms": {
+        "fine": 1.589317311666667
+      }
+    }
+  },
+  "long": {
+    "identity": "0cf7fa0e1bd6cb093d1ee967e7f524441a4e5376c16974deeae8e8b8334fd43e",
+    "blueprint": "/Game/VamHairRuntime/H_0cf7fa0e1bd6cb093d1ee967/BP_VamCharacter.BP_VamCharacter",
+    "configuration": "/Game/VamHairRuntime/H_0cf7fa0e1bd6cb093d1ee967/RC_Runtime",
+    "frames": 720,
+    "matrix_validation": "PASS",
+    "source_groups_unchanged": true,
+    "groups": [
+      {
+        "phase": "settle",
+        "group": 0,
+        "tip_max_cm": 0.041855701155736016,
+        "length_p95": 1.0409065317823416,
+        "length_max": 1.1076656134309135,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 184
+      },
+      {
+        "phase": "settle",
+        "group": 1,
+        "tip_max_cm": 0.11044334713062186,
+        "length_p95": 1.0035336245751354,
+        "length_max": 1.004783322402029,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2816
+      },
+      {
+        "phase": "settle",
+        "group": 2,
+        "tip_max_cm": 11.75555564537441,
+        "length_p95": 1.0020520926508307,
+        "length_max": 1.0335944447424585,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      },
+      {
+        "phase": "settle",
+        "group": 3,
+        "tip_max_cm": 0.21224513758469174,
+        "length_p95": 1.0190394439184167,
+        "length_max": 1.0191619792615325,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2926
+      },
+      {
+        "phase": "settle",
+        "group": 4,
+        "tip_max_cm": 0.16159675161288342,
+        "length_p95": 1.0964767232200967,
+        "length_max": 1.0964767232200967,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2816
+      },
+      {
+        "phase": "motion",
+        "group": 0,
+        "tip_max_cm": 0.3507831836808566,
+        "length_p95": 1.0395652697415028,
+        "length_max": 1.106910547296629,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2072
+      },
+      {
+        "phase": "motion",
+        "group": 1,
+        "tip_max_cm": 1.7410159427059673,
+        "length_p95": 1.0045541519928056,
+        "length_max": 1.0050738478391439,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2816
+      },
+      {
+        "phase": "motion",
+        "group": 2,
+        "tip_max_cm": 31.734073819675704,
+        "length_p95": 1.0040596108661761,
+        "length_max": 1.067419695723407,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      },
+      {
+        "phase": "motion",
+        "group": 3,
+        "tip_max_cm": 2.639307901232777,
+        "length_p95": 1.0166745579749654,
+        "length_max": 1.0203996181788388,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1001
+      },
+      {
+        "phase": "motion",
+        "group": 4,
+        "tip_max_cm": 0.9237478132602738,
+        "length_p95": 1.0912295983162,
+        "length_max": 1.0980304682544932,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2816
+      },
+      {
+        "phase": "recovery",
+        "group": 0,
+        "tip_max_cm": 0.016572815184059706,
+        "length_p95": 1.038651738490104,
+        "length_max": 1.1047742925136788,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 185
+      },
+      {
+        "phase": "recovery",
+        "group": 1,
+        "tip_max_cm": 0.04451936261977803,
+        "length_p95": 1.0042577912618849,
+        "length_max": 1.0042739168550414,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2816
+      },
+      {
+        "phase": "recovery",
+        "group": 2,
+        "tip_max_cm": 10.247695291579591,
+        "length_p95": 1.002967316516895,
+        "length_max": 1.011688096185074,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      },
+      {
+        "phase": "recovery",
+        "group": 3,
+        "tip_max_cm": 0.19826864432447613,
+        "length_p95": 1.0192463829520824,
+        "length_max": 1.0207897814368885,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 979
+      },
+      {
+        "phase": "recovery",
+        "group": 4,
+        "tip_max_cm": 0.11266620700870268,
+        "length_p95": 1.0920716907997419,
+        "length_max": 1.0923873365184578,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2816
+      }
+    ],
+    "capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\long-buffered\\pie\\capture.json",
+    "capture_sha256": "685e8ea60cb48d94372633508faaa95a17b3351b648a92dffa735685a94648e9",
+    "baseline_capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDynamicRepair\\long-prediction-m-final\\pie\\capture.json",
+    "baseline_is_fresh": false,
+    "shader_validation": {
+      "passed": true,
+      "errors": []
+    },
+    "editor": {
+      "status": "passed",
+      "world": "Editor",
+      "identity": "0cf7fa0e1bd6cb093d1ee967e7f524441a4e5376c16974deeae8e8b8334fd43e",
+      "scope": "Normal BP Editor attachment and two live GPU guide/render snapshots during rotation, after shader compilation; frustum interpolation culling disabled only for all-group readback",
+      "gpu_samples": [
+        "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\long-buffered\\editor-retry\\gpu-0.json",
+        "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\long-buffered\\editor-retry\\gpu-1.json"
+      ],
+      "rows": [
+        {
+          "quality": "<VamHairQuality.FINE: 1>",
+          "actor": "/Temp/Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0",
+          "parameters": [
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            },
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            },
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            },
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            },
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            }
+          ],
+          "groom": "/Game/VamHairRuntime/H_0cf7fa0e1bd6cb093d1ee967/Groom_Fine.Groom_Fine",
+          "head_attachment_error_cm": 0.0,
+          "active_niagara": 5,
+          "bound_niagara": 5,
+          "status": "UE Groom / physics on / Fine / 5 groups / 0cf7fa0e1bd6cb093d1ee967e7f524441a4e5376c16974deeae8e8b8334fd43e-hair"
+        }
+      ]
+    },
+    "performance": {
+      "protocol": "BP=/Game/VamHairRuntime/H_0cf7fa0e1bd6cb093d1ee967/BP_VamCharacter.BP_VamCharacter_C\ncharacters=1\nviewport=1920x1080\nWarmup=180, measured=300 per phase. Root sway and yaw; contact off, glute/leg Jiggle on.\n",
+      "scope": "Whole-frame wall time; hair rendering plus simulation delta, not isolated solver/GPU timing; no audit GPU readback.",
+      "phases": {
+        "off_before": {
+          "frames": 300,
+          "mean_ms": 3.6969863299999997,
+          "median_ms": 3.6301985,
+          "p95_ms": 5.143948150000001,
+          "mean_fps": 270.4905863149351
+        },
+        "fine": {
+          "frames": 300,
+          "mean_ms": 5.3320070033333336,
+          "median_ms": 5.28975,
+          "p95_ms": 6.52658585,
+          "mean_fps": 187.5466403879148
+        },
+        "off_after": {
+          "frames": 300,
+          "mean_ms": 3.397286993333333,
+          "median_ms": 3.2866505,
+          "p95_ms": 4.458705900000001,
+          "mean_fps": 294.35252363499177
+        }
+      },
+      "off_drift_ms": -0.2996993366666665,
+      "hair_delta_ms": {
+        "fine": 1.7848703416666671
+      }
+    }
+  },
+  "ponytail": {
+    "identity": "4f94bf36f893da9cc64f8b196451292e17bfeec3928e717250f38a4fd8483c69",
+    "blueprint": "/Game/VamHairRuntime/H_4f94bf36f893da9cc64f8b19/BP_VamCharacter.BP_VamCharacter",
+    "configuration": "/Game/VamHairRuntime/H_4f94bf36f893da9cc64f8b19/RC_Runtime",
+    "frames": 719,
+    "matrix_validation": "PASS",
+    "source_groups_unchanged": true,
+    "groups": [
+      {
+        "phase": "settle",
+        "group": 0,
+        "tip_max_cm": 0.3123290548068855,
+        "length_p95": 1.0542332322525938,
+        "length_max": 1.064394583452504,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      },
+      {
+        "phase": "settle",
+        "group": 1,
+        "tip_max_cm": 0.01617235855632734,
+        "length_p95": 1.0100864127108005,
+        "length_max": 1.0159084642586123,
+        "head_proxy_max_cm": 0.5754043584548238,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 499
+      },
+      {
+        "phase": "settle",
+        "group": 2,
+        "tip_max_cm": 0.4903999596096741,
+        "length_p95": 1.0014449969685464,
+        "length_max": 1.0051826221318325,
+        "head_proxy_max_cm": 0.4111307139261262,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      },
+      {
+        "phase": "motion",
+        "group": 0,
+        "tip_max_cm": 4.803341163630637,
+        "length_p95": 1.0509322430266683,
+        "length_max": 1.0755829961779932,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 3
+      },
+      {
+        "phase": "motion",
+        "group": 1,
+        "tip_max_cm": 0.03134522235489069,
+        "length_p95": 1.0101642552149868,
+        "length_max": 1.0159125756715623,
+        "head_proxy_max_cm": 0.5767760841668492,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2360
+      },
+      {
+        "phase": "motion",
+        "group": 2,
+        "tip_max_cm": 10.896227628285157,
+        "length_p95": 1.0016435537744828,
+        "length_max": 1.0159201314059012,
+        "head_proxy_max_cm": 0.4122753898650169,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      },
+      {
+        "phase": "recovery",
+        "group": 0,
+        "tip_max_cm": 0.2449366904223691,
+        "length_p95": 1.0537478769572113,
+        "length_max": 1.0698023824480665,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      },
+      {
+        "phase": "recovery",
+        "group": 1,
+        "tip_max_cm": 6.103515625e-05,
+        "length_p95": 1.0100129886199993,
+        "length_max": 1.0157471683714208,
+        "head_proxy_max_cm": 0.5752868739110149,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 486
+      },
+      {
+        "phase": "recovery",
+        "group": 2,
+        "tip_max_cm": 8.828311074245459,
+        "length_p95": 1.0014379774663535,
+        "length_max": 1.0072009306978453,
+        "head_proxy_max_cm": 0.4111307139261262,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 1
+      }
+    ],
+    "capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\ponytail-buffered\\pie\\capture.json",
+    "capture_sha256": "14a225e68696907936aa2d9b6935d2ea89801ce6273a8bfb3766af247ec8db4e",
+    "baseline_capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDynamicRepair\\ponytail-prediction-m-structured\\pie\\capture.json",
+    "baseline_is_fresh": false,
+    "shader_validation": {
+      "passed": true,
+      "errors": []
+    },
+    "editor": {
+      "status": "passed",
+      "world": "Editor",
+      "identity": "4f94bf36f893da9cc64f8b196451292e17bfeec3928e717250f38a4fd8483c69",
+      "scope": "Normal BP Editor attachment and two live GPU guide/render snapshots during rotation, after shader compilation; frustum interpolation culling disabled only for all-group readback",
+      "gpu_samples": [
+        "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\ponytail-buffered\\editor-final\\gpu-0.json",
+        "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\ponytail-buffered\\editor-final\\gpu-1.json"
+      ],
+      "rows": [
+        {
+          "quality": "<VamHairQuality.FINE: 1>",
+          "actor": "/Temp/Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0",
+          "parameters": [
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            },
+            {
+              "collision_radius_cm": 0.11999999731779099,
+              "self_collision_viscosity": 0.0
+            },
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            }
+          ],
+          "groom": "/Game/VamHairRuntime/H_4f94bf36f893da9cc64f8b19/Groom_Fine.Groom_Fine",
+          "head_attachment_error_cm": 0.0,
+          "active_niagara": 3,
+          "bound_niagara": 3,
+          "status": "UE Groom / physics on / Fine / 3 groups / 4f94bf36f893da9cc64f8b196451292e17bfeec3928e717250f38a4fd8483c69-hair"
+        }
+      ]
+    },
+    "performance": {
+      "protocol": "BP=/Game/VamHairRuntime/H_4f94bf36f893da9cc64f8b19/BP_VamCharacter.BP_VamCharacter_C\ncharacters=1\nviewport=1920x1080\nWarmup=180, measured=300 per phase. Root sway and yaw; contact off, glute/leg Jiggle on.\n",
+      "scope": "Whole-frame wall time; hair rendering plus simulation delta, not isolated solver/GPU timing; no audit GPU readback.",
+      "phases": {
+        "off_before": {
+          "frames": 300,
+          "mean_ms": 3.5686559933333335,
+          "median_ms": 3.4657975,
+          "p95_ms": 4.968275050000001,
+          "mean_fps": 280.2175390029515
+        },
+        "fine": {
+          "frames": 300,
+          "mean_ms": 5.073824686666667,
+          "median_ms": 4.8886,
+          "p95_ms": 6.389133050000001,
+          "mean_fps": 197.08997881378644
+        },
+        "off_after": {
+          "frames": 300,
+          "mean_ms": 4.172551006666666,
+          "median_ms": 3.9866495000000004,
+          "p95_ms": 5.7854071000000005,
+          "mean_fps": 239.66154000328734
+        }
+      },
+      "off_drift_ms": 0.6038950133333323,
+      "hair_delta_ms": {
+        "fine": 1.203221186666667
+      }
+    }
+  },
+  "bun": {
+    "identity": "dd9116abae9cd11d48541fad2a756a76f5be9f0cf41fbd7da94c86f7e7a00e66",
+    "blueprint": "/Game/VamHairRuntime/H_dd9116abae9cd11d48541fad/BP_VamCharacter.BP_VamCharacter",
+    "configuration": "/Game/VamHairRuntime/H_dd9116abae9cd11d48541fad/RC_Runtime",
+    "frames": 719,
+    "matrix_validation": "PASS",
+    "source_groups_unchanged": true,
+    "groups": [
+      {
+        "phase": "settle",
+        "group": 0,
+        "tip_max_cm": 0.2624793317014981,
+        "length_p95": 1.0134768191787324,
+        "length_max": 1.0293735215589068,
+        "head_proxy_max_cm": 1.2359349715254941,
+        "body_proxy_max_cm": 1.489193509346208,
+        "render_common_points": 24
+      },
+      {
+        "phase": "settle",
+        "group": 1,
+        "tip_max_cm": 0.1916875523783858,
+        "length_p95": 1.0378615260482378,
+        "length_max": 1.048071023208025,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2400
+      },
+      {
+        "phase": "settle",
+        "group": 2,
+        "tip_max_cm": 0.14106596579158245,
+        "length_p95": 1.0257109794164645,
+        "length_max": 1.0328179590395699,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2397
+      },
+      {
+        "phase": "settle",
+        "group": 3,
+        "tip_max_cm": 0.467394219150509,
+        "length_p95": 0.9951875072116525,
+        "length_max": 0.9978800316530306,
+        "head_proxy_max_cm": 4.855546028058548,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 58
+      },
+      {
+        "phase": "motion",
+        "group": 0,
+        "tip_max_cm": 0.27316532212726163,
+        "length_p95": 1.013249804522088,
+        "length_max": 1.0316107114909583,
+        "head_proxy_max_cm": 1.2365248029315667,
+        "body_proxy_max_cm": 2.697400649855153,
+        "render_common_points": 1
+      },
+      {
+        "phase": "motion",
+        "group": 1,
+        "tip_max_cm": 5.503850196136006,
+        "length_p95": 1.0381156201531678,
+        "length_max": 1.0475149523267766,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2352
+      },
+      {
+        "phase": "motion",
+        "group": 2,
+        "tip_max_cm": 1.880947598203496,
+        "length_p95": 1.029253630824809,
+        "length_max": 1.0379948614803014,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2349
+      },
+      {
+        "phase": "motion",
+        "group": 3,
+        "tip_max_cm": 0.44032601026461266,
+        "length_p95": 0.995244825961178,
+        "length_max": 0.999241987707302,
+        "head_proxy_max_cm": 4.855846741474508,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 60
+      },
+      {
+        "phase": "recovery",
+        "group": 0,
+        "tip_max_cm": 0.2699996637412909,
+        "length_p95": 1.013511098365905,
+        "length_max": 1.0293929589323636,
+        "head_proxy_max_cm": 1.2356261744806032,
+        "body_proxy_max_cm": 1.489193509346208,
+        "render_common_points": 1
+      },
+      {
+        "phase": "recovery",
+        "group": 1,
+        "tip_max_cm": 0.3694298635360515,
+        "length_p95": 1.037994304408428,
+        "length_max": 1.047881866668236,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2388
+      },
+      {
+        "phase": "recovery",
+        "group": 2,
+        "tip_max_cm": 0.08461867925008561,
+        "length_p95": 1.0274592682793804,
+        "length_max": 1.0327215176254274,
+        "head_proxy_max_cm": 0.0,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 2385
+      },
+      {
+        "phase": "recovery",
+        "group": 3,
+        "tip_max_cm": 0.4487642725850459,
+        "length_p95": 0.9953044337177313,
+        "length_max": 0.9982366237512738,
+        "head_proxy_max_cm": 4.855546028058548,
+        "body_proxy_max_cm": 0.0,
+        "render_common_points": 58
+      }
+    ],
+    "capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\bun-buffered\\pie\\capture.json",
+    "capture_sha256": "bf71d0d4b98a0da64d11d5cb9338de4f2db827ee4a1a161d9124fc5398473ca0",
+    "baseline_capture": "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairDynamicRepair\\bun-prediction-m-structured\\pie\\capture.json",
+    "baseline_is_fresh": false,
+    "shader_validation": {
+      "passed": true,
+      "errors": []
+    },
+    "editor": {
+      "status": "passed",
+      "world": "Editor",
+      "identity": "dd9116abae9cd11d48541fad2a756a76f5be9f0cf41fbd7da94c86f7e7a00e66",
+      "scope": "Normal BP Editor attachment and two live GPU guide/render snapshots during rotation, after shader compilation; frustum interpolation culling disabled only for all-group readback",
+      "gpu_samples": [
+        "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\bun-buffered\\editor-retry\\gpu-0.json",
+        "I:\\Document\\UE5\\SmartNPC\\Plugins\\VamResourceBrowser\\Saved\\HairStructureRepair\\bun-buffered\\editor-retry\\gpu-1.json"
+      ],
+      "rows": [
+        {
+          "quality": "<VamHairQuality.FINE: 1>",
+          "actor": "/Temp/Untitled_1.Untitled:PersistentLevel.BP_VamCharacter_C_0",
+          "parameters": [
+            {
+              "collision_radius_cm": 0.11999999731779099,
+              "self_collision_viscosity": 0.0
+            },
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            },
+            {
+              "collision_radius_cm": 0.800000011920929,
+              "self_collision_viscosity": 0.0
+            },
+            {
+              "collision_radius_cm": 0.11999999731779099,
+              "self_collision_viscosity": 0.0
+            }
+          ],
+          "groom": "/Game/VamHairRuntime/H_dd9116abae9cd11d48541fad/Groom_Fine.Groom_Fine",
+          "head_attachment_error_cm": 0.0,
+          "active_niagara": 4,
+          "bound_niagara": 4,
+          "status": "UE Groom / physics on / Fine / 4 groups / dd9116abae9cd11d48541fad2a756a76f5be9f0cf41fbd7da94c86f7e7a00e66-hair"
+        }
+      ]
+    },
+    "performance": {
+      "protocol": "BP=/Game/VamHairRuntime/H_dd9116abae9cd11d48541fad/BP_VamCharacter.BP_VamCharacter_C\ncharacters=1\nviewport=1920x1080\nWarmup=180, measured=300 per phase. Root sway and yaw; contact off, glute/leg Jiggle on.\n",
+      "scope": "Whole-frame wall time; hair rendering plus simulation delta, not isolated solver/GPU timing; no audit GPU readback.",
+      "phases": {
+        "off_before": {
+          "frames": 300,
+          "mean_ms": 3.4250206733333335,
+          "median_ms": 3.3678,
+          "p95_ms": 4.44369815,
+          "mean_fps": 291.96904059173744
+        },
+        "fine": {
+          "frames": 300,
+          "mean_ms": 5.549088319999999,
+          "median_ms": 5.418202,
+          "p95_ms": 7.088271000000001,
+          "mean_fps": 180.20978264047528
+        },
+        "off_after": {
+          "frames": 300,
+          "mean_ms": 3.8361340066666663,
+          "median_ms": 3.78545,
+          "p95_ms": 4.741211850000001,
+          "mean_fps": 260.67911033924764
+        }
+      },
+      "off_drift_ms": 0.4111133333333328,
+      "hair_delta_ms": {
+        "fine": 1.9185109799999993
+      }
+    }
+  }
+}
